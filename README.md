@@ -7,12 +7,12 @@
 [![Benchmarks](https://img.shields.io/badge/benchmarks-7-blue)](#benchmarks)
 [![Model Backbones](https://img.shields.io/badge/model%20backbones-18-green)](#results)
 [![Settings Improved](https://img.shields.io/badge/improved-116%2F126-orange)](#results)
-[![Weight Updates](https://img.shields.io/badge/model%20weight%20updates-0-lightgrey)](#why-life-harness)
+[![Training Free](https://img.shields.io/badge/training%20free-yes-lightgrey)](#why-life-harness)
 
 </div>
 
 <p align="center">
-  <img src="assets/life_harness_overview.png" width="92%" alt="Life-Harness overview" />
+  <img src="assets/overview.png" width="92%" alt="Life-Harness overview" />
 </p>
 
 **Life-Harness** is the code release for **"Adapting the Interface, Not the Model:
@@ -26,9 +26,9 @@ interventions across action realization, environment contracts, trajectory
 regulation, and procedural skills. The model remains frozen; the benchmark
 environment remains intact; only the harness interface adapts.
 
-| Benchmarks | Model backbones | Settings improved | Avg. relative gain | Weight updates |
+| Benchmarks | Model backbones | Settings improved | Avg. relative gain | Training-free |
 | ---: | ---: | ---: | ---: | ---: |
-| 7 | 18 | 116 / 126 | 88.5% | 0 |
+| 7 | 18 | 116 / 126 | 88.5% | Yes |
 
 ## Why Life-Harness
 
@@ -45,7 +45,7 @@ Life-Harness improves **116 / 126** model-environment settings, with an
 **88.5% average relative improvement** reported in the paper.
 
 <p align="center">
-  <img src="assets/life_harness_results.png" width="68%" alt="Life-Harness result heatmap" />
+  <img src="assets/result.png" width="68%" alt="Life-Harness result heatmap" />
 </p>
 
 ## Method
@@ -54,7 +54,7 @@ Life-Harness evolves a small set of runtime layers from observed failures, then
 reuses those layers during evaluation.
 
 <p align="center">
-  <img src="assets/life_harness_method.png" width="100%" alt="Life-Harness method overview" />
+  <img src="assets/method.png" width="100%" alt="Life-Harness method overview" />
 </p>
 
 | Harness flag | Paper layer | Runtime role |
@@ -80,7 +80,7 @@ their environments and dependencies are intentionally different.
 Life-harness/
   AgentBench/      # Docker-based AgentBench-style tasks
   TauBench/        # uv-based tau-bench-style tasks
-  assets/          # README figures converted from the paper PDFs
+  assets/          # README figures
 ```
 
 ## Quick Start
