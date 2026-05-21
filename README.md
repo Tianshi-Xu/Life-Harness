@@ -36,7 +36,6 @@ environment remains intact; only the harness interface adapts.
 | --- | --- | --- |
 | Runtime harness behavior | LLM weights | No finetuning or model-specific training pipeline |
 | Prompted environment interface | Benchmark environment | Keeps deterministic evaluation comparable |
-| Reusable failure interventions | Agent API surface | Works with local or remote OpenAI-compatible models |
 
 ## Results
 
