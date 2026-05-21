@@ -1,0 +1,3 @@
+FROM docker.1ms.run/ubuntu
+RUN echo "tmp" > file.txt
+CMD ["bash"]
