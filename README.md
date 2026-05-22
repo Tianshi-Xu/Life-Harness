@@ -4,8 +4,7 @@
 
 ### Adapting the interface, not the model, for deterministic LLM agents
 
-[arXiv Paper](https://arxiv.org/abs/2605.22166)
-
+[![arXiv](https://img.shields.io/badge/arXiv-2605.22166-b31b1b)](https://arxiv.org/abs/2605.22166)
 [![Benchmarks](https://img.shields.io/badge/benchmarks-7-blue)](#benchmarks)
 [![Model Backbones](https://img.shields.io/badge/model%20backbones-18-green)](#results)
 [![Settings Improved](https://img.shields.io/badge/improved-116%2F126-orange)](#results)
