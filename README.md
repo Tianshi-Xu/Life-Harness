@@ -4,6 +4,8 @@
 
 ### Adapting the interface, not the model, for deterministic LLM agents
 
+[arXiv Paper](https://arxiv.org/abs/2605.22166)
+
 [![Benchmarks](https://img.shields.io/badge/benchmarks-7-blue)](#benchmarks)
 [![Model Backbones](https://img.shields.io/badge/model%20backbones-18-green)](#results)
 [![Settings Improved](https://img.shields.io/badge/improved-116%2F126-orange)](#results)
@@ -102,5 +104,15 @@ through environment variables or `.env` files; do not commit them.
 
 ## Citation
 
-If you use this repository, please cite the paper. The camera-ready BibTeX entry
-will be added once the public paper metadata is finalized.
+If you use this repository, please cite the paper:
+
+```bibtex
+@article{xu2026adapting,
+  title = {Adapting the Interface, Not the Model: Runtime Harness Adaptation for Deterministic LLM Agents},
+  author = {Xu, Tianshi and others},
+  journal = {arXiv},
+  year = {2026},
+  url = {https://arxiv.org/abs/2605.22166},
+  urldate = {2026-05-22}
+}
+```
