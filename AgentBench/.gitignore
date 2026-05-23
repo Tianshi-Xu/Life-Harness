@@ -19,3 +19,4 @@ src/server/tasks/card_game/result
 .dockerfile-cache
 analysis
 .claude
+.github

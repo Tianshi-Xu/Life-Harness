@@ -17,7 +17,8 @@ data/analyses/
 data/annotations/
 src/experiments/model_serving/vllm_serving/.*
 .ruff_cache
-
+.cursor
+.github
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
