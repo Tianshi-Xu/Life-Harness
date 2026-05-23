@@ -140,6 +140,66 @@ nested `harness.enabled`, depending on the task.
 For harness ablations, edit the task config and enable or disable one harness
 level at a time (`h2`, `h3`, `h4`, `h5`) while keeping the remaining levels fixed.
 
+## Evolving the Harness
+
+Harness evolution is an iterative code-editing loop. After each evaluation run,
+give a CLI coding agent, such as Codex CLI, the current harness implementation,
+the previous iteration's trajectories, and the harness design guide. The agent
+should inspect recurring deterministic interface failures and directly modify the
+harness code; it should not stop at producing an analysis report.
+
+Run the CLI agent from this suite directory and point it to the local guide file
+instead of pasting the full design rules into the prompt.
+
+```bash
+HARNESS_DIR=src/server/harness
+TRAJECTORY_DIR=<previous-run-output-dir>
+DESIGN_GUIDE=Harenss.md
+
+codex "
+You are a coding agent responsible for improving a runtime harness for a
+deterministic LLM-agent environment. Your goal is to improve task performance by
+adapting the runtime interface between the frozen model and the environment,
+without changing model weights, benchmark tasks, or environment evaluation logic.
+
+Inputs:
+- current harness implementation: ${HARNESS_DIR}
+- trajectory directory from the previous iteration, including summary metrics: ${TRAJECTORY_DIR}
+- harness design guide: ${DESIGN_GUIDE}
+
+Inspect the previous iteration's trajectories and identify recurring failure
+patterns. For each pattern, determine the earliest lifecycle point where it can
+be reliably detected or prevented: before interaction, during task conditioning,
+before environment execution, or after execution.
+
+Focus on mechanically identifiable deterministic failures such as invalid action
+formats, wrong tool conventions, missing required fields, repeated no-op actions,
+loops, premature submissions, budget exhaustion, or recurring procedural
+mistakes.
+
+Directly implement targeted, minimal updates in the appropriate harness layer.
+Do not only return an analysis report. Do not use hidden oracle information,
+test labels, task modifications, environment transition changes, or
+evaluation-criteria changes.
+
+After editing, run or recommend the narrowest regression checks available.
+Inspect cases where the harness may over-trigger, block a valid action, inject
+misleading guidance, or reduce performance on previously successful
+trajectories.
+
+When finished, summarize:
+1. dominant failure patterns found;
+2. harness layer responsible for each update;
+3. implemented code changes;
+4. why each update is safe under the deterministic environment contract;
+5. remaining failure modes to monitor next.
+"
+```
+
+Then rerun the corresponding evaluation command and use the new trajectory
+directory as `TRAJECTORY_DIR` for the next iteration. Keep each update local to
+the harness layer that can detect the failure earliest.
+
 ## Default Evaluation Settings
 
 | Benchmark | Agent sampling | Agent max tokens | Max step / rounds |
