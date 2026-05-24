@@ -86,18 +86,18 @@ class ALFWorld(Task):
             self.data_files.extend(v)
         self.data_files = [os.path.join(self.data_path, file) for file in self.data_files]
 
-        # 支持 Deterministic Shuffle (设定种子)
+        # Support deterministic shuffle with a fixed seed
         shuffle_seed = kwargs.get("shuffle_seed", None)
         if shuffle_seed is not None:
             import random
             random.Random(shuffle_seed).shuffle(self.data_files)
         
-        # 支持分片取出部分任务
+        # Support selecting a task slice
         start_idx = kwargs.get("start", 0)
         end_idx = kwargs.get("end", len(self.data_files))
         self.data_files = self.data_files[start_idx:end_idx]
 
-        # 支持抽样运行固定数量任务
+        # Support running a fixed-size sample
         sample_size = kwargs.get("sample_size", None)
         if sample_size is not None:
             self.data_files = self.data_files[:sample_size]

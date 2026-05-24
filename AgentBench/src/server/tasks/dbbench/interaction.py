@@ -185,26 +185,26 @@ class SQLiteDatabase(Database):
         pass
 
     async def execute(self, sql: str, data: Union[Sequence, Dict[str, Any]] = ()) -> str:
-        """使用单独的Python进程执行SQLite查询"""
+        """Execute a SQLite query in a separate Python process."""
         try:
-            # 将查询参数转换为JSON字符串
+            # Convert query parameters to a JSON string
             params_json = json.dumps(data) if isinstance(data, dict) else json.dumps(list(data))
 
-            # 创建内嵌的Python脚本代码，直接包含SQLite查询逻辑
+            # Create inline Python code containing the SQLite query logic
             python_code = f'''
 import sqlite3
 import json
 import sys
 
 try:
-    # 解析参数
+    # Parse arguments
     params = json.loads('{params_json}') if '{params_json}' else ()
     
-    # 连接数据库
+    # Connect to the database
     conn = sqlite3.connect('{self.sqlite_path}', timeout=10.0)
     cursor = conn.cursor()
     
-    # 执行查询
+    # Execute query
     try:
         cursor.execute({repr(sql)}, params)
         try:
@@ -234,41 +234,41 @@ except Exception as e:
     print(error_msg, file=sys.stderr)
     result_str = error_msg
 
-# 截断过长的结果并输出
+# Truncate overly long results before printing
 if len(result_str) > 800:
     result_str = result_str[:800] + "[TRUNCATED]"
 print(result_str)
 '''
 
-            # 使用子进程执行内嵌代码
+            # Execute inline code in a subprocess
             process = await asyncio.create_subprocess_exec(
                 sys.executable, "-c", python_code,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE
             )
 
-            # 等待进程完成，设置超时
+            # Wait for process completion with a timeout
             try:
                 await asyncio.wait_for(process.wait(), timeout=20)
                 returncode = process.returncode
 
                 if returncode == 0:
-                    # 正常完成，读取结果
+                    # Completed normally; read results
                     stdout = await process.stdout.read()
                     return stdout.decode('utf-8', errors='replace').strip()
                 else:
-                    # 进程异常退出
+                    # Process exited abnormally
                     stderr = await process.stderr.read()
                     error_text = stderr.decode('utf-8', errors='replace') if stderr else "Unknown subprocess error"
                     self.logger.error(f"SQLite subprocess failed: {error_text}")
                     return f"Error: SQLite process failed with return code {returncode}"
 
             except asyncio.TimeoutError:
-                # 超时，终止进程
+                # Timed out; terminate process
                 self.logger.error(f"SQLite subprocess timed out. Terminating...")
                 try:
                     process.terminate()
-                    # 简短等待后检查是否需要强制终止
+                    # Briefly wait before checking whether a forced kill is needed
                     await asyncio.sleep(0.5)
                     if process.returncode is None:
                         self.logger.warning("Process didn't terminate gracefully, killing...")

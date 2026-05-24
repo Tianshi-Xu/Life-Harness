@@ -59,7 +59,7 @@ class Container:
         await self.controller.end_session(self.session_id)
 
     async def execute(self, command: str):
-        """异步执行命令"""
+        """Asynchronously execute a command."""
 
         class DummyOutput:
             output: bytes
@@ -95,7 +95,7 @@ class Container:
         return DummyOutput(0, output)
 
     async def execute_independent(self, command, *params) -> Tuple[int, bytes, bytes]:
-        """异步执行独立命令"""
+        """Asynchronously execute an independent command."""
 
         # call environment controller to renew session
         await self.controller.renew_session(self.session_id)
@@ -123,7 +123,7 @@ class Container:
                     f"gcc -o /tmp/a.out /tmp/main.cpp",
                 )
 
-            # 编译代码
+            # Compile code
             await self.execute_independent(compile_cmd, None)
             cmd = ["/tmp/a.out", *params]
         else:
@@ -510,15 +510,15 @@ class OSInteraction(Task):
     async def _judge(
             self, session: Session, config: JudgeConfig, container: Container
     ) -> TaskSampleExecutionResult:
-        """执行任务判断的主要逻辑"""
+        """Run the main task judgment logic."""
         logging.info("Starting execution")
 
-        # 初始化环境
+        # Initialize the environment
         setup_result = await self._setup_execution_environment(config, container)
         if setup_result:
             return setup_result
 
-        # 初始化 harness runtime（per-sample）
+        # Initialize harness runtime per sample
         harness_runtime: Optional[OSHarnessRuntime] = None
         harness_trace: Dict[str, List[Any]] = {
             "h2": [], "h3": [], "h4": [], "h5": [],
@@ -529,7 +529,7 @@ class OSInteraction(Task):
             if self.harness_config.h3_enabled:
                 harness_trace["h3"].append({"applied": True})
 
-        # 注入初始消息 + H5 cold-start
+        # Inject initial messages + H5 cold start
         cold_skills = []
         if harness_runtime and self.harness_config.h5_enabled:
             cold_skills = harness_runtime.cold_start_skill_hints()
@@ -541,42 +541,42 @@ class OSInteraction(Task):
             tips_text = "Some tips that may help for this task:\n" + "\n".join(skill_lines)
         self._inject_initial_messages(session, config.description, tips_text=tips_text)
 
-        # 初始化状态变量
+        # Initialize state variables
         finish = False
         function_name = None
         call_id = None
 
-        # 主交互循环
+        # Main interaction loop
         for round_num in range(self.round_limit):
             logging.info(f"Starting round {round_num + 1}/{self.round_limit}")
             round_reward = 0
             # H4 budget logic runs inside post_step_monitor after each bash;
             # no separate budget_check call at round-top.
 
-            # 处理Agent行动
+            # Handle the agent action
             action_result = await self._handle_agent_action(
                 session, container, round_num, finish, round_reward, function_name, call_id,
                 harness_runtime=harness_runtime, harness_trace=harness_trace,
             )
 
-            # 更新状态
+            # Update state
             function_name = action_result.get("function_name", function_name)
             call_id = action_result.get("id", call_id)
             finish = action_result.get("finish", finish)
 
-            # 检查是否有错误或需要提前结束
+            # Check for errors or early termination
             if action_result.get("early_return"):
                 return action_result.get("result")
 
-            # 如果得到答案，跳出循环
+            # Break if an answer has been obtained
             if "answer" in action_result:
                 answer = action_result["answer"]
                 break
         else:
-            # 处理回合数用尽的情况
+            # Handle exhausted rounds
             logging.warning("Task round limit reached")
 
-            # 注入奖励
+            # Inject reward
             final_rewardhistory = RewardHistoryItem(reward=0, score=0)
             session.inject(final_rewardhistory)
 
@@ -588,24 +588,24 @@ class OSInteraction(Task):
                 result={"result": False, "reason": "round limit", "harness_trace": harness_trace},
             )
 
-        # 评估答案（H2 answer 归一化作为接口边界修复）
+        # Evaluate answer, with H2 answer normalization as an interface-boundary repair
         evaluation_result = await self._evaluate_answer(
             answer, config, container, session, harness_runtime=harness_runtime, harness_trace=harness_trace,
         )
 
-        # 如果发生评估错误
+        # If an evaluation error occurs
         if evaluation_result.get("error"):
             self._persist_harness_trace(session, harness_trace)
             return evaluation_result.get("result")
 
-        # 设置最终奖励
+        # Set final reward
         jd = evaluation_result.get("success", False)
         os_score = 1 if jd else 0
         final_reward = 1 if jd else 0
 
         logging.info(f"Task completed {'successfully' if jd else 'unsuccessfully'}")
 
-        # 注入最终奖励
+        # Inject final reward
         final_rewardhistory = RewardHistoryItem(reward=final_reward, score=os_score)
         session.inject(final_rewardhistory)
 
@@ -619,8 +619,8 @@ class OSInteraction(Task):
     async def _setup_execution_environment(
             self, config: JudgeConfig, container: Container
     ) -> Optional[TaskSampleExecutionResult]:
-        """设置执行环境，运行初始化和启动脚本"""
-        # 运行初始化脚本
+        """Set up the execution environment and run init/start scripts."""
+        # Run init scripts
         if config.init_script:
             for i, script in enumerate(config.init_script):
                 logging.info(f"Running init script {i + 1}/{len(config.init_script)}")
@@ -632,7 +632,7 @@ class OSInteraction(Task):
                         result={"result": False, "error": f'Init script {script} failed: {stderr}'}
                     )
 
-        # 运行启动脚本
+        # Run start script
         if config.start:
             logging.info("Running start script")
             try:
@@ -659,8 +659,8 @@ class OSInteraction(Task):
             description: str,
             tips_text: Optional[str] = None
     ) -> None:
-        """注入系统消息和问题描述"""
-        # 系统消息
+        """Inject the system message and problem description."""
+        # System message
         system_message = """You are an assistant that will act like a person. I will play the role of a Linux (Ubuntu) operating system.
 Your goal is to implement the operations required by me or answer the questions proposed by me.
 For each of your turns, you should first think about what you should do, and then call exactly one of the provided tools according to the situation.
@@ -689,7 +689,7 @@ Always use a tool provided instead of simply responding with content."""
             harness_runtime: Optional[OSHarnessRuntime] = None,
             harness_trace: Optional[Dict[str, List[Any]]] = None,
     ) -> dict:
-        # 获取Agent行动
+        # Get the agent action
         response = await session.action()
 
         result = {
@@ -699,7 +699,7 @@ Always use a tool provided instead of simply responding with content."""
             "id": call_id
         }
 
-        # 提取工具调用
+        # Extract tool calls
         response_content = None
         tool_calls = []
         for message in response.messages:
@@ -733,7 +733,7 @@ Always use a tool provided instead of simply responding with content."""
                     "action_name": fa["name"],
                 })
 
-        # 检查是否有有效的工具调用
+        # Check for valid tool calls
         if len(tool_calls) == 0 and forced_tool_call is None:
             # H2 rescue parser: attempt to lift a tool call out of plain text.
             rescued_tool_call: Optional[Dict[str, Any]] = None
@@ -805,13 +805,13 @@ Always use a tool provided instead of simply responding with content."""
         if harness_runtime is not None:
             harness_runtime.reset_text_only_streak()
 
-        # 获取第一个工具调用
+        # Get the first tool call
         tool_call = tool_calls[0]
         function_name = tool_call["function"]["name"]
         logging.info(f"Processing tool call: {function_name}")
         result["function_name"] = function_name
 
-        # 解析参数
+        # Parse arguments
         try:
             arguments = tool_call["function"]["arguments"]
             arguments = json.loads(arguments)
@@ -831,14 +831,14 @@ Always use a tool provided instead of simply responding with content."""
             session.inject(round_rewardhistory)
             return result
 
-        # 提取工具调用ID和思考内容
+        # Extract the tool call ID and thought content
         call_id = tool_call["id"]
         result["id"] = call_id
 
-        # 提取函数
+        # Extract function
         action_data = self._extract_function(function_name, arguments, response_content)
 
-        # 检查动作有效性
+        # Check action validity
         if "action" not in action_data:
             logging.warning("Invalid action in function extraction")
             session.inject(ChatCompletionToolMessageParam(
@@ -861,7 +861,7 @@ Always use a tool provided instead of simply responding with content."""
             session.inject(round_rewardhistory)
             return result
 
-        # 处理有效的动作
+        # Handle the valid action
         action = action_data["action"]
         content = action_data["content"]
 
@@ -894,14 +894,14 @@ Always use a tool provided instead of simply responding with content."""
                 session.inject(round_rewardhistory)
                 return result
 
-        # 提交答案
+        # Submit the answer
         if action == "commit":
             logging.info("Received commit action with answer")
             if harness_runtime is not None:
                 harness_runtime.note_answer_submitted()
             result["answer"] = content
             result["finish"] = True
-        # 执行bash命令
+        # Execute the bash command
         elif action == "bash":
             await self._execute_bash_command(
                 session, container, content, call_id,
@@ -909,7 +909,7 @@ Always use a tool provided instead of simply responding with content."""
                 round_num=round_num,
             )
 
-        # 注入回合奖励
+        # Inject round reward
         round_rewardhistory = RewardHistoryItem(reward=round_reward, score=0)
         session.inject(round_rewardhistory)
 
@@ -921,25 +921,25 @@ Always use a tool provided instead of simply responding with content."""
             harness_trace: Optional[Dict[str, List[Any]]] = None,
             round_num: int = 0,
     ) -> None:
-        """执行bash命令并处理结果"""
+        """Execute a bash command and handle the result."""
         logging.info("Executing bash command")
 
-        # 执行命令
+        # Execute command
         result = await container.execute(command)
 
-        # 解码输出
+        # Decode output
         try:
             result_text = result.output.decode("utf-8")
         except Exception as e:
             logging.error(f"Error decoding output: {str(e)}")
             result_text = "OS Environment output cannot be decoded as UTF-8"
 
-        # 截断过长输出
+        # Truncate overly long output
         if len(result_text) > 800:
             logging.debug("Output truncated due to length")
             result_text = result_text[:780] + "\n[truncated because the output is too long]"
 
-        # 注入结果
+        # Inject result
         session.inject(ChatCompletionToolMessageParam(
             role='tool',
             content=f'The output of the OS:\n\n{result_text}' if result_text else "The output of the OS is empty.",
@@ -1006,10 +1006,10 @@ Always use a tool provided instead of simply responding with content."""
             harness_runtime: Optional[OSHarnessRuntime] = None,
             harness_trace: Optional[Dict[str, List[Any]]] = None,
     ) -> dict:
-        """评估答案"""
+        """Evaluate the answer."""
         result = {"success": False}
 
-        # 处理答案格式
+        # Handle answer formatting
         if isinstance(answer, str) and config.match and config.match["strip"]:
             answer = answer.strip()
 
@@ -1034,13 +1034,13 @@ Always use a tool provided instead of simply responding with content."""
 
         logging.info(f"Final answer: {answer}")
 
-        # 使用匹配标准评估
+        # Evaluate using match criteria
         if config.match:
             result["success"] = self._evaluate_by_match(answer, config)
-        # 使用检查脚本评估
+        # Evaluate using check scripts
         elif config.check:
             result["success"] = await self._evaluate_by_check_scripts(answer, config, container)
-        # 无评估方法
+        # No evaluation method
         else:
             logging.error("No evaluation method specified")
             final_rewardhistory = RewardHistoryItem(reward=0, score=0)
@@ -1053,7 +1053,7 @@ Always use a tool provided instead of simply responding with content."""
         return result
 
     def _evaluate_by_match(self, answer: str, config: JudgeConfig) -> bool:
-        """使用匹配标准评估答案"""
+        """Evaluate the answer using match criteria."""
         logging.info("Evaluating answer with match criteria")
 
         if "answer" in config.match:
@@ -1069,7 +1069,7 @@ Always use a tool provided instead of simply responding with content."""
     async def _evaluate_by_check_scripts(
             self, answer: str, config: JudgeConfig, container: Container
     ) -> bool:
-        """使用检查脚本评估答案"""
+        """Evaluate the answer using check scripts."""
         logging.info("Evaluating answer with check scripts")
         params = [str(answer)]
 
