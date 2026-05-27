@@ -12,6 +12,12 @@
 
 </div>
 
+## News
+
+- **2026/05/24**: Released the paper and codebase. The second version of the
+  paper has also been submitted to arXiv, and the code release includes the
+  evolution prompts used to build the harness.
+
 <p align="center">
   <img src="assets/overview.png" width="92%" alt="Life-Harness overview" />
 </p>
