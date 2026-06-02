@@ -123,11 +123,9 @@ If you use this repository, please cite the paper:
 
 ```bibtex
 @article{xu2026adapting,
-  title = {Adapting the Interface, Not the Model: Runtime Harness Adaptation for Deterministic LLM Agents},
-  author = {Xu, Tianshi and others},
-  journal = {arXiv},
-  year = {2026},
-  url = {https://arxiv.org/abs/2605.22166},
-  urldate = {2026-05-22}
+  title={Adapting the Interface, Not the Model: Runtime Harness Adaptation for Deterministic LLM Agents},
+  author={Xu, Tianshi and Wen, Huifeng and Li, Meng},
+  journal={arXiv preprint arXiv:2605.22166},
+  year={2026}
 }
 ```
