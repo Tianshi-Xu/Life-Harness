@@ -107,6 +107,16 @@ Each subfolder README contains its own environment setup, evaluation commands,
 and harness switches. API keys and provider URLs should be configured locally
 through environment variables or `.env` files; do not commit them.
 
+## Star History
+
+<a href="https://star-history.com/#Tianshi-Xu/Life-Harness&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Tianshi-Xu/Life-Harness&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Tianshi-Xu/Life-Harness&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Tianshi-Xu/Life-Harness&type=Date" />
+  </picture>
+</a>
+
 ## Citation
 
 If you use this repository, please cite the paper:
