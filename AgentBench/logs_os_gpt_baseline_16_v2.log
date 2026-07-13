@@ -1,219 +1,0 @@
-/Users/faker/Library/CloudStorage/北大网盘2.0-许天识_2301111861-disk.pku.edu.cn/我的文档库/许天识_2301111861/SEC Lab/隐私计算/笔记大全/投稿计划/tong (2)/code/Life-Harness/AgentBench/.venv/lib/python3.9/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  torch.utils._pytree._register_pytree_node(
-W0713 10:22:35.504617 67754 .venv/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
-/Users/faker/Library/CloudStorage/北大网盘2.0-许天识_2301111861-disk.pku.edu.cn/我的文档库/许天识_2301111861/SEC Lab/隐私计算/笔记大全/投稿计划/tong (2)/code/Life-Harness/AgentBench/.venv/lib/python3.9/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  torch.utils._pytree._register_pytree_node(
-[93mWarning: 10 agent(s) and 19 task(s) are defined but not used, they will be ignored.[0m
-[93m    Agent: {'vicuna-33b', 'wizard-30b', 'claude-opus-4-8', 'gemini-3.1-pro-preview', 'qwen3-4b-instruct', 'text-davinci-002', 'gpt-3.5-turbo-0613', 'vicuna-7b', 'text-davinci-003', 'vicuna-13b'}[0m
-[93m    Task: {'alfworld-std', 'cg-std', 'm2w-dev', 'dbbench-std', 'alfworld-env_train', 'dbbench-env_train', 'kg-std', 'ltp-dev', 'alfworld-std-baseline', 'avalon-dev-naive', 'webshop-std-baseline', 'avalon-dev-single', 'ltp-std', 'webshop-std', 'kg-env_train', 'm2w-std', 'cg-dev', 'os-env_train', 'webshop-env_train'}[0m
-[92mcreating os-std client...[0m
-TaskClient created: os-std (http://localhost:5020/api)
-[96mMessage: 144 samples remaining.[0m
-[96mAgent "gpt-5.5" needs to run 1 tasks with total 144 samples:[0m
-[96m    Task "os-std": 144[0m
-Total:   0%|          | 0/144 [00:00<?, ?it/s]
-gpt-5.5:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
-                                                [ARunning Count: 0
-Total:   0%|          | 0/144 [00:00<?, ?it/s]
-gpt-5.5:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
-                                                [A[92mAssigned gpt-5.5/os-std#143[0m
-Total:   0%|          | 0/144 [00:00<?, ?it/s]
-gpt-5.5:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
-                                                [A[92mAssigned gpt-5.5/os-std#142[0m
-Total:   0%|          | 0/144 [00:00<?, ?it/s]
-gpt-5.5:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
-                                                [A[92mAssigned gpt-5.5/os-std#141[0m
-Total:   0%|          | 0/144 [00:00<?, ?it/s]
-gpt-5.5:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
-                                                [A[92mAssigned gpt-5.5/os-std#140[0m
-Total:   0%|          | 0/144 [00:00<?, ?it/s]
-gpt-5.5:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
-                                                [A[92mAssigned gpt-5.5/os-std#139[0m
-Total:   0%|          | 0/144 [00:00<?, ?it/s]
-gpt-5.5:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
-                                                [ARunning Count: 5
-Total:   0%|          | 0/144 [00:05<?, ?it/s]
-gpt-5.5:   0%|          | 0/144 [00:05<?, ?it/s][ATotal:   1%|          | 1/144 [00:06<14:58,  6.28s/it]
-gpt-5.5:   1%|          | 1/144 [00:06<14:58,  6.28s/it][ATotal:   1%|▏         | 2/144 [00:08<09:12,  3.89s/it]
-gpt-5.5:   1%|▏         | 2/144 [00:08<09:12,  3.89s/it][ATotal:   2%|▏         | 3/144 [00:09<06:21,  2.70s/it]
-gpt-5.5:   2%|▏         | 3/144 [00:09<06:21,  2.70s/it][A                                                      
-                                                        [ARunning Count: 2
-Total:   2%|▏         | 3/144 [00:18<06:21,  2.70s/it]
-gpt-5.5:   2%|▏         | 3/144 [00:18<06:21,  2.70s/it][A                                                      
-                                                        [A[92mAssigned gpt-5.5/os-std#138[0m
-Total:   2%|▏         | 3/144 [00:18<06:21,  2.70s/it]
-gpt-5.5:   2%|▏         | 3/144 [00:18<06:21,  2.70s/it][A                                                      
-                                                        [A[92mAssigned gpt-5.5/os-std#137[0m
-Total:   2%|▏         | 3/144 [00:18<06:21,  2.70s/it]
-gpt-5.5:   2%|▏         | 3/144 [00:18<06:21,  2.70s/it][A                                                      
-                                                        [A[92mAssigned gpt-5.5/os-std#136[0m
-Total:   2%|▏         | 3/144 [00:18<06:21,  2.70s/it]
-gpt-5.5:   2%|▏         | 3/144 [00:18<06:21,  2.70s/it][ATotal:   3%|▎         | 4/144 [00:24<17:21,  7.44s/it]
-gpt-5.5:   3%|▎         | 4/144 [00:24<17:21,  7.44s/it][ATotal:   3%|▎         | 5/144 [00:24<11:24,  4.92s/it]
-gpt-5.5:   3%|▎         | 5/144 [00:24<11:24,  4.92s/it][ATotal:   4%|▍         | 6/144 [00:25<08:05,  3.52s/it]
-gpt-5.5:   4%|▍         | 6/144 [00:25<08:05,  3.52s/it][ATotal:   5%|▍         | 7/144 [00:26<05:37,  2.46s/it]
-gpt-5.5:   5%|▍         | 7/144 [00:26<05:37,  2.46s/it][A                                                      
-                                                        [ARunning Count: 1
-Total:   5%|▍         | 7/144 [00:27<05:37,  2.46s/it]
-gpt-5.5:   5%|▍         | 7/144 [00:27<05:37,  2.46s/it][A                                                      
-                                                        [A[92mAssigned gpt-5.5/os-std#135[0m
-Total:   5%|▍         | 7/144 [00:27<05:37,  2.46s/it]
-gpt-5.5:   5%|▍         | 7/144 [00:27<05:37,  2.46s/it][A                                                      
-                                                        [A[92mAssigned gpt-5.5/os-std#134[0m
-Total:   5%|▍         | 7/144 [00:27<05:37,  2.46s/it]
-gpt-5.5:   5%|▍         | 7/144 [00:27<05:37,  2.46s/it][A                                                      
-                                                        [A[92mAssigned gpt-5.5/os-std#133[0m
-Total:   5%|▍         | 7/144 [00:27<05:37,  2.46s/it]
-gpt-5.5:   5%|▍         | 7/144 [00:27<05:37,  2.46s/it][A                                                      
-                                                        [A[92mAssigned gpt-5.5/os-std#132[0m
-Total:   5%|▍         | 7/144 [00:27<05:37,  2.46s/it]
-gpt-5.5:   5%|▍         | 7/144 [00:27<05:37,  2.46s/it][ATotal:   6%|▌         | 8/144 [00:31<07:54,  3.49s/it]
-gpt-5.5:   6%|▌         | 8/144 [00:31<07:54,  3.49s/it][ATotal:   6%|▋         | 9/144 [00:33<06:32,  2.91s/it]
-gpt-5.5:   6%|▋         | 9/144 [00:33<06:32,  2.91s/it][A                                                      
-                                                        [ARunning Count: 3
-Total:   6%|▋         | 9/144 [00:41<06:32,  2.91s/it]
-gpt-5.5:   6%|▋         | 9/144 [00:41<06:32,  2.91s/it][A                                                      
-                                                        [A[92mAssigned gpt-5.5/os-std#131[0m
-Total:   6%|▋         | 9/144 [00:41<06:32,  2.91s/it]
-gpt-5.5:   6%|▋         | 9/144 [00:41<06:32,  2.91s/it][A                                                      
-                                                        [A[92mAssigned gpt-5.5/os-std#130[0m
-Total:   6%|▋         | 9/144 [00:41<06:32,  2.91s/it]
-gpt-5.5:   6%|▋         | 9/144 [00:41<06:32,  2.91s/it][ATotal:   7%|▋         | 10/144 [00:42<10:28,  4.69s/it]
-gpt-5.5:   7%|▋         | 10/144 [00:42<10:28,  4.69s/it][ATotal:   8%|▊         | 11/144 [00:43<08:09,  3.68s/it]
-gpt-5.5:   8%|▊         | 11/144 [00:43<08:09,  3.68s/it][ATotal:   8%|▊         | 12/144 [00:45<07:02,  3.20s/it]
-gpt-5.5:   8%|▊         | 12/144 [00:45<07:02,  3.20s/it][ATotal:   9%|▉         | 13/144 [00:48<06:33,  3.01s/it]
-gpt-5.5:   9%|▉         | 13/144 [00:48<06:33,  3.01s/it][ATotal:  10%|▉         | 14/144 [00:49<05:14,  2.42s/it]
-gpt-5.5:  10%|▉         | 14/144 [00:49<05:14,  2.42s/it][A                                                       
-                                                         [ARunning Count: 0
-Total:  10%|▉         | 14/144 [00:55<05:14,  2.42s/it]
-gpt-5.5:  10%|▉         | 14/144 [00:55<05:14,  2.42s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#129[0m
-Total:  10%|▉         | 14/144 [00:55<05:14,  2.42s/it]
-gpt-5.5:  10%|▉         | 14/144 [00:55<05:14,  2.42s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#128[0m
-Total:  10%|▉         | 14/144 [00:55<05:14,  2.42s/it]
-gpt-5.5:  10%|▉         | 14/144 [00:55<05:14,  2.42s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#127[0m
-Total:  10%|▉         | 14/144 [00:55<05:14,  2.42s/it]
-gpt-5.5:  10%|▉         | 14/144 [00:55<05:14,  2.42s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#126[0m
-Total:  10%|▉         | 14/144 [00:55<05:14,  2.42s/it]
-gpt-5.5:  10%|▉         | 14/144 [00:55<05:14,  2.42s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#125[0m
-Total:  10%|▉         | 14/144 [00:55<05:14,  2.42s/it]
-gpt-5.5:  10%|▉         | 14/144 [00:55<05:14,  2.42s/it][ATotal:  10%|█         | 15/144 [00:59<10:14,  4.77s/it]
-gpt-5.5:  10%|█         | 15/144 [00:59<10:14,  4.77s/it][ATotal:  11%|█         | 16/144 [00:59<07:21,  3.45s/it]
-gpt-5.5:  11%|█         | 16/144 [00:59<07:21,  3.45s/it][A                                                       
-                                                         [ARunning Count: 3
-Total:  11%|█         | 16/144 [01:02<07:21,  3.45s/it]
-gpt-5.5:  11%|█         | 16/144 [01:02<07:21,  3.45s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#124[0m
-Total:  11%|█         | 16/144 [01:02<07:21,  3.45s/it]
-gpt-5.5:  11%|█         | 16/144 [01:02<07:21,  3.45s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#123[0m
-Total:  11%|█         | 16/144 [01:02<07:21,  3.45s/it]
-gpt-5.5:  11%|█         | 16/144 [01:02<07:21,  3.45s/it][ATotal:  12%|█▏        | 17/144 [01:05<08:52,  4.19s/it]
-gpt-5.5:  12%|█▏        | 17/144 [01:05<08:52,  4.19s/it][ATotal:  12%|█▎        | 18/144 [01:07<07:36,  3.62s/it]
-gpt-5.5:  12%|█▎        | 18/144 [01:07<07:36,  3.62s/it][ATotal:  13%|█▎        | 19/144 [01:08<05:30,  2.65s/it]
-gpt-5.5:  13%|█▎        | 19/144 [01:08<05:30,  2.65s/it][A                                                       
-                                                         [ARunning Count: 2
-Total:  13%|█▎        | 19/144 [01:10<05:30,  2.65s/it]
-gpt-5.5:  13%|█▎        | 19/144 [01:10<05:30,  2.65s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#122[0m
-Total:  13%|█▎        | 19/144 [01:10<05:30,  2.65s/it]
-gpt-5.5:  13%|█▎        | 19/144 [01:10<05:30,  2.65s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#121[0m
-Total:  13%|█▎        | 19/144 [01:10<05:30,  2.65s/it]
-gpt-5.5:  13%|█▎        | 19/144 [01:10<05:30,  2.65s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#120[0m
-Total:  13%|█▎        | 19/144 [01:10<05:30,  2.65s/it]
-gpt-5.5:  13%|█▎        | 19/144 [01:10<05:30,  2.65s/it][ATotal:  14%|█▍        | 20/144 [01:16<09:00,  4.36s/it]
-gpt-5.5:  14%|█▍        | 20/144 [01:16<09:00,  4.36s/it][ATotal:  15%|█▍        | 21/144 [01:17<06:56,  3.39s/it]
-gpt-5.5:  15%|█▍        | 21/144 [01:17<06:56,  3.39s/it][ATotal:  15%|█▌        | 22/144 [01:21<07:06,  3.50s/it]
-gpt-5.5:  15%|█▌        | 22/144 [01:21<07:06,  3.50s/it][A                                                       
-                                                         [ARunning Count: 2
-Total:  15%|█▌        | 22/144 [01:24<07:06,  3.50s/it]
-gpt-5.5:  15%|█▌        | 22/144 [01:24<07:06,  3.50s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#119[0m
-Total:  15%|█▌        | 22/144 [01:24<07:06,  3.50s/it]
-gpt-5.5:  15%|█▌        | 22/144 [01:24<07:06,  3.50s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#118[0m
-Total:  15%|█▌        | 22/144 [01:24<07:06,  3.50s/it]
-gpt-5.5:  15%|█▌        | 22/144 [01:24<07:06,  3.50s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#117[0m
-Total:  15%|█▌        | 22/144 [01:24<07:06,  3.50s/it]
-gpt-5.5:  15%|█▌        | 22/144 [01:24<07:06,  3.50s/it][ATotal:  16%|█▌        | 23/144 [01:30<10:10,  5.05s/it]
-gpt-5.5:  16%|█▌        | 23/144 [01:30<10:10,  5.05s/it][ATotal:  17%|█▋        | 24/144 [01:35<10:24,  5.20s/it]
-gpt-5.5:  17%|█▋        | 24/144 [01:35<10:24,  5.20s/it][ATotal:  17%|█▋        | 25/144 [01:36<07:34,  3.82s/it]
-gpt-5.5:  17%|█▋        | 25/144 [01:36<07:34,  3.82s/it][A                                                       
-                                                         [ARunning Count: 2
-Total:  17%|█▋        | 25/144 [01:38<07:34,  3.82s/it]
-gpt-5.5:  17%|█▋        | 25/144 [01:38<07:34,  3.82s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#116[0m
-Total:  17%|█▋        | 25/144 [01:38<07:34,  3.82s/it]
-gpt-5.5:  17%|█▋        | 25/144 [01:38<07:34,  3.82s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#115[0m
-Total:  17%|█▋        | 25/144 [01:38<07:34,  3.82s/it]
-gpt-5.5:  17%|█▋        | 25/144 [01:38<07:34,  3.82s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#114[0m
-Total:  17%|█▋        | 25/144 [01:38<07:34,  3.82s/it]
-gpt-5.5:  17%|█▋        | 25/144 [01:38<07:34,  3.82s/it][ATotal:  18%|█▊        | 26/144 [01:42<08:49,  4.49s/it]
-gpt-5.5:  18%|█▊        | 26/144 [01:42<08:49,  4.49s/it][ATotal:  19%|█▉        | 27/144 [01:43<06:59,  3.59s/it]
-gpt-5.5:  19%|█▉        | 27/144 [01:43<06:59,  3.59s/it][ATotal:  19%|█▉        | 28/144 [01:44<05:11,  2.69s/it]
-gpt-5.5:  19%|█▉        | 28/144 [01:44<05:11,  2.69s/it][ATotal:  20%|██        | 29/144 [01:45<03:56,  2.06s/it]
-gpt-5.5:  20%|██        | 29/144 [01:45<03:56,  2.06s/it][A                                                       
-                                                         [ARunning Count: 1
-Total:  20%|██        | 29/144 [01:52<03:56,  2.06s/it]
-gpt-5.5:  20%|██        | 29/144 [01:52<03:56,  2.06s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#113[0m
-Total:  20%|██        | 29/144 [01:52<03:56,  2.06s/it]
-gpt-5.5:  20%|██        | 29/144 [01:52<03:56,  2.06s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#112[0m
-Total:  20%|██        | 29/144 [01:52<03:56,  2.06s/it]
-gpt-5.5:  20%|██        | 29/144 [01:52<03:56,  2.06s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#111[0m
-Total:  20%|██        | 29/144 [01:52<03:56,  2.06s/it]
-gpt-5.5:  20%|██        | 29/144 [01:52<03:56,  2.06s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#110[0m
-Total:  20%|██        | 29/144 [01:52<03:56,  2.06s/it]
-gpt-5.5:  20%|██        | 29/144 [01:52<03:56,  2.06s/it][A                                                       
-                                                         [ARunning Count: 5
-Total:  20%|██        | 29/144 [01:57<03:56,  2.06s/it]
-gpt-5.5:  20%|██        | 29/144 [01:57<03:56,  2.06s/it][ATotal:  21%|██        | 30/144 [01:57<09:52,  5.20s/it]
-gpt-5.5:  21%|██        | 30/144 [01:57<09:52,  5.20s/it][ATotal:  22%|██▏       | 32/144 [01:58<05:41,  3.05s/it]
-gpt-5.5:  22%|██▏       | 32/144 [01:58<05:41,  3.05s/it][A                                                       
-                                                         [ARunning Count: 2
-Total:  22%|██▏       | 32/144 [02:11<05:41,  3.05s/it]
-gpt-5.5:  22%|██▏       | 32/144 [02:11<05:41,  3.05s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#109[0m
-Total:  22%|██▏       | 32/144 [02:11<05:41,  3.05s/it]
-gpt-5.5:  22%|██▏       | 32/144 [02:11<05:41,  3.05s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#108[0m
-Total:  22%|██▏       | 32/144 [02:11<05:41,  3.05s/it]
-gpt-5.5:  22%|██▏       | 32/144 [02:11<05:41,  3.05s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#107[0m
-Total:  22%|██▏       | 32/144 [02:11<05:41,  3.05s/it]
-gpt-5.5:  22%|██▏       | 32/144 [02:11<05:41,  3.05s/it][ATotal:  23%|██▎       | 33/144 [02:11<10:10,  5.50s/it]
-gpt-5.5:  23%|██▎       | 33/144 [02:11<10:10,  5.50s/it][ATotal:  24%|██▎       | 34/144 [02:12<07:43,  4.22s/it]
-gpt-5.5:  24%|██▎       | 34/144 [02:12<07:43,  4.22s/it][ATotal:  24%|██▍       | 35/144 [02:16<07:29,  4.13s/it]
-gpt-5.5:  24%|██▍       | 35/144 [02:16<07:29,  4.13s/it][ATotal:  25%|██▌       | 36/144 [02:19<06:51,  3.81s/it]
-gpt-5.5:  25%|██▌       | 36/144 [02:19<06:51,  3.81s/it][ATotal:  26%|██▌       | 37/144 [02:19<05:05,  2.85s/it]
-gpt-5.5:  26%|██▌       | 37/144 [02:19<05:05,  2.85s/it][A                                                       
-                                                         [ARunning Count: 0
-Total:  26%|██▌       | 37/144 [02:22<05:05,  2.85s/it]
-gpt-5.5:  26%|██▌       | 37/144 [02:22<05:05,  2.85s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#106[0m
-Total:  26%|██▌       | 37/144 [02:22<05:05,  2.85s/it]
-gpt-5.5:  26%|██▌       | 37/144 [02:22<05:05,  2.85s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#105[0m
-Total:  26%|██▌       | 37/144 [02:22<05:05,  2.85s/it]
-gpt-5.5:  26%|██▌       | 37/144 [02:22<05:05,  2.85s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#104[0m
-Total:  26%|██▌       | 37/144 [02:22<05:05,  2.85s/it]
-gpt-5.5:  26%|██▌       | 37/144 [02:22<05:05,  2.85s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#103[0m
-Total:  26%|██▌       | 37/144 [02:22<05:05,  2.85s/it]
-gpt-5.5:  26%|██▌       | 37/144 [02:22<05:05,  2.85s/it][A                                                       
-                                                         [A[92mAssigned gpt-5.5/os-std#102[0m
-Total:  26%|██▌       | 37/144 [02:22<05:05,  2.85s/it]
-gpt-5.5:  26%|██▌       | 37/144 [02:22<05:05,  2.85s/it][A

@@ -1,1015 +1,0 @@
-/Users/faker/Library/CloudStorage/北大网盘2.0-许天识_2301111861-disk.pku.edu.cn/我的文档库/许天识_2301111861/SEC Lab/隐私计算/笔记大全/投稿计划/tong (2)/code/Life-Harness/AgentBench/.venv/lib/python3.9/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  torch.utils._pytree._register_pytree_node(
-W0712 20:18:16.789948 30081 .venv/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
-/Users/faker/Library/CloudStorage/北大网盘2.0-许天识_2301111861-disk.pku.edu.cn/我的文档库/许天识_2301111861/SEC Lab/隐私计算/笔记大全/投稿计划/tong (2)/code/Life-Harness/AgentBench/.venv/lib/python3.9/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  torch.utils._pytree._register_pytree_node(
-[93mWarning: 10 agent(s) and 18 task(s) are defined but not used, they will be ignored.[0m
-[93m    Agent: {'claude-opus-4-8', 'gpt-5.5', 'vicuna-33b', 'text-davinci-002', 'vicuna-13b', 'gpt-3.5-turbo-0613', 'text-davinci-003', 'vicuna-7b', 'wizard-30b', 'qwen3-4b-instruct'}[0m
-[93m    Task: {'webshop-env_train', 'm2w-dev', 'cg-std', 'os-std', 'avalon-dev-naive', 'alfworld-std-baseline', 'webshop-std', 'kg-std', 'dbbench-env_train', 'dbbench-std', 'cg-dev', 'os-env_train', 'alfworld-env_train', 'kg-env_train', 'ltp-std', 'avalon-dev-single', 'ltp-dev', 'm2w-std'}[0m
-[92mcreating alfworld-std client...[0m
-TaskClient created: alfworld-std (http://localhost:5020/api)
-[96mMessage: 109 samples remaining.[0m
-[96mAgent "gemini-3.1-pro-preview" needs to run 1 tasks with total 109 samples:[0m
-[96m    Task "alfworld-std": 109[0m
-Total:   0%|          | 0/109 [00:00<?, ?it/s]
-gemini-3.1-pro-preview:   0%|          | 0/109 [00:00<?, ?it/s][A                                              
-                                                               [ARunning Count: 0
-Total:   0%|          | 0/109 [00:00<?, ?it/s]
-gemini-3.1-pro-preview:   0%|          | 0/109 [00:00<?, ?it/s][A                                              
-                                                               [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#108[0m
-Total:   0%|          | 0/109 [00:00<?, ?it/s]
-gemini-3.1-pro-preview:   0%|          | 0/109 [00:00<?, ?it/s][A                                              
-                                                               [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#107[0m
-Total:   0%|          | 0/109 [00:00<?, ?it/s]
-gemini-3.1-pro-preview:   0%|          | 0/109 [00:00<?, ?it/s][A                                              
-                                                               [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#106[0m
-Total:   0%|          | 0/109 [00:00<?, ?it/s]
-gemini-3.1-pro-preview:   0%|          | 0/109 [00:00<?, ?it/s][A                                              
-                                                               [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#105[0m
-Total:   0%|          | 0/109 [00:00<?, ?it/s]
-gemini-3.1-pro-preview:   0%|          | 0/109 [00:00<?, ?it/s][A                                              
-                                                               [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#104[0m
-Total:   0%|          | 0/109 [00:00<?, ?it/s]
-gemini-3.1-pro-preview:   0%|          | 0/109 [00:00<?, ?it/s][A                                              
-                                                               [ARunning Count: 5
-Total:   0%|          | 0/109 [00:09<?, ?it/s]
-gemini-3.1-pro-preview:   0%|          | 0/109 [00:09<?, ?it/s][A                                              
-                                                               [ARunning Count: 5
-Total:   0%|          | 0/109 [00:16<?, ?it/s]
-gemini-3.1-pro-preview:   0%|          | 0/109 [00:16<?, ?it/s][A                                              
-                                                               [ARunning Count: 5
-Total:   0%|          | 0/109 [00:25<?, ?it/s]
-gemini-3.1-pro-preview:   0%|          | 0/109 [00:25<?, ?it/s][A                                              
-                                                               [ARunning Count: 5
-Total:   0%|          | 0/109 [00:30<?, ?it/s]
-gemini-3.1-pro-preview:   0%|          | 0/109 [00:30<?, ?it/s][A                                              
-                                                               [ARunning Count: 5
-Total:   0%|          | 0/109 [00:40<?, ?it/s]
-gemini-3.1-pro-preview:   0%|          | 0/109 [00:40<?, ?it/s][A                                              
-                                                               [ARunning Count: 5
-Total:   0%|          | 0/109 [00:46<?, ?it/s]
-gemini-3.1-pro-preview:   0%|          | 0/109 [00:46<?, ?it/s][A                                              
-                                                               [ARunning Count: 5
-Total:   0%|          | 0/109 [00:58<?, ?it/s]
-gemini-3.1-pro-preview:   0%|          | 0/109 [00:58<?, ?it/s][ATotal:   1%|          | 1/109 [01:02<1:52:18, 62.40s/it]
-gemini-3.1-pro-preview:   1%|          | 1/109 [01:02<1:52:18, 62.40s/it][A                                                        
-                                                                         [ARunning Count: 4
-Total:   1%|          | 1/109 [01:08<1:52:18, 62.40s/it]
-gemini-3.1-pro-preview:   1%|          | 1/109 [01:08<1:52:18, 62.40s/it][A                                                        
-                                                                         [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#103[0m
-Total:   1%|          | 1/109 [01:08<1:52:18, 62.40s/it]
-gemini-3.1-pro-preview:   1%|          | 1/109 [01:08<1:52:18, 62.40s/it][A                                                        
-                                                                         [ARunning Count: 5
-Total:   1%|          | 1/109 [01:14<1:52:18, 62.40s/it]
-gemini-3.1-pro-preview:   1%|          | 1/109 [01:14<1:52:18, 62.40s/it][ATotal:   2%|▏         | 2/109 [01:14<58:31, 32.82s/it]  
-gemini-3.1-pro-preview:   2%|▏         | 2/109 [01:14<58:31, 32.82s/it]  [ATotal:   3%|▎         | 3/109 [01:18<35:02, 19.83s/it]
-gemini-3.1-pro-preview:   3%|▎         | 3/109 [01:18<35:02, 19.83s/it][ATotal:   4%|▎         | 4/109 [01:26<26:17, 15.03s/it]
-gemini-3.1-pro-preview:   4%|▎         | 4/109 [01:26<26:17, 15.03s/it][A                                                      
-                                                                       [ARunning Count: 2
-Total:   4%|▎         | 4/109 [01:27<26:17, 15.03s/it]
-gemini-3.1-pro-preview:   4%|▎         | 4/109 [01:27<26:17, 15.03s/it][A                                                      
-                                                                       [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#102[0m
-Total:   4%|▎         | 4/109 [01:27<26:17, 15.03s/it]
-gemini-3.1-pro-preview:   4%|▎         | 4/109 [01:27<26:17, 15.03s/it][A                                                      
-                                                                       [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#101[0m
-Total:   4%|▎         | 4/109 [01:27<26:17, 15.03s/it]
-gemini-3.1-pro-preview:   4%|▎         | 4/109 [01:27<26:17, 15.03s/it][A                                                      
-                                                                       [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#100[0m
-Total:   4%|▎         | 4/109 [01:27<26:17, 15.03s/it]
-gemini-3.1-pro-preview:   4%|▎         | 4/109 [01:27<26:17, 15.03s/it][A                                                      
-                                                                       [ARunning Count: 5
-Total:   4%|▎         | 4/109 [01:32<26:17, 15.03s/it]
-gemini-3.1-pro-preview:   4%|▎         | 4/109 [01:32<26:17, 15.03s/it][A                                                      
-                                                                       [ARunning Count: 5
-Total:   4%|▎         | 4/109 [01:47<26:17, 15.03s/it]
-gemini-3.1-pro-preview:   4%|▎         | 4/109 [01:47<26:17, 15.03s/it][ATotal:   5%|▍         | 5/109 [01:50<31:45, 18.32s/it]
-gemini-3.1-pro-preview:   5%|▍         | 5/109 [01:50<31:45, 18.32s/it][A                                                      
-                                                                       [ARunning Count: 4
-Total:   5%|▍         | 5/109 [01:56<31:45, 18.32s/it]
-gemini-3.1-pro-preview:   5%|▍         | 5/109 [01:56<31:45, 18.32s/it][A                                                      
-                                                                       [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#99[0m
-Total:   5%|▍         | 5/109 [01:56<31:45, 18.32s/it]
-gemini-3.1-pro-preview:   5%|▍         | 5/109 [01:56<31:45, 18.32s/it][A                                                      
-                                                                       [ARunning Count: 5
-Total:   5%|▍         | 5/109 [02:04<31:45, 18.32s/it]
-gemini-3.1-pro-preview:   5%|▍         | 5/109 [02:04<31:45, 18.32s/it][A                                                      
-                                                                       [ARunning Count: 5
-Total:   5%|▍         | 5/109 [02:14<31:45, 18.32s/it]
-gemini-3.1-pro-preview:   5%|▍         | 5/109 [02:14<31:45, 18.32s/it][A                                                      
-                                                                       [ARunning Count: 5
-Total:   5%|▍         | 5/109 [02:19<31:45, 18.32s/it]
-gemini-3.1-pro-preview:   5%|▍         | 5/109 [02:19<31:45, 18.32s/it][ATotal:   6%|▌         | 6/109 [02:25<40:55, 23.84s/it]
-gemini-3.1-pro-preview:   6%|▌         | 6/109 [02:25<40:55, 23.84s/it][A                                                      
-                                                                       [ARunning Count: 4
-Total:   6%|▌         | 6/109 [02:33<40:55, 23.84s/it]
-gemini-3.1-pro-preview:   6%|▌         | 6/109 [02:33<40:55, 23.84s/it][A                                                      
-                                                                       [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#98[0m
-Total:   6%|▌         | 6/109 [02:33<40:55, 23.84s/it]
-gemini-3.1-pro-preview:   6%|▌         | 6/109 [02:33<40:55, 23.84s/it][A                                                      
-                                                                       [ARunning Count: 5
-Total:   6%|▌         | 6/109 [02:48<40:55, 23.84s/it]
-gemini-3.1-pro-preview:   6%|▌         | 6/109 [02:48<40:55, 23.84s/it][ATotal:   6%|▋         | 7/109 [02:53<42:46, 25.16s/it]
-gemini-3.1-pro-preview:   6%|▋         | 7/109 [02:53<42:46, 25.16s/it][A                                                      
-                                                                       [ARunning Count: 4
-Total:   6%|▋         | 7/109 [03:02<42:46, 25.16s/it]
-gemini-3.1-pro-preview:   6%|▋         | 7/109 [03:02<42:46, 25.16s/it][A                                                      
-                                                                       [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#97[0m
-Total:   6%|▋         | 7/109 [03:02<42:46, 25.16s/it]
-gemini-3.1-pro-preview:   6%|▋         | 7/109 [03:02<42:46, 25.16s/it][ATotal:   7%|▋         | 8/109 [03:08<37:05, 22.03s/it]
-gemini-3.1-pro-preview:   7%|▋         | 8/109 [03:08<37:05, 22.03s/it][A                                                      
-                                                                       [ARunning Count: 4
-Total:   7%|▋         | 8/109 [03:10<37:05, 22.03s/it]
-gemini-3.1-pro-preview:   7%|▋         | 8/109 [03:10<37:05, 22.03s/it][A                                                      
-                                                                       [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#96[0m
-Total:   7%|▋         | 8/109 [03:10<37:05, 22.03s/it]
-gemini-3.1-pro-preview:   7%|▋         | 8/109 [03:10<37:05, 22.03s/it][A                                                      
-                                                                       [ARunning Count: 5
-Total:   7%|▋         | 8/109 [03:23<37:05, 22.03s/it]
-gemini-3.1-pro-preview:   7%|▋         | 8/109 [03:23<37:05, 22.03s/it][ATotal:   8%|▊         | 9/109 [03:32<37:31, 22.51s/it]
-gemini-3.1-pro-preview:   8%|▊         | 9/109 [03:32<37:31, 22.51s/it][A                                                      
-                                                                       [ARunning Count: 4
-Total:   8%|▊         | 9/109 [03:36<37:31, 22.51s/it]
-gemini-3.1-pro-preview:   8%|▊         | 9/109 [03:36<37:31, 22.51s/it][A                                                      
-                                                                       [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#95[0m
-Total:   8%|▊         | 9/109 [03:36<37:31, 22.51s/it]
-gemini-3.1-pro-preview:   8%|▊         | 9/109 [03:36<37:31, 22.51s/it][ATotal:   9%|▉         | 10/109 [03:37<28:30, 17.28s/it]
-gemini-3.1-pro-preview:   9%|▉         | 10/109 [03:37<28:30, 17.28s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:   9%|▉         | 10/109 [03:45<28:30, 17.28s/it]
-gemini-3.1-pro-preview:   9%|▉         | 10/109 [03:45<28:30, 17.28s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#94[0m
-Total:   9%|▉         | 10/109 [03:45<28:30, 17.28s/it]
-gemini-3.1-pro-preview:   9%|▉         | 10/109 [03:45<28:30, 17.28s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:   9%|▉         | 10/109 [03:50<28:30, 17.28s/it]
-gemini-3.1-pro-preview:   9%|▉         | 10/109 [03:50<28:30, 17.28s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:   9%|▉         | 10/109 [03:59<28:30, 17.28s/it]
-gemini-3.1-pro-preview:   9%|▉         | 10/109 [03:59<28:30, 17.28s/it][ATotal:  10%|█         | 11/109 [04:04<33:15, 20.36s/it]
-gemini-3.1-pro-preview:  10%|█         | 11/109 [04:04<33:15, 20.36s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  10%|█         | 11/109 [04:12<33:15, 20.36s/it]
-gemini-3.1-pro-preview:  10%|█         | 11/109 [04:12<33:15, 20.36s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#93[0m
-Total:  10%|█         | 11/109 [04:12<33:15, 20.36s/it]
-gemini-3.1-pro-preview:  10%|█         | 11/109 [04:12<33:15, 20.36s/it][ATotal:  11%|█         | 12/109 [04:15<28:00, 17.32s/it]
-gemini-3.1-pro-preview:  11%|█         | 12/109 [04:15<28:00, 17.32s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  11%|█         | 12/109 [04:17<28:00, 17.32s/it]
-gemini-3.1-pro-preview:  11%|█         | 12/109 [04:17<28:00, 17.32s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#92[0m
-Total:  11%|█         | 12/109 [04:17<28:00, 17.32s/it]
-gemini-3.1-pro-preview:  11%|█         | 12/109 [04:17<28:00, 17.32s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  11%|█         | 12/109 [04:28<28:00, 17.32s/it]
-gemini-3.1-pro-preview:  11%|█         | 12/109 [04:28<28:00, 17.32s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  11%|█         | 12/109 [04:37<28:00, 17.32s/it]
-gemini-3.1-pro-preview:  11%|█         | 12/109 [04:37<28:00, 17.32s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  11%|█         | 12/109 [04:50<28:00, 17.32s/it]
-gemini-3.1-pro-preview:  11%|█         | 12/109 [04:50<28:00, 17.32s/it][ATotal:  12%|█▏        | 13/109 [04:57<39:54, 24.95s/it]
-gemini-3.1-pro-preview:  12%|█▏        | 13/109 [04:57<39:54, 24.95s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  12%|█▏        | 13/109 [04:58<39:54, 24.95s/it]
-gemini-3.1-pro-preview:  12%|█▏        | 13/109 [04:58<39:54, 24.95s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#91[0m
-Total:  12%|█▏        | 13/109 [04:58<39:54, 24.95s/it]
-gemini-3.1-pro-preview:  12%|█▏        | 13/109 [04:58<39:54, 24.95s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  12%|█▏        | 13/109 [05:05<39:54, 24.95s/it]
-gemini-3.1-pro-preview:  12%|█▏        | 13/109 [05:05<39:54, 24.95s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  12%|█▏        | 13/109 [05:11<39:54, 24.95s/it]
-gemini-3.1-pro-preview:  12%|█▏        | 13/109 [05:11<39:54, 24.95s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  12%|█▏        | 13/109 [05:18<39:54, 24.95s/it]
-gemini-3.1-pro-preview:  12%|█▏        | 13/109 [05:18<39:54, 24.95s/it][ATotal:  13%|█▎        | 14/109 [05:28<42:11, 26.65s/it]
-gemini-3.1-pro-preview:  13%|█▎        | 14/109 [05:28<42:11, 26.65s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  13%|█▎        | 14/109 [05:32<42:11, 26.65s/it]
-gemini-3.1-pro-preview:  13%|█▎        | 14/109 [05:32<42:11, 26.65s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#90[0m
-Total:  13%|█▎        | 14/109 [05:32<42:11, 26.65s/it]
-gemini-3.1-pro-preview:  13%|█▎        | 14/109 [05:32<42:11, 26.65s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  13%|█▎        | 14/109 [05:45<42:11, 26.65s/it]
-gemini-3.1-pro-preview:  13%|█▎        | 14/109 [05:45<42:11, 26.65s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  13%|█▎        | 14/109 [05:51<42:11, 26.65s/it]
-gemini-3.1-pro-preview:  13%|█▎        | 14/109 [05:51<42:11, 26.65s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  13%|█▎        | 14/109 [05:58<42:11, 26.65s/it]
-gemini-3.1-pro-preview:  13%|█▎        | 14/109 [05:58<42:11, 26.65s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  13%|█▎        | 14/109 [06:03<42:11, 26.65s/it]
-gemini-3.1-pro-preview:  13%|█▎        | 14/109 [06:03<42:11, 26.65s/it][ATotal:  14%|█▍        | 15/109 [06:06<46:55, 29.95s/it]
-gemini-3.1-pro-preview:  14%|█▍        | 15/109 [06:06<46:55, 29.95s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  14%|█▍        | 15/109 [06:12<46:55, 29.95s/it]
-gemini-3.1-pro-preview:  14%|█▍        | 15/109 [06:12<46:55, 29.95s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#89[0m
-Total:  14%|█▍        | 15/109 [06:12<46:55, 29.95s/it]
-gemini-3.1-pro-preview:  14%|█▍        | 15/109 [06:12<46:55, 29.95s/it][ATotal:  15%|█▍        | 16/109 [06:19<38:37, 24.92s/it]
-gemini-3.1-pro-preview:  15%|█▍        | 16/109 [06:19<38:37, 24.92s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  15%|█▍        | 16/109 [06:20<38:37, 24.92s/it]
-gemini-3.1-pro-preview:  15%|█▍        | 16/109 [06:20<38:37, 24.92s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#88[0m
-Total:  15%|█▍        | 16/109 [06:20<38:37, 24.92s/it]
-gemini-3.1-pro-preview:  15%|█▍        | 16/109 [06:20<38:37, 24.92s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  15%|█▍        | 16/109 [06:33<38:37, 24.92s/it]
-gemini-3.1-pro-preview:  15%|█▍        | 16/109 [06:33<38:37, 24.92s/it][ATotal:  16%|█▌        | 17/109 [06:39<35:55, 23.43s/it]
-gemini-3.1-pro-preview:  16%|█▌        | 17/109 [06:39<35:55, 23.43s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  16%|█▌        | 17/109 [06:41<35:55, 23.43s/it]
-gemini-3.1-pro-preview:  16%|█▌        | 17/109 [06:41<35:55, 23.43s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#87[0m
-Total:  16%|█▌        | 17/109 [06:41<35:55, 23.43s/it]
-gemini-3.1-pro-preview:  16%|█▌        | 17/109 [06:41<35:55, 23.43s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  16%|█▌        | 17/109 [06:52<35:55, 23.43s/it]
-gemini-3.1-pro-preview:  16%|█▌        | 17/109 [06:52<35:55, 23.43s/it][ATotal:  17%|█▋        | 18/109 [06:54<31:58, 21.09s/it]
-gemini-3.1-pro-preview:  17%|█▋        | 18/109 [06:54<31:58, 21.09s/it][ATotal:  17%|█▋        | 19/109 [06:56<23:02, 15.36s/it]
-gemini-3.1-pro-preview:  17%|█▋        | 19/109 [06:56<23:02, 15.36s/it][ATotal:  18%|█▊        | 20/109 [07:02<18:31, 12.49s/it]
-gemini-3.1-pro-preview:  18%|█▊        | 20/109 [07:02<18:31, 12.49s/it][ATotal:  19%|█▉        | 21/109 [07:06<14:37,  9.97s/it]
-gemini-3.1-pro-preview:  19%|█▉        | 21/109 [07:06<14:37,  9.97s/it][A                                                       
-                                                                        [ARunning Count: 1
-Total:  19%|█▉        | 21/109 [07:06<14:37,  9.97s/it]
-gemini-3.1-pro-preview:  19%|█▉        | 21/109 [07:06<14:37,  9.97s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#86[0m
-Total:  19%|█▉        | 21/109 [07:06<14:37,  9.97s/it]
-gemini-3.1-pro-preview:  19%|█▉        | 21/109 [07:06<14:37,  9.97s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#85[0m
-Total:  19%|█▉        | 21/109 [07:06<14:37,  9.97s/it]
-gemini-3.1-pro-preview:  19%|█▉        | 21/109 [07:06<14:37,  9.97s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#84[0m
-Total:  19%|█▉        | 21/109 [07:06<14:37,  9.97s/it]
-gemini-3.1-pro-preview:  19%|█▉        | 21/109 [07:06<14:37,  9.97s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#83[0m
-Total:  19%|█▉        | 21/109 [07:06<14:37,  9.97s/it]
-gemini-3.1-pro-preview:  19%|█▉        | 21/109 [07:06<14:37,  9.97s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  19%|█▉        | 21/109 [07:15<14:37,  9.97s/it]
-gemini-3.1-pro-preview:  19%|█▉        | 21/109 [07:15<14:37,  9.97s/it][ATotal:  20%|██        | 22/109 [07:18<15:15, 10.53s/it]
-gemini-3.1-pro-preview:  20%|██        | 22/109 [07:18<15:15, 10.53s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  20%|██        | 22/109 [07:20<15:15, 10.53s/it]
-gemini-3.1-pro-preview:  20%|██        | 22/109 [07:20<15:15, 10.53s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#82[0m
-Total:  20%|██        | 22/109 [07:20<15:15, 10.53s/it]
-gemini-3.1-pro-preview:  20%|██        | 22/109 [07:20<15:15, 10.53s/it][ATotal:  21%|██        | 23/109 [07:21<11:59,  8.37s/it]
-gemini-3.1-pro-preview:  21%|██        | 23/109 [07:21<11:59,  8.37s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  21%|██        | 23/109 [07:27<11:59,  8.37s/it]
-gemini-3.1-pro-preview:  21%|██        | 23/109 [07:27<11:59,  8.37s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#81[0m
-Total:  21%|██        | 23/109 [07:27<11:59,  8.37s/it]
-gemini-3.1-pro-preview:  21%|██        | 23/109 [07:27<11:59,  8.37s/it][ATotal:  22%|██▏       | 24/109 [07:30<11:51,  8.37s/it]
-gemini-3.1-pro-preview:  22%|██▏       | 24/109 [07:30<11:51,  8.37s/it][ATotal:  23%|██▎       | 25/109 [07:34<09:49,  7.02s/it]
-gemini-3.1-pro-preview:  23%|██▎       | 25/109 [07:34<09:49,  7.02s/it][A                                                       
-                                                                        [ARunning Count: 3
-Total:  23%|██▎       | 25/109 [07:41<09:49,  7.02s/it]
-gemini-3.1-pro-preview:  23%|██▎       | 25/109 [07:41<09:49,  7.02s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#80[0m
-Total:  23%|██▎       | 25/109 [07:41<09:49,  7.02s/it]
-gemini-3.1-pro-preview:  23%|██▎       | 25/109 [07:41<09:49,  7.02s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#79[0m
-Total:  23%|██▎       | 25/109 [07:41<09:49,  7.02s/it]
-gemini-3.1-pro-preview:  23%|██▎       | 25/109 [07:41<09:49,  7.02s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  23%|██▎       | 25/109 [07:54<09:49,  7.02s/it]
-gemini-3.1-pro-preview:  23%|██▎       | 25/109 [07:54<09:49,  7.02s/it][ATotal:  24%|██▍       | 26/109 [07:55<15:42, 11.36s/it]
-gemini-3.1-pro-preview:  24%|██▍       | 26/109 [07:55<15:42, 11.36s/it][ATotal:  25%|██▍       | 27/109 [07:57<11:31,  8.43s/it]
-gemini-3.1-pro-preview:  25%|██▍       | 27/109 [07:57<11:31,  8.43s/it][ATotal:  26%|██▌       | 28/109 [07:59<08:48,  6.52s/it]
-gemini-3.1-pro-preview:  26%|██▌       | 28/109 [07:59<08:48,  6.52s/it][A                                                       
-                                                                        [ARunning Count: 2
-Total:  26%|██▌       | 28/109 [08:02<08:48,  6.52s/it]
-gemini-3.1-pro-preview:  26%|██▌       | 28/109 [08:02<08:48,  6.52s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#78[0m
-Total:  26%|██▌       | 28/109 [08:02<08:48,  6.52s/it]
-gemini-3.1-pro-preview:  26%|██▌       | 28/109 [08:02<08:48,  6.52s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#77[0m
-Total:  26%|██▌       | 28/109 [08:02<08:48,  6.52s/it]
-gemini-3.1-pro-preview:  26%|██▌       | 28/109 [08:02<08:48,  6.52s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#76[0m
-Total:  26%|██▌       | 28/109 [08:02<08:48,  6.52s/it]
-gemini-3.1-pro-preview:  26%|██▌       | 28/109 [08:02<08:48,  6.52s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  26%|██▌       | 28/109 [08:10<08:48,  6.52s/it]
-gemini-3.1-pro-preview:  26%|██▌       | 28/109 [08:10<08:48,  6.52s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  26%|██▌       | 28/109 [08:15<08:48,  6.52s/it]
-gemini-3.1-pro-preview:  26%|██▌       | 28/109 [08:15<08:48,  6.52s/it][ATotal:  27%|██▋       | 29/109 [08:15<12:41,  9.52s/it]
-gemini-3.1-pro-preview:  27%|██▋       | 29/109 [08:15<12:41,  9.52s/it][ATotal:  28%|██▊       | 30/109 [08:19<10:22,  7.88s/it]
-gemini-3.1-pro-preview:  28%|██▊       | 30/109 [08:19<10:22,  7.88s/it][ATotal:  28%|██▊       | 31/109 [08:22<08:08,  6.26s/it]
-gemini-3.1-pro-preview:  28%|██▊       | 31/109 [08:22<08:08,  6.26s/it][A                                                       
-                                                                        [ARunning Count: 2
-Total:  28%|██▊       | 31/109 [08:23<08:08,  6.26s/it]
-gemini-3.1-pro-preview:  28%|██▊       | 31/109 [08:23<08:08,  6.26s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#75[0m
-Total:  28%|██▊       | 31/109 [08:23<08:08,  6.26s/it]
-gemini-3.1-pro-preview:  28%|██▊       | 31/109 [08:23<08:08,  6.26s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#74[0m
-Total:  28%|██▊       | 31/109 [08:23<08:08,  6.26s/it]
-gemini-3.1-pro-preview:  28%|██▊       | 31/109 [08:23<08:08,  6.26s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#73[0m
-Total:  28%|██▊       | 31/109 [08:23<08:08,  6.26s/it]
-gemini-3.1-pro-preview:  28%|██▊       | 31/109 [08:23<08:08,  6.26s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  28%|██▊       | 31/109 [08:38<08:08,  6.26s/it]
-gemini-3.1-pro-preview:  28%|██▊       | 31/109 [08:38<08:08,  6.26s/it][ATotal:  29%|██▉       | 32/109 [08:46<14:59, 11.68s/it]
-gemini-3.1-pro-preview:  29%|██▉       | 32/109 [08:46<14:59, 11.68s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  29%|██▉       | 32/109 [08:52<14:59, 11.68s/it]
-gemini-3.1-pro-preview:  29%|██▉       | 32/109 [08:52<14:59, 11.68s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#72[0m
-Total:  29%|██▉       | 32/109 [08:52<14:59, 11.68s/it]
-gemini-3.1-pro-preview:  29%|██▉       | 32/109 [08:52<14:59, 11.68s/it][ATotal:  30%|███       | 33/109 [08:56<14:08, 11.17s/it]
-gemini-3.1-pro-preview:  30%|███       | 33/109 [08:56<14:08, 11.17s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  30%|███       | 33/109 [09:00<14:08, 11.17s/it]
-gemini-3.1-pro-preview:  30%|███       | 33/109 [09:00<14:08, 11.17s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#71[0m
-Total:  30%|███       | 33/109 [09:00<14:08, 11.17s/it]
-gemini-3.1-pro-preview:  30%|███       | 33/109 [09:00<14:08, 11.17s/it][ATotal:  31%|███       | 34/109 [09:03<12:14,  9.80s/it]
-gemini-3.1-pro-preview:  31%|███       | 34/109 [09:03<12:14,  9.80s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  31%|███       | 34/109 [09:09<12:14,  9.80s/it]
-gemini-3.1-pro-preview:  31%|███       | 34/109 [09:09<12:14,  9.80s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#70[0m
-Total:  31%|███       | 34/109 [09:09<12:14,  9.80s/it]
-gemini-3.1-pro-preview:  31%|███       | 34/109 [09:09<12:14,  9.80s/it][ATotal:  32%|███▏      | 35/109 [09:11<11:29,  9.32s/it]
-gemini-3.1-pro-preview:  32%|███▏      | 35/109 [09:11<11:29,  9.32s/it][ATotal:  33%|███▎      | 36/109 [09:19<10:47,  8.87s/it]
-gemini-3.1-pro-preview:  33%|███▎      | 36/109 [09:19<10:47,  8.87s/it][A                                                       
-                                                                        [ARunning Count: 3
-Total:  33%|███▎      | 36/109 [09:19<10:47,  8.87s/it]
-gemini-3.1-pro-preview:  33%|███▎      | 36/109 [09:19<10:47,  8.87s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#69[0m
-Total:  33%|███▎      | 36/109 [09:19<10:47,  8.87s/it]
-gemini-3.1-pro-preview:  33%|███▎      | 36/109 [09:19<10:47,  8.87s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#68[0m
-Total:  33%|███▎      | 36/109 [09:19<10:47,  8.87s/it]
-gemini-3.1-pro-preview:  33%|███▎      | 36/109 [09:19<10:47,  8.87s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  33%|███▎      | 36/109 [09:33<10:47,  8.87s/it]
-gemini-3.1-pro-preview:  33%|███▎      | 36/109 [09:33<10:47,  8.87s/it][ATotal:  34%|███▍      | 37/109 [09:38<14:11, 11.83s/it]
-gemini-3.1-pro-preview:  34%|███▍      | 37/109 [09:38<14:11, 11.83s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  34%|███▍      | 37/109 [09:45<14:11, 11.83s/it]
-gemini-3.1-pro-preview:  34%|███▍      | 37/109 [09:45<14:11, 11.83s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#67[0m
-Total:  34%|███▍      | 37/109 [09:45<14:11, 11.83s/it]
-gemini-3.1-pro-preview:  34%|███▍      | 37/109 [09:45<14:11, 11.83s/it][ATotal:  35%|███▍      | 38/109 [09:48<13:21, 11.29s/it]
-gemini-3.1-pro-preview:  35%|███▍      | 38/109 [09:48<13:21, 11.29s/it][ATotal:  36%|███▌      | 39/109 [09:49<09:43,  8.34s/it]
-gemini-3.1-pro-preview:  36%|███▌      | 39/109 [09:49<09:43,  8.34s/it][ATotal:  37%|███▋      | 40/109 [09:56<08:57,  7.79s/it]
-gemini-3.1-pro-preview:  37%|███▋      | 40/109 [09:56<08:57,  7.79s/it][A                                                       
-                                                                        [ARunning Count: 2
-Total:  37%|███▋      | 40/109 [09:57<08:57,  7.79s/it]
-gemini-3.1-pro-preview:  37%|███▋      | 40/109 [09:57<08:57,  7.79s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#66[0m
-Total:  37%|███▋      | 40/109 [09:57<08:57,  7.79s/it]
-gemini-3.1-pro-preview:  37%|███▋      | 40/109 [09:57<08:57,  7.79s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#65[0m
-Total:  37%|███▋      | 40/109 [09:57<08:57,  7.79s/it]
-gemini-3.1-pro-preview:  37%|███▋      | 40/109 [09:57<08:57,  7.79s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#64[0m
-Total:  37%|███▋      | 40/109 [09:57<08:57,  7.79s/it]
-gemini-3.1-pro-preview:  37%|███▋      | 40/109 [09:57<08:57,  7.79s/it][ATotal:  38%|███▊      | 41/109 [10:00<07:40,  6.77s/it]
-gemini-3.1-pro-preview:  38%|███▊      | 41/109 [10:00<07:40,  6.77s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  38%|███▊      | 41/109 [10:09<07:40,  6.77s/it]
-gemini-3.1-pro-preview:  38%|███▊      | 41/109 [10:09<07:40,  6.77s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#63[0m
-Total:  38%|███▊      | 41/109 [10:09<07:40,  6.77s/it]
-gemini-3.1-pro-preview:  38%|███▊      | 41/109 [10:09<07:40,  6.77s/it][ATotal:  39%|███▊      | 42/109 [10:16<10:44,  9.62s/it]
-gemini-3.1-pro-preview:  39%|███▊      | 42/109 [10:16<10:44,  9.62s/it][ATotal:  39%|███▉      | 43/109 [10:22<09:25,  8.57s/it]
-gemini-3.1-pro-preview:  39%|███▉      | 43/109 [10:22<09:25,  8.57s/it][ATotal:  40%|████      | 44/109 [10:24<07:03,  6.51s/it]
-gemini-3.1-pro-preview:  40%|████      | 44/109 [10:24<07:03,  6.51s/it][A                                                       
-                                                                        [ARunning Count: 2
-Total:  40%|████      | 44/109 [10:24<07:03,  6.51s/it]
-gemini-3.1-pro-preview:  40%|████      | 44/109 [10:24<07:03,  6.51s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#62[0m
-Total:  40%|████      | 44/109 [10:24<07:03,  6.51s/it]
-gemini-3.1-pro-preview:  40%|████      | 44/109 [10:24<07:03,  6.51s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#61[0m
-Total:  40%|████      | 44/109 [10:24<07:03,  6.51s/it]
-gemini-3.1-pro-preview:  40%|████      | 44/109 [10:24<07:03,  6.51s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#60[0m
-Total:  40%|████      | 44/109 [10:24<07:03,  6.51s/it]
-gemini-3.1-pro-preview:  40%|████      | 44/109 [10:24<07:03,  6.51s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  40%|████      | 44/109 [10:37<07:03,  6.51s/it]
-gemini-3.1-pro-preview:  40%|████      | 44/109 [10:37<07:03,  6.51s/it][ATotal:  41%|████▏     | 45/109 [10:49<12:58, 12.16s/it]
-gemini-3.1-pro-preview:  41%|████▏     | 45/109 [10:49<12:58, 12.16s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  41%|████▏     | 45/109 [10:52<12:58, 12.16s/it]
-gemini-3.1-pro-preview:  41%|████▏     | 45/109 [10:52<12:58, 12.16s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#59[0m
-Total:  41%|████▏     | 45/109 [10:52<12:58, 12.16s/it]
-gemini-3.1-pro-preview:  41%|████▏     | 45/109 [10:52<12:58, 12.16s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  41%|████▏     | 45/109 [11:06<12:58, 12.16s/it]
-gemini-3.1-pro-preview:  41%|████▏     | 45/109 [11:06<12:58, 12.16s/it][ATotal:  42%|████▏     | 46/109 [11:12<16:13, 15.45s/it]
-gemini-3.1-pro-preview:  42%|████▏     | 46/109 [11:12<16:13, 15.45s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  42%|████▏     | 46/109 [11:14<16:13, 15.45s/it]
-gemini-3.1-pro-preview:  42%|████▏     | 46/109 [11:14<16:13, 15.45s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#58[0m
-Total:  42%|████▏     | 46/109 [11:14<16:13, 15.45s/it]
-gemini-3.1-pro-preview:  42%|████▏     | 46/109 [11:14<16:13, 15.45s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  42%|████▏     | 46/109 [11:21<16:13, 15.45s/it]
-gemini-3.1-pro-preview:  42%|████▏     | 46/109 [11:21<16:13, 15.45s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  42%|████▏     | 46/109 [11:33<16:13, 15.45s/it]
-gemini-3.1-pro-preview:  42%|████▏     | 46/109 [11:33<16:13, 15.45s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  42%|████▏     | 46/109 [11:45<16:13, 15.45s/it]
-gemini-3.1-pro-preview:  42%|████▏     | 46/109 [11:45<16:13, 15.45s/it][ATotal:  43%|████▎     | 47/109 [11:49<22:37, 21.89s/it]
-gemini-3.1-pro-preview:  43%|████▎     | 47/109 [11:49<22:37, 21.89s/it][ATotal:  44%|████▍     | 48/109 [11:50<15:36, 15.36s/it]
-gemini-3.1-pro-preview:  44%|████▍     | 48/109 [11:50<15:36, 15.36s/it][A                                                       
-                                                                        [ARunning Count: 3
-Total:  44%|████▍     | 48/109 [11:54<15:36, 15.36s/it]
-gemini-3.1-pro-preview:  44%|████▍     | 48/109 [11:54<15:36, 15.36s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#57[0m
-Total:  44%|████▍     | 48/109 [11:54<15:36, 15.36s/it]
-gemini-3.1-pro-preview:  44%|████▍     | 48/109 [11:54<15:36, 15.36s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#56[0m
-Total:  44%|████▍     | 48/109 [11:54<15:36, 15.36s/it]
-gemini-3.1-pro-preview:  44%|████▍     | 48/109 [11:54<15:36, 15.36s/it][ATotal:  45%|████▍     | 49/109 [12:01<14:05, 14.09s/it]
-gemini-3.1-pro-preview:  45%|████▍     | 49/109 [12:01<14:05, 14.09s/it][ATotal:  46%|████▌     | 50/109 [12:06<11:14, 11.43s/it]
-gemini-3.1-pro-preview:  46%|████▌     | 50/109 [12:06<11:14, 11.43s/it][A                                                       
-                                                                        [ARunning Count: 3
-Total:  46%|████▌     | 50/109 [12:08<11:14, 11.43s/it]
-gemini-3.1-pro-preview:  46%|████▌     | 50/109 [12:08<11:14, 11.43s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#55[0m
-Total:  46%|████▌     | 50/109 [12:08<11:14, 11.43s/it]
-gemini-3.1-pro-preview:  46%|████▌     | 50/109 [12:08<11:14, 11.43s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#54[0m
-Total:  46%|████▌     | 50/109 [12:08<11:14, 11.43s/it]
-gemini-3.1-pro-preview:  46%|████▌     | 50/109 [12:08<11:14, 11.43s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  46%|████▌     | 50/109 [12:18<11:14, 11.43s/it]
-gemini-3.1-pro-preview:  46%|████▌     | 50/109 [12:18<11:14, 11.43s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  46%|████▌     | 50/109 [12:26<11:14, 11.43s/it]
-gemini-3.1-pro-preview:  46%|████▌     | 50/109 [12:26<11:14, 11.43s/it][ATotal:  47%|████▋     | 51/109 [12:33<15:36, 16.15s/it]
-gemini-3.1-pro-preview:  47%|████▋     | 51/109 [12:33<15:36, 16.15s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  47%|████▋     | 51/109 [12:40<15:36, 16.15s/it]
-gemini-3.1-pro-preview:  47%|████▋     | 51/109 [12:40<15:36, 16.15s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#53[0m
-Total:  47%|████▋     | 51/109 [12:40<15:36, 16.15s/it]
-gemini-3.1-pro-preview:  47%|████▋     | 51/109 [12:40<15:36, 16.15s/it][ATotal:  48%|████▊     | 52/109 [12:41<12:59, 13.67s/it]
-gemini-3.1-pro-preview:  48%|████▊     | 52/109 [12:41<12:59, 13.67s/it][ATotal:  49%|████▊     | 53/109 [12:50<11:31, 12.36s/it]
-gemini-3.1-pro-preview:  49%|████▊     | 53/109 [12:50<11:31, 12.36s/it][A                                                       
-                                                                        [ARunning Count: 3
-Total:  49%|████▊     | 53/109 [12:53<11:31, 12.36s/it]
-gemini-3.1-pro-preview:  49%|████▊     | 53/109 [12:53<11:31, 12.36s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#52[0m
-Total:  49%|████▊     | 53/109 [12:53<11:31, 12.36s/it]
-gemini-3.1-pro-preview:  49%|████▊     | 53/109 [12:53<11:31, 12.36s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#51[0m
-Total:  49%|████▊     | 53/109 [12:53<11:31, 12.36s/it]
-gemini-3.1-pro-preview:  49%|████▊     | 53/109 [12:53<11:31, 12.36s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  49%|████▊     | 53/109 [13:06<11:31, 12.36s/it]
-gemini-3.1-pro-preview:  49%|████▊     | 53/109 [13:06<11:31, 12.36s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  49%|████▊     | 53/109 [13:12<11:31, 12.36s/it]
-gemini-3.1-pro-preview:  49%|████▊     | 53/109 [13:12<11:31, 12.36s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  49%|████▊     | 53/109 [13:20<11:31, 12.36s/it]
-gemini-3.1-pro-preview:  49%|████▊     | 53/109 [13:20<11:31, 12.36s/it][ATotal:  50%|████▉     | 54/109 [13:33<19:43, 21.52s/it]
-gemini-3.1-pro-preview:  50%|████▉     | 54/109 [13:33<19:43, 21.52s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  50%|████▉     | 54/109 [13:35<19:43, 21.52s/it]
-gemini-3.1-pro-preview:  50%|████▉     | 54/109 [13:35<19:43, 21.52s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#50[0m
-Total:  50%|████▉     | 54/109 [13:35<19:43, 21.52s/it]
-gemini-3.1-pro-preview:  50%|████▉     | 54/109 [13:35<19:43, 21.52s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  50%|████▉     | 54/109 [13:45<19:43, 21.52s/it]
-gemini-3.1-pro-preview:  50%|████▉     | 54/109 [13:45<19:43, 21.52s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  50%|████▉     | 54/109 [13:51<19:43, 21.52s/it]
-gemini-3.1-pro-preview:  50%|████▉     | 54/109 [13:51<19:43, 21.52s/it][ATotal:  50%|█████     | 55/109 [13:56<19:48, 22.01s/it]
-gemini-3.1-pro-preview:  50%|█████     | 55/109 [13:56<19:48, 22.01s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  50%|█████     | 55/109 [14:05<19:48, 22.01s/it]
-gemini-3.1-pro-preview:  50%|█████     | 55/109 [14:05<19:48, 22.01s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#49[0m
-Total:  50%|█████     | 55/109 [14:05<19:48, 22.01s/it]
-gemini-3.1-pro-preview:  50%|█████     | 55/109 [14:05<19:48, 22.01s/it][ATotal:  51%|█████▏    | 56/109 [14:16<18:50, 21.33s/it]
-gemini-3.1-pro-preview:  51%|█████▏    | 56/109 [14:16<18:50, 21.34s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  51%|█████▏    | 56/109 [14:18<18:50, 21.33s/it]
-gemini-3.1-pro-preview:  51%|█████▏    | 56/109 [14:18<18:50, 21.34s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#48[0m
-Total:  51%|█████▏    | 56/109 [14:18<18:50, 21.33s/it]
-gemini-3.1-pro-preview:  51%|█████▏    | 56/109 [14:18<18:50, 21.34s/it][ATotal:  52%|█████▏    | 57/109 [14:25<15:14, 17.59s/it]
-gemini-3.1-pro-preview:  52%|█████▏    | 57/109 [14:25<15:14, 17.59s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  52%|█████▏    | 57/109 [14:30<15:14, 17.59s/it]
-gemini-3.1-pro-preview:  52%|█████▏    | 57/109 [14:30<15:14, 17.59s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#47[0m
-Total:  52%|█████▏    | 57/109 [14:30<15:14, 17.59s/it]
-gemini-3.1-pro-preview:  52%|█████▏    | 57/109 [14:30<15:14, 17.59s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  52%|█████▏    | 57/109 [14:36<15:14, 17.59s/it]
-gemini-3.1-pro-preview:  52%|█████▏    | 57/109 [14:36<15:14, 17.59s/it][ATotal:  53%|█████▎    | 58/109 [14:41<14:29, 17.04s/it]
-gemini-3.1-pro-preview:  53%|█████▎    | 58/109 [14:41<14:29, 17.04s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  53%|█████▎    | 58/109 [14:41<14:29, 17.04s/it]
-gemini-3.1-pro-preview:  53%|█████▎    | 58/109 [14:41<14:29, 17.04s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#46[0m
-Total:  53%|█████▎    | 58/109 [14:41<14:29, 17.04s/it]
-gemini-3.1-pro-preview:  53%|█████▎    | 58/109 [14:41<14:29, 17.04s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  53%|█████▎    | 58/109 [14:51<14:29, 17.04s/it]
-gemini-3.1-pro-preview:  53%|█████▎    | 58/109 [14:51<14:29, 17.04s/it][ATotal:  54%|█████▍    | 59/109 [15:01<14:55, 17.91s/it]
-gemini-3.1-pro-preview:  54%|█████▍    | 59/109 [15:01<14:55, 17.91s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  54%|█████▍    | 59/109 [15:02<14:55, 17.91s/it]
-gemini-3.1-pro-preview:  54%|█████▍    | 59/109 [15:02<14:55, 17.91s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#45[0m
-Total:  54%|█████▍    | 59/109 [15:02<14:55, 17.91s/it]
-gemini-3.1-pro-preview:  54%|█████▍    | 59/109 [15:02<14:55, 17.91s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  54%|█████▍    | 59/109 [15:14<14:55, 17.91s/it]
-gemini-3.1-pro-preview:  54%|█████▍    | 59/109 [15:14<14:55, 17.91s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  54%|█████▍    | 59/109 [15:25<14:55, 17.91s/it]
-gemini-3.1-pro-preview:  54%|█████▍    | 59/109 [15:25<14:55, 17.91s/it][ATotal:  55%|█████▌    | 60/109 [15:34<18:29, 22.65s/it]
-gemini-3.1-pro-preview:  55%|█████▌    | 60/109 [15:34<18:29, 22.65s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  55%|█████▌    | 60/109 [15:35<18:29, 22.65s/it]
-gemini-3.1-pro-preview:  55%|█████▌    | 60/109 [15:35<18:29, 22.65s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#44[0m
-Total:  55%|█████▌    | 60/109 [15:35<18:29, 22.65s/it]
-gemini-3.1-pro-preview:  55%|█████▌    | 60/109 [15:35<18:29, 22.65s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  55%|█████▌    | 60/109 [15:44<18:29, 22.65s/it]
-gemini-3.1-pro-preview:  55%|█████▌    | 60/109 [15:44<18:29, 22.65s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  55%|█████▌    | 60/109 [15:49<18:29, 22.65s/it]
-gemini-3.1-pro-preview:  55%|█████▌    | 60/109 [15:49<18:29, 22.65s/it][ATotal:  56%|█████▌    | 61/109 [15:51<16:48, 21.02s/it]
-gemini-3.1-pro-preview:  56%|█████▌    | 61/109 [15:51<16:48, 21.02s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  56%|█████▌    | 61/109 [16:02<16:48, 21.02s/it]
-gemini-3.1-pro-preview:  56%|█████▌    | 61/109 [16:02<16:48, 21.02s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#43[0m
-Total:  56%|█████▌    | 61/109 [16:02<16:48, 21.02s/it]
-gemini-3.1-pro-preview:  56%|█████▌    | 61/109 [16:02<16:48, 21.02s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  56%|█████▌    | 61/109 [16:07<16:48, 21.02s/it]
-gemini-3.1-pro-preview:  56%|█████▌    | 61/109 [16:07<16:48, 21.02s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  56%|█████▌    | 61/109 [16:13<16:48, 21.02s/it]
-gemini-3.1-pro-preview:  56%|█████▌    | 61/109 [16:13<16:48, 21.02s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  56%|█████▌    | 61/109 [16:28<16:48, 21.02s/it]
-gemini-3.1-pro-preview:  56%|█████▌    | 61/109 [16:28<16:48, 21.02s/it][ATotal:  57%|█████▋    | 62/109 [16:33<21:22, 27.28s/it]
-gemini-3.1-pro-preview:  57%|█████▋    | 62/109 [16:33<21:22, 27.28s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  57%|█████▋    | 62/109 [16:37<21:22, 27.28s/it]
-gemini-3.1-pro-preview:  57%|█████▋    | 62/109 [16:37<21:22, 27.28s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#42[0m
-Total:  57%|█████▋    | 62/109 [16:37<21:22, 27.28s/it]
-gemini-3.1-pro-preview:  57%|█████▋    | 62/109 [16:37<21:22, 27.28s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  57%|█████▋    | 62/109 [16:43<21:22, 27.28s/it]
-gemini-3.1-pro-preview:  57%|█████▋    | 62/109 [16:43<21:22, 27.28s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  57%|█████▋    | 62/109 [16:50<21:22, 27.28s/it]
-gemini-3.1-pro-preview:  57%|█████▋    | 62/109 [16:50<21:22, 27.28s/it][ATotal:  58%|█████▊    | 63/109 [16:52<18:54, 24.67s/it]
-gemini-3.1-pro-preview:  58%|█████▊    | 63/109 [16:52<18:54, 24.67s/it][ATotal:  59%|█████▊    | 64/109 [16:58<14:21, 19.14s/it]
-gemini-3.1-pro-preview:  59%|█████▊    | 64/109 [16:58<14:21, 19.14s/it][A                                                       
-                                                                        [ARunning Count: 3
-Total:  59%|█████▊    | 64/109 [17:02<14:21, 19.14s/it]
-gemini-3.1-pro-preview:  59%|█████▊    | 64/109 [17:02<14:21, 19.14s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#41[0m
-Total:  59%|█████▊    | 64/109 [17:02<14:21, 19.14s/it]
-gemini-3.1-pro-preview:  59%|█████▊    | 64/109 [17:02<14:21, 19.14s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#40[0m
-Total:  59%|█████▊    | 64/109 [17:02<14:21, 19.14s/it]
-gemini-3.1-pro-preview:  59%|█████▊    | 64/109 [17:02<14:21, 19.14s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  59%|█████▊    | 64/109 [17:08<14:21, 19.14s/it]
-gemini-3.1-pro-preview:  59%|█████▊    | 64/109 [17:08<14:21, 19.14s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  59%|█████▊    | 64/109 [17:18<14:21, 19.14s/it]
-gemini-3.1-pro-preview:  59%|█████▊    | 64/109 [17:18<14:21, 19.14s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  59%|█████▊    | 64/109 [17:32<14:21, 19.14s/it]
-gemini-3.1-pro-preview:  59%|█████▊    | 64/109 [17:32<14:21, 19.14s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  59%|█████▊    | 64/109 [17:37<14:21, 19.14s/it]
-gemini-3.1-pro-preview:  59%|█████▊    | 64/109 [17:37<14:21, 19.14s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  59%|█████▊    | 64/109 [17:44<14:21, 19.14s/it]
-gemini-3.1-pro-preview:  59%|█████▊    | 64/109 [17:44<14:21, 19.14s/it][ATotal:  60%|█████▉    | 65/109 [17:47<20:36, 28.10s/it]
-gemini-3.1-pro-preview:  60%|█████▉    | 65/109 [17:47<20:36, 28.10s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  60%|█████▉    | 65/109 [17:50<20:36, 28.10s/it]
-gemini-3.1-pro-preview:  60%|█████▉    | 65/109 [17:50<20:36, 28.10s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#39[0m
-Total:  60%|█████▉    | 65/109 [17:50<20:36, 28.10s/it]
-gemini-3.1-pro-preview:  60%|█████▉    | 65/109 [17:50<20:36, 28.10s/it][ATotal:  61%|██████    | 66/109 [17:51<15:00, 20.95s/it]
-gemini-3.1-pro-preview:  61%|██████    | 66/109 [17:51<15:00, 20.95s/it][ATotal:  61%|██████▏   | 67/109 [17:58<11:37, 16.60s/it]
-gemini-3.1-pro-preview:  61%|██████▏   | 67/109 [17:58<11:37, 16.60s/it][ATotal:  62%|██████▏   | 68/109 [18:02<08:47, 12.88s/it]
-gemini-3.1-pro-preview:  62%|██████▏   | 68/109 [18:02<08:47, 12.88s/it][A                                                       
-                                                                        [ARunning Count: 2
-Total:  62%|██████▏   | 68/109 [18:02<08:47, 12.88s/it]
-gemini-3.1-pro-preview:  62%|██████▏   | 68/109 [18:02<08:47, 12.88s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#38[0m
-Total:  62%|██████▏   | 68/109 [18:02<08:47, 12.88s/it]
-gemini-3.1-pro-preview:  62%|██████▏   | 68/109 [18:02<08:47, 12.88s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#37[0m
-Total:  62%|██████▏   | 68/109 [18:02<08:47, 12.88s/it]
-gemini-3.1-pro-preview:  62%|██████▏   | 68/109 [18:02<08:47, 12.88s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#36[0m
-Total:  62%|██████▏   | 68/109 [18:02<08:47, 12.88s/it]
-gemini-3.1-pro-preview:  62%|██████▏   | 68/109 [18:02<08:47, 12.88s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  62%|██████▏   | 68/109 [18:15<08:47, 12.88s/it]
-gemini-3.1-pro-preview:  62%|██████▏   | 68/109 [18:15<08:47, 12.88s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  62%|██████▏   | 68/109 [18:26<08:47, 12.88s/it]
-gemini-3.1-pro-preview:  62%|██████▏   | 68/109 [18:26<08:47, 12.88s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  62%|██████▏   | 68/109 [18:38<08:47, 12.88s/it]
-gemini-3.1-pro-preview:  62%|██████▏   | 68/109 [18:38<08:47, 12.88s/it][ATotal:  63%|██████▎   | 69/109 [18:42<14:00, 21.01s/it]
-gemini-3.1-pro-preview:  63%|██████▎   | 69/109 [18:42<14:00, 21.01s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  63%|██████▎   | 69/109 [18:52<14:00, 21.01s/it]
-gemini-3.1-pro-preview:  63%|██████▎   | 69/109 [18:52<14:00, 21.01s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#35[0m
-Total:  63%|██████▎   | 69/109 [18:52<14:00, 21.01s/it]
-gemini-3.1-pro-preview:  63%|██████▎   | 69/109 [18:52<14:00, 21.01s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  63%|██████▎   | 69/109 [19:01<14:00, 21.01s/it]
-gemini-3.1-pro-preview:  63%|██████▎   | 69/109 [19:01<14:00, 21.01s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  63%|██████▎   | 69/109 [19:09<14:00, 21.01s/it]
-gemini-3.1-pro-preview:  63%|██████▎   | 69/109 [19:09<14:00, 21.01s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  63%|██████▎   | 69/109 [19:14<14:00, 21.01s/it]
-gemini-3.1-pro-preview:  63%|██████▎   | 69/109 [19:14<14:00, 21.01s/it][ATotal:  64%|██████▍   | 70/109 [19:24<17:44, 27.29s/it]
-gemini-3.1-pro-preview:  64%|██████▍   | 70/109 [19:24<17:44, 27.29s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  64%|██████▍   | 70/109 [19:26<17:44, 27.29s/it]
-gemini-3.1-pro-preview:  64%|██████▍   | 70/109 [19:26<17:44, 27.29s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#34[0m
-Total:  64%|██████▍   | 70/109 [19:26<17:44, 27.29s/it]
-gemini-3.1-pro-preview:  64%|██████▍   | 70/109 [19:26<17:44, 27.29s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  64%|██████▍   | 70/109 [19:37<17:44, 27.29s/it]
-gemini-3.1-pro-preview:  64%|██████▍   | 70/109 [19:37<17:44, 27.29s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  64%|██████▍   | 70/109 [19:48<17:44, 27.29s/it]
-gemini-3.1-pro-preview:  64%|██████▍   | 70/109 [19:48<17:44, 27.29s/it][ATotal:  65%|██████▌   | 71/109 [19:53<17:30, 27.65s/it]
-gemini-3.1-pro-preview:  65%|██████▌   | 71/109 [19:53<17:30, 27.65s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  65%|██████▌   | 71/109 [19:57<17:30, 27.65s/it]
-gemini-3.1-pro-preview:  65%|██████▌   | 71/109 [19:57<17:30, 27.65s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#33[0m
-Total:  65%|██████▌   | 71/109 [19:57<17:30, 27.65s/it]
-gemini-3.1-pro-preview:  65%|██████▌   | 71/109 [19:57<17:30, 27.65s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  65%|██████▌   | 71/109 [20:09<17:30, 27.65s/it]
-gemini-3.1-pro-preview:  65%|██████▌   | 71/109 [20:09<17:30, 27.65s/it][ATotal:  66%|██████▌   | 72/109 [20:10<15:07, 24.52s/it]
-gemini-3.1-pro-preview:  66%|██████▌   | 72/109 [20:10<15:07, 24.52s/it][ATotal:  67%|██████▋   | 73/109 [20:13<10:50, 18.06s/it]
-gemini-3.1-pro-preview:  67%|██████▋   | 73/109 [20:13<10:50, 18.06s/it][A                                                       
-                                                                        [ARunning Count: 3
-Total:  67%|██████▋   | 73/109 [20:17<10:50, 18.06s/it]
-gemini-3.1-pro-preview:  67%|██████▋   | 73/109 [20:17<10:50, 18.06s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#32[0m
-Total:  67%|██████▋   | 73/109 [20:17<10:50, 18.06s/it]
-gemini-3.1-pro-preview:  67%|██████▋   | 73/109 [20:17<10:50, 18.06s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#31[0m
-Total:  67%|██████▋   | 73/109 [20:17<10:50, 18.06s/it]
-gemini-3.1-pro-preview:  67%|██████▋   | 73/109 [20:17<10:50, 18.06s/it][ATotal:  68%|██████▊   | 74/109 [20:27<09:57, 17.06s/it]
-gemini-3.1-pro-preview:  68%|██████▊   | 74/109 [20:27<09:57, 17.06s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  68%|██████▊   | 74/109 [20:29<09:57, 17.06s/it]
-gemini-3.1-pro-preview:  68%|██████▊   | 74/109 [20:29<09:57, 17.06s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#30[0m
-Total:  68%|██████▊   | 74/109 [20:29<09:57, 17.06s/it]
-gemini-3.1-pro-preview:  68%|██████▊   | 74/109 [20:29<09:57, 17.06s/it][A                                                       
-                                                                        [AWarning:  Invalid status code 502:
-
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-<html>
-<head><title>502 Bad Gateway</title></head>
-<body>
-<center><h1>502 Bad Gateway</h1></center>
- Sorry for the inconvenience.<br/>
-Please report this message and include the following information to us.<br/>
-Thank you very much!</p>
-<table>
-<tr>
-<td>URL:</td>
-<td>https://routify-pub.alibaba-inc.com/protocol/openai/v1/chat/completions</td>
-</tr>
-<tr>
-<td>Server:</td>
-<td>tengine-ingress.033044171160.na620</td>
-</tr>
-<tr>
-<td>Date:</td>
-<td>2026/07/12 20:38:49</td>
-</tr>
-</table>
-<hr/>Powered by Tengine/AServer-Ingress/3.0.46<hr><center>tengine ingress</center>
-</body>
-</html>
-Total:  68%|██████▊   | 74/109 [20:32<09:57, 17.06s/it]
-gemini-3.1-pro-preview:  68%|██████▊   | 74/109 [20:32<09:57, 17.06s/it][A                                                       
-                                                                        [A
-Total:  68%|██████▊   | 74/109 [20:32<09:57, 17.06s/it]
-gemini-3.1-pro-preview:  68%|██████▊   | 74/109 [20:32<09:57, 17.06s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  68%|██████▊   | 74/109 [20:40<09:57, 17.06s/it]
-gemini-3.1-pro-preview:  68%|██████▊   | 74/109 [20:40<09:57, 17.06s/it][ATotal:  69%|██████▉   | 75/109 [20:44<09:36, 16.96s/it]
-gemini-3.1-pro-preview:  69%|██████▉   | 75/109 [20:44<09:36, 16.96s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  69%|██████▉   | 75/109 [20:55<09:36, 16.96s/it]
-gemini-3.1-pro-preview:  69%|██████▉   | 75/109 [20:55<09:36, 16.96s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#29[0m
-Total:  69%|██████▉   | 75/109 [20:55<09:36, 16.96s/it]
-gemini-3.1-pro-preview:  69%|██████▉   | 75/109 [20:55<09:36, 16.96s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  69%|██████▉   | 75/109 [21:06<09:36, 16.96s/it]
-gemini-3.1-pro-preview:  69%|██████▉   | 75/109 [21:06<09:36, 16.96s/it][ATotal:  70%|██████▉   | 76/109 [21:16<11:41, 21.27s/it]
-gemini-3.1-pro-preview:  70%|██████▉   | 76/109 [21:16<11:41, 21.27s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  70%|██████▉   | 76/109 [21:16<11:41, 21.27s/it]
-gemini-3.1-pro-preview:  70%|██████▉   | 76/109 [21:16<11:41, 21.27s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#28[0m
-Total:  70%|██████▉   | 76/109 [21:16<11:41, 21.27s/it]
-gemini-3.1-pro-preview:  70%|██████▉   | 76/109 [21:16<11:41, 21.27s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  70%|██████▉   | 76/109 [21:26<11:41, 21.27s/it]
-gemini-3.1-pro-preview:  70%|██████▉   | 76/109 [21:26<11:41, 21.27s/it][ATotal:  71%|███████   | 77/109 [21:26<09:37, 18.04s/it]
-gemini-3.1-pro-preview:  71%|███████   | 77/109 [21:26<09:37, 18.04s/it][ATotal:  72%|███████▏  | 78/109 [21:32<07:28, 14.46s/it]
-gemini-3.1-pro-preview:  72%|███████▏  | 78/109 [21:32<07:28, 14.46s/it][A                                                       
-                                                                        [ARunning Count: 3
-Total:  72%|███████▏  | 78/109 [21:34<07:28, 14.46s/it]
-gemini-3.1-pro-preview:  72%|███████▏  | 78/109 [21:34<07:28, 14.46s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#27[0m
-Total:  72%|███████▏  | 78/109 [21:34<07:28, 14.46s/it]
-gemini-3.1-pro-preview:  72%|███████▏  | 78/109 [21:34<07:28, 14.46s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#26[0m
-Total:  72%|███████▏  | 78/109 [21:34<07:28, 14.46s/it]
-gemini-3.1-pro-preview:  72%|███████▏  | 78/109 [21:34<07:28, 14.46s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  72%|███████▏  | 78/109 [21:42<07:28, 14.46s/it]
-gemini-3.1-pro-preview:  72%|███████▏  | 78/109 [21:42<07:28, 14.46s/it][ATotal:  72%|███████▏  | 79/109 [21:51<07:53, 15.79s/it]
-gemini-3.1-pro-preview:  72%|███████▏  | 79/109 [21:51<07:53, 15.79s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  72%|███████▏  | 79/109 [21:57<07:53, 15.79s/it]
-gemini-3.1-pro-preview:  72%|███████▏  | 79/109 [21:57<07:53, 15.79s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#25[0m
-Total:  72%|███████▏  | 79/109 [21:57<07:53, 15.79s/it]
-gemini-3.1-pro-preview:  72%|███████▏  | 79/109 [21:57<07:53, 15.79s/it][ATotal:  73%|███████▎  | 80/109 [21:58<06:22, 13.19s/it]
-gemini-3.1-pro-preview:  73%|███████▎  | 80/109 [21:58<06:22, 13.19s/it][ATotal:  74%|███████▍  | 81/109 [22:01<04:46, 10.23s/it]
-gemini-3.1-pro-preview:  74%|███████▍  | 81/109 [22:01<04:46, 10.23s/it][A                                                       
-                                                                        [ARunning Count: 3
-Total:  74%|███████▍  | 81/109 [22:10<04:46, 10.23s/it]
-gemini-3.1-pro-preview:  74%|███████▍  | 81/109 [22:10<04:46, 10.23s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#24[0m
-Total:  74%|███████▍  | 81/109 [22:10<04:46, 10.23s/it]
-gemini-3.1-pro-preview:  74%|███████▍  | 81/109 [22:10<04:46, 10.23s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#23[0m
-Total:  74%|███████▍  | 81/109 [22:10<04:46, 10.23s/it]
-gemini-3.1-pro-preview:  74%|███████▍  | 81/109 [22:10<04:46, 10.23s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  74%|███████▍  | 81/109 [22:19<04:46, 10.23s/it]
-gemini-3.1-pro-preview:  74%|███████▍  | 81/109 [22:19<04:46, 10.23s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  74%|███████▍  | 81/109 [22:33<04:46, 10.23s/it]
-gemini-3.1-pro-preview:  74%|███████▍  | 81/109 [22:33<04:46, 10.23s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  74%|███████▍  | 81/109 [22:40<04:46, 10.23s/it]
-gemini-3.1-pro-preview:  74%|███████▍  | 81/109 [22:40<04:46, 10.23s/it][ATotal:  75%|███████▌  | 82/109 [22:51<09:51, 21.90s/it]
-gemini-3.1-pro-preview:  75%|███████▌  | 82/109 [22:51<09:51, 21.90s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  75%|███████▌  | 82/109 [22:52<09:51, 21.90s/it]
-gemini-3.1-pro-preview:  75%|███████▌  | 82/109 [22:52<09:51, 21.90s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#22[0m
-Total:  75%|███████▌  | 82/109 [22:52<09:51, 21.90s/it]
-gemini-3.1-pro-preview:  75%|███████▌  | 82/109 [22:52<09:51, 21.90s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  75%|███████▌  | 82/109 [23:02<09:51, 21.90s/it]
-gemini-3.1-pro-preview:  75%|███████▌  | 82/109 [23:02<09:51, 21.90s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  75%|███████▌  | 82/109 [23:11<09:51, 21.90s/it]
-gemini-3.1-pro-preview:  75%|███████▌  | 82/109 [23:11<09:51, 21.90s/it][ATotal:  76%|███████▌  | 83/109 [23:21<10:33, 24.36s/it]
-gemini-3.1-pro-preview:  76%|███████▌  | 83/109 [23:21<10:33, 24.36s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  76%|███████▌  | 83/109 [23:25<10:33, 24.36s/it]
-gemini-3.1-pro-preview:  76%|███████▌  | 83/109 [23:25<10:33, 24.36s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#21[0m
-Total:  76%|███████▌  | 83/109 [23:25<10:33, 24.36s/it]
-gemini-3.1-pro-preview:  76%|███████▌  | 83/109 [23:25<10:33, 24.36s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  76%|███████▌  | 83/109 [23:37<10:33, 24.36s/it]
-gemini-3.1-pro-preview:  76%|███████▌  | 83/109 [23:37<10:33, 24.36s/it][ATotal:  77%|███████▋  | 84/109 [23:44<10:04, 24.19s/it]
-gemini-3.1-pro-preview:  77%|███████▋  | 84/109 [23:44<10:04, 24.19s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  77%|███████▋  | 84/109 [23:46<10:04, 24.19s/it]
-gemini-3.1-pro-preview:  77%|███████▋  | 84/109 [23:46<10:04, 24.19s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#20[0m
-Total:  77%|███████▋  | 84/109 [23:46<10:04, 24.19s/it]
-gemini-3.1-pro-preview:  77%|███████▋  | 84/109 [23:46<10:04, 24.19s/it][ATotal:  78%|███████▊  | 85/109 [23:48<07:14, 18.11s/it]
-gemini-3.1-pro-preview:  78%|███████▊  | 85/109 [23:48<07:14, 18.11s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  78%|███████▊  | 85/109 [23:52<07:14, 18.11s/it]
-gemini-3.1-pro-preview:  78%|███████▊  | 85/109 [23:52<07:14, 18.11s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#19[0m
-Total:  78%|███████▊  | 85/109 [23:52<07:14, 18.11s/it]
-gemini-3.1-pro-preview:  78%|███████▊  | 85/109 [23:52<07:14, 18.11s/it][ATotal:  79%|███████▉  | 86/109 [23:52<05:18, 13.84s/it]
-gemini-3.1-pro-preview:  79%|███████▉  | 86/109 [23:52<05:18, 13.84s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  79%|███████▉  | 86/109 [23:57<05:18, 13.84s/it]
-gemini-3.1-pro-preview:  79%|███████▉  | 86/109 [23:57<05:18, 13.84s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#18[0m
-Total:  79%|███████▉  | 86/109 [23:57<05:18, 13.84s/it]
-gemini-3.1-pro-preview:  79%|███████▉  | 86/109 [23:57<05:18, 13.84s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  79%|███████▉  | 86/109 [24:10<05:18, 13.84s/it]
-gemini-3.1-pro-preview:  79%|███████▉  | 86/109 [24:10<05:18, 13.84s/it][ATotal:  80%|███████▉  | 87/109 [24:22<06:46, 18.46s/it]
-gemini-3.1-pro-preview:  80%|███████▉  | 87/109 [24:22<06:46, 18.46s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  80%|███████▉  | 87/109 [24:22<06:46, 18.46s/it]
-gemini-3.1-pro-preview:  80%|███████▉  | 87/109 [24:22<06:46, 18.46s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#17[0m
-Total:  80%|███████▉  | 87/109 [24:22<06:46, 18.46s/it]
-gemini-3.1-pro-preview:  80%|███████▉  | 87/109 [24:22<06:46, 18.46s/it][ATotal:  81%|████████  | 88/109 [24:23<04:42, 13.44s/it]
-gemini-3.1-pro-preview:  81%|████████  | 88/109 [24:23<04:42, 13.44s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  81%|████████  | 88/109 [24:29<04:42, 13.44s/it]
-gemini-3.1-pro-preview:  81%|████████  | 88/109 [24:29<04:42, 13.44s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#16[0m
-Total:  81%|████████  | 88/109 [24:29<04:42, 13.44s/it]
-gemini-3.1-pro-preview:  81%|████████  | 88/109 [24:29<04:42, 13.44s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  81%|████████  | 88/109 [24:41<04:42, 13.44s/it]
-gemini-3.1-pro-preview:  81%|████████  | 88/109 [24:41<04:42, 13.44s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  81%|████████  | 88/109 [24:51<04:42, 13.44s/it]
-gemini-3.1-pro-preview:  81%|████████  | 88/109 [24:51<04:42, 13.44s/it][ATotal:  82%|████████▏ | 89/109 [24:55<06:17, 18.89s/it]
-gemini-3.1-pro-preview:  82%|████████▏ | 89/109 [24:55<06:17, 18.89s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  82%|████████▏ | 89/109 [25:03<06:17, 18.89s/it]
-gemini-3.1-pro-preview:  82%|████████▏ | 89/109 [25:03<06:17, 18.89s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#15[0m
-Total:  82%|████████▏ | 89/109 [25:03<06:17, 18.89s/it]
-gemini-3.1-pro-preview:  82%|████████▏ | 89/109 [25:03<06:17, 18.89s/it][ATotal:  83%|████████▎ | 90/109 [25:06<05:12, 16.45s/it]
-gemini-3.1-pro-preview:  83%|████████▎ | 90/109 [25:06<05:12, 16.45s/it][ATotal:  83%|████████▎ | 91/109 [25:11<03:55, 13.10s/it]
-gemini-3.1-pro-preview:  83%|████████▎ | 91/109 [25:11<03:55, 13.10s/it][A                                                       
-                                                                        [ARunning Count: 3
-Total:  83%|████████▎ | 91/109 [25:16<03:55, 13.10s/it]
-gemini-3.1-pro-preview:  83%|████████▎ | 91/109 [25:16<03:55, 13.10s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#14[0m
-Total:  83%|████████▎ | 91/109 [25:16<03:55, 13.10s/it]
-gemini-3.1-pro-preview:  83%|████████▎ | 91/109 [25:16<03:55, 13.10s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#13[0m
-Total:  83%|████████▎ | 91/109 [25:16<03:55, 13.10s/it]
-gemini-3.1-pro-preview:  83%|████████▎ | 91/109 [25:16<03:55, 13.10s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  83%|████████▎ | 91/109 [25:25<03:55, 13.10s/it]
-gemini-3.1-pro-preview:  83%|████████▎ | 91/109 [25:25<03:55, 13.10s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  83%|████████▎ | 91/109 [25:35<03:55, 13.10s/it]
-gemini-3.1-pro-preview:  83%|████████▎ | 91/109 [25:35<03:55, 13.10s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  83%|████████▎ | 91/109 [25:41<03:55, 13.10s/it]
-gemini-3.1-pro-preview:  83%|████████▎ | 91/109 [25:41<03:55, 13.10s/it][ATotal:  84%|████████▍ | 92/109 [25:43<05:18, 18.76s/it]
-gemini-3.1-pro-preview:  84%|████████▍ | 92/109 [25:43<05:18, 18.76s/it][ATotal:  85%|████████▌ | 93/109 [25:46<03:45, 14.08s/it]
-gemini-3.1-pro-preview:  85%|████████▌ | 93/109 [25:46<03:45, 14.08s/it][A                                                       
-                                                                        [ARunning Count: 3
-Total:  85%|████████▌ | 93/109 [25:46<03:45, 14.08s/it]
-gemini-3.1-pro-preview:  85%|████████▌ | 93/109 [25:46<03:45, 14.08s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#12[0m
-Total:  85%|████████▌ | 93/109 [25:46<03:45, 14.08s/it]
-gemini-3.1-pro-preview:  85%|████████▌ | 93/109 [25:46<03:45, 14.08s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#11[0m
-Total:  85%|████████▌ | 93/109 [25:46<03:45, 14.08s/it]
-gemini-3.1-pro-preview:  85%|████████▌ | 93/109 [25:46<03:45, 14.08s/it][ATotal:  86%|████████▌ | 94/109 [25:52<02:54, 11.64s/it]
-gemini-3.1-pro-preview:  86%|████████▌ | 94/109 [25:52<02:54, 11.64s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  86%|████████▌ | 94/109 [25:58<02:54, 11.64s/it]
-gemini-3.1-pro-preview:  86%|████████▌ | 94/109 [25:58<02:54, 11.64s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#10[0m
-Total:  86%|████████▌ | 94/109 [25:58<02:54, 11.64s/it]
-gemini-3.1-pro-preview:  86%|████████▌ | 94/109 [25:58<02:54, 11.64s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  86%|████████▌ | 94/109 [26:11<02:54, 11.64s/it]
-gemini-3.1-pro-preview:  86%|████████▌ | 94/109 [26:11<02:54, 11.64s/it][ATotal:  87%|████████▋ | 95/109 [26:13<03:23, 14.55s/it]
-gemini-3.1-pro-preview:  87%|████████▋ | 95/109 [26:13<03:23, 14.55s/it][ATotal:  88%|████████▊ | 96/109 [26:17<02:25, 11.23s/it]
-gemini-3.1-pro-preview:  88%|████████▊ | 96/109 [26:17<02:25, 11.23s/it][ATotal:  89%|████████▉ | 97/109 [26:18<01:37,  8.12s/it]
-gemini-3.1-pro-preview:  89%|████████▉ | 97/109 [26:18<01:37,  8.12s/it][A                                                       
-                                                                        [ARunning Count: 2
-Total:  89%|████████▉ | 97/109 [26:22<01:37,  8.12s/it]
-gemini-3.1-pro-preview:  89%|████████▉ | 97/109 [26:22<01:37,  8.12s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#9[0m
-Total:  89%|████████▉ | 97/109 [26:22<01:37,  8.12s/it]
-gemini-3.1-pro-preview:  89%|████████▉ | 97/109 [26:22<01:37,  8.12s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#8[0m
-Total:  89%|████████▉ | 97/109 [26:22<01:37,  8.12s/it]
-gemini-3.1-pro-preview:  89%|████████▉ | 97/109 [26:22<01:37,  8.12s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#7[0m
-Total:  89%|████████▉ | 97/109 [26:22<01:37,  8.12s/it]
-gemini-3.1-pro-preview:  89%|████████▉ | 97/109 [26:22<01:37,  8.12s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  89%|████████▉ | 97/109 [26:32<01:37,  8.12s/it]
-gemini-3.1-pro-preview:  89%|████████▉ | 97/109 [26:32<01:37,  8.12s/it][ATotal:  90%|████████▉ | 98/109 [26:37<02:07, 11.63s/it]
-gemini-3.1-pro-preview:  90%|████████▉ | 98/109 [26:37<02:07, 11.63s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  90%|████████▉ | 98/109 [26:46<02:07, 11.63s/it]
-gemini-3.1-pro-preview:  90%|████████▉ | 98/109 [26:46<02:07, 11.63s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#6[0m
-Total:  90%|████████▉ | 98/109 [26:46<02:07, 11.63s/it]
-gemini-3.1-pro-preview:  90%|████████▉ | 98/109 [26:46<02:07, 11.63s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:  90%|████████▉ | 98/109 [26:55<02:07, 11.63s/it]
-gemini-3.1-pro-preview:  90%|████████▉ | 98/109 [26:55<02:07, 11.63s/it][ATotal:  91%|█████████ | 99/109 [27:00<02:29, 14.95s/it]
-gemini-3.1-pro-preview:  91%|█████████ | 99/109 [27:00<02:29, 14.95s/it][ATotal:  92%|█████████▏| 100/109 [27:01<01:35, 10.66s/it]
-gemini-3.1-pro-preview:  92%|█████████▏| 100/109 [27:01<01:35, 10.66s/it][ATotal:  93%|█████████▎| 101/109 [27:04<01:06,  8.29s/it]
-gemini-3.1-pro-preview:  93%|█████████▎| 101/109 [27:04<01:06,  8.29s/it][A                                                        
-                                                                         [ARunning Count: 2
-Total:  93%|█████████▎| 101/109 [27:07<01:06,  8.29s/it]
-gemini-3.1-pro-preview:  93%|█████████▎| 101/109 [27:07<01:06,  8.29s/it][A                                                        
-                                                                         [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#5[0m
-Total:  93%|█████████▎| 101/109 [27:07<01:06,  8.29s/it]
-gemini-3.1-pro-preview:  93%|█████████▎| 101/109 [27:07<01:06,  8.29s/it][A                                                        
-                                                                         [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#4[0m
-Total:  93%|█████████▎| 101/109 [27:07<01:06,  8.29s/it]
-gemini-3.1-pro-preview:  93%|█████████▎| 101/109 [27:07<01:06,  8.29s/it][A                                                        
-                                                                         [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#3[0m
-Total:  93%|█████████▎| 101/109 [27:07<01:06,  8.29s/it]
-gemini-3.1-pro-preview:  93%|█████████▎| 101/109 [27:07<01:06,  8.29s/it][ATotal:  94%|█████████▎| 102/109 [27:10<00:53,  7.70s/it]
-gemini-3.1-pro-preview:  94%|█████████▎| 102/109 [27:10<00:53,  7.70s/it][A                                                        
-                                                                         [ARunning Count: 4
-Total:  94%|█████████▎| 102/109 [27:15<00:53,  7.70s/it]
-gemini-3.1-pro-preview:  94%|█████████▎| 102/109 [27:15<00:53,  7.70s/it][A                                                        
-                                                                         [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#2[0m
-Total:  94%|█████████▎| 102/109 [27:15<00:53,  7.70s/it]
-gemini-3.1-pro-preview:  94%|█████████▎| 102/109 [27:15<00:53,  7.70s/it][A                                                        
-                                                                         [ARunning Count: 5
-Total:  94%|█████████▎| 102/109 [27:22<00:53,  7.70s/it]
-gemini-3.1-pro-preview:  94%|█████████▎| 102/109 [27:22<00:53,  7.70s/it][ATotal:  94%|█████████▍| 103/109 [27:26<01:02, 10.36s/it]
-gemini-3.1-pro-preview:  94%|█████████▍| 103/109 [27:26<01:02, 10.36s/it][A                                                        
-                                                                         [ARunning Count: 4
-Total:  94%|█████████▍| 103/109 [27:33<01:02, 10.36s/it]
-gemini-3.1-pro-preview:  94%|█████████▍| 103/109 [27:33<01:02, 10.36s/it][A                                                        
-                                                                         [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#1[0m
-Total:  94%|█████████▍| 103/109 [27:33<01:02, 10.36s/it]
-gemini-3.1-pro-preview:  94%|█████████▍| 103/109 [27:33<01:02, 10.36s/it][A                                                        
-                                                                         [ARunning Count: 5
-Total:  94%|█████████▍| 103/109 [27:38<01:02, 10.36s/it]
-gemini-3.1-pro-preview:  94%|█████████▍| 103/109 [27:38<01:02, 10.36s/it][ATotal:  95%|█████████▌| 104/109 [27:50<01:11, 14.38s/it]
-gemini-3.1-pro-preview:  95%|█████████▌| 104/109 [27:50<01:11, 14.39s/it][A                                                        
-                                                                         [ARunning Count: 4
-Total:  95%|█████████▌| 104/109 [27:52<01:11, 14.38s/it]
-gemini-3.1-pro-preview:  95%|█████████▌| 104/109 [27:52<01:11, 14.39s/it][A                                                        
-                                                                         [A[92mAssigned gemini-3.1-pro-preview/alfworld-std#0[0m
-Total:  95%|█████████▌| 104/109 [27:52<01:11, 14.38s/it]
-gemini-3.1-pro-preview:  95%|█████████▌| 104/109 [27:52<01:11, 14.39s/it][A                                                        
-                                                                         [ARunning Count: 5
-Total:  95%|█████████▌| 104/109 [28:02<01:11, 14.38s/it]
-gemini-3.1-pro-preview:  95%|█████████▌| 104/109 [28:02<01:11, 14.39s/it][ATotal:  96%|█████████▋| 105/109 [28:04<00:57, 14.31s/it]
-gemini-3.1-pro-preview:  96%|█████████▋| 105/109 [28:04<00:57, 14.31s/it][A                                                        
-                                                                         [ARunning Count: 4
-Total:  96%|█████████▋| 105/109 [28:08<00:57, 14.31s/it]
-gemini-3.1-pro-preview:  96%|█████████▋| 105/109 [28:08<00:57, 14.31s/it][A                                                        
-                                                                         [ARunning Count: 4
-Total:  96%|█████████▋| 105/109 [28:14<00:57, 14.31s/it]
-gemini-3.1-pro-preview:  96%|█████████▋| 105/109 [28:14<00:57, 14.31s/it][ATotal:  97%|█████████▋| 106/109 [28:29<00:51, 17.28s/it]
-gemini-3.1-pro-preview:  97%|█████████▋| 106/109 [28:29<00:51, 17.28s/it][A                                                        
-                                                                         [ARunning Count: 3
-Total:  97%|█████████▋| 106/109 [28:29<00:51, 17.28s/it]
-gemini-3.1-pro-preview:  97%|█████████▋| 106/109 [28:29<00:51, 17.28s/it][ATotal:  98%|█████████▊| 107/109 [28:31<00:25, 12.93s/it]
-gemini-3.1-pro-preview:  98%|█████████▊| 107/109 [28:31<00:25, 12.93s/it][ATotal:  99%|█████████▉| 108/109 [28:34<00:09,  9.84s/it]
-gemini-3.1-pro-preview:  99%|█████████▉| 108/109 [28:34<00:09,  9.84s/it][A                                                        
-                                                                         [ARunning Count: 1
-Total:  99%|█████████▉| 108/109 [28:37<00:09,  9.84s/it]
-gemini-3.1-pro-preview:  99%|█████████▉| 108/109 [28:37<00:09,  9.84s/it][ATotal: 100%|██████████| 109/109 [28:44<00:00,  9.74s/it]
-gemini-3.1-pro-preview: 100%|██████████| 109/109 [28:44<00:00,  9.74s/it][A                                                        
-                                                                         [ARunning Count: 0
-Total: 100%|██████████| 109/109 [28:46<00:00,  9.74s/it]
-gemini-3.1-pro-preview: 100%|██████████| 109/109 [28:46<00:00,  9.74s/it][ATotal: 100%|██████████| 109/109 [28:46<00:00, 15.84s/it]
-gemini-3.1-pro-preview: 100%|██████████| 109/109 [28:46<00:00, 15.84s/it]
-
-
-============================================
-[96mMessage: 109 sample(s) started. [0m
-[92m   >> 109 sample(s) finished successfully.[0m
-[96m   >> results are saved to outputs/gemini-3.1-pro-preview/alfworld/2026-07-12-20-18-16-run[0m
-============================================
-
-

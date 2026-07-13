@@ -1,134 +1,0 @@
-/Users/faker/Library/CloudStorage/北大网盘2.0-许天识_2301111861-disk.pku.edu.cn/我的文档库/许天识_2301111861/SEC Lab/隐私计算/笔记大全/投稿计划/tong (2)/code/Life-Harness/AgentBench/.venv/lib/python3.9/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  torch.utils._pytree._register_pytree_node(
-W0713 10:22:35.504544 67755 .venv/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
-/Users/faker/Library/CloudStorage/北大网盘2.0-许天识_2301111861-disk.pku.edu.cn/我的文档库/许天识_2301111861/SEC Lab/隐私计算/笔记大全/投稿计划/tong (2)/code/Life-Harness/AgentBench/.venv/lib/python3.9/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
-  torch.utils._pytree._register_pytree_node(
-[93mWarning: 10 agent(s) and 19 task(s) are defined but not used, they will be ignored.[0m
-[93m    Agent: {'gpt-3.5-turbo-0613', 'claude-opus-4-8', 'gpt-5.5', 'vicuna-13b', 'text-davinci-002', 'wizard-30b', 'vicuna-33b', 'qwen3-4b-instruct', 'vicuna-7b', 'text-davinci-003'}[0m
-[93m    Task: {'dbbench-std', 'kg-env_train', 'ltp-dev', 'ltp-std', 'alfworld-std-baseline', 'dbbench-env_train', 'm2w-dev', 'avalon-dev-single', 'kg-std', 'cg-dev', 'm2w-std', 'cg-std', 'alfworld-env_train', 'alfworld-std', 'avalon-dev-naive', 'webshop-std-baseline', 'webshop-std', 'os-env_train', 'webshop-env_train'}[0m
-[92mcreating os-std client...[0m
-TaskClient created: os-std (http://localhost:5020/api)
-[96mMessage: 144 samples remaining.[0m
-[96mAgent "gemini-3.1-pro-preview" needs to run 1 tasks with total 144 samples:[0m
-[96m    Task "os-std": 144[0m
-Total:   0%|          | 0/144 [00:00<?, ?it/s]
-gemini-3.1-pro-preview:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
-                                                               [ARunning Count: 0
-Total:   0%|          | 0/144 [00:00<?, ?it/s]
-gemini-3.1-pro-preview:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
-                                                               [A[92mAssigned gemini-3.1-pro-preview/os-std#143[0m
-Total:   0%|          | 0/144 [00:00<?, ?it/s]
-gemini-3.1-pro-preview:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
-                                                               [A[92mAssigned gemini-3.1-pro-preview/os-std#142[0m
-Total:   0%|          | 0/144 [00:00<?, ?it/s]
-gemini-3.1-pro-preview:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
-                                                               [A[92mAssigned gemini-3.1-pro-preview/os-std#141[0m
-Total:   0%|          | 0/144 [00:00<?, ?it/s]
-gemini-3.1-pro-preview:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
-                                                               [A[92mAssigned gemini-3.1-pro-preview/os-std#140[0m
-Total:   0%|          | 0/144 [00:00<?, ?it/s]
-gemini-3.1-pro-preview:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
-                                                               [A[92mAssigned gemini-3.1-pro-preview/os-std#139[0m
-Total:   0%|          | 0/144 [00:00<?, ?it/s]
-gemini-3.1-pro-preview:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
-                                                               [ARunning Count: 5
-Total:   0%|          | 0/144 [00:11<?, ?it/s]
-gemini-3.1-pro-preview:   0%|          | 0/144 [00:11<?, ?it/s][ATotal:   1%|          | 1/144 [00:12<28:36, 12.00s/it]
-gemini-3.1-pro-preview:   1%|          | 1/144 [00:12<28:36, 12.00s/it][ATotal:   1%|▏         | 2/144 [00:12<13:02,  5.51s/it]
-gemini-3.1-pro-preview:   1%|▏         | 2/144 [00:12<13:02,  5.51s/it][A                                                      
-                                                                       [ARunning Count: 3
-Total:   1%|▏         | 2/144 [00:23<13:02,  5.51s/it]
-gemini-3.1-pro-preview:   1%|▏         | 2/144 [00:23<13:02,  5.51s/it][A                                                      
-                                                                       [A[92mAssigned gemini-3.1-pro-preview/os-std#138[0m
-Total:   1%|▏         | 2/144 [00:23<13:02,  5.51s/it]
-gemini-3.1-pro-preview:   1%|▏         | 2/144 [00:23<13:02,  5.51s/it][A                                                      
-                                                                       [A[92mAssigned gemini-3.1-pro-preview/os-std#137[0m
-Total:   1%|▏         | 2/144 [00:23<13:02,  5.51s/it]
-gemini-3.1-pro-preview:   1%|▏         | 2/144 [00:23<13:02,  5.51s/it][ATotal:   2%|▏         | 3/144 [00:31<27:07, 11.54s/it]
-gemini-3.1-pro-preview:   2%|▏         | 3/144 [00:31<27:07, 11.54s/it][A                                                      
-                                                                       [ARunning Count: 4
-Total:   2%|▏         | 3/144 [00:32<27:07, 11.54s/it]
-gemini-3.1-pro-preview:   2%|▏         | 3/144 [00:32<27:07, 11.54s/it][A                                                      
-                                                                       [A[92mAssigned gemini-3.1-pro-preview/os-std#136[0m
-Total:   2%|▏         | 3/144 [00:32<27:07, 11.54s/it]
-gemini-3.1-pro-preview:   2%|▏         | 3/144 [00:32<27:07, 11.54s/it][ATotal:   3%|▎         | 4/144 [00:42<25:48, 11.06s/it]
-gemini-3.1-pro-preview:   3%|▎         | 4/144 [00:42<25:48, 11.06s/it][A                                                      
-                                                                       [ARunning Count: 4
-Total:   3%|▎         | 4/144 [00:42<25:48, 11.06s/it]
-gemini-3.1-pro-preview:   3%|▎         | 4/144 [00:42<25:48, 11.06s/it][A                                                      
-                                                                       [A[92mAssigned gemini-3.1-pro-preview/os-std#135[0m
-Total:   3%|▎         | 4/144 [00:42<25:48, 11.06s/it]
-gemini-3.1-pro-preview:   3%|▎         | 4/144 [00:42<25:48, 11.06s/it][ATotal:   3%|▎         | 5/144 [00:53<26:13, 11.32s/it]
-gemini-3.1-pro-preview:   3%|▎         | 5/144 [00:53<26:13, 11.32s/it][A                                                      
-                                                                       [ARunning Count: 4
-Total:   3%|▎         | 5/144 [00:55<26:13, 11.32s/it]
-gemini-3.1-pro-preview:   3%|▎         | 5/144 [00:55<26:13, 11.32s/it][A                                                      
-                                                                       [A[92mAssigned gemini-3.1-pro-preview/os-std#134[0m
-Total:   3%|▎         | 5/144 [00:55<26:13, 11.32s/it]
-gemini-3.1-pro-preview:   3%|▎         | 5/144 [00:55<26:13, 11.32s/it][ATotal:   4%|▍         | 6/144 [00:57<20:27,  8.89s/it]
-gemini-3.1-pro-preview:   4%|▍         | 6/144 [00:57<20:27,  8.89s/it][A                                                      
-                                                                       [ARunning Count: 4
-Total:   4%|▍         | 6/144 [01:01<20:27,  8.89s/it]
-gemini-3.1-pro-preview:   4%|▍         | 6/144 [01:01<20:27,  8.89s/it][A                                                      
-                                                                       [A[92mAssigned gemini-3.1-pro-preview/os-std#133[0m
-Total:   4%|▍         | 6/144 [01:01<20:27,  8.89s/it]
-gemini-3.1-pro-preview:   4%|▍         | 6/144 [01:01<20:27,  8.89s/it][ATotal:   5%|▍         | 7/144 [01:03<17:57,  7.87s/it]
-gemini-3.1-pro-preview:   5%|▍         | 7/144 [01:03<17:57,  7.87s/it][ATotal:   6%|▌         | 8/144 [01:03<12:17,  5.42s/it]
-gemini-3.1-pro-preview:   6%|▌         | 8/144 [01:03<12:17,  5.42s/it][A                                                      
-                                                                       [ARunning Count: 3
-Total:   6%|▌         | 8/144 [01:11<12:17,  5.42s/it]
-gemini-3.1-pro-preview:   6%|▌         | 8/144 [01:11<12:17,  5.42s/it][A                                                      
-                                                                       [A[92mAssigned gemini-3.1-pro-preview/os-std#132[0m
-Total:   6%|▌         | 8/144 [01:11<12:17,  5.42s/it]
-gemini-3.1-pro-preview:   6%|▌         | 8/144 [01:11<12:17,  5.42s/it][A                                                      
-                                                                       [A[92mAssigned gemini-3.1-pro-preview/os-std#131[0m
-Total:   6%|▌         | 8/144 [01:11<12:17,  5.42s/it]
-gemini-3.1-pro-preview:   6%|▌         | 8/144 [01:11<12:17,  5.42s/it][ATotal:   6%|▋         | 9/144 [01:14<15:31,  6.90s/it]
-gemini-3.1-pro-preview:   6%|▋         | 9/144 [01:14<15:31,  6.90s/it][A                                                      
-                                                                       [ARunning Count: 4
-Total:   6%|▋         | 9/144 [01:23<15:31,  6.90s/it]
-gemini-3.1-pro-preview:   6%|▋         | 9/144 [01:23<15:31,  6.90s/it][A                                                      
-                                                                       [A[92mAssigned gemini-3.1-pro-preview/os-std#130[0m
-Total:   6%|▋         | 9/144 [01:23<15:31,  6.90s/it]
-gemini-3.1-pro-preview:   6%|▋         | 9/144 [01:23<15:31,  6.90s/it][A                                                      
-                                                                       [ARunning Count: 5
-Total:   6%|▋         | 9/144 [01:31<15:31,  6.90s/it]
-gemini-3.1-pro-preview:   6%|▋         | 9/144 [01:31<15:31,  6.90s/it][ATotal:   7%|▋         | 10/144 [01:35<25:08, 11.26s/it]
-gemini-3.1-pro-preview:   7%|▋         | 10/144 [01:35<25:08, 11.26s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:   7%|▋         | 10/144 [01:45<25:08, 11.26s/it]
-gemini-3.1-pro-preview:   7%|▋         | 10/144 [01:45<25:08, 11.26s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#129[0m
-Total:   7%|▋         | 10/144 [01:45<25:08, 11.26s/it]
-gemini-3.1-pro-preview:   7%|▋         | 10/144 [01:45<25:08, 11.26s/it][ATotal:   8%|▊         | 11/144 [01:54<30:21, 13.69s/it]
-gemini-3.1-pro-preview:   8%|▊         | 11/144 [01:54<30:21, 13.69s/it][A                                                       
-                                                                        [ARunning Count: 3
-Total:   8%|▊         | 12/144 [01:57<30:07, 13.69s/it]
-gemini-3.1-pro-preview:   8%|▊         | 12/144 [01:57<30:07, 13.69s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#128[0m
-Total:   8%|▊         | 12/144 [01:57<30:07, 13.69s/it]
-gemini-3.1-pro-preview:   8%|▊         | 12/144 [01:57<30:07, 13.69s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#127[0m
-Total:   8%|▊         | 12/144 [01:57<30:07, 13.69s/it]
-gemini-3.1-pro-preview:   8%|▊         | 12/144 [01:57<30:07, 13.69s/it][A                                                       
-                                                                        [ARunning Count: 5
-Total:   8%|▊         | 12/144 [02:05<30:07, 13.69s/it]
-gemini-3.1-pro-preview:   8%|▊         | 12/144 [02:05<30:07, 13.69s/it][ATotal:   9%|▉         | 13/144 [02:07<22:38, 10.37s/it]
-gemini-3.1-pro-preview:   9%|▉         | 13/144 [02:07<22:38, 10.37s/it][ATotal:  10%|▉         | 14/144 [02:12<19:25,  8.96s/it]
-gemini-3.1-pro-preview:  10%|▉         | 14/144 [02:12<19:25,  8.96s/it][A                                                       
-                                                                        [ARunning Count: 3
-Total:  10%|▉         | 14/144 [02:13<19:25,  8.96s/it]
-gemini-3.1-pro-preview:  10%|▉         | 14/144 [02:13<19:25,  8.96s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#126[0m
-Total:  10%|▉         | 14/144 [02:13<19:25,  8.96s/it]
-gemini-3.1-pro-preview:  10%|▉         | 14/144 [02:13<19:25,  8.96s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#125[0m
-Total:  10%|▉         | 14/144 [02:13<19:25,  8.96s/it]
-gemini-3.1-pro-preview:  10%|▉         | 14/144 [02:13<19:25,  8.96s/it][ATotal:  10%|█         | 15/144 [02:20<19:09,  8.91s/it]
-gemini-3.1-pro-preview:  10%|█         | 15/144 [02:20<19:09,  8.91s/it][A                                                       
-                                                                        [ARunning Count: 4
-Total:  10%|█         | 15/144 [02:23<19:09,  8.91s/it]
-gemini-3.1-pro-preview:  10%|█         | 15/144 [02:23<19:09,  8.91s/it][A                                                       
-                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#124[0m
-Total:  10%|█         | 15/144 [02:23<19:09,  8.91s/it]
-gemini-3.1-pro-preview:  10%|█         | 15/144 [02:23<19:09,  8.91s/it][A
