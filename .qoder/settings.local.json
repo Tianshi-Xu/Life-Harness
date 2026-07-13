@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(echo \"=== conda ===\" ; which conda 2>/dev/null || echo \"NOT FOUND\"; echo \"=== python3 ===\" ; which python3 2>/dev/null; python3 --version 2>/dev/null; echo \"=== docker ===\" ; which docker 2>/dev/null || echo \"NOT FOUND\"; docker --version 2>/dev/null || echo \"docker not running/installed\"; echo \"=== uv ===\" ; which uv 2>/dev/null || echo \"NOT FOUND\"; uv --version 2>/dev/null; echo \"=== pip ===\" ; which pip3 2>/dev/null; echo \"=== homebrew ===\" ; which brew 2>/dev/null || echo \"NOT FOUND\"; echo \"=== arch/cpu ===\" ; uname -m; sysctl -n hw.ncpu 2>/dev/null; echo \"=== mem ===\" ; sysctl -n hw.memsize 2>/dev/null | awk '{print $1/1024/1024/1024 \" GB\"}')"
-    ]
-  }
-}

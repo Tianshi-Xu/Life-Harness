@@ -12,6 +12,7 @@ __pycache__/
 .pytype/
 .idea/
 .vscode/
+.qoder/
 logs/
 outputs/
 outputs_old/
