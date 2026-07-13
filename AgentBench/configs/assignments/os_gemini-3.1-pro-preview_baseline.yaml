@@ -1,0 +1,13 @@
+assignments:
+- agent:
+  - gemini-3.1-pro-preview
+  task:
+  - os-std
+concurrency:
+  agent:
+    gemini-3.1-pro-preview: 5
+  task:
+    os-std: 16
+import: definition.yaml
+output: outputs/gemini-3.1-pro-preview/os/{TIMESTAMP}-baseline
+trials: 1

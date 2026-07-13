@@ -1,0 +1,104 @@
+/Users/faker/Library/CloudStorage/北大网盘2.0-许天识_2301111861-disk.pku.edu.cn/我的文档库/许天识_2301111861/SEC Lab/隐私计算/笔记大全/投稿计划/tong (2)/code/Life-Harness/AgentBench/.venv/lib/python3.9/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  torch.utils._pytree._register_pytree_node(
+W0713 10:22:35.504549 67756 .venv/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+/Users/faker/Library/CloudStorage/北大网盘2.0-许天识_2301111861-disk.pku.edu.cn/我的文档库/许天识_2301111861/SEC Lab/隐私计算/笔记大全/投稿计划/tong (2)/code/Life-Harness/AgentBench/.venv/lib/python3.9/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  torch.utils._pytree._register_pytree_node(
+[93mWarning: 10 agent(s) and 19 task(s) are defined but not used, they will be ignored.[0m
+[93m    Agent: {'gemini-3.1-pro-preview', 'gpt-3.5-turbo-0613', 'wizard-30b', 'vicuna-33b', 'qwen3-4b-instruct', 'text-davinci-002', 'text-davinci-003', 'vicuna-13b', 'vicuna-7b', 'gpt-5.5'}[0m
+[93m    Task: {'alfworld-std', 'alfworld-std-baseline', 'webshop-env_train', 'm2w-dev', 'kg-env_train', 'avalon-dev-single', 'webshop-std', 'dbbench-std', 'cg-std', 'os-env_train', 'm2w-std', 'kg-std', 'webshop-std-baseline', 'alfworld-env_train', 'cg-dev', 'ltp-dev', 'dbbench-env_train', 'avalon-dev-naive', 'ltp-std'}[0m
+[92mcreating os-std client...[0m
+TaskClient created: os-std (http://localhost:5020/api)
+[96mMessage: 144 samples remaining.[0m
+[96mAgent "claude-opus-4-8" needs to run 1 tasks with total 144 samples:[0m
+[96m    Task "os-std": 144[0m
+Total:   0%|          | 0/144 [00:00<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
+                                                        [ARunning Count: 0
+Total:   0%|          | 0/144 [00:00<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
+                                                        [A[92mAssigned claude-opus-4-8/os-std#143[0m
+Total:   0%|          | 0/144 [00:00<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
+                                                        [A[92mAssigned claude-opus-4-8/os-std#142[0m
+Total:   0%|          | 0/144 [00:00<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
+                                                        [A[92mAssigned claude-opus-4-8/os-std#141[0m
+Total:   0%|          | 0/144 [00:00<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
+                                                        [A[92mAssigned claude-opus-4-8/os-std#140[0m
+Total:   0%|          | 0/144 [00:00<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
+                                                        [A[92mAssigned claude-opus-4-8/os-std#139[0m
+Total:   0%|          | 0/144 [00:00<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
+                                                        [ARunning Count: 5
+Total:   0%|          | 0/144 [00:08<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/144 [00:08<?, ?it/s][ATotal:   1%|          | 1/144 [00:11<28:12, 11.83s/it]
+claude-opus-4-8:   1%|          | 1/144 [00:11<28:12, 11.83s/it][A                                                      
+                                                                [ARunning Count: 4
+Total:   1%|          | 1/144 [00:17<28:12, 11.83s/it]
+claude-opus-4-8:   1%|          | 1/144 [00:17<28:12, 11.83s/it][A                                                      
+                                                                [A[92mAssigned claude-opus-4-8/os-std#138[0m
+Total:   1%|          | 1/144 [00:17<28:12, 11.83s/it]
+claude-opus-4-8:   1%|          | 1/144 [00:17<28:12, 11.83s/it][ATotal:   1%|▏         | 2/144 [00:28<34:37, 14.63s/it]
+claude-opus-4-8:   1%|▏         | 2/144 [00:28<34:37, 14.63s/it][A                                                      
+                                                                [ARunning Count: 4
+Total:   1%|▏         | 2/144 [00:30<34:37, 14.63s/it]
+claude-opus-4-8:   1%|▏         | 2/144 [00:30<34:37, 14.63s/it][A                                                      
+                                                                [A[92mAssigned claude-opus-4-8/os-std#137[0m
+Total:   1%|▏         | 2/144 [00:30<34:37, 14.63s/it]
+claude-opus-4-8:   1%|▏         | 2/144 [00:30<34:37, 14.63s/it][A                                                      
+                                                                [ARunning Count: 5
+Total:   1%|▏         | 2/144 [00:35<34:37, 14.63s/it]
+claude-opus-4-8:   1%|▏         | 2/144 [00:35<34:37, 14.63s/it][ATotal:   2%|▏         | 3/144 [00:39<30:41, 13.06s/it]
+claude-opus-4-8:   2%|▏         | 3/144 [00:39<30:41, 13.06s/it][A                                                      
+                                                                [ARunning Count: 4
+Total:   2%|▏         | 3/144 [00:49<30:41, 13.06s/it]
+claude-opus-4-8:   2%|▏         | 3/144 [00:49<30:41, 13.06s/it][A                                                      
+                                                                [A[92mAssigned claude-opus-4-8/os-std#136[0m
+Total:   2%|▏         | 3/144 [00:49<30:41, 13.06s/it]
+claude-opus-4-8:   2%|▏         | 3/144 [00:49<30:41, 13.06s/it][ATotal:   3%|▎         | 4/144 [00:57<35:19, 15.14s/it]
+claude-opus-4-8:   3%|▎         | 4/144 [00:57<35:19, 15.14s/it][A                                                      
+                                                                [ARunning Count: 4
+Total:   3%|▎         | 4/144 [01:03<35:19, 15.14s/it]
+claude-opus-4-8:   3%|▎         | 4/144 [01:03<35:19, 15.14s/it][A                                                      
+                                                                [A[92mAssigned claude-opus-4-8/os-std#135[0m
+Total:   3%|▎         | 4/144 [01:03<35:19, 15.14s/it]
+claude-opus-4-8:   3%|▎         | 4/144 [01:03<35:19, 15.14s/it][A                                                      
+                                                                [ARunning Count: 5
+Total:   3%|▎         | 4/144 [01:10<35:19, 15.14s/it]
+claude-opus-4-8:   3%|▎         | 4/144 [01:10<35:19, 15.14s/it][A                                                      
+                                                                [ARunning Count: 5
+Total:   3%|▎         | 4/144 [01:16<35:19, 15.14s/it]
+claude-opus-4-8:   3%|▎         | 4/144 [01:16<35:19, 15.14s/it][ATotal:   3%|▎         | 5/144 [01:18<39:30, 17.05s/it]
+claude-opus-4-8:   3%|▎         | 5/144 [01:18<39:30, 17.05s/it][ATotal:   4%|▍         | 6/144 [01:24<30:25, 13.23s/it]
+claude-opus-4-8:   4%|▍         | 6/144 [01:24<30:25, 13.23s/it][ATotal:   5%|▍         | 7/144 [01:25<21:25,  9.38s/it]
+claude-opus-4-8:   5%|▍         | 7/144 [01:25<21:25,  9.38s/it][A                                                      
+                                                                [ARunning Count: 2
+Total:   5%|▍         | 7/144 [01:28<21:25,  9.38s/it]
+claude-opus-4-8:   5%|▍         | 7/144 [01:28<21:25,  9.38s/it][A                                                      
+                                                                [A[92mAssigned claude-opus-4-8/os-std#134[0m
+Total:   5%|▍         | 7/144 [01:28<21:25,  9.38s/it]
+claude-opus-4-8:   5%|▍         | 7/144 [01:28<21:25,  9.38s/it][A                                                      
+                                                                [A[92mAssigned claude-opus-4-8/os-std#133[0m
+Total:   5%|▍         | 7/144 [01:28<21:25,  9.38s/it]
+claude-opus-4-8:   5%|▍         | 7/144 [01:28<21:25,  9.38s/it][A                                                      
+                                                                [A[92mAssigned claude-opus-4-8/os-std#132[0m
+Total:   5%|▍         | 7/144 [01:28<21:25,  9.38s/it]
+claude-opus-4-8:   5%|▍         | 7/144 [01:28<21:25,  9.38s/it][ATotal:   6%|▌         | 8/144 [01:39<24:20, 10.74s/it]
+claude-opus-4-8:   6%|▌         | 8/144 [01:39<24:20, 10.74s/it][A                                                      
+                                                                [ARunning Count: 4
+Total:   6%|▌         | 8/144 [01:40<24:20, 10.74s/it]
+claude-opus-4-8:   6%|▌         | 8/144 [01:40<24:20, 10.74s/it][A                                                      
+                                                                [A[92mAssigned claude-opus-4-8/os-std#131[0m
+Total:   6%|▌         | 8/144 [01:40<24:20, 10.74s/it]
+claude-opus-4-8:   6%|▌         | 8/144 [01:40<24:20, 10.74s/it][A                                                      
+                                                                [ARunning Count: 5
+Total:   6%|▌         | 8/144 [01:48<24:20, 10.74s/it]
+claude-opus-4-8:   6%|▌         | 8/144 [01:48<24:20, 10.74s/it][A                                                      
+                                                                [ARunning Count: 5
+Total:   6%|▌         | 8/144 [02:00<24:20, 10.74s/it]
+claude-opus-4-8:   6%|▌         | 8/144 [02:00<24:20, 10.74s/it][A                                                      
+                                                                [ARunning Count: 5
+Total:   6%|▌         | 8/144 [02:11<24:20, 10.74s/it]
+claude-opus-4-8:   6%|▌         | 8/144 [02:11<24:20, 10.74s/it][A

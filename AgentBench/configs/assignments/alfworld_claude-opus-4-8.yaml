@@ -1,0 +1,13 @@
+assignments:
+- agent:
+  - claude-opus-4-8
+  task:
+  - alfworld-std
+concurrency:
+  agent:
+    claude-opus-4-8: 5
+  task:
+    alfworld-std: 32
+import: definition.yaml
+output: outputs/claude-opus-4-8/alfworld/{TIMESTAMP}-run
+trials: 1

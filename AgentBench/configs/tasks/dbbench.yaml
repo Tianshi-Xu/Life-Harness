@@ -54,14 +54,14 @@ default:
       state_driver: redis
       state_options:
         connection:
-          host: 172.17.0.1
+          host: redis
 
 dbbench-std:
   parameters:
     name: dbbench-std
     data_file: "data/dbbench/standard.jsonl"
     harness:
-      enabled: true
+      enabled: false
       h2: false              # action gate + SQL rewrite + commit gate + answer normalisation
       h3: true              # tool/prompt static hints + schema card
       h4: false              # post-step monitor + budget warn/force

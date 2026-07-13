@@ -1,0 +1,334 @@
+@@grammar :: PDDL
+
+@@eol_comments :: ?";.*$"
+
+start = pddl_doc ;
+
+pddl_doc = domain | problem ;
+
+
+domain::DomainNode = '(' 'define' domain:domain_name
+    [requirements:require_def]
+    [types:types_def]
+    [constants:constants_def]
+    [predicates:predicates_def]
+    [functions_def]
+    [constraints]
+    structures:{structure_def}
+    ')' ;
+
+domain_name = '(' 'domain' name:name ')' ;
+
+require_def = '(' ':requirements' {require_key}+ ')' ;
+
+types_def::TypesNode = '(' ':types' types:typed_name_list ')' ;
+
+typed_name_list = ({single_type_name_list}) ;
+
+single_type_name_list::TypedName = (names:{name}+ ['-' type:r_type]) ;
+
+r_type = ('(' 'either' {prim_type}+ ')') | prim_type ;
+
+prim_type = name ;
+
+functions_def = '(' ':functions' function_list ')' ;
+
+function_list = {{atomic_function_skeleton}+ ['-' function_type]} ;
+
+atomic_function_skeleton = '(' function_symbol typed_variable_list ')' ;
+
+function_symbol = name ;
+
+function_type = 'number' ;
+
+constants_def = '(' ':constants' typed_name_list ')' ;
+
+predicates_def::PredicatesNode = '(' ':predicates' predicates:{atomic_formula_skeleton}+ ')' ;
+
+atomic_formula_skeleton::PredicateNode = '(' name:predicate parameters:{typed_variable_list}+ ')' ;
+
+predicate = name ;
+
+typed_variable_list::ParameterNode = (names:{VARIABLE}+ ['-' type:r_type]) ;
+
+single_type_var_list = ({VARIABLE}+ '-' t:r_type) ;
+
+constraints = '(' ':constraints' con_gD ')' ;
+
+structure_def = action_def | durative_action_def | derived_def ;
+
+action_def::RuleNode = '(' ':action' name:action_symbol ':parameters' '(' parameters:{typed_variable_list}+ ')' body:action_def_body ')' ;
+
+action_symbol = name ;
+
+action_def_body = precondition:[':precondition' (('(' ')') | precondition)]
+                  effect:[':effect' (('(' ')') | effect)] ;
+
+precondition = goal_desc ;
+
+goal_desc::GoalNode = atomic:atomic_term_formula
+          | and:('(' 'and' {goal_desc} ')')
+          | or:('(' 'or' {goal_desc} ')')
+          | not:('(' 'not' goal_desc ')')
+          | '(' 'imply' goal_desc goal_desc ')'
+          | exists:('(' 'exists' '(' parameters:{typed_variable_list} ')' predicates:goal_desc ')')
+          | forall:('(' 'forall' '(' parameters:{typed_variable_list} ')' predicates:goal_desc ')')
+          | f_comp ;
+
+f_comp = '(' binary_comp f_exp f_exp ')' ;
+
+atomic_term_formula::Predicate2Node = '(' name:predicate parameters:{term} ')' ;
+
+term = name | VARIABLE ;
+
+durative_action_def = '(' ':durative-action' action_symbol
+                          ':parameters' '(' {typed_variable_list} ')' da_def_body ')' ;
+
+da_def_body = ':duration' duration_constraint
+              ':condition' (('(' ')') | da_gD)
+              ':effect' (('(' ')') | da_effect) ;
+
+da_gD = pref_timed_gD
+      | '(' 'and' {da_gD} ')'
+      | '(' 'forall' '(' {typed_variable_list} ')' da_gD ')' ;
+
+pref_timed_gD = timed_gD | '(' 'preference' [name] timed_gD ')' ;
+
+timed_gD = '(' 'at' time_specifier goal_desc ')'
+         | '(' 'over' interval goal_desc ')' ;
+
+time_specifier = 'start' | 'end' ;
+
+interval = 'all' ;
+
+derived_def::AliasNode = '(' ':derived' alias:atomic_formula_skeleton replacement:goal_desc ')' ;
+
+f_exp = NUMBER | '(' binary_op f_exp f_exp2 ')' | '(' '-' f_exp ')' | f_head ;
+
+f_exp2 = f_exp ;
+
+f_head = '(' function_symbol {term} ')' | function_symbol ;
+
+effect::EffectNode = and:('(' 'and' {c_effect} ')') | atomic:c_effect ;
+
+c_effect::EffectNode = forall:('(' 'forall' '(' parameters:{typed_variable_list} ')' predicates:effect ')')
+         | when:('(' 'when' goal_desc cond_effect ')')
+         | atomic:p_effect ;
+
+p_effect::EffectNode = | '(' assign_op f_head f_exp ')'
+           | not:('(' 'not' atomic_term_formula ')')
+           | atomic:atomic_term_formula ;
+
+cond_effect = '(' 'and' {p_effect} ')' | p_effect ;
+
+binary_op = '*' | '+' | '-' | '/' ;
+
+binary_comp = '>' | '<' | '=' | '>=' | '<=' ;
+
+assign_op = 'assign' | 'scale-up' | 'scale-down' | 'increase' | 'decrease' ;
+
+duration_constraint = '(' 'and' {simple_duration_constraint}+ ')'
+                    | '(' ')'
+                    | simple_duration_constraint ;
+
+simple_duration_constraint = '(' dur_op '?duration' dur_value ')'
+                           | '(' 'at' time_specifier simple_duration_constraint ')' ;
+
+dur_op = '<=' | '>=' | '=' ;
+
+dur_value = NUMBER | f_exp ;
+
+da_effect = '(' 'and' {da_effect} ')'
+          | timed_effect
+          | '(' 'forall' '(' {typed_variable_list} ')' da_effect ')'
+          | '(' 'when' da_gD timed_effect ')'
+          | '(' assign_op f_head f_exp_dA ')' ;
+
+timed_effect = '(' 'at' time_specifier c_effect ')'
+             | '(' 'at' time_specifier f_assign_dA ')'
+             | '(' assign_op_t f_head f_exp ')' ;
+
+f_assign_dA = '(' assign_op f_head f_exp_dA ')' ;
+
+f_exp_dA = | '(' ((binary_op f_exp_dA f_exp_dA) | ('-' f_exp_dA)) ')'
+           | '?duration'
+           | f_exp ;
+
+assign_op_t = 'increase' | 'decrease' ;
+
+problem::ProblemNode = '('
+    'define'
+    name:problem_decl
+    domain:problem_domain
+    [requirements:require_def]
+    [objects:object_decl]
+    init:init
+    goal:goal
+    [contrainst:prob_constraints]
+    [metric:metric_spec]
+    ')' ;
+
+problem_decl = '(' 'problem' name ')' ;
+
+problem_domain = '(' ':domain' name ')' ;
+
+object_decl = '(' ':objects' typed_name_list ')' ;
+
+init = '(' ':init' {init_el} ')' ;
+
+init_el = name_literal | '(' '=' f_head NUMBER ')' | '(' 'at' NUMBER name_literal ')' ;
+
+name_literal = atomic_name_formula | '(' 'not' atomic_name_formula ')' ;
+
+atomic_name_formula::PropositionNode = '(' name:predicate arguments:{name} ')' ;
+
+goal = '(' ':goal' goal_desc ')' ;
+
+prob_constraints = '(' ':constraints' pref_con_gD ')' ;
+
+pref_con_gD = '(' 'and' {pref_con_gD} ')'
+            | '(' 'forall' '(' {typed_variable_list} ')' pref_con_gD ')'
+            | '(' 'preference' [name] con_gD ')'
+            | con_gD ;
+
+metric_spec = '(' ':metric' optimization metric_fExp ')' ;
+
+optimization = 'minimize' | 'maximize' ;
+
+metric_fExp = '(' binary_op metric_fExp metric_fExp ')'
+            | '(' ('*' | '/') metric_fExp {metric_fExp}+ ')'
+            |'(' '-' metric_fExp ')'
+            | NUMBER
+            | '(' function_symbol {name} ')'
+            | function_symbol
+            | 'total-time'
+            | '(' 'is-violated' name ')' ;
+
+con_gD = '(' 'and' {con_gD} ')'
+       | '(' 'forall' '(' {typed_variable_list} ')' con_gD ')'
+       | '(' 'at' 'end' goal_desc ')'
+       | '(' 'always' goal_desc ')'
+       | '(' 'sometime' goal_desc ')'
+       | '(' 'within' NUMBER goal_desc ')'
+       | '(' 'at-most-once' goal_desc ')'
+       | '(' 'sometime-after' goal_desc goal_desc ')'
+       | '(' 'sometime-before' goal_desc goal_desc ')'
+       | '(' 'always-within' NUMBER goal_desc goal_desc ')'
+       | '(' 'hold-during' NUMBER NUMBER goal_desc ')'
+       | '(' 'hold-after' NUMBER goal_desc ')' ;
+
+require_key = | ':strips'
+              | ':typing'
+              | ':negative-preconditions'
+              | ':disjunctive-preconditions'
+              | ':equality'
+              | ':existential-preconditions'
+              | ':universal-preconditions'
+              | ':quantified-preconditions'
+              | ':conditional-effects'
+              | ':fluents'
+              | ':adl'
+              | ':action-costs'
+              | ':durative-actions'
+              | ':derived-predicates'
+              | ':timed-initial-literals'
+              | ':preferences'
+              | ':constraints' ;
+
+name::NameNode = NAME | 'at' | 'over' ;
+
+NAME = LETTER {ANY_CHAR} ;
+
+LETTER = /[a-zA-Z]/ ;
+
+ANY_CHAR = LETTER | /[0-9-_]/ ;
+
+VARIABLE::VariableNode = '?' first:LETTER rest:{ANY_CHAR} ;
+
+NUMBER = {DIGIT}+ ['.' {DIGIT}+] ;
+
+DIGIT = /[0-9]/ ;
+
+LINE_COMMENT = ';' !/[\n\r]*/ /./ ['\\r'] '\\n' ;
+
+whitespace = /[ \t\r\n]+/ ;
+
+DOMAIN = !() ;
+
+DOMAIN_NAME = !() ;
+
+REQUIREMENTS = !() ;
+
+TYPES = !() ;
+
+EITHER_TYPE = !() ;
+
+CONSTANTS = !() ;
+
+FUNCTIONS = !() ;
+
+PREDICATES = !() ;
+
+ACTION = !() ;
+
+DURATIVE_ACTION = !() ;
+
+PROBLEM = !() ;
+
+PROBLEM_NAME = !() ;
+
+PROBLEM_DOMAIN = !() ;
+
+OBJECTS = !() ;
+
+INIT = !() ;
+
+FUNC_HEAD = !() ;
+
+PRECONDITION = !() ;
+
+EFFECT = !() ;
+
+AND_GD = !() ;
+
+OR_GD = !() ;
+
+NOT_GD = !() ;
+
+IMPLY_GD = !() ;
+
+EXISTS_GD = !() ;
+
+FORALL_GD = !() ;
+
+COMPARISON_GD = !() ;
+
+AND_EFFECT = !() ;
+
+FORALL_EFFECT = !() ;
+
+WHEN_EFFECT = !() ;
+
+ASSIGN_EFFECT = !() ;
+
+NOT_EFFECT = !() ;
+
+PRED_HEAD = !() ;
+
+GOAL = !() ;
+
+BINARY_OP = !() ;
+
+UNARY_MINUS = !() ;
+
+INIT_EQ = !() ;
+
+INIT_AT = !() ;
+
+NOT_PRED_INIT = !() ;
+
+PRED_INST = !() ;
+
+PROBLEM_CONSTRAINT = !() ;
+
+PROBLEM_METRIC = !() ;

@@ -1,0 +1,435 @@
+grammar :: """
+    {
+
+        "notImplemented": [
+            {
+                "rhs": "TODO"
+            }
+        ],
+
+        "close/c.feedback": [
+            {
+                "rhs": "You close the {c.name}."
+            }
+        ],
+        "open/c.feedback": [
+            {
+                "rhs": "You open the {c.name}."
+            }
+        ],
+        "take.feedback": [
+            {
+                "rhs": "You take the {o.name} from the floor."
+            }
+        ],
+        "take/c.feedback": [
+            {
+                "rhs": "You take the {o.name} from the {c.name}."
+            }
+        ],
+        "take/s.feedback": [
+            {
+                "rhs": "You take the {o.name} from the {s.name}."
+            }
+        ],
+        "open/d.feedback": [
+            {
+                "rhs": "You open the {d.name}."
+            }
+        ],
+        "close/d.feedback": [
+            {
+                "rhs": "You close the {d.name}."
+            }
+        ],
+        "lock/c.feedback": [
+            {
+                "rhs": "You lock the {c.name} with the {k.name}."
+            }
+        ],
+        "unlock/c.feedback": [
+            {
+                "rhs": "You unlock the {c.name} with the {k.name}."
+            }
+        ],
+        "lock/d.feedback": [
+            {
+                "rhs": "You lock the {d.name} with the {k.name}."
+            }
+        ],
+        "unlock/d.feedback": [
+            {
+                "rhs": "You unlock the {d.name} with the {k.name}."
+            }
+        ],
+        "eat.feedback": [
+            {
+                "rhs": "You eat the {f.name}. Not bad."
+            }
+        ],
+        "drop.feedback": [
+            {
+                "rhs": "You drop the {o.name} on the floor."
+            }
+        ],
+        "put.feedback": [
+            {
+                "rhs": "You put the {o.name} on the {s.name}."
+            }
+        ],
+        "insert.feedback": [
+            {
+                "rhs": "You put the {o.name} into the {c.name}."
+            }
+        ],
+        "inventory.feedback": [
+            {
+                "rhs": "You are carrying: [{o.indefinite + ' ' + o.name | in(o, I)}]."
+            }
+        ],
+        "examine/t.feedback": [
+            {
+                "condition": "container(t)",
+                "rhs": "#examine/c.feedback#"
+            },
+            {
+                "condition": "supporter(t)",
+                "rhs": "#examine/s.feedback#"
+            },
+            {
+                "condition": "door(t)",
+                "rhs": "#examine/d.feedback#"
+            },
+            {
+                "rhs": "Nothing special about this {t.name}."
+            }
+        ],
+        "examine/I.feedback": [
+            {
+                "rhs": "#inventory.feedback#"
+            }
+        ],
+        "examine/d.feedback": [
+            {
+                "rhs": "The {d.name} is #state(d)#."
+            }
+        ],
+        "state(d)": [
+            {
+                "condition": "open(d)",
+                "rhs": "open"
+            },
+            {
+                "condition": "closed(d)",
+                "rhs": "closed"
+            },
+            {
+                "condition": "locked(d)",
+                "rhs": "closed"
+            }
+        ],
+        "examine/c.feedback": [
+            {
+                "condition": "open(t)",
+                "rhs": "The {t.name} is open. In it, you see [{o.indefinite + ' ' + o.name | in(o, t)}]."
+            },
+            {
+                "rhs": "The {t.name} is closed."
+            }
+        ],
+        "examine/s.feedback": [
+            {
+                "rhs": "On the {t.name}, you see [{o.indefinite + ' ' + o.name | on(o, t)}]."
+            }
+        ],
+        "go/north.feedback": [
+            {
+                "rhs": "Moving north from {src.name}, you arrive in the {dest.name}."
+            }
+        ],
+        "go/south.feedback": [
+            {
+                "rhs": "Moving south from {src.name}, you arrive in the {dest.name}."
+            }
+        ],
+        "go/east.feedback": [
+            {
+                "rhs": "Moving east from {src.name}, you arrive in the {dest.name}."
+            }
+        ],
+        "go/west.feedback": [
+            {
+                "rhs": "Moving west from {src.name}, you arrive in the {dest.name}."
+            }
+        ]
+    }
+""";
+
+action close/c {
+    template :: "close {c}";
+    feedback :: "close/c.feedback";
+}
+
+action open/c {
+    template :: "open {c}";
+    feedback :: "open/c.feedback";
+}
+
+action take {
+    template :: "take {o}";
+    feedback :: "take.feedback";
+}
+
+action take/c {
+    template :: "take {o}";
+    feedback :: "take/c.feedback";
+}
+
+action take/s {
+    template :: "take {o}";
+    feedback :: "take/s.feedback";
+}
+
+action open/d {
+    template :: "open {d}";
+    feedback :: "open/d.feedback";
+}
+
+action close/d {
+    template :: "close {d}";
+    feedback :: "close/d.feedback";
+}
+
+action lock/c {
+    template :: "lock {c} with {k}";
+    feedback :: "lock/c.feedback";
+}
+
+action unlock/c {
+    template :: "unlock {c} with {k}";
+    feedback :: "unlock/c.feedback";
+}
+
+action lock/d {
+    template :: "lock {d} with {k}";
+    feedback :: "lock/d.feedback";
+}
+
+action unlock/d {
+    template :: "unlock {d} with {k}";
+    feedback :: "unlock/d.feedback";
+}
+
+action eat {
+    template :: "eat {f}";
+    feedback :: "eat.feedback";
+}
+
+action drop {
+    template :: "drop {o}";
+    feedback :: "drop.feedback";
+}
+
+action put {
+    template :: "put {o} on {s}";
+    feedback :: "put.feedback";
+}
+
+action insert {
+    template :: "insert {o} into {c}";
+    feedback :: "insert.feedback";
+}
+
+action inventory {
+    template :: "inventory";
+    feedback :: "inventory.feedback";
+}
+
+action examine/t {
+    template :: "examine {t}";
+    feedback :: "examine/t.feedback";
+}
+
+# action examine/I {
+#     template :: "examine inventory";
+#     feedback :: "examine/I.feedback";
+# }
+#
+# action examine/d {
+#     template :: "examine {d}";
+#     feedback :: "examine/d.feedback";
+# }
+#
+# action examine/c {
+#     template :: "examine {c}";
+#     feedback :: "examine/c.feedback";
+# }
+#
+# action examine/s {
+#     template :: "examine {s}";
+#     feedback :: "examine/s.feedback";
+# }
+
+action go/north {
+    template :: "go north";
+    feedback :: "go/north.feedback";
+}
+
+action go/south {
+    template :: "go south";
+    feedback :: "go/south.feedback";
+}
+
+action go/east {
+    template :: "go east";
+    feedback :: "go/east.feedback";
+}
+
+action go/west {
+    template :: "go west";
+    feedback :: "go/west.feedback";
+}
+
+
+
+action look {
+    template :: "look";
+    feedback :: "look.feedback";
+
+    pddl :: """
+        (:action look
+            :parameters (?P ?r)
+            :precondition
+                (and
+                    (is_player ?P)
+                    (is_room ?r)
+                    (at ?P ?r))
+            :effect
+                (and
+                    (examined ?r)
+                )
+        )
+    """;
+
+    grammar :: """
+        {
+            "look.feedback": [
+                {
+                    "rhs": "#intro# you see #room_contents#. #list_exits#"
+                }
+            ],
+
+            "intro": [
+                {
+                    "rhs": "You look around the {r.name | at(P, r)},"
+                },
+                {
+                    "rhs": "In the {r.name | at(P, r)},"
+                }
+            ],
+
+            "list_exits": [
+                {
+                    "condition": "at(P, r) & (north_of(r', r) | south_of(r', r) | east_of(r', r) | west_of(r', r))",
+                    "rhs": "#north_exit##east_exit##south_exit##west_exit#"
+                },
+                {
+                    "rhs": "You don't see any obvious exits."
+                }
+            ],
+
+            "north_exit": [
+                {
+                    "condition": "north_of(dest:r, src:r) & at(P, src:r) & link(src:r, d, dest:r)",
+                    "rhs": " The northern {d.name | north_of(dest:r, src:r) & at(P, src:r) & link(src:r, d, dest:r)} leads to the {dest.name | north_of(dest:r, src:r) & at(P, src:r)}."
+                },
+                {
+                    "condition": "north_of(dest:r, src:r) & at(P, src:r)",
+                    "rhs": " You can go north towards the {dest.name | north_of(dest:r, src:r) & at(P, src:r)}."
+                },
+                {
+                    "rhs": ""
+                }
+            ],
+            "south_exit": [
+                {
+                    "condition": "south_of(dest:r, src:r) & at(P, src:r) & link(src:r, d, dest:r)",
+                    "rhs": " The southern {d.name | south_of(dest:r, src:r) & at(P, src:r) & link(src:r, d, dest:r)} leads to the {dest.name | south_of(dest:r, src:r) & at(P, src:r)}."
+                },
+                {
+                    "condition": "south_of(r', r) & at(P, r)",
+                    "rhs": " You can go south towards the {dest.name | south_of(dest:r, src:r) & at(P, src:r)}."
+                },
+                {
+                    "rhs": ""
+                }
+            ],
+            "east_exit": [
+                {
+                    "condition": "east_of(dest:r, src:r) & at(P, src:r) & link(src:r, d, dest:r)",
+                    "rhs": " The eastern {d.name | east_of(dest:r, src:r) & at(P, src:r) & link(src:r, d, dest:r)} leads to the {dest.name | east_of(dest:r, src:r) & at(P, src:r)}."
+                },
+                {
+                    "condition": "east_of(r', r) & at(P, r)",
+                    "rhs": " You can go east towards the {dest.name | east_of(dest:r, src:r) & at(P, src:r)}."
+                },
+                {
+                    "rhs": ""
+                }
+            ],
+            "west_exit": [
+                {
+                    "condition": "west_of(dest:r, src:r) & at(P, src:r) & link(src:r, d, dest:r)",
+                    "rhs": " The western {d.name | west_of(dest:r, src:r) & at(P, src:r) & link(src:r, d, dest:r)} leads to the {dest.name | west_of(dest:r, src:r) & at(P, src:r)}."
+                },
+                {
+                    "condition": "west_of(r', r) & at(P, r)",
+                    "rhs": " You can go west towards the {dest.name | west_of(dest:r, src:r) & at(P, src:r)}."
+                },
+                {
+                    "rhs": ""
+                }
+            ],
+            "room_contents": [
+                {
+                    "rhs": "[{#overview(t)# | at(P, r) & at(t, r)}]"
+                }
+            ],
+
+            "overview(t)": [
+                {
+                    "rhs": "{t.indefinite or 'a/an'} {t.name or t.id}#overview_state(t)#"
+                }
+            ],
+            "overview_state(t)": [
+                {
+                    "condition": "container(t) & open(t)",
+                    "rhs": " (it is open)"
+                },
+                {
+                    "condition": "container(t) & closed(t)",
+                    "rhs": " (it is closed)"
+                },
+                {
+                    "rhs": ""
+                }
+            ],
+
+            "list_empty": [
+                {
+                    "rhs": "nothing interesting"
+                }
+            ],
+            "list_separator": [
+                {
+                    "rhs": ", "
+                }
+            ],
+            "list_last_separator": [
+                {
+                    "rhs": ", and "
+                }
+            ]
+        }
+    """;
+}

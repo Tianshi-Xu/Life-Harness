@@ -1,0 +1,1260 @@
+/Users/faker/Library/CloudStorage/北大网盘2.0-许天识_2301111861-disk.pku.edu.cn/我的文档库/许天识_2301111861/SEC Lab/隐私计算/笔记大全/投稿计划/tong (2)/code/Life-Harness/AgentBench/.venv/lib/python3.9/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  torch.utils._pytree._register_pytree_node(
+W0712 10:24:12.846796 35002 .venv/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+/Users/faker/Library/CloudStorage/北大网盘2.0-许天识_2301111861-disk.pku.edu.cn/我的文档库/许天识_2301111861/SEC Lab/隐私计算/笔记大全/投稿计划/tong (2)/code/Life-Harness/AgentBench/.venv/lib/python3.9/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  torch.utils._pytree._register_pytree_node(
+[93mWarning: 10 agent(s) and 17 task(s) are defined but not used, they will be ignored.[0m
+[93m    Agent: {'vicuna-7b', 'vicuna-13b', 'gpt-3.5-turbo-0613', 'text-davinci-002', 'qwen3-4b-instruct', 'vicuna-33b', 'wizard-30b', 'claude-opus-4-8', 'text-davinci-003', 'gpt-5.5'}[0m
+[93m    Task: {'cg-dev', 'avalon-dev-naive', 'kg-env_train', 'ltp-std', 'webshop-std', 'cg-std', 'dbbench-std', 'm2w-dev', 'm2w-std', 'alfworld-std', 'avalon-dev-single', 'ltp-dev', 'dbbench-env_train', 'os-env_train', 'kg-std', 'alfworld-env_train', 'webshop-env_train'}[0m
+[92mcreating os-std client...[0m
+TaskClient created: os-std (http://localhost:5020/api)
+[96mMessage: 144 samples remaining.[0m
+[96mAgent "gemini-3.1-pro-preview" needs to run 1 tasks with total 144 samples:[0m
+[96m    Task "os-std": 144[0m
+Total:   0%|          | 0/144 [00:00<?, ?it/s]
+gemini-3.1-pro-preview:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
+                                                               [ARunning Count: 0
+Total:   0%|          | 0/144 [00:00<?, ?it/s]
+gemini-3.1-pro-preview:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
+                                                               [A[92mAssigned gemini-3.1-pro-preview/os-std#143[0m
+Total:   0%|          | 0/144 [00:00<?, ?it/s]
+gemini-3.1-pro-preview:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
+                                                               [A[92mAssigned gemini-3.1-pro-preview/os-std#142[0m
+Total:   0%|          | 0/144 [00:00<?, ?it/s]
+gemini-3.1-pro-preview:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
+                                                               [A[92mAssigned gemini-3.1-pro-preview/os-std#141[0m
+Total:   0%|          | 0/144 [00:00<?, ?it/s]
+gemini-3.1-pro-preview:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
+                                                               [A[92mAssigned gemini-3.1-pro-preview/os-std#140[0m
+Total:   0%|          | 0/144 [00:00<?, ?it/s]
+gemini-3.1-pro-preview:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
+                                                               [A[92mAssigned gemini-3.1-pro-preview/os-std#139[0m
+Total:   0%|          | 0/144 [00:00<?, ?it/s]
+gemini-3.1-pro-preview:   0%|          | 0/144 [00:00<?, ?it/s][ATotal:   1%|          | 1/144 [00:11<27:24, 11.50s/it]
+gemini-3.1-pro-preview:   1%|          | 1/144 [00:11<27:24, 11.50s/it][A                                                      
+                                                                       [ARunning Count: 4
+Total:   1%|          | 1/144 [00:13<27:24, 11.50s/it]
+gemini-3.1-pro-preview:   1%|          | 1/144 [00:13<27:24, 11.50s/it][A                                                      
+                                                                       [A[92mAssigned gemini-3.1-pro-preview/os-std#138[0m
+Total:   1%|          | 1/144 [00:13<27:24, 11.50s/it]
+gemini-3.1-pro-preview:   1%|          | 1/144 [00:13<27:24, 11.50s/it][ATotal:   1%|▏         | 2/144 [00:26<31:37, 13.36s/it]
+gemini-3.1-pro-preview:   1%|▏         | 2/144 [00:26<31:37, 13.36s/it][ATotal:   2%|▏         | 3/144 [00:27<18:47,  7.99s/it]
+gemini-3.1-pro-preview:   2%|▏         | 3/144 [00:27<18:47,  7.99s/it][A                                                      
+                                                                       [ARunning Count: 3
+Total:   2%|▏         | 3/144 [00:27<18:47,  7.99s/it]
+gemini-3.1-pro-preview:   2%|▏         | 3/144 [00:27<18:47,  7.99s/it][A                                                      
+                                                                       [A[92mAssigned gemini-3.1-pro-preview/os-std#137[0m
+Total:   2%|▏         | 3/144 [00:27<18:47,  7.99s/it]
+gemini-3.1-pro-preview:   2%|▏         | 3/144 [00:27<18:47,  7.99s/it][A                                                      
+                                                                       [A[92mAssigned gemini-3.1-pro-preview/os-std#136[0m
+Total:   2%|▏         | 3/144 [00:27<18:47,  7.99s/it]
+gemini-3.1-pro-preview:   2%|▏         | 3/144 [00:27<18:47,  7.99s/it][ATotal:   3%|▎         | 4/144 [00:41<23:36, 10.12s/it]
+gemini-3.1-pro-preview:   3%|▎         | 4/144 [00:41<23:36, 10.12s/it][A                                                      
+                                                                       [ARunning Count: 4
+Total:   3%|▎         | 4/144 [00:41<23:36, 10.12s/it]
+gemini-3.1-pro-preview:   3%|▎         | 4/144 [00:41<23:36, 10.12s/it][A                                                      
+                                                                       [A[92mAssigned gemini-3.1-pro-preview/os-std#135[0m
+Total:   3%|▎         | 4/144 [00:41<23:36, 10.12s/it]
+gemini-3.1-pro-preview:   3%|▎         | 4/144 [00:41<23:36, 10.12s/it][ATotal:   3%|▎         | 5/144 [00:48<20:47,  8.98s/it]
+gemini-3.1-pro-preview:   3%|▎         | 5/144 [00:48<20:47,  8.98s/it][A                                                      
+                                                                       [ARunning Count: 4
+Total:   3%|▎         | 5/144 [00:50<20:47,  8.98s/it]
+gemini-3.1-pro-preview:   3%|▎         | 5/144 [00:50<20:47,  8.98s/it][A                                                      
+                                                                       [A[92mAssigned gemini-3.1-pro-preview/os-std#134[0m
+Total:   3%|▎         | 5/144 [00:50<20:47,  8.98s/it]
+gemini-3.1-pro-preview:   3%|▎         | 5/144 [00:50<20:47,  8.98s/it][ATotal:   4%|▍         | 6/144 [00:57<21:09,  9.20s/it]
+gemini-3.1-pro-preview:   4%|▍         | 6/144 [00:57<21:09,  9.20s/it][ATotal:   5%|▍         | 7/144 [00:57<14:14,  6.24s/it]
+gemini-3.1-pro-preview:   5%|▍         | 7/144 [00:57<14:14,  6.24s/it][ATotal:   6%|▌         | 8/144 [00:58<10:01,  4.42s/it]
+gemini-3.1-pro-preview:   6%|▌         | 8/144 [00:58<10:01,  4.42s/it][ATotal:   6%|▋         | 9/144 [00:58<06:58,  3.10s/it]
+gemini-3.1-pro-preview:   6%|▋         | 9/144 [00:58<06:58,  3.10s/it][ATotal:   7%|▋         | 10/144 [00:59<05:15,  2.35s/it]
+gemini-3.1-pro-preview:   7%|▋         | 10/144 [00:59<05:15,  2.35s/it][A                                                       
+                                                                        [ARunning Count: 0
+Total:   7%|▋         | 10/144 [01:01<05:15,  2.35s/it]
+gemini-3.1-pro-preview:   7%|▋         | 10/144 [01:01<05:15,  2.35s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#133[0m
+Total:   7%|▋         | 10/144 [01:01<05:15,  2.35s/it]
+gemini-3.1-pro-preview:   7%|▋         | 10/144 [01:01<05:15,  2.35s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#132[0m
+Total:   7%|▋         | 10/144 [01:01<05:15,  2.35s/it]
+gemini-3.1-pro-preview:   7%|▋         | 10/144 [01:01<05:15,  2.35s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#131[0m
+Total:   7%|▋         | 10/144 [01:01<05:15,  2.35s/it]
+gemini-3.1-pro-preview:   7%|▋         | 10/144 [01:01<05:15,  2.35s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#130[0m
+Total:   7%|▋         | 10/144 [01:01<05:15,  2.35s/it]
+gemini-3.1-pro-preview:   7%|▋         | 10/144 [01:01<05:15,  2.35s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#129[0m
+Total:   7%|▋         | 10/144 [01:01<05:15,  2.35s/it]
+gemini-3.1-pro-preview:   7%|▋         | 10/144 [01:01<05:15,  2.35s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:   7%|▋         | 10/144 [01:07<05:15,  2.35s/it]
+gemini-3.1-pro-preview:   7%|▋         | 10/144 [01:07<05:15,  2.35s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:   7%|▋         | 10/144 [01:19<05:15,  2.35s/it]
+gemini-3.1-pro-preview:   7%|▋         | 10/144 [01:19<05:15,  2.35s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:   7%|▋         | 10/144 [01:26<05:15,  2.35s/it]
+gemini-3.1-pro-preview:   7%|▋         | 10/144 [01:26<05:15,  2.35s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:   7%|▋         | 10/144 [01:31<05:15,  2.35s/it]
+gemini-3.1-pro-preview:   7%|▋         | 10/144 [01:31<05:15,  2.35s/it][ATotal:   8%|▊         | 11/144 [01:39<30:38, 13.82s/it]
+gemini-3.1-pro-preview:   8%|▊         | 11/144 [01:39<30:38, 13.82s/it][ATotal:   8%|▊         | 12/144 [01:39<21:25,  9.74s/it]
+gemini-3.1-pro-preview:   8%|▊         | 12/144 [01:39<21:25,  9.74s/it][A                                                       
+                                                                        [ARunning Count: 3
+Total:   8%|▊         | 12/144 [01:41<21:25,  9.74s/it]
+gemini-3.1-pro-preview:   8%|▊         | 12/144 [01:41<21:25,  9.74s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#128[0m
+Total:   8%|▊         | 12/144 [01:41<21:25,  9.74s/it]
+gemini-3.1-pro-preview:   8%|▊         | 12/144 [01:41<21:25,  9.74s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#127[0m
+Total:   8%|▊         | 12/144 [01:41<21:25,  9.74s/it]
+gemini-3.1-pro-preview:   8%|▊         | 12/144 [01:41<21:25,  9.74s/it][ATotal:   9%|▉         | 13/144 [01:41<16:28,  7.54s/it]
+gemini-3.1-pro-preview:   9%|▉         | 13/144 [01:41<16:28,  7.54s/it][ATotal:  10%|▉         | 14/144 [01:49<16:18,  7.53s/it]
+gemini-3.1-pro-preview:  10%|▉         | 14/144 [01:49<16:18,  7.53s/it][A                                                       
+                                                                        [ARunning Count: 3
+Total:  10%|▉         | 14/144 [01:50<16:18,  7.53s/it]
+gemini-3.1-pro-preview:  10%|▉         | 14/144 [01:50<16:18,  7.53s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#126[0m
+Total:  10%|▉         | 14/144 [01:50<16:18,  7.53s/it]
+gemini-3.1-pro-preview:  10%|▉         | 14/144 [01:50<16:18,  7.53s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#125[0m
+Total:  10%|▉         | 14/144 [01:50<16:18,  7.53s/it]
+gemini-3.1-pro-preview:  10%|▉         | 14/144 [01:50<16:18,  7.53s/it][ATotal:  10%|█         | 15/144 [01:59<18:00,  8.38s/it]
+gemini-3.1-pro-preview:  10%|█         | 15/144 [01:59<18:00,  8.38s/it][A                                                       
+                                                                        [ARunning Count: 4
+Total:  10%|█         | 15/144 [02:03<18:00,  8.38s/it]
+gemini-3.1-pro-preview:  10%|█         | 15/144 [02:03<18:00,  8.38s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#124[0m
+Total:  10%|█         | 15/144 [02:03<18:00,  8.38s/it]
+gemini-3.1-pro-preview:  10%|█         | 15/144 [02:03<18:00,  8.38s/it][ATotal:  11%|█         | 16/144 [02:09<18:58,  8.89s/it]
+gemini-3.1-pro-preview:  11%|█         | 16/144 [02:09<18:58,  8.89s/it][A                                                       
+                                                                        [ARunning Count: 4
+Total:  11%|█         | 16/144 [02:16<18:58,  8.89s/it]
+gemini-3.1-pro-preview:  11%|█         | 16/144 [02:16<18:58,  8.89s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#123[0m
+Total:  11%|█         | 16/144 [02:16<18:58,  8.89s/it]
+gemini-3.1-pro-preview:  11%|█         | 16/144 [02:16<18:58,  8.89s/it][ATotal:  12%|█▏        | 17/144 [02:24<22:35, 10.68s/it]
+gemini-3.1-pro-preview:  12%|█▏        | 17/144 [02:24<22:35, 10.68s/it][ATotal:  12%|█▎        | 18/144 [02:25<16:27,  7.83s/it]
+gemini-3.1-pro-preview:  12%|█▎        | 18/144 [02:25<16:27,  7.83s/it][ATotal:  13%|█▎        | 19/144 [02:26<12:03,  5.79s/it]
+gemini-3.1-pro-preview:  13%|█▎        | 19/144 [02:26<12:03,  5.79s/it][A                                                       
+                                                                        [ARunning Count: 2
+Total:  13%|█▎        | 19/144 [02:29<12:03,  5.79s/it]
+gemini-3.1-pro-preview:  13%|█▎        | 19/144 [02:29<12:03,  5.79s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#122[0m
+Total:  13%|█▎        | 19/144 [02:29<12:03,  5.79s/it]
+gemini-3.1-pro-preview:  13%|█▎        | 19/144 [02:29<12:03,  5.79s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#121[0m
+Total:  13%|█▎        | 19/144 [02:29<12:03,  5.79s/it]
+gemini-3.1-pro-preview:  13%|█▎        | 19/144 [02:29<12:03,  5.79s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#120[0m
+Total:  13%|█▎        | 19/144 [02:29<12:03,  5.79s/it]
+gemini-3.1-pro-preview:  13%|█▎        | 19/144 [02:29<12:03,  5.79s/it][ATotal:  14%|█▍        | 20/144 [02:38<15:38,  7.57s/it]
+gemini-3.1-pro-preview:  14%|█▍        | 20/144 [02:38<15:38,  7.57s/it][ATotal:  15%|█▍        | 21/144 [02:39<11:36,  5.67s/it]
+gemini-3.1-pro-preview:  15%|█▍        | 21/144 [02:39<11:36,  5.67s/it][A                                                       
+                                                                        [ARunning Count: 3
+Total:  15%|█▍        | 21/144 [02:42<11:36,  5.67s/it]
+gemini-3.1-pro-preview:  15%|█▍        | 21/144 [02:42<11:36,  5.67s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#119[0m
+Total:  15%|█▍        | 21/144 [02:42<11:36,  5.67s/it]
+gemini-3.1-pro-preview:  15%|█▍        | 21/144 [02:42<11:36,  5.67s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#118[0m
+Total:  15%|█▍        | 21/144 [02:42<11:36,  5.67s/it]
+gemini-3.1-pro-preview:  15%|█▍        | 21/144 [02:42<11:36,  5.67s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  15%|█▍        | 21/144 [02:52<11:36,  5.67s/it]
+gemini-3.1-pro-preview:  15%|█▍        | 21/144 [02:52<11:36,  5.67s/it][ATotal:  15%|█▌        | 22/144 [02:55<17:46,  8.75s/it]
+gemini-3.1-pro-preview:  15%|█▌        | 22/144 [02:55<17:46,  8.74s/it][ATotal:  16%|█▌        | 23/144 [03:03<17:07,  8.49s/it]
+gemini-3.1-pro-preview:  16%|█▌        | 23/144 [03:03<17:07,  8.49s/it][A                                                       
+                                                                        [ARunning Count: 3
+Total:  16%|█▌        | 23/144 [03:06<17:07,  8.49s/it]
+gemini-3.1-pro-preview:  16%|█▌        | 23/144 [03:06<17:07,  8.49s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#117[0m
+Total:  16%|█▌        | 23/144 [03:06<17:07,  8.49s/it]
+gemini-3.1-pro-preview:  16%|█▌        | 23/144 [03:06<17:07,  8.49s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#116[0m
+Total:  16%|█▌        | 23/144 [03:06<17:07,  8.49s/it]
+gemini-3.1-pro-preview:  16%|█▌        | 23/144 [03:06<17:07,  8.49s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  16%|█▌        | 23/144 [03:12<17:07,  8.49s/it]
+gemini-3.1-pro-preview:  16%|█▌        | 23/144 [03:12<17:07,  8.49s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  16%|█▌        | 23/144 [03:20<17:07,  8.49s/it]
+gemini-3.1-pro-preview:  16%|█▌        | 23/144 [03:20<17:07,  8.49s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  16%|█▌        | 23/144 [03:32<17:07,  8.49s/it]
+gemini-3.1-pro-preview:  16%|█▌        | 23/144 [03:32<17:07,  8.49s/it][ATotal:  17%|█▋        | 24/144 [03:33<29:49, 14.91s/it]
+gemini-3.1-pro-preview:  17%|█▋        | 24/144 [03:33<29:49, 14.91s/it][ATotal:  17%|█▋        | 25/144 [03:40<24:45, 12.48s/it]
+gemini-3.1-pro-preview:  17%|█▋        | 25/144 [03:40<24:45, 12.48s/it][A                                                       
+                                                                        [ARunning Count: 3
+Total:  17%|█▋        | 25/144 [03:41<24:45, 12.48s/it]
+gemini-3.1-pro-preview:  17%|█▋        | 25/144 [03:41<24:45, 12.48s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#115[0m
+Total:  17%|█▋        | 25/144 [03:41<24:45, 12.48s/it]
+gemini-3.1-pro-preview:  17%|█▋        | 25/144 [03:41<24:45, 12.48s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#114[0m
+Total:  17%|█▋        | 25/144 [03:41<24:45, 12.48s/it]
+gemini-3.1-pro-preview:  17%|█▋        | 25/144 [03:41<24:45, 12.48s/it][ATotal:  18%|█▊        | 26/144 [03:43<18:48,  9.57s/it]
+gemini-3.1-pro-preview:  18%|█▊        | 26/144 [03:43<18:48,  9.57s/it][ATotal:  19%|█▉        | 27/144 [03:45<14:37,  7.50s/it]
+gemini-3.1-pro-preview:  19%|█▉        | 27/144 [03:45<14:37,  7.50s/it][A                                                       
+                                                                        [ARunning Count: 3
+Total:  19%|█▉        | 27/144 [03:53<14:37,  7.50s/it]
+gemini-3.1-pro-preview:  19%|█▉        | 27/144 [03:53<14:37,  7.50s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#113[0m
+Total:  19%|█▉        | 27/144 [03:53<14:37,  7.50s/it]
+gemini-3.1-pro-preview:  19%|█▉        | 27/144 [03:53<14:37,  7.50s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#112[0m
+Total:  19%|█▉        | 27/144 [03:53<14:37,  7.50s/it]
+gemini-3.1-pro-preview:  19%|█▉        | 27/144 [03:53<14:37,  7.50s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  19%|█▉        | 27/144 [04:00<14:37,  7.50s/it]
+gemini-3.1-pro-preview:  19%|█▉        | 27/144 [04:00<14:37,  7.50s/it][ATotal:  19%|█▉        | 28/144 [04:02<19:44, 10.21s/it]
+gemini-3.1-pro-preview:  19%|█▉        | 28/144 [04:02<19:44, 10.21s/it][ATotal:  20%|██        | 29/144 [04:03<14:12,  7.41s/it]
+gemini-3.1-pro-preview:  20%|██        | 29/144 [04:03<14:12,  7.41s/it][A                                                       
+                                                                        [ARunning Count: 3
+Total:  20%|██        | 29/144 [04:07<14:12,  7.41s/it]
+gemini-3.1-pro-preview:  20%|██        | 29/144 [04:07<14:12,  7.41s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#111[0m
+Total:  20%|██        | 29/144 [04:07<14:12,  7.41s/it]
+gemini-3.1-pro-preview:  20%|██        | 29/144 [04:07<14:12,  7.41s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#110[0m
+Total:  20%|██        | 29/144 [04:07<14:12,  7.41s/it]
+gemini-3.1-pro-preview:  20%|██        | 29/144 [04:07<14:12,  7.41s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  20%|██        | 29/144 [04:12<14:12,  7.41s/it]
+gemini-3.1-pro-preview:  20%|██        | 29/144 [04:12<14:12,  7.41s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  20%|██        | 29/144 [04:21<14:12,  7.41s/it]
+gemini-3.1-pro-preview:  20%|██        | 29/144 [04:21<14:12,  7.41s/it][ATotal:  21%|██        | 30/144 [04:27<23:31, 12.38s/it]
+gemini-3.1-pro-preview:  21%|██        | 30/144 [04:27<23:31, 12.38s/it][A                                                       
+                                                                        [ARunning Count: 4
+Total:  21%|██        | 30/144 [04:27<23:31, 12.38s/it]
+gemini-3.1-pro-preview:  21%|██        | 30/144 [04:27<23:31, 12.38s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#109[0m
+Total:  21%|██        | 30/144 [04:27<23:31, 12.38s/it]
+gemini-3.1-pro-preview:  21%|██        | 30/144 [04:27<23:31, 12.38s/it][ATotal:  22%|██▏       | 31/144 [04:34<20:36, 10.95s/it]
+gemini-3.1-pro-preview:  22%|██▏       | 31/144 [04:34<20:36, 10.95s/it][ATotal:  22%|██▏       | 32/144 [04:35<14:30,  7.78s/it]
+gemini-3.1-pro-preview:  22%|██▏       | 32/144 [04:35<14:30,  7.78s/it][A                                                       
+                                                                        [ARunning Count: 3
+Total:  22%|██▏       | 32/144 [04:38<14:30,  7.78s/it]
+gemini-3.1-pro-preview:  22%|██▏       | 32/144 [04:38<14:30,  7.78s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#108[0m
+Total:  22%|██▏       | 32/144 [04:38<14:30,  7.78s/it]
+gemini-3.1-pro-preview:  22%|██▏       | 32/144 [04:38<14:30,  7.78s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#107[0m
+Total:  22%|██▏       | 32/144 [04:38<14:30,  7.78s/it]
+gemini-3.1-pro-preview:  22%|██▏       | 32/144 [04:38<14:30,  7.78s/it][ATotal:  23%|██▎       | 33/144 [04:45<15:31,  8.39s/it]
+gemini-3.1-pro-preview:  23%|██▎       | 33/144 [04:45<15:31,  8.39s/it][ATotal:  24%|██▎       | 34/144 [04:46<11:25,  6.23s/it]
+gemini-3.1-pro-preview:  24%|██▎       | 34/144 [04:46<11:25,  6.23s/it][A                                                       
+                                                                        [ARunning Count: 3
+Total:  24%|██▎       | 34/144 [04:46<11:25,  6.23s/it]
+gemini-3.1-pro-preview:  24%|██▎       | 34/144 [04:46<11:25,  6.23s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#106[0m
+Total:  24%|██▎       | 34/144 [04:46<11:25,  6.23s/it]
+gemini-3.1-pro-preview:  24%|██▎       | 34/144 [04:46<11:25,  6.23s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#105[0m
+Total:  24%|██▎       | 34/144 [04:46<11:25,  6.23s/it]
+gemini-3.1-pro-preview:  24%|██▎       | 34/144 [04:46<11:25,  6.23s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  24%|██▎       | 34/144 [04:57<11:25,  6.23s/it]
+gemini-3.1-pro-preview:  24%|██▎       | 34/144 [04:57<11:25,  6.23s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  24%|██▎       | 34/144 [05:09<11:25,  6.23s/it]
+gemini-3.1-pro-preview:  24%|██▎       | 34/144 [05:09<11:25,  6.23s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  24%|██▎       | 34/144 [05:19<11:25,  6.23s/it]
+gemini-3.1-pro-preview:  24%|██▎       | 34/144 [05:19<11:25,  6.23s/it][ATotal:  24%|██▍       | 35/144 [05:20<26:38, 14.67s/it]
+gemini-3.1-pro-preview:  24%|██▍       | 35/144 [05:20<26:38, 14.67s/it][ATotal:  25%|██▌       | 36/144 [05:21<19:05, 10.60s/it]
+gemini-3.1-pro-preview:  25%|██▌       | 36/144 [05:21<19:05, 10.60s/it][ATotal:  26%|██▌       | 37/144 [05:30<18:01, 10.10s/it]
+gemini-3.1-pro-preview:  26%|██▌       | 37/144 [05:30<18:01, 10.10s/it][A                                                       
+                                                                        [ARunning Count: 2
+Total:  26%|██▌       | 37/144 [05:32<18:01, 10.10s/it]
+gemini-3.1-pro-preview:  26%|██▌       | 37/144 [05:32<18:01, 10.10s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#104[0m
+Total:  26%|██▌       | 37/144 [05:32<18:01, 10.10s/it]
+gemini-3.1-pro-preview:  26%|██▌       | 37/144 [05:32<18:01, 10.10s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#103[0m
+Total:  26%|██▌       | 37/144 [05:32<18:01, 10.10s/it]
+gemini-3.1-pro-preview:  26%|██▌       | 37/144 [05:32<18:01, 10.10s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#102[0m
+Total:  26%|██▌       | 37/144 [05:32<18:01, 10.10s/it]
+gemini-3.1-pro-preview:  26%|██▌       | 37/144 [05:32<18:01, 10.10s/it][ATotal:  26%|██▋       | 38/144 [05:40<17:30,  9.91s/it]
+gemini-3.1-pro-preview:  26%|██▋       | 38/144 [05:40<17:30,  9.91s/it][A                                                       
+                                                                        [ARunning Count: 4
+Total:  26%|██▋       | 38/144 [05:42<17:30,  9.91s/it]
+gemini-3.1-pro-preview:  26%|██▋       | 38/144 [05:42<17:30,  9.91s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#101[0m
+Total:  26%|██▋       | 38/144 [05:42<17:30,  9.91s/it]
+gemini-3.1-pro-preview:  26%|██▋       | 38/144 [05:42<17:30,  9.91s/it][ATotal:  27%|██▋       | 39/144 [05:43<13:57,  7.97s/it]
+gemini-3.1-pro-preview:  27%|██▋       | 39/144 [05:43<13:57,  7.97s/it][ATotal:  28%|██▊       | 40/144 [05:44<10:19,  5.96s/it]
+gemini-3.1-pro-preview:  28%|██▊       | 40/144 [05:44<10:19,  5.96s/it][A                                                       
+                                                                        [ARunning Count: 3
+Total:  28%|██▊       | 40/144 [05:53<10:19,  5.96s/it]
+gemini-3.1-pro-preview:  28%|██▊       | 40/144 [05:53<10:19,  5.96s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#100[0m
+Total:  28%|██▊       | 40/144 [05:53<10:19,  5.96s/it]
+gemini-3.1-pro-preview:  28%|██▊       | 40/144 [05:53<10:19,  5.96s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#99[0m
+Total:  28%|██▊       | 40/144 [05:53<10:19,  5.96s/it]
+gemini-3.1-pro-preview:  28%|██▊       | 40/144 [05:53<10:19,  5.96s/it][ATotal:  28%|██▊       | 41/144 [05:59<14:50,  8.64s/it]
+gemini-3.1-pro-preview:  28%|██▊       | 41/144 [05:59<14:50,  8.64s/it][A                                                       
+                                                                        [ARunning Count: 4
+Total:  28%|██▊       | 41/144 [06:01<14:50,  8.64s/it]
+gemini-3.1-pro-preview:  28%|██▊       | 41/144 [06:01<14:50,  8.64s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#98[0m
+Total:  28%|██▊       | 41/144 [06:01<14:50,  8.64s/it]
+gemini-3.1-pro-preview:  28%|██▊       | 41/144 [06:01<14:50,  8.64s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  28%|██▊       | 41/144 [06:08<14:50,  8.64s/it]
+gemini-3.1-pro-preview:  28%|██▊       | 41/144 [06:08<14:50,  8.64s/it][ATotal:  29%|██▉       | 42/144 [06:16<18:47, 11.05s/it]
+gemini-3.1-pro-preview:  29%|██▉       | 42/144 [06:16<18:47, 11.05s/it][A                                                       
+                                                                        [ARunning Count: 4
+Total:  29%|██▉       | 42/144 [06:17<18:47, 11.05s/it]
+gemini-3.1-pro-preview:  29%|██▉       | 42/144 [06:17<18:47, 11.05s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#97[0m
+Total:  29%|██▉       | 42/144 [06:17<18:47, 11.05s/it]
+gemini-3.1-pro-preview:  29%|██▉       | 42/144 [06:17<18:47, 11.05s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  29%|██▉       | 42/144 [06:23<18:47, 11.05s/it]
+gemini-3.1-pro-preview:  29%|██▉       | 42/144 [06:23<18:47, 11.05s/it][ATotal:  30%|██▉       | 43/144 [06:33<21:40, 12.88s/it]
+gemini-3.1-pro-preview:  30%|██▉       | 43/144 [06:33<21:40, 12.88s/it][A                                                       
+                                                                        [ARunning Count: 4
+Total:  30%|██▉       | 43/144 [06:35<21:40, 12.88s/it]
+gemini-3.1-pro-preview:  30%|██▉       | 43/144 [06:35<21:40, 12.88s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#96[0m
+Total:  30%|██▉       | 43/144 [06:35<21:40, 12.88s/it]
+gemini-3.1-pro-preview:  30%|██▉       | 43/144 [06:35<21:40, 12.88s/it][ATotal:  31%|███       | 44/144 [06:37<16:56, 10.17s/it]
+gemini-3.1-pro-preview:  31%|███       | 44/144 [06:37<16:56, 10.17s/it][ATotal:  31%|███▏      | 45/144 [06:43<14:46,  8.95s/it]
+gemini-3.1-pro-preview:  31%|███▏      | 45/144 [06:43<14:46,  8.95s/it][A                                                       
+                                                                        [ARunning Count: 3
+Total:  31%|███▏      | 45/144 [06:49<14:46,  8.95s/it]
+gemini-3.1-pro-preview:  31%|███▏      | 45/144 [06:49<14:46,  8.95s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#95[0m
+Total:  31%|███▏      | 45/144 [06:49<14:46,  8.95s/it]
+gemini-3.1-pro-preview:  31%|███▏      | 45/144 [06:49<14:46,  8.95s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#94[0m
+Total:  31%|███▏      | 45/144 [06:49<14:46,  8.95s/it]
+gemini-3.1-pro-preview:  31%|███▏      | 45/144 [06:49<14:46,  8.95s/it][ATotal:  32%|███▏      | 46/144 [06:52<14:33,  8.91s/it]
+gemini-3.1-pro-preview:  32%|███▏      | 46/144 [06:52<14:33,  8.91s/it][A                                                       
+                                                                        [ARunning Count: 4
+Total:  32%|███▏      | 46/144 [06:56<14:33,  8.91s/it]
+gemini-3.1-pro-preview:  32%|███▏      | 46/144 [06:56<14:33,  8.91s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#93[0m
+Total:  32%|███▏      | 46/144 [06:56<14:33,  8.91s/it]
+gemini-3.1-pro-preview:  32%|███▏      | 46/144 [06:56<14:33,  8.91s/it][ATotal:  33%|███▎      | 47/144 [07:00<13:58,  8.64s/it]
+gemini-3.1-pro-preview:  33%|███▎      | 47/144 [07:00<13:58,  8.64s/it][ATotal:  33%|███▎      | 48/144 [07:02<10:44,  6.71s/it]
+gemini-3.1-pro-preview:  33%|███▎      | 48/144 [07:02<10:44,  6.71s/it][A                                                       
+                                                                        [ARunning Count: 3
+Total:  33%|███▎      | 48/144 [07:08<10:44,  6.71s/it]
+gemini-3.1-pro-preview:  33%|███▎      | 48/144 [07:08<10:44,  6.71s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#92[0m
+Total:  33%|███▎      | 48/144 [07:08<10:44,  6.71s/it]
+gemini-3.1-pro-preview:  33%|███▎      | 48/144 [07:08<10:44,  6.71s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#91[0m
+Total:  33%|███▎      | 48/144 [07:08<10:44,  6.71s/it]
+gemini-3.1-pro-preview:  33%|███▎      | 48/144 [07:08<10:44,  6.71s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  33%|███▎      | 48/144 [07:17<10:44,  6.71s/it]
+gemini-3.1-pro-preview:  33%|███▎      | 48/144 [07:17<10:44,  6.71s/it][ATotal:  34%|███▍      | 49/144 [07:18<14:59,  9.47s/it]
+gemini-3.1-pro-preview:  34%|███▍      | 49/144 [07:18<14:59,  9.47s/it][ATotal:  35%|███▍      | 50/144 [07:18<10:26,  6.66s/it]
+gemini-3.1-pro-preview:  35%|███▍      | 50/144 [07:18<10:26,  6.66s/it][A                                                       
+                                                                        [ARunning Count: 3
+Total:  35%|███▍      | 50/144 [07:24<10:26,  6.66s/it]
+gemini-3.1-pro-preview:  35%|███▍      | 50/144 [07:24<10:26,  6.66s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#90[0m
+Total:  35%|███▍      | 50/144 [07:24<10:26,  6.66s/it]
+gemini-3.1-pro-preview:  35%|███▍      | 50/144 [07:24<10:26,  6.66s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#89[0m
+Total:  35%|███▍      | 50/144 [07:24<10:26,  6.66s/it]
+gemini-3.1-pro-preview:  35%|███▍      | 50/144 [07:24<10:26,  6.66s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  35%|███▍      | 50/144 [07:35<10:26,  6.66s/it]
+gemini-3.1-pro-preview:  35%|███▍      | 50/144 [07:35<10:26,  6.66s/it][ATotal:  35%|███▌      | 51/144 [07:39<16:50, 10.87s/it]
+gemini-3.1-pro-preview:  35%|███▌      | 51/144 [07:39<16:50, 10.87s/it][A                                                       
+                                                                        [ARunning Count: 4
+Total:  35%|███▌      | 51/144 [07:42<16:50, 10.87s/it]
+gemini-3.1-pro-preview:  35%|███▌      | 51/144 [07:42<16:50, 10.87s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#88[0m
+Total:  35%|███▌      | 51/144 [07:42<16:50, 10.87s/it]
+gemini-3.1-pro-preview:  35%|███▌      | 51/144 [07:42<16:50, 10.87s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  35%|███▌      | 51/144 [07:47<16:50, 10.87s/it]
+gemini-3.1-pro-preview:  35%|███▌      | 51/144 [07:47<16:50, 10.87s/it][ATotal:  36%|███▌      | 52/144 [07:50<17:01, 11.11s/it]
+gemini-3.1-pro-preview:  36%|███▌      | 52/144 [07:50<17:01, 11.11s/it][A                                                       
+                                                                        [ARunning Count: 4
+Total:  36%|███▌      | 52/144 [07:55<17:01, 11.11s/it]
+gemini-3.1-pro-preview:  36%|███▌      | 52/144 [07:55<17:01, 11.11s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#87[0m
+Total:  36%|███▌      | 52/144 [07:55<17:01, 11.11s/it]
+gemini-3.1-pro-preview:  36%|███▌      | 52/144 [07:55<17:01, 11.11s/it][ATotal:  37%|███▋      | 53/144 [07:56<14:10,  9.34s/it]
+gemini-3.1-pro-preview:  37%|███▋      | 53/144 [07:56<14:10,  9.34s/it][A                                                       
+                                                                        [ARunning Count: 4
+Total:  37%|███▋      | 53/144 [08:07<14:10,  9.34s/it]
+gemini-3.1-pro-preview:  37%|███▋      | 53/144 [08:07<14:10,  9.34s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#86[0m
+Total:  37%|███▋      | 53/144 [08:07<14:10,  9.34s/it]
+gemini-3.1-pro-preview:  37%|███▋      | 53/144 [08:07<14:10,  9.34s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  37%|███▋      | 53/144 [08:19<14:10,  9.34s/it]
+gemini-3.1-pro-preview:  37%|███▋      | 53/144 [08:19<14:10,  9.34s/it][ATotal:  38%|███▊      | 54/144 [08:23<22:07, 14.74s/it]
+gemini-3.1-pro-preview:  38%|███▊      | 54/144 [08:23<22:07, 14.74s/it][A                                                       
+                                                                        [ARunning Count: 4
+Total:  38%|███▊      | 54/144 [08:26<22:07, 14.74s/it]
+gemini-3.1-pro-preview:  38%|███▊      | 54/144 [08:26<22:07, 14.74s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#85[0m
+Total:  38%|███▊      | 54/144 [08:26<22:07, 14.74s/it]
+gemini-3.1-pro-preview:  38%|███▊      | 54/144 [08:26<22:07, 14.74s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  38%|███▊      | 54/144 [08:37<22:07, 14.74s/it]
+gemini-3.1-pro-preview:  38%|███▊      | 54/144 [08:37<22:07, 14.74s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  38%|███▊      | 54/144 [08:48<22:07, 14.74s/it]
+gemini-3.1-pro-preview:  38%|███▊      | 54/144 [08:48<22:07, 14.74s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  38%|███▊      | 54/144 [09:02<22:07, 14.74s/it]
+gemini-3.1-pro-preview:  38%|███▊      | 54/144 [09:02<22:07, 14.74s/it][ATotal:  38%|███▊      | 55/144 [09:09<35:47, 24.13s/it]
+gemini-3.1-pro-preview:  38%|███▊      | 55/144 [09:09<35:47, 24.13s/it][A                                                       
+                                                                        [ARunning Count: 4
+Total:  38%|███▊      | 55/144 [09:13<35:47, 24.13s/it]
+gemini-3.1-pro-preview:  38%|███▊      | 55/144 [09:13<35:47, 24.13s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#84[0m
+Total:  38%|███▊      | 55/144 [09:13<35:47, 24.13s/it]
+gemini-3.1-pro-preview:  38%|███▊      | 55/144 [09:13<35:47, 24.13s/it][ATotal:  39%|███▉      | 56/144 [09:18<28:36, 19.51s/it]
+gemini-3.1-pro-preview:  39%|███▉      | 56/144 [09:18<28:36, 19.51s/it][A                                                       
+                                                                        [ARunning Count: 4
+Total:  39%|███▉      | 56/144 [09:23<28:36, 19.51s/it]
+gemini-3.1-pro-preview:  39%|███▉      | 56/144 [09:23<28:36, 19.51s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#83[0m
+Total:  39%|███▉      | 56/144 [09:23<28:36, 19.51s/it]
+gemini-3.1-pro-preview:  39%|███▉      | 56/144 [09:23<28:36, 19.51s/it][ATotal:  40%|███▉      | 57/144 [09:23<22:13, 15.33s/it]
+gemini-3.1-pro-preview:  40%|███▉      | 57/144 [09:23<22:13, 15.33s/it][ATotal:  40%|████      | 58/144 [09:27<16:46, 11.71s/it]
+gemini-3.1-pro-preview:  40%|████      | 58/144 [09:27<16:46, 11.71s/it][A                                                       
+                                                                        [ARunning Count: 3
+Total:  40%|████      | 58/144 [09:34<16:46, 11.71s/it]
+gemini-3.1-pro-preview:  40%|████      | 58/144 [09:34<16:46, 11.71s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#82[0m
+Total:  40%|████      | 58/144 [09:34<16:46, 11.71s/it]
+gemini-3.1-pro-preview:  40%|████      | 58/144 [09:34<16:46, 11.71s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#81[0m
+Total:  40%|████      | 58/144 [09:34<16:46, 11.71s/it]
+gemini-3.1-pro-preview:  40%|████      | 58/144 [09:34<16:46, 11.71s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  40%|████      | 58/144 [09:43<16:46, 11.71s/it]
+gemini-3.1-pro-preview:  40%|████      | 58/144 [09:43<16:46, 11.71s/it][ATotal:  41%|████      | 59/144 [09:44<18:51, 13.31s/it]
+gemini-3.1-pro-preview:  41%|████      | 59/144 [09:44<18:51, 13.31s/it][ATotal:  42%|████▏     | 60/144 [09:50<15:45, 11.25s/it]
+gemini-3.1-pro-preview:  42%|████▏     | 60/144 [09:50<15:45, 11.25s/it][A                                                       
+                                                                        [ARunning Count: 3
+Total:  42%|████▏     | 60/144 [09:57<15:45, 11.25s/it]
+gemini-3.1-pro-preview:  42%|████▏     | 60/144 [09:57<15:45, 11.25s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#80[0m
+Total:  42%|████▏     | 60/144 [09:57<15:45, 11.25s/it]
+gemini-3.1-pro-preview:  42%|████▏     | 60/144 [09:57<15:45, 11.25s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#79[0m
+Total:  42%|████▏     | 60/144 [09:57<15:45, 11.25s/it]
+gemini-3.1-pro-preview:  42%|████▏     | 60/144 [09:57<15:45, 11.25s/it][ATotal:  42%|████▏     | 61/144 [10:04<16:33, 11.97s/it]
+gemini-3.1-pro-preview:  42%|████▏     | 61/144 [10:04<16:33, 11.97s/it][A                                                       
+                                                                        [ARunning Count: 4
+Total:  42%|████▏     | 61/144 [10:12<16:33, 11.97s/it]
+gemini-3.1-pro-preview:  42%|████▏     | 61/144 [10:12<16:33, 11.97s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#78[0m
+Total:  42%|████▏     | 61/144 [10:12<16:33, 11.97s/it]
+gemini-3.1-pro-preview:  42%|████▏     | 61/144 [10:12<16:33, 11.97s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  42%|████▏     | 61/144 [10:21<16:33, 11.97s/it]
+gemini-3.1-pro-preview:  42%|████▏     | 61/144 [10:21<16:33, 11.97s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  42%|████▏     | 61/144 [10:27<16:33, 11.97s/it]
+gemini-3.1-pro-preview:  42%|████▏     | 61/144 [10:27<16:33, 11.97s/it][ATotal:  43%|████▎     | 62/144 [10:29<21:36, 15.81s/it]
+gemini-3.1-pro-preview:  43%|████▎     | 62/144 [10:29<21:36, 15.81s/it][ATotal:  44%|████▍     | 63/144 [10:30<15:42, 11.63s/it]
+gemini-3.1-pro-preview:  44%|████▍     | 63/144 [10:30<15:42, 11.63s/it][A                                                       
+                                                                        [ARunning Count: 3
+Total:  44%|████▍     | 63/144 [10:33<15:42, 11.63s/it]
+gemini-3.1-pro-preview:  44%|████▍     | 63/144 [10:33<15:42, 11.63s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#77[0m
+Total:  44%|████▍     | 63/144 [10:33<15:42, 11.63s/it]
+gemini-3.1-pro-preview:  44%|████▍     | 63/144 [10:33<15:42, 11.63s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#76[0m
+Total:  44%|████▍     | 63/144 [10:33<15:42, 11.63s/it]
+gemini-3.1-pro-preview:  44%|████▍     | 63/144 [10:33<15:42, 11.63s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  44%|████▍     | 63/144 [10:44<15:42, 11.63s/it]
+gemini-3.1-pro-preview:  44%|████▍     | 63/144 [10:44<15:42, 11.63s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  44%|████▍     | 63/144 [10:50<15:42, 11.63s/it]
+gemini-3.1-pro-preview:  44%|████▍     | 63/144 [10:50<15:42, 11.63s/it][ATotal:  44%|████▍     | 64/144 [10:54<20:17, 15.21s/it]
+gemini-3.1-pro-preview:  44%|████▍     | 64/144 [10:54<20:17, 15.21s/it][A                                                       
+                                                                        [ARunning Count: 4
+Total:  44%|████▍     | 64/144 [10:59<20:17, 15.21s/it]
+gemini-3.1-pro-preview:  44%|████▍     | 64/144 [10:59<20:17, 15.21s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#75[0m
+Total:  44%|████▍     | 64/144 [10:59<20:17, 15.21s/it]
+gemini-3.1-pro-preview:  44%|████▍     | 64/144 [10:59<20:17, 15.21s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  44%|████▍     | 64/144 [11:04<20:17, 15.21s/it]
+gemini-3.1-pro-preview:  44%|████▍     | 64/144 [11:04<20:17, 15.21s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  44%|████▍     | 64/144 [11:09<20:17, 15.21s/it]
+gemini-3.1-pro-preview:  44%|████▍     | 64/144 [11:09<20:17, 15.21s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  44%|████▍     | 64/144 [11:22<20:17, 15.21s/it]
+gemini-3.1-pro-preview:  44%|████▍     | 64/144 [11:22<20:17, 15.21s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  44%|████▍     | 64/144 [11:29<20:17, 15.21s/it]
+gemini-3.1-pro-preview:  44%|████▍     | 64/144 [11:29<20:17, 15.21s/it][ATotal:  45%|████▌     | 65/144 [11:33<29:21, 22.30s/it]
+gemini-3.1-pro-preview:  45%|████▌     | 65/144 [11:33<29:21, 22.30s/it][ATotal:  46%|████▌     | 66/144 [11:43<24:21, 18.74s/it]
+gemini-3.1-pro-preview:  46%|████▌     | 66/144 [11:43<24:21, 18.74s/it][A                                                       
+                                                                        [ARunning Count: 3
+Total:  46%|████▌     | 66/144 [11:44<24:21, 18.74s/it]
+gemini-3.1-pro-preview:  46%|████▌     | 66/144 [11:44<24:21, 18.74s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#74[0m
+Total:  46%|████▌     | 66/144 [11:44<24:21, 18.74s/it]
+gemini-3.1-pro-preview:  46%|████▌     | 66/144 [11:44<24:21, 18.74s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#73[0m
+Total:  46%|████▌     | 66/144 [11:44<24:21, 18.74s/it]
+gemini-3.1-pro-preview:  46%|████▌     | 66/144 [11:44<24:21, 18.74s/it][ATotal:  47%|████▋     | 67/144 [11:50<19:14, 15.00s/it]
+gemini-3.1-pro-preview:  47%|████▋     | 67/144 [11:50<19:14, 15.00s/it][A                                                       
+                                                                        [ARunning Count: 4
+Total:  47%|████▋     | 67/144 [11:51<19:14, 15.00s/it]
+gemini-3.1-pro-preview:  47%|████▋     | 67/144 [11:51<19:14, 15.00s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#72[0m
+Total:  47%|████▋     | 67/144 [11:51<19:14, 15.00s/it]
+gemini-3.1-pro-preview:  47%|████▋     | 67/144 [11:51<19:14, 15.00s/it][ATotal:  47%|████▋     | 68/144 [11:53<14:31, 11.47s/it]
+gemini-3.1-pro-preview:  47%|████▋     | 68/144 [11:53<14:31, 11.47s/it][ATotal:  48%|████▊     | 69/144 [11:55<11:00,  8.81s/it]
+gemini-3.1-pro-preview:  48%|████▊     | 69/144 [11:55<11:00,  8.81s/it][A                                                       
+                                                                        [ARunning Count: 3
+Total:  48%|████▊     | 69/144 [12:00<11:00,  8.81s/it]
+gemini-3.1-pro-preview:  48%|████▊     | 69/144 [12:00<11:00,  8.81s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#71[0m
+Total:  48%|████▊     | 69/144 [12:00<11:00,  8.81s/it]
+gemini-3.1-pro-preview:  48%|████▊     | 69/144 [12:00<11:00,  8.81s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#70[0m
+Total:  48%|████▊     | 69/144 [12:00<11:00,  8.81s/it]
+gemini-3.1-pro-preview:  48%|████▊     | 69/144 [12:00<11:00,  8.81s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  48%|████▊     | 69/144 [12:06<11:00,  8.81s/it]
+gemini-3.1-pro-preview:  48%|████▊     | 69/144 [12:06<11:00,  8.81s/it][ATotal:  49%|████▊     | 70/144 [12:10<12:51, 10.43s/it]
+gemini-3.1-pro-preview:  49%|████▊     | 70/144 [12:10<12:51, 10.43s/it][A                                                       
+                                                                        [ARunning Count: 4
+Total:  49%|████▊     | 70/144 [12:14<12:51, 10.43s/it]
+gemini-3.1-pro-preview:  49%|████▊     | 70/144 [12:14<12:51, 10.43s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#69[0m
+Total:  49%|████▊     | 70/144 [12:14<12:51, 10.43s/it]
+gemini-3.1-pro-preview:  49%|████▊     | 70/144 [12:14<12:51, 10.43s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  49%|████▊     | 70/144 [12:23<12:51, 10.43s/it]
+gemini-3.1-pro-preview:  49%|████▊     | 70/144 [12:23<12:51, 10.43s/it][ATotal:  49%|████▉     | 71/144 [12:34<17:43, 14.57s/it]
+gemini-3.1-pro-preview:  49%|████▉     | 71/144 [12:34<17:43, 14.57s/it][A                                                       
+                                                                        [ARunning Count: 4
+Total:  49%|████▉     | 71/144 [12:34<17:43, 14.57s/it]
+gemini-3.1-pro-preview:  49%|████▉     | 71/144 [12:34<17:43, 14.57s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#68[0m
+Total:  49%|████▉     | 71/144 [12:34<17:43, 14.57s/it]
+gemini-3.1-pro-preview:  49%|████▉     | 71/144 [12:34<17:43, 14.57s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  49%|████▉     | 71/144 [12:45<17:43, 14.57s/it]
+gemini-3.1-pro-preview:  49%|████▉     | 71/144 [12:45<17:43, 14.57s/it][ATotal:  50%|█████     | 72/144 [12:48<17:17, 14.41s/it]
+gemini-3.1-pro-preview:  50%|█████     | 72/144 [12:48<17:17, 14.41s/it][ATotal:  51%|█████     | 73/144 [12:53<13:35, 11.49s/it]
+gemini-3.1-pro-preview:  51%|█████     | 73/144 [12:53<13:35, 11.49s/it][A                                                       
+                                                                        [ARunning Count: 3
+Total:  51%|█████     | 73/144 [12:55<13:35, 11.49s/it]
+gemini-3.1-pro-preview:  51%|█████     | 73/144 [12:55<13:35, 11.49s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#67[0m
+Total:  51%|█████     | 73/144 [12:55<13:35, 11.49s/it]
+gemini-3.1-pro-preview:  51%|█████     | 73/144 [12:55<13:35, 11.49s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#66[0m
+Total:  51%|█████     | 73/144 [12:55<13:35, 11.49s/it]
+gemini-3.1-pro-preview:  51%|█████     | 73/144 [12:55<13:35, 11.49s/it][ATotal:  51%|█████▏    | 74/144 [13:05<13:35, 11.65s/it]
+gemini-3.1-pro-preview:  51%|█████▏    | 74/144 [13:05<13:35, 11.65s/it][A                                                       
+                                                                        [ARunning Count: 4
+Total:  51%|█████▏    | 74/144 [13:06<13:35, 11.65s/it]
+gemini-3.1-pro-preview:  51%|█████▏    | 74/144 [13:06<13:35, 11.65s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#65[0m
+Total:  51%|█████▏    | 74/144 [13:06<13:35, 11.65s/it]
+gemini-3.1-pro-preview:  51%|█████▏    | 74/144 [13:06<13:35, 11.65s/it][ATotal:  52%|█████▏    | 75/144 [13:10<11:06,  9.65s/it]
+gemini-3.1-pro-preview:  52%|█████▏    | 75/144 [13:10<11:06,  9.65s/it][ATotal:  53%|█████▎    | 76/144 [13:12<08:22,  7.40s/it]
+gemini-3.1-pro-preview:  53%|█████▎    | 76/144 [13:12<08:22,  7.40s/it][ATotal:  53%|█████▎    | 77/144 [13:14<06:34,  5.90s/it]
+gemini-3.1-pro-preview:  53%|█████▎    | 77/144 [13:14<06:35,  5.90s/it][A                                                       
+                                                                        [ARunning Count: 2
+Total:  53%|█████▎    | 77/144 [13:20<06:34,  5.90s/it]
+gemini-3.1-pro-preview:  53%|█████▎    | 77/144 [13:20<06:35,  5.90s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#64[0m
+Total:  53%|█████▎    | 77/144 [13:20<06:34,  5.90s/it]
+gemini-3.1-pro-preview:  53%|█████▎    | 77/144 [13:20<06:35,  5.90s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#63[0m
+Total:  53%|█████▎    | 77/144 [13:20<06:34,  5.90s/it]
+gemini-3.1-pro-preview:  53%|█████▎    | 77/144 [13:20<06:35,  5.90s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#62[0m
+Total:  53%|█████▎    | 77/144 [13:20<06:34,  5.90s/it]
+gemini-3.1-pro-preview:  53%|█████▎    | 77/144 [13:20<06:35,  5.90s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  53%|█████▎    | 77/144 [13:30<06:34,  5.90s/it]
+gemini-3.1-pro-preview:  53%|█████▎    | 77/144 [13:30<06:35,  5.90s/it][ATotal:  54%|█████▍    | 78/144 [13:30<09:57,  9.05s/it]
+gemini-3.1-pro-preview:  54%|█████▍    | 78/144 [13:30<09:57,  9.05s/it][A                                                       
+                                                                        [ARunning Count: 4
+Total:  54%|█████▍    | 78/144 [13:40<09:57,  9.05s/it]
+gemini-3.1-pro-preview:  54%|█████▍    | 78/144 [13:40<09:57,  9.05s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#61[0m
+Total:  54%|█████▍    | 78/144 [13:40<09:57,  9.05s/it]
+gemini-3.1-pro-preview:  54%|█████▍    | 78/144 [13:40<09:57,  9.05s/it][ATotal:  55%|█████▍    | 79/144 [13:41<10:20,  9.55s/it]
+gemini-3.1-pro-preview:  55%|█████▍    | 79/144 [13:41<10:20,  9.55s/it][A                                                       
+                                                                        [ARunning Count: 4
+Total:  55%|█████▍    | 79/144 [13:46<10:20,  9.55s/it]
+gemini-3.1-pro-preview:  55%|█████▍    | 79/144 [13:46<10:20,  9.55s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#60[0m
+Total:  55%|█████▍    | 79/144 [13:46<10:20,  9.55s/it]
+gemini-3.1-pro-preview:  55%|█████▍    | 79/144 [13:46<10:20,  9.55s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  55%|█████▍    | 79/144 [13:53<10:20,  9.55s/it]
+gemini-3.1-pro-preview:  55%|█████▍    | 79/144 [13:53<10:20,  9.55s/it][ATotal:  56%|█████▌    | 80/144 [13:54<11:16, 10.57s/it]
+gemini-3.1-pro-preview:  56%|█████▌    | 80/144 [13:54<11:16, 10.57s/it][ATotal:  56%|█████▋    | 81/144 [13:56<08:12,  7.81s/it]
+gemini-3.1-pro-preview:  56%|█████▋    | 81/144 [13:56<08:12,  7.81s/it][A                                                       
+                                                                        [ARunning Count: 3
+Total:  56%|█████▋    | 81/144 [14:05<08:12,  7.81s/it]
+gemini-3.1-pro-preview:  56%|█████▋    | 81/144 [14:05<08:12,  7.81s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#59[0m
+Total:  56%|█████▋    | 81/144 [14:05<08:12,  7.81s/it]
+gemini-3.1-pro-preview:  56%|█████▋    | 81/144 [14:05<08:12,  7.81s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#58[0m
+Total:  56%|█████▋    | 81/144 [14:05<08:12,  7.81s/it]
+gemini-3.1-pro-preview:  56%|█████▋    | 81/144 [14:05<08:12,  7.81s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  56%|█████▋    | 81/144 [14:14<08:12,  7.81s/it]
+gemini-3.1-pro-preview:  56%|█████▋    | 81/144 [14:14<08:12,  7.81s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  56%|█████▋    | 81/144 [14:20<08:12,  7.81s/it]
+gemini-3.1-pro-preview:  56%|█████▋    | 81/144 [14:20<08:12,  7.81s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  56%|█████▋    | 81/144 [14:27<08:12,  7.81s/it]
+gemini-3.1-pro-preview:  56%|█████▋    | 81/144 [14:27<08:12,  7.81s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  56%|█████▋    | 81/144 [14:32<08:12,  7.81s/it]
+gemini-3.1-pro-preview:  56%|█████▋    | 81/144 [14:32<08:12,  7.81s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  56%|█████▋    | 81/144 [14:41<08:12,  7.81s/it]
+gemini-3.1-pro-preview:  56%|█████▋    | 81/144 [14:41<08:12,  7.81s/it][ATotal:  57%|█████▋    | 82/144 [14:41<19:47, 19.16s/it]
+gemini-3.1-pro-preview:  57%|█████▋    | 82/144 [14:41<19:47, 19.16s/it][ATotal:  58%|█████▊    | 83/144 [14:43<14:07, 13.89s/it]
+gemini-3.1-pro-preview:  58%|█████▊    | 83/144 [14:43<14:07, 13.89s/it][ATotal:  58%|█████▊    | 84/144 [14:48<11:18, 11.31s/it]
+gemini-3.1-pro-preview:  58%|█████▊    | 84/144 [14:48<11:18, 11.31s/it][ATotal:  59%|█████▉    | 85/144 [14:53<09:10,  9.32s/it]
+gemini-3.1-pro-preview:  59%|█████▉    | 85/144 [14:53<09:10,  9.32s/it][A                                                       
+                                                                        [ARunning Count: 1
+Total:  59%|█████▉    | 85/144 [14:55<09:10,  9.32s/it]
+gemini-3.1-pro-preview:  59%|█████▉    | 85/144 [14:55<09:10,  9.32s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#57[0m
+Total:  59%|█████▉    | 85/144 [14:55<09:10,  9.32s/it]
+gemini-3.1-pro-preview:  59%|█████▉    | 85/144 [14:55<09:10,  9.32s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#56[0m
+Total:  59%|█████▉    | 85/144 [14:55<09:10,  9.32s/it]
+gemini-3.1-pro-preview:  59%|█████▉    | 85/144 [14:55<09:10,  9.32s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#55[0m
+Total:  59%|█████▉    | 85/144 [14:55<09:10,  9.32s/it]
+gemini-3.1-pro-preview:  59%|█████▉    | 85/144 [14:55<09:10,  9.32s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#54[0m
+Total:  59%|█████▉    | 85/144 [14:55<09:10,  9.32s/it]
+gemini-3.1-pro-preview:  59%|█████▉    | 85/144 [14:55<09:10,  9.32s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  59%|█████▉    | 85/144 [15:01<09:10,  9.32s/it]
+gemini-3.1-pro-preview:  59%|█████▉    | 85/144 [15:01<09:10,  9.32s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  59%|█████▉    | 85/144 [15:11<09:10,  9.32s/it]
+gemini-3.1-pro-preview:  59%|█████▉    | 85/144 [15:11<09:10,  9.32s/it][ATotal:  60%|█████▉    | 86/144 [15:16<13:07, 13.58s/it]
+gemini-3.1-pro-preview:  60%|█████▉    | 86/144 [15:16<13:07, 13.58s/it][A                                                       
+                                                                        [ARunning Count: 3
+Total:  60%|██████    | 87/144 [15:18<12:54, 13.58s/it]
+gemini-3.1-pro-preview:  60%|██████    | 87/144 [15:18<12:54, 13.58s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#53[0m
+Total:  60%|██████    | 87/144 [15:18<12:54, 13.58s/it]
+gemini-3.1-pro-preview:  60%|██████    | 87/144 [15:18<12:54, 13.58s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#52[0m
+Total:  60%|██████    | 87/144 [15:18<12:54, 13.58s/it]
+gemini-3.1-pro-preview:  60%|██████    | 87/144 [15:18<12:54, 13.58s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  60%|██████    | 87/144 [15:28<12:54, 13.58s/it]
+gemini-3.1-pro-preview:  60%|██████    | 87/144 [15:28<12:54, 13.58s/it][ATotal:  61%|██████    | 88/144 [15:31<10:01, 10.74s/it]
+gemini-3.1-pro-preview:  61%|██████    | 88/144 [15:31<10:01, 10.74s/it][ATotal:  62%|██████▏   | 89/144 [15:36<08:33,  9.33s/it]
+gemini-3.1-pro-preview:  62%|██████▏   | 89/144 [15:36<08:33,  9.33s/it][A                                                       
+                                                                        [ARunning Count: 3
+Total:  62%|██████▏   | 89/144 [15:40<08:33,  9.33s/it]
+gemini-3.1-pro-preview:  62%|██████▏   | 89/144 [15:40<08:33,  9.33s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#51[0m
+Total:  62%|██████▏   | 89/144 [15:40<08:33,  9.33s/it]
+gemini-3.1-pro-preview:  62%|██████▏   | 89/144 [15:40<08:33,  9.33s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#50[0m
+Total:  62%|██████▏   | 89/144 [15:40<08:33,  9.33s/it]
+gemini-3.1-pro-preview:  62%|██████▏   | 89/144 [15:40<08:33,  9.33s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  62%|██████▏   | 89/144 [15:53<08:33,  9.33s/it]
+gemini-3.1-pro-preview:  62%|██████▏   | 89/144 [15:53<08:33,  9.33s/it][ATotal:  62%|██████▎   | 90/144 [15:57<11:01, 12.26s/it]
+gemini-3.1-pro-preview:  62%|██████▎   | 90/144 [15:57<11:01, 12.26s/it][A                                                       
+                                                                        [ARunning Count: 4
+Total:  62%|██████▎   | 90/144 [15:58<11:01, 12.26s/it]
+gemini-3.1-pro-preview:  62%|██████▎   | 90/144 [15:58<11:01, 12.26s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#49[0m
+Total:  62%|██████▎   | 90/144 [15:58<11:01, 12.26s/it]
+gemini-3.1-pro-preview:  62%|██████▎   | 90/144 [15:58<11:01, 12.26s/it][ATotal:  63%|██████▎   | 91/144 [16:00<08:42,  9.87s/it]
+gemini-3.1-pro-preview:  63%|██████▎   | 91/144 [16:00<08:42,  9.87s/it][ATotal:  64%|██████▍   | 92/144 [16:05<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:05<07:23,  8.53s/it][A                                                       
+                                                                        [ARunning Count: 3
+Total:  64%|██████▍   | 92/144 [16:05<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:05<07:23,  8.53s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#48[0m
+Total:  64%|██████▍   | 92/144 [16:05<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:05<07:23,  8.53s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#47[0m
+Total:  64%|██████▍   | 92/144 [16:05<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:05<07:23,  8.53s/it][A                                                       
+                                                                        [AWarning:  Invalid status code 429:
+
+Total:  64%|██████▍   | 92/144 [16:10<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:10<07:23,  8.53s/it][A                                                       
+                                                                        [A{"routify_response":{"trace_id":"0bf8c01517838240240404809e0aec","request_id":"857106dd9a3a478e8b10209dcafa0b03","success":false,"status":429,"error_source":"CLIENT_ERROR","error_message":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。","error_detail":{"errorMessage":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。"},"model_name":"gemini-3.1-pro-preview","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":60},"is_fall_back_triggered":false}}
+Total:  64%|██████▍   | 92/144 [16:10<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:10<07:23,  8.53s/it][A                                                       
+                                                                        [AWarning:  Invalid status code 429:
+
+Total:  64%|██████▍   | 92/144 [16:10<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:10<07:23,  8.53s/it][A                                                       
+                                                                        [A{"routify_response":{"trace_id":"2141676817838240247264855e0ec4","request_id":"e58c37055c9a4be1b3141c58092ec904","success":false,"status":429,"error_source":"CLIENT_ERROR","error_message":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。","error_detail":{"errorMessage":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。"},"model_name":"gemini-3.1-pro-preview","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":60},"is_fall_back_triggered":false}}
+Total:  64%|██████▍   | 92/144 [16:10<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:10<07:23,  8.53s/it][A                                                       
+                                                                        [AWarning:  Invalid status code 429:
+
+Total:  64%|██████▍   | 92/144 [16:11<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:11<07:23,  8.53s/it][A                                                       
+                                                                        [A{"routify_response":{"trace_id":"2150211917838240251357111e0f0e","request_id":"aef79a86873d425fa2cecfb9bceccc92","success":false,"status":429,"error_source":"CLIENT_ERROR","error_message":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。","error_detail":{"errorMessage":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。"},"model_name":"gemini-3.1-pro-preview","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":60},"is_fall_back_triggered":false}}
+Total:  64%|██████▍   | 92/144 [16:11<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:11<07:23,  8.53s/it][A                                                       
+                                                                        [AWarning:  Invalid status code 429:
+
+Total:  64%|██████▍   | 92/144 [16:12<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:12<07:23,  8.53s/it][A                                                       
+                                                                        [A{"routify_response":{"trace_id":"2150211917838240259928123e0e7f","request_id":"483456763c3347f98feae940001b8db5","success":false,"status":429,"error_source":"CLIENT_ERROR","error_message":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。","error_detail":{"errorMessage":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。"},"model_name":"gemini-3.1-pro-preview","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":60},"is_fall_back_triggered":false}}
+Total:  64%|██████▍   | 92/144 [16:12<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:12<07:23,  8.53s/it][A                                                       
+                                                                        [AWarning:  Invalid status code 429:
+
+Total:  64%|██████▍   | 92/144 [16:12<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:12<07:23,  8.53s/it][A                                                       
+                                                                        [A{"routify_response":{"trace_id":"212ba22917838240261478414e0bb7","request_id":"b584c51786054b389e892cabece80954","success":false,"status":429,"error_source":"CLIENT_ERROR","error_message":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。","error_detail":{"errorMessage":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。"},"model_name":"gemini-3.1-pro-preview","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":60},"is_fall_back_triggered":false}}
+Total:  64%|██████▍   | 92/144 [16:12<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:12<07:23,  8.53s/it][A                                                       
+                                                                        [AWarning:  Invalid status code 429:
+
+Total:  64%|██████▍   | 92/144 [16:13<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:13<07:23,  8.53s/it][A                                                       
+                                                                        [A{"routify_response":{"trace_id":"2141676817838240268364667e0e41","request_id":"f5132ce5e93448208543b8765866e4ee","success":false,"status":429,"error_source":"CLIENT_ERROR","error_message":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。","error_detail":{"errorMessage":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。"},"model_name":"gemini-3.1-pro-preview","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":60},"is_fall_back_triggered":false}}
+Total:  64%|██████▍   | 92/144 [16:13<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:13<07:23,  8.53s/it][A                                                       
+                                                                        [AWarning:  Invalid status code 429:
+
+Total:  64%|██████▍   | 92/144 [16:13<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:13<07:23,  8.53s/it][A                                                       
+                                                                        [A{"routify_response":{"trace_id":"212b740217838240272413699e0c4a","request_id":"01dc4d08318145178dab9571ad6fa8a0","success":false,"status":429,"error_source":"CLIENT_ERROR","error_message":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。","error_detail":{"errorMessage":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。"},"model_name":"gemini-3.1-pro-preview","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":60},"is_fall_back_triggered":false}}
+Total:  64%|██████▍   | 92/144 [16:13<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:13<07:23,  8.53s/it][A                                                       
+                                                                        [AWarning:  Invalid status code 429:
+
+Total:  64%|██████▍   | 92/144 [16:14<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:14<07:23,  8.53s/it][A                                                       
+                                                                        [A{"routify_response":{"trace_id":"212aa73e17838240280965280e0c6f","request_id":"6d558543cd3741b593a3f834865ae47e","success":false,"status":429,"error_source":"CLIENT_ERROR","error_message":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。","error_detail":{"errorMessage":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。"},"model_name":"gemini-3.1-pro-preview","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":60},"is_fall_back_triggered":false}}
+Total:  64%|██████▍   | 92/144 [16:14<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:14<07:23,  8.53s/it][A                                                       
+                                                                        [AWarning:  Invalid status code 429:
+
+Total:  64%|██████▍   | 92/144 [16:15<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:15<07:23,  8.53s/it][A                                                       
+                                                                        [A{"routify_response":{"trace_id":"2104cabb17838240290898279e0cbe","request_id":"6fe0df409ab94dacad5e9e1540151d59","success":false,"status":429,"error_source":"CLIENT_ERROR","error_message":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。","error_detail":{"errorMessage":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。"},"model_name":"gemini-3.1-pro-preview","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":60},"is_fall_back_triggered":false}}
+Total:  64%|██████▍   | 92/144 [16:15<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:15<07:23,  8.53s/it][A                                                       
+                                                                        [AWarning:  Invalid status code 429:
+
+Total:  64%|██████▍   | 92/144 [16:15<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:15<07:23,  8.53s/it][A                                                       
+                                                                        [A{"routify_response":{"trace_id":"2150211917838240292621136e0dfa","request_id":"f8a43874254040149d23b877eaaeca66","success":false,"status":429,"error_source":"CLIENT_ERROR","error_message":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。","error_detail":{"errorMessage":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。"},"model_name":"gemini-3.1-pro-preview","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":60},"is_fall_back_triggered":false}}
+Total:  64%|██████▍   | 92/144 [16:15<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:15<07:23,  8.53s/it][A                                                       
+                                                                        [AWarning:  Invalid status code 429:
+
+Total:  64%|██████▍   | 92/144 [16:16<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:16<07:23,  8.53s/it][A                                                       
+                                                                        [A{"routify_response":{"trace_id":"212b1ce317838240299373975e0b50","request_id":"31623f11bfb6455ea28f6f3f56aead5d","success":false,"status":429,"error_source":"CLIENT_ERROR","error_message":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。","error_detail":{"errorMessage":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。"},"model_name":"gemini-3.1-pro-preview","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":60},"is_fall_back_triggered":false}}
+Total:  64%|██████▍   | 92/144 [16:16<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:16<07:23,  8.53s/it][A                                                       
+                                                                        [AWarning:  Invalid status code 429:
+
+Total:  64%|██████▍   | 92/144 [16:16<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:16<07:23,  8.53s/it][A                                                       
+                                                                        [A{"routify_response":{"trace_id":"213d92a317838240303426252e0f07","request_id":"14e38e011c6f4b3c918d9b0bf65a5c1f","success":false,"status":429,"error_source":"CLIENT_ERROR","error_message":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。","error_detail":{"errorMessage":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。"},"model_name":"gemini-3.1-pro-preview","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":60},"is_fall_back_triggered":false}}
+Total:  64%|██████▍   | 92/144 [16:16<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:16<07:23,  8.53s/it][A                                                       
+                                                                        [AWarning:  Invalid status code 429:
+
+Total:  64%|██████▍   | 92/144 [16:17<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:17<07:23,  8.53s/it][A                                                       
+                                                                        [A{"routify_response":{"trace_id":"212b9fc917838240312142913e0b08","request_id":"047cdbd59003435d86818d63c3cbe8c8","success":false,"status":429,"error_source":"CLIENT_ERROR","error_message":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。","error_detail":{"errorMessage":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。"},"model_name":"gemini-3.1-pro-preview","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":60},"is_fall_back_triggered":false}}
+Total:  64%|██████▍   | 92/144 [16:17<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:17<07:23,  8.53s/it][A                                                       
+                                                                        [ARunning Count: 5
+Total:  64%|██████▍   | 92/144 [16:17<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:17<07:23,  8.53s/it][A                                                       
+                                                                        [AERROR: HTTPAgent/os-std agent error Failed.
+Total:  64%|██████▍   | 92/144 [16:19<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:19<07:23,  8.53s/it][A                                                       
+                                                                        [A[93mWarning: gemini-3.1-pro-preview/os-std#47 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result={'reward': 0, 'metrics': {'score': 0}} history=[ChatHistoryItem(role='user', content='The output of the OS:\n\nbash: /root/test: No such file or directory\r\n')][0m
+Total:  64%|██████▍   | 92/144 [16:19<07:23,  8.53s/it]
+gemini-3.1-pro-preview:  64%|██████▍   | 92/144 [16:19<07:23,  8.53s/it][ATotal:  65%|██████▍   | 93/144 [16:19<08:31, 10.03s/it]
+gemini-3.1-pro-preview:  65%|██████▍   | 93/144 [16:19<08:31, 10.03s/it][A                                                       
+                                                                        [AERROR: HTTPAgent/os-std agent error Failed.
+Total:  65%|██████▍   | 93/144 [16:20<08:31, 10.03s/it]
+gemini-3.1-pro-preview:  65%|██████▍   | 93/144 [16:20<08:31, 10.03s/it][A                                                       
+                                                                        [A[93mWarning: gemini-3.1-pro-preview/os-std#56 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result={'reward': 0, 'metrics': {'score': 0}} history=[ChatHistoryItem(role='user', content='The output of the OS:\n\nUSER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND\r\nroot         1  0.0  0.0    864   480 ?        Ss   02:39   0:00 /sbin/docker-in\r\nroot         7  0.0  0.0  14732  6060 ?        S    02:39   0:00 /bin/sleep infi\r\nroot        18  0.0  0.0   6860  6212 pts/0    Ss   02:39   0:00 /bin/bash --log\r\nroot        36  0.0  0.0   6468  3192 pts/0    R+   02:40   0:00 ps aux\r\n')][0m
+Total:  65%|██████▍   | 93/144 [16:20<08:31, 10.03s/it]
+gemini-3.1-pro-preview:  65%|██████▍   | 93/144 [16:20<08:31, 10.03s/it][ATotal:  65%|██████▌   | 94/144 [16:20<06:05,  7.31s/it]
+gemini-3.1-pro-preview:  65%|██████▌   | 94/144 [16:20<06:05,  7.31s/it][A                                                       
+                                                                        [AERROR: HTTPAgent/os-std agent error Failed.
+Total:  65%|██████▌   | 94/144 [16:20<06:05,  7.31s/it]
+gemini-3.1-pro-preview:  65%|██████▌   | 94/144 [16:20<06:05,  7.31s/it][A                                                       
+                                                                        [A[93mWarning: gemini-3.1-pro-preview/os-std#48 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result={'reward': 0, 'metrics': {'score': 0}} history=[ChatHistoryItem(role='user', content='The output of the OS:\n\nbash: file: command not found\r\n')][0m
+Total:  65%|██████▌   | 94/144 [16:20<06:05,  7.31s/it]
+gemini-3.1-pro-preview:  65%|██████▌   | 94/144 [16:20<06:05,  7.31s/it][ATotal:  66%|██████▌   | 95/144 [16:20<04:19,  5.29s/it]
+gemini-3.1-pro-preview:  66%|██████▌   | 95/144 [16:20<04:19,  5.29s/it][A                                                       
+                                                                        [AERROR: HTTPAgent/os-std agent error Failed.
+Total:  66%|██████▌   | 95/144 [16:21<04:19,  5.29s/it]
+gemini-3.1-pro-preview:  66%|██████▌   | 95/144 [16:21<04:19,  5.29s/it][A                                                       
+                                                                        [A[93mWarning: gemini-3.1-pro-preview/os-std#49 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result={'reward': 0, 'metrics': {'score': 0}} history=[ChatHistoryItem(role='user', content='The output of the OS:\n\nuid=1001(jack) gid=1001(jack) groups=1001(jack)\r\nid bill\r\n\r')][0m
+Total:  66%|██████▌   | 95/144 [16:21<04:19,  5.29s/it]
+gemini-3.1-pro-preview:  66%|██████▌   | 95/144 [16:21<04:19,  5.29s/it][ATotal:  67%|██████▋   | 96/144 [16:21<03:11,  3.99s/it]
+gemini-3.1-pro-preview:  67%|██████▋   | 96/144 [16:21<03:11,  3.99s/it][ATotal:  67%|██████▋   | 97/144 [16:23<02:46,  3.55s/it]
+gemini-3.1-pro-preview:  67%|██████▋   | 97/144 [16:23<02:46,  3.55s/it][A                                                       
+                                                                        [ARunning Count: 0
+Total:  67%|██████▋   | 97/144 [16:32<02:46,  3.55s/it]
+gemini-3.1-pro-preview:  67%|██████▋   | 97/144 [16:32<02:46,  3.55s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#46[0m
+Total:  67%|██████▋   | 97/144 [16:32<02:46,  3.55s/it]
+gemini-3.1-pro-preview:  67%|██████▋   | 97/144 [16:32<02:46,  3.55s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#45[0m
+Total:  67%|██████▋   | 97/144 [16:32<02:46,  3.55s/it]
+gemini-3.1-pro-preview:  67%|██████▋   | 97/144 [16:32<02:46,  3.55s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#44[0m
+Total:  67%|██████▋   | 97/144 [16:32<02:46,  3.55s/it]
+gemini-3.1-pro-preview:  67%|██████▋   | 97/144 [16:32<02:46,  3.55s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#43[0m
+Total:  67%|██████▋   | 97/144 [16:32<02:46,  3.55s/it]
+gemini-3.1-pro-preview:  67%|██████▋   | 97/144 [16:32<02:46,  3.55s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#42[0m
+Total:  67%|██████▋   | 97/144 [16:32<02:46,  3.55s/it]
+gemini-3.1-pro-preview:  67%|██████▋   | 97/144 [16:32<02:46,  3.55s/it][ATotal:  68%|██████▊   | 98/144 [16:42<06:02,  7.89s/it]
+gemini-3.1-pro-preview:  68%|██████▊   | 98/144 [16:42<06:02,  7.89s/it][A                                                       
+                                                                        [ARunning Count: 4
+Total:  68%|██████▊   | 98/144 [16:42<06:02,  7.89s/it]
+gemini-3.1-pro-preview:  68%|██████▊   | 98/144 [16:42<06:02,  7.89s/it][A                                                       
+                                                                        [A[92mAssigned gemini-3.1-pro-preview/os-std#41[0m
+Total:  68%|██████▊   | 98/144 [16:42<06:02,  7.89s/it]
+gemini-3.1-pro-preview:  68%|██████▊   | 98/144 [16:42<06:02,  7.89s/it][ATotal:  69%|██████▉   | 99/144 [16:44<04:38,  6.18s/it]
+gemini-3.1-pro-preview:  69%|██████▉   | 99/144 [16:44<04:38,  6.18s/it][ATotal:  69%|██████▉   | 100/144 [16:45<03:31,  4.81s/it]
+gemini-3.1-pro-preview:  69%|██████▉   | 100/144 [16:45<03:31,  4.81s/it][A                                                        
+                                                                         [ARunning Count: 3
+Total:  69%|██████▉   | 100/144 [16:51<03:31,  4.81s/it]
+gemini-3.1-pro-preview:  69%|██████▉   | 100/144 [16:51<03:31,  4.81s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#40[0m
+Total:  69%|██████▉   | 100/144 [16:51<03:31,  4.81s/it]
+gemini-3.1-pro-preview:  69%|██████▉   | 100/144 [16:51<03:31,  4.81s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#39[0m
+Total:  69%|██████▉   | 100/144 [16:51<03:31,  4.81s/it]
+gemini-3.1-pro-preview:  69%|██████▉   | 100/144 [16:51<03:31,  4.81s/it][A                                                        
+                                                                         [ARunning Count: 5
+Total:  69%|██████▉   | 100/144 [17:01<03:31,  4.81s/it]
+gemini-3.1-pro-preview:  69%|██████▉   | 100/144 [17:01<03:31,  4.81s/it][ATotal:  70%|███████   | 101/144 [17:10<07:43, 10.79s/it]
+gemini-3.1-pro-preview:  70%|███████   | 101/144 [17:10<07:43, 10.79s/it][A                                                        
+                                                                         [ARunning Count: 4
+Total:  70%|███████   | 101/144 [17:15<07:43, 10.79s/it]
+gemini-3.1-pro-preview:  70%|███████   | 101/144 [17:15<07:43, 10.79s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#38[0m
+Total:  70%|███████   | 101/144 [17:15<07:43, 10.79s/it]
+gemini-3.1-pro-preview:  70%|███████   | 101/144 [17:15<07:43, 10.79s/it][A                                                        
+                                                                         [ARunning Count: 5
+Total:  70%|███████   | 101/144 [17:29<07:43, 10.79s/it]
+gemini-3.1-pro-preview:  70%|███████   | 101/144 [17:29<07:43, 10.79s/it][ATotal:  71%|███████   | 102/144 [17:31<09:40, 13.82s/it]
+gemini-3.1-pro-preview:  71%|███████   | 102/144 [17:31<09:40, 13.82s/it][ATotal:  72%|███████▏  | 103/144 [17:33<06:56, 10.15s/it]
+gemini-3.1-pro-preview:  72%|███████▏  | 103/144 [17:33<06:56, 10.15s/it][A                                                        
+                                                                         [ARunning Count: 3
+Total:  72%|███████▏  | 103/144 [17:40<06:56, 10.15s/it]
+gemini-3.1-pro-preview:  72%|███████▏  | 103/144 [17:40<06:56, 10.15s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#37[0m
+Total:  72%|███████▏  | 103/144 [17:40<06:56, 10.15s/it]
+gemini-3.1-pro-preview:  72%|███████▏  | 103/144 [17:40<06:56, 10.15s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#36[0m
+Total:  72%|███████▏  | 103/144 [17:40<06:56, 10.15s/it]
+gemini-3.1-pro-preview:  72%|███████▏  | 103/144 [17:40<06:56, 10.15s/it][ATotal:  72%|███████▏  | 104/144 [17:48<07:45, 11.65s/it]
+gemini-3.1-pro-preview:  72%|███████▏  | 104/144 [17:48<07:45, 11.65s/it][ATotal:  73%|███████▎  | 105/144 [17:48<05:25,  8.34s/it]
+gemini-3.1-pro-preview:  73%|███████▎  | 105/144 [17:48<05:25,  8.34s/it][A                                                        
+                                                                         [ARunning Count: 3
+Total:  73%|███████▎  | 105/144 [17:52<05:25,  8.34s/it]
+gemini-3.1-pro-preview:  73%|███████▎  | 105/144 [17:52<05:25,  8.34s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#35[0m
+Total:  73%|███████▎  | 105/144 [17:52<05:25,  8.34s/it]
+gemini-3.1-pro-preview:  73%|███████▎  | 105/144 [17:52<05:25,  8.34s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#34[0m
+Total:  73%|███████▎  | 105/144 [17:52<05:25,  8.34s/it]
+gemini-3.1-pro-preview:  73%|███████▎  | 105/144 [17:52<05:25,  8.34s/it][ATotal:  74%|███████▎  | 106/144 [17:53<04:30,  7.11s/it]
+gemini-3.1-pro-preview:  74%|███████▎  | 106/144 [17:53<04:30,  7.11s/it][ATotal:  74%|███████▍  | 107/144 [17:53<03:09,  5.13s/it]
+gemini-3.1-pro-preview:  74%|███████▍  | 107/144 [17:53<03:09,  5.13s/it][ATotal:  75%|███████▌  | 108/144 [17:59<03:14,  5.42s/it]
+gemini-3.1-pro-preview:  75%|███████▌  | 108/144 [17:59<03:14,  5.42s/it][A                                                        
+                                                                         [ARunning Count: 2
+Total:  75%|███████▌  | 108/144 [18:03<03:14,  5.42s/it]
+gemini-3.1-pro-preview:  75%|███████▌  | 108/144 [18:03<03:14,  5.42s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#33[0m
+Total:  75%|███████▌  | 108/144 [18:03<03:14,  5.42s/it]
+gemini-3.1-pro-preview:  75%|███████▌  | 108/144 [18:03<03:14,  5.42s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#32[0m
+Total:  75%|███████▌  | 108/144 [18:03<03:14,  5.42s/it]
+gemini-3.1-pro-preview:  75%|███████▌  | 108/144 [18:03<03:14,  5.42s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#31[0m
+Total:  75%|███████▌  | 108/144 [18:03<03:14,  5.42s/it]
+gemini-3.1-pro-preview:  75%|███████▌  | 108/144 [18:03<03:14,  5.42s/it][ATotal:  76%|███████▌  | 109/144 [18:11<04:15,  7.30s/it]
+gemini-3.1-pro-preview:  76%|███████▌  | 109/144 [18:11<04:15,  7.30s/it][ATotal:  76%|███████▋  | 110/144 [18:15<03:31,  6.23s/it]
+gemini-3.1-pro-preview:  76%|███████▋  | 110/144 [18:15<03:31,  6.23s/it][A                                                        
+                                                                         [ARunning Count: 3
+Total:  76%|███████▋  | 110/144 [18:16<03:31,  6.23s/it]
+gemini-3.1-pro-preview:  76%|███████▋  | 110/144 [18:16<03:31,  6.23s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#30[0m
+Total:  76%|███████▋  | 110/144 [18:16<03:31,  6.23s/it]
+gemini-3.1-pro-preview:  76%|███████▋  | 110/144 [18:16<03:31,  6.23s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#29[0m
+Total:  76%|███████▋  | 110/144 [18:17<03:31,  6.23s/it]
+gemini-3.1-pro-preview:  76%|███████▋  | 110/144 [18:17<03:31,  6.23s/it][A                                                        
+                                                                         [ARunning Count: 5
+Total:  76%|███████▋  | 110/144 [18:24<03:31,  6.23s/it]
+gemini-3.1-pro-preview:  76%|███████▋  | 110/144 [18:24<03:31,  6.23s/it][ATotal:  77%|███████▋  | 111/144 [18:24<04:00,  7.28s/it]
+gemini-3.1-pro-preview:  77%|███████▋  | 111/144 [18:24<04:00,  7.28s/it][ATotal:  78%|███████▊  | 112/144 [18:27<03:05,  5.80s/it]
+gemini-3.1-pro-preview:  78%|███████▊  | 112/144 [18:27<03:05,  5.80s/it][ATotal:  78%|███████▊  | 113/144 [18:31<02:46,  5.37s/it]
+gemini-3.1-pro-preview:  78%|███████▊  | 113/144 [18:31<02:46,  5.37s/it][A                                                        
+                                                                         [ARunning Count: 2
+Total:  78%|███████▊  | 113/144 [18:36<02:46,  5.37s/it]
+gemini-3.1-pro-preview:  78%|███████▊  | 113/144 [18:36<02:46,  5.37s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#28[0m
+Total:  78%|███████▊  | 113/144 [18:36<02:46,  5.37s/it]
+gemini-3.1-pro-preview:  78%|███████▊  | 113/144 [18:36<02:46,  5.37s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#27[0m
+Total:  78%|███████▊  | 113/144 [18:36<02:46,  5.37s/it]
+gemini-3.1-pro-preview:  78%|███████▊  | 113/144 [18:36<02:46,  5.37s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#26[0m
+Total:  78%|███████▊  | 113/144 [18:36<02:46,  5.37s/it]
+gemini-3.1-pro-preview:  78%|███████▊  | 113/144 [18:36<02:46,  5.37s/it][ATotal:  79%|███████▉  | 114/144 [18:44<03:49,  7.65s/it]
+gemini-3.1-pro-preview:  79%|███████▉  | 114/144 [18:44<03:49,  7.65s/it][A                                                        
+                                                                         [ARunning Count: 4
+Total:  79%|███████▉  | 114/144 [18:46<03:49,  7.65s/it]
+gemini-3.1-pro-preview:  79%|███████▉  | 114/144 [18:46<03:49,  7.65s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#25[0m
+Total:  79%|███████▉  | 114/144 [18:46<03:49,  7.65s/it]
+gemini-3.1-pro-preview:  79%|███████▉  | 114/144 [18:46<03:49,  7.65s/it][ATotal:  80%|███████▉  | 115/144 [18:56<04:21,  9.03s/it]
+gemini-3.1-pro-preview:  80%|███████▉  | 115/144 [18:56<04:21,  9.03s/it][A                                                        
+                                                                         [ARunning Count: 4
+Total:  80%|███████▉  | 115/144 [18:58<04:21,  9.03s/it]
+gemini-3.1-pro-preview:  80%|███████▉  | 115/144 [18:58<04:21,  9.03s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#24[0m
+Total:  80%|███████▉  | 115/144 [18:58<04:21,  9.03s/it]
+gemini-3.1-pro-preview:  80%|███████▉  | 115/144 [18:58<04:21,  9.03s/it][ATotal:  81%|████████  | 116/144 [18:59<03:18,  7.09s/it]
+gemini-3.1-pro-preview:  81%|████████  | 116/144 [18:59<03:18,  7.09s/it][A                                                        
+                                                                         [ARunning Count: 4
+Total:  81%|████████  | 116/144 [19:10<03:18,  7.09s/it]
+gemini-3.1-pro-preview:  81%|████████  | 116/144 [19:10<03:18,  7.09s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#23[0m
+Total:  81%|████████  | 116/144 [19:10<03:18,  7.09s/it]
+gemini-3.1-pro-preview:  81%|████████  | 116/144 [19:10<03:18,  7.09s/it][A                                                        
+                                                                         [AWarning:  Invalid status code 429:
+
+Total:  81%|████████  | 116/144 [19:11<03:18,  7.09s/it]
+gemini-3.1-pro-preview:  81%|████████  | 116/144 [19:11<03:18,  7.09s/it][A                                                        
+                                                                         [A{"routify_response":{"trace_id":"213d92a317838242052376242e0ee6","request_id":"dde22a644780426dbcc92e4dd4d51aea","success":false,"status":429,"error_source":"CLIENT_ERROR","error_message":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。","error_detail":{"errorMessage":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。"},"model_name":"gemini-3.1-pro-preview","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":60},"is_fall_back_triggered":false}}
+Total:  81%|████████  | 116/144 [19:11<03:18,  7.09s/it]
+gemini-3.1-pro-preview:  81%|████████  | 116/144 [19:11<03:18,  7.09s/it][A                                                        
+                                                                         [ARunning Count: 5
+Total:  81%|████████  | 116/144 [19:25<03:18,  7.09s/it]
+gemini-3.1-pro-preview:  81%|████████  | 116/144 [19:25<03:18,  7.09s/it][A                                                        
+                                                                         [ARunning Count: 5
+Total:  81%|████████  | 116/144 [19:33<03:18,  7.09s/it]
+gemini-3.1-pro-preview:  81%|████████  | 116/144 [19:33<03:18,  7.09s/it][ATotal:  81%|████████▏ | 117/144 [19:33<06:52, 15.29s/it]
+gemini-3.1-pro-preview:  81%|████████▏ | 117/144 [19:33<06:52, 15.29s/it][ATotal:  82%|████████▏ | 118/144 [19:39<05:19, 12.29s/it]
+gemini-3.1-pro-preview:  82%|████████▏ | 118/144 [19:39<05:19, 12.29s/it][A                                                        
+                                                                         [ARunning Count: 3
+Total:  82%|████████▏ | 118/144 [19:41<05:19, 12.29s/it]
+gemini-3.1-pro-preview:  82%|████████▏ | 118/144 [19:41<05:19, 12.29s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#22[0m
+Total:  82%|████████▏ | 118/144 [19:41<05:19, 12.29s/it]
+gemini-3.1-pro-preview:  82%|████████▏ | 118/144 [19:41<05:19, 12.29s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#21[0m
+Total:  82%|████████▏ | 118/144 [19:41<05:19, 12.29s/it]
+gemini-3.1-pro-preview:  82%|████████▏ | 118/144 [19:41<05:19, 12.29s/it][ATotal:  83%|████████▎ | 119/144 [19:44<04:15, 10.20s/it]
+gemini-3.1-pro-preview:  83%|████████▎ | 119/144 [19:44<04:15, 10.20s/it][A                                                        
+                                                                         [ARunning Count: 4
+Total:  83%|████████▎ | 119/144 [19:49<04:15, 10.20s/it]
+gemini-3.1-pro-preview:  83%|████████▎ | 119/144 [19:49<04:15, 10.20s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#20[0m
+Total:  83%|████████▎ | 119/144 [19:49<04:15, 10.20s/it]
+gemini-3.1-pro-preview:  83%|████████▎ | 119/144 [19:49<04:15, 10.20s/it][A                                                        
+                                                                         [ARunning Count: 5
+Total:  83%|████████▎ | 119/144 [19:57<04:15, 10.20s/it]
+gemini-3.1-pro-preview:  83%|████████▎ | 119/144 [19:57<04:15, 10.20s/it][ATotal:  83%|████████▎ | 120/144 [19:57<04:26, 11.11s/it]
+gemini-3.1-pro-preview:  83%|████████▎ | 120/144 [19:57<04:26, 11.11s/it][ATotal:  84%|████████▍ | 121/144 [20:00<03:16,  8.53s/it]
+gemini-3.1-pro-preview:  84%|████████▍ | 121/144 [20:00<03:16,  8.53s/it][ATotal:  85%|████████▍ | 122/144 [20:01<02:17,  6.26s/it]
+gemini-3.1-pro-preview:  85%|████████▍ | 122/144 [20:01<02:17,  6.26s/it][A                                                        
+                                                                         [ARunning Count: 2
+Total:  85%|████████▍ | 122/144 [20:11<02:17,  6.26s/it]
+gemini-3.1-pro-preview:  85%|████████▍ | 122/144 [20:11<02:17,  6.26s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#19[0m
+Total:  85%|████████▍ | 122/144 [20:11<02:17,  6.26s/it]
+gemini-3.1-pro-preview:  85%|████████▍ | 122/144 [20:11<02:17,  6.26s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#18[0m
+Total:  85%|████████▍ | 122/144 [20:11<02:17,  6.26s/it]
+gemini-3.1-pro-preview:  85%|████████▍ | 122/144 [20:11<02:17,  6.26s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#17[0m
+Total:  85%|████████▍ | 122/144 [20:11<02:17,  6.26s/it]
+gemini-3.1-pro-preview:  85%|████████▍ | 122/144 [20:11<02:17,  6.26s/it][ATotal:  85%|████████▌ | 123/144 [20:17<03:14,  9.26s/it]
+gemini-3.1-pro-preview:  85%|████████▌ | 123/144 [20:17<03:14,  9.26s/it][A                                                        
+                                                                         [ARunning Count: 4
+Total:  85%|████████▌ | 123/144 [20:21<03:14,  9.26s/it]
+gemini-3.1-pro-preview:  85%|████████▌ | 123/144 [20:21<03:14,  9.26s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#16[0m
+Total:  85%|████████▌ | 123/144 [20:21<03:14,  9.26s/it]
+gemini-3.1-pro-preview:  85%|████████▌ | 123/144 [20:21<03:14,  9.26s/it][ATotal:  86%|████████▌ | 124/144 [20:23<02:46,  8.32s/it]
+gemini-3.1-pro-preview:  86%|████████▌ | 124/144 [20:23<02:46,  8.32s/it][ATotal:  87%|████████▋ | 125/144 [20:28<02:19,  7.37s/it]
+gemini-3.1-pro-preview:  87%|████████▋ | 125/144 [20:28<02:19,  7.37s/it][A                                                        
+                                                                         [ARunning Count: 3
+Total:  87%|████████▋ | 125/144 [20:35<02:19,  7.37s/it]
+gemini-3.1-pro-preview:  87%|████████▋ | 125/144 [20:35<02:19,  7.37s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#15[0m
+Total:  87%|████████▋ | 125/144 [20:35<02:19,  7.37s/it]
+gemini-3.1-pro-preview:  87%|████████▋ | 125/144 [20:35<02:19,  7.37s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#14[0m
+Total:  87%|████████▋ | 125/144 [20:35<02:19,  7.37s/it]
+gemini-3.1-pro-preview:  87%|████████▋ | 125/144 [20:35<02:19,  7.37s/it][ATotal:  88%|████████▊ | 126/144 [20:39<02:32,  8.46s/it]
+gemini-3.1-pro-preview:  88%|████████▊ | 126/144 [20:39<02:32,  8.46s/it][ATotal:  88%|████████▊ | 127/144 [20:44<02:03,  7.26s/it]
+gemini-3.1-pro-preview:  88%|████████▊ | 127/144 [20:44<02:03,  7.26s/it][A                                                        
+                                                                         [ARunning Count: 3
+Total:  88%|████████▊ | 127/144 [20:46<02:03,  7.26s/it]
+gemini-3.1-pro-preview:  88%|████████▊ | 127/144 [20:46<02:03,  7.26s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#13[0m
+Total:  88%|████████▊ | 127/144 [20:46<02:03,  7.26s/it]
+gemini-3.1-pro-preview:  88%|████████▊ | 127/144 [20:46<02:03,  7.26s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#12[0m
+Total:  88%|████████▊ | 127/144 [20:46<02:03,  7.26s/it]
+gemini-3.1-pro-preview:  88%|████████▊ | 127/144 [20:46<02:03,  7.26s/it][ATotal:  89%|████████▉ | 128/144 [20:47<01:36,  6.02s/it]
+gemini-3.1-pro-preview:  89%|████████▉ | 128/144 [20:47<01:36,  6.02s/it][A                                                        
+                                                                         [ARunning Count: 4
+Total:  89%|████████▉ | 128/144 [20:55<01:36,  6.02s/it]
+gemini-3.1-pro-preview:  89%|████████▉ | 128/144 [20:55<01:36,  6.02s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#11[0m
+Total:  89%|████████▉ | 128/144 [20:55<01:36,  6.02s/it]
+gemini-3.1-pro-preview:  89%|████████▉ | 128/144 [20:55<01:36,  6.02s/it][ATotal:  90%|████████▉ | 129/144 [20:57<01:49,  7.29s/it]
+gemini-3.1-pro-preview:  90%|████████▉ | 129/144 [20:57<01:49,  7.29s/it][ATotal:  90%|█████████ | 130/144 [21:02<01:34,  6.76s/it]
+gemini-3.1-pro-preview:  90%|█████████ | 130/144 [21:02<01:34,  6.76s/it][A                                                        
+                                                                         [ARunning Count: 3
+Total:  90%|█████████ | 130/144 [21:03<01:34,  6.76s/it]
+gemini-3.1-pro-preview:  90%|█████████ | 130/144 [21:03<01:34,  6.76s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#10[0m
+Total:  90%|█████████ | 130/144 [21:03<01:34,  6.76s/it]
+gemini-3.1-pro-preview:  90%|█████████ | 130/144 [21:03<01:34,  6.76s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#9[0m
+Total:  90%|█████████ | 130/144 [21:03<01:34,  6.76s/it]
+gemini-3.1-pro-preview:  90%|█████████ | 130/144 [21:03<01:34,  6.76s/it][A                                                        
+                                                                         [ARunning Count: 5
+Total:  90%|█████████ | 130/144 [21:11<01:34,  6.76s/it]
+gemini-3.1-pro-preview:  90%|█████████ | 130/144 [21:11<01:34,  6.76s/it][ATotal:  91%|█████████ | 131/144 [21:12<01:39,  7.66s/it]
+gemini-3.1-pro-preview:  91%|█████████ | 131/144 [21:12<01:39,  7.66s/it][ATotal:  92%|█████████▏| 132/144 [21:13<01:05,  5.49s/it]
+gemini-3.1-pro-preview:  92%|█████████▏| 132/144 [21:13<01:05,  5.49s/it][ATotal:  92%|█████████▏| 133/144 [21:25<01:22,  7.54s/it]
+gemini-3.1-pro-preview:  92%|█████████▏| 133/144 [21:25<01:22,  7.54s/it][A                                                        
+                                                                         [ARunning Count: 2
+Total:  92%|█████████▏| 133/144 [21:26<01:22,  7.54s/it]
+gemini-3.1-pro-preview:  92%|█████████▏| 133/144 [21:26<01:22,  7.54s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#8[0m
+Total:  92%|█████████▏| 133/144 [21:26<01:22,  7.54s/it]
+gemini-3.1-pro-preview:  92%|█████████▏| 133/144 [21:26<01:22,  7.54s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#7[0m
+Total:  92%|█████████▏| 133/144 [21:26<01:22,  7.54s/it]
+gemini-3.1-pro-preview:  92%|█████████▏| 133/144 [21:26<01:22,  7.54s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#6[0m
+Total:  92%|█████████▏| 133/144 [21:26<01:22,  7.54s/it]
+gemini-3.1-pro-preview:  92%|█████████▏| 133/144 [21:26<01:22,  7.54s/it][ATotal:  93%|█████████▎| 134/144 [21:35<01:22,  8.23s/it]
+gemini-3.1-pro-preview:  93%|█████████▎| 134/144 [21:35<01:22,  8.23s/it][A                                                        
+                                                                         [ARunning Count: 4
+Total:  93%|█████████▎| 134/144 [21:38<01:22,  8.23s/it]
+gemini-3.1-pro-preview:  93%|█████████▎| 134/144 [21:38<01:22,  8.23s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#5[0m
+Total:  93%|█████████▎| 134/144 [21:38<01:22,  8.23s/it]
+gemini-3.1-pro-preview:  93%|█████████▎| 134/144 [21:38<01:22,  8.23s/it][A                                                        
+                                                                         [ARunning Count: 5
+Total:  93%|█████████▎| 134/144 [21:43<01:22,  8.23s/it]
+gemini-3.1-pro-preview:  93%|█████████▎| 134/144 [21:43<01:22,  8.23s/it][ATotal:  94%|█████████▍| 135/144 [21:54<01:43, 11.55s/it]
+gemini-3.1-pro-preview:  94%|█████████▍| 135/144 [21:54<01:43, 11.55s/it][A                                                        
+                                                                         [ARunning Count: 4
+Total:  94%|█████████▍| 135/144 [21:57<01:43, 11.55s/it]
+gemini-3.1-pro-preview:  94%|█████████▍| 135/144 [21:57<01:43, 11.55s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#4[0m
+Total:  94%|█████████▍| 135/144 [21:57<01:43, 11.55s/it]
+gemini-3.1-pro-preview:  94%|█████████▍| 135/144 [21:57<01:43, 11.55s/it][ATotal:  94%|█████████▍| 136/144 [22:03<01:26, 10.85s/it]
+gemini-3.1-pro-preview:  94%|█████████▍| 136/144 [22:03<01:26, 10.85s/it][A                                                        
+                                                                         [ARunning Count: 4
+Total:  94%|█████████▍| 136/144 [22:04<01:26, 10.85s/it]
+gemini-3.1-pro-preview:  94%|█████████▍| 136/144 [22:04<01:26, 10.85s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#3[0m
+Total:  94%|█████████▍| 136/144 [22:04<01:26, 10.85s/it]
+gemini-3.1-pro-preview:  94%|█████████▍| 136/144 [22:04<01:26, 10.85s/it][A                                                        
+                                                                         [AWarning:  Invalid status code 429:
+
+Total:  94%|█████████▍| 136/144 [22:08<01:26, 10.85s/it]
+gemini-3.1-pro-preview:  94%|█████████▍| 136/144 [22:08<01:26, 10.85s/it][A                                                        
+                                                                         [A{"routify_response":{"trace_id":"2133ef1617838243821196957e0c94","request_id":"6750221dbf714114a5d21e869c7a79c0","success":false,"status":429,"error_source":"CLIENT_ERROR","error_message":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。","error_detail":{"errorMessage":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。"},"model_name":"gemini-3.1-pro-preview","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":60},"is_fall_back_triggered":false}}
+Total:  94%|█████████▍| 136/144 [22:08<01:26, 10.85s/it]
+gemini-3.1-pro-preview:  94%|█████████▍| 136/144 [22:08<01:26, 10.85s/it][A                                                        
+                                                                         [AWarning:  Invalid status code 429:
+
+Total:  94%|█████████▍| 136/144 [22:10<01:26, 10.85s/it]
+gemini-3.1-pro-preview:  94%|█████████▍| 136/144 [22:10<01:26, 10.85s/it][A                                                        
+                                                                         [A{"routify_response":{"trace_id":"212caba017838243842387601e0e38","request_id":"12fd55b54b594d49a74e090fe16f6b80","success":false,"status":429,"error_source":"CLIENT_ERROR","error_message":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。","error_detail":{"errorMessage":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。"},"model_name":"gemini-3.1-pro-preview","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":60},"is_fall_back_triggered":false}}
+Total:  94%|█████████▍| 136/144 [22:10<01:26, 10.85s/it]
+gemini-3.1-pro-preview:  94%|█████████▍| 136/144 [22:10<01:26, 10.85s/it][A                                                        
+                                                                         [ARunning Count: 5
+Total:  94%|█████████▍| 136/144 [22:11<01:26, 10.85s/it]
+gemini-3.1-pro-preview:  94%|█████████▍| 136/144 [22:11<01:26, 10.85s/it][ATotal:  95%|█████████▌| 137/144 [22:11<01:10, 10.01s/it]
+gemini-3.1-pro-preview:  95%|█████████▌| 137/144 [22:11<01:10, 10.01s/it][ATotal:  96%|█████████▌| 138/144 [22:14<00:46,  7.72s/it]
+gemini-3.1-pro-preview:  96%|█████████▌| 138/144 [22:14<00:46,  7.72s/it][A                                                        
+                                                                         [ARunning Count: 3
+Total:  96%|█████████▌| 138/144 [22:18<00:46,  7.72s/it]
+gemini-3.1-pro-preview:  96%|█████████▌| 138/144 [22:18<00:46,  7.72s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#2[0m
+Total:  96%|█████████▌| 138/144 [22:18<00:46,  7.72s/it]
+gemini-3.1-pro-preview:  96%|█████████▌| 138/144 [22:18<00:46,  7.72s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#1[0m
+Total:  96%|█████████▌| 138/144 [22:18<00:46,  7.72s/it]
+gemini-3.1-pro-preview:  96%|█████████▌| 138/144 [22:18<00:46,  7.72s/it][A                                                        
+                                                                         [AWarning:  Invalid status code 429:
+
+Total:  96%|█████████▌| 138/144 [22:20<00:46,  7.72s/it]
+gemini-3.1-pro-preview:  96%|█████████▌| 138/144 [22:20<00:46,  7.72s/it][A                                                        
+                                                                         [A{"routify_response":{"trace_id":"213f41fc17838243941611469e0e94","request_id":"571b49698f674b17be4730fe4afad615","success":false,"status":429,"error_source":"CLIENT_ERROR","error_message":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。","error_detail":{"errorMessage":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。"},"model_name":"gemini-3.1-pro-preview","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":60},"is_fall_back_triggered":false}}
+Total:  96%|█████████▌| 138/144 [22:20<00:46,  7.72s/it]
+gemini-3.1-pro-preview:  96%|█████████▌| 138/144 [22:20<00:46,  7.72s/it][ATotal:  97%|█████████▋| 139/144 [22:20<00:36,  7.25s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 139/144 [22:20<00:36,  7.25s/it][A                                                        
+                                                                         [AWarning:  Invalid status code 429:
+
+Total:  97%|█████████▋| 139/144 [22:22<00:36,  7.25s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 139/144 [22:22<00:36,  7.25s/it][A                                                        
+                                                                         [A{"routify_response":{"trace_id":"213fe9de17838243962707057e0cf8","request_id":"b6827873b50d4587b190a0b2d8bdf86d","success":false,"status":429,"error_source":"CLIENT_ERROR","error_message":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。","error_detail":{"errorMessage":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。"},"model_name":"gemini-3.1-pro-preview","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":60},"is_fall_back_triggered":false}}
+Total:  97%|█████████▋| 139/144 [22:22<00:36,  7.25s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 139/144 [22:22<00:36,  7.25s/it][A                                                        
+                                                                         [AWarning:  Invalid status code 429:
+
+Total:  97%|█████████▋| 139/144 [22:23<00:36,  7.25s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 139/144 [22:23<00:36,  7.25s/it][A                                                        
+                                                                         [A{"routify_response":{"trace_id":"2133ef1617838243972643031e0dde","request_id":"b308716f864149749c9489ae21bc0504","success":false,"status":429,"error_source":"CLIENT_ERROR","error_message":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。","error_detail":{"errorMessage":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。"},"model_name":"gemini-3.1-pro-preview","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":60},"is_fall_back_triggered":false}}
+Total:  97%|█████████▋| 139/144 [22:23<00:36,  7.25s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 139/144 [22:23<00:36,  7.25s/it][A                                                        
+                                                                         [ARunning Count: 4
+Total:  97%|█████████▋| 139/144 [22:24<00:36,  7.25s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 139/144 [22:24<00:36,  7.25s/it][A                                                        
+                                                                         [A[92mAssigned gemini-3.1-pro-preview/os-std#0[0m
+Total:  97%|█████████▋| 139/144 [22:24<00:36,  7.25s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 139/144 [22:24<00:36,  7.25s/it][A                                                        
+                                                                         [AWarning:  Invalid status code 429:
+
+Total:  97%|█████████▋| 139/144 [22:25<00:36,  7.25s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 139/144 [22:25<00:36,  7.25s/it][A                                                        
+                                                                         [A{"routify_response":{"trace_id":"0b52134d17838243989597908e0b1c","request_id":"771c5bce60154f25a1f58d10ca2e5677","success":false,"status":429,"error_source":"CLIENT_ERROR","error_message":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。","error_detail":{"errorMessage":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。"},"model_name":"gemini-3.1-pro-preview","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":60},"is_fall_back_triggered":false}}
+Total:  97%|█████████▋| 139/144 [22:25<00:36,  7.25s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 139/144 [22:25<00:36,  7.25s/it][A                                                        
+                                                                         [AWarning:  Invalid status code 429:
+
+Total:  97%|█████████▋| 139/144 [22:25<00:36,  7.25s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 139/144 [22:25<00:36,  7.25s/it][A                                                        
+                                                                         [A{"routify_response":{"trace_id":"2150b49e17838243990422830e0b4a","request_id":"ec88e31f4cba421ba7d446ffa30af9ca","success":false,"status":429,"error_source":"CLIENT_ERROR","error_message":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。","error_detail":{"errorMessage":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。"},"model_name":"gemini-3.1-pro-preview","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":60},"is_fall_back_triggered":false}}
+Total:  97%|█████████▋| 139/144 [22:25<00:36,  7.25s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 139/144 [22:25<00:36,  7.25s/it][A                                                        
+                                                                         [AWarning:  Invalid status code 429:
+
+Total:  97%|█████████▋| 139/144 [22:25<00:36,  7.25s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 139/144 [22:25<00:36,  7.25s/it][A                                                        
+                                                                         [A{"routify_response":{"trace_id":"2107403417838243993686528e0dbf","request_id":"512e4a019b894e64840ac95f16f5817b","success":false,"status":429,"error_source":"CLIENT_ERROR","error_message":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。","error_detail":{"errorMessage":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。"},"model_name":"gemini-3.1-pro-preview","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":60},"is_fall_back_triggered":false}}
+Total:  97%|█████████▋| 139/144 [22:25<00:36,  7.25s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 139/144 [22:25<00:36,  7.25s/it][A                                                        
+                                                                         [AWarning:  Invalid status code 429:
+
+Total:  97%|█████████▋| 139/144 [22:25<00:36,  7.25s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 139/144 [22:25<00:36,  7.25s/it][A                                                        
+                                                                         [A{"routify_response":{"trace_id":"212caba017838243993785082e0efe","request_id":"fb809520857d4e1db1dac82a1bfcde56","success":false,"status":429,"error_source":"CLIENT_ERROR","error_message":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。","error_detail":{"errorMessage":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。"},"model_name":"gemini-3.1-pro-preview","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":60},"is_fall_back_triggered":false}}
+Total:  97%|█████████▋| 139/144 [22:25<00:36,  7.25s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 139/144 [22:25<00:36,  7.25s/it][A                                                        
+                                                                         [AWarning:  Invalid status code 429:
+
+Total:  97%|█████████▋| 139/144 [22:27<00:36,  7.25s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 139/144 [22:27<00:36,  7.25s/it][A                                                        
+                                                                         [A{"routify_response":{"trace_id":"2107403417838244011488038e0eb0","request_id":"bab5502629d34e34830853bdfe53f180","success":false,"status":429,"error_source":"CLIENT_ERROR","error_message":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。","error_detail":{"errorMessage":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。"},"model_name":"gemini-3.1-pro-preview","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":60},"is_fall_back_triggered":false}}
+Total:  97%|█████████▋| 139/144 [22:27<00:36,  7.25s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 139/144 [22:27<00:36,  7.25s/it][A                                                        
+                                                                         [AERROR: HTTPAgent/os-std agent error Failed.
+Total:  97%|█████████▋| 139/144 [22:29<00:36,  7.25s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 139/144 [22:29<00:36,  7.25s/it][A                                                        
+                                                                         [A[93mWarning: gemini-3.1-pro-preview/os-std#3 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result={'reward': 0, 'metrics': {'score': 0}} history=[ChatHistoryItem(role='user', content='The output of the OS:\n\n61\r\n')][0m
+Total:  97%|█████████▋| 139/144 [22:29<00:36,  7.25s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 139/144 [22:29<00:36,  7.25s/it][ATotal:  97%|█████████▋| 140/144 [22:29<00:31,  7.82s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 140/144 [22:29<00:31,  7.82s/it][A                                                        
+                                                                         [AWarning:  Invalid status code 429:
+
+Total:  97%|█████████▋| 140/144 [22:30<00:31,  7.82s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 140/144 [22:30<00:31,  7.82s/it][A                                                        
+                                                                         [A{"routify_response":{"trace_id":"213fe9de17838244042667254e0cf8","request_id":"a427701215a547da91ba02655b975286","success":false,"status":429,"error_source":"CLIENT_ERROR","error_message":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。","error_detail":{"errorMessage":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。"},"model_name":"gemini-3.1-pro-preview","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":60},"is_fall_back_triggered":false}}
+Total:  97%|█████████▋| 140/144 [22:30<00:31,  7.82s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 140/144 [22:30<00:31,  7.82s/it][A                                                        
+                                                                         [ARunning Count: 4
+Total:  97%|█████████▋| 140/144 [22:31<00:31,  7.82s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 140/144 [22:31<00:31,  7.82s/it][A                                                        
+                                                                         [AWarning:  Invalid status code 429:
+
+Total:  97%|█████████▋| 140/144 [22:32<00:31,  7.82s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 140/144 [22:32<00:31,  7.82s/it][A                                                        
+                                                                         [A{"routify_response":{"trace_id":"2132e98b17838244067326231e0f1a","request_id":"42dbd78c811f42769a63ce03c3593922","success":false,"status":429,"error_source":"CLIENT_ERROR","error_message":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。","error_detail":{"errorMessage":"当前 ApiKey 的 RPM 已达设置上限，请降速调用或联系 ModelRouter 为您调整。"},"model_name":"gemini-3.1-pro-preview","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":60},"is_fall_back_triggered":false}}
+Total:  97%|█████████▋| 140/144 [22:32<00:31,  7.82s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 140/144 [22:32<00:31,  7.82s/it][A                                                        
+                                                                         [AERROR: HTTPAgent/os-std agent error Failed.
+Total:  97%|█████████▋| 140/144 [22:34<00:31,  7.82s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 140/144 [22:34<00:31,  7.82s/it][A                                                        
+                                                                         [A[93mWarning: gemini-3.1-pro-preview/os-std#1 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result={'reward': 0, 'metrics': {'score': 0}} history=[ChatHistoryItem(role='user', content='The output of the OS:\n\nBob | Sell | 92 | 189\r\nAlice | Sell | 91 | 563\r\nAlice | Sell | 48 | 472\r\nAlice | Sell | 4 | 218\r\nBob | Sell | 43 | 818\r\nBob | Purchase | 47 | 282\r\nBob | Sell | 25 | 753\r\nBob | Sell | 52 | 744\r\nAlice | Purchase | 79 | 148\r\nBob | Purchase | 68 | 587\r\n')][0m
+Total:  97%|█████████▋| 140/144 [22:34<00:31,  7.82s/it]
+gemini-3.1-pro-preview:  97%|█████████▋| 140/144 [22:34<00:31,  7.82s/it][ATotal:  98%|█████████▊| 141/144 [22:34<00:20,  6.95s/it]
+gemini-3.1-pro-preview:  98%|█████████▊| 141/144 [22:34<00:20,  6.95s/it][A                                                        
+                                                                         [ARunning Count: 3
+Total:  98%|█████████▊| 141/144 [22:36<00:20,  6.95s/it]
+gemini-3.1-pro-preview:  98%|█████████▊| 141/144 [22:36<00:20,  6.95s/it][ATotal:  99%|█████████▊| 142/144 [22:43<00:15,  7.68s/it]
+gemini-3.1-pro-preview:  99%|█████████▊| 142/144 [22:43<00:15,  7.68s/it][A                                                        
+                                                                         [ARunning Count: 2
+Total:  99%|█████████▊| 142/144 [22:49<00:15,  7.68s/it]
+gemini-3.1-pro-preview:  99%|█████████▊| 142/144 [22:49<00:15,  7.68s/it][A                                                        
+                                                                         [ARunning Count: 2
+Total:  99%|█████████▊| 142/144 [22:57<00:15,  7.68s/it]
+gemini-3.1-pro-preview:  99%|█████████▊| 142/144 [22:57<00:15,  7.68s/it][ATotal:  99%|█████████▉| 143/144 [23:05<00:11, 11.82s/it]
+gemini-3.1-pro-preview:  99%|█████████▉| 143/144 [23:05<00:11, 11.82s/it][A                                                        
+                                                                         [ARunning Count: 1
+Total:  99%|█████████▉| 143/144 [23:09<00:11, 11.82s/it]
+gemini-3.1-pro-preview:  99%|█████████▉| 143/144 [23:09<00:11, 11.82s/it][A                                                        
+                                                                         [ARunning Count: 1
+Total:  99%|█████████▉| 143/144 [23:18<00:11, 11.82s/it]
+gemini-3.1-pro-preview:  99%|█████████▉| 143/144 [23:18<00:11, 11.82s/it][A                                                        
+                                                                         [ARunning Count: 1
+Total:  99%|█████████▉| 143/144 [23:33<00:11, 11.82s/it]
+gemini-3.1-pro-preview:  99%|█████████▉| 143/144 [23:33<00:11, 11.82s/it][A                                                        
+                                                                         [ARunning Count: 1
+Total:  99%|█████████▉| 143/144 [23:47<00:11, 11.82s/it]
+gemini-3.1-pro-preview:  99%|█████████▉| 143/144 [23:47<00:11, 11.82s/it][ATotal: 100%|██████████| 144/144 [23:49<00:00, 21.66s/it]
+gemini-3.1-pro-preview: 100%|██████████| 144/144 [23:49<00:00, 21.66s/it][A                                                        
+                                                                         [ARunning Count: 0
+Total: 100%|██████████| 144/144 [24:01<00:00, 21.66s/it]
+gemini-3.1-pro-preview: 100%|██████████| 144/144 [24:01<00:00, 21.66s/it][ATotal: 100%|██████████| 144/144 [24:01<00:00, 10.01s/it]
+gemini-3.1-pro-preview: 100%|██████████| 144/144 [24:01<00:00, 10.01s/it]
+
+
+============================================
+[96mMessage: 144 sample(s) started. [0m
+[92m   >> 138 sample(s) finished successfully.[0m
+[91m   >> 6 sample(s) failed.[0m
+[96m   >> results are saved to outputs/gemini-3.1-pro-preview/os/2026-07-12-10-24-13-baseline[0m
+============================================
+
+

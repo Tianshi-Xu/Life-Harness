@@ -1,0 +1,1057 @@
+/Users/faker/Library/CloudStorage/北大网盘2.0-许天识_2301111861-disk.pku.edu.cn/我的文档库/许天识_2301111861/SEC Lab/隐私计算/笔记大全/投稿计划/tong (2)/code/Life-Harness/AgentBench/.venv/lib/python3.9/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  torch.utils._pytree._register_pytree_node(
+W0712 20:49:00.526645 41369 .venv/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+/Users/faker/Library/CloudStorage/北大网盘2.0-许天识_2301111861-disk.pku.edu.cn/我的文档库/许天识_2301111861/SEC Lab/隐私计算/笔记大全/投稿计划/tong (2)/code/Life-Harness/AgentBench/.venv/lib/python3.9/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  torch.utils._pytree._register_pytree_node(
+[93mWarning: 10 agent(s) and 19 task(s) are defined but not used, they will be ignored.[0m
+[93m    Agent: {'qwen3-4b-instruct', 'vicuna-7b', 'text-davinci-003', 'vicuna-33b', 'wizard-30b', 'gemini-3.1-pro-preview', 'text-davinci-002', 'gpt-3.5-turbo-0613', 'claude-opus-4-8', 'vicuna-13b'}[0m
+[93m    Task: {'webshop-std-baseline', 'ltp-std', 'avalon-dev-naive', 'os-env_train', 'ltp-dev', 'm2w-std', 'avalon-dev-single', 'cg-std', 'kg-std', 'dbbench-env_train', 'os-std', 'alfworld-std', 'm2w-dev', 'cg-dev', 'alfworld-env_train', 'webshop-env_train', 'kg-env_train', 'dbbench-std', 'webshop-std'}[0m
+[92mcreating alfworld-std-baseline client...[0m
+TaskClient created: alfworld-std (http://localhost:5020/api)
+[96mMessage: 109 samples remaining.[0m
+[96mAgent "gpt-5.5" needs to run 1 tasks with total 109 samples:[0m
+[96m    Task "alfworld-std-baseline": 109[0m
+Total:   0%|          | 0/109 [00:00<?, ?it/s]
+gpt-5.5:   0%|          | 0/109 [00:00<?, ?it/s][A                                              
+                                                [ARunning Count: 0
+Total:   0%|          | 0/109 [00:00<?, ?it/s]
+gpt-5.5:   0%|          | 0/109 [00:00<?, ?it/s][A                                              
+                                                [A[92mAssigned gpt-5.5/alfworld-std-baseline#108[0m
+Total:   0%|          | 0/109 [00:00<?, ?it/s]
+gpt-5.5:   0%|          | 0/109 [00:00<?, ?it/s][A                                              
+                                                [A[92mAssigned gpt-5.5/alfworld-std-baseline#107[0m
+Total:   0%|          | 0/109 [00:00<?, ?it/s]
+gpt-5.5:   0%|          | 0/109 [00:00<?, ?it/s][A                                              
+                                                [A[92mAssigned gpt-5.5/alfworld-std-baseline#106[0m
+Total:   0%|          | 0/109 [00:00<?, ?it/s]
+gpt-5.5:   0%|          | 0/109 [00:00<?, ?it/s][A                                              
+                                                [A[92mAssigned gpt-5.5/alfworld-std-baseline#105[0m
+Total:   0%|          | 0/109 [00:00<?, ?it/s]
+gpt-5.5:   0%|          | 0/109 [00:00<?, ?it/s][A                                              
+                                                [A[92mAssigned gpt-5.5/alfworld-std-baseline#104[0m
+Total:   0%|          | 0/109 [00:00<?, ?it/s]
+gpt-5.5:   0%|          | 0/109 [00:00<?, ?it/s][A                                              
+                                                [ARunning Count: 5
+Total:   0%|          | 0/109 [00:09<?, ?it/s]
+gpt-5.5:   0%|          | 0/109 [00:09<?, ?it/s][A                                              
+                                                [ARunning Count: 5
+Total:   0%|          | 0/109 [00:23<?, ?it/s]
+gpt-5.5:   0%|          | 0/109 [00:23<?, ?it/s][A                                              
+                                                [ARunning Count: 5
+Total:   0%|          | 0/109 [00:31<?, ?it/s]
+gpt-5.5:   0%|          | 0/109 [00:31<?, ?it/s][ATotal:   1%|          | 1/109 [00:35<1:03:50, 35.46s/it]
+gpt-5.5:   1%|          | 1/109 [00:35<1:03:50, 35.46s/it][A                                                        
+                                                          [ARunning Count: 4
+Total:   1%|          | 1/109 [00:36<1:03:50, 35.46s/it]
+gpt-5.5:   1%|          | 1/109 [00:36<1:03:50, 35.46s/it][A                                                        
+                                                          [A[92mAssigned gpt-5.5/alfworld-std-baseline#103[0m
+Total:   1%|          | 1/109 [00:36<1:03:50, 35.46s/it]
+gpt-5.5:   1%|          | 1/109 [00:36<1:03:50, 35.46s/it][A                                                        
+                                                          [ARunning Count: 5
+Total:   1%|          | 1/109 [00:50<1:03:50, 35.46s/it]
+gpt-5.5:   1%|          | 1/109 [00:50<1:03:50, 35.46s/it][A                                                        
+                                                          [ARunning Count: 5
+Total:   1%|          | 1/109 [00:59<1:03:50, 35.46s/it]
+gpt-5.5:   1%|          | 1/109 [00:59<1:03:50, 35.46s/it][ATotal:   2%|▏         | 2/109 [01:02<54:31, 30.57s/it]  
+gpt-5.5:   2%|▏         | 2/109 [01:02<54:31, 30.57s/it]  [A                                                      
+                                                        [ARunning Count: 4
+Total:   2%|▏         | 2/109 [01:07<54:31, 30.57s/it]
+gpt-5.5:   2%|▏         | 2/109 [01:07<54:31, 30.57s/it][A                                                      
+                                                        [A[92mAssigned gpt-5.5/alfworld-std-baseline#102[0m
+Total:   2%|▏         | 2/109 [01:07<54:31, 30.57s/it]
+gpt-5.5:   2%|▏         | 2/109 [01:07<54:31, 30.57s/it][A                                                      
+                                                        [ARunning Count: 5
+Total:   2%|▏         | 2/109 [01:19<54:31, 30.57s/it]
+gpt-5.5:   2%|▏         | 2/109 [01:19<54:31, 30.57s/it][A                                                      
+                                                        [ARunning Count: 5
+Total:   2%|▏         | 2/109 [01:27<54:31, 30.57s/it]
+gpt-5.5:   2%|▏         | 2/109 [01:27<54:31, 30.57s/it][A                                                      
+                                                        [ARunning Count: 5
+Total:   2%|▏         | 2/109 [01:35<54:31, 30.57s/it]
+gpt-5.5:   2%|▏         | 2/109 [01:35<54:31, 30.57s/it][ATotal:   3%|▎         | 3/109 [01:41<1:00:30, 34.25s/it]
+gpt-5.5:   3%|▎         | 3/109 [01:41<1:00:30, 34.25s/it][A                                                        
+                                                          [ARunning Count: 4
+Total:   3%|▎         | 3/109 [01:47<1:00:30, 34.25s/it]
+gpt-5.5:   3%|▎         | 3/109 [01:47<1:00:30, 34.25s/it][A                                                        
+                                                          [A[92mAssigned gpt-5.5/alfworld-std-baseline#101[0m
+Total:   3%|▎         | 3/109 [01:47<1:00:30, 34.25s/it]
+gpt-5.5:   3%|▎         | 3/109 [01:47<1:00:30, 34.25s/it][A                                                        
+                                                          [ARunning Count: 5
+Total:   3%|▎         | 3/109 [02:00<1:00:30, 34.25s/it]
+gpt-5.5:   3%|▎         | 3/109 [02:00<1:00:30, 34.25s/it][A                                                        
+                                                          [ARunning Count: 5
+Total:   3%|▎         | 3/109 [02:09<1:00:30, 34.25s/it]
+gpt-5.5:   3%|▎         | 3/109 [02:09<1:00:30, 34.25s/it][A                                                        
+                                                          [ARunning Count: 5
+Total:   3%|▎         | 3/109 [02:21<1:00:30, 34.25s/it]
+gpt-5.5:   3%|▎         | 3/109 [02:21<1:00:30, 34.25s/it][A                                                        
+                                                          [ARunning Count: 5
+Total:   3%|▎         | 3/109 [02:36<1:00:30, 34.25s/it]
+gpt-5.5:   3%|▎         | 3/109 [02:36<1:00:30, 34.25s/it][A                                                        
+                                                          [ARunning Count: 5
+Total:   3%|▎         | 3/109 [02:51<1:00:30, 34.25s/it]
+gpt-5.5:   3%|▎         | 3/109 [02:51<1:00:30, 34.25s/it][ATotal:   4%|▎         | 4/109 [02:58<1:29:31, 51.16s/it]
+gpt-5.5:   4%|▎         | 4/109 [02:58<1:29:31, 51.16s/it][A                                                        
+                                                          [ARunning Count: 4
+Total:   4%|▎         | 4/109 [02:59<1:29:31, 51.16s/it]
+gpt-5.5:   4%|▎         | 4/109 [02:59<1:29:31, 51.16s/it][A                                                        
+                                                          [A[92mAssigned gpt-5.5/alfworld-std-baseline#100[0m
+Total:   4%|▎         | 4/109 [02:59<1:29:31, 51.16s/it]
+gpt-5.5:   4%|▎         | 4/109 [02:59<1:29:31, 51.16s/it][ATotal:   5%|▍         | 5/109 [03:01<58:57, 34.02s/it]  
+gpt-5.5:   5%|▍         | 5/109 [03:01<58:57, 34.02s/it]  [A                                                      
+                                                        [ARunning Count: 4
+Total:   5%|▍         | 5/109 [03:08<58:57, 34.02s/it]
+gpt-5.5:   5%|▍         | 5/109 [03:08<58:57, 34.02s/it][A                                                      
+                                                        [A[92mAssigned gpt-5.5/alfworld-std-baseline#99[0m
+Total:   5%|▍         | 5/109 [03:08<58:57, 34.02s/it]
+gpt-5.5:   5%|▍         | 5/109 [03:08<58:57, 34.02s/it][ATotal:   6%|▌         | 6/109 [03:15<46:36, 27.15s/it]
+gpt-5.5:   6%|▌         | 6/109 [03:15<46:36, 27.15s/it][A                                                      
+                                                        [ARunning Count: 4
+Total:   6%|▌         | 6/109 [03:16<46:36, 27.15s/it]
+gpt-5.5:   6%|▌         | 6/109 [03:16<46:36, 27.15s/it][A                                                      
+                                                        [A[92mAssigned gpt-5.5/alfworld-std-baseline#98[0m
+Total:   6%|▌         | 6/109 [03:16<46:36, 27.15s/it]
+gpt-5.5:   6%|▌         | 6/109 [03:16<46:36, 27.15s/it][A                                                      
+                                                        [ARunning Count: 5
+Total:   6%|▌         | 6/109 [03:22<46:36, 27.15s/it]
+gpt-5.5:   6%|▌         | 6/109 [03:22<46:36, 27.15s/it][A                                                      
+                                                        [ARunning Count: 5
+Total:   6%|▌         | 6/109 [03:35<46:36, 27.15s/it]
+gpt-5.5:   6%|▌         | 6/109 [03:35<46:36, 27.15s/it][A                                                      
+                                                        [ARunning Count: 5
+Total:   6%|▌         | 6/109 [03:41<46:36, 27.15s/it]
+gpt-5.5:   6%|▌         | 6/109 [03:41<46:36, 27.15s/it][A                                                      
+                                                        [ARunning Count: 5
+Total:   6%|▌         | 6/109 [03:50<46:36, 27.15s/it]
+gpt-5.5:   6%|▌         | 6/109 [03:50<46:36, 27.15s/it][A                                                      
+                                                        [ARunning Count: 5
+Total:   6%|▌         | 6/109 [03:58<46:36, 27.15s/it]
+gpt-5.5:   6%|▌         | 6/109 [03:58<46:36, 27.15s/it][ATotal:   6%|▋         | 7/109 [04:03<57:38, 33.90s/it]
+gpt-5.5:   6%|▋         | 7/109 [04:03<57:38, 33.90s/it][A                                                      
+                                                        [ARunning Count: 4
+Total:   6%|▋         | 7/109 [04:11<57:38, 33.90s/it]
+gpt-5.5:   6%|▋         | 7/109 [04:11<57:38, 33.90s/it][A                                                      
+                                                        [A[92mAssigned gpt-5.5/alfworld-std-baseline#97[0m
+Total:   6%|▋         | 7/109 [04:11<57:38, 33.90s/it]
+gpt-5.5:   6%|▋         | 7/109 [04:11<57:38, 33.90s/it][A                                                      
+                                                        [ARunning Count: 5
+Total:   6%|▋         | 7/109 [04:24<57:38, 33.90s/it]
+gpt-5.5:   6%|▋         | 7/109 [04:24<57:38, 33.90s/it][A                                                      
+                                                        [ARunning Count: 5
+Total:   6%|▋         | 7/109 [04:34<57:38, 33.90s/it]
+gpt-5.5:   6%|▋         | 7/109 [04:34<57:38, 33.90s/it][ATotal:   7%|▋         | 8/109 [04:39<58:02, 34.48s/it]
+gpt-5.5:   7%|▋         | 8/109 [04:39<58:02, 34.48s/it][A                                                      
+                                                        [ARunning Count: 4
+Total:   7%|▋         | 8/109 [04:48<58:02, 34.48s/it]
+gpt-5.5:   7%|▋         | 8/109 [04:48<58:02, 34.48s/it][A                                                      
+                                                        [A[92mAssigned gpt-5.5/alfworld-std-baseline#96[0m
+Total:   7%|▋         | 8/109 [04:48<58:02, 34.48s/it]
+gpt-5.5:   7%|▋         | 8/109 [04:48<58:02, 34.48s/it][ATotal:   8%|▊         | 9/109 [04:53<46:43, 28.03s/it]
+gpt-5.5:   8%|▊         | 9/109 [04:53<46:43, 28.03s/it][A                                                      
+                                                        [ARunning Count: 4
+Total:   8%|▊         | 9/109 [04:57<46:43, 28.03s/it]
+gpt-5.5:   8%|▊         | 9/109 [04:57<46:43, 28.03s/it][A                                                      
+                                                        [A[92mAssigned gpt-5.5/alfworld-std-baseline#95[0m
+Total:   8%|▊         | 9/109 [04:57<46:43, 28.03s/it]
+gpt-5.5:   8%|▊         | 9/109 [04:57<46:43, 28.03s/it][A                                                      
+                                                        [ARunning Count: 5
+Total:   8%|▊         | 9/109 [05:03<46:43, 28.03s/it]
+gpt-5.5:   8%|▊         | 9/109 [05:03<46:43, 28.03s/it][ATotal:   9%|▉         | 10/109 [05:08<39:57, 24.22s/it]
+gpt-5.5:   9%|▉         | 10/109 [05:08<39:57, 24.22s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:   9%|▉         | 10/109 [05:13<39:57, 24.22s/it]
+gpt-5.5:   9%|▉         | 10/109 [05:13<39:57, 24.22s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#94[0m
+Total:   9%|▉         | 10/109 [05:13<39:57, 24.22s/it]
+gpt-5.5:   9%|▉         | 10/109 [05:13<39:57, 24.22s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:   9%|▉         | 10/109 [05:19<39:57, 24.22s/it]
+gpt-5.5:   9%|▉         | 10/109 [05:19<39:57, 24.22s/it][ATotal:  10%|█         | 11/109 [05:23<34:52, 21.35s/it]
+gpt-5.5:  10%|█         | 11/109 [05:23<34:52, 21.35s/it][ATotal:  11%|█         | 12/109 [05:26<25:21, 15.68s/it]
+gpt-5.5:  11%|█         | 12/109 [05:26<25:21, 15.68s/it][A                                                       
+                                                         [ARunning Count: 3
+Total:  11%|█         | 12/109 [05:29<25:21, 15.68s/it]
+gpt-5.5:  11%|█         | 12/109 [05:29<25:21, 15.68s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#93[0m
+Total:  11%|█         | 12/109 [05:29<25:21, 15.68s/it]
+gpt-5.5:  11%|█         | 12/109 [05:29<25:21, 15.68s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#92[0m
+Total:  11%|█         | 12/109 [05:29<25:21, 15.68s/it]
+gpt-5.5:  11%|█         | 12/109 [05:29<25:21, 15.68s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  11%|█         | 12/109 [05:39<25:21, 15.68s/it]
+gpt-5.5:  11%|█         | 12/109 [05:39<25:21, 15.68s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  11%|█         | 12/109 [05:53<25:21, 15.68s/it]
+gpt-5.5:  11%|█         | 12/109 [05:53<25:21, 15.68s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  11%|█         | 12/109 [06:01<25:21, 15.68s/it]
+gpt-5.5:  11%|█         | 12/109 [06:01<25:21, 15.68s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  11%|█         | 12/109 [06:06<25:21, 15.68s/it]
+gpt-5.5:  11%|█         | 12/109 [06:06<25:21, 15.68s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  11%|█         | 12/109 [06:17<25:21, 15.68s/it]
+gpt-5.5:  11%|█         | 12/109 [06:17<25:21, 15.68s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  11%|█         | 12/109 [06:28<25:21, 15.68s/it]
+gpt-5.5:  11%|█         | 12/109 [06:28<25:21, 15.68s/it][ATotal:  12%|█▏        | 13/109 [06:39<53:10, 33.23s/it]
+gpt-5.5:  12%|█▏        | 13/109 [06:39<53:10, 33.23s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  12%|█▏        | 13/109 [06:40<53:10, 33.23s/it]
+gpt-5.5:  12%|█▏        | 13/109 [06:40<53:10, 33.23s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#91[0m
+Total:  12%|█▏        | 13/109 [06:40<53:10, 33.23s/it]
+gpt-5.5:  12%|█▏        | 13/109 [06:40<53:10, 33.23s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  12%|█▏        | 13/109 [06:53<53:10, 33.23s/it]
+gpt-5.5:  12%|█▏        | 13/109 [06:53<53:10, 33.23s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  12%|█▏        | 13/109 [07:02<53:10, 33.23s/it]
+gpt-5.5:  12%|█▏        | 13/109 [07:02<53:10, 33.23s/it][ATotal:  13%|█▎        | 14/109 [07:14<53:03, 33.51s/it]
+gpt-5.5:  13%|█▎        | 14/109 [07:14<53:03, 33.51s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  13%|█▎        | 14/109 [07:16<53:03, 33.51s/it]
+gpt-5.5:  13%|█▎        | 14/109 [07:16<53:03, 33.51s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#90[0m
+Total:  13%|█▎        | 14/109 [07:16<53:03, 33.51s/it]
+gpt-5.5:  13%|█▎        | 14/109 [07:16<53:03, 33.51s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  13%|█▎        | 14/109 [07:22<53:03, 33.51s/it]
+gpt-5.5:  13%|█▎        | 14/109 [07:22<53:03, 33.51s/it][ATotal:  14%|█▍        | 15/109 [07:26<42:31, 27.14s/it]
+gpt-5.5:  14%|█▍        | 15/109 [07:26<42:31, 27.14s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  14%|█▍        | 15/109 [07:29<42:31, 27.14s/it]
+gpt-5.5:  14%|█▍        | 15/109 [07:29<42:31, 27.14s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#89[0m
+Total:  14%|█▍        | 15/109 [07:29<42:31, 27.14s/it]
+gpt-5.5:  14%|█▍        | 15/109 [07:29<42:31, 27.14s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  14%|█▍        | 15/109 [07:36<42:31, 27.14s/it]
+gpt-5.5:  14%|█▍        | 15/109 [07:36<42:31, 27.14s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  14%|█▍        | 15/109 [07:48<42:31, 27.14s/it]
+gpt-5.5:  14%|█▍        | 15/109 [07:48<42:31, 27.14s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  14%|█▍        | 15/109 [08:00<42:31, 27.14s/it]
+gpt-5.5:  14%|█▍        | 15/109 [08:00<42:31, 27.14s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  14%|█▍        | 15/109 [08:05<42:31, 27.14s/it]
+gpt-5.5:  14%|█▍        | 15/109 [08:05<42:31, 27.14s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  14%|█▍        | 15/109 [08:15<42:31, 27.14s/it]
+gpt-5.5:  14%|█▍        | 15/109 [08:15<42:31, 27.14s/it][ATotal:  15%|█▍        | 16/109 [08:24<56:25, 36.40s/it]
+gpt-5.5:  15%|█▍        | 16/109 [08:24<56:25, 36.40s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  15%|█▍        | 16/109 [08:26<56:25, 36.40s/it]
+gpt-5.5:  15%|█▍        | 16/109 [08:26<56:25, 36.40s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#88[0m
+Total:  15%|█▍        | 16/109 [08:26<56:25, 36.40s/it]
+gpt-5.5:  15%|█▍        | 16/109 [08:26<56:25, 36.40s/it][ATotal:  16%|█▌        | 17/109 [08:29<41:34, 27.11s/it]
+gpt-5.5:  16%|█▌        | 17/109 [08:29<41:34, 27.11s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  16%|█▌        | 17/109 [08:31<41:34, 27.11s/it]
+gpt-5.5:  16%|█▌        | 17/109 [08:31<41:34, 27.11s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#87[0m
+Total:  16%|█▌        | 17/109 [08:31<41:34, 27.11s/it]
+gpt-5.5:  16%|█▌        | 17/109 [08:31<41:34, 27.11s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  16%|█▌        | 17/109 [08:44<41:34, 27.11s/it]
+gpt-5.5:  16%|█▌        | 17/109 [08:44<41:34, 27.11s/it][ATotal:  17%|█▋        | 18/109 [08:51<38:37, 25.46s/it]
+gpt-5.5:  17%|█▋        | 18/109 [08:51<38:37, 25.46s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  17%|█▋        | 18/109 [08:51<38:37, 25.46s/it]
+gpt-5.5:  17%|█▋        | 18/109 [08:51<38:37, 25.46s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#86[0m
+Total:  17%|█▋        | 18/109 [08:51<38:37, 25.46s/it]
+gpt-5.5:  17%|█▋        | 18/109 [08:51<38:37, 25.46s/it][ATotal:  17%|█▋        | 19/109 [09:00<30:42, 20.47s/it]
+gpt-5.5:  17%|█▋        | 19/109 [09:00<30:42, 20.47s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  17%|█▋        | 19/109 [09:04<30:42, 20.47s/it]
+gpt-5.5:  17%|█▋        | 19/109 [09:04<30:42, 20.47s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#85[0m
+Total:  17%|█▋        | 19/109 [09:04<30:42, 20.47s/it]
+gpt-5.5:  17%|█▋        | 19/109 [09:04<30:42, 20.47s/it][ATotal:  18%|█▊        | 20/109 [09:05<23:34, 15.90s/it]
+gpt-5.5:  18%|█▊        | 20/109 [09:05<23:34, 15.90s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  18%|█▊        | 20/109 [09:17<23:34, 15.90s/it]
+gpt-5.5:  18%|█▊        | 20/109 [09:17<23:34, 15.90s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#84[0m
+Total:  18%|█▊        | 20/109 [09:17<23:34, 15.90s/it]
+gpt-5.5:  18%|█▊        | 20/109 [09:17<23:34, 15.90s/it][ATotal:  19%|█▉        | 21/109 [09:21<23:22, 15.94s/it]
+gpt-5.5:  19%|█▉        | 21/109 [09:21<23:22, 15.94s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  19%|█▉        | 21/109 [09:31<23:22, 15.94s/it]
+gpt-5.5:  19%|█▉        | 21/109 [09:31<23:22, 15.94s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#83[0m
+Total:  19%|█▉        | 21/109 [09:31<23:22, 15.94s/it]
+gpt-5.5:  19%|█▉        | 21/109 [09:31<23:22, 15.94s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  19%|█▉        | 21/109 [09:40<23:22, 15.94s/it]
+gpt-5.5:  19%|█▉        | 21/109 [09:40<23:22, 15.94s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  19%|█▉        | 21/109 [09:45<23:22, 15.94s/it]
+gpt-5.5:  19%|█▉        | 21/109 [09:45<23:22, 15.94s/it][ATotal:  20%|██        | 22/109 [09:49<28:16, 19.50s/it]
+gpt-5.5:  20%|██        | 22/109 [09:49<28:16, 19.50s/it][ATotal:  21%|██        | 23/109 [09:49<19:40, 13.73s/it]
+gpt-5.5:  21%|██        | 23/109 [09:49<19:40, 13.73s/it][ATotal:  22%|██▏       | 24/109 [09:53<15:11, 10.73s/it]
+gpt-5.5:  22%|██▏       | 24/109 [09:53<15:11, 10.73s/it][A                                                       
+                                                         [ARunning Count: 2
+Total:  22%|██▏       | 24/109 [09:54<15:11, 10.73s/it]
+gpt-5.5:  22%|██▏       | 24/109 [09:54<15:11, 10.73s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#82[0m
+Total:  22%|██▏       | 24/109 [09:54<15:11, 10.73s/it]
+gpt-5.5:  22%|██▏       | 24/109 [09:54<15:11, 10.73s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#81[0m
+Total:  22%|██▏       | 24/109 [09:54<15:11, 10.73s/it]
+gpt-5.5:  22%|██▏       | 24/109 [09:54<15:11, 10.73s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#80[0m
+Total:  22%|██▏       | 24/109 [09:54<15:11, 10.73s/it]
+gpt-5.5:  22%|██▏       | 24/109 [09:54<15:11, 10.73s/it][ATotal:  23%|██▎       | 25/109 [09:59<13:07,  9.38s/it]
+gpt-5.5:  23%|██▎       | 25/109 [09:59<13:07,  9.38s/it][ATotal:  24%|██▍       | 26/109 [10:02<10:19,  7.46s/it]
+gpt-5.5:  24%|██▍       | 26/109 [10:02<10:19,  7.46s/it][A                                                       
+                                                         [ARunning Count: 3
+Total:  24%|██▍       | 26/109 [10:07<10:19,  7.46s/it]
+gpt-5.5:  24%|██▍       | 26/109 [10:07<10:19,  7.46s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#79[0m
+Total:  24%|██▍       | 26/109 [10:07<10:19,  7.46s/it]
+gpt-5.5:  24%|██▍       | 26/109 [10:07<10:19,  7.46s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#78[0m
+Total:  24%|██▍       | 26/109 [10:07<10:19,  7.46s/it]
+gpt-5.5:  24%|██▍       | 26/109 [10:07<10:19,  7.46s/it][ATotal:  25%|██▍       | 27/109 [10:14<11:49,  8.66s/it]
+gpt-5.5:  25%|██▍       | 27/109 [10:14<11:49,  8.66s/it][ATotal:  26%|██▌       | 28/109 [10:14<08:13,  6.10s/it]
+gpt-5.5:  26%|██▌       | 28/109 [10:14<08:13,  6.10s/it][A                                                       
+                                                         [ARunning Count: 3
+Total:  26%|██▌       | 28/109 [10:15<08:13,  6.10s/it]
+gpt-5.5:  26%|██▌       | 28/109 [10:15<08:13,  6.10s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#77[0m
+Total:  26%|██▌       | 28/109 [10:15<08:13,  6.10s/it]
+gpt-5.5:  26%|██▌       | 28/109 [10:15<08:13,  6.10s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#76[0m
+Total:  26%|██▌       | 28/109 [10:15<08:13,  6.10s/it]
+gpt-5.5:  26%|██▌       | 28/109 [10:15<08:13,  6.10s/it][ATotal:  27%|██▋       | 29/109 [10:22<09:08,  6.85s/it]
+gpt-5.5:  27%|██▋       | 29/109 [10:22<09:08,  6.85s/it][ATotal:  28%|██▊       | 30/109 [10:27<08:02,  6.11s/it]
+gpt-5.5:  28%|██▊       | 30/109 [10:27<08:02,  6.11s/it][ATotal:  28%|██▊       | 31/109 [10:28<06:12,  4.78s/it]
+gpt-5.5:  28%|██▊       | 31/109 [10:28<06:12,  4.78s/it][A                                                       
+                                                         [ARunning Count: 2
+Total:  28%|██▊       | 31/109 [10:29<06:12,  4.78s/it]
+gpt-5.5:  28%|██▊       | 31/109 [10:29<06:12,  4.78s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#75[0m
+Total:  28%|██▊       | 31/109 [10:29<06:12,  4.78s/it]
+gpt-5.5:  28%|██▊       | 31/109 [10:29<06:12,  4.78s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#74[0m
+Total:  28%|██▊       | 31/109 [10:29<06:12,  4.78s/it]
+gpt-5.5:  28%|██▊       | 31/109 [10:29<06:12,  4.78s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#73[0m
+Total:  28%|██▊       | 31/109 [10:29<06:12,  4.78s/it]
+gpt-5.5:  28%|██▊       | 31/109 [10:29<06:12,  4.78s/it][ATotal:  29%|██▉       | 32/109 [10:33<05:56,  4.62s/it]
+gpt-5.5:  29%|██▉       | 32/109 [10:33<05:56,  4.62s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  29%|██▉       | 32/109 [10:36<05:56,  4.62s/it]
+gpt-5.5:  29%|██▉       | 32/109 [10:36<05:56,  4.62s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#72[0m
+Total:  29%|██▉       | 32/109 [10:36<05:56,  4.62s/it]
+gpt-5.5:  29%|██▉       | 32/109 [10:36<05:56,  4.62s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  29%|██▉       | 32/109 [10:45<05:56,  4.62s/it]
+gpt-5.5:  29%|██▉       | 32/109 [10:45<05:56,  4.62s/it][ATotal:  30%|███       | 33/109 [10:49<10:06,  7.98s/it]
+gpt-5.5:  30%|███       | 33/109 [10:49<10:06,  7.98s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  30%|███       | 33/109 [10:50<10:06,  7.98s/it]
+gpt-5.5:  30%|███       | 33/109 [10:50<10:06,  7.98s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#71[0m
+Total:  30%|███       | 33/109 [10:50<10:06,  7.98s/it]
+gpt-5.5:  30%|███       | 33/109 [10:50<10:06,  7.98s/it][ATotal:  31%|███       | 34/109 [10:52<08:15,  6.61s/it]
+gpt-5.5:  31%|███       | 34/109 [10:52<08:15,  6.61s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  31%|███       | 34/109 [11:04<08:15,  6.61s/it]
+gpt-5.5:  31%|███       | 34/109 [11:04<08:15,  6.61s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#70[0m
+Total:  31%|███       | 34/109 [11:04<08:15,  6.61s/it]
+gpt-5.5:  31%|███       | 34/109 [11:04<08:15,  6.61s/it][ATotal:  32%|███▏      | 35/109 [11:09<12:07,  9.83s/it]
+gpt-5.5:  32%|███▏      | 35/109 [11:09<12:07,  9.83s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  32%|███▏      | 35/109 [11:17<12:07,  9.83s/it]
+gpt-5.5:  32%|███▏      | 35/109 [11:17<12:07,  9.83s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#69[0m
+Total:  32%|███▏      | 35/109 [11:17<12:07,  9.83s/it]
+gpt-5.5:  32%|███▏      | 35/109 [11:17<12:07,  9.83s/it][ATotal:  33%|███▎      | 36/109 [11:23<13:25, 11.04s/it]
+gpt-5.5:  33%|███▎      | 36/109 [11:23<13:25, 11.04s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  33%|███▎      | 36/109 [11:30<13:25, 11.04s/it]
+gpt-5.5:  33%|███▎      | 36/109 [11:30<13:25, 11.04s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#68[0m
+Total:  33%|███▎      | 36/109 [11:30<13:25, 11.04s/it]
+gpt-5.5:  33%|███▎      | 36/109 [11:30<13:25, 11.04s/it][ATotal:  34%|███▍      | 37/109 [11:30<11:45,  9.79s/it]
+gpt-5.5:  34%|███▍      | 37/109 [11:30<11:45,  9.79s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  34%|███▍      | 37/109 [11:45<11:45,  9.79s/it]
+gpt-5.5:  34%|███▍      | 37/109 [11:45<11:45,  9.79s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#67[0m
+Total:  34%|███▍      | 37/109 [11:45<11:45,  9.79s/it]
+gpt-5.5:  34%|███▍      | 37/109 [11:45<11:45,  9.79s/it][ATotal:  35%|███▍      | 38/109 [11:50<15:18, 12.94s/it]
+gpt-5.5:  35%|███▍      | 38/109 [11:50<15:18, 12.94s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  35%|███▍      | 38/109 [11:53<15:18, 12.94s/it]
+gpt-5.5:  35%|███▍      | 38/109 [11:53<15:18, 12.94s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#66[0m
+Total:  35%|███▍      | 38/109 [11:53<15:18, 12.94s/it]
+gpt-5.5:  35%|███▍      | 38/109 [11:53<15:18, 12.94s/it][ATotal:  36%|███▌      | 39/109 [11:54<11:55, 10.22s/it]
+gpt-5.5:  36%|███▌      | 39/109 [11:54<11:55, 10.22s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  36%|███▌      | 39/109 [12:07<11:55, 10.22s/it]
+gpt-5.5:  36%|███▌      | 39/109 [12:07<11:55, 10.22s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#65[0m
+Total:  36%|███▌      | 39/109 [12:07<11:55, 10.22s/it]
+gpt-5.5:  36%|███▌      | 39/109 [12:07<11:55, 10.22s/it][ATotal:  37%|███▋      | 40/109 [12:13<14:50, 12.91s/it]
+gpt-5.5:  37%|███▋      | 40/109 [12:13<14:50, 12.91s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  37%|███▋      | 40/109 [12:14<14:50, 12.91s/it]
+gpt-5.5:  37%|███▋      | 40/109 [12:14<14:50, 12.91s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#64[0m
+Total:  37%|███▋      | 40/109 [12:14<14:50, 12.91s/it]
+gpt-5.5:  37%|███▋      | 40/109 [12:14<14:50, 12.91s/it][ATotal:  38%|███▊      | 41/109 [12:19<12:15, 10.81s/it]
+gpt-5.5:  38%|███▊      | 41/109 [12:19<12:15, 10.81s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  38%|███▊      | 41/109 [12:20<12:15, 10.81s/it]
+gpt-5.5:  38%|███▊      | 41/109 [12:20<12:15, 10.81s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#63[0m
+Total:  38%|███▊      | 41/109 [12:20<12:15, 10.81s/it]
+gpt-5.5:  38%|███▊      | 41/109 [12:20<12:15, 10.81s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  38%|███▊      | 41/109 [12:31<12:15, 10.81s/it]
+gpt-5.5:  38%|███▊      | 41/109 [12:31<12:15, 10.81s/it][ATotal:  39%|███▊      | 42/109 [12:32<12:41, 11.36s/it]
+gpt-5.5:  39%|███▊      | 42/109 [12:32<12:41, 11.36s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  39%|███▊      | 42/109 [12:42<12:41, 11.36s/it]
+gpt-5.5:  39%|███▊      | 42/109 [12:42<12:41, 11.36s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#62[0m
+Total:  39%|███▊      | 42/109 [12:42<12:41, 11.36s/it]
+gpt-5.5:  39%|███▊      | 42/109 [12:42<12:41, 11.36s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  39%|███▊      | 42/109 [12:49<12:41, 11.36s/it]
+gpt-5.5:  39%|███▊      | 42/109 [12:49<12:41, 11.36s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  39%|███▊      | 42/109 [12:56<12:41, 11.36s/it]
+gpt-5.5:  39%|███▊      | 42/109 [12:56<12:41, 11.36s/it][ATotal:  39%|███▉      | 43/109 [13:05<19:45, 17.96s/it]
+gpt-5.5:  39%|███▉      | 43/109 [13:05<19:45, 17.96s/it][ATotal:  40%|████      | 44/109 [13:06<13:55, 12.85s/it]
+gpt-5.5:  40%|████      | 44/109 [13:06<13:55, 12.85s/it][A                                                       
+                                                         [ARunning Count: 3
+Total:  40%|████      | 44/109 [13:09<13:55, 12.85s/it]
+gpt-5.5:  40%|████      | 44/109 [13:09<13:55, 12.85s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#61[0m
+Total:  40%|████      | 44/109 [13:09<13:55, 12.85s/it]
+gpt-5.5:  40%|████      | 44/109 [13:09<13:55, 12.85s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#60[0m
+Total:  40%|████      | 44/109 [13:09<13:55, 12.85s/it]
+gpt-5.5:  40%|████      | 44/109 [13:09<13:55, 12.85s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  40%|████      | 44/109 [13:17<13:55, 12.85s/it]
+gpt-5.5:  40%|████      | 44/109 [13:17<13:55, 12.85s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  40%|████      | 44/109 [13:32<13:55, 12.85s/it]
+gpt-5.5:  40%|████      | 44/109 [13:32<13:55, 12.85s/it][ATotal:  41%|████▏     | 45/109 [13:40<20:30, 19.23s/it]
+gpt-5.5:  41%|████▏     | 45/109 [13:40<20:30, 19.23s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  41%|████▏     | 45/109 [13:41<20:30, 19.23s/it]
+gpt-5.5:  41%|████▏     | 45/109 [13:41<20:30, 19.23s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#59[0m
+Total:  41%|████▏     | 45/109 [13:41<20:30, 19.23s/it]
+gpt-5.5:  41%|████▏     | 45/109 [13:41<20:30, 19.23s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  41%|████▏     | 45/109 [13:51<20:30, 19.23s/it]
+gpt-5.5:  41%|████▏     | 45/109 [13:51<20:30, 19.23s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  41%|████▏     | 45/109 [14:00<20:30, 19.23s/it]
+gpt-5.5:  41%|████▏     | 45/109 [14:00<20:30, 19.23s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  41%|████▏     | 45/109 [14:13<20:30, 19.23s/it]
+gpt-5.5:  41%|████▏     | 45/109 [14:13<20:30, 19.23s/it][ATotal:  42%|████▏     | 46/109 [14:15<25:00, 23.82s/it]
+gpt-5.5:  42%|████▏     | 46/109 [14:15<25:00, 23.82s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  42%|████▏     | 46/109 [14:19<25:00, 23.82s/it]
+gpt-5.5:  42%|████▏     | 46/109 [14:19<25:00, 23.82s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#58[0m
+Total:  42%|████▏     | 46/109 [14:19<25:00, 23.82s/it]
+gpt-5.5:  42%|████▏     | 46/109 [14:19<25:00, 23.82s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  42%|████▏     | 46/109 [14:25<25:00, 23.82s/it]
+gpt-5.5:  42%|████▏     | 46/109 [14:25<25:00, 23.82s/it][ATotal:  43%|████▎     | 47/109 [14:26<20:43, 20.06s/it]
+gpt-5.5:  43%|████▎     | 47/109 [14:26<20:43, 20.06s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  43%|████▎     | 47/109 [14:35<20:43, 20.06s/it]
+gpt-5.5:  43%|████▎     | 47/109 [14:35<20:43, 20.06s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#57[0m
+Total:  43%|████▎     | 47/109 [14:35<20:43, 20.06s/it]
+gpt-5.5:  43%|████▎     | 47/109 [14:35<20:43, 20.06s/it][ATotal:  44%|████▍     | 48/109 [14:42<19:06, 18.79s/it]
+gpt-5.5:  44%|████▍     | 48/109 [14:42<19:06, 18.79s/it][ATotal:  45%|████▍     | 49/109 [14:43<13:36, 13.60s/it]
+gpt-5.5:  45%|████▍     | 49/109 [14:43<13:36, 13.60s/it][A                                                       
+                                                         [ARunning Count: 3
+Total:  45%|████▍     | 49/109 [14:50<13:36, 13.60s/it]
+gpt-5.5:  45%|████▍     | 49/109 [14:50<13:36, 13.60s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#56[0m
+Total:  45%|████▍     | 49/109 [14:50<13:36, 13.60s/it]
+gpt-5.5:  45%|████▍     | 49/109 [14:50<13:36, 13.60s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#55[0m
+Total:  45%|████▍     | 49/109 [14:50<13:36, 13.60s/it]
+gpt-5.5:  45%|████▍     | 49/109 [14:50<13:36, 13.60s/it][ATotal:  46%|████▌     | 50/109 [15:02<14:43, 14.98s/it]
+gpt-5.5:  46%|████▌     | 50/109 [15:02<14:43, 14.98s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  46%|████▌     | 50/109 [15:03<14:43, 14.98s/it]
+gpt-5.5:  46%|████▌     | 50/109 [15:03<14:43, 14.98s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#54[0m
+Total:  46%|████▌     | 50/109 [15:03<14:43, 14.98s/it]
+gpt-5.5:  46%|████▌     | 50/109 [15:03<14:43, 14.98s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  46%|████▌     | 50/109 [15:12<14:43, 14.98s/it]
+gpt-5.5:  46%|████▌     | 50/109 [15:12<14:43, 14.98s/it][ATotal:  47%|████▋     | 51/109 [15:21<15:49, 16.37s/it]
+gpt-5.5:  47%|████▋     | 51/109 [15:21<15:49, 16.37s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  47%|████▋     | 51/109 [15:26<15:49, 16.37s/it]
+gpt-5.5:  47%|████▋     | 51/109 [15:26<15:49, 16.37s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#53[0m
+Total:  47%|████▋     | 51/109 [15:26<15:49, 16.37s/it]
+gpt-5.5:  47%|████▋     | 51/109 [15:26<15:49, 16.37s/it][ATotal:  48%|████▊     | 52/109 [15:29<13:06, 13.80s/it]
+gpt-5.5:  48%|████▊     | 52/109 [15:29<13:06, 13.80s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  48%|████▊     | 52/109 [15:36<13:06, 13.80s/it]
+gpt-5.5:  48%|████▊     | 52/109 [15:36<13:06, 13.80s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#52[0m
+Total:  48%|████▊     | 52/109 [15:36<13:06, 13.80s/it]
+gpt-5.5:  48%|████▊     | 52/109 [15:36<13:06, 13.80s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  48%|████▊     | 52/109 [15:45<13:06, 13.80s/it]
+gpt-5.5:  48%|████▊     | 52/109 [15:45<13:06, 13.80s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  48%|████▊     | 52/109 [15:52<13:06, 13.80s/it]
+gpt-5.5:  48%|████▊     | 52/109 [15:52<13:06, 13.80s/it][ATotal:  49%|████▊     | 53/109 [15:56<16:40, 17.87s/it]
+gpt-5.5:  49%|████▊     | 53/109 [15:56<16:40, 17.87s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  49%|████▊     | 53/109 [16:03<16:40, 17.87s/it]
+gpt-5.5:  49%|████▊     | 53/109 [16:03<16:40, 17.87s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#51[0m
+Total:  49%|████▊     | 53/109 [16:03<16:40, 17.87s/it]
+gpt-5.5:  49%|████▊     | 53/109 [16:03<16:40, 17.87s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  49%|████▊     | 53/109 [16:13<16:40, 17.87s/it]
+gpt-5.5:  49%|████▊     | 53/109 [16:13<16:40, 17.87s/it][ATotal:  50%|████▉     | 54/109 [16:17<17:00, 18.55s/it]
+gpt-5.5:  50%|████▉     | 54/109 [16:17<17:00, 18.55s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  50%|████▉     | 54/109 [16:23<17:00, 18.55s/it]
+gpt-5.5:  50%|████▉     | 54/109 [16:23<17:00, 18.55s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#50[0m
+Total:  50%|████▉     | 54/109 [16:23<17:00, 18.55s/it]
+gpt-5.5:  50%|████▉     | 54/109 [16:23<17:00, 18.55s/it][ATotal:  50%|█████     | 55/109 [16:24<13:37, 15.13s/it]
+gpt-5.5:  50%|█████     | 55/109 [16:24<13:37, 15.13s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  50%|█████     | 55/109 [16:35<13:37, 15.13s/it]
+gpt-5.5:  50%|█████     | 55/109 [16:35<13:37, 15.13s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#49[0m
+Total:  50%|█████     | 55/109 [16:35<13:37, 15.13s/it]
+gpt-5.5:  50%|█████     | 55/109 [16:35<13:37, 15.13s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  50%|█████     | 55/109 [16:47<13:37, 15.13s/it]
+gpt-5.5:  50%|█████     | 55/109 [16:47<13:37, 15.13s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  50%|█████     | 55/109 [16:59<13:37, 15.13s/it]
+gpt-5.5:  50%|█████     | 55/109 [16:59<13:37, 15.13s/it][ATotal:  51%|█████▏    | 56/109 [17:07<20:49, 23.58s/it]
+gpt-5.5:  51%|█████▏    | 56/109 [17:07<20:49, 23.58s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  51%|█████▏    | 56/109 [17:14<20:49, 23.58s/it]
+gpt-5.5:  51%|█████▏    | 56/109 [17:14<20:49, 23.58s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#48[0m
+Total:  51%|█████▏    | 56/109 [17:14<20:49, 23.58s/it]
+gpt-5.5:  51%|█████▏    | 56/109 [17:14<20:49, 23.58s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  51%|█████▏    | 56/109 [17:22<20:49, 23.58s/it]
+gpt-5.5:  51%|█████▏    | 56/109 [17:22<20:49, 23.58s/it][ATotal:  52%|█████▏    | 57/109 [17:25<18:58, 21.89s/it]
+gpt-5.5:  52%|█████▏    | 57/109 [17:25<18:58, 21.89s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  52%|█████▏    | 57/109 [17:36<18:58, 21.89s/it]
+gpt-5.5:  52%|█████▏    | 57/109 [17:36<18:58, 21.89s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#47[0m
+Total:  52%|█████▏    | 57/109 [17:36<18:58, 21.89s/it]
+gpt-5.5:  52%|█████▏    | 57/109 [17:36<18:58, 21.89s/it][ATotal:  53%|█████▎    | 58/109 [17:36<15:55, 18.74s/it]
+gpt-5.5:  53%|█████▎    | 58/109 [17:36<15:55, 18.74s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  53%|█████▎    | 58/109 [17:47<15:55, 18.74s/it]
+gpt-5.5:  53%|█████▎    | 58/109 [17:47<15:55, 18.74s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#46[0m
+Total:  53%|█████▎    | 58/109 [17:47<15:55, 18.74s/it]
+gpt-5.5:  53%|█████▎    | 58/109 [17:47<15:55, 18.74s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  53%|█████▎    | 58/109 [17:57<15:55, 18.74s/it]
+gpt-5.5:  53%|█████▎    | 58/109 [17:57<15:55, 18.74s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  53%|█████▎    | 58/109 [18:07<15:55, 18.74s/it]
+gpt-5.5:  53%|█████▎    | 58/109 [18:07<15:55, 18.74s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  53%|█████▎    | 58/109 [18:13<15:55, 18.74s/it]
+gpt-5.5:  53%|█████▎    | 58/109 [18:13<15:55, 18.74s/it][ATotal:  54%|█████▍    | 59/109 [18:15<20:43, 24.86s/it]
+gpt-5.5:  54%|█████▍    | 59/109 [18:15<20:43, 24.86s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  54%|█████▍    | 59/109 [18:20<20:43, 24.86s/it]
+gpt-5.5:  54%|█████▍    | 59/109 [18:20<20:43, 24.86s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#45[0m
+Total:  54%|█████▍    | 59/109 [18:20<20:43, 24.86s/it]
+gpt-5.5:  54%|█████▍    | 59/109 [18:20<20:43, 24.86s/it][ATotal:  55%|█████▌    | 60/109 [18:22<15:49, 19.37s/it]
+gpt-5.5:  55%|█████▌    | 60/109 [18:22<15:49, 19.37s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  55%|█████▌    | 60/109 [18:28<15:49, 19.37s/it]
+gpt-5.5:  55%|█████▌    | 60/109 [18:28<15:49, 19.37s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#44[0m
+Total:  55%|█████▌    | 60/109 [18:28<15:49, 19.37s/it]
+gpt-5.5:  55%|█████▌    | 60/109 [18:28<15:49, 19.37s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  55%|█████▌    | 60/109 [18:35<15:49, 19.37s/it]
+gpt-5.5:  55%|█████▌    | 60/109 [18:35<15:49, 19.37s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  55%|█████▌    | 60/109 [18:44<15:49, 19.37s/it]
+gpt-5.5:  55%|█████▌    | 60/109 [18:44<15:49, 19.37s/it][ATotal:  56%|█████▌    | 61/109 [18:49<17:18, 21.64s/it]
+gpt-5.5:  56%|█████▌    | 61/109 [18:49<17:18, 21.64s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  56%|█████▌    | 61/109 [18:56<17:18, 21.64s/it]
+gpt-5.5:  56%|█████▌    | 61/109 [18:56<17:18, 21.64s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#43[0m
+Total:  56%|█████▌    | 61/109 [18:56<17:18, 21.64s/it]
+gpt-5.5:  56%|█████▌    | 61/109 [18:56<17:18, 21.64s/it][ATotal:  57%|█████▋    | 62/109 [19:00<14:24, 18.40s/it]
+gpt-5.5:  57%|█████▋    | 62/109 [19:00<14:24, 18.40s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  57%|█████▋    | 62/109 [19:09<14:24, 18.40s/it]
+gpt-5.5:  57%|█████▋    | 62/109 [19:09<14:24, 18.40s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#42[0m
+Total:  57%|█████▋    | 62/109 [19:09<14:24, 18.40s/it]
+gpt-5.5:  57%|█████▋    | 62/109 [19:09<14:24, 18.40s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  57%|█████▋    | 62/109 [19:14<14:24, 18.40s/it]
+gpt-5.5:  57%|█████▋    | 62/109 [19:14<14:24, 18.40s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  57%|█████▋    | 62/109 [19:23<14:24, 18.40s/it]
+gpt-5.5:  57%|█████▋    | 62/109 [19:23<14:24, 18.40s/it][ATotal:  58%|█████▊    | 63/109 [19:30<16:50, 21.96s/it]
+gpt-5.5:  58%|█████▊    | 63/109 [19:30<16:50, 21.96s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  58%|█████▊    | 63/109 [19:31<16:50, 21.96s/it]
+gpt-5.5:  58%|█████▊    | 63/109 [19:31<16:50, 21.96s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#41[0m
+Total:  58%|█████▊    | 63/109 [19:31<16:50, 21.96s/it]
+gpt-5.5:  58%|█████▊    | 63/109 [19:31<16:50, 21.96s/it][ATotal:  59%|█████▊    | 64/109 [19:37<13:03, 17.41s/it]
+gpt-5.5:  59%|█████▊    | 64/109 [19:37<13:03, 17.41s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  59%|█████▊    | 64/109 [19:42<13:03, 17.41s/it]
+gpt-5.5:  59%|█████▊    | 64/109 [19:42<13:03, 17.41s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#40[0m
+Total:  59%|█████▊    | 64/109 [19:42<13:03, 17.41s/it]
+gpt-5.5:  59%|█████▊    | 64/109 [19:42<13:03, 17.41s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [19:53<13:03, 17.41s/it]
+gpt-5.5:  59%|█████▊    | 64/109 [19:53<13:03, 17.41s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [19:59<13:03, 17.41s/it]
+gpt-5.5:  59%|█████▊    | 64/109 [19:59<13:03, 17.41s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [20:06<13:03, 17.41s/it]
+gpt-5.5:  59%|█████▊    | 64/109 [20:06<13:03, 17.41s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [20:14<13:03, 17.41s/it]
+gpt-5.5:  59%|█████▊    | 64/109 [20:14<13:03, 17.41s/it][ATotal:  60%|█████▉    | 65/109 [20:25<19:29, 26.59s/it]
+gpt-5.5:  60%|█████▉    | 65/109 [20:25<19:29, 26.59s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  60%|█████▉    | 65/109 [20:29<19:29, 26.59s/it]
+gpt-5.5:  60%|█████▉    | 65/109 [20:29<19:29, 26.59s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#39[0m
+Total:  60%|█████▉    | 65/109 [20:29<19:29, 26.59s/it]
+gpt-5.5:  60%|█████▉    | 65/109 [20:29<19:29, 26.59s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  60%|█████▉    | 65/109 [20:36<19:29, 26.59s/it]
+gpt-5.5:  60%|█████▉    | 65/109 [20:36<19:29, 26.59s/it][ATotal:  61%|██████    | 66/109 [20:40<16:33, 23.11s/it]
+gpt-5.5:  61%|██████    | 66/109 [20:40<16:33, 23.11s/it][ATotal:  61%|██████▏   | 67/109 [20:43<12:00, 17.16s/it]
+gpt-5.5:  61%|██████▏   | 67/109 [20:43<12:00, 17.16s/it][A                                                       
+                                                         [ARunning Count: 3
+Total:  61%|██████▏   | 67/109 [20:43<12:00, 17.16s/it]
+gpt-5.5:  61%|██████▏   | 67/109 [20:43<12:00, 17.16s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#38[0m
+Total:  61%|██████▏   | 67/109 [20:43<12:00, 17.16s/it]
+gpt-5.5:  61%|██████▏   | 67/109 [20:43<12:00, 17.16s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#37[0m
+Total:  61%|██████▏   | 67/109 [20:43<12:00, 17.16s/it]
+gpt-5.5:  61%|██████▏   | 67/109 [20:43<12:00, 17.16s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  61%|██████▏   | 67/109 [20:49<12:00, 17.16s/it]
+gpt-5.5:  61%|██████▏   | 67/109 [20:49<12:00, 17.16s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  61%|██████▏   | 67/109 [21:00<12:00, 17.16s/it]
+gpt-5.5:  61%|██████▏   | 67/109 [21:00<12:00, 17.16s/it][ATotal:  62%|██████▏   | 68/109 [21:11<13:59, 20.49s/it]
+gpt-5.5:  62%|██████▏   | 68/109 [21:11<13:59, 20.49s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  62%|██████▏   | 68/109 [21:12<13:59, 20.49s/it]
+gpt-5.5:  62%|██████▏   | 68/109 [21:12<13:59, 20.49s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#36[0m
+Total:  62%|██████▏   | 68/109 [21:12<13:59, 20.49s/it]
+gpt-5.5:  62%|██████▏   | 68/109 [21:12<13:59, 20.49s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  62%|██████▏   | 68/109 [21:22<13:59, 20.49s/it]
+gpt-5.5:  62%|██████▏   | 68/109 [21:22<13:59, 20.49s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  62%|██████▏   | 68/109 [21:30<13:59, 20.49s/it]
+gpt-5.5:  62%|██████▏   | 68/109 [21:30<13:59, 20.49s/it][ATotal:  63%|██████▎   | 69/109 [21:30<13:16, 19.91s/it]
+gpt-5.5:  63%|██████▎   | 69/109 [21:30<13:16, 19.91s/it][A                                                       
+                                                         [ARunning Count: 3
+Total:  64%|██████▍   | 70/109 [21:40<12:56, 19.91s/it]
+gpt-5.5:  64%|██████▍   | 70/109 [21:40<12:56, 19.91s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#35[0m
+Total:  64%|██████▍   | 70/109 [21:40<12:56, 19.91s/it]
+gpt-5.5:  64%|██████▍   | 70/109 [21:40<12:56, 19.91s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#34[0m
+Total:  64%|██████▍   | 70/109 [21:40<12:56, 19.91s/it]
+gpt-5.5:  64%|██████▍   | 70/109 [21:40<12:56, 19.91s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  64%|██████▍   | 70/109 [21:54<12:56, 19.91s/it]
+gpt-5.5:  64%|██████▍   | 70/109 [21:54<12:56, 19.91s/it][ATotal:  65%|██████▌   | 71/109 [22:03<11:41, 18.45s/it]
+gpt-5.5:  65%|██████▌   | 71/109 [22:03<11:41, 18.45s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  65%|██████▌   | 71/109 [22:08<11:41, 18.45s/it]
+gpt-5.5:  65%|██████▌   | 71/109 [22:08<11:41, 18.45s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#33[0m
+Total:  65%|██████▌   | 71/109 [22:08<11:41, 18.45s/it]
+gpt-5.5:  65%|██████▌   | 71/109 [22:08<11:41, 18.45s/it][ATotal:  66%|██████▌   | 72/109 [22:12<09:54, 16.07s/it]
+gpt-5.5:  66%|██████▌   | 72/109 [22:12<09:54, 16.07s/it][ATotal:  67%|██████▋   | 73/109 [22:12<07:08, 11.90s/it]
+gpt-5.5:  67%|██████▋   | 73/109 [22:12<07:08, 11.90s/it][A                                                       
+                                                         [ARunning Count: 3
+Total:  67%|██████▋   | 73/109 [22:22<07:08, 11.90s/it]
+gpt-5.5:  67%|██████▋   | 73/109 [22:22<07:08, 11.90s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#32[0m
+Total:  67%|██████▋   | 73/109 [22:22<07:08, 11.90s/it]
+gpt-5.5:  67%|██████▋   | 73/109 [22:22<07:08, 11.90s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#31[0m
+Total:  67%|██████▋   | 73/109 [22:22<07:08, 11.90s/it]
+gpt-5.5:  67%|██████▋   | 73/109 [22:22<07:08, 11.90s/it][ATotal:  68%|██████▊   | 74/109 [22:26<07:13, 12.38s/it]
+gpt-5.5:  68%|██████▊   | 74/109 [22:26<07:13, 12.38s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  68%|██████▊   | 74/109 [22:35<07:13, 12.38s/it]
+gpt-5.5:  68%|██████▊   | 74/109 [22:35<07:13, 12.38s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#30[0m
+Total:  68%|██████▊   | 74/109 [22:35<07:13, 12.38s/it]
+gpt-5.5:  68%|██████▊   | 74/109 [22:35<07:13, 12.38s/it][ATotal:  69%|██████▉   | 75/109 [22:39<07:02, 12.43s/it]
+gpt-5.5:  69%|██████▉   | 75/109 [22:39<07:02, 12.43s/it][ATotal:  70%|██████▉   | 76/109 [22:44<05:42, 10.37s/it]
+gpt-5.5:  70%|██████▉   | 76/109 [22:44<05:42, 10.37s/it][A                                                       
+                                                         [ARunning Count: 3
+Total:  70%|██████▉   | 76/109 [22:46<05:42, 10.37s/it]
+gpt-5.5:  70%|██████▉   | 76/109 [22:46<05:42, 10.37s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#29[0m
+Total:  70%|██████▉   | 76/109 [22:46<05:42, 10.37s/it]
+gpt-5.5:  70%|██████▉   | 76/109 [22:46<05:42, 10.37s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#28[0m
+Total:  70%|██████▉   | 76/109 [22:46<05:42, 10.37s/it]
+gpt-5.5:  70%|██████▉   | 76/109 [22:46<05:42, 10.37s/it][ATotal:  71%|███████   | 77/109 [22:57<05:53, 11.04s/it]
+gpt-5.5:  71%|███████   | 77/109 [22:57<05:53, 11.04s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  71%|███████   | 77/109 [23:00<05:53, 11.04s/it]
+gpt-5.5:  71%|███████   | 77/109 [23:00<05:53, 11.04s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#27[0m
+Total:  71%|███████   | 77/109 [23:00<05:53, 11.04s/it]
+gpt-5.5:  71%|███████   | 77/109 [23:00<05:53, 11.04s/it][ATotal:  72%|███████▏  | 78/109 [23:10<06:04, 11.77s/it]
+gpt-5.5:  72%|███████▏  | 78/109 [23:10<06:04, 11.77s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  72%|███████▏  | 78/109 [23:11<06:04, 11.77s/it]
+gpt-5.5:  72%|███████▏  | 78/109 [23:11<06:04, 11.77s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#26[0m
+Total:  72%|███████▏  | 78/109 [23:11<06:04, 11.77s/it]
+gpt-5.5:  72%|███████▏  | 78/109 [23:11<06:04, 11.77s/it][ATotal:  72%|███████▏  | 79/109 [23:16<05:01, 10.05s/it]
+gpt-5.5:  72%|███████▏  | 79/109 [23:16<05:01, 10.05s/it][ATotal:  73%|███████▎  | 80/109 [23:22<04:14,  8.79s/it]
+gpt-5.5:  73%|███████▎  | 80/109 [23:22<04:14,  8.79s/it][A                                                       
+                                                         [ARunning Count: 3
+Total:  73%|███████▎  | 80/109 [23:25<04:14,  8.79s/it]
+gpt-5.5:  73%|███████▎  | 80/109 [23:25<04:14,  8.79s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#25[0m
+Total:  73%|███████▎  | 80/109 [23:25<04:14,  8.79s/it]
+gpt-5.5:  73%|███████▎  | 80/109 [23:25<04:14,  8.79s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#24[0m
+Total:  73%|███████▎  | 80/109 [23:25<04:14,  8.79s/it]
+gpt-5.5:  73%|███████▎  | 80/109 [23:25<04:14,  8.79s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  73%|███████▎  | 80/109 [23:34<04:14,  8.79s/it]
+gpt-5.5:  73%|███████▎  | 80/109 [23:34<04:14,  8.79s/it][ATotal:  74%|███████▍  | 81/109 [23:41<05:32, 11.86s/it]
+gpt-5.5:  74%|███████▍  | 81/109 [23:41<05:32, 11.86s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  74%|███████▍  | 81/109 [23:47<05:32, 11.86s/it]
+gpt-5.5:  74%|███████▍  | 81/109 [23:47<05:32, 11.86s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#23[0m
+Total:  74%|███████▍  | 81/109 [23:47<05:32, 11.86s/it]
+gpt-5.5:  74%|███████▍  | 81/109 [23:47<05:32, 11.86s/it][A                                                       
+                                                         [A[93mWarning: gpt-5.5/alfworld-std-baseline#26 failed with error INTERACT_FAILED {"message":"failed to interact with session"}
+Total:  74%|███████▍  | 81/109 [23:48<05:32, 11.86s/it]
+gpt-5.5:  74%|███████▍  | 81/109 [23:48<05:32, 11.86s/it][A                                                       
+                                                         [A index=None status=<SampleStatus.RUNNING: 'running'> result={'reward': 0, 'metrics': {'score': 0}} history=[ChatHistoryItem(role='user', content='The cabinet 5 is closed. AVAILABLE ACTIONS: examine cabinet 5\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 6\ngo to coffeemachine 1\ngo to countertop 1\ngo to countertop 2\ngo to countertop 3\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to microwave 1\ngo to shelf 1\ngo to shelf 2\ngo to shelf 3\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\ninventory\nlook\nopen cabinet 5\n')][0m
+Total:  74%|███████▍  | 81/109 [23:48<05:32, 11.86s/it]
+gpt-5.5:  74%|███████▍  | 81/109 [23:48<05:32, 11.86s/it][ATotal:  75%|███████▌  | 82/109 [23:49<04:53, 10.86s/it]
+gpt-5.5:  75%|███████▌  | 82/109 [23:49<04:53, 10.86s/it][A                                                       
+                                                         [ARunning Count: 3
+Total:  75%|███████▌  | 82/109 [23:58<04:53, 10.86s/it]
+gpt-5.5:  75%|███████▌  | 82/109 [23:58<04:53, 10.86s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#22[0m
+Total:  75%|███████▌  | 82/109 [23:58<04:53, 10.86s/it]
+gpt-5.5:  75%|███████▌  | 82/109 [23:58<04:53, 10.86s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#21[0m
+Total:  75%|███████▌  | 82/109 [23:58<04:53, 10.86s/it]
+gpt-5.5:  75%|███████▌  | 82/109 [23:58<04:53, 10.86s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  75%|███████▌  | 82/109 [24:04<04:53, 10.86s/it]
+gpt-5.5:  75%|███████▌  | 82/109 [24:04<04:53, 10.86s/it][ATotal:  76%|███████▌  | 83/109 [24:17<06:50, 15.79s/it]
+gpt-5.5:  76%|███████▌  | 83/109 [24:17<06:50, 15.79s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  76%|███████▌  | 83/109 [24:18<06:50, 15.79s/it]
+gpt-5.5:  76%|███████▌  | 83/109 [24:18<06:50, 15.79s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#20[0m
+Total:  76%|███████▌  | 83/109 [24:18<06:50, 15.79s/it]
+gpt-5.5:  76%|███████▌  | 83/109 [24:18<06:50, 15.79s/it][ATotal:  77%|███████▋  | 84/109 [24:29<06:09, 14.78s/it]
+gpt-5.5:  77%|███████▋  | 84/109 [24:29<06:09, 14.78s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  77%|███████▋  | 84/109 [24:32<06:09, 14.78s/it]
+gpt-5.5:  77%|███████▋  | 84/109 [24:32<06:09, 14.78s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#19[0m
+Total:  77%|███████▋  | 84/109 [24:32<06:09, 14.78s/it]
+gpt-5.5:  77%|███████▋  | 84/109 [24:32<06:09, 14.78s/it][ATotal:  78%|███████▊  | 85/109 [24:36<04:57, 12.38s/it]
+gpt-5.5:  78%|███████▊  | 85/109 [24:36<04:57, 12.38s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  78%|███████▊  | 85/109 [24:45<04:57, 12.38s/it]
+gpt-5.5:  78%|███████▊  | 85/109 [24:45<04:57, 12.38s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#18[0m
+Total:  78%|███████▊  | 85/109 [24:45<04:57, 12.38s/it]
+gpt-5.5:  78%|███████▊  | 85/109 [24:45<04:57, 12.38s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  78%|███████▊  | 85/109 [24:51<04:57, 12.38s/it]
+gpt-5.5:  78%|███████▊  | 85/109 [24:51<04:57, 12.38s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  78%|███████▊  | 85/109 [24:57<04:57, 12.38s/it]
+gpt-5.5:  78%|███████▊  | 85/109 [24:57<04:57, 12.38s/it][ATotal:  79%|███████▉  | 86/109 [24:58<05:52, 15.34s/it]
+gpt-5.5:  79%|███████▉  | 86/109 [24:58<05:52, 15.34s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  79%|███████▉  | 86/109 [25:04<05:52, 15.34s/it]
+gpt-5.5:  79%|███████▉  | 86/109 [25:04<05:52, 15.34s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#17[0m
+Total:  79%|███████▉  | 86/109 [25:04<05:52, 15.34s/it]
+gpt-5.5:  79%|███████▉  | 86/109 [25:04<05:52, 15.34s/it][ATotal:  80%|███████▉  | 87/109 [25:08<05:03, 13.80s/it]
+gpt-5.5:  80%|███████▉  | 87/109 [25:08<05:03, 13.80s/it][ATotal:  81%|████████  | 88/109 [25:16<04:12, 12.02s/it]
+gpt-5.5:  81%|████████  | 88/109 [25:16<04:12, 12.02s/it][A                                                       
+                                                         [ARunning Count: 3
+Total:  81%|████████  | 88/109 [25:17<04:12, 12.02s/it]
+gpt-5.5:  81%|████████  | 88/109 [25:17<04:12, 12.02s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#16[0m
+Total:  81%|████████  | 88/109 [25:17<04:12, 12.02s/it]
+gpt-5.5:  81%|████████  | 88/109 [25:17<04:12, 12.02s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#15[0m
+Total:  81%|████████  | 88/109 [25:17<04:12, 12.02s/it]
+gpt-5.5:  81%|████████  | 88/109 [25:17<04:12, 12.02s/it][ATotal:  82%|████████▏ | 89/109 [25:19<03:01,  9.08s/it]
+gpt-5.5:  82%|████████▏ | 89/109 [25:19<03:01,  9.08s/it][ATotal:  83%|████████▎ | 90/109 [25:22<02:22,  7.49s/it]
+gpt-5.5:  83%|████████▎ | 90/109 [25:22<02:22,  7.49s/it][A                                                       
+                                                         [ARunning Count: 3
+Total:  83%|████████▎ | 90/109 [25:28<02:22,  7.49s/it]
+gpt-5.5:  83%|████████▎ | 90/109 [25:28<02:22,  7.49s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#14[0m
+Total:  83%|████████▎ | 90/109 [25:28<02:22,  7.49s/it]
+gpt-5.5:  83%|████████▎ | 90/109 [25:28<02:22,  7.49s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#13[0m
+Total:  83%|████████▎ | 90/109 [25:28<02:22,  7.49s/it]
+gpt-5.5:  83%|████████▎ | 90/109 [25:28<02:22,  7.49s/it][ATotal:  83%|████████▎ | 91/109 [25:37<02:54,  9.68s/it]
+gpt-5.5:  83%|████████▎ | 91/109 [25:37<02:54,  9.68s/it][ATotal:  84%|████████▍ | 92/109 [25:37<01:55,  6.82s/it]
+gpt-5.5:  84%|████████▍ | 92/109 [25:37<01:55,  6.82s/it][A                                                       
+                                                         [ARunning Count: 3
+Total:  84%|████████▍ | 92/109 [25:40<01:55,  6.82s/it]
+gpt-5.5:  84%|████████▍ | 92/109 [25:40<01:55,  6.82s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#12[0m
+Total:  84%|████████▍ | 92/109 [25:40<01:55,  6.82s/it]
+gpt-5.5:  84%|████████▍ | 92/109 [25:40<01:55,  6.82s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#11[0m
+Total:  84%|████████▍ | 92/109 [25:40<01:55,  6.82s/it]
+gpt-5.5:  84%|████████▍ | 92/109 [25:40<01:55,  6.82s/it][ATotal:  85%|████████▌ | 93/109 [25:46<01:56,  7.27s/it]
+gpt-5.5:  85%|████████▌ | 93/109 [25:46<01:56,  7.27s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  85%|████████▌ | 93/109 [25:51<01:56,  7.27s/it]
+gpt-5.5:  85%|████████▌ | 93/109 [25:51<01:56,  7.27s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#10[0m
+Total:  85%|████████▌ | 93/109 [25:51<01:56,  7.27s/it]
+gpt-5.5:  85%|████████▌ | 93/109 [25:51<01:56,  7.27s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  85%|████████▌ | 93/109 [26:01<01:56,  7.27s/it]
+gpt-5.5:  85%|████████▌ | 93/109 [26:01<01:56,  7.27s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  85%|████████▌ | 93/109 [26:11<01:56,  7.27s/it]
+gpt-5.5:  85%|████████▌ | 93/109 [26:11<01:56,  7.27s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  85%|████████▌ | 93/109 [26:22<01:56,  7.27s/it]
+gpt-5.5:  85%|████████▌ | 93/109 [26:22<01:56,  7.27s/it][ATotal:  86%|████████▌ | 94/109 [26:23<04:05, 16.38s/it]
+gpt-5.5:  86%|████████▌ | 94/109 [26:23<04:05, 16.38s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  86%|████████▌ | 94/109 [26:29<04:05, 16.38s/it]
+gpt-5.5:  86%|████████▌ | 94/109 [26:29<04:05, 16.38s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#9[0m
+Total:  86%|████████▌ | 94/109 [26:29<04:05, 16.38s/it]
+gpt-5.5:  86%|████████▌ | 94/109 [26:29<04:05, 16.38s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  86%|████████▌ | 94/109 [26:41<04:05, 16.38s/it]
+gpt-5.5:  86%|████████▌ | 94/109 [26:41<04:05, 16.38s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  86%|████████▌ | 94/109 [26:49<04:05, 16.38s/it]
+gpt-5.5:  86%|████████▌ | 94/109 [26:49<04:05, 16.38s/it][ATotal:  87%|████████▋ | 95/109 [26:51<04:36, 19.73s/it]
+gpt-5.5:  87%|████████▋ | 95/109 [26:51<04:36, 19.73s/it][ATotal:  88%|████████▊ | 96/109 [26:58<03:26, 15.90s/it]
+gpt-5.5:  88%|████████▊ | 96/109 [26:58<03:26, 15.90s/it][A                                                       
+                                                         [ARunning Count: 3
+Total:  88%|████████▊ | 96/109 [27:00<03:26, 15.90s/it]
+gpt-5.5:  88%|████████▊ | 96/109 [27:00<03:26, 15.90s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#8[0m
+Total:  88%|████████▊ | 96/109 [27:00<03:26, 15.90s/it]
+gpt-5.5:  88%|████████▊ | 96/109 [27:00<03:26, 15.90s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#7[0m
+Total:  88%|████████▊ | 96/109 [27:00<03:26, 15.90s/it]
+gpt-5.5:  88%|████████▊ | 96/109 [27:00<03:26, 15.90s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  88%|████████▊ | 96/109 [27:09<03:26, 15.90s/it]
+gpt-5.5:  88%|████████▊ | 96/109 [27:09<03:26, 15.90s/it][ATotal:  89%|████████▉ | 97/109 [27:09<02:54, 14.52s/it]
+gpt-5.5:  89%|████████▉ | 97/109 [27:09<02:54, 14.52s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  89%|████████▉ | 97/109 [27:20<02:54, 14.52s/it]
+gpt-5.5:  89%|████████▉ | 97/109 [27:20<02:54, 14.52s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#6[0m
+Total:  89%|████████▉ | 97/109 [27:20<02:54, 14.52s/it]
+gpt-5.5:  89%|████████▉ | 97/109 [27:20<02:54, 14.52s/it][ATotal:  90%|████████▉ | 98/109 [27:29<02:58, 16.24s/it]
+gpt-5.5:  90%|████████▉ | 98/109 [27:29<02:58, 16.24s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  90%|████████▉ | 98/109 [27:30<02:58, 16.24s/it]
+gpt-5.5:  90%|████████▉ | 98/109 [27:30<02:58, 16.24s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#5[0m
+Total:  90%|████████▉ | 98/109 [27:30<02:58, 16.24s/it]
+gpt-5.5:  90%|████████▉ | 98/109 [27:30<02:58, 16.24s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  90%|████████▉ | 98/109 [27:40<02:58, 16.24s/it]
+gpt-5.5:  90%|████████▉ | 98/109 [27:40<02:58, 16.24s/it][ATotal:  91%|█████████ | 99/109 [27:45<02:39, 16.00s/it]
+gpt-5.5:  91%|█████████ | 99/109 [27:45<02:39, 16.00s/it][A                                                       
+                                                         [ARunning Count: 4
+Total:  91%|█████████ | 99/109 [27:53<02:39, 16.00s/it]
+gpt-5.5:  91%|█████████ | 99/109 [27:53<02:39, 16.00s/it][A                                                       
+                                                         [A[92mAssigned gpt-5.5/alfworld-std-baseline#4[0m
+Total:  91%|█████████ | 99/109 [27:53<02:39, 16.00s/it]
+gpt-5.5:  91%|█████████ | 99/109 [27:53<02:39, 16.00s/it][A                                                       
+                                                         [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  91%|█████████ | 99/109 [27:53<02:39, 16.00s/it]
+gpt-5.5:  91%|█████████ | 99/109 [27:53<02:39, 16.00s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  91%|█████████ | 99/109 [28:01<02:39, 16.00s/it]
+gpt-5.5:  91%|█████████ | 99/109 [28:01<02:39, 16.00s/it][A                                                       
+                                                         [ARunning Count: 5
+Total:  91%|█████████ | 99/109 [28:11<02:39, 16.00s/it]
+gpt-5.5:  91%|█████████ | 99/109 [28:11<02:39, 16.00s/it][ATotal:  92%|█████████▏| 100/109 [28:11<02:52, 19.20s/it]
+gpt-5.5:  92%|█████████▏| 100/109 [28:11<02:52, 19.20s/it][A                                                        
+                                                          [ARunning Count: 4
+Total:  92%|█████████▏| 100/109 [28:19<02:52, 19.20s/it]
+gpt-5.5:  92%|█████████▏| 100/109 [28:19<02:52, 19.20s/it][A                                                        
+                                                          [A[92mAssigned gpt-5.5/alfworld-std-baseline#3[0m
+Total:  92%|█████████▏| 100/109 [28:19<02:52, 19.20s/it]
+gpt-5.5:  92%|█████████▏| 100/109 [28:19<02:52, 19.20s/it][ATotal:  93%|█████████▎| 101/109 [28:23<02:15, 16.99s/it]
+gpt-5.5:  93%|█████████▎| 101/109 [28:23<02:15, 16.99s/it][A                                                        
+                                                          [ARunning Count: 4
+Total:  93%|█████████▎| 101/109 [28:27<02:15, 16.99s/it]
+gpt-5.5:  93%|█████████▎| 101/109 [28:27<02:15, 16.99s/it][A                                                        
+                                                          [A[92mAssigned gpt-5.5/alfworld-std-baseline#2[0m
+Total:  93%|█████████▎| 101/109 [28:27<02:15, 16.99s/it]
+gpt-5.5:  93%|█████████▎| 101/109 [28:27<02:15, 16.99s/it][ATotal:  94%|█████████▎| 102/109 [28:32<01:42, 14.63s/it]
+gpt-5.5:  94%|█████████▎| 102/109 [28:32<01:42, 14.63s/it][A                                                        
+                                                          [ARunning Count: 4
+Total:  94%|█████████▎| 102/109 [28:41<01:42, 14.63s/it]
+gpt-5.5:  94%|█████████▎| 102/109 [28:41<01:42, 14.63s/it][A                                                        
+                                                          [A[92mAssigned gpt-5.5/alfworld-std-baseline#1[0m
+Total:  94%|█████████▎| 102/109 [28:41<01:42, 14.63s/it]
+gpt-5.5:  94%|█████████▎| 102/109 [28:41<01:42, 14.63s/it][ATotal:  94%|█████████▍| 103/109 [28:51<01:34, 15.81s/it]
+gpt-5.5:  94%|█████████▍| 103/109 [28:51<01:34, 15.81s/it][A                                                        
+                                                          [ARunning Count: 4
+Total:  94%|█████████▍| 103/109 [28:53<01:34, 15.81s/it]
+gpt-5.5:  94%|█████████▍| 103/109 [28:53<01:34, 15.81s/it][A                                                        
+                                                          [A[92mAssigned gpt-5.5/alfworld-std-baseline#0[0m
+Total:  94%|█████████▍| 103/109 [28:53<01:34, 15.81s/it]
+gpt-5.5:  94%|█████████▍| 103/109 [28:53<01:34, 15.81s/it][ATotal:  95%|█████████▌| 104/109 [28:59<01:07, 13.53s/it]
+gpt-5.5:  95%|█████████▌| 104/109 [28:59<01:07, 13.53s/it][A                                                        
+                                                          [ARunning Count: 4
+Total:  95%|█████████▌| 104/109 [29:01<01:07, 13.53s/it]
+gpt-5.5:  95%|█████████▌| 104/109 [29:01<01:07, 13.53s/it][A                                                        
+                                                          [A[92mAssigned gpt-5.5/alfworld-std-baseline#26[0m
+Total:  95%|█████████▌| 104/109 [29:01<01:07, 13.53s/it]
+gpt-5.5:  95%|█████████▌| 104/109 [29:01<01:07, 13.53s/it][ATotal:  96%|█████████▋| 105/109 [29:02<00:41, 10.37s/it]
+gpt-5.5:  96%|█████████▋| 105/109 [29:02<00:41, 10.37s/it][ATotal:  97%|█████████▋| 106/109 [29:03<00:22,  7.66s/it]
+gpt-5.5:  97%|█████████▋| 106/109 [29:03<00:22,  7.66s/it][ATotal:  98%|█████████▊| 107/109 [29:07<00:12,  6.43s/it]
+gpt-5.5:  98%|█████████▊| 107/109 [29:07<00:12,  6.43s/it][ATotal:  99%|█████████▉| 108/109 [29:09<00:04,  4.97s/it]
+gpt-5.5:  99%|█████████▉| 108/109 [29:09<00:04,  4.97s/it][A                                                        
+                                                          [ARunning Count: 1
+Total:  99%|█████████▉| 108/109 [29:12<00:04,  4.97s/it]
+gpt-5.5:  99%|█████████▉| 108/109 [29:12<00:04,  4.97s/it][A                                                        
+                                                          [ARunning Count: 1
+Total:  99%|█████████▉| 108/109 [29:22<00:04,  4.97s/it]
+gpt-5.5:  99%|█████████▉| 108/109 [29:22<00:04,  4.97s/it][A                                                        
+                                                          [ARunning Count: 1
+Total:  99%|█████████▉| 108/109 [29:31<00:04,  4.97s/it]
+gpt-5.5:  99%|█████████▉| 108/109 [29:31<00:04,  4.97s/it][A                                                        
+                                                          [ARunning Count: 1
+Total:  99%|█████████▉| 108/109 [29:37<00:04,  4.97s/it]
+gpt-5.5:  99%|█████████▉| 108/109 [29:37<00:04,  4.97s/it][A                                                        
+                                                          [ARunning Count: 1
+Total:  99%|█████████▉| 108/109 [29:44<00:04,  4.97s/it]
+gpt-5.5:  99%|█████████▉| 108/109 [29:44<00:04,  4.97s/it][A                                                        
+                                                          [ARunning Count: 1
+Total:  99%|█████████▉| 108/109 [29:50<00:04,  4.97s/it]
+gpt-5.5:  99%|█████████▉| 108/109 [29:50<00:04,  4.97s/it][A                                                        
+                                                          [ARunning Count: 1
+Total:  99%|█████████▉| 108/109 [29:58<00:04,  4.97s/it]
+gpt-5.5:  99%|█████████▉| 108/109 [29:58<00:04,  4.97s/it][A                                                        
+                                                          [ARunning Count: 1
+Total:  99%|█████████▉| 108/109 [30:12<00:04,  4.97s/it]
+gpt-5.5:  99%|█████████▉| 108/109 [30:12<00:04,  4.97s/it][A                                                        
+                                                          [ARunning Count: 1
+Total:  99%|█████████▉| 108/109 [30:24<00:04,  4.97s/it]
+gpt-5.5:  99%|█████████▉| 108/109 [30:24<00:04,  4.97s/it][A                                                        
+                                                          [ARunning Count: 1
+Total:  99%|█████████▉| 108/109 [30:34<00:04,  4.97s/it]
+gpt-5.5:  99%|█████████▉| 108/109 [30:34<00:04,  4.97s/it][A                                                        
+                                                          [ARunning Count: 1
+Total:  99%|█████████▉| 108/109 [30:46<00:04,  4.97s/it]
+gpt-5.5:  99%|█████████▉| 108/109 [30:46<00:04,  4.97s/it][A                                                        
+                                                          [ARunning Count: 1
+Total:  99%|█████████▉| 108/109 [30:53<00:04,  4.97s/it]
+gpt-5.5:  99%|█████████▉| 108/109 [30:53<00:04,  4.97s/it][A                                                        
+                                                          [ARunning Count: 1
+Total:  99%|█████████▉| 108/109 [30:58<00:04,  4.97s/it]
+gpt-5.5:  99%|█████████▉| 108/109 [30:58<00:04,  4.97s/it][A                                                        
+                                                          [ARunning Count: 1
+Total:  99%|█████████▉| 108/109 [31:07<00:04,  4.97s/it]
+gpt-5.5:  99%|█████████▉| 108/109 [31:07<00:04,  4.97s/it][A                                                        
+                                                          [ARunning Count: 1
+Total:  99%|█████████▉| 108/109 [31:17<00:04,  4.97s/it]
+gpt-5.5:  99%|█████████▉| 108/109 [31:17<00:04,  4.97s/it][A                                                        
+                                                          [ARunning Count: 1
+Total:  99%|█████████▉| 108/109 [31:27<00:04,  4.97s/it]
+gpt-5.5:  99%|█████████▉| 108/109 [31:27<00:04,  4.97s/it][A                                                        
+                                                          [ARunning Count: 1
+Total:  99%|█████████▉| 108/109 [31:33<00:04,  4.97s/it]
+gpt-5.5:  99%|█████████▉| 108/109 [31:33<00:04,  4.97s/it][A                                                        
+                                                          [ARunning Count: 1
+Total:  99%|█████████▉| 108/109 [31:41<00:04,  4.97s/it]
+gpt-5.5:  99%|█████████▉| 108/109 [31:41<00:04,  4.97s/it][A                                                        
+                                                          [ARunning Count: 1
+Total:  99%|█████████▉| 108/109 [31:56<00:04,  4.97s/it]
+gpt-5.5:  99%|█████████▉| 108/109 [31:56<00:04,  4.97s/it][A                                                        
+                                                          [ARunning Count: 1
+Total:  99%|█████████▉| 108/109 [32:06<00:04,  4.97s/it]
+gpt-5.5:  99%|█████████▉| 108/109 [32:06<00:04,  4.97s/it][A                                                        
+                                                          [ARunning Count: 1
+Total:  99%|█████████▉| 108/109 [32:18<00:04,  4.97s/it]
+gpt-5.5:  99%|█████████▉| 108/109 [32:18<00:04,  4.97s/it][ATotal: 100%|██████████| 109/109 [32:28<00:00, 63.25s/it]
+gpt-5.5: 100%|██████████| 109/109 [32:28<00:00, 63.25s/it][A                                                        
+                                                          [ARunning Count: 0
+Total: 100%|██████████| 109/109 [32:31<00:00, 63.25s/it]
+gpt-5.5: 100%|██████████| 109/109 [32:31<00:00, 63.25s/it][ATotal: 100%|██████████| 109/109 [32:31<00:00, 17.90s/it]
+gpt-5.5: 100%|██████████| 109/109 [32:31<00:00, 17.90s/it]
+
+
+============================================
+[96mMessage: 109 sample(s) started. [0m
+[92m   >> 109 sample(s) finished successfully.[0m
+[96m   >> results are saved to outputs/gpt-5.5/alfworld/2026-07-12-20-49-00-baseline[0m
+============================================
+
+

@@ -180,6 +180,7 @@ class HTTPAgent(AgentClient):
         self.proxies = proxies or {}
         self.headers = headers or {}
         self.body = body or {}
+        self.body = {k: v for k, v in self.body.items() if v is not None}
         self.return_format = return_format
         self.timeout = int(timeout)
         self.prompter = Prompter.get_prompter(prompter)

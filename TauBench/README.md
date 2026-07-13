@@ -65,6 +65,11 @@ uv run python scripts/eval_harness.py \
   --enabled --h2 --h3 --h4 --h5 --h5-top-k 1 \
   --concurrency 10 \
   --output telecom/harness
+
+uv run python scripts/eval_harness.py --domain airline --split test --trials 3 \
+  --agent-llm openai/claude-opus-4-8 --user-llm openai/deepseek-v4-pro \
+  --concurrency 8 \
+  --h2 --h3 --h4 --h5 --h5-top-k 1 --output airline/claude-harness
 ```
 
 The script reports reward metrics and token usage. For paper tables, we report

@@ -1,0 +1,13 @@
+assignments:
+- agent:
+  - gemini-3.1-pro-preview
+  task:
+  - webshop-std-baseline
+concurrency:
+  agent:
+    gemini-3.1-pro-preview: 5
+  task:
+    webshop-std-baseline: 16
+import: definition.yaml
+output: outputs/gemini-3.1-pro-preview/webshop/{TIMESTAMP}-baseline
+trials: 1

@@ -569,8 +569,9 @@ def main():
     llm_args_agent = {
         "api_base": args.agent_api_base,
         "api_key": os.getenv("AGENT_API_KEY", "EMPTY"),
-        "temperature": 0.0,
     }
+    if "claude" not in args.agent_llm.lower():
+        llm_args_agent["temperature"] = 0.0
     if args.agent_max_tokens > 0:
         llm_args_agent["max_tokens"] = args.agent_max_tokens
     llm_args_user = {}
@@ -699,7 +700,7 @@ def main():
     print(f"  Tasks       : {len(tasks)} ({args.split} split)")
     print(f"  Trials      : {args.trials}")
     print(f"  Agent       : {args.agent_llm}")
-    print("  Agent temp  : 0.0")
+    print(f"  Agent temp  : {llm_args_agent.get('temperature', 'n/a')}")
     print(f"  Agent max tokens: {args.agent_max_tokens or 'provider default'}")
     print(f"  User        : {args.user_llm}")
     print("  User temp   : API default")
@@ -739,7 +740,7 @@ def main():
 
     summary_path = save_dir / "harness_summary.json"
     summary["domain"] = args.domain
-    summary["agent_temperature"] = 0.0
+    summary["agent_temperature"] = llm_args_agent.get("temperature", None)
     summary["agent_max_tokens"] = args.agent_max_tokens or None
     summary["user_temperature"] = "api_default"
     summary["user_api_base"] = user_api_base or None

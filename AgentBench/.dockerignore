@@ -1,0 +1,8 @@
+.venv/
+outputs/
+logs_*.log
+*.pyc
+__pycache__/
+.git/
+data/alfworld_repo/.git/
+data/textworld_src/.git/

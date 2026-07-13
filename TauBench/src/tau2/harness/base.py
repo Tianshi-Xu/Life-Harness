@@ -122,14 +122,23 @@ class HarnessedToolKitMixin:
     harness_annotators: dict[str, list] = {}
 
     def use_tool(self, tool_name: str, **kwargs: Any) -> Any:
-        """Run H2 checks, execute the tool, then apply H4/H6 annotations."""
-        for rule in self.harness_rules.get(tool_name, []):
-            # Pass toolkit=self so rules can inspect in-memory toolkit state
-            # (e.g. _agent_discoverable_tools_state).  Existing rules ignore it
-            # via **kwargs — fully backward-compatible.
-            rule.check(self.db, toolkit=self, **kwargs)  # type: ignore[attr-defined]
+        """Run H2 checks, execute the tool, then apply H4/H6 annotations.
 
-        result = super().use_tool(tool_name, **kwargs)  # type: ignore[misc]
+        Includes H4 stuck-loop detection: after 3 consecutive failures of the
+        same tool, appends guidance to the error message suggesting the agent
+        try a fundamentally different approach.
+        """
+        try:
+            for rule in self.harness_rules.get(tool_name, []):
+                rule.check(self.db, toolkit=self, **kwargs)  # type: ignore[attr-defined]
+
+            result = super().use_tool(tool_name, **kwargs)  # type: ignore[misc]
+        except Exception as e:
+            self._track_failure(tool_name, str(e))
+            raise
+
+        self._reset_failures()
+
         calls = getattr(self, "_harness_successful_calls", None)
         if calls is None:
             calls = []
@@ -147,3 +156,26 @@ class HarnessedToolKitMixin:
         if annotations:
             return _serialize_tool_result(result) + "\n\n" + "\n".join(annotations)
         return result
+
+    _STUCK_LOOP_THRESHOLD = 3
+
+    def _track_failure(self, tool_name: str, error: str) -> None:
+        failures = getattr(self, "_harness_failure_tracker", None)
+        if failures is None:
+            failures = {}
+            setattr(self, "_harness_failure_tracker", failures)
+        count = failures.get(tool_name, 0) + 1
+        failures[tool_name] = count
+        if count >= self._STUCK_LOOP_THRESHOLD:
+            failures[tool_name] = 0
+            raise ValueError(
+                f"{error}\n\n"
+                f"[H4 STUCK-LOOP ALERT] You have attempted '{tool_name}' "
+                f"{count} times consecutively with errors. "
+                f"Stop retrying the same approach — re-examine the error above, "
+                f"verify your inputs (amounts, IDs, parameters), and try a "
+                f"fundamentally different strategy."
+            )
+
+    def _reset_failures(self) -> None:
+        setattr(self, "_harness_failure_tracker", {})

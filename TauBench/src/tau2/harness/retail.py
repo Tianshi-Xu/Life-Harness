@@ -394,6 +394,11 @@ class ModifyPaymentGiftCardBalRule:
         order = db.orders.get(order_id)
         if order is None or not order.payment_history:
             return
+        if (
+            len(order.payment_history) != 1
+            or order.payment_history[0].transaction_type != "payment"
+        ):
+            return
         user = db.users.get(order.user_id)
         if user is None:
             return
@@ -1200,6 +1205,10 @@ class OrderTotalAnnotator:
             p.amount
             for p in payment_history
             if getattr(p, "transaction_type", None) == "payment"
+        ) - sum(
+            p.amount
+            for p in payment_history
+            if getattr(p, "transaction_type", None) == "refund"
         )
         if total == 0:
             return None
@@ -1515,6 +1524,10 @@ class CancelRefundAnnotator:
             p.amount
             for p in payment_history
             if getattr(p, "transaction_type", None) == "payment"
+        ) - sum(
+            p.amount
+            for p in payment_history
+            if getattr(p, "transaction_type", None) == "refund"
         )
         if refund == 0:
             return None

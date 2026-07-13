@@ -1,0 +1,1969 @@
+/Users/faker/Library/CloudStorage/北大网盘2.0-许天识_2301111861-disk.pku.edu.cn/我的文档库/许天识_2301111861/SEC Lab/隐私计算/笔记大全/投稿计划/tong (2)/code/Life-Harness/AgentBench/.venv/lib/python3.9/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  torch.utils._pytree._register_pytree_node(
+W0712 20:17:35.352025 29686 .venv/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+/Users/faker/Library/CloudStorage/北大网盘2.0-许天识_2301111861-disk.pku.edu.cn/我的文档库/许天识_2301111861/SEC Lab/隐私计算/笔记大全/投稿计划/tong (2)/code/Life-Harness/AgentBench/.venv/lib/python3.9/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  torch.utils._pytree._register_pytree_node(
+[93mWarning: 10 agent(s) and 18 task(s) are defined but not used, they will be ignored.[0m
+[93m    Agent: {'gemini-3.1-pro-preview', 'vicuna-7b', 'vicuna-33b', 'text-davinci-003', 'wizard-30b', 'qwen3-4b-instruct', 'text-davinci-002', 'gpt-5.5', 'gpt-3.5-turbo-0613', 'vicuna-13b'}[0m
+[93m    Task: {'m2w-std', 'dbbench-env_train', 'webshop-env_train', 'cg-std', 'dbbench-std', 'kg-std', 'cg-dev', 'alfworld-env_train', 'm2w-dev', 'os-std', 'ltp-std', 'alfworld-std-baseline', 'avalon-dev-naive', 'os-env_train', 'kg-env_train', 'ltp-dev', 'avalon-dev-single', 'webshop-std'}[0m
+[92mcreating alfworld-std client...[0m
+TaskClient created: alfworld-std (http://localhost:5020/api)
+[96mMessage: 109 samples remaining.[0m
+[96mAgent "claude-opus-4-8" needs to run 1 tasks with total 109 samples:[0m
+[96m    Task "alfworld-std": 109[0m
+Total:   0%|          | 0/109 [00:00<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [00:00<?, ?it/s][A                                              
+                                                        [ARunning Count: 0
+Total:   0%|          | 0/109 [00:00<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [00:00<?, ?it/s][A                                              
+                                                        [A[92mAssigned claude-opus-4-8/alfworld-std#108[0m
+Total:   0%|          | 0/109 [00:00<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [00:00<?, ?it/s][A                                              
+                                                        [A[92mAssigned claude-opus-4-8/alfworld-std#107[0m
+Total:   0%|          | 0/109 [00:00<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [00:00<?, ?it/s][A                                              
+                                                        [A[92mAssigned claude-opus-4-8/alfworld-std#106[0m
+Total:   0%|          | 0/109 [00:00<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [00:00<?, ?it/s][A                                              
+                                                        [A[92mAssigned claude-opus-4-8/alfworld-std#105[0m
+Total:   0%|          | 0/109 [00:00<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [00:00<?, ?it/s][A                                              
+                                                        [A[92mAssigned claude-opus-4-8/alfworld-std#104[0m
+Total:   0%|          | 0/109 [00:00<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [00:00<?, ?it/s][A                                              
+                                                        [ARunning Count: 5
+Total:   0%|          | 0/109 [00:12<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [00:12<?, ?it/s][A                                              
+                                                        [ARunning Count: 5
+Total:   0%|          | 0/109 [00:27<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [00:27<?, ?it/s][A                                              
+                                                        [ARunning Count: 5
+Total:   0%|          | 0/109 [00:41<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [00:41<?, ?it/s][A                                              
+                                                        [ARunning Count: 5
+Total:   0%|          | 0/109 [00:53<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [00:53<?, ?it/s][A                                              
+                                                        [ARunning Count: 5
+Total:   0%|          | 0/109 [01:02<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [01:02<?, ?it/s][A                                              
+                                                        [ARunning Count: 5
+Total:   0%|          | 0/109 [01:15<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [01:15<?, ?it/s][A                                              
+                                                        [ARunning Count: 5
+Total:   0%|          | 0/109 [01:26<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [01:26<?, ?it/s][A                                              
+                                                        [ARunning Count: 5
+Total:   0%|          | 0/109 [01:40<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [01:40<?, ?it/s][A                                              
+                                                        [ARunning Count: 5
+Total:   0%|          | 0/109 [01:47<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [01:47<?, ?it/s][A                                              
+                                                        [ARunning Count: 5
+Total:   0%|          | 0/109 [01:56<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [01:56<?, ?it/s][A                                              
+                                                        [ARunning Count: 5
+Total:   0%|          | 0/109 [02:06<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [02:06<?, ?it/s][A                                              
+                                                        [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:   0%|          | 0/109 [02:13<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [02:13<?, ?it/s][A                                              
+                                                        [ARunning Count: 5
+Total:   0%|          | 0/109 [02:16<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [02:16<?, ?it/s][A                                              
+                                                        [ARunning Count: 5
+Total:   0%|          | 0/109 [02:29<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [02:29<?, ?it/s][A                                              
+                                                        [ARunning Count: 5
+Total:   0%|          | 0/109 [02:37<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [02:37<?, ?it/s][A                                              
+                                                        [ARunning Count: 5
+Total:   0%|          | 0/109 [02:47<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [02:47<?, ?it/s][A                                              
+                                                        [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:   0%|          | 0/109 [02:50<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [02:50<?, ?it/s][A                                              
+                                                        [ARunning Count: 5
+Total:   0%|          | 0/109 [02:53<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [02:53<?, ?it/s][A                                              
+                                                        [ARunning Count: 5
+Total:   0%|          | 0/109 [03:04<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [03:04<?, ?it/s][A                                              
+                                                        [ARunning Count: 5
+Total:   0%|          | 0/109 [03:13<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [03:13<?, ?it/s][A                                              
+                                                        [ARunning Count: 5
+Total:   0%|          | 0/109 [03:26<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [03:26<?, ?it/s][A                                              
+                                                        [ARunning Count: 5
+Total:   0%|          | 0/109 [03:39<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [03:39<?, ?it/s][A                                              
+                                                        [ARunning Count: 5
+Total:   0%|          | 0/109 [03:51<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [03:51<?, ?it/s][A                                              
+                                                        [ARunning Count: 5
+Total:   0%|          | 0/109 [04:05<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/109 [04:05<?, ?it/s][ATotal:   1%|          | 1/109 [04:10<7:31:27, 250.81s/it]
+claude-opus-4-8:   1%|          | 1/109 [04:10<7:31:27, 250.81s/it][A                                                         
+                                                                   [ARunning Count: 4
+Total:   1%|          | 1/109 [04:11<7:31:27, 250.81s/it]
+claude-opus-4-8:   1%|          | 1/109 [04:11<7:31:27, 250.81s/it][A                                                         
+                                                                   [A[92mAssigned claude-opus-4-8/alfworld-std#103[0m
+Total:   1%|          | 1/109 [04:11<7:31:27, 250.81s/it]
+claude-opus-4-8:   1%|          | 1/109 [04:11<7:31:27, 250.81s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   1%|          | 1/109 [04:23<7:31:27, 250.81s/it]
+claude-opus-4-8:   1%|          | 1/109 [04:23<7:31:27, 250.81s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   1%|          | 1/109 [04:30<7:31:27, 250.81s/it]
+claude-opus-4-8:   1%|          | 1/109 [04:30<7:31:27, 250.81s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   1%|          | 1/109 [04:45<7:31:27, 250.81s/it]
+claude-opus-4-8:   1%|          | 1/109 [04:45<7:31:27, 250.81s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   1%|          | 1/109 [04:59<7:31:27, 250.81s/it]
+claude-opus-4-8:   1%|          | 1/109 [04:59<7:31:27, 250.81s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   1%|          | 1/109 [05:08<7:31:27, 250.81s/it]
+claude-opus-4-8:   1%|          | 1/109 [05:08<7:31:27, 250.81s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   1%|          | 1/109 [05:15<7:31:27, 250.81s/it]
+claude-opus-4-8:   1%|          | 1/109 [05:15<7:31:27, 250.81s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   1%|          | 1/109 [05:24<7:31:27, 250.81s/it]
+claude-opus-4-8:   1%|          | 1/109 [05:24<7:31:27, 250.81s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   1%|          | 1/109 [05:38<7:31:27, 250.81s/it]
+claude-opus-4-8:   1%|          | 1/109 [05:38<7:31:27, 250.81s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   1%|          | 1/109 [05:43<7:31:27, 250.81s/it]
+claude-opus-4-8:   1%|          | 1/109 [05:43<7:31:27, 250.81s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   1%|          | 1/109 [05:54<7:31:27, 250.81s/it]
+claude-opus-4-8:   1%|          | 1/109 [05:54<7:31:27, 250.81s/it][A                                                         
+                                                                   [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:   1%|          | 1/109 [06:01<7:31:27, 250.81s/it]
+claude-opus-4-8:   1%|          | 1/109 [06:01<7:31:27, 250.81s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   1%|          | 1/109 [06:01<7:31:27, 250.81s/it]
+claude-opus-4-8:   1%|          | 1/109 [06:01<7:31:27, 250.81s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   1%|          | 1/109 [06:14<7:31:27, 250.81s/it]
+claude-opus-4-8:   1%|          | 1/109 [06:14<7:31:27, 250.81s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   1%|          | 1/109 [06:27<7:31:27, 250.81s/it]
+claude-opus-4-8:   1%|          | 1/109 [06:27<7:31:27, 250.81s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   1%|          | 1/109 [06:39<7:31:27, 250.81s/it]
+claude-opus-4-8:   1%|          | 1/109 [06:39<7:31:27, 250.81s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   1%|          | 1/109 [06:47<7:31:27, 250.81s/it]
+claude-opus-4-8:   1%|          | 1/109 [06:47<7:31:27, 250.81s/it][A                                                         
+                                                                   [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:   1%|          | 1/109 [06:50<7:31:27, 250.81s/it]
+claude-opus-4-8:   1%|          | 1/109 [06:50<7:31:27, 250.81s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   1%|          | 1/109 [06:59<7:31:27, 250.81s/it]
+claude-opus-4-8:   1%|          | 1/109 [06:59<7:31:27, 250.81s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   1%|          | 1/109 [07:05<7:31:27, 250.81s/it]
+claude-opus-4-8:   1%|          | 1/109 [07:05<7:31:27, 250.81s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   1%|          | 1/109 [07:12<7:31:27, 250.81s/it]
+claude-opus-4-8:   1%|          | 1/109 [07:12<7:31:27, 250.81s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   1%|          | 1/109 [07:19<7:31:27, 250.81s/it]
+claude-opus-4-8:   1%|          | 1/109 [07:19<7:31:27, 250.81s/it][ATotal:   2%|▏         | 2/109 [07:28<6:31:02, 219.27s/it]
+claude-opus-4-8:   2%|▏         | 2/109 [07:28<6:31:02, 219.27s/it][A                                                         
+                                                                   [ARunning Count: 4
+Total:   2%|▏         | 2/109 [07:31<6:31:02, 219.27s/it]
+claude-opus-4-8:   2%|▏         | 2/109 [07:31<6:31:02, 219.27s/it][A                                                         
+                                                                   [A[92mAssigned claude-opus-4-8/alfworld-std#102[0m
+Total:   2%|▏         | 2/109 [07:31<6:31:02, 219.27s/it]
+claude-opus-4-8:   2%|▏         | 2/109 [07:31<6:31:02, 219.27s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   2%|▏         | 2/109 [07:40<6:31:02, 219.27s/it]
+claude-opus-4-8:   2%|▏         | 2/109 [07:40<6:31:02, 219.27s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   2%|▏         | 2/109 [07:50<6:31:02, 219.27s/it]
+claude-opus-4-8:   2%|▏         | 2/109 [07:50<6:31:02, 219.27s/it][A                                                         
+                                                                   [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:   2%|▏         | 2/109 [08:03<6:31:02, 219.27s/it]
+claude-opus-4-8:   2%|▏         | 2/109 [08:03<6:31:02, 219.27s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   2%|▏         | 2/109 [08:04<6:31:02, 219.27s/it]
+claude-opus-4-8:   2%|▏         | 2/109 [08:04<6:31:02, 219.27s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   2%|▏         | 2/109 [08:10<6:31:02, 219.27s/it]
+claude-opus-4-8:   2%|▏         | 2/109 [08:10<6:31:02, 219.27s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   2%|▏         | 2/109 [08:16<6:31:02, 219.27s/it]
+claude-opus-4-8:   2%|▏         | 2/109 [08:16<6:31:02, 219.27s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   2%|▏         | 2/109 [08:28<6:31:02, 219.27s/it]
+claude-opus-4-8:   2%|▏         | 2/109 [08:28<6:31:02, 219.27s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   2%|▏         | 2/109 [08:40<6:31:02, 219.27s/it]
+claude-opus-4-8:   2%|▏         | 2/109 [08:40<6:31:02, 219.27s/it][A                                                         
+                                                                   [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:   2%|▏         | 2/109 [08:40<6:31:02, 219.27s/it]
+claude-opus-4-8:   2%|▏         | 2/109 [08:40<6:31:02, 219.27s/it][A                                                         
+                                                                   [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:   2%|▏         | 2/109 [08:45<6:31:02, 219.27s/it]
+claude-opus-4-8:   2%|▏         | 2/109 [08:45<6:31:02, 219.27s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   2%|▏         | 2/109 [08:46<6:31:02, 219.27s/it]
+claude-opus-4-8:   2%|▏         | 2/109 [08:46<6:31:02, 219.27s/it][ATotal:   3%|▎         | 3/109 [08:55<4:41:20, 159.25s/it]
+claude-opus-4-8:   3%|▎         | 3/109 [08:55<4:41:20, 159.25s/it][A                                                         
+                                                                   [ARunning Count: 4
+Total:   3%|▎         | 3/109 [08:57<4:41:20, 159.25s/it]
+claude-opus-4-8:   3%|▎         | 3/109 [08:57<4:41:20, 159.25s/it][A                                                         
+                                                                   [A[92mAssigned claude-opus-4-8/alfworld-std#101[0m
+Total:   3%|▎         | 3/109 [08:57<4:41:20, 159.25s/it]
+claude-opus-4-8:   3%|▎         | 3/109 [08:57<4:41:20, 159.25s/it][ATotal:   4%|▎         | 4/109 [09:06<2:56:17, 100.74s/it]
+claude-opus-4-8:   4%|▎         | 4/109 [09:06<2:56:17, 100.74s/it][A                                                         
+                                                                   [ARunning Count: 4
+Total:   4%|▎         | 4/109 [09:10<2:56:17, 100.74s/it]
+claude-opus-4-8:   4%|▎         | 4/109 [09:10<2:56:17, 100.74s/it][A                                                         
+                                                                   [A[92mAssigned claude-opus-4-8/alfworld-std#100[0m
+Total:   4%|▎         | 4/109 [09:10<2:56:17, 100.74s/it]
+claude-opus-4-8:   4%|▎         | 4/109 [09:10<2:56:17, 100.74s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   4%|▎         | 4/109 [09:18<2:56:17, 100.74s/it]
+claude-opus-4-8:   4%|▎         | 4/109 [09:18<2:56:17, 100.74s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   4%|▎         | 4/109 [09:25<2:56:17, 100.74s/it]
+claude-opus-4-8:   4%|▎         | 4/109 [09:25<2:56:17, 100.74s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   4%|▎         | 4/109 [09:32<2:56:17, 100.74s/it]
+claude-opus-4-8:   4%|▎         | 4/109 [09:32<2:56:17, 100.74s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   4%|▎         | 4/109 [09:43<2:56:17, 100.74s/it]
+claude-opus-4-8:   4%|▎         | 4/109 [09:43<2:56:17, 100.74s/it][ATotal:   5%|▍         | 5/109 [09:57<2:23:15, 82.64s/it] 
+claude-opus-4-8:   5%|▍         | 5/109 [09:57<2:23:15, 82.64s/it] [A                                                        
+                                                                  [ARunning Count: 4
+Total:   5%|▍         | 5/109 [09:57<2:23:15, 82.64s/it]
+claude-opus-4-8:   5%|▍         | 5/109 [09:57<2:23:15, 82.64s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/alfworld-std#99[0m
+Total:   5%|▍         | 5/109 [09:57<2:23:15, 82.64s/it]
+claude-opus-4-8:   5%|▍         | 5/109 [09:57<2:23:15, 82.64s/it][A                                                        
+                                                                  [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:   5%|▍         | 5/109 [10:08<2:23:15, 82.64s/it]
+claude-opus-4-8:   5%|▍         | 5/109 [10:08<2:23:15, 82.64s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   5%|▍         | 5/109 [10:12<2:23:15, 82.64s/it]
+claude-opus-4-8:   5%|▍         | 5/109 [10:12<2:23:15, 82.64s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   5%|▍         | 5/109 [10:18<2:23:15, 82.64s/it]
+claude-opus-4-8:   5%|▍         | 5/109 [10:18<2:23:15, 82.64s/it][ATotal:   6%|▌         | 6/109 [10:19<1:46:40, 62.14s/it]
+claude-opus-4-8:   6%|▌         | 6/109 [10:19<1:46:40, 62.14s/it][A                                                        
+                                                                  [ARunning Count: 4
+Total:   6%|▌         | 6/109 [10:24<1:46:40, 62.14s/it]
+claude-opus-4-8:   6%|▌         | 6/109 [10:24<1:46:40, 62.14s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/alfworld-std#98[0m
+Total:   6%|▌         | 6/109 [10:24<1:46:40, 62.14s/it]
+claude-opus-4-8:   6%|▌         | 6/109 [10:24<1:46:40, 62.14s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   6%|▌         | 6/109 [10:34<1:46:40, 62.14s/it]
+claude-opus-4-8:   6%|▌         | 6/109 [10:34<1:46:40, 62.14s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   6%|▌         | 6/109 [10:42<1:46:40, 62.14s/it]
+claude-opus-4-8:   6%|▌         | 6/109 [10:42<1:46:40, 62.14s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   6%|▌         | 6/109 [10:48<1:46:40, 62.14s/it]
+claude-opus-4-8:   6%|▌         | 6/109 [10:48<1:46:40, 62.14s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   6%|▌         | 6/109 [11:01<1:46:40, 62.14s/it]
+claude-opus-4-8:   6%|▌         | 6/109 [11:01<1:46:40, 62.14s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   6%|▌         | 6/109 [11:10<1:46:40, 62.14s/it]
+claude-opus-4-8:   6%|▌         | 6/109 [11:10<1:46:40, 62.14s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   6%|▌         | 6/109 [11:18<1:46:40, 62.14s/it]
+claude-opus-4-8:   6%|▌         | 6/109 [11:18<1:46:40, 62.14s/it][ATotal:   6%|▋         | 7/109 [11:23<1:46:32, 62.67s/it]
+claude-opus-4-8:   6%|▋         | 7/109 [11:23<1:46:32, 62.67s/it][A                                                        
+                                                                  [ARunning Count: 4
+Total:   6%|▋         | 7/109 [11:30<1:46:32, 62.67s/it]
+claude-opus-4-8:   6%|▋         | 7/109 [11:30<1:46:32, 62.67s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/alfworld-std#97[0m
+Total:   6%|▋         | 7/109 [11:30<1:46:32, 62.67s/it]
+claude-opus-4-8:   6%|▋         | 7/109 [11:30<1:46:32, 62.67s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   6%|▋         | 7/109 [11:40<1:46:32, 62.67s/it]
+claude-opus-4-8:   6%|▋         | 7/109 [11:40<1:46:32, 62.67s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   6%|▋         | 7/109 [11:49<1:46:32, 62.67s/it]
+claude-opus-4-8:   6%|▋         | 7/109 [11:49<1:46:32, 62.67s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   6%|▋         | 7/109 [12:03<1:46:32, 62.67s/it]
+claude-opus-4-8:   6%|▋         | 7/109 [12:03<1:46:32, 62.67s/it][A                                                        
+                                                                  [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:   6%|▋         | 7/109 [12:10<1:46:32, 62.67s/it]
+claude-opus-4-8:   6%|▋         | 7/109 [12:10<1:46:32, 62.67s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   6%|▋         | 7/109 [12:12<1:46:32, 62.67s/it]
+claude-opus-4-8:   6%|▋         | 7/109 [12:12<1:46:32, 62.67s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   6%|▋         | 7/109 [12:22<1:46:32, 62.67s/it]
+claude-opus-4-8:   6%|▋         | 7/109 [12:22<1:46:32, 62.67s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   6%|▋         | 7/109 [12:31<1:46:32, 62.67s/it]
+claude-opus-4-8:   6%|▋         | 7/109 [12:31<1:46:32, 62.67s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   6%|▋         | 7/109 [12:38<1:46:32, 62.67s/it]
+claude-opus-4-8:   6%|▋         | 7/109 [12:38<1:46:32, 62.67s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   6%|▋         | 7/109 [12:45<1:46:32, 62.67s/it]
+claude-opus-4-8:   6%|▋         | 7/109 [12:45<1:46:32, 62.67s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   6%|▋         | 7/109 [12:53<1:46:32, 62.67s/it]
+claude-opus-4-8:   6%|▋         | 7/109 [12:53<1:46:32, 62.67s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   6%|▋         | 7/109 [13:03<1:46:32, 62.67s/it]
+claude-opus-4-8:   6%|▋         | 7/109 [13:03<1:46:32, 62.67s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   6%|▋         | 7/109 [13:13<1:46:32, 62.67s/it]
+claude-opus-4-8:   6%|▋         | 7/109 [13:13<1:46:32, 62.67s/it][ATotal:   7%|▋         | 8/109 [13:20<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [13:20<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 4
+Total:   7%|▋         | 8/109 [13:21<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [13:21<2:14:26, 79.87s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/alfworld-std#96[0m
+Total:   7%|▋         | 8/109 [13:21<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [13:21<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [13:31<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [13:31<2:14:26, 79.87s/it][A                                                        
+                                                                  [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:   7%|▋         | 8/109 [13:38<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [13:38<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [13:41<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [13:41<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [13:55<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [13:55<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [14:01<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [14:01<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [14:14<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [14:14<2:14:26, 79.87s/it][A                                                        
+                                                                  [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:   7%|▋         | 8/109 [14:20<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [14:20<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [14:23<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [14:23<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [14:32<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [14:32<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [14:42<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [14:42<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [14:48<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [14:48<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [14:59<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [14:59<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [15:08<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [15:08<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [15:23<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [15:23<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [15:31<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [15:31<2:14:26, 79.87s/it][A                                                        
+                                                                  [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:   7%|▋         | 8/109 [15:33<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [15:33<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [15:42<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [15:42<2:14:26, 79.87s/it][A                                                        
+                                                                  [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:   7%|▋         | 8/109 [15:48<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [15:48<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [15:51<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [15:51<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [16:05<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [16:05<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [16:18<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [16:18<2:14:26, 79.87s/it][A                                                        
+                                                                  [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:   7%|▋         | 8/109 [16:22<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [16:22<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [16:30<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [16:30<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [16:44<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [16:44<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [16:55<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [16:55<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [17:06<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [17:06<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [17:19<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [17:19<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [17:26<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [17:26<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [17:35<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [17:35<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [17:46<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [17:46<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [17:51<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [17:51<2:14:26, 79.87s/it][A                                                        
+                                                                  [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:   7%|▋         | 8/109 [17:52<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [17:52<2:14:26, 79.87s/it][A                                                        
+                                                                  [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:   7%|▋         | 8/109 [17:54<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [17:54<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [17:59<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [17:59<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [18:10<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [18:10<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [18:21<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [18:21<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [18:32<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [18:32<2:14:26, 79.87s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:   7%|▋         | 8/109 [18:37<2:14:26, 79.87s/it]
+claude-opus-4-8:   7%|▋         | 8/109 [18:37<2:14:26, 79.87s/it][ATotal:   8%|▊         | 9/109 [18:40<4:18:18, 154.99s/it]
+claude-opus-4-8:   8%|▊         | 9/109 [18:40<4:18:18, 154.99s/it][A                                                         
+                                                                   [ARunning Count: 4
+Total:   8%|▊         | 9/109 [18:50<4:18:18, 154.99s/it]
+claude-opus-4-8:   8%|▊         | 9/109 [18:50<4:18:18, 154.99s/it][A                                                         
+                                                                   [A[92mAssigned claude-opus-4-8/alfworld-std#95[0m
+Total:   8%|▊         | 9/109 [18:50<4:18:18, 154.99s/it]
+claude-opus-4-8:   8%|▊         | 9/109 [18:50<4:18:18, 154.99s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   8%|▊         | 9/109 [18:55<4:18:18, 154.99s/it]
+claude-opus-4-8:   8%|▊         | 9/109 [18:55<4:18:18, 154.99s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   8%|▊         | 9/109 [19:08<4:18:18, 154.99s/it]
+claude-opus-4-8:   8%|▊         | 9/109 [19:08<4:18:18, 154.99s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   8%|▊         | 9/109 [19:20<4:18:18, 154.99s/it]
+claude-opus-4-8:   8%|▊         | 9/109 [19:20<4:18:18, 154.99s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   8%|▊         | 9/109 [19:28<4:18:18, 154.99s/it]
+claude-opus-4-8:   8%|▊         | 9/109 [19:28<4:18:18, 154.99s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   8%|▊         | 9/109 [19:40<4:18:18, 154.99s/it]
+claude-opus-4-8:   8%|▊         | 9/109 [19:40<4:18:18, 154.99s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   8%|▊         | 9/109 [19:53<4:18:18, 154.99s/it]
+claude-opus-4-8:   8%|▊         | 9/109 [19:53<4:18:18, 154.99s/it][A                                                         
+                                                                   [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:   8%|▊         | 9/109 [19:57<4:18:18, 154.99s/it]
+claude-opus-4-8:   8%|▊         | 9/109 [19:57<4:18:18, 154.99s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   8%|▊         | 9/109 [20:02<4:18:18, 154.99s/it]
+claude-opus-4-8:   8%|▊         | 9/109 [20:02<4:18:18, 154.99s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   8%|▊         | 9/109 [20:17<4:18:18, 154.99s/it]
+claude-opus-4-8:   8%|▊         | 9/109 [20:17<4:18:18, 154.99s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   8%|▊         | 9/109 [20:24<4:18:18, 154.99s/it]
+claude-opus-4-8:   8%|▊         | 9/109 [20:24<4:18:18, 154.99s/it][A                                                         
+                                                                   [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:   8%|▊         | 9/109 [20:32<4:18:18, 154.99s/it]
+claude-opus-4-8:   8%|▊         | 9/109 [20:32<4:18:18, 154.99s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   8%|▊         | 9/109 [20:37<4:18:18, 154.99s/it]
+claude-opus-4-8:   8%|▊         | 9/109 [20:37<4:18:18, 154.99s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   8%|▊         | 9/109 [20:46<4:18:18, 154.99s/it]
+claude-opus-4-8:   8%|▊         | 9/109 [20:46<4:18:18, 154.99s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:   8%|▊         | 9/109 [21:01<4:18:18, 154.99s/it]
+claude-opus-4-8:   8%|▊         | 9/109 [21:01<4:18:18, 154.99s/it][ATotal:   9%|▉         | 10/109 [21:03<4:09:39, 151.30s/it]
+claude-opus-4-8:   9%|▉         | 10/109 [21:03<4:09:39, 151.30s/it][A                                                          
+                                                                    [ARunning Count: 4
+Total:   9%|▉         | 10/109 [21:07<4:09:39, 151.30s/it]
+claude-opus-4-8:   9%|▉         | 10/109 [21:07<4:09:39, 151.30s/it][A                                                          
+                                                                    [A[92mAssigned claude-opus-4-8/alfworld-std#94[0m
+Total:   9%|▉         | 10/109 [21:07<4:09:39, 151.30s/it]
+claude-opus-4-8:   9%|▉         | 10/109 [21:07<4:09:39, 151.30s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:   9%|▉         | 10/109 [21:20<4:09:39, 151.30s/it]
+claude-opus-4-8:   9%|▉         | 10/109 [21:20<4:09:39, 151.30s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:   9%|▉         | 10/109 [21:27<4:09:39, 151.30s/it]
+claude-opus-4-8:   9%|▉         | 10/109 [21:27<4:09:39, 151.30s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:   9%|▉         | 10/109 [21:34<4:09:39, 151.30s/it]
+claude-opus-4-8:   9%|▉         | 10/109 [21:34<4:09:39, 151.30s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:   9%|▉         | 10/109 [21:49<4:09:39, 151.30s/it]
+claude-opus-4-8:   9%|▉         | 10/109 [21:49<4:09:39, 151.30s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:   9%|▉         | 10/109 [21:55<4:09:39, 151.30s/it]
+claude-opus-4-8:   9%|▉         | 10/109 [21:55<4:09:39, 151.30s/it][A                                                          
+                                                                    [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:   9%|▉         | 10/109 [21:59<4:09:39, 151.30s/it]
+claude-opus-4-8:   9%|▉         | 10/109 [21:59<4:09:39, 151.30s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:   9%|▉         | 10/109 [22:09<4:09:39, 151.30s/it]
+claude-opus-4-8:   9%|▉         | 10/109 [22:09<4:09:39, 151.30s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:   9%|▉         | 10/109 [22:15<4:09:39, 151.30s/it]
+claude-opus-4-8:   9%|▉         | 10/109 [22:15<4:09:39, 151.30s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:   9%|▉         | 10/109 [22:23<4:09:39, 151.30s/it]
+claude-opus-4-8:   9%|▉         | 10/109 [22:23<4:09:39, 151.30s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:   9%|▉         | 10/109 [22:33<4:09:39, 151.30s/it]
+claude-opus-4-8:   9%|▉         | 10/109 [22:33<4:09:39, 151.30s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:   9%|▉         | 10/109 [22:47<4:09:39, 151.30s/it]
+claude-opus-4-8:   9%|▉         | 10/109 [22:47<4:09:39, 151.30s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:   9%|▉         | 10/109 [22:54<4:09:39, 151.30s/it]
+claude-opus-4-8:   9%|▉         | 10/109 [22:54<4:09:39, 151.30s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:   9%|▉         | 10/109 [23:08<4:09:39, 151.30s/it]
+claude-opus-4-8:   9%|▉         | 10/109 [23:08<4:09:39, 151.30s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:   9%|▉         | 10/109 [23:17<4:09:39, 151.30s/it]
+claude-opus-4-8:   9%|▉         | 10/109 [23:17<4:09:39, 151.30s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:   9%|▉         | 10/109 [23:25<4:09:39, 151.30s/it]
+claude-opus-4-8:   9%|▉         | 10/109 [23:25<4:09:39, 151.30s/it][ATotal:  10%|█         | 11/109 [23:26<4:02:54, 148.72s/it]
+claude-opus-4-8:  10%|█         | 11/109 [23:26<4:02:54, 148.72s/it][A                                                          
+                                                                    [ARunning Count: 4
+Total:  10%|█         | 11/109 [23:35<4:02:54, 148.72s/it]
+claude-opus-4-8:  10%|█         | 11/109 [23:35<4:02:54, 148.72s/it][A                                                          
+                                                                    [A[92mAssigned claude-opus-4-8/alfworld-std#93[0m
+Total:  10%|█         | 11/109 [23:35<4:02:54, 148.72s/it]
+claude-opus-4-8:  10%|█         | 11/109 [23:35<4:02:54, 148.72s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  10%|█         | 11/109 [23:41<4:02:54, 148.72s/it]
+claude-opus-4-8:  10%|█         | 11/109 [23:41<4:02:54, 148.72s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  10%|█         | 11/109 [23:46<4:02:54, 148.72s/it]
+claude-opus-4-8:  10%|█         | 11/109 [23:46<4:02:54, 148.72s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  10%|█         | 11/109 [23:56<4:02:54, 148.72s/it]
+claude-opus-4-8:  10%|█         | 11/109 [23:56<4:02:54, 148.72s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  10%|█         | 11/109 [24:08<4:02:54, 148.72s/it]
+claude-opus-4-8:  10%|█         | 11/109 [24:08<4:02:54, 148.72s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  10%|█         | 11/109 [24:13<4:02:54, 148.72s/it]
+claude-opus-4-8:  10%|█         | 11/109 [24:13<4:02:54, 148.72s/it][ATotal:  11%|█         | 12/109 [24:14<3:10:52, 118.06s/it]
+claude-opus-4-8:  11%|█         | 12/109 [24:14<3:10:52, 118.06s/it][A                                                          
+                                                                    [ARunning Count: 4
+Total:  11%|█         | 12/109 [24:22<3:10:52, 118.06s/it]
+claude-opus-4-8:  11%|█         | 12/109 [24:22<3:10:52, 118.06s/it][A                                                          
+                                                                    [A[92mAssigned claude-opus-4-8/alfworld-std#92[0m
+Total:  11%|█         | 12/109 [24:22<3:10:52, 118.06s/it]
+claude-opus-4-8:  11%|█         | 12/109 [24:22<3:10:52, 118.06s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  11%|█         | 12/109 [24:32<3:10:52, 118.06s/it]
+claude-opus-4-8:  11%|█         | 12/109 [24:32<3:10:52, 118.06s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  11%|█         | 12/109 [24:43<3:10:52, 118.06s/it]
+claude-opus-4-8:  11%|█         | 12/109 [24:43<3:10:52, 118.06s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  11%|█         | 12/109 [24:50<3:10:52, 118.06s/it]
+claude-opus-4-8:  11%|█         | 12/109 [24:50<3:10:52, 118.06s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  11%|█         | 12/109 [24:59<3:10:52, 118.06s/it]
+claude-opus-4-8:  11%|█         | 12/109 [24:59<3:10:52, 118.06s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  11%|█         | 12/109 [25:11<3:10:52, 118.06s/it]
+claude-opus-4-8:  11%|█         | 12/109 [25:11<3:10:52, 118.06s/it][A                                                          
+                                                                    [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  11%|█         | 12/109 [25:19<3:10:52, 118.06s/it]
+claude-opus-4-8:  11%|█         | 12/109 [25:19<3:10:52, 118.06s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  11%|█         | 12/109 [25:22<3:10:52, 118.06s/it]
+claude-opus-4-8:  11%|█         | 12/109 [25:22<3:10:52, 118.06s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  11%|█         | 12/109 [25:30<3:10:52, 118.06s/it]
+claude-opus-4-8:  11%|█         | 12/109 [25:30<3:10:52, 118.06s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  11%|█         | 12/109 [25:45<3:10:52, 118.06s/it]
+claude-opus-4-8:  11%|█         | 12/109 [25:45<3:10:52, 118.06s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  11%|█         | 12/109 [25:56<3:10:52, 118.06s/it]
+claude-opus-4-8:  11%|█         | 12/109 [25:56<3:10:52, 118.06s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  11%|█         | 12/109 [26:06<3:10:52, 118.06s/it]
+claude-opus-4-8:  11%|█         | 12/109 [26:06<3:10:52, 118.06s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  11%|█         | 12/109 [26:19<3:10:52, 118.06s/it]
+claude-opus-4-8:  11%|█         | 12/109 [26:19<3:10:52, 118.06s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  11%|█         | 12/109 [26:27<3:10:52, 118.06s/it]
+claude-opus-4-8:  11%|█         | 12/109 [26:27<3:10:52, 118.06s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  11%|█         | 12/109 [26:35<3:10:52, 118.06s/it]
+claude-opus-4-8:  11%|█         | 12/109 [26:35<3:10:52, 118.06s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  11%|█         | 12/109 [26:48<3:10:52, 118.06s/it]
+claude-opus-4-8:  11%|█         | 12/109 [26:48<3:10:52, 118.06s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  11%|█         | 12/109 [27:03<3:10:52, 118.06s/it]
+claude-opus-4-8:  11%|█         | 12/109 [27:03<3:10:52, 118.06s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  11%|█         | 12/109 [27:09<3:10:52, 118.06s/it]
+claude-opus-4-8:  11%|█         | 12/109 [27:09<3:10:52, 118.06s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  11%|█         | 12/109 [27:18<3:10:52, 118.06s/it]
+claude-opus-4-8:  11%|█         | 12/109 [27:18<3:10:52, 118.06s/it][ATotal:  12%|█▏        | 13/109 [27:19<3:41:36, 138.50s/it]
+claude-opus-4-8:  12%|█▏        | 13/109 [27:19<3:41:36, 138.50s/it][A                                                          
+                                                                    [ARunning Count: 4
+Total:  12%|█▏        | 13/109 [27:23<3:41:36, 138.50s/it]
+claude-opus-4-8:  12%|█▏        | 13/109 [27:23<3:41:36, 138.50s/it][A                                                          
+                                                                    [A[92mAssigned claude-opus-4-8/alfworld-std#91[0m
+Total:  12%|█▏        | 13/109 [27:23<3:41:36, 138.50s/it]
+claude-opus-4-8:  12%|█▏        | 13/109 [27:23<3:41:36, 138.50s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  12%|█▏        | 13/109 [27:35<3:41:36, 138.50s/it]
+claude-opus-4-8:  12%|█▏        | 13/109 [27:35<3:41:36, 138.50s/it][ATotal:  13%|█▎        | 14/109 [27:37<2:41:40, 102.11s/it]
+claude-opus-4-8:  13%|█▎        | 14/109 [27:37<2:41:40, 102.11s/it][A                                                          
+                                                                    [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  13%|█▎        | 14/109 [27:43<2:41:40, 102.11s/it]
+claude-opus-4-8:  13%|█▎        | 14/109 [27:43<2:41:40, 102.11s/it][A                                                          
+                                                                    [ARunning Count: 4
+Total:  13%|█▎        | 14/109 [27:44<2:41:40, 102.11s/it]
+claude-opus-4-8:  13%|█▎        | 14/109 [27:44<2:41:40, 102.11s/it][A                                                          
+                                                                    [A[92mAssigned claude-opus-4-8/alfworld-std#90[0m
+Total:  13%|█▎        | 14/109 [27:44<2:41:40, 102.11s/it]
+claude-opus-4-8:  13%|█▎        | 14/109 [27:44<2:41:40, 102.11s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  13%|█▎        | 14/109 [27:51<2:41:40, 102.11s/it]
+claude-opus-4-8:  13%|█▎        | 14/109 [27:51<2:41:40, 102.11s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  13%|█▎        | 14/109 [27:57<2:41:40, 102.11s/it]
+claude-opus-4-8:  13%|█▎        | 14/109 [27:57<2:41:40, 102.11s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  13%|█▎        | 14/109 [28:06<2:41:40, 102.11s/it]
+claude-opus-4-8:  13%|█▎        | 14/109 [28:06<2:41:40, 102.11s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  13%|█▎        | 14/109 [28:21<2:41:40, 102.11s/it]
+claude-opus-4-8:  13%|█▎        | 14/109 [28:21<2:41:40, 102.11s/it][A                                                          
+                                                                    [ARunning Count: 5
+Total:  13%|█▎        | 14/109 [28:32<2:41:40, 102.11s/it]
+claude-opus-4-8:  13%|█▎        | 14/109 [28:32<2:41:40, 102.11s/it][ATotal:  14%|█▍        | 15/109 [28:35<2:19:03, 88.76s/it] 
+claude-opus-4-8:  14%|█▍        | 15/109 [28:35<2:19:03, 88.76s/it] [A                                                         
+                                                                   [ARunning Count: 4
+Total:  14%|█▍        | 15/109 [28:42<2:19:03, 88.76s/it]
+claude-opus-4-8:  14%|█▍        | 15/109 [28:42<2:19:03, 88.76s/it][A                                                         
+                                                                   [A[92mAssigned claude-opus-4-8/alfworld-std#89[0m
+Total:  14%|█▍        | 15/109 [28:42<2:19:03, 88.76s/it]
+claude-opus-4-8:  14%|█▍        | 15/109 [28:42<2:19:03, 88.76s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  14%|█▍        | 15/109 [28:49<2:19:03, 88.76s/it]
+claude-opus-4-8:  14%|█▍        | 15/109 [28:49<2:19:03, 88.76s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  14%|█▍        | 15/109 [29:02<2:19:03, 88.76s/it]
+claude-opus-4-8:  14%|█▍        | 15/109 [29:02<2:19:03, 88.76s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  14%|█▍        | 15/109 [29:16<2:19:03, 88.76s/it]
+claude-opus-4-8:  14%|█▍        | 15/109 [29:16<2:19:03, 88.76s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  14%|█▍        | 15/109 [29:22<2:19:03, 88.76s/it]
+claude-opus-4-8:  14%|█▍        | 15/109 [29:22<2:19:03, 88.76s/it][A                                                         
+                                                                   [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  14%|█▍        | 15/109 [29:31<2:19:03, 88.76s/it]
+claude-opus-4-8:  14%|█▍        | 15/109 [29:31<2:19:03, 88.76s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  14%|█▍        | 15/109 [29:35<2:19:03, 88.76s/it]
+claude-opus-4-8:  14%|█▍        | 15/109 [29:35<2:19:03, 88.76s/it][ATotal:  15%|█▍        | 16/109 [29:38<2:05:38, 81.05s/it]
+claude-opus-4-8:  15%|█▍        | 16/109 [29:38<2:05:38, 81.05s/it][ATotal:  16%|█▌        | 17/109 [29:41<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [29:41<1:28:09, 57.49s/it][A                                                         
+                                                                   [ARunning Count: 3
+Total:  16%|█▌        | 17/109 [29:49<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [29:49<1:28:09, 57.49s/it][A                                                         
+                                                                   [A[92mAssigned claude-opus-4-8/alfworld-std#88[0m
+Total:  16%|█▌        | 17/109 [29:49<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [29:49<1:28:09, 57.49s/it][A                                                         
+                                                                   [A[92mAssigned claude-opus-4-8/alfworld-std#87[0m
+Total:  16%|█▌        | 17/109 [29:49<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [29:49<1:28:09, 57.49s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  16%|█▌        | 17/109 [29:58<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [29:58<1:28:09, 57.49s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  16%|█▌        | 17/109 [30:07<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [30:07<1:28:09, 57.49s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  16%|█▌        | 17/109 [30:13<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [30:13<1:28:09, 57.49s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  16%|█▌        | 17/109 [30:25<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [30:25<1:28:09, 57.49s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  16%|█▌        | 17/109 [30:35<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [30:35<1:28:09, 57.49s/it][A                                                         
+                                                                   [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  16%|█▌        | 17/109 [30:42<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [30:42<1:28:09, 57.49s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  16%|█▌        | 17/109 [30:45<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [30:45<1:28:09, 57.49s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  16%|█▌        | 17/109 [30:59<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [30:59<1:28:09, 57.49s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  16%|█▌        | 17/109 [31:10<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [31:10<1:28:09, 57.49s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  16%|█▌        | 17/109 [31:16<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [31:16<1:28:09, 57.49s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  16%|█▌        | 17/109 [31:26<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [31:26<1:28:09, 57.49s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  16%|█▌        | 17/109 [31:33<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [31:33<1:28:09, 57.49s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  16%|█▌        | 17/109 [31:47<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [31:47<1:28:09, 57.49s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  16%|█▌        | 17/109 [31:57<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [31:57<1:28:09, 57.49s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  16%|█▌        | 17/109 [32:11<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [32:11<1:28:09, 57.49s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  16%|█▌        | 17/109 [32:16<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [32:16<1:28:09, 57.49s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  16%|█▌        | 17/109 [32:26<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [32:26<1:28:09, 57.49s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  16%|█▌        | 17/109 [32:41<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [32:41<1:28:09, 57.49s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  16%|█▌        | 17/109 [32:51<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [32:51<1:28:09, 57.49s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  16%|█▌        | 17/109 [32:56<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [32:56<1:28:09, 57.49s/it][A                                                         
+                                                                   [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  16%|█▌        | 17/109 [33:09<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [33:09<1:28:09, 57.49s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  16%|█▌        | 17/109 [33:10<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [33:10<1:28:09, 57.49s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  16%|█▌        | 17/109 [33:25<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [33:25<1:28:09, 57.49s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  16%|█▌        | 17/109 [33:39<1:28:09, 57.49s/it]
+claude-opus-4-8:  16%|█▌        | 17/109 [33:39<1:28:09, 57.49s/it][ATotal:  17%|█▋        | 18/109 [33:40<2:50:09, 112.19s/it]
+claude-opus-4-8:  17%|█▋        | 18/109 [33:40<2:50:09, 112.19s/it][A                                                          
+                                                                    [ARunning Count: 4
+Total:  17%|█▋        | 18/109 [33:49<2:50:09, 112.19s/it]
+claude-opus-4-8:  17%|█▋        | 18/109 [33:49<2:50:09, 112.19s/it][A                                                          
+                                                                    [A[92mAssigned claude-opus-4-8/alfworld-std#86[0m
+Total:  17%|█▋        | 18/109 [33:49<2:50:09, 112.19s/it]
+claude-opus-4-8:  17%|█▋        | 18/109 [33:49<2:50:09, 112.19s/it][ATotal:  17%|█▋        | 19/109 [33:56<2:04:32, 83.03s/it] 
+claude-opus-4-8:  17%|█▋        | 19/109 [33:56<2:04:32, 83.03s/it] [A                                                         
+                                                                   [ARunning Count: 4
+Total:  17%|█▋        | 19/109 [34:02<2:04:32, 83.03s/it]
+claude-opus-4-8:  17%|█▋        | 19/109 [34:02<2:04:32, 83.03s/it][A                                                         
+                                                                   [A[92mAssigned claude-opus-4-8/alfworld-std#85[0m
+Total:  17%|█▋        | 19/109 [34:02<2:04:32, 83.03s/it]
+claude-opus-4-8:  17%|█▋        | 19/109 [34:02<2:04:32, 83.03s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  17%|█▋        | 19/109 [34:09<2:04:32, 83.03s/it]
+claude-opus-4-8:  17%|█▋        | 19/109 [34:09<2:04:32, 83.03s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  17%|█▋        | 19/109 [34:15<2:04:32, 83.03s/it]
+claude-opus-4-8:  17%|█▋        | 19/109 [34:15<2:04:32, 83.03s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  17%|█▋        | 19/109 [34:25<2:04:32, 83.03s/it]
+claude-opus-4-8:  17%|█▋        | 19/109 [34:25<2:04:32, 83.03s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  17%|█▋        | 19/109 [34:34<2:04:32, 83.03s/it]
+claude-opus-4-8:  17%|█▋        | 19/109 [34:34<2:04:32, 83.03s/it][A                                                         
+                                                                   [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  17%|█▋        | 19/109 [34:38<2:04:32, 83.03s/it]
+claude-opus-4-8:  17%|█▋        | 19/109 [34:38<2:04:32, 83.03s/it][ATotal:  18%|█▊        | 20/109 [34:42<1:47:00, 72.14s/it]
+claude-opus-4-8:  18%|█▊        | 20/109 [34:42<1:47:00, 72.14s/it][ATotal:  19%|█▉        | 21/109 [34:47<1:16:02, 51.85s/it]
+claude-opus-4-8:  19%|█▉        | 21/109 [34:47<1:16:02, 51.85s/it][A                                                         
+                                                                   [ARunning Count: 3
+Total:  19%|█▉        | 21/109 [34:49<1:16:02, 51.85s/it]
+claude-opus-4-8:  19%|█▉        | 21/109 [34:49<1:16:02, 51.85s/it][A                                                         
+                                                                   [A[92mAssigned claude-opus-4-8/alfworld-std#84[0m
+Total:  19%|█▉        | 21/109 [34:49<1:16:02, 51.85s/it]
+claude-opus-4-8:  19%|█▉        | 21/109 [34:49<1:16:02, 51.85s/it][A                                                         
+                                                                   [A[92mAssigned claude-opus-4-8/alfworld-std#83[0m
+Total:  19%|█▉        | 21/109 [34:49<1:16:02, 51.85s/it]
+claude-opus-4-8:  19%|█▉        | 21/109 [34:49<1:16:02, 51.85s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  19%|█▉        | 21/109 [34:55<1:16:02, 51.85s/it]
+claude-opus-4-8:  19%|█▉        | 21/109 [34:55<1:16:02, 51.85s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  19%|█▉        | 21/109 [35:10<1:16:02, 51.85s/it]
+claude-opus-4-8:  19%|█▉        | 21/109 [35:10<1:16:02, 51.85s/it][A                                                         
+                                                                   [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  19%|█▉        | 21/109 [35:11<1:16:02, 51.85s/it]
+claude-opus-4-8:  19%|█▉        | 21/109 [35:11<1:16:02, 51.85s/it][ATotal:  20%|██        | 22/109 [35:18<1:06:16, 45.71s/it]
+claude-opus-4-8:  20%|██        | 22/109 [35:18<1:06:16, 45.71s/it][A                                                         
+                                                                   [ARunning Count: 4
+Total:  20%|██        | 22/109 [35:20<1:06:16, 45.71s/it]
+claude-opus-4-8:  20%|██        | 22/109 [35:20<1:06:16, 45.71s/it][A                                                         
+                                                                   [A[92mAssigned claude-opus-4-8/alfworld-std#82[0m
+Total:  20%|██        | 22/109 [35:20<1:06:16, 45.71s/it]
+claude-opus-4-8:  20%|██        | 22/109 [35:20<1:06:16, 45.71s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  20%|██        | 22/109 [35:32<1:06:16, 45.71s/it]
+claude-opus-4-8:  20%|██        | 22/109 [35:32<1:06:16, 45.71s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  20%|██        | 22/109 [35:46<1:06:16, 45.71s/it]
+claude-opus-4-8:  20%|██        | 22/109 [35:46<1:06:16, 45.71s/it][A                                                         
+                                                                   [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  20%|██        | 22/109 [35:50<1:06:16, 45.71s/it]
+claude-opus-4-8:  20%|██        | 22/109 [35:50<1:06:16, 45.71s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  20%|██        | 22/109 [35:57<1:06:16, 45.71s/it]
+claude-opus-4-8:  20%|██        | 22/109 [35:57<1:06:16, 45.71s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  20%|██        | 22/109 [36:06<1:06:16, 45.71s/it]
+claude-opus-4-8:  20%|██        | 22/109 [36:06<1:06:16, 45.71s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  20%|██        | 22/109 [36:19<1:06:16, 45.71s/it]
+claude-opus-4-8:  20%|██        | 22/109 [36:19<1:06:16, 45.71s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  20%|██        | 22/109 [36:24<1:06:16, 45.71s/it]
+claude-opus-4-8:  20%|██        | 22/109 [36:24<1:06:16, 45.71s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  20%|██        | 22/109 [36:33<1:06:16, 45.71s/it]
+claude-opus-4-8:  20%|██        | 22/109 [36:33<1:06:16, 45.71s/it][ATotal:  21%|██        | 23/109 [36:36<1:19:26, 55.42s/it]
+claude-opus-4-8:  21%|██        | 23/109 [36:36<1:19:26, 55.42s/it][A                                                         
+                                                                   [ARunning Count: 4
+Total:  21%|██        | 23/109 [36:39<1:19:26, 55.42s/it]
+claude-opus-4-8:  21%|██        | 23/109 [36:39<1:19:26, 55.42s/it][A                                                         
+                                                                   [A[92mAssigned claude-opus-4-8/alfworld-std#81[0m
+Total:  21%|██        | 23/109 [36:39<1:19:26, 55.42s/it]
+claude-opus-4-8:  21%|██        | 23/109 [36:39<1:19:26, 55.42s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  21%|██        | 23/109 [36:50<1:19:26, 55.42s/it]
+claude-opus-4-8:  21%|██        | 23/109 [36:50<1:19:26, 55.42s/it][A                                                         
+                                                                   [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  21%|██        | 23/109 [36:50<1:19:26, 55.42s/it]
+claude-opus-4-8:  21%|██        | 23/109 [36:50<1:19:26, 55.42s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  21%|██        | 23/109 [36:56<1:19:26, 55.42s/it]
+claude-opus-4-8:  21%|██        | 23/109 [36:56<1:19:26, 55.42s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  21%|██        | 23/109 [37:07<1:19:26, 55.42s/it]
+claude-opus-4-8:  21%|██        | 23/109 [37:07<1:19:26, 55.42s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  21%|██        | 23/109 [37:13<1:19:26, 55.42s/it]
+claude-opus-4-8:  21%|██        | 23/109 [37:13<1:19:26, 55.42s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  21%|██        | 23/109 [37:24<1:19:26, 55.42s/it]
+claude-opus-4-8:  21%|██        | 23/109 [37:24<1:19:26, 55.42s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  21%|██        | 23/109 [37:31<1:19:26, 55.42s/it]
+claude-opus-4-8:  21%|██        | 23/109 [37:31<1:19:26, 55.42s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  21%|██        | 23/109 [37:46<1:19:26, 55.42s/it]
+claude-opus-4-8:  21%|██        | 23/109 [37:46<1:19:26, 55.42s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  21%|██        | 23/109 [37:57<1:19:26, 55.42s/it]
+claude-opus-4-8:  21%|██        | 23/109 [37:57<1:19:26, 55.42s/it][ATotal:  22%|██▏       | 24/109 [37:57<1:29:21, 63.08s/it]
+claude-opus-4-8:  22%|██▏       | 24/109 [37:57<1:29:21, 63.08s/it][A                                                         
+                                                                   [ARunning Count: 4
+Total:  22%|██▏       | 24/109 [38:10<1:29:21, 63.08s/it]
+claude-opus-4-8:  22%|██▏       | 24/109 [38:10<1:29:21, 63.08s/it][A                                                         
+                                                                   [A[92mAssigned claude-opus-4-8/alfworld-std#80[0m
+Total:  22%|██▏       | 24/109 [38:10<1:29:21, 63.08s/it]
+claude-opus-4-8:  22%|██▏       | 24/109 [38:10<1:29:21, 63.08s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  22%|██▏       | 24/109 [38:24<1:29:21, 63.08s/it]
+claude-opus-4-8:  22%|██▏       | 24/109 [38:24<1:29:21, 63.08s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  22%|██▏       | 24/109 [38:39<1:29:21, 63.08s/it]
+claude-opus-4-8:  22%|██▏       | 24/109 [38:39<1:29:21, 63.08s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  22%|██▏       | 24/109 [38:49<1:29:21, 63.08s/it]
+claude-opus-4-8:  22%|██▏       | 24/109 [38:49<1:29:21, 63.08s/it][ATotal:  23%|██▎       | 25/109 [38:59<1:27:38, 62.60s/it]
+claude-opus-4-8:  23%|██▎       | 25/109 [38:59<1:27:38, 62.60s/it][ATotal:  24%|██▍       | 26/109 [39:01<1:01:22, 44.37s/it]
+claude-opus-4-8:  24%|██▍       | 26/109 [39:01<1:01:22, 44.37s/it][A                                                         
+                                                                   [ARunning Count: 3
+Total:  24%|██▍       | 26/109 [39:02<1:01:22, 44.37s/it]
+claude-opus-4-8:  24%|██▍       | 26/109 [39:02<1:01:22, 44.37s/it][A                                                         
+                                                                   [A[92mAssigned claude-opus-4-8/alfworld-std#79[0m
+Total:  24%|██▍       | 26/109 [39:02<1:01:22, 44.37s/it]
+claude-opus-4-8:  24%|██▍       | 26/109 [39:02<1:01:22, 44.37s/it][A                                                         
+                                                                   [A[92mAssigned claude-opus-4-8/alfworld-std#78[0m
+Total:  24%|██▍       | 26/109 [39:02<1:01:22, 44.37s/it]
+claude-opus-4-8:  24%|██▍       | 26/109 [39:02<1:01:22, 44.37s/it][ATotal:  25%|██▍       | 27/109 [39:09<45:46, 33.50s/it]  
+claude-opus-4-8:  25%|██▍       | 27/109 [39:09<45:46, 33.50s/it]  [ATotal:  26%|██▌       | 28/109 [39:16<34:29, 25.55s/it]
+claude-opus-4-8:  26%|██▌       | 28/109 [39:16<34:29, 25.55s/it][A                                                       
+                                                                 [ARunning Count: 3
+Total:  26%|██▌       | 28/109 [39:16<34:29, 25.55s/it]
+claude-opus-4-8:  26%|██▌       | 28/109 [39:16<34:29, 25.55s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#77[0m
+Total:  26%|██▌       | 28/109 [39:16<34:29, 25.55s/it]
+claude-opus-4-8:  26%|██▌       | 28/109 [39:16<34:29, 25.55s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#76[0m
+Total:  26%|██▌       | 28/109 [39:16<34:29, 25.55s/it]
+claude-opus-4-8:  26%|██▌       | 28/109 [39:16<34:29, 25.55s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  26%|██▌       | 28/109 [39:28<34:29, 25.55s/it]
+claude-opus-4-8:  26%|██▌       | 28/109 [39:28<34:29, 25.55s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  26%|██▌       | 28/109 [39:38<34:29, 25.55s/it]
+claude-opus-4-8:  26%|██▌       | 28/109 [39:38<34:29, 25.55s/it][ATotal:  27%|██▋       | 29/109 [39:38<32:55, 24.69s/it]
+claude-opus-4-8:  27%|██▋       | 29/109 [39:38<32:55, 24.69s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  27%|██▋       | 29/109 [39:47<32:55, 24.69s/it]
+claude-opus-4-8:  27%|██▋       | 29/109 [39:47<32:55, 24.69s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#75[0m
+Total:  27%|██▋       | 29/109 [39:47<32:55, 24.69s/it]
+claude-opus-4-8:  27%|██▋       | 29/109 [39:47<32:55, 24.69s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  27%|██▋       | 29/109 [40:01<32:55, 24.69s/it]
+claude-opus-4-8:  27%|██▋       | 29/109 [40:01<32:55, 24.69s/it][ATotal:  28%|██▊       | 30/109 [40:08<34:24, 26.13s/it]
+claude-opus-4-8:  28%|██▊       | 30/109 [40:08<34:24, 26.13s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  28%|██▊       | 30/109 [40:16<34:24, 26.13s/it]
+claude-opus-4-8:  28%|██▊       | 30/109 [40:16<34:24, 26.13s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#74[0m
+Total:  28%|██▊       | 30/109 [40:16<34:24, 26.13s/it]
+claude-opus-4-8:  28%|██▊       | 30/109 [40:16<34:24, 26.13s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  28%|██▊       | 30/109 [40:27<34:24, 26.13s/it]
+claude-opus-4-8:  28%|██▊       | 30/109 [40:27<34:24, 26.13s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  28%|██▊       | 30/109 [40:36<34:24, 26.13s/it]
+claude-opus-4-8:  28%|██▊       | 30/109 [40:36<34:24, 26.13s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  28%|██▊       | 30/109 [40:45<34:24, 26.13s/it]
+claude-opus-4-8:  28%|██▊       | 30/109 [40:45<34:24, 26.13s/it][ATotal:  28%|██▊       | 31/109 [40:48<39:25, 30.33s/it]
+claude-opus-4-8:  28%|██▊       | 31/109 [40:48<39:25, 30.33s/it][ATotal:  29%|██▉       | 32/109 [40:50<28:05, 21.89s/it]
+claude-opus-4-8:  29%|██▉       | 32/109 [40:50<28:05, 21.89s/it][A                                                       
+                                                                 [ARunning Count: 3
+Total:  29%|██▉       | 32/109 [40:54<28:05, 21.89s/it]
+claude-opus-4-8:  29%|██▉       | 32/109 [40:54<28:05, 21.89s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#73[0m
+Total:  29%|██▉       | 32/109 [40:54<28:05, 21.89s/it]
+claude-opus-4-8:  29%|██▉       | 32/109 [40:54<28:05, 21.89s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#72[0m
+Total:  29%|██▉       | 32/109 [40:54<28:05, 21.89s/it]
+claude-opus-4-8:  29%|██▉       | 32/109 [40:54<28:05, 21.89s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  29%|██▉       | 32/109 [41:01<28:05, 21.89s/it]
+claude-opus-4-8:  29%|██▉       | 32/109 [41:01<28:05, 21.89s/it][ATotal:  30%|███       | 33/109 [41:08<26:06, 20.61s/it]
+claude-opus-4-8:  30%|███       | 33/109 [41:08<26:06, 20.61s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  30%|███       | 33/109 [41:11<26:06, 20.61s/it]
+claude-opus-4-8:  30%|███       | 33/109 [41:11<26:06, 20.61s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#71[0m
+Total:  30%|███       | 33/109 [41:11<26:06, 20.61s/it]
+claude-opus-4-8:  30%|███       | 33/109 [41:11<26:06, 20.61s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  30%|███       | 33/109 [41:26<26:06, 20.61s/it]
+claude-opus-4-8:  30%|███       | 33/109 [41:26<26:06, 20.61s/it][ATotal:  31%|███       | 34/109 [41:28<25:26, 20.36s/it]
+claude-opus-4-8:  31%|███       | 34/109 [41:28<25:26, 20.36s/it][ATotal:  32%|███▏      | 35/109 [41:30<18:21, 14.89s/it]
+claude-opus-4-8:  32%|███▏      | 35/109 [41:30<18:21, 14.89s/it][A                                                       
+                                                                 [ARunning Count: 3
+Total:  32%|███▏      | 35/109 [41:38<18:21, 14.89s/it]
+claude-opus-4-8:  32%|███▏      | 35/109 [41:38<18:21, 14.89s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#70[0m
+Total:  32%|███▏      | 35/109 [41:38<18:21, 14.89s/it]
+claude-opus-4-8:  32%|███▏      | 35/109 [41:38<18:21, 14.89s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#69[0m
+Total:  32%|███▏      | 35/109 [41:38<18:21, 14.89s/it]
+claude-opus-4-8:  32%|███▏      | 35/109 [41:38<18:21, 14.89s/it][ATotal:  33%|███▎      | 36/109 [41:41<16:57, 13.94s/it]
+claude-opus-4-8:  33%|███▎      | 36/109 [41:41<16:57, 13.94s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  33%|███▎      | 36/109 [41:46<16:57, 13.94s/it]
+claude-opus-4-8:  33%|███▎      | 36/109 [41:46<16:57, 13.94s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#68[0m
+Total:  33%|███▎      | 36/109 [41:46<16:57, 13.94s/it]
+claude-opus-4-8:  33%|███▎      | 36/109 [41:46<16:57, 13.94s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  33%|███▎      | 36/109 [41:51<16:57, 13.94s/it]
+claude-opus-4-8:  33%|███▎      | 36/109 [41:51<16:57, 13.94s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  33%|███▎      | 36/109 [41:57<16:57, 13.94s/it]
+claude-opus-4-8:  33%|███▎      | 36/109 [41:57<16:57, 13.94s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  33%|███▎      | 36/109 [42:09<16:57, 13.94s/it]
+claude-opus-4-8:  33%|███▎      | 36/109 [42:09<16:57, 13.94s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  33%|███▎      | 36/109 [42:20<16:57, 13.94s/it]
+claude-opus-4-8:  33%|███▎      | 36/109 [42:20<16:57, 13.94s/it][ATotal:  34%|███▍      | 37/109 [42:25<27:32, 22.96s/it]
+claude-opus-4-8:  34%|███▍      | 37/109 [42:25<27:32, 22.96s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  34%|███▍      | 37/109 [42:29<27:32, 22.96s/it]
+claude-opus-4-8:  34%|███▍      | 37/109 [42:29<27:32, 22.96s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#67[0m
+Total:  34%|███▍      | 37/109 [42:29<27:32, 22.96s/it]
+claude-opus-4-8:  34%|███▍      | 37/109 [42:29<27:32, 22.96s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  34%|███▍      | 37/109 [42:43<27:32, 22.96s/it]
+claude-opus-4-8:  34%|███▍      | 37/109 [42:43<27:32, 22.96s/it][ATotal:  35%|███▍      | 38/109 [42:49<27:15, 23.04s/it]
+claude-opus-4-8:  35%|███▍      | 38/109 [42:49<27:15, 23.04s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  35%|███▍      | 38/109 [42:53<27:15, 23.04s/it]
+claude-opus-4-8:  35%|███▍      | 38/109 [42:53<27:15, 23.04s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#66[0m
+Total:  35%|███▍      | 38/109 [42:53<27:15, 23.04s/it]
+claude-opus-4-8:  35%|███▍      | 38/109 [42:53<27:15, 23.04s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  35%|███▍      | 38/109 [43:05<27:15, 23.04s/it]
+claude-opus-4-8:  35%|███▍      | 38/109 [43:05<27:15, 23.04s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  35%|███▍      | 38/109 [43:12<27:15, 23.04s/it]
+claude-opus-4-8:  35%|███▍      | 38/109 [43:12<27:15, 23.04s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  35%|███▍      | 38/109 [43:18<27:15, 23.04s/it]
+claude-opus-4-8:  35%|███▍      | 38/109 [43:18<27:15, 23.04s/it][ATotal:  36%|███▌      | 39/109 [43:30<33:06, 28.37s/it]
+claude-opus-4-8:  36%|███▌      | 39/109 [43:30<33:06, 28.37s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  36%|███▌      | 39/109 [43:32<33:06, 28.37s/it]
+claude-opus-4-8:  36%|███▌      | 39/109 [43:32<33:06, 28.37s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#65[0m
+Total:  36%|███▌      | 39/109 [43:32<33:06, 28.37s/it]
+claude-opus-4-8:  36%|███▌      | 39/109 [43:32<33:06, 28.37s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  36%|███▌      | 39/109 [43:40<33:06, 28.37s/it]
+claude-opus-4-8:  36%|███▌      | 39/109 [43:40<33:06, 28.37s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  36%|███▌      | 39/109 [43:48<33:06, 28.37s/it]
+claude-opus-4-8:  36%|███▌      | 39/109 [43:48<33:06, 28.37s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  36%|███▌      | 39/109 [44:00<33:06, 28.37s/it]
+claude-opus-4-8:  36%|███▌      | 39/109 [44:00<33:06, 28.37s/it][ATotal:  37%|███▋      | 40/109 [44:07<35:54, 31.23s/it]
+claude-opus-4-8:  37%|███▋      | 40/109 [44:07<35:54, 31.23s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  37%|███▋      | 40/109 [44:13<35:54, 31.23s/it]
+claude-opus-4-8:  37%|███▋      | 40/109 [44:13<35:54, 31.23s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#64[0m
+Total:  37%|███▋      | 40/109 [44:13<35:54, 31.23s/it]
+claude-opus-4-8:  37%|███▋      | 40/109 [44:13<35:54, 31.23s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  37%|███▋      | 40/109 [44:24<35:54, 31.23s/it]
+claude-opus-4-8:  37%|███▋      | 40/109 [44:24<35:54, 31.23s/it][ATotal:  38%|███▊      | 41/109 [44:33<33:30, 29.57s/it]
+claude-opus-4-8:  38%|███▊      | 41/109 [44:33<33:30, 29.57s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  38%|███▊      | 41/109 [44:34<33:30, 29.57s/it]
+claude-opus-4-8:  38%|███▊      | 41/109 [44:34<33:30, 29.57s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#63[0m
+Total:  38%|███▊      | 41/109 [44:34<33:30, 29.57s/it]
+claude-opus-4-8:  38%|███▊      | 41/109 [44:34<33:30, 29.57s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  38%|███▊      | 41/109 [44:40<33:30, 29.57s/it]
+claude-opus-4-8:  38%|███▊      | 41/109 [44:40<33:30, 29.57s/it][A                                                       
+                                                                 [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  38%|███▊      | 41/109 [44:44<33:30, 29.57s/it]
+claude-opus-4-8:  38%|███▊      | 41/109 [44:44<33:30, 29.57s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  38%|███▊      | 41/109 [44:46<33:30, 29.57s/it]
+claude-opus-4-8:  38%|███▊      | 41/109 [44:46<33:30, 29.57s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  38%|███▊      | 41/109 [44:55<33:30, 29.57s/it]
+claude-opus-4-8:  38%|███▊      | 41/109 [44:55<33:30, 29.57s/it][ATotal:  39%|███▊      | 42/109 [45:04<33:34, 30.07s/it]
+claude-opus-4-8:  39%|███▊      | 42/109 [45:04<33:34, 30.07s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  39%|███▊      | 42/109 [45:09<33:34, 30.07s/it]
+claude-opus-4-8:  39%|███▊      | 42/109 [45:09<33:34, 30.07s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#62[0m
+Total:  39%|███▊      | 42/109 [45:09<33:34, 30.07s/it]
+claude-opus-4-8:  39%|███▊      | 42/109 [45:09<33:34, 30.07s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  39%|███▊      | 42/109 [45:18<33:34, 30.07s/it]
+claude-opus-4-8:  39%|███▊      | 42/109 [45:18<33:34, 30.07s/it][ATotal:  39%|███▉      | 43/109 [45:19<28:08, 25.59s/it]
+claude-opus-4-8:  39%|███▉      | 43/109 [45:19<28:08, 25.59s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  39%|███▉      | 43/109 [45:23<28:08, 25.59s/it]
+claude-opus-4-8:  39%|███▉      | 43/109 [45:23<28:08, 25.59s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#61[0m
+Total:  39%|███▉      | 43/109 [45:23<28:08, 25.59s/it]
+claude-opus-4-8:  39%|███▉      | 43/109 [45:23<28:08, 25.59s/it][A                                                       
+                                                                 [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  39%|███▉      | 43/109 [45:28<28:08, 25.59s/it]
+claude-opus-4-8:  39%|███▉      | 43/109 [45:28<28:08, 25.59s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  39%|███▉      | 43/109 [45:32<28:08, 25.59s/it]
+claude-opus-4-8:  39%|███▉      | 43/109 [45:32<28:08, 25.59s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  39%|███▉      | 43/109 [45:45<28:08, 25.59s/it]
+claude-opus-4-8:  39%|███▉      | 43/109 [45:45<28:08, 25.59s/it][ATotal:  40%|████      | 44/109 [45:54<30:27, 28.11s/it]
+claude-opus-4-8:  40%|████      | 44/109 [45:54<30:27, 28.11s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  40%|████      | 44/109 [45:58<30:27, 28.11s/it]
+claude-opus-4-8:  40%|████      | 44/109 [45:58<30:27, 28.11s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#60[0m
+Total:  40%|████      | 44/109 [45:58<30:27, 28.11s/it]
+claude-opus-4-8:  40%|████      | 44/109 [45:58<30:27, 28.11s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  40%|████      | 44/109 [46:05<30:27, 28.11s/it]
+claude-opus-4-8:  40%|████      | 44/109 [46:05<30:27, 28.11s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  40%|████      | 44/109 [46:14<30:27, 28.11s/it]
+claude-opus-4-8:  40%|████      | 44/109 [46:14<30:27, 28.11s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  40%|████      | 44/109 [46:25<30:27, 28.11s/it]
+claude-opus-4-8:  40%|████      | 44/109 [46:25<30:27, 28.11s/it][ATotal:  41%|████▏     | 45/109 [46:31<33:02, 30.98s/it]
+claude-opus-4-8:  41%|████▏     | 45/109 [46:31<33:02, 30.98s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  41%|████▏     | 45/109 [46:40<33:02, 30.98s/it]
+claude-opus-4-8:  41%|████▏     | 45/109 [46:40<33:02, 30.98s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#59[0m
+Total:  41%|████▏     | 45/109 [46:40<33:02, 30.98s/it]
+claude-opus-4-8:  41%|████▏     | 45/109 [46:40<33:02, 30.98s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  41%|████▏     | 45/109 [46:53<33:02, 30.98s/it]
+claude-opus-4-8:  41%|████▏     | 45/109 [46:53<33:02, 30.98s/it][ATotal:  42%|████▏     | 46/109 [46:59<31:35, 30.09s/it]
+claude-opus-4-8:  42%|████▏     | 46/109 [46:59<31:35, 30.09s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  42%|████▏     | 46/109 [47:00<31:35, 30.09s/it]
+claude-opus-4-8:  42%|████▏     | 46/109 [47:00<31:35, 30.09s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#58[0m
+Total:  42%|████▏     | 46/109 [47:00<31:35, 30.09s/it]
+claude-opus-4-8:  42%|████▏     | 46/109 [47:00<31:35, 30.09s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  42%|████▏     | 46/109 [47:08<31:35, 30.09s/it]
+claude-opus-4-8:  42%|████▏     | 46/109 [47:08<31:35, 30.09s/it][ATotal:  43%|████▎     | 47/109 [47:09<24:50, 24.03s/it]
+claude-opus-4-8:  43%|████▎     | 47/109 [47:09<24:50, 24.03s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  43%|████▎     | 47/109 [47:19<24:50, 24.03s/it]
+claude-opus-4-8:  43%|████▎     | 47/109 [47:19<24:50, 24.03s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#57[0m
+Total:  43%|████▎     | 47/109 [47:19<24:50, 24.03s/it]
+claude-opus-4-8:  43%|████▎     | 47/109 [47:19<24:50, 24.03s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  43%|████▎     | 47/109 [47:28<24:50, 24.03s/it]
+claude-opus-4-8:  43%|████▎     | 47/109 [47:28<24:50, 24.03s/it][A                                                       
+                                                                 [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  43%|████▎     | 47/109 [47:37<24:50, 24.03s/it]
+claude-opus-4-8:  43%|████▎     | 47/109 [47:37<24:50, 24.03s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  43%|████▎     | 47/109 [47:41<24:50, 24.03s/it]
+claude-opus-4-8:  43%|████▎     | 47/109 [47:41<24:50, 24.03s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  43%|████▎     | 47/109 [47:46<24:50, 24.03s/it]
+claude-opus-4-8:  43%|████▎     | 47/109 [47:46<24:50, 24.03s/it][ATotal:  44%|████▍     | 48/109 [47:47<28:46, 28.30s/it]
+claude-opus-4-8:  44%|████▍     | 48/109 [47:47<28:46, 28.30s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  44%|████▍     | 48/109 [47:55<28:46, 28.30s/it]
+claude-opus-4-8:  44%|████▍     | 48/109 [47:55<28:46, 28.30s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#56[0m
+Total:  44%|████▍     | 48/109 [47:55<28:46, 28.30s/it]
+claude-opus-4-8:  44%|████▍     | 48/109 [47:55<28:46, 28.30s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  44%|████▍     | 48/109 [48:05<28:46, 28.30s/it]
+claude-opus-4-8:  44%|████▍     | 48/109 [48:05<28:46, 28.30s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  44%|████▍     | 48/109 [48:19<28:46, 28.30s/it]
+claude-opus-4-8:  44%|████▍     | 48/109 [48:19<28:46, 28.30s/it][ATotal:  45%|████▍     | 49/109 [48:28<32:06, 32.11s/it]
+claude-opus-4-8:  45%|████▍     | 49/109 [48:28<32:06, 32.11s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  45%|████▍     | 49/109 [48:28<32:06, 32.11s/it]
+claude-opus-4-8:  45%|████▍     | 49/109 [48:28<32:06, 32.11s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#55[0m
+Total:  45%|████▍     | 49/109 [48:28<32:06, 32.11s/it]
+claude-opus-4-8:  45%|████▍     | 49/109 [48:28<32:06, 32.11s/it][ATotal:  46%|████▌     | 50/109 [48:37<24:43, 25.14s/it]
+claude-opus-4-8:  46%|████▌     | 50/109 [48:37<24:43, 25.14s/it][ATotal:  47%|████▋     | 51/109 [48:40<17:53, 18.51s/it]
+claude-opus-4-8:  47%|████▋     | 51/109 [48:40<17:53, 18.51s/it][A                                                       
+                                                                 [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  47%|████▋     | 51/109 [48:41<17:53, 18.51s/it]
+claude-opus-4-8:  47%|████▋     | 51/109 [48:41<17:53, 18.51s/it][A                                                       
+                                                                 [ARunning Count: 3
+Total:  47%|████▋     | 51/109 [48:43<17:53, 18.51s/it]
+claude-opus-4-8:  47%|████▋     | 51/109 [48:43<17:53, 18.51s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#54[0m
+Total:  47%|████▋     | 51/109 [48:43<17:53, 18.51s/it]
+claude-opus-4-8:  47%|████▋     | 51/109 [48:43<17:53, 18.51s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#53[0m
+Total:  47%|████▋     | 51/109 [48:43<17:53, 18.51s/it]
+claude-opus-4-8:  47%|████▋     | 51/109 [48:43<17:53, 18.51s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  47%|████▋     | 51/109 [48:56<17:53, 18.51s/it]
+claude-opus-4-8:  47%|████▋     | 51/109 [48:56<17:53, 18.51s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  47%|████▋     | 51/109 [49:03<17:53, 18.51s/it]
+claude-opus-4-8:  47%|████▋     | 51/109 [49:03<17:53, 18.51s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  47%|████▋     | 51/109 [49:11<17:53, 18.51s/it]
+claude-opus-4-8:  47%|████▋     | 51/109 [49:11<17:53, 18.51s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  47%|████▋     | 51/109 [49:17<17:53, 18.51s/it]
+claude-opus-4-8:  47%|████▋     | 51/109 [49:17<17:53, 18.51s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  47%|████▋     | 51/109 [49:24<17:53, 18.51s/it]
+claude-opus-4-8:  47%|████▋     | 51/109 [49:24<17:53, 18.51s/it][A                                                       
+                                                                 [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  47%|████▋     | 51/109 [49:29<17:53, 18.51s/it]
+claude-opus-4-8:  47%|████▋     | 51/109 [49:29<17:53, 18.51s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  47%|████▋     | 51/109 [49:36<17:53, 18.51s/it]
+claude-opus-4-8:  47%|████▋     | 51/109 [49:36<17:53, 18.51s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  47%|████▋     | 51/109 [49:43<17:53, 18.51s/it]
+claude-opus-4-8:  47%|████▋     | 51/109 [49:43<17:53, 18.51s/it][ATotal:  48%|████▊     | 52/109 [49:48<31:35, 33.25s/it]
+claude-opus-4-8:  48%|████▊     | 52/109 [49:48<31:35, 33.25s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  48%|████▊     | 52/109 [49:52<31:35, 33.25s/it]
+claude-opus-4-8:  48%|████▊     | 52/109 [49:52<31:35, 33.25s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#52[0m
+Total:  48%|████▊     | 52/109 [49:52<31:35, 33.25s/it]
+claude-opus-4-8:  48%|████▊     | 52/109 [49:52<31:35, 33.25s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  48%|████▊     | 52/109 [50:00<31:35, 33.25s/it]
+claude-opus-4-8:  48%|████▊     | 52/109 [50:00<31:35, 33.25s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  48%|████▊     | 52/109 [50:08<31:35, 33.25s/it]
+claude-opus-4-8:  48%|████▊     | 52/109 [50:08<31:35, 33.25s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  48%|████▊     | 52/109 [50:19<31:35, 33.25s/it]
+claude-opus-4-8:  48%|████▊     | 52/109 [50:19<31:35, 33.25s/it][A                                                       
+                                                                 [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  48%|████▊     | 52/109 [50:29<31:35, 33.25s/it]
+claude-opus-4-8:  48%|████▊     | 52/109 [50:29<31:35, 33.25s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  48%|████▊     | 52/109 [50:31<31:35, 33.25s/it]
+claude-opus-4-8:  48%|████▊     | 52/109 [50:31<31:35, 33.25s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  48%|████▊     | 52/109 [50:44<31:35, 33.25s/it]
+claude-opus-4-8:  48%|████▊     | 52/109 [50:44<31:35, 33.25s/it][A                                                       
+                                                                 [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  48%|████▊     | 52/109 [50:49<31:35, 33.25s/it]
+claude-opus-4-8:  48%|████▊     | 52/109 [50:49<31:35, 33.25s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  48%|████▊     | 52/109 [50:53<31:35, 33.25s/it]
+claude-opus-4-8:  48%|████▊     | 52/109 [50:53<31:35, 33.25s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  48%|████▊     | 52/109 [51:03<31:35, 33.25s/it]
+claude-opus-4-8:  48%|████▊     | 52/109 [51:03<31:35, 33.25s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  48%|████▊     | 52/109 [51:16<31:35, 33.25s/it]
+claude-opus-4-8:  48%|████▊     | 52/109 [51:16<31:35, 33.25s/it][A                                                       
+                                                                 [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  48%|████▊     | 52/109 [51:19<31:35, 33.25s/it]
+claude-opus-4-8:  48%|████▊     | 52/109 [51:19<31:35, 33.25s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  48%|████▊     | 52/109 [51:23<31:35, 33.25s/it]
+claude-opus-4-8:  48%|████▊     | 52/109 [51:23<31:35, 33.25s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  48%|████▊     | 52/109 [51:38<31:35, 33.25s/it]
+claude-opus-4-8:  48%|████▊     | 52/109 [51:38<31:35, 33.25s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  48%|████▊     | 52/109 [51:47<31:35, 33.25s/it]
+claude-opus-4-8:  48%|████▊     | 52/109 [51:47<31:35, 33.25s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  48%|████▊     | 52/109 [51:58<31:35, 33.25s/it]
+claude-opus-4-8:  48%|████▊     | 52/109 [51:58<31:35, 33.25s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  48%|████▊     | 52/109 [52:04<31:35, 33.25s/it]
+claude-opus-4-8:  48%|████▊     | 52/109 [52:04<31:35, 33.25s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  48%|████▊     | 52/109 [52:14<31:35, 33.25s/it]
+claude-opus-4-8:  48%|████▊     | 52/109 [52:14<31:35, 33.25s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  48%|████▊     | 52/109 [52:25<31:35, 33.25s/it]
+claude-opus-4-8:  48%|████▊     | 52/109 [52:25<31:35, 33.25s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  48%|████▊     | 52/109 [52:34<31:35, 33.25s/it]
+claude-opus-4-8:  48%|████▊     | 52/109 [52:34<31:35, 33.25s/it][ATotal:  49%|████▊     | 53/109 [52:38<1:09:19, 74.28s/it]
+claude-opus-4-8:  49%|████▊     | 53/109 [52:38<1:09:19, 74.28s/it][A                                                         
+                                                                   [ARunning Count: 4
+Total:  49%|████▊     | 53/109 [52:48<1:09:19, 74.28s/it]
+claude-opus-4-8:  49%|████▊     | 53/109 [52:48<1:09:19, 74.28s/it][A                                                         
+                                                                   [A[92mAssigned claude-opus-4-8/alfworld-std#51[0m
+Total:  49%|████▊     | 53/109 [52:48<1:09:19, 74.28s/it]
+claude-opus-4-8:  49%|████▊     | 53/109 [52:48<1:09:19, 74.28s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  49%|████▊     | 53/109 [53:03<1:09:19, 74.28s/it]
+claude-opus-4-8:  49%|████▊     | 53/109 [53:03<1:09:19, 74.28s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  49%|████▊     | 53/109 [53:17<1:09:19, 74.28s/it]
+claude-opus-4-8:  49%|████▊     | 53/109 [53:17<1:09:19, 74.28s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  49%|████▊     | 53/109 [53:24<1:09:19, 74.28s/it]
+claude-opus-4-8:  49%|████▊     | 53/109 [53:24<1:09:19, 74.28s/it][A                                                         
+                                                                   [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  49%|████▊     | 53/109 [53:25<1:09:19, 74.28s/it]
+claude-opus-4-8:  49%|████▊     | 53/109 [53:25<1:09:19, 74.28s/it][ATotal:  50%|████▉     | 54/109 [53:27<1:01:11, 66.75s/it]
+claude-opus-4-8:  50%|████▉     | 54/109 [53:27<1:01:11, 66.75s/it][A                                                         
+                                                                   [ARunning Count: 4
+Total:  50%|████▉     | 54/109 [53:35<1:01:11, 66.75s/it]
+claude-opus-4-8:  50%|████▉     | 54/109 [53:35<1:01:11, 66.75s/it][A                                                         
+                                                                   [A[92mAssigned claude-opus-4-8/alfworld-std#50[0m
+Total:  50%|████▉     | 54/109 [53:35<1:01:11, 66.75s/it]
+claude-opus-4-8:  50%|████▉     | 54/109 [53:35<1:01:11, 66.75s/it][ATotal:  50%|█████     | 55/109 [53:46<47:04, 52.30s/it]  
+claude-opus-4-8:  50%|█████     | 55/109 [53:46<47:04, 52.30s/it]  [A                                                       
+                                                                 [ARunning Count: 4
+Total:  50%|█████     | 55/109 [53:48<47:04, 52.30s/it]
+claude-opus-4-8:  50%|█████     | 55/109 [53:48<47:04, 52.30s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#49[0m
+Total:  50%|█████     | 55/109 [53:48<47:04, 52.30s/it]
+claude-opus-4-8:  50%|█████     | 55/109 [53:48<47:04, 52.30s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  50%|█████     | 55/109 [53:56<47:04, 52.30s/it]
+claude-opus-4-8:  50%|█████     | 55/109 [53:56<47:04, 52.30s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  50%|█████     | 55/109 [54:02<47:04, 52.30s/it]
+claude-opus-4-8:  50%|█████     | 55/109 [54:02<47:04, 52.30s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  50%|█████     | 55/109 [54:09<47:04, 52.30s/it]
+claude-opus-4-8:  50%|█████     | 55/109 [54:09<47:04, 52.30s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  50%|█████     | 55/109 [54:17<47:04, 52.30s/it]
+claude-opus-4-8:  50%|█████     | 55/109 [54:17<47:04, 52.30s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  50%|█████     | 55/109 [54:25<47:04, 52.30s/it]
+claude-opus-4-8:  50%|█████     | 55/109 [54:25<47:04, 52.30s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  50%|█████     | 55/109 [54:36<47:04, 52.30s/it]
+claude-opus-4-8:  50%|█████     | 55/109 [54:36<47:04, 52.30s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  50%|█████     | 55/109 [54:42<47:04, 52.30s/it]
+claude-opus-4-8:  50%|█████     | 55/109 [54:42<47:04, 52.30s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  50%|█████     | 55/109 [54:48<47:04, 52.30s/it]
+claude-opus-4-8:  50%|█████     | 55/109 [54:48<47:04, 52.30s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  50%|█████     | 55/109 [54:58<47:04, 52.30s/it]
+claude-opus-4-8:  50%|█████     | 55/109 [54:58<47:04, 52.30s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  50%|█████     | 55/109 [55:12<47:04, 52.30s/it]
+claude-opus-4-8:  50%|█████     | 55/109 [55:12<47:04, 52.30s/it][ATotal:  51%|█████▏    | 56/109 [55:20<57:19, 64.91s/it]
+claude-opus-4-8:  51%|█████▏    | 56/109 [55:20<57:19, 64.91s/it][ATotal:  52%|█████▏    | 57/109 [55:22<39:49, 45.96s/it]
+claude-opus-4-8:  52%|█████▏    | 57/109 [55:22<39:49, 45.96s/it][A                                                       
+                                                                 [ARunning Count: 3
+Total:  52%|█████▏    | 57/109 [55:26<39:49, 45.96s/it]
+claude-opus-4-8:  52%|█████▏    | 57/109 [55:26<39:49, 45.96s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#48[0m
+Total:  52%|█████▏    | 57/109 [55:26<39:49, 45.96s/it]
+claude-opus-4-8:  52%|█████▏    | 57/109 [55:26<39:49, 45.96s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#47[0m
+Total:  52%|█████▏    | 57/109 [55:26<39:49, 45.96s/it]
+claude-opus-4-8:  52%|█████▏    | 57/109 [55:26<39:49, 45.96s/it][A                                                       
+                                                                 [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  52%|█████▏    | 57/109 [55:29<39:49, 45.96s/it]
+claude-opus-4-8:  52%|█████▏    | 57/109 [55:29<39:49, 45.96s/it][A                                                       
+                                                                 [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  52%|█████▏    | 57/109 [55:36<39:49, 45.96s/it]
+claude-opus-4-8:  52%|█████▏    | 57/109 [55:36<39:49, 45.96s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  52%|█████▏    | 57/109 [55:39<39:49, 45.96s/it]
+claude-opus-4-8:  52%|█████▏    | 57/109 [55:39<39:49, 45.96s/it][ATotal:  53%|█████▎    | 58/109 [55:40<31:54, 37.54s/it]
+claude-opus-4-8:  53%|█████▎    | 58/109 [55:40<31:54, 37.54s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  53%|█████▎    | 58/109 [55:48<31:54, 37.54s/it]
+claude-opus-4-8:  53%|█████▎    | 58/109 [55:48<31:54, 37.54s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#46[0m
+Total:  53%|█████▎    | 58/109 [55:48<31:54, 37.54s/it]
+claude-opus-4-8:  53%|█████▎    | 58/109 [55:48<31:54, 37.54s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  53%|█████▎    | 58/109 [56:01<31:54, 37.54s/it]
+claude-opus-4-8:  53%|█████▎    | 58/109 [56:01<31:54, 37.54s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  53%|█████▎    | 58/109 [56:15<31:54, 37.54s/it]
+claude-opus-4-8:  53%|█████▎    | 58/109 [56:15<31:54, 37.54s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  53%|█████▎    | 58/109 [56:25<31:54, 37.54s/it]
+claude-opus-4-8:  53%|█████▎    | 58/109 [56:25<31:54, 37.54s/it][ATotal:  54%|█████▍    | 59/109 [56:36<36:05, 43.32s/it]
+claude-opus-4-8:  54%|█████▍    | 59/109 [56:36<36:05, 43.32s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  54%|█████▍    | 59/109 [56:37<36:05, 43.32s/it]
+claude-opus-4-8:  54%|█████▍    | 59/109 [56:37<36:05, 43.32s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#45[0m
+Total:  54%|█████▍    | 59/109 [56:37<36:05, 43.32s/it]
+claude-opus-4-8:  54%|█████▍    | 59/109 [56:37<36:05, 43.32s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  54%|█████▍    | 59/109 [56:47<36:05, 43.32s/it]
+claude-opus-4-8:  54%|█████▍    | 59/109 [56:47<36:05, 43.32s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  54%|█████▍    | 59/109 [57:00<36:05, 43.32s/it]
+claude-opus-4-8:  54%|█████▍    | 59/109 [57:00<36:05, 43.32s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  54%|█████▍    | 59/109 [57:11<36:05, 43.32s/it]
+claude-opus-4-8:  54%|█████▍    | 59/109 [57:11<36:05, 43.32s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  54%|█████▍    | 59/109 [57:25<36:05, 43.32s/it]
+claude-opus-4-8:  54%|█████▍    | 59/109 [57:25<36:05, 43.32s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  54%|█████▍    | 59/109 [57:31<36:05, 43.32s/it]
+claude-opus-4-8:  54%|█████▍    | 59/109 [57:31<36:05, 43.32s/it][ATotal:  55%|█████▌    | 60/109 [57:40<40:24, 49.47s/it]
+claude-opus-4-8:  55%|█████▌    | 60/109 [57:40<40:24, 49.47s/it][A                                                       
+                                                                 [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  55%|█████▌    | 60/109 [57:41<40:24, 49.47s/it]
+claude-opus-4-8:  55%|█████▌    | 60/109 [57:41<40:24, 49.47s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  55%|█████▌    | 60/109 [57:43<40:24, 49.47s/it]
+claude-opus-4-8:  55%|█████▌    | 60/109 [57:43<40:24, 49.47s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/alfworld-std#44[0m
+Total:  55%|█████▌    | 60/109 [57:43<40:24, 49.47s/it]
+claude-opus-4-8:  55%|█████▌    | 60/109 [57:43<40:24, 49.47s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  55%|█████▌    | 60/109 [57:49<40:24, 49.47s/it]
+claude-opus-4-8:  55%|█████▌    | 60/109 [57:49<40:24, 49.47s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  55%|█████▌    | 60/109 [57:56<40:24, 49.47s/it]
+claude-opus-4-8:  55%|█████▌    | 60/109 [57:56<40:24, 49.47s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  55%|█████▌    | 60/109 [58:04<40:24, 49.47s/it]
+claude-opus-4-8:  55%|█████▌    | 60/109 [58:04<40:24, 49.47s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  55%|█████▌    | 60/109 [58:18<40:24, 49.47s/it]
+claude-opus-4-8:  55%|█████▌    | 60/109 [58:18<40:24, 49.47s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  55%|█████▌    | 60/109 [58:29<40:24, 49.47s/it]
+claude-opus-4-8:  55%|█████▌    | 60/109 [58:29<40:24, 49.47s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  55%|█████▌    | 60/109 [58:41<40:24, 49.47s/it]
+claude-opus-4-8:  55%|█████▌    | 60/109 [58:41<40:24, 49.47s/it][A                                                       
+                                                                 [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  55%|█████▌    | 60/109 [58:42<40:24, 49.47s/it]
+claude-opus-4-8:  55%|█████▌    | 60/109 [58:42<40:24, 49.47s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  55%|█████▌    | 60/109 [58:48<40:24, 49.47s/it]
+claude-opus-4-8:  55%|█████▌    | 60/109 [58:48<40:24, 49.47s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  55%|█████▌    | 60/109 [58:56<40:24, 49.47s/it]
+claude-opus-4-8:  55%|█████▌    | 60/109 [58:56<40:24, 49.47s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  55%|█████▌    | 60/109 [59:03<40:24, 49.47s/it]
+claude-opus-4-8:  55%|█████▌    | 60/109 [59:03<40:24, 49.47s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  55%|█████▌    | 60/109 [59:11<40:24, 49.47s/it]
+claude-opus-4-8:  55%|█████▌    | 60/109 [59:11<40:24, 49.47s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  55%|█████▌    | 60/109 [59:25<40:24, 49.47s/it]
+claude-opus-4-8:  55%|█████▌    | 60/109 [59:25<40:24, 49.47s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  55%|█████▌    | 60/109 [59:31<40:24, 49.47s/it]
+claude-opus-4-8:  55%|█████▌    | 60/109 [59:31<40:24, 49.47s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  55%|█████▌    | 60/109 [59:42<40:24, 49.47s/it]
+claude-opus-4-8:  55%|█████▌    | 60/109 [59:42<40:24, 49.47s/it][A                                                       
+                                                                 [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  55%|█████▌    | 60/109 [59:46<40:24, 49.47s/it]
+claude-opus-4-8:  55%|█████▌    | 60/109 [59:46<40:24, 49.47s/it][A                                                       
+                                                                 [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  55%|█████▌    | 60/109 [59:53<40:24, 49.47s/it]
+claude-opus-4-8:  55%|█████▌    | 60/109 [59:53<40:24, 49.47s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  55%|█████▌    | 60/109 [59:53<40:24, 49.47s/it]
+claude-opus-4-8:  55%|█████▌    | 60/109 [59:53<40:24, 49.47s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  55%|█████▌    | 60/109 [1:00:07<40:24, 49.47s/it]
+claude-opus-4-8:  55%|█████▌    | 60/109 [1:00:07<40:24, 49.47s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  55%|█████▌    | 60/109 [1:00:13<40:24, 49.47s/it]
+claude-opus-4-8:  55%|█████▌    | 60/109 [1:00:13<40:24, 49.47s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  55%|█████▌    | 60/109 [1:00:19<40:24, 49.47s/it]
+claude-opus-4-8:  55%|█████▌    | 60/109 [1:00:19<40:24, 49.47s/it][ATotal:  56%|█████▌    | 61/109 [1:00:25<1:07:13, 84.03s/it]
+claude-opus-4-8:  56%|█████▌    | 61/109 [1:00:25<1:07:13, 84.03s/it][A                                                           
+                                                                     [ARunning Count: 4
+Total:  56%|█████▌    | 61/109 [1:00:26<1:07:13, 84.03s/it]
+claude-opus-4-8:  56%|█████▌    | 61/109 [1:00:26<1:07:13, 84.03s/it][A                                                           
+                                                                     [A[92mAssigned claude-opus-4-8/alfworld-std#43[0m
+Total:  56%|█████▌    | 61/109 [1:00:26<1:07:13, 84.03s/it]
+claude-opus-4-8:  56%|█████▌    | 61/109 [1:00:26<1:07:13, 84.03s/it][A                                                           
+                                                                     [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  56%|█████▌    | 61/109 [1:00:33<1:07:13, 84.03s/it]
+claude-opus-4-8:  56%|█████▌    | 61/109 [1:00:33<1:07:13, 84.03s/it][A                                                           
+                                                                     [ARunning Count: 5
+Total:  56%|█████▌    | 61/109 [1:00:37<1:07:13, 84.03s/it]
+claude-opus-4-8:  56%|█████▌    | 61/109 [1:00:37<1:07:13, 84.03s/it][A                                                           
+                                                                     [ARunning Count: 5
+Total:  56%|█████▌    | 61/109 [1:00:45<1:07:13, 84.03s/it]
+claude-opus-4-8:  56%|█████▌    | 61/109 [1:00:45<1:07:13, 84.03s/it][A                                                           
+                                                                     [ARunning Count: 5
+Total:  56%|█████▌    | 61/109 [1:00:57<1:07:13, 84.03s/it]
+claude-opus-4-8:  56%|█████▌    | 61/109 [1:00:57<1:07:13, 84.03s/it][ATotal:  57%|█████▋    | 62/109 [1:00:59<54:10, 69.17s/it]  
+claude-opus-4-8:  57%|█████▋    | 62/109 [1:00:59<54:10, 69.17s/it]  [ATotal:  58%|█████▊    | 63/109 [1:01:02<37:37, 49.08s/it]
+claude-opus-4-8:  58%|█████▊    | 63/109 [1:01:02<37:37, 49.08s/it][ATotal:  59%|█████▊    | 64/109 [1:01:04<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:01:04<26:17, 35.06s/it][A                                                         
+                                                                   [ARunning Count: 2
+Total:  59%|█████▊    | 64/109 [1:01:12<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:01:12<26:17, 35.06s/it][A                                                         
+                                                                   [A[92mAssigned claude-opus-4-8/alfworld-std#42[0m
+Total:  59%|█████▊    | 64/109 [1:01:12<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:01:12<26:17, 35.06s/it][A                                                         
+                                                                   [A[92mAssigned claude-opus-4-8/alfworld-std#41[0m
+Total:  59%|█████▊    | 64/109 [1:01:12<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:01:12<26:17, 35.06s/it][A                                                         
+                                                                   [A[92mAssigned claude-opus-4-8/alfworld-std#40[0m
+Total:  59%|█████▊    | 64/109 [1:01:12<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:01:12<26:17, 35.06s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [1:01:18<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:01:18<26:17, 35.06s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [1:01:24<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:01:24<26:17, 35.06s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [1:01:36<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:01:36<26:17, 35.06s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [1:01:47<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:01:47<26:17, 35.06s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [1:01:58<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:01:58<26:17, 35.06s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [1:02:04<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:02:04<26:17, 35.06s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [1:02:14<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:02:14<26:17, 35.06s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [1:02:29<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:02:29<26:17, 35.06s/it][A                                                         
+                                                                   [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  59%|█████▊    | 64/109 [1:02:33<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:02:33<26:17, 35.06s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [1:02:42<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:02:42<26:17, 35.06s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [1:02:57<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:02:57<26:17, 35.06s/it][A                                                         
+                                                                   [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  59%|█████▊    | 64/109 [1:02:59<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:02:59<26:17, 35.06s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [1:03:09<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:03:09<26:17, 35.06s/it][A                                                         
+                                                                   [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  59%|█████▊    | 64/109 [1:03:14<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:03:14<26:17, 35.06s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [1:03:16<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:03:16<26:17, 35.06s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [1:03:29<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:03:29<26:17, 35.06s/it][A                                                         
+                                                                   [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  59%|█████▊    | 64/109 [1:03:33<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:03:33<26:17, 35.06s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [1:03:43<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:03:43<26:17, 35.06s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [1:03:57<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:03:57<26:17, 35.06s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [1:04:04<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:04:04<26:17, 35.06s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [1:04:16<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:04:16<26:17, 35.06s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [1:04:21<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:04:21<26:17, 35.06s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [1:04:35<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:04:35<26:17, 35.06s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [1:04:42<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:04:42<26:17, 35.06s/it][A                                                         
+                                                                   [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  59%|█████▊    | 64/109 [1:04:49<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:04:49<26:17, 35.06s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [1:04:50<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:04:50<26:17, 35.06s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [1:05:02<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:05:02<26:17, 35.06s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [1:05:13<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:05:13<26:17, 35.06s/it][A                                                         
+                                                                   [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  59%|█████▊    | 64/109 [1:05:20<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:05:20<26:17, 35.06s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  59%|█████▊    | 64/109 [1:05:28<26:17, 35.06s/it]
+claude-opus-4-8:  59%|█████▊    | 64/109 [1:05:28<26:17, 35.06s/it][ATotal:  60%|█████▉    | 65/109 [1:05:35<1:17:33, 105.77s/it]
+claude-opus-4-8:  60%|█████▉    | 65/109 [1:05:35<1:17:33, 105.77s/it][A                                                            
+                                                                      [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  60%|█████▉    | 65/109 [1:05:38<1:17:33, 105.77s/it]
+claude-opus-4-8:  60%|█████▉    | 65/109 [1:05:38<1:17:33, 105.77s/it][A                                                            
+                                                                      [ARunning Count: 4
+Total:  60%|█████▉    | 65/109 [1:05:40<1:17:33, 105.77s/it]
+claude-opus-4-8:  60%|█████▉    | 65/109 [1:05:40<1:17:33, 105.77s/it][A                                                            
+                                                                      [A[92mAssigned claude-opus-4-8/alfworld-std#39[0m
+Total:  60%|█████▉    | 65/109 [1:05:40<1:17:33, 105.77s/it]
+claude-opus-4-8:  60%|█████▉    | 65/109 [1:05:40<1:17:33, 105.77s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  60%|█████▉    | 65/109 [1:05:54<1:17:33, 105.77s/it]
+claude-opus-4-8:  60%|█████▉    | 65/109 [1:05:54<1:17:33, 105.77s/it][ATotal:  61%|██████    | 66/109 [1:06:04<59:20, 82.79s/it]   
+claude-opus-4-8:  61%|██████    | 66/109 [1:06:04<59:20, 82.79s/it]   [A                                                         
+                                                                   [ARunning Count: 4
+Total:  61%|██████    | 66/109 [1:06:05<59:20, 82.79s/it]
+claude-opus-4-8:  61%|██████    | 66/109 [1:06:05<59:20, 82.79s/it][A                                                         
+                                                                   [A[92mAssigned claude-opus-4-8/alfworld-std#38[0m
+Total:  61%|██████    | 66/109 [1:06:05<59:20, 82.79s/it]
+claude-opus-4-8:  61%|██████    | 66/109 [1:06:05<59:20, 82.79s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  61%|██████    | 66/109 [1:06:10<59:20, 82.79s/it]
+claude-opus-4-8:  61%|██████    | 66/109 [1:06:10<59:20, 82.79s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  61%|██████    | 66/109 [1:06:17<59:20, 82.79s/it]
+claude-opus-4-8:  61%|██████    | 66/109 [1:06:17<59:20, 82.79s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  61%|██████    | 66/109 [1:06:23<59:20, 82.79s/it]
+claude-opus-4-8:  61%|██████    | 66/109 [1:06:23<59:20, 82.79s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  61%|██████    | 66/109 [1:06:38<59:20, 82.79s/it]
+claude-opus-4-8:  61%|██████    | 66/109 [1:06:38<59:20, 82.79s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  61%|██████    | 66/109 [1:06:49<59:20, 82.79s/it]
+claude-opus-4-8:  61%|██████    | 66/109 [1:06:49<59:20, 82.79s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  61%|██████    | 66/109 [1:07:03<59:20, 82.79s/it]
+claude-opus-4-8:  61%|██████    | 66/109 [1:07:03<59:20, 82.79s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  61%|██████    | 66/109 [1:07:17<59:20, 82.79s/it]
+claude-opus-4-8:  61%|██████    | 66/109 [1:07:17<59:20, 82.79s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  61%|██████    | 66/109 [1:07:24<59:20, 82.79s/it]
+claude-opus-4-8:  61%|██████    | 66/109 [1:07:24<59:20, 82.79s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  61%|██████    | 66/109 [1:07:39<59:20, 82.79s/it]
+claude-opus-4-8:  61%|██████    | 66/109 [1:07:39<59:20, 82.79s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  61%|██████    | 66/109 [1:07:45<59:20, 82.79s/it]
+claude-opus-4-8:  61%|██████    | 66/109 [1:07:45<59:20, 82.79s/it][A                                                         
+                                                                   [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  61%|██████    | 66/109 [1:07:48<59:20, 82.79s/it]
+claude-opus-4-8:  61%|██████    | 66/109 [1:07:48<59:20, 82.79s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  61%|██████    | 66/109 [1:07:51<59:20, 82.79s/it]
+claude-opus-4-8:  61%|██████    | 66/109 [1:07:51<59:20, 82.79s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  61%|██████    | 66/109 [1:07:57<59:20, 82.79s/it]
+claude-opus-4-8:  61%|██████    | 66/109 [1:07:57<59:20, 82.79s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  61%|██████    | 66/109 [1:08:05<59:20, 82.79s/it]
+claude-opus-4-8:  61%|██████    | 66/109 [1:08:05<59:20, 82.79s/it][A                                                         
+                                                                   [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  61%|██████    | 66/109 [1:08:06<59:20, 82.79s/it]
+claude-opus-4-8:  61%|██████    | 66/109 [1:08:06<59:20, 82.79s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  61%|██████    | 66/109 [1:08:13<59:20, 82.79s/it]
+claude-opus-4-8:  61%|██████    | 66/109 [1:08:13<59:20, 82.79s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  61%|██████    | 66/109 [1:08:26<59:20, 82.79s/it]
+claude-opus-4-8:  61%|██████    | 66/109 [1:08:26<59:20, 82.79s/it][A                                                         
+                                                                   [ARunning Count: 5
+Total:  61%|██████    | 66/109 [1:08:40<59:20, 82.79s/it]
+claude-opus-4-8:  61%|██████    | 66/109 [1:08:40<59:20, 82.79s/it][ATotal:  61%|██████▏   | 67/109 [1:08:43<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:08:43<1:14:00, 105.72s/it][A                                                            
+                                                                      [ARunning Count: 4
+Total:  61%|██████▏   | 67/109 [1:08:48<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:08:48<1:14:00, 105.72s/it][A                                                            
+                                                                      [A[92mAssigned claude-opus-4-8/alfworld-std#37[0m
+Total:  61%|██████▏   | 67/109 [1:08:48<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:08:48<1:14:00, 105.72s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  61%|██████▏   | 67/109 [1:08:58<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:08:58<1:14:00, 105.72s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  61%|██████▏   | 67/109 [1:09:05<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:09:05<1:14:00, 105.72s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  61%|██████▏   | 67/109 [1:09:19<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:09:19<1:14:00, 105.72s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  61%|██████▏   | 67/109 [1:09:28<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:09:28<1:14:00, 105.72s/it][A                                                            
+                                                                      [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  61%|██████▏   | 67/109 [1:09:29<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:09:29<1:14:00, 105.72s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  61%|██████▏   | 67/109 [1:09:36<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:09:36<1:14:00, 105.72s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  61%|██████▏   | 67/109 [1:09:47<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:09:47<1:14:00, 105.72s/it][A                                                            
+                                                                      [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  61%|██████▏   | 67/109 [1:09:50<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:09:50<1:14:00, 105.72s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  61%|██████▏   | 67/109 [1:10:01<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:10:01<1:14:00, 105.72s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  61%|██████▏   | 67/109 [1:10:09<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:10:09<1:14:00, 105.72s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  61%|██████▏   | 67/109 [1:10:20<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:10:20<1:14:00, 105.72s/it][A                                                            
+                                                                      [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  61%|██████▏   | 67/109 [1:10:23<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:10:23<1:14:00, 105.72s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  61%|██████▏   | 67/109 [1:10:30<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:10:30<1:14:00, 105.72s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  61%|██████▏   | 67/109 [1:10:44<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:10:44<1:14:00, 105.72s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  61%|██████▏   | 67/109 [1:10:56<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:10:56<1:14:00, 105.72s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  61%|██████▏   | 67/109 [1:11:06<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:11:06<1:14:00, 105.72s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  61%|██████▏   | 67/109 [1:11:17<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:11:17<1:14:00, 105.72s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  61%|██████▏   | 67/109 [1:11:23<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:11:23<1:14:00, 105.72s/it][A                                                            
+                                                                      [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  61%|██████▏   | 67/109 [1:11:31<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:11:31<1:14:00, 105.72s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  61%|██████▏   | 67/109 [1:11:34<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:11:34<1:14:00, 105.72s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  61%|██████▏   | 67/109 [1:11:39<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:11:39<1:14:00, 105.72s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  61%|██████▏   | 67/109 [1:11:52<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:11:52<1:14:00, 105.72s/it][A                                                            
+                                                                      [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  61%|██████▏   | 67/109 [1:11:55<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:11:55<1:14:00, 105.72s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  61%|██████▏   | 67/109 [1:12:00<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:12:00<1:14:00, 105.72s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  61%|██████▏   | 67/109 [1:12:10<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:12:10<1:14:00, 105.72s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  61%|██████▏   | 67/109 [1:12:16<1:14:00, 105.72s/it]
+claude-opus-4-8:  61%|██████▏   | 67/109 [1:12:16<1:14:00, 105.72s/it][ATotal:  62%|██████▏   | 68/109 [1:12:19<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:12:19<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 4
+Total:  62%|██████▏   | 68/109 [1:12:30<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:12:30<1:34:44, 138.64s/it][A                                                            
+                                                                      [A[92mAssigned claude-opus-4-8/alfworld-std#36[0m
+Total:  62%|██████▏   | 68/109 [1:12:30<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:12:30<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  62%|██████▏   | 68/109 [1:12:39<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:12:39<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  62%|██████▏   | 68/109 [1:12:51<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:12:51<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  62%|██████▏   | 68/109 [1:12:57<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:12:57<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  62%|██████▏   | 68/109 [1:13:02<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:13:02<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  62%|██████▏   | 68/109 [1:13:08<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:13:08<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  62%|██████▏   | 68/109 [1:13:15<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:13:15<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  62%|██████▏   | 68/109 [1:13:28<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:13:28<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  62%|██████▏   | 68/109 [1:13:43<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:13:43<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  62%|██████▏   | 68/109 [1:13:55<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:13:55<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  62%|██████▏   | 68/109 [1:14:05<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:14:05<1:34:44, 138.64s/it][A                                                            
+                                                                      [A[93mWarning: claude-opus-4-8/alfworld-std#46 failed with error INTERACT_FAILED {"message":"failed to interact with session"}
+Total:  62%|██████▏   | 68/109 [1:14:09<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:14:09<1:34:44, 138.64s/it][A                                                            
+                                                                      [A index=None status=<SampleStatus.RUNNING: 'running'> result={'reward': 0, 'metrics': {'score': 0}} history=[ChatHistoryItem(role='user', content='You pick up the tomato 1 from the garbagecan 1. AVAILABLE ACTIONS: examine garbagecan 1\nexamine tomato 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to coffeemachine 1\ngo to countertop 1\ngo to countertop 2\ngo to countertop 3\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to microwave 1\ngo to shelf 1\ngo to shelf 2\ngo to shelf 3\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\ninventory\nlook\nput tomato 1 in/on garbagecan 1\n')][0m
+Total:  62%|██████▏   | 68/109 [1:14:09<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:14:09<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 4
+Total:  62%|██████▏   | 68/109 [1:14:15<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:14:15<1:34:44, 138.64s/it][A                                                            
+                                                                      [A[92mAssigned claude-opus-4-8/alfworld-std#35[0m
+Total:  62%|██████▏   | 68/109 [1:14:15<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:14:15<1:34:44, 138.64s/it][A                                                            
+                                                                      [A[93mWarning: claude-opus-4-8/alfworld-std#39 failed with error INTERACT_FAILED {"message":"failed to interact with session"}
+Total:  62%|██████▏   | 68/109 [1:14:24<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:14:24<1:34:44, 138.64s/it][A                                                            
+                                                                      [A index=None status=<SampleStatus.RUNNING: 'running'> result={'reward': 0, 'metrics': {'score': 0}} history=[ChatHistoryItem(role='user', content='You heat the cup 1 using the microwave 1. AVAILABLE ACTIONS: examine cup 1\nexamine microwave 1\ngo to cabinet 1\ngo to cabinet 2\ngo to cabinet 3\ngo to cabinet 4\ngo to cabinet 5\ngo to cabinet 6\ngo to coffeemachine 1\ngo to countertop 1\ngo to countertop 2\ngo to countertop 3\ngo to drawer 1\ngo to drawer 2\ngo to drawer 3\ngo to fridge 1\ngo to garbagecan 1\ngo to shelf 1\ngo to shelf 2\ngo to shelf 3\ngo to sinkbasin 1\ngo to stoveburner 1\ngo to stoveburner 2\ngo to stoveburner 3\ngo to stoveburner 4\ngo to toaster 1\nheat cup 1 with microwave 1\ninventory\nlook\nopen microwave 1\n')][0m
+Total:  62%|██████▏   | 68/109 [1:14:24<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:14:24<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 4
+Total:  62%|██████▏   | 68/109 [1:14:30<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:14:30<1:34:44, 138.64s/it][A                                                            
+                                                                      [A[92mAssigned claude-opus-4-8/alfworld-std#34[0m
+Total:  62%|██████▏   | 68/109 [1:14:30<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:14:30<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  62%|██████▏   | 68/109 [1:14:43<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:14:43<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  62%|██████▏   | 68/109 [1:14:57<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:14:57<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  62%|██████▏   | 68/109 [1:15:09<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:15:09<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  62%|██████▏   | 68/109 [1:15:23<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:15:23<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  62%|██████▏   | 68/109 [1:15:38<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:15:38<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  62%|██████▏   | 68/109 [1:15:53<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:15:53<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  62%|██████▏   | 68/109 [1:16:02<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:16:02<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  62%|██████▏   | 68/109 [1:16:16<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:16:16<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  62%|██████▏   | 68/109 [1:16:25<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:16:25<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  62%|██████▏   | 68/109 [1:16:31<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:16:31<1:34:44, 138.64s/it][A                                                            
+                                                                      [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  62%|██████▏   | 68/109 [1:16:37<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:16:37<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  62%|██████▏   | 68/109 [1:16:43<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:16:43<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  62%|██████▏   | 68/109 [1:16:52<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:16:52<1:34:44, 138.64s/it][A                                                            
+                                                                      [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  62%|██████▏   | 68/109 [1:16:57<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:16:57<1:34:44, 138.64s/it][A                                                            
+                                                                      [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  62%|██████▏   | 68/109 [1:17:05<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:17:05<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  62%|██████▏   | 68/109 [1:17:07<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:17:07<1:34:44, 138.64s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  62%|██████▏   | 68/109 [1:17:15<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:17:15<1:34:44, 138.64s/it][A                                                            
+                                                                      [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  62%|██████▏   | 68/109 [1:17:19<1:34:44, 138.64s/it]
+claude-opus-4-8:  62%|██████▏   | 68/109 [1:17:19<1:34:44, 138.64s/it][ATotal:  63%|██████▎   | 69/109 [1:17:19<2:04:51, 187.29s/it]
+claude-opus-4-8:  63%|██████▎   | 69/109 [1:17:19<2:04:51, 187.29s/it][A                                                            
+                                                                      [ARunning Count: 4
+Total:  63%|██████▎   | 69/109 [1:17:27<2:04:51, 187.29s/it]
+claude-opus-4-8:  63%|██████▎   | 69/109 [1:17:27<2:04:51, 187.29s/it][A                                                            
+                                                                      [A[92mAssigned claude-opus-4-8/alfworld-std#33[0m
+Total:  63%|██████▎   | 69/109 [1:17:27<2:04:51, 187.29s/it]
+claude-opus-4-8:  63%|██████▎   | 69/109 [1:17:27<2:04:51, 187.29s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  63%|██████▎   | 69/109 [1:17:34<2:04:51, 187.29s/it]
+claude-opus-4-8:  63%|██████▎   | 69/109 [1:17:34<2:04:51, 187.29s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  63%|██████▎   | 69/109 [1:17:40<2:04:51, 187.29s/it]
+claude-opus-4-8:  63%|██████▎   | 69/109 [1:17:40<2:04:51, 187.29s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  63%|██████▎   | 69/109 [1:17:50<2:04:51, 187.29s/it]
+claude-opus-4-8:  63%|██████▎   | 69/109 [1:17:50<2:04:51, 187.29s/it][A                                                            
+                                                                      [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  63%|██████▎   | 69/109 [1:17:52<2:04:51, 187.29s/it]
+claude-opus-4-8:  63%|██████▎   | 69/109 [1:17:52<2:04:51, 187.29s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  63%|██████▎   | 69/109 [1:18:02<2:04:51, 187.29s/it]
+claude-opus-4-8:  63%|██████▎   | 69/109 [1:18:02<2:04:51, 187.29s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  63%|██████▎   | 69/109 [1:18:16<2:04:51, 187.29s/it]
+claude-opus-4-8:  63%|██████▎   | 69/109 [1:18:16<2:04:51, 187.29s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  63%|██████▎   | 69/109 [1:18:24<2:04:51, 187.29s/it]
+claude-opus-4-8:  63%|██████▎   | 69/109 [1:18:24<2:04:51, 187.29s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  63%|██████▎   | 69/109 [1:18:37<2:04:51, 187.29s/it]
+claude-opus-4-8:  63%|██████▎   | 69/109 [1:18:37<2:04:51, 187.29s/it][ATotal:  64%|██████▍   | 70/109 [1:18:40<1:40:57, 155.33s/it]
+claude-opus-4-8:  64%|██████▍   | 70/109 [1:18:40<1:40:57, 155.33s/it][A                                                            
+                                                                      [ARunning Count: 4
+Total:  64%|██████▍   | 70/109 [1:18:46<1:40:57, 155.33s/it]
+claude-opus-4-8:  64%|██████▍   | 70/109 [1:18:46<1:40:57, 155.33s/it][A                                                            
+                                                                      [A[92mAssigned claude-opus-4-8/alfworld-std#32[0m
+Total:  64%|██████▍   | 70/109 [1:18:46<1:40:57, 155.33s/it]
+claude-opus-4-8:  64%|██████▍   | 70/109 [1:18:46<1:40:57, 155.33s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  64%|██████▍   | 70/109 [1:18:53<1:40:57, 155.33s/it]
+claude-opus-4-8:  64%|██████▍   | 70/109 [1:18:53<1:40:57, 155.33s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  64%|██████▍   | 70/109 [1:19:06<1:40:57, 155.33s/it]
+claude-opus-4-8:  64%|██████▍   | 70/109 [1:19:06<1:40:57, 155.33s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  64%|██████▍   | 70/109 [1:19:14<1:40:57, 155.33s/it]
+claude-opus-4-8:  64%|██████▍   | 70/109 [1:19:14<1:40:57, 155.33s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  64%|██████▍   | 70/109 [1:19:23<1:40:57, 155.33s/it]
+claude-opus-4-8:  64%|██████▍   | 70/109 [1:19:23<1:40:57, 155.33s/it][ATotal:  65%|██████▌   | 71/109 [1:19:24<1:17:06, 121.74s/it]
+claude-opus-4-8:  65%|██████▌   | 71/109 [1:19:24<1:17:06, 121.74s/it][A                                                            
+                                                                      [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  65%|██████▌   | 71/109 [1:19:31<1:17:06, 121.74s/it]
+claude-opus-4-8:  65%|██████▌   | 71/109 [1:19:31<1:17:06, 121.74s/it][A                                                            
+                                                                      [ARunning Count: 4
+Total:  65%|██████▌   | 71/109 [1:19:32<1:17:06, 121.74s/it]
+claude-opus-4-8:  65%|██████▌   | 71/109 [1:19:32<1:17:06, 121.74s/it][A                                                            
+                                                                      [A[92mAssigned claude-opus-4-8/alfworld-std#31[0m
+Total:  65%|██████▌   | 71/109 [1:19:32<1:17:06, 121.74s/it]
+claude-opus-4-8:  65%|██████▌   | 71/109 [1:19:32<1:17:06, 121.74s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  65%|██████▌   | 71/109 [1:19:38<1:17:06, 121.74s/it]
+claude-opus-4-8:  65%|██████▌   | 71/109 [1:19:38<1:17:06, 121.74s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  65%|██████▌   | 71/109 [1:19:51<1:17:06, 121.74s/it]
+claude-opus-4-8:  65%|██████▌   | 71/109 [1:19:51<1:17:06, 121.74s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  65%|██████▌   | 71/109 [1:20:02<1:17:06, 121.74s/it]
+claude-opus-4-8:  65%|██████▌   | 71/109 [1:20:02<1:17:06, 121.74s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  65%|██████▌   | 71/109 [1:20:08<1:17:06, 121.74s/it]
+claude-opus-4-8:  65%|██████▌   | 71/109 [1:20:08<1:17:06, 121.74s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  65%|██████▌   | 71/109 [1:20:17<1:17:06, 121.74s/it]
+claude-opus-4-8:  65%|██████▌   | 71/109 [1:20:17<1:17:06, 121.74s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  65%|██████▌   | 71/109 [1:20:26<1:17:06, 121.74s/it]
+claude-opus-4-8:  65%|██████▌   | 71/109 [1:20:26<1:17:06, 121.74s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  65%|██████▌   | 71/109 [1:20:32<1:17:06, 121.74s/it]
+claude-opus-4-8:  65%|██████▌   | 71/109 [1:20:32<1:17:06, 121.74s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  65%|██████▌   | 71/109 [1:20:40<1:17:06, 121.74s/it]
+claude-opus-4-8:  65%|██████▌   | 71/109 [1:20:40<1:17:06, 121.74s/it][ATotal:  66%|██████▌   | 72/109 [1:20:50<1:08:35, 111.23s/it]
+claude-opus-4-8:  66%|██████▌   | 72/109 [1:20:50<1:08:35, 111.23s/it][A                                                            
+                                                                      [ARunning Count: 4
+Total:  66%|██████▌   | 72/109 [1:20:55<1:08:35, 111.23s/it]
+claude-opus-4-8:  66%|██████▌   | 72/109 [1:20:55<1:08:35, 111.23s/it][A                                                            
+                                                                      [A[92mAssigned claude-opus-4-8/alfworld-std#30[0m
+Total:  66%|██████▌   | 72/109 [1:20:55<1:08:35, 111.23s/it]
+claude-opus-4-8:  66%|██████▌   | 72/109 [1:20:55<1:08:35, 111.23s/it][A                                                            
+                                                                      [ARunning Count: 5
+Total:  66%|██████▌   | 72/109 [1:21:04<1:08:35, 111.23s/it]
+claude-opus-4-8:  66%|██████▌   | 72/109 [1:21:04<1:08:35, 111.23s/it][A/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

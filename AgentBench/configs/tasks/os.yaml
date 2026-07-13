@@ -2,7 +2,7 @@ default:
   module: "src.server.tasks.os_interaction.OSInteraction"
   parameters:
     concurrency: 32
-    round_limit: 8
+    round_limit: 16
     # ─── Harness config (OS) ────────────────────────────────────────────────
     # Disabled by default; enable per-profile (see os-env_train below).
     enabled: false
@@ -70,13 +70,13 @@ default:
       state_driver: redis
       state_options:
         connection:
-          host: 172.17.0.1
+          host: redis
 
 os-std:
   module: "src.server.tasks.os_interaction.OSInteraction"
   parameters:
     name: "os-std"
-    enabled: true
+    enabled: false
     h2: false
     h3: true
     h4: false

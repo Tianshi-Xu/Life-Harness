@@ -40,6 +40,16 @@ alfworld-std:
     h5: true
     h5_top_k: 1
 
+alfworld-std-baseline:
+  parameters:
+    name: alfworld-std
+    split: "new_std"
+    enabled: false
+    h2: false
+    h3: false
+    h4: false
+    h5: false
+
 alfworld-env_train:
   parameters:
     name: alfworld-env_train

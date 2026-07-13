@@ -109,17 +109,23 @@ Eligibility: at least ONE condition must be true:
   1. Reservation was booked within the last 24 hours.
   2. The airline cancelled a flight in this reservation.
   3. Cabin is 'business'.
-  4. Travel insurance was purchased. A health/weather reason is needed for
-     insurance-covered full-refund reasoning, but do not skip a cancellation
-     solely because an insured user gives a non-health/non-weather reason and
-     explicitly still wants to proceed.
+  4. Travel insurance was purchased AND the reason is health/weather.
+     Insurance covers ONLY health/weather reasons. For personal reasons,
+     family emergencies, schedule conflicts, or other non-covered reasons,
+     insurance does NOT make the reservation eligible — refuse instead.
+
+If NONE of the above conditions are met: DO NOT cancel. Politely refuse
+and explain the policy. Do NOT attempt workarounds (cabin upgrades,
+rebooking, cancel-and-rebook) to bypass eligibility — if the reservation
+is not eligible, no workaround makes it eligible.
 
 If any flight has status 'flying' or 'landed': DO NOT cancel — call \
 transfer_to_human_agents instead.
 
-Tip for basic_economy: call update_reservation_flights first to upgrade the \
-cabin to 'business' (keeping the EXACT SAME flight numbers). Upgrading only \
-to 'economy' does NOT satisfy cancellation condition 3.""",
+If a valid reason (1-4 above) already exists but cabin is basic_economy: \
+you may upgrade to 'business' (same flight numbers) via \
+update_reservation_flights, then cancel. Upgrading alone does NOT create \
+eligibility — a valid reason must already be satisfied.""",
     "update_reservation_flights": """\
 POLICY CONSTRAINTS:
   • Cabin is reservation-wide; you cannot change cabin for only one segment or
@@ -165,7 +171,11 @@ Free checked bags per passenger (membership × cabin):
   regular → basic_economy=0  economy=1  business=2
   silver  → basic_economy=1  economy=2  business=3
   gold    → basic_economy=2  economy=3  business=4
-nonfree_baggages = max(0, total_baggages − free_allowance); each extra bag = $50.""",
+nonfree_baggages = max(0, total_baggages − free_allowance); each extra bag = $50.
+
+Insurance: can only be selected at time of booking. If a user asks to add
+insurance to an EXISTING reservation, refuse — do not use rebooking, cabin
+upgrades, or new bookings as a workaround to add insurance after the fact.""",
     "update_reservation_baggages": """\
 POLICY CONSTRAINTS:
   • Checked bags can only be ADDED, never removed.

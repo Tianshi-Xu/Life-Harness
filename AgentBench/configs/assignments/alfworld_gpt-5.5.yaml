@@ -1,0 +1,13 @@
+assignments:
+- agent:
+  - gpt-5.5
+  task:
+  - alfworld-std
+concurrency:
+  agent:
+    gpt-5.5: 5
+  task:
+    alfworld-std: 32
+import: definition.yaml
+output: outputs/gpt-5.5/alfworld/{TIMESTAMP}-run
+trials: 1

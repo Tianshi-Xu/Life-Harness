@@ -7,6 +7,10 @@ logs
 outputs
 outputs_old
 data/full
+data/alfworld_repo
+data/webshop_repo
+data/textworld_src
+data/alfworld
 results
 config.sh
 download
@@ -20,3 +24,5 @@ src/server/tasks/card_game/result
 analysis
 .claude
 .github
+logs_*.log
+.venv/

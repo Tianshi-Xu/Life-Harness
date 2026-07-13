@@ -44,6 +44,17 @@ webshop-std:
     h5_top_k: 1
     h5_score_threshold: 3.0
 
+webshop-std-baseline:
+  parameters:
+    name: webshop-std
+    start: 0
+    end: 200
+    enabled: false
+    h2: false
+    h3: false
+    h4: false
+    h5: false
+
 webshop-env_train:
   parameters:
     name: webshop-env_train

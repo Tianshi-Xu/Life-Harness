@@ -1,0 +1,1108 @@
+/Users/faker/Library/CloudStorage/北大网盘2.0-许天识_2301111861-disk.pku.edu.cn/我的文档库/许天识_2301111861/SEC Lab/隐私计算/笔记大全/投稿计划/tong (2)/code/Life-Harness/AgentBench/.venv/lib/python3.9/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  torch.utils._pytree._register_pytree_node(
+W0713 09:05:40.338987 48873 .venv/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+/Users/faker/Library/CloudStorage/北大网盘2.0-许天识_2301111861-disk.pku.edu.cn/我的文档库/许天识_2301111861/SEC Lab/隐私计算/笔记大全/投稿计划/tong (2)/code/Life-Harness/AgentBench/.venv/lib/python3.9/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  torch.utils._pytree._register_pytree_node(
+[93mWarning: 10 agent(s) and 19 task(s) are defined but not used, they will be ignored.[0m
+[93m    Agent: {'vicuna-33b', 'gpt-5.5', 'vicuna-7b', 'vicuna-13b', 'text-davinci-002', 'qwen3-4b-instruct', 'gemini-3.1-pro-preview', 'gpt-3.5-turbo-0613', 'text-davinci-003', 'wizard-30b'}[0m
+[93m    Task: {'m2w-std', 'ltp-std', 'alfworld-env_train', 'alfworld-std', 'cg-dev', 'kg-env_train', 'cg-std', 'avalon-dev-single', 'dbbench-std', 'os-env_train', 'webshop-env_train', 'alfworld-std-baseline', 'kg-std', 'webshop-std-baseline', 'dbbench-env_train', 'avalon-dev-naive', 'm2w-dev', 'webshop-std', 'ltp-dev'}[0m
+[92mcreating os-std client...[0m
+TaskClient created: os-std (http://localhost:5020/api)
+[96mMessage: 144 samples remaining.[0m
+[96mAgent "claude-opus-4-8" needs to run 1 tasks with total 144 samples:[0m
+[96m    Task "os-std": 144[0m
+Total:   0%|          | 0/144 [00:00<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
+                                                        [ARunning Count: 0
+Total:   0%|          | 0/144 [00:00<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
+                                                        [A[92mAssigned claude-opus-4-8/os-std#143[0m
+Total:   0%|          | 0/144 [00:00<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
+                                                        [A[92mAssigned claude-opus-4-8/os-std#142[0m
+Total:   0%|          | 0/144 [00:00<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
+                                                        [A[92mAssigned claude-opus-4-8/os-std#141[0m
+Total:   0%|          | 0/144 [00:00<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
+                                                        [A[92mAssigned claude-opus-4-8/os-std#140[0m
+Total:   0%|          | 0/144 [00:00<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
+                                                        [A[92mAssigned claude-opus-4-8/os-std#139[0m
+Total:   0%|          | 0/144 [00:00<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/144 [00:00<?, ?it/s][A                                              
+                                                        [ARunning Count: 5
+Total:   0%|          | 0/144 [00:13<?, ?it/s]
+claude-opus-4-8:   0%|          | 0/144 [00:13<?, ?it/s][ATotal:   1%|          | 1/144 [00:17<42:38, 17.89s/it]
+claude-opus-4-8:   1%|          | 1/144 [00:17<42:38, 17.89s/it][ATotal:   1%|▏         | 2/144 [00:23<25:51, 10.93s/it]
+claude-opus-4-8:   1%|▏         | 2/144 [00:23<25:51, 10.93s/it][A                                                      
+                                                                [ARunning Count: 3
+Total:   1%|▏         | 2/144 [00:28<25:51, 10.93s/it]
+claude-opus-4-8:   1%|▏         | 2/144 [00:28<25:51, 10.93s/it][A                                                      
+                                                                [A[92mAssigned claude-opus-4-8/os-std#138[0m
+Total:   1%|▏         | 2/144 [00:28<25:51, 10.93s/it]
+claude-opus-4-8:   1%|▏         | 2/144 [00:28<25:51, 10.93s/it][A                                                      
+                                                                [A[92mAssigned claude-opus-4-8/os-std#137[0m
+Total:   1%|▏         | 2/144 [00:28<25:51, 10.93s/it]
+claude-opus-4-8:   1%|▏         | 2/144 [00:28<25:51, 10.93s/it][ATotal:   2%|▏         | 3/144 [00:29<19:41,  8.38s/it]
+claude-opus-4-8:   2%|▏         | 3/144 [00:29<19:41,  8.38s/it][A                                                      
+                                                                [ARunning Count: 4
+Total:   2%|▏         | 3/144 [00:38<19:41,  8.38s/it]
+claude-opus-4-8:   2%|▏         | 3/144 [00:38<19:41,  8.38s/it][A                                                      
+                                                                [A[92mAssigned claude-opus-4-8/os-std#136[0m
+Total:   2%|▏         | 3/144 [00:38<19:41,  8.38s/it]
+claude-opus-4-8:   2%|▏         | 3/144 [00:38<19:41,  8.38s/it][ATotal:   3%|▎         | 4/144 [00:40<22:13,  9.53s/it]
+claude-opus-4-8:   3%|▎         | 4/144 [00:40<22:13,  9.53s/it][ATotal:   3%|▎         | 5/144 [00:43<16:49,  7.26s/it]
+claude-opus-4-8:   3%|▎         | 5/144 [00:43<16:49,  7.26s/it][A                                                      
+                                                                [ARunning Count: 3
+Total:   3%|▎         | 5/144 [00:43<16:49,  7.26s/it]
+claude-opus-4-8:   3%|▎         | 5/144 [00:43<16:49,  7.26s/it][A                                                      
+                                                                [A[92mAssigned claude-opus-4-8/os-std#135[0m
+Total:   3%|▎         | 5/144 [00:43<16:49,  7.26s/it]
+claude-opus-4-8:   3%|▎         | 5/144 [00:43<16:49,  7.26s/it][A                                                      
+                                                                [A[92mAssigned claude-opus-4-8/os-std#134[0m
+Total:   3%|▎         | 5/144 [00:43<16:49,  7.26s/it]
+claude-opus-4-8:   3%|▎         | 5/144 [00:43<16:49,  7.26s/it][ATotal:   4%|▍         | 6/144 [00:48<14:37,  6.36s/it]
+claude-opus-4-8:   4%|▍         | 6/144 [00:48<14:37,  6.36s/it][ATotal:   5%|▍         | 7/144 [00:54<14:15,  6.25s/it]
+claude-opus-4-8:   5%|▍         | 7/144 [00:54<14:15,  6.25s/it][ATotal:   6%|▌         | 8/144 [00:55<10:24,  4.59s/it]
+claude-opus-4-8:   6%|▌         | 8/144 [00:55<10:24,  4.59s/it][A                                                      
+                                                                [ARunning Count: 2
+Total:   6%|▌         | 8/144 [00:58<10:24,  4.59s/it]
+claude-opus-4-8:   6%|▌         | 8/144 [00:58<10:24,  4.59s/it][A                                                      
+                                                                [A[92mAssigned claude-opus-4-8/os-std#133[0m
+Total:   6%|▌         | 8/144 [00:58<10:24,  4.59s/it]
+claude-opus-4-8:   6%|▌         | 8/144 [00:58<10:24,  4.59s/it][A                                                      
+                                                                [A[92mAssigned claude-opus-4-8/os-std#132[0m
+Total:   6%|▌         | 8/144 [00:58<10:24,  4.59s/it]
+claude-opus-4-8:   6%|▌         | 8/144 [00:58<10:24,  4.59s/it][A                                                      
+                                                                [A[92mAssigned claude-opus-4-8/os-std#131[0m
+Total:   6%|▌         | 8/144 [00:58<10:24,  4.59s/it]
+claude-opus-4-8:   6%|▌         | 8/144 [00:58<10:24,  4.59s/it][A                                                      
+                                                                [ARunning Count: 5
+Total:   6%|▌         | 8/144 [01:11<10:24,  4.59s/it]
+claude-opus-4-8:   6%|▌         | 8/144 [01:11<10:24,  4.59s/it][ATotal:   6%|▋         | 9/144 [01:11<18:10,  8.08s/it]
+claude-opus-4-8:   6%|▋         | 9/144 [01:11<18:10,  8.08s/it][ATotal:   7%|▋         | 10/144 [01:14<14:23,  6.45s/it]
+claude-opus-4-8:   7%|▋         | 10/144 [01:14<14:23,  6.45s/it][A                                                       
+                                                                 [ARunning Count: 3
+Total:   7%|▋         | 10/144 [01:18<14:23,  6.45s/it]
+claude-opus-4-8:   7%|▋         | 10/144 [01:18<14:23,  6.45s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#130[0m
+Total:   7%|▋         | 10/144 [01:18<14:23,  6.45s/it]
+claude-opus-4-8:   7%|▋         | 10/144 [01:18<14:23,  6.45s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#129[0m
+Total:   7%|▋         | 10/144 [01:18<14:23,  6.45s/it]
+claude-opus-4-8:   7%|▋         | 10/144 [01:18<14:23,  6.45s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:   7%|▋         | 10/144 [01:24<14:23,  6.45s/it]
+claude-opus-4-8:   7%|▋         | 10/144 [01:24<14:23,  6.45s/it][ATotal:   8%|▊         | 11/144 [01:26<18:28,  8.33s/it]
+claude-opus-4-8:   8%|▊         | 11/144 [01:26<18:28,  8.33s/it][ATotal:   8%|▊         | 12/144 [01:33<17:01,  7.74s/it]
+claude-opus-4-8:   8%|▊         | 12/144 [01:33<17:01,  7.74s/it][A                                                       
+                                                                 [ARunning Count: 3
+Total:   8%|▊         | 12/144 [01:33<17:01,  7.74s/it]
+claude-opus-4-8:   8%|▊         | 12/144 [01:33<17:01,  7.74s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#128[0m
+Total:   8%|▊         | 12/144 [01:33<17:01,  7.74s/it]
+claude-opus-4-8:   8%|▊         | 12/144 [01:33<17:01,  7.74s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#127[0m
+Total:   8%|▊         | 12/144 [01:33<17:01,  7.74s/it]
+claude-opus-4-8:   8%|▊         | 12/144 [01:33<17:01,  7.74s/it][ATotal:   9%|▉         | 13/144 [01:37<14:33,  6.66s/it]
+claude-opus-4-8:   9%|▉         | 13/144 [01:37<14:33,  6.66s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:   9%|▉         | 13/144 [01:41<14:33,  6.66s/it]
+claude-opus-4-8:   9%|▉         | 13/144 [01:41<14:33,  6.66s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#126[0m
+Total:   9%|▉         | 13/144 [01:41<14:33,  6.66s/it]
+claude-opus-4-8:   9%|▉         | 13/144 [01:41<14:33,  6.66s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:   9%|▉         | 13/144 [01:50<14:33,  6.66s/it]
+claude-opus-4-8:   9%|▉         | 13/144 [01:50<14:33,  6.66s/it][ATotal:  10%|▉         | 14/144 [01:51<19:39,  9.07s/it]
+claude-opus-4-8:  10%|▉         | 14/144 [01:51<19:39,  9.07s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  10%|▉         | 14/144 [02:02<19:39,  9.07s/it]
+claude-opus-4-8:  10%|▉         | 14/144 [02:02<19:39,  9.07s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#125[0m
+Total:  10%|▉         | 14/144 [02:02<19:39,  9.07s/it]
+claude-opus-4-8:  10%|▉         | 14/144 [02:02<19:39,  9.07s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  10%|▉         | 14/144 [02:08<19:39,  9.07s/it]
+claude-opus-4-8:  10%|▉         | 14/144 [02:08<19:39,  9.07s/it][ATotal:  10%|█         | 15/144 [02:08<24:16, 11.29s/it]
+claude-opus-4-8:  10%|█         | 15/144 [02:08<24:16, 11.29s/it][ATotal:  11%|█         | 16/144 [02:18<23:42, 11.11s/it]
+claude-opus-4-8:  11%|█         | 16/144 [02:18<23:42, 11.11s/it][ATotal:  12%|█▏        | 17/144 [02:20<17:16,  8.16s/it]
+claude-opus-4-8:  12%|█▏        | 17/144 [02:20<17:16,  8.16s/it][A                                                       
+                                                                 [ARunning Count: 2
+Total:  12%|█▏        | 17/144 [02:21<17:16,  8.16s/it]
+claude-opus-4-8:  12%|█▏        | 17/144 [02:21<17:16,  8.16s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#124[0m
+Total:  12%|█▏        | 17/144 [02:21<17:16,  8.16s/it]
+claude-opus-4-8:  12%|█▏        | 17/144 [02:21<17:16,  8.16s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#123[0m
+Total:  12%|█▏        | 17/144 [02:21<17:16,  8.16s/it]
+claude-opus-4-8:  12%|█▏        | 17/144 [02:21<17:16,  8.16s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#122[0m
+Total:  12%|█▏        | 17/144 [02:21<17:16,  8.16s/it]
+claude-opus-4-8:  12%|█▏        | 17/144 [02:21<17:16,  8.16s/it][ATotal:  12%|█▎        | 18/144 [02:21<12:39,  6.03s/it]
+claude-opus-4-8:  12%|█▎        | 18/144 [02:21<12:39,  6.03s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  12%|█▎        | 18/144 [02:35<12:39,  6.03s/it]
+claude-opus-4-8:  12%|█▎        | 18/144 [02:35<12:39,  6.03s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#121[0m
+Total:  12%|█▎        | 18/144 [02:35<12:39,  6.03s/it]
+claude-opus-4-8:  12%|█▎        | 18/144 [02:35<12:39,  6.03s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  12%|█▎        | 18/144 [02:46<12:39,  6.03s/it]
+claude-opus-4-8:  12%|█▎        | 18/144 [02:46<12:39,  6.03s/it][ATotal:  13%|█▎        | 19/144 [02:50<27:08, 13.03s/it]
+claude-opus-4-8:  13%|█▎        | 19/144 [02:50<27:08, 13.03s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  13%|█▎        | 19/144 [03:01<27:08, 13.03s/it]
+claude-opus-4-8:  13%|█▎        | 19/144 [03:01<27:08, 13.03s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#120[0m
+Total:  13%|█▎        | 19/144 [03:01<27:08, 13.03s/it]
+claude-opus-4-8:  13%|█▎        | 19/144 [03:01<27:08, 13.03s/it][ATotal:  14%|█▍        | 20/144 [03:01<25:42, 12.44s/it]
+claude-opus-4-8:  14%|█▍        | 20/144 [03:01<25:42, 12.44s/it][ATotal:  15%|█▍        | 21/144 [03:14<25:47, 12.58s/it]
+claude-opus-4-8:  15%|█▍        | 21/144 [03:14<25:47, 12.58s/it][A                                                       
+                                                                 [ARunning Count: 2
+Total:  15%|█▌        | 22/144 [03:14<25:35, 12.58s/it]
+claude-opus-4-8:  15%|█▌        | 22/144 [03:14<25:35, 12.58s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#119[0m
+Total:  15%|█▌        | 22/144 [03:14<25:35, 12.58s/it]
+claude-opus-4-8:  15%|█▌        | 22/144 [03:14<25:35, 12.58s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#118[0m
+Total:  15%|█▌        | 22/144 [03:14<25:35, 12.58s/it]
+claude-opus-4-8:  15%|█▌        | 22/144 [03:14<25:35, 12.58s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#117[0m
+Total:  15%|█▌        | 22/144 [03:14<25:35, 12.58s/it]
+claude-opus-4-8:  15%|█▌        | 22/144 [03:14<25:35, 12.58s/it][ATotal:  16%|█▌        | 23/144 [03:26<19:18,  9.57s/it]
+claude-opus-4-8:  16%|█▌        | 23/144 [03:26<19:18,  9.57s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  16%|█▌        | 23/144 [03:28<19:18,  9.57s/it]
+claude-opus-4-8:  16%|█▌        | 23/144 [03:28<19:18,  9.57s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#116[0m
+Total:  16%|█▌        | 23/144 [03:28<19:18,  9.57s/it]
+claude-opus-4-8:  16%|█▌        | 23/144 [03:28<19:18,  9.57s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  16%|█▌        | 23/144 [03:33<19:18,  9.57s/it]
+claude-opus-4-8:  16%|█▌        | 23/144 [03:33<19:18,  9.57s/it][ATotal:  17%|█▋        | 24/144 [03:44<23:07, 11.56s/it]
+claude-opus-4-8:  17%|█▋        | 24/144 [03:44<23:07, 11.56s/it][ATotal:  17%|█▋        | 25/144 [03:46<17:54,  9.03s/it]
+claude-opus-4-8:  17%|█▋        | 25/144 [03:46<17:54,  9.03s/it][A                                                       
+                                                                 [ARunning Count: 3
+Total:  17%|█▋        | 25/144 [03:47<17:54,  9.03s/it]
+claude-opus-4-8:  17%|█▋        | 25/144 [03:47<17:54,  9.03s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#115[0m
+Total:  17%|█▋        | 25/144 [03:47<17:54,  9.03s/it]
+claude-opus-4-8:  17%|█▋        | 25/144 [03:47<17:54,  9.03s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#114[0m
+Total:  17%|█▋        | 25/144 [03:47<17:54,  9.03s/it]
+claude-opus-4-8:  17%|█▋        | 25/144 [03:47<17:54,  9.03s/it][ATotal:  18%|█▊        | 26/144 [03:49<14:43,  7.49s/it]
+claude-opus-4-8:  18%|█▊        | 26/144 [03:49<14:43,  7.49s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  18%|█▊        | 26/144 [03:59<14:43,  7.49s/it]
+claude-opus-4-8:  18%|█▊        | 26/144 [03:59<14:43,  7.49s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#113[0m
+Total:  18%|█▊        | 26/144 [03:59<14:43,  7.49s/it]
+claude-opus-4-8:  18%|█▊        | 26/144 [03:59<14:43,  7.49s/it][ATotal:  19%|█▉        | 27/144 [04:00<16:22,  8.40s/it]
+claude-opus-4-8:  19%|█▉        | 27/144 [04:00<16:22,  8.40s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  19%|█▉        | 27/144 [04:10<16:22,  8.40s/it]
+claude-opus-4-8:  19%|█▉        | 27/144 [04:10<16:22,  8.40s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#112[0m
+Total:  19%|█▉        | 27/144 [04:10<16:22,  8.40s/it]
+claude-opus-4-8:  19%|█▉        | 27/144 [04:10<16:22,  8.40s/it][ATotal:  19%|█▉        | 28/144 [04:14<19:38, 10.16s/it]
+claude-opus-4-8:  19%|█▉        | 28/144 [04:14<19:38, 10.16s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  19%|█▉        | 28/144 [04:17<19:38, 10.16s/it]
+claude-opus-4-8:  19%|█▉        | 28/144 [04:17<19:38, 10.16s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#111[0m
+Total:  19%|█▉        | 28/144 [04:17<19:38, 10.16s/it]
+claude-opus-4-8:  19%|█▉        | 28/144 [04:17<19:38, 10.16s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  19%|█▉        | 28/144 [04:24<19:38, 10.16s/it]
+claude-opus-4-8:  19%|█▉        | 28/144 [04:24<19:38, 10.16s/it][ATotal:  20%|██        | 29/144 [04:35<25:05, 13.09s/it]
+claude-opus-4-8:  20%|██        | 29/144 [04:35<25:05, 13.09s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  20%|██        | 29/144 [04:35<25:05, 13.09s/it]
+claude-opus-4-8:  20%|██        | 29/144 [04:35<25:05, 13.09s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#110[0m
+Total:  20%|██        | 29/144 [04:35<25:05, 13.09s/it]
+claude-opus-4-8:  20%|██        | 29/144 [04:35<25:05, 13.09s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  20%|██        | 29/144 [04:49<25:05, 13.09s/it]
+claude-opus-4-8:  20%|██        | 29/144 [04:49<25:05, 13.09s/it][ATotal:  21%|██        | 30/144 [04:58<30:45, 16.19s/it]
+claude-opus-4-8:  21%|██        | 30/144 [04:58<30:45, 16.19s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  21%|██        | 30/144 [05:04<30:45, 16.19s/it]
+claude-opus-4-8:  21%|██        | 30/144 [05:04<30:45, 16.19s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#109[0m
+Total:  21%|██        | 30/144 [05:04<30:45, 16.19s/it]
+claude-opus-4-8:  21%|██        | 30/144 [05:04<30:45, 16.19s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  21%|██        | 30/144 [05:12<30:45, 16.19s/it]
+claude-opus-4-8:  21%|██        | 30/144 [05:12<30:45, 16.19s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  21%|██        | 30/144 [05:19<30:45, 16.19s/it]
+claude-opus-4-8:  21%|██        | 30/144 [05:19<30:45, 16.19s/it][ATotal:  22%|██▏       | 31/144 [05:19<33:08, 17.60s/it]
+claude-opus-4-8:  22%|██▏       | 31/144 [05:19<33:08, 17.60s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  22%|██▏       | 31/144 [05:29<33:08, 17.60s/it]
+claude-opus-4-8:  22%|██▏       | 31/144 [05:29<33:08, 17.60s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#108[0m
+Total:  22%|██▏       | 31/144 [05:29<33:08, 17.60s/it]
+claude-opus-4-8:  22%|██▏       | 31/144 [05:29<33:08, 17.60s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  22%|██▏       | 31/144 [05:37<33:08, 17.60s/it]
+claude-opus-4-8:  22%|██▏       | 31/144 [05:37<33:08, 17.60s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  22%|██▏       | 31/144 [05:49<33:08, 17.60s/it]
+claude-opus-4-8:  22%|██▏       | 31/144 [05:49<33:08, 17.60s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  22%|██▏       | 31/144 [05:59<33:08, 17.60s/it]
+claude-opus-4-8:  22%|██▏       | 31/144 [05:59<33:08, 17.60s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  22%|██▏       | 31/144 [06:12<33:08, 17.60s/it]
+claude-opus-4-8:  22%|██▏       | 31/144 [06:12<33:08, 17.60s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  22%|██▏       | 31/144 [06:19<33:08, 17.60s/it]
+claude-opus-4-8:  22%|██▏       | 31/144 [06:19<33:08, 17.60s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  22%|██▏       | 31/144 [06:27<33:08, 17.60s/it]
+claude-opus-4-8:  22%|██▏       | 31/144 [06:27<33:08, 17.60s/it][ATotal:  22%|██▏       | 32/144 [06:33<1:03:46, 34.17s/it]
+claude-opus-4-8:  22%|██▏       | 32/144 [06:33<1:03:46, 34.17s/it][A                                                         
+                                                                   [ARunning Count: 4
+Total:  22%|██▏       | 32/144 [06:40<1:03:46, 34.17s/it]
+claude-opus-4-8:  22%|██▏       | 32/144 [06:40<1:03:46, 34.17s/it][A                                                         
+                                                                   [A[92mAssigned claude-opus-4-8/os-std#107[0m
+Total:  22%|██▏       | 32/144 [06:40<1:03:46, 34.17s/it]
+claude-opus-4-8:  22%|██▏       | 32/144 [06:40<1:03:46, 34.17s/it][ATotal:  23%|██▎       | 33/144 [06:41<48:57, 26.47s/it]  
+claude-opus-4-8:  23%|██▎       | 33/144 [06:41<48:57, 26.47s/it]  [A                                                       
+                                                                 [ARunning Count: 4
+Total:  23%|██▎       | 33/144 [06:50<48:57, 26.47s/it]
+claude-opus-4-8:  23%|██▎       | 33/144 [06:50<48:57, 26.47s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#106[0m
+Total:  23%|██▎       | 33/144 [06:50<48:57, 26.47s/it]
+claude-opus-4-8:  23%|██▎       | 33/144 [06:50<48:57, 26.47s/it][ATotal:  24%|██▎       | 34/144 [06:51<39:30, 21.55s/it]
+claude-opus-4-8:  24%|██▎       | 34/144 [06:51<39:30, 21.55s/it][ATotal:  24%|██▍       | 35/144 [06:55<29:41, 16.34s/it]
+claude-opus-4-8:  24%|██▍       | 35/144 [06:55<29:41, 16.34s/it][ATotal:  25%|██▌       | 36/144 [06:57<21:44, 12.08s/it]
+claude-opus-4-8:  25%|██▌       | 36/144 [06:57<21:44, 12.08s/it][A                                                       
+                                                                 [ARunning Count: 2
+Total:  25%|██▌       | 36/144 [07:04<21:44, 12.08s/it]
+claude-opus-4-8:  25%|██▌       | 36/144 [07:04<21:44, 12.08s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#105[0m
+Total:  25%|██▌       | 36/144 [07:04<21:44, 12.08s/it]
+claude-opus-4-8:  25%|██▌       | 36/144 [07:04<21:44, 12.08s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#104[0m
+Total:  25%|██▌       | 36/144 [07:04<21:44, 12.08s/it]
+claude-opus-4-8:  25%|██▌       | 36/144 [07:04<21:44, 12.08s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#103[0m
+Total:  25%|██▌       | 36/144 [07:04<21:44, 12.08s/it]
+claude-opus-4-8:  25%|██▌       | 36/144 [07:04<21:44, 12.08s/it][ATotal:  26%|██▌       | 37/144 [07:08<20:57, 11.75s/it]
+claude-opus-4-8:  26%|██▌       | 37/144 [07:08<20:57, 11.75s/it][ATotal:  26%|██▋       | 38/144 [07:15<18:12, 10.31s/it]
+claude-opus-4-8:  26%|██▋       | 38/144 [07:15<18:12, 10.31s/it][ATotal:  27%|██▋       | 39/144 [07:17<13:28,  7.70s/it]
+claude-opus-4-8:  27%|██▋       | 39/144 [07:17<13:28,  7.70s/it][A                                                       
+                                                                 [ARunning Count: 2
+Total:  27%|██▋       | 39/144 [07:17<13:28,  7.70s/it]
+claude-opus-4-8:  27%|██▋       | 39/144 [07:17<13:28,  7.70s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#102[0m
+Total:  27%|██▋       | 39/144 [07:17<13:28,  7.70s/it]
+claude-opus-4-8:  27%|██▋       | 39/144 [07:17<13:28,  7.70s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#101[0m
+Total:  27%|██▋       | 39/144 [07:17<13:28,  7.70s/it]
+claude-opus-4-8:  27%|██▋       | 39/144 [07:17<13:28,  7.70s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#100[0m
+Total:  27%|██▋       | 39/144 [07:17<13:28,  7.70s/it]
+claude-opus-4-8:  27%|██▋       | 39/144 [07:17<13:28,  7.70s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  27%|██▋       | 39/144 [07:29<13:28,  7.70s/it]
+claude-opus-4-8:  27%|██▋       | 39/144 [07:29<13:28,  7.70s/it][ATotal:  28%|██▊       | 40/144 [07:29<15:35,  8.99s/it]
+claude-opus-4-8:  28%|██▊       | 40/144 [07:29<15:35,  8.99s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  28%|██▊       | 40/144 [07:36<15:35,  8.99s/it]
+claude-opus-4-8:  28%|██▊       | 40/144 [07:36<15:35,  8.99s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#99[0m
+Total:  28%|██▊       | 40/144 [07:36<15:35,  8.99s/it]
+claude-opus-4-8:  28%|██▊       | 40/144 [07:36<15:35,  8.99s/it][ATotal:  28%|██▊       | 41/144 [07:38<15:24,  8.98s/it]
+claude-opus-4-8:  28%|██▊       | 41/144 [07:38<15:24,  8.98s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  28%|██▊       | 41/144 [07:42<15:24,  8.98s/it]
+claude-opus-4-8:  28%|██▊       | 41/144 [07:42<15:24,  8.98s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#98[0m
+Total:  28%|██▊       | 41/144 [07:42<15:24,  8.98s/it]
+claude-opus-4-8:  28%|██▊       | 41/144 [07:42<15:24,  8.98s/it][ATotal:  29%|██▉       | 42/144 [07:53<18:15, 10.74s/it]
+claude-opus-4-8:  29%|██▉       | 42/144 [07:53<18:15, 10.74s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  29%|██▉       | 42/144 [07:56<18:15, 10.74s/it]
+claude-opus-4-8:  29%|██▉       | 42/144 [07:56<18:15, 10.74s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#97[0m
+Total:  29%|██▉       | 42/144 [07:56<18:15, 10.74s/it]
+claude-opus-4-8:  29%|██▉       | 42/144 [07:56<18:15, 10.74s/it][ATotal:  30%|██▉       | 43/144 [08:00<16:33,  9.83s/it]
+claude-opus-4-8:  30%|██▉       | 43/144 [08:00<16:33,  9.83s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  30%|██▉       | 43/144 [08:08<16:33,  9.83s/it]
+claude-opus-4-8:  30%|██▉       | 43/144 [08:08<16:33,  9.83s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#96[0m
+Total:  30%|██▉       | 43/144 [08:08<16:33,  9.83s/it]
+claude-opus-4-8:  30%|██▉       | 43/144 [08:08<16:33,  9.83s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  30%|██▉       | 43/144 [08:13<16:33,  9.83s/it]
+claude-opus-4-8:  30%|██▉       | 43/144 [08:13<16:33,  9.83s/it][ATotal:  31%|███       | 44/144 [08:16<19:10, 11.50s/it]
+claude-opus-4-8:  31%|███       | 44/144 [08:16<19:10, 11.50s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  31%|███       | 44/144 [08:26<19:10, 11.50s/it]
+claude-opus-4-8:  31%|███       | 44/144 [08:26<19:10, 11.50s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#95[0m
+Total:  31%|███       | 44/144 [08:26<19:10, 11.50s/it]
+claude-opus-4-8:  31%|███       | 44/144 [08:26<19:10, 11.50s/it][ATotal:  31%|███▏      | 45/144 [08:30<20:32, 12.45s/it]
+claude-opus-4-8:  31%|███▏      | 45/144 [08:30<20:32, 12.45s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  31%|███▏      | 45/144 [08:35<20:32, 12.45s/it]
+claude-opus-4-8:  31%|███▏      | 45/144 [08:35<20:32, 12.45s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#94[0m
+Total:  31%|███▏      | 45/144 [08:35<20:32, 12.45s/it]
+claude-opus-4-8:  31%|███▏      | 45/144 [08:35<20:32, 12.45s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  31%|███▏      | 45/144 [08:42<20:32, 12.45s/it]
+claude-opus-4-8:  31%|███▏      | 45/144 [08:42<20:32, 12.45s/it][ATotal:  32%|███▏      | 46/144 [08:52<24:43, 15.14s/it]
+claude-opus-4-8:  32%|███▏      | 46/144 [08:52<24:43, 15.14s/it][ATotal:  33%|███▎      | 47/144 [08:53<17:43, 10.96s/it]
+claude-opus-4-8:  33%|███▎      | 47/144 [08:53<17:43, 10.96s/it][A                                                       
+                                                                 [ARunning Count: 3
+Total:  33%|███▎      | 47/144 [08:54<17:43, 10.96s/it]
+claude-opus-4-8:  33%|███▎      | 47/144 [08:54<17:43, 10.96s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#93[0m
+Total:  33%|███▎      | 47/144 [08:54<17:43, 10.96s/it]
+claude-opus-4-8:  33%|███▎      | 47/144 [08:54<17:43, 10.96s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#92[0m
+Total:  33%|███▎      | 47/144 [08:54<17:43, 10.96s/it]
+claude-opus-4-8:  33%|███▎      | 47/144 [08:54<17:43, 10.96s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  33%|███▎      | 47/144 [09:01<17:43, 10.96s/it]
+claude-opus-4-8:  33%|███▎      | 47/144 [09:01<17:43, 10.96s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  33%|███▎      | 47/144 [09:08<17:43, 10.96s/it]
+claude-opus-4-8:  33%|███▎      | 47/144 [09:08<17:43, 10.96s/it][ATotal:  33%|███▎      | 48/144 [09:18<24:17, 15.18s/it]
+claude-opus-4-8:  33%|███▎      | 48/144 [09:18<24:17, 15.18s/it][ATotal:  34%|███▍      | 49/144 [09:19<17:29, 11.04s/it]
+claude-opus-4-8:  34%|███▍      | 49/144 [09:19<17:29, 11.04s/it][A                                                       
+                                                                 [ARunning Count: 3
+Total:  34%|███▍      | 49/144 [09:21<17:29, 11.04s/it]
+claude-opus-4-8:  34%|███▍      | 49/144 [09:21<17:29, 11.04s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#91[0m
+Total:  34%|███▍      | 49/144 [09:21<17:29, 11.04s/it]
+claude-opus-4-8:  34%|███▍      | 49/144 [09:21<17:29, 11.04s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#90[0m
+Total:  34%|███▍      | 49/144 [09:21<17:29, 11.04s/it]
+claude-opus-4-8:  34%|███▍      | 49/144 [09:21<17:29, 11.04s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  34%|███▍      | 49/144 [09:28<17:29, 11.04s/it]
+claude-opus-4-8:  34%|███▍      | 49/144 [09:28<17:29, 11.04s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  34%|███▍      | 49/144 [09:43<17:29, 11.04s/it]
+claude-opus-4-8:  34%|███▍      | 49/144 [09:43<17:29, 11.04s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  34%|███▍      | 49/144 [09:50<17:29, 11.04s/it]
+claude-opus-4-8:  34%|███▍      | 49/144 [09:50<17:29, 11.04s/it][ATotal:  35%|███▍      | 50/144 [09:55<28:40, 18.30s/it]
+claude-opus-4-8:  35%|███▍      | 50/144 [09:55<28:40, 18.30s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  35%|███▍      | 50/144 [09:58<28:40, 18.30s/it]
+claude-opus-4-8:  35%|███▍      | 50/144 [09:58<28:40, 18.30s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#89[0m
+Total:  35%|███▍      | 50/144 [09:58<28:40, 18.30s/it]
+claude-opus-4-8:  35%|███▍      | 50/144 [09:58<28:40, 18.30s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  35%|███▍      | 50/144 [10:12<28:40, 18.30s/it]
+claude-opus-4-8:  35%|███▍      | 50/144 [10:12<28:40, 18.30s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  35%|███▍      | 50/144 [10:25<28:40, 18.30s/it]
+claude-opus-4-8:  35%|███▍      | 50/144 [10:25<28:40, 18.30s/it][ATotal:  35%|███▌      | 51/144 [10:29<35:34, 22.95s/it]
+claude-opus-4-8:  35%|███▌      | 51/144 [10:29<35:34, 22.95s/it][ATotal:  36%|███▌      | 52/144 [10:35<27:45, 18.10s/it]
+claude-opus-4-8:  36%|███▌      | 52/144 [10:35<27:45, 18.10s/it][A                                                       
+                                                                 [ARunning Count: 3
+Total:  36%|███▌      | 52/144 [10:37<27:45, 18.10s/it]
+claude-opus-4-8:  36%|███▌      | 52/144 [10:37<27:45, 18.10s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#88[0m
+Total:  36%|███▌      | 52/144 [10:37<27:45, 18.10s/it]
+claude-opus-4-8:  36%|███▌      | 52/144 [10:37<27:45, 18.10s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#87[0m
+Total:  36%|███▌      | 52/144 [10:37<27:45, 18.10s/it]
+claude-opus-4-8:  36%|███▌      | 52/144 [10:37<27:45, 18.10s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  36%|███▌      | 52/144 [10:43<27:45, 18.10s/it]
+claude-opus-4-8:  36%|███▌      | 52/144 [10:43<27:45, 18.10s/it][ATotal:  37%|███▋      | 53/144 [10:46<24:13, 15.98s/it]
+claude-opus-4-8:  37%|███▋      | 53/144 [10:46<24:13, 15.98s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  37%|███▋      | 53/144 [10:53<24:13, 15.98s/it]
+claude-opus-4-8:  37%|███▋      | 53/144 [10:53<24:13, 15.98s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#86[0m
+Total:  37%|███▋      | 53/144 [10:53<24:13, 15.98s/it]
+claude-opus-4-8:  37%|███▋      | 53/144 [10:53<24:13, 15.98s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  37%|███▋      | 53/144 [11:02<24:13, 15.98s/it]
+claude-opus-4-8:  37%|███▋      | 53/144 [11:02<24:13, 15.98s/it][A                                                       
+                                                                 [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  37%|███▋      | 53/144 [11:04<24:13, 15.98s/it]
+claude-opus-4-8:  37%|███▋      | 53/144 [11:04<24:13, 15.98s/it][A                                                       
+                                                                 [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  37%|███▋      | 53/144 [11:06<24:13, 15.98s/it]
+claude-opus-4-8:  37%|███▋      | 53/144 [11:06<24:13, 15.98s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  37%|███▋      | 53/144 [11:11<24:13, 15.98s/it]
+claude-opus-4-8:  37%|███▋      | 53/144 [11:12<24:13, 15.98s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  37%|███▋      | 53/144 [11:22<24:13, 15.98s/it]
+claude-opus-4-8:  37%|███▋      | 53/144 [11:22<24:13, 15.98s/it][ATotal:  38%|███▊      | 54/144 [11:26<34:50, 23.23s/it]
+claude-opus-4-8:  38%|███▊      | 54/144 [11:26<34:50, 23.23s/it][ATotal:  38%|███▊      | 55/144 [11:27<24:29, 16.51s/it]
+claude-opus-4-8:  38%|███▊      | 55/144 [11:27<24:29, 16.51s/it][A                                                       
+                                                                 [ARunning Count: 3
+Total:  38%|███▊      | 55/144 [11:32<24:29, 16.51s/it]
+claude-opus-4-8:  38%|███▊      | 55/144 [11:32<24:29, 16.51s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#85[0m
+Total:  38%|███▊      | 55/144 [11:32<24:29, 16.51s/it]
+claude-opus-4-8:  38%|███▊      | 55/144 [11:32<24:29, 16.51s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#84[0m
+Total:  38%|███▊      | 55/144 [11:32<24:29, 16.51s/it]
+claude-opus-4-8:  38%|███▊      | 55/144 [11:32<24:29, 16.51s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  38%|███▊      | 55/144 [11:39<24:29, 16.51s/it]
+claude-opus-4-8:  38%|███▊      | 55/144 [11:39<24:29, 16.51s/it][ATotal:  39%|███▉      | 56/144 [11:39<22:18, 15.21s/it]
+claude-opus-4-8:  39%|███▉      | 56/144 [11:39<22:18, 15.21s/it][ATotal:  40%|███▉      | 57/144 [11:46<18:29, 12.75s/it]
+claude-opus-4-8:  40%|███▉      | 57/144 [11:46<18:29, 12.75s/it][A                                                       
+                                                                 [ARunning Count: 3
+Total:  40%|███▉      | 57/144 [11:47<18:29, 12.75s/it]
+claude-opus-4-8:  40%|███▉      | 57/144 [11:47<18:29, 12.75s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#83[0m
+Total:  40%|███▉      | 57/144 [11:47<18:29, 12.75s/it]
+claude-opus-4-8:  40%|███▉      | 57/144 [11:47<18:29, 12.75s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#82[0m
+Total:  40%|███▉      | 57/144 [11:47<18:29, 12.75s/it]
+claude-opus-4-8:  40%|███▉      | 57/144 [11:47<18:29, 12.75s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  40%|███▉      | 57/144 [11:52<18:29, 12.75s/it]
+claude-opus-4-8:  40%|███▉      | 57/144 [11:52<18:29, 12.75s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  40%|███▉      | 57/144 [11:58<18:29, 12.75s/it]
+claude-opus-4-8:  40%|███▉      | 57/144 [11:58<18:29, 12.75s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  40%|███▉      | 57/144 [12:11<18:29, 12.75s/it]
+claude-opus-4-8:  40%|███▉      | 57/144 [12:11<18:29, 12.75s/it][ATotal:  40%|████      | 58/144 [12:15<24:57, 17.42s/it]
+claude-opus-4-8:  40%|████      | 58/144 [12:15<24:57, 17.42s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  40%|████      | 58/144 [12:23<24:57, 17.42s/it]
+claude-opus-4-8:  40%|████      | 58/144 [12:23<24:57, 17.42s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#81[0m
+Total:  40%|████      | 58/144 [12:23<24:57, 17.42s/it]
+claude-opus-4-8:  40%|████      | 58/144 [12:23<24:57, 17.42s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  40%|████      | 58/144 [12:30<24:57, 17.42s/it]
+claude-opus-4-8:  40%|████      | 58/144 [12:30<24:57, 17.42s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  40%|████      | 58/144 [12:44<24:57, 17.42s/it]
+claude-opus-4-8:  40%|████      | 58/144 [12:44<24:57, 17.42s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  40%|████      | 58/144 [12:55<24:57, 17.42s/it]
+claude-opus-4-8:  40%|████      | 58/144 [12:55<24:57, 17.42s/it][ATotal:  41%|████      | 59/144 [12:56<34:39, 24.47s/it]
+claude-opus-4-8:  41%|████      | 59/144 [12:56<34:39, 24.47s/it][ATotal:  42%|████▏     | 60/144 [13:06<28:22, 20.27s/it]
+claude-opus-4-8:  42%|████▏     | 60/144 [13:06<28:22, 20.27s/it][A                                                       
+                                                                 [ARunning Count: 3
+Total:  42%|████▏     | 60/144 [13:10<28:22, 20.27s/it]
+claude-opus-4-8:  42%|████▏     | 60/144 [13:10<28:22, 20.27s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#80[0m
+Total:  42%|████▏     | 60/144 [13:10<28:22, 20.27s/it]
+claude-opus-4-8:  42%|████▏     | 60/144 [13:10<28:22, 20.27s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#79[0m
+Total:  42%|████▏     | 60/144 [13:10<28:22, 20.27s/it]
+claude-opus-4-8:  42%|████▏     | 60/144 [13:10<28:22, 20.27s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  42%|████▏     | 60/144 [13:20<28:22, 20.27s/it]
+claude-opus-4-8:  42%|████▏     | 60/144 [13:20<28:22, 20.27s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  42%|████▏     | 60/144 [13:29<28:22, 20.27s/it]
+claude-opus-4-8:  42%|████▏     | 60/144 [13:29<28:22, 20.27s/it][ATotal:  42%|████▏     | 61/144 [13:31<29:44, 21.50s/it]
+claude-opus-4-8:  42%|████▏     | 61/144 [13:31<29:44, 21.50s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  42%|████▏     | 61/144 [13:39<29:44, 21.50s/it]
+claude-opus-4-8:  42%|████▏     | 61/144 [13:39<29:44, 21.50s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#78[0m
+Total:  42%|████▏     | 61/144 [13:39<29:44, 21.50s/it]
+claude-opus-4-8:  42%|████▏     | 61/144 [13:39<29:44, 21.50s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  42%|████▏     | 61/144 [13:48<29:44, 21.50s/it]
+claude-opus-4-8:  42%|████▏     | 61/144 [13:48<29:44, 21.50s/it][ATotal:  43%|████▎     | 62/144 [13:51<29:06, 21.30s/it]
+claude-opus-4-8:  43%|████▎     | 62/144 [13:51<29:06, 21.30s/it][A                                                       
+                                                                 [AWarning:  HTTPSConnectionPool(host='routify-pub.alibaba-inc.com', port=443): Read timed out. (read timeout=120)
+Total:  43%|████▎     | 62/144 [14:02<29:06, 21.30s/it]
+claude-opus-4-8:  43%|████▎     | 62/144 [14:02<29:06, 21.30s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  43%|████▎     | 62/144 [14:02<29:06, 21.30s/it]
+claude-opus-4-8:  43%|████▎     | 62/144 [14:02<29:06, 21.30s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#77[0m
+Total:  43%|████▎     | 62/144 [14:02<29:06, 21.30s/it]
+claude-opus-4-8:  43%|████▎     | 62/144 [14:02<29:06, 21.30s/it][ATotal:  44%|████▍     | 63/144 [14:06<26:06, 19.34s/it]
+claude-opus-4-8:  44%|████▍     | 63/144 [14:06<26:06, 19.34s/it][ATotal:  44%|████▍     | 64/144 [14:09<19:15, 14.44s/it]
+claude-opus-4-8:  44%|████▍     | 64/144 [14:09<19:15, 14.44s/it][A                                                       
+                                                                 [ARunning Count: 3
+Total:  44%|████▍     | 64/144 [14:11<19:15, 14.44s/it]
+claude-opus-4-8:  44%|████▍     | 64/144 [14:11<19:15, 14.44s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#76[0m
+Total:  44%|████▍     | 64/144 [14:11<19:15, 14.44s/it]
+claude-opus-4-8:  44%|████▍     | 64/144 [14:11<19:15, 14.44s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#75[0m
+Total:  44%|████▍     | 64/144 [14:11<19:15, 14.44s/it]
+claude-opus-4-8:  44%|████▍     | 64/144 [14:11<19:15, 14.44s/it][ATotal:  45%|████▌     | 65/144 [14:18<16:47, 12.76s/it]
+claude-opus-4-8:  45%|████▌     | 65/144 [14:18<16:47, 12.76s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  45%|████▌     | 65/144 [14:23<16:47, 12.76s/it]
+claude-opus-4-8:  45%|████▌     | 65/144 [14:23<16:47, 12.76s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#74[0m
+Total:  45%|████▌     | 65/144 [14:23<16:47, 12.76s/it]
+claude-opus-4-8:  45%|████▌     | 65/144 [14:23<16:47, 12.76s/it][ATotal:  46%|████▌     | 66/144 [14:23<13:31, 10.40s/it]
+claude-opus-4-8:  46%|████▌     | 66/144 [14:23<13:31, 10.40s/it][ATotal:  47%|████▋     | 67/144 [14:24<09:42,  7.57s/it]
+claude-opus-4-8:  47%|████▋     | 67/144 [14:24<09:42,  7.57s/it][A                                                       
+                                                                 [ARunning Count: 3
+Total:  47%|████▋     | 67/144 [14:29<09:42,  7.57s/it]
+claude-opus-4-8:  47%|████▋     | 67/144 [14:29<09:42,  7.57s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#73[0m
+Total:  47%|████▋     | 67/144 [14:29<09:42,  7.57s/it]
+claude-opus-4-8:  47%|████▋     | 67/144 [14:29<09:42,  7.57s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#72[0m
+Total:  47%|████▋     | 67/144 [14:29<09:42,  7.57s/it]
+claude-opus-4-8:  47%|████▋     | 67/144 [14:29<09:42,  7.57s/it][ATotal:  47%|████▋     | 68/144 [14:38<12:01,  9.49s/it]
+claude-opus-4-8:  47%|████▋     | 68/144 [14:38<12:01,  9.49s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  47%|████▋     | 68/144 [14:38<12:01,  9.49s/it]
+claude-opus-4-8:  47%|████▋     | 68/144 [14:38<12:01,  9.49s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#71[0m
+Total:  47%|████▋     | 68/144 [14:38<12:01,  9.49s/it]
+claude-opus-4-8:  47%|████▋     | 68/144 [14:38<12:01,  9.49s/it][ATotal:  48%|████▊     | 69/144 [14:40<09:15,  7.41s/it]
+claude-opus-4-8:  48%|████▊     | 69/144 [14:40<09:15,  7.41s/it][A                                                       
+                                                                 [AWarning:  Invalid status code 400:
+
+Total:  48%|████▊     | 69/144 [14:46<09:15,  7.41s/it]
+claude-opus-4-8:  48%|████▊     | 69/144 [14:46<09:15,  7.41s/it][A                                                       
+                                                                 [A{"error":{"type":"<nil>","message":"messages.26: `tool_use` ids were found without `tool_result` blocks immediately after: toolu_01WvqZNpLouzxhfGGJwXCbmo. Each `tool_use` block must have a corresponding `tool_result` block in the next message. (request id: 202607130120272608365108268d9d6rXpGtd22)"},"type":"error","routify_response":{"trace_id":"212c2b4317839056217834921e0e29","request_id":"a309352f4a054fd6873655714d618167","success":false,"status":400,"error_source":"CLIENT_ERROR","error_message":"{\"error\":{\"type\":\"<nil>\",\"message\":\"messages.26: `tool_use` ids were found without `tool_result` blocks immediately after: toolu_0******WvqZNpLouzxhfGGJwXCbmo. Each `tool_use` block must have a corresponding `tool_result` block in the next message. (request id: 202607******30******20272608365******08268d9d6rXpGtd22)\"},\"type\":\"error\"}","error_detail":{"error":{"type":"<nil>","message":"messages.26: `tool_use` ids were found without `tool_result` blocks immediately after: toolu_0******WvqZNpLouzxhfGGJwXCbmo. Each `tool_use` block must have a corresponding `tool_result` block in the next message. (request id: 202607******30******20272608365******08268d9d6rXpGtd22)"},"type":"error"},"model_name":"claude-opus-4-8","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":20},"is_fall_back_triggered":false}}
+Total:  48%|████▊     | 69/144 [14:46<09:15,  7.41s/it]
+claude-opus-4-8:  48%|████▊     | 69/144 [14:46<09:15,  7.41s/it][A                                                       
+                                                                 [AWarning:  Invalid status code 400:
+
+Total:  48%|████▊     | 69/144 [14:50<09:15,  7.41s/it]
+claude-opus-4-8:  48%|████▊     | 69/144 [14:50<09:15,  7.41s/it][A                                                       
+                                                                 [A{"error":{"type":"<nil>","message":"messages.26: `tool_use` ids were found without `tool_result` blocks immediately after: toolu_01WvqZNpLouzxhfGGJwXCbmo. Each `tool_use` block must have a corresponding `tool_result` block in the next message. (request id: 202607130120307636408548268d9d6xQImyALG)"},"type":"error","routify_response":{"trace_id":"212c397817839056297141508e0de6","request_id":"d8c98d5b56de40a09614849f41db5baf","success":false,"status":400,"error_source":"CLIENT_ERROR","error_message":"{\"error\":{\"type\":\"<nil>\",\"message\":\"messages.26: `tool_use` ids were found without `tool_result` blocks immediately after: toolu_0******WvqZNpLouzxhfGGJwXCbmo. Each `tool_use` block must have a corresponding `tool_result` block in the next message. (request id: 202607******30******20307636408548268d9d6xQImyALG)\"},\"type\":\"error\"}","error_detail":{"error":{"type":"<nil>","message":"messages.26: `tool_use` ids were found without `tool_result` blocks immediately after: toolu_0******WvqZNpLouzxhfGGJwXCbmo. Each `tool_use` block must have a corresponding `tool_result` block in the next message. (request id: 202607******30******20307636408548268d9d6xQImyALG)"},"type":"error"},"model_name":"claude-opus-4-8","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":25},"is_fall_back_triggered":false}}
+Total:  48%|████▊     | 69/144 [14:50<09:15,  7.41s/it]
+claude-opus-4-8:  48%|████▊     | 69/144 [14:50<09:15,  7.41s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  48%|████▊     | 69/144 [14:51<09:15,  7.41s/it]
+claude-opus-4-8:  48%|████▊     | 69/144 [14:51<09:15,  7.41s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#70[0m
+Total:  48%|████▊     | 69/144 [14:51<09:15,  7.41s/it]
+claude-opus-4-8:  48%|████▊     | 69/144 [14:51<09:15,  7.41s/it][A                                                       
+                                                                 [AWarning:  Invalid status code 400:
+
+Total:  48%|████▊     | 69/144 [14:56<09:15,  7.41s/it]
+claude-opus-4-8:  48%|████▊     | 69/144 [14:56<09:15,  7.41s/it][A                                                       
+                                                                 [A{"error":{"type":"<nil>","message":"messages.26: `tool_use` ids were found without `tool_result` blocks immediately after: toolu_01WvqZNpLouzxhfGGJwXCbmo. Each `tool_use` block must have a corresponding `tool_result` block in the next message. (request id: 20260713012037457562988268d9d6HxdmiOTR)"},"type":"error","routify_response":{"trace_id":"2107331d17839056344462538e0ea4","request_id":"ce71bb06196d4d3796d4b441451355e5","success":false,"status":400,"error_source":"CLIENT_ERROR","error_message":"{\"error\":{\"type\":\"<nil>\",\"message\":\"messages.26: `tool_use` ids were found without `tool_result` blocks immediately after: toolu_0******WvqZNpLouzxhfGGJwXCbmo. Each `tool_use` block must have a corresponding `tool_result` block in the next message. (request id: 202607******30******2037457562988268d9d6HxdmiOTR)\"},\"type\":\"error\"}","error_detail":{"error":{"type":"<nil>","message":"messages.26: `tool_use` ids were found without `tool_result` blocks immediately after: toolu_0******WvqZNpLouzxhfGGJwXCbmo. Each `tool_use` block must have a corresponding `tool_result` block in the next message. (request id: 202607******30******2037457562988268d9d6HxdmiOTR)"},"type":"error"},"model_name":"claude-opus-4-8","ak_quota":{"api_key":"sk******cefcb7","status":"NORMAL","rpm_limit":60,"current_rpm":29},"is_fall_back_triggered":false}}
+Total:  48%|████▊     | 69/144 [14:56<09:15,  7.41s/it]
+claude-opus-4-8:  48%|████▊     | 69/144 [14:56<09:15,  7.41s/it][A                                                       
+                                                                 [AERROR: HTTPAgent/os-std agent error Failed.
+Total:  48%|████▊     | 69/144 [15:00<09:15,  7.41s/it]
+claude-opus-4-8:  48%|████▊     | 69/144 [15:00<09:15,  7.41s/it][A                                                       
+                                                                 [A[93mWarning: claude-opus-4-8/os-std#81 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result={'reward': 0, 'metrics': {'score': 0}} history=[ChatHistoryItem(role='user', content='The output of the OS:\n\npwd\r\n\r/root/test_directory\r\nls -la ~\r\n\r')][0m
+Total:  48%|████▊     | 69/144 [15:00<09:15,  7.41s/it]
+claude-opus-4-8:  48%|████▊     | 69/144 [15:00<09:15,  7.41s/it][ATotal:  49%|████▊     | 70/144 [15:00<13:47, 11.18s/it]
+claude-opus-4-8:  49%|████▊     | 70/144 [15:00<13:47, 11.18s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  49%|████▊     | 70/144 [15:01<13:47, 11.18s/it]
+claude-opus-4-8:  49%|████▊     | 70/144 [15:01<13:47, 11.18s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#69[0m
+Total:  49%|████▊     | 70/144 [15:01<13:47, 11.18s/it]
+claude-opus-4-8:  49%|████▊     | 70/144 [15:01<13:47, 11.18s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  49%|████▊     | 70/144 [15:12<13:47, 11.18s/it]
+claude-opus-4-8:  49%|████▊     | 70/144 [15:12<13:47, 11.18s/it][ATotal:  49%|████▉     | 71/144 [15:17<15:44, 12.95s/it]
+claude-opus-4-8:  49%|████▉     | 71/144 [15:17<15:44, 12.95s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  49%|████▉     | 71/144 [15:24<15:44, 12.95s/it]
+claude-opus-4-8:  49%|████▉     | 71/144 [15:24<15:44, 12.95s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#68[0m
+Total:  49%|████▉     | 71/144 [15:24<15:44, 12.95s/it]
+claude-opus-4-8:  49%|████▉     | 71/144 [15:24<15:44, 12.95s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  49%|████▉     | 71/144 [15:31<15:44, 12.95s/it]
+claude-opus-4-8:  49%|████▉     | 71/144 [15:31<15:44, 12.95s/it][ATotal:  50%|█████     | 72/144 [15:37<17:56, 14.96s/it]
+claude-opus-4-8:  50%|█████     | 72/144 [15:37<17:56, 14.96s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  50%|█████     | 72/144 [15:38<17:56, 14.96s/it]
+claude-opus-4-8:  50%|█████     | 72/144 [15:38<17:56, 14.96s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#67[0m
+Total:  50%|█████     | 72/144 [15:38<17:56, 14.96s/it]
+claude-opus-4-8:  50%|█████     | 72/144 [15:38<17:56, 14.96s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  50%|█████     | 72/144 [15:46<17:56, 14.96s/it]
+claude-opus-4-8:  50%|█████     | 72/144 [15:46<17:56, 14.96s/it][ATotal:  51%|█████     | 73/144 [15:55<18:54, 15.98s/it]
+claude-opus-4-8:  51%|█████     | 73/144 [15:55<18:54, 15.98s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  51%|█████     | 73/144 [15:58<18:54, 15.98s/it]
+claude-opus-4-8:  51%|█████     | 73/144 [15:58<18:54, 15.98s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#66[0m
+Total:  51%|█████     | 73/144 [15:58<18:54, 15.98s/it]
+claude-opus-4-8:  51%|█████     | 73/144 [15:58<18:54, 15.98s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  51%|█████     | 73/144 [16:10<18:54, 15.98s/it]
+claude-opus-4-8:  51%|█████     | 73/144 [16:10<18:54, 15.98s/it][ATotal:  51%|█████▏    | 74/144 [16:16<20:17, 17.40s/it]
+claude-opus-4-8:  51%|█████▏    | 74/144 [16:16<20:17, 17.40s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  51%|█████▏    | 74/144 [16:20<20:17, 17.40s/it]
+claude-opus-4-8:  51%|█████▏    | 74/144 [16:20<20:17, 17.40s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#65[0m
+Total:  51%|█████▏    | 74/144 [16:20<20:17, 17.40s/it]
+claude-opus-4-8:  51%|█████▏    | 74/144 [16:20<20:17, 17.40s/it][ATotal:  52%|█████▏    | 75/144 [16:24<16:52, 14.68s/it]
+claude-opus-4-8:  52%|█████▏    | 75/144 [16:24<16:52, 14.68s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  52%|█████▏    | 75/144 [16:26<16:52, 14.68s/it]
+claude-opus-4-8:  52%|█████▏    | 75/144 [16:26<16:52, 14.68s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#64[0m
+Total:  52%|█████▏    | 75/144 [16:26<16:52, 14.68s/it]
+claude-opus-4-8:  52%|█████▏    | 75/144 [16:26<16:52, 14.68s/it][ATotal:  53%|█████▎    | 76/144 [16:27<12:28, 11.01s/it]
+claude-opus-4-8:  53%|█████▎    | 76/144 [16:27<12:28, 11.01s/it][ATotal:  53%|█████▎    | 77/144 [16:30<09:39,  8.65s/it]
+claude-opus-4-8:  53%|█████▎    | 77/144 [16:30<09:39,  8.65s/it][ATotal:  54%|█████▍    | 78/144 [16:34<07:47,  7.08s/it]
+claude-opus-4-8:  54%|█████▍    | 78/144 [16:34<07:47,  7.08s/it][A                                                       
+                                                                 [ARunning Count: 2
+Total:  54%|█████▍    | 78/144 [16:37<07:47,  7.08s/it]
+claude-opus-4-8:  54%|█████▍    | 78/144 [16:37<07:47,  7.08s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#63[0m
+Total:  54%|█████▍    | 78/144 [16:37<07:47,  7.08s/it]
+claude-opus-4-8:  54%|█████▍    | 78/144 [16:37<07:47,  7.08s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#62[0m
+Total:  54%|█████▍    | 78/144 [16:37<07:47,  7.08s/it]
+claude-opus-4-8:  54%|█████▍    | 78/144 [16:37<07:47,  7.08s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#61[0m
+Total:  54%|█████▍    | 78/144 [16:37<07:47,  7.08s/it]
+claude-opus-4-8:  54%|█████▍    | 78/144 [16:37<07:47,  7.08s/it][ATotal:  55%|█████▍    | 79/144 [16:50<10:35,  9.78s/it]
+claude-opus-4-8:  55%|█████▍    | 79/144 [16:50<10:35,  9.78s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  55%|█████▍    | 79/144 [16:51<10:35,  9.78s/it]
+claude-opus-4-8:  55%|█████▍    | 79/144 [16:51<10:35,  9.78s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#60[0m
+Total:  55%|█████▍    | 79/144 [16:51<10:35,  9.78s/it]
+claude-opus-4-8:  55%|█████▍    | 79/144 [16:51<10:35,  9.78s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  55%|█████▍    | 79/144 [17:05<10:35,  9.78s/it]
+claude-opus-4-8:  55%|█████▍    | 79/144 [17:05<10:35,  9.78s/it][ATotal:  56%|█████▌    | 80/144 [17:05<12:20, 11.57s/it]
+claude-opus-4-8:  56%|█████▌    | 80/144 [17:05<12:20, 11.57s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  56%|█████▌    | 80/144 [17:10<12:20, 11.57s/it]
+claude-opus-4-8:  56%|█████▌    | 80/144 [17:10<12:20, 11.57s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#59[0m
+Total:  56%|█████▌    | 80/144 [17:10<12:20, 11.57s/it]
+claude-opus-4-8:  56%|█████▌    | 80/144 [17:10<12:20, 11.57s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  56%|█████▌    | 80/144 [17:22<12:20, 11.57s/it]
+claude-opus-4-8:  56%|█████▌    | 80/144 [17:22<12:20, 11.57s/it][ATotal:  56%|█████▋    | 81/144 [17:32<17:00, 16.20s/it]
+claude-opus-4-8:  56%|█████▋    | 81/144 [17:32<17:00, 16.20s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  56%|█████▋    | 81/144 [17:33<17:00, 16.20s/it]
+claude-opus-4-8:  56%|█████▋    | 81/144 [17:33<17:00, 16.20s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#58[0m
+Total:  56%|█████▋    | 81/144 [17:33<17:00, 16.20s/it]
+claude-opus-4-8:  56%|█████▋    | 81/144 [17:33<17:00, 16.20s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  56%|█████▋    | 81/144 [17:47<17:00, 16.20s/it]
+claude-opus-4-8:  56%|█████▋    | 81/144 [17:47<17:00, 16.20s/it][ATotal:  57%|█████▋    | 82/144 [17:49<16:53, 16.35s/it]
+claude-opus-4-8:  57%|█████▋    | 82/144 [17:49<16:53, 16.35s/it][ATotal:  58%|█████▊    | 83/144 [17:49<11:43, 11.54s/it]
+claude-opus-4-8:  58%|█████▊    | 83/144 [17:49<11:43, 11.54s/it][A                                                       
+                                                                 [ARunning Count: 3
+Total:  58%|█████▊    | 83/144 [17:57<11:43, 11.54s/it]
+claude-opus-4-8:  58%|█████▊    | 83/144 [17:57<11:43, 11.54s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#57[0m
+Total:  58%|█████▊    | 83/144 [17:57<11:43, 11.54s/it]
+claude-opus-4-8:  58%|█████▊    | 83/144 [17:57<11:43, 11.54s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#56[0m
+Total:  58%|█████▊    | 83/144 [17:57<11:43, 11.54s/it]
+claude-opus-4-8:  58%|█████▊    | 83/144 [17:57<11:43, 11.54s/it][ATotal:  58%|█████▊    | 84/144 [18:07<13:15, 13.26s/it]
+claude-opus-4-8:  58%|█████▊    | 84/144 [18:07<13:15, 13.26s/it][ATotal:  59%|█████▉    | 85/144 [18:09<09:44,  9.90s/it]
+claude-opus-4-8:  59%|█████▉    | 85/144 [18:09<09:44,  9.90s/it][A                                                       
+                                                                 [ARunning Count: 3
+Total:  59%|█████▉    | 85/144 [18:10<09:44,  9.90s/it]
+claude-opus-4-8:  59%|█████▉    | 85/144 [18:10<09:44,  9.90s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#55[0m
+Total:  59%|█████▉    | 85/144 [18:10<09:44,  9.90s/it]
+claude-opus-4-8:  59%|█████▉    | 85/144 [18:10<09:44,  9.90s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#54[0m
+Total:  59%|█████▉    | 85/144 [18:10<09:44,  9.90s/it]
+claude-opus-4-8:  59%|█████▉    | 85/144 [18:10<09:44,  9.90s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  59%|█████▉    | 85/144 [18:23<09:44,  9.90s/it]
+claude-opus-4-8:  59%|█████▉    | 85/144 [18:23<09:44,  9.90s/it][ATotal:  60%|█████▉    | 86/144 [18:24<11:05, 11.47s/it]
+claude-opus-4-8:  60%|█████▉    | 86/144 [18:24<11:05, 11.47s/it][ATotal:  60%|██████    | 87/144 [18:26<08:21,  8.79s/it]
+claude-opus-4-8:  60%|██████    | 87/144 [18:26<08:21,  8.79s/it][ATotal:  61%|██████    | 88/144 [18:30<06:41,  7.16s/it]
+claude-opus-4-8:  61%|██████    | 88/144 [18:30<06:41,  7.16s/it][A                                                       
+                                                                 [ARunning Count: 2
+Total:  61%|██████    | 88/144 [18:32<06:41,  7.16s/it]
+claude-opus-4-8:  61%|██████    | 88/144 [18:32<06:41,  7.16s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#53[0m
+Total:  61%|██████    | 88/144 [18:32<06:41,  7.16s/it]
+claude-opus-4-8:  61%|██████    | 88/144 [18:32<06:41,  7.16s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#52[0m
+Total:  61%|██████    | 88/144 [18:32<06:41,  7.16s/it]
+claude-opus-4-8:  61%|██████    | 88/144 [18:32<06:41,  7.16s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#51[0m
+Total:  61%|██████    | 88/144 [18:32<06:41,  7.16s/it]
+claude-opus-4-8:  61%|██████    | 88/144 [18:32<06:41,  7.16s/it][ATotal:  62%|██████▏   | 89/144 [18:36<06:17,  6.87s/it]
+claude-opus-4-8:  62%|██████▏   | 89/144 [18:36<06:17,  6.87s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  62%|██████▏   | 89/144 [18:43<06:17,  6.87s/it]
+claude-opus-4-8:  62%|██████▏   | 89/144 [18:43<06:17,  6.87s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#50[0m
+Total:  62%|██████▏   | 89/144 [18:43<06:17,  6.87s/it]
+claude-opus-4-8:  62%|██████▏   | 89/144 [18:43<06:17,  6.87s/it][ATotal:  62%|██████▎   | 90/144 [18:55<09:33, 10.63s/it]
+claude-opus-4-8:  62%|██████▎   | 90/144 [18:55<09:33, 10.63s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  62%|██████▎   | 90/144 [18:58<09:33, 10.63s/it]
+claude-opus-4-8:  62%|██████▎   | 90/144 [18:58<09:33, 10.63s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#49[0m
+Total:  62%|██████▎   | 90/144 [18:58<09:33, 10.63s/it]
+claude-opus-4-8:  62%|██████▎   | 90/144 [18:58<09:33, 10.63s/it][ATotal:  63%|██████▎   | 91/144 [19:04<09:00, 10.19s/it]
+claude-opus-4-8:  63%|██████▎   | 91/144 [19:04<09:00, 10.19s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  63%|██████▎   | 91/144 [19:07<09:00, 10.19s/it]
+claude-opus-4-8:  63%|██████▎   | 91/144 [19:07<09:00, 10.19s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#48[0m
+Total:  63%|██████▎   | 91/144 [19:07<09:00, 10.19s/it]
+claude-opus-4-8:  63%|██████▎   | 91/144 [19:07<09:00, 10.19s/it][ATotal:  64%|██████▍   | 92/144 [19:07<06:48,  7.86s/it]
+claude-opus-4-8:  64%|██████▍   | 92/144 [19:07<06:48,  7.86s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  64%|██████▍   | 92/144 [19:13<06:48,  7.86s/it]
+claude-opus-4-8:  64%|██████▍   | 92/144 [19:13<06:48,  7.86s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#47[0m
+Total:  64%|██████▍   | 92/144 [19:13<06:48,  7.86s/it]
+claude-opus-4-8:  64%|██████▍   | 92/144 [19:13<06:48,  7.86s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  64%|██████▍   | 92/144 [19:23<06:48,  7.86s/it]
+claude-opus-4-8:  64%|██████▍   | 92/144 [19:23<06:48,  7.86s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  64%|██████▍   | 92/144 [19:33<06:48,  7.86s/it]
+claude-opus-4-8:  64%|██████▍   | 92/144 [19:33<06:48,  7.86s/it][ATotal:  65%|██████▍   | 93/144 [19:34<11:36, 13.66s/it]
+claude-opus-4-8:  65%|██████▍   | 93/144 [19:34<11:36, 13.66s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  65%|██████▍   | 93/144 [19:41<11:36, 13.66s/it]
+claude-opus-4-8:  65%|██████▍   | 93/144 [19:41<11:36, 13.66s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#46[0m
+Total:  65%|██████▍   | 93/144 [19:41<11:36, 13.66s/it]
+claude-opus-4-8:  65%|██████▍   | 93/144 [19:41<11:36, 13.66s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  65%|██████▍   | 93/144 [19:47<11:36, 13.66s/it]
+claude-opus-4-8:  65%|██████▍   | 93/144 [19:47<11:36, 13.66s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  65%|██████▍   | 93/144 [19:53<11:36, 13.66s/it]
+claude-opus-4-8:  65%|██████▍   | 93/144 [19:53<11:36, 13.66s/it][ATotal:  65%|██████▌   | 94/144 [19:54<12:53, 15.47s/it]
+claude-opus-4-8:  65%|██████▌   | 94/144 [19:54<12:53, 15.47s/it][A                                                       
+                                                                 [ARunning Count: 4
+Total:  65%|██████▌   | 94/144 [19:58<12:53, 15.47s/it]
+claude-opus-4-8:  65%|██████▌   | 94/144 [19:58<12:53, 15.47s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#45[0m
+Total:  65%|██████▌   | 94/144 [19:58<12:53, 15.47s/it]
+claude-opus-4-8:  65%|██████▌   | 94/144 [19:58<12:53, 15.47s/it][ATotal:  66%|██████▌   | 95/144 [20:00<10:18, 12.63s/it]
+claude-opus-4-8:  66%|██████▌   | 95/144 [20:00<10:18, 12.63s/it][ATotal:  67%|██████▋   | 96/144 [20:06<08:34, 10.73s/it]
+claude-opus-4-8:  67%|██████▋   | 96/144 [20:06<08:34, 10.73s/it][A                                                       
+                                                                 [ARunning Count: 3
+Total:  67%|██████▋   | 96/144 [20:09<08:34, 10.73s/it]
+claude-opus-4-8:  67%|██████▋   | 96/144 [20:09<08:34, 10.73s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#44[0m
+Total:  67%|██████▋   | 96/144 [20:09<08:34, 10.73s/it]
+claude-opus-4-8:  67%|██████▋   | 96/144 [20:09<08:34, 10.73s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#43[0m
+Total:  67%|██████▋   | 96/144 [20:09<08:34, 10.73s/it]
+claude-opus-4-8:  67%|██████▋   | 96/144 [20:09<08:34, 10.73s/it][A                                                       
+                                                                 [ARunning Count: 5
+Total:  67%|██████▋   | 96/144 [20:15<08:34, 10.73s/it]
+claude-opus-4-8:  67%|██████▋   | 96/144 [20:15<08:34, 10.73s/it][ATotal:  67%|██████▋   | 97/144 [20:18<08:36, 10.99s/it]
+claude-opus-4-8:  67%|██████▋   | 97/144 [20:18<08:36, 10.99s/it][ATotal:  68%|██████▊   | 98/144 [20:20<06:23,  8.33s/it]
+claude-opus-4-8:  68%|██████▊   | 98/144 [20:20<06:23,  8.33s/it][A                                                       
+                                                                 [ARunning Count: 3
+Total:  68%|██████▊   | 98/144 [20:26<06:23,  8.33s/it]
+claude-opus-4-8:  68%|██████▊   | 98/144 [20:26<06:23,  8.33s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#42[0m
+Total:  68%|██████▊   | 98/144 [20:26<06:23,  8.33s/it]
+claude-opus-4-8:  68%|██████▊   | 98/144 [20:26<06:23,  8.33s/it][A                                                       
+                                                                 [A[92mAssigned claude-opus-4-8/os-std#41[0m
+Total:  68%|██████▊   | 98/144 [20:26<06:23,  8.33s/it]
+claude-opus-4-8:  68%|██████▊   | 98/144 [20:26<06:23,  8.33s/it][ATotal:  69%|██████▉   | 99/144 [20:33<07:14,  9.65s/it]
+claude-opus-4-8:  69%|██████▉   | 99/144 [20:33<07:14,  9.65s/it][ATotal:  69%|██████▉   | 100/144 [20:36<05:42,  7.79s/it]
+claude-opus-4-8:  69%|██████▉   | 100/144 [20:36<05:42,  7.79s/it][ATotal:  70%|███████   | 101/144 [20:38<04:20,  6.06s/it]
+claude-opus-4-8:  70%|███████   | 101/144 [20:38<04:20,  6.06s/it][A                                                        
+                                                                  [ARunning Count: 2
+Total:  70%|███████   | 101/144 [20:38<04:20,  6.06s/it]
+claude-opus-4-8:  70%|███████   | 101/144 [20:38<04:20,  6.06s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#40[0m
+Total:  70%|███████   | 101/144 [20:38<04:20,  6.06s/it]
+claude-opus-4-8:  70%|███████   | 101/144 [20:38<04:20,  6.06s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#39[0m
+Total:  70%|███████   | 101/144 [20:38<04:20,  6.06s/it]
+claude-opus-4-8:  70%|███████   | 101/144 [20:38<04:20,  6.06s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#38[0m
+Total:  70%|███████   | 101/144 [20:38<04:20,  6.06s/it]
+claude-opus-4-8:  70%|███████   | 101/144 [20:38<04:20,  6.06s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:  70%|███████   | 101/144 [20:48<04:20,  6.06s/it]
+claude-opus-4-8:  70%|███████   | 101/144 [20:48<04:20,  6.06s/it][ATotal:  71%|███████   | 102/144 [20:48<05:07,  7.32s/it]
+claude-opus-4-8:  71%|███████   | 102/144 [20:48<05:07,  7.32s/it][A                                                        
+                                                                  [ARunning Count: 4
+Total:  71%|███████   | 102/144 [20:57<05:07,  7.32s/it]
+claude-opus-4-8:  71%|███████   | 102/144 [20:57<05:07,  7.32s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#37[0m
+Total:  71%|███████   | 102/144 [20:57<05:07,  7.32s/it]
+claude-opus-4-8:  71%|███████   | 102/144 [20:57<05:07,  7.32s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:  71%|███████   | 102/144 [21:09<05:07,  7.32s/it]
+claude-opus-4-8:  71%|███████   | 102/144 [21:09<05:07,  7.32s/it][ATotal:  72%|███████▏  | 103/144 [21:12<08:16, 12.12s/it]
+claude-opus-4-8:  72%|███████▏  | 103/144 [21:12<08:16, 12.12s/it][A                                                        
+                                                                  [ARunning Count: 4
+Total:  72%|███████▏  | 103/144 [21:16<08:16, 12.12s/it]
+claude-opus-4-8:  72%|███████▏  | 103/144 [21:16<08:16, 12.12s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#36[0m
+Total:  72%|███████▏  | 103/144 [21:16<08:16, 12.12s/it]
+claude-opus-4-8:  72%|███████▏  | 103/144 [21:16<08:16, 12.12s/it][ATotal:  72%|███████▏  | 104/144 [21:18<06:50, 10.26s/it]
+claude-opus-4-8:  72%|███████▏  | 104/144 [21:18<06:50, 10.26s/it][ATotal:  73%|███████▎  | 105/144 [21:21<05:26,  8.37s/it]
+claude-opus-4-8:  73%|███████▎  | 105/144 [21:21<05:26,  8.37s/it][ATotal:  74%|███████▎  | 106/144 [21:24<04:14,  6.71s/it]
+claude-opus-4-8:  74%|███████▎  | 106/144 [21:24<04:14,  6.71s/it][A                                                        
+                                                                  [ARunning Count: 2
+Total:  74%|███████▎  | 106/144 [21:25<04:14,  6.71s/it]
+claude-opus-4-8:  74%|███████▎  | 106/144 [21:25<04:14,  6.71s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#35[0m
+Total:  74%|███████▎  | 106/144 [21:25<04:14,  6.71s/it]
+claude-opus-4-8:  74%|███████▎  | 106/144 [21:25<04:14,  6.71s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#34[0m
+Total:  74%|███████▎  | 106/144 [21:25<04:14,  6.71s/it]
+claude-opus-4-8:  74%|███████▎  | 106/144 [21:25<04:14,  6.71s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#33[0m
+Total:  74%|███████▎  | 106/144 [21:25<04:14,  6.71s/it]
+claude-opus-4-8:  74%|███████▎  | 106/144 [21:25<04:14,  6.71s/it][ATotal:  74%|███████▍  | 107/144 [21:34<04:36,  7.48s/it]
+claude-opus-4-8:  74%|███████▍  | 107/144 [21:34<04:36,  7.48s/it][A                                                        
+                                                                  [ARunning Count: 4
+Total:  74%|███████▍  | 107/144 [21:35<04:36,  7.48s/it]
+claude-opus-4-8:  74%|███████▍  | 107/144 [21:35<04:36,  7.48s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#32[0m
+Total:  74%|███████▍  | 107/144 [21:35<04:36,  7.48s/it]
+claude-opus-4-8:  74%|███████▍  | 107/144 [21:35<04:36,  7.48s/it][ATotal:  75%|███████▌  | 108/144 [21:36<03:37,  6.03s/it]
+claude-opus-4-8:  75%|███████▌  | 108/144 [21:36<03:37,  6.03s/it][ATotal:  76%|███████▌  | 109/144 [21:37<02:36,  4.48s/it]
+claude-opus-4-8:  76%|███████▌  | 109/144 [21:37<02:36,  4.48s/it][A                                                        
+                                                                  [ARunning Count: 3
+Total:  76%|███████▌  | 109/144 [21:41<02:36,  4.48s/it]
+claude-opus-4-8:  76%|███████▌  | 109/144 [21:41<02:36,  4.48s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#31[0m
+Total:  76%|███████▌  | 109/144 [21:41<02:36,  4.48s/it]
+claude-opus-4-8:  76%|███████▌  | 109/144 [21:41<02:36,  4.48s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#30[0m
+Total:  76%|███████▌  | 109/144 [21:41<02:36,  4.48s/it]
+claude-opus-4-8:  76%|███████▌  | 109/144 [21:41<02:36,  4.48s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:  76%|███████▌  | 109/144 [21:50<02:36,  4.48s/it]
+claude-opus-4-8:  76%|███████▌  | 109/144 [21:50<02:36,  4.48s/it][ATotal:  76%|███████▋  | 110/144 [21:52<04:14,  7.48s/it]
+claude-opus-4-8:  76%|███████▋  | 110/144 [21:52<04:14,  7.48s/it][ATotal:  77%|███████▋  | 111/144 [21:54<03:15,  5.93s/it]
+claude-opus-4-8:  77%|███████▋  | 111/144 [21:54<03:15,  5.93s/it][A                                                        
+                                                                  [ARunning Count: 3
+Total:  77%|███████▋  | 111/144 [21:56<03:15,  5.93s/it]
+claude-opus-4-8:  77%|███████▋  | 111/144 [21:56<03:15,  5.93s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#29[0m
+Total:  77%|███████▋  | 111/144 [21:56<03:15,  5.93s/it]
+claude-opus-4-8:  77%|███████▋  | 111/144 [21:56<03:15,  5.93s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#28[0m
+Total:  77%|███████▋  | 111/144 [21:56<03:15,  5.93s/it]
+claude-opus-4-8:  77%|███████▋  | 111/144 [21:56<03:15,  5.93s/it][ATotal:  78%|███████▊  | 112/144 [21:56<02:32,  4.76s/it]
+claude-opus-4-8:  78%|███████▊  | 112/144 [21:56<02:32,  4.76s/it][A                                                        
+                                                                  [ARunning Count: 4
+Total:  78%|███████▊  | 112/144 [22:03<02:32,  4.76s/it]
+claude-opus-4-8:  78%|███████▊  | 112/144 [22:03<02:32,  4.76s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#27[0m
+Total:  78%|███████▊  | 112/144 [22:03<02:32,  4.76s/it]
+claude-opus-4-8:  78%|███████▊  | 112/144 [22:03<02:32,  4.76s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:  78%|███████▊  | 112/144 [22:09<02:32,  4.76s/it]
+claude-opus-4-8:  78%|███████▊  | 112/144 [22:09<02:32,  4.76s/it][ATotal:  78%|███████▊  | 113/144 [22:09<03:44,  7.24s/it]
+claude-opus-4-8:  78%|███████▊  | 113/144 [22:09<03:44,  7.24s/it][ATotal:  79%|███████▉  | 114/144 [22:14<03:14,  6.49s/it]
+claude-opus-4-8:  79%|███████▉  | 114/144 [22:14<03:14,  6.49s/it][A                                                        
+                                                                  [ARunning Count: 3
+Total:  79%|███████▉  | 114/144 [22:15<03:14,  6.49s/it]
+claude-opus-4-8:  79%|███████▉  | 114/144 [22:15<03:14,  6.49s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#26[0m
+Total:  79%|███████▉  | 114/144 [22:15<03:14,  6.49s/it]
+claude-opus-4-8:  79%|███████▉  | 114/144 [22:15<03:14,  6.49s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#25[0m
+Total:  79%|███████▉  | 114/144 [22:15<03:14,  6.49s/it]
+claude-opus-4-8:  79%|███████▉  | 114/144 [22:15<03:14,  6.49s/it][ATotal:  80%|███████▉  | 115/144 [22:21<03:19,  6.88s/it]
+claude-opus-4-8:  80%|███████▉  | 115/144 [22:21<03:19,  6.88s/it][ATotal:  81%|████████  | 116/144 [22:22<02:16,  4.87s/it]
+claude-opus-4-8:  81%|████████  | 116/144 [22:22<02:16,  4.87s/it][A                                                        
+                                                                  [ARunning Count: 3
+Total:  81%|████████  | 116/144 [22:22<02:16,  4.87s/it]
+claude-opus-4-8:  81%|████████  | 116/144 [22:22<02:16,  4.87s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#24[0m
+Total:  81%|████████  | 116/144 [22:22<02:16,  4.87s/it]
+claude-opus-4-8:  81%|████████  | 116/144 [22:22<02:16,  4.87s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#23[0m
+Total:  81%|████████  | 116/144 [22:22<02:16,  4.87s/it]
+claude-opus-4-8:  81%|████████  | 116/144 [22:22<02:16,  4.87s/it][ATotal:  81%|████████▏ | 117/144 [22:32<02:55,  6.50s/it]
+claude-opus-4-8:  81%|████████▏ | 117/144 [22:32<02:55,  6.50s/it][A                                                        
+                                                                  [ARunning Count: 4
+Total:  81%|████████▏ | 117/144 [22:32<02:55,  6.50s/it]
+claude-opus-4-8:  81%|████████▏ | 117/144 [22:32<02:55,  6.50s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#22[0m
+Total:  81%|████████▏ | 117/144 [22:32<02:55,  6.50s/it]
+claude-opus-4-8:  81%|████████▏ | 117/144 [22:32<02:55,  6.50s/it][ATotal:  82%|████████▏ | 118/144 [22:37<02:34,  5.94s/it]
+claude-opus-4-8:  82%|████████▏ | 118/144 [22:37<02:34,  5.94s/it][ATotal:  83%|████████▎ | 119/144 [22:39<02:02,  4.88s/it]
+claude-opus-4-8:  83%|████████▎ | 119/144 [22:39<02:02,  4.88s/it][ATotal:  83%|████████▎ | 120/144 [22:41<01:36,  4.01s/it]
+claude-opus-4-8:  83%|████████▎ | 120/144 [22:41<01:36,  4.01s/it][A                                                        
+                                                                  [ARunning Count: 2
+Total:  83%|████████▎ | 120/144 [22:45<01:36,  4.01s/it]
+claude-opus-4-8:  83%|████████▎ | 120/144 [22:45<01:36,  4.01s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#21[0m
+Total:  83%|████████▎ | 120/144 [22:45<01:36,  4.01s/it]
+claude-opus-4-8:  83%|████████▎ | 120/144 [22:45<01:36,  4.01s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#20[0m
+Total:  83%|████████▎ | 120/144 [22:45<01:36,  4.01s/it]
+claude-opus-4-8:  83%|████████▎ | 120/144 [22:45<01:36,  4.01s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#19[0m
+Total:  83%|████████▎ | 120/144 [22:45<01:36,  4.01s/it]
+claude-opus-4-8:  83%|████████▎ | 120/144 [22:45<01:36,  4.01s/it][ATotal:  84%|████████▍ | 121/144 [22:48<01:53,  4.95s/it]
+claude-opus-4-8:  84%|████████▍ | 121/144 [22:48<01:53,  4.95s/it][A                                                        
+                                                                  [ARunning Count: 4
+Total:  84%|████████▍ | 121/144 [22:50<01:53,  4.95s/it]
+claude-opus-4-8:  84%|████████▍ | 121/144 [22:50<01:53,  4.95s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#18[0m
+Total:  84%|████████▍ | 121/144 [22:50<01:53,  4.95s/it]
+claude-opus-4-8:  84%|████████▍ | 121/144 [22:50<01:53,  4.95s/it][ATotal:  85%|████████▍ | 122/144 [22:51<01:32,  4.19s/it]
+claude-opus-4-8:  85%|████████▍ | 122/144 [22:51<01:32,  4.19s/it][ATotal:  85%|████████▌ | 123/144 [22:53<01:17,  3.68s/it]
+claude-opus-4-8:  85%|████████▌ | 123/144 [22:53<01:17,  3.68s/it][ATotal:  86%|████████▌ | 124/144 [23:00<01:34,  4.73s/it]
+claude-opus-4-8:  86%|████████▌ | 124/144 [23:00<01:34,  4.73s/it][A                                                        
+                                                                  [ARunning Count: 2
+Total:  86%|████████▌ | 124/144 [23:03<01:34,  4.73s/it]
+claude-opus-4-8:  86%|████████▌ | 124/144 [23:03<01:34,  4.73s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#17[0m
+Total:  86%|████████▌ | 124/144 [23:03<01:34,  4.73s/it]
+claude-opus-4-8:  86%|████████▌ | 124/144 [23:03<01:34,  4.73s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#16[0m
+Total:  86%|████████▌ | 124/144 [23:03<01:34,  4.73s/it]
+claude-opus-4-8:  86%|████████▌ | 124/144 [23:03<01:34,  4.73s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#15[0m
+Total:  86%|████████▌ | 124/144 [23:03<01:34,  4.73s/it]
+claude-opus-4-8:  86%|████████▌ | 124/144 [23:03<01:34,  4.73s/it][ATotal:  87%|████████▋ | 125/144 [23:04<01:22,  4.32s/it]
+claude-opus-4-8:  87%|████████▋ | 125/144 [23:04<01:22,  4.32s/it][ATotal:  88%|████████▊ | 126/144 [23:09<01:23,  4.65s/it]
+claude-opus-4-8:  88%|████████▊ | 126/144 [23:09<01:23,  4.65s/it][A                                                        
+                                                                  [ARunning Count: 3
+Total:  88%|████████▊ | 126/144 [23:13<01:23,  4.65s/it]
+claude-opus-4-8:  88%|████████▊ | 126/144 [23:13<01:23,  4.65s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#14[0m
+Total:  88%|████████▊ | 126/144 [23:13<01:23,  4.65s/it]
+claude-opus-4-8:  88%|████████▊ | 126/144 [23:13<01:23,  4.65s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#13[0m
+Total:  88%|████████▊ | 126/144 [23:13<01:23,  4.65s/it]
+claude-opus-4-8:  88%|████████▊ | 126/144 [23:13<01:23,  4.65s/it][ATotal:  88%|████████▊ | 127/144 [23:14<01:22,  4.86s/it]
+claude-opus-4-8:  88%|████████▊ | 127/144 [23:14<01:22,  4.86s/it][ATotal:  89%|████████▉ | 128/144 [23:19<01:16,  4.78s/it]
+claude-opus-4-8:  89%|████████▉ | 128/144 [23:19<01:16,  4.78s/it][A                                                        
+                                                                  [ARunning Count: 3
+Total:  89%|████████▉ | 128/144 [23:23<01:16,  4.78s/it]
+claude-opus-4-8:  89%|████████▉ | 128/144 [23:23<01:16,  4.78s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#12[0m
+Total:  89%|████████▉ | 128/144 [23:23<01:16,  4.78s/it]
+claude-opus-4-8:  89%|████████▉ | 128/144 [23:23<01:16,  4.78s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#11[0m
+Total:  89%|████████▉ | 128/144 [23:23<01:16,  4.78s/it]
+claude-opus-4-8:  89%|████████▉ | 128/144 [23:23<01:16,  4.78s/it][ATotal:  90%|████████▉ | 129/144 [23:25<01:15,  5.05s/it]
+claude-opus-4-8:  90%|████████▉ | 129/144 [23:25<01:15,  5.05s/it][ATotal:  90%|█████████ | 130/144 [23:28<01:01,  4.41s/it]
+claude-opus-4-8:  90%|█████████ | 130/144 [23:28<01:01,  4.41s/it][ATotal:  91%|█████████ | 131/144 [23:28<00:42,  3.24s/it]
+claude-opus-4-8:  91%|█████████ | 131/144 [23:28<00:42,  3.24s/it][A                                                        
+                                                                  [ARunning Count: 2
+Total:  91%|█████████ | 131/144 [23:30<00:42,  3.24s/it]
+claude-opus-4-8:  91%|█████████ | 131/144 [23:30<00:42,  3.24s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#10[0m
+Total:  91%|█████████ | 131/144 [23:30<00:42,  3.24s/it]
+claude-opus-4-8:  91%|█████████ | 131/144 [23:30<00:42,  3.24s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#9[0m
+Total:  91%|█████████ | 131/144 [23:30<00:42,  3.24s/it]
+claude-opus-4-8:  91%|█████████ | 131/144 [23:30<00:42,  3.24s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#8[0m
+Total:  91%|█████████ | 131/144 [23:30<00:42,  3.24s/it]
+claude-opus-4-8:  91%|█████████ | 131/144 [23:30<00:42,  3.24s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:  91%|█████████ | 131/144 [23:37<00:42,  3.24s/it]
+claude-opus-4-8:  91%|█████████ | 131/144 [23:37<00:42,  3.24s/it][ATotal:  92%|█████████▏| 132/144 [23:37<01:00,  5.04s/it]
+claude-opus-4-8:  92%|█████████▏| 132/144 [23:37<01:00,  5.04s/it][A                                                        
+                                                                  [ARunning Count: 4
+Total:  92%|█████████▏| 132/144 [23:42<01:00,  5.04s/it]
+claude-opus-4-8:  92%|█████████▏| 132/144 [23:42<01:00,  5.04s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#7[0m
+Total:  92%|█████████▏| 132/144 [23:42<01:00,  5.04s/it]
+claude-opus-4-8:  92%|█████████▏| 132/144 [23:42<01:00,  5.04s/it][ATotal:  92%|█████████▏| 133/144 [23:51<01:25,  7.74s/it]
+claude-opus-4-8:  92%|█████████▏| 133/144 [23:51<01:25,  7.74s/it][ATotal:  93%|█████████▎| 134/144 [23:52<00:55,  5.54s/it]
+claude-opus-4-8:  93%|█████████▎| 134/144 [23:52<00:55,  5.54s/it][ATotal:  94%|█████████▍| 135/144 [23:52<00:35,  3.92s/it]
+claude-opus-4-8:  94%|█████████▍| 135/144 [23:52<00:35,  3.92s/it][A                                                        
+                                                                  [ARunning Count: 2
+Total:  94%|█████████▍| 135/144 [23:55<00:35,  3.92s/it]
+claude-opus-4-8:  94%|█████████▍| 135/144 [23:55<00:35,  3.92s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#6[0m
+Total:  94%|█████████▍| 135/144 [23:55<00:35,  3.92s/it]
+claude-opus-4-8:  94%|█████████▍| 135/144 [23:55<00:35,  3.92s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#5[0m
+Total:  94%|█████████▍| 135/144 [23:55<00:35,  3.92s/it]
+claude-opus-4-8:  94%|█████████▍| 135/144 [23:55<00:35,  3.92s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#4[0m
+Total:  94%|█████████▍| 135/144 [23:55<00:35,  3.92s/it]
+claude-opus-4-8:  94%|█████████▍| 135/144 [23:55<00:35,  3.92s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:  94%|█████████▍| 135/144 [24:03<00:35,  3.92s/it]
+claude-opus-4-8:  94%|█████████▍| 135/144 [24:03<00:35,  3.92s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:  94%|█████████▍| 135/144 [24:10<00:35,  3.92s/it]
+claude-opus-4-8:  94%|█████████▍| 135/144 [24:10<00:35,  3.92s/it][ATotal:  94%|█████████▍| 136/144 [24:18<01:23, 10.45s/it]
+claude-opus-4-8:  94%|█████████▍| 136/144 [24:18<01:23, 10.45s/it][ATotal:  95%|█████████▌| 137/144 [24:18<00:51,  7.42s/it]
+claude-opus-4-8:  95%|█████████▌| 137/144 [24:18<00:51,  7.42s/it][ATotal:  96%|█████████▌| 138/144 [24:21<00:36,  6.13s/it]
+claude-opus-4-8:  96%|█████████▌| 138/144 [24:21<00:36,  6.13s/it][A                                                        
+                                                                  [ARunning Count: 2
+Total:  96%|█████████▌| 138/144 [24:25<00:36,  6.13s/it]
+claude-opus-4-8:  96%|█████████▌| 138/144 [24:25<00:36,  6.13s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#3[0m
+Total:  96%|█████████▌| 138/144 [24:25<00:36,  6.13s/it]
+claude-opus-4-8:  96%|█████████▌| 138/144 [24:25<00:36,  6.13s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#2[0m
+Total:  96%|█████████▌| 138/144 [24:25<00:36,  6.13s/it]
+claude-opus-4-8:  96%|█████████▌| 138/144 [24:25<00:36,  6.13s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#1[0m
+Total:  96%|█████████▌| 138/144 [24:25<00:36,  6.13s/it]
+claude-opus-4-8:  96%|█████████▌| 138/144 [24:25<00:36,  6.13s/it][A                                                        
+                                                                  [ARunning Count: 5
+Total:  96%|█████████▌| 138/144 [24:32<00:36,  6.13s/it]
+claude-opus-4-8:  96%|█████████▌| 138/144 [24:32<00:36,  6.13s/it][ATotal:  97%|█████████▋| 139/144 [24:38<00:47,  9.47s/it]
+claude-opus-4-8:  97%|█████████▋| 139/144 [24:38<00:47,  9.47s/it][A                                                        
+                                                                  [ARunning Count: 4
+Total:  97%|█████████▋| 139/144 [24:40<00:47,  9.47s/it]
+claude-opus-4-8:  97%|█████████▋| 139/144 [24:40<00:47,  9.47s/it][A                                                        
+                                                                  [A[92mAssigned claude-opus-4-8/os-std#0[0m
+Total:  97%|█████████▋| 139/144 [24:40<00:47,  9.47s/it]
+claude-opus-4-8:  97%|█████████▋| 139/144 [24:40<00:47,  9.47s/it][ATotal:  97%|█████████▋| 140/144 [24:44<00:33,  8.47s/it]
+claude-opus-4-8:  97%|█████████▋| 140/144 [24:44<00:33,  8.47s/it][ATotal:  98%|█████████▊| 141/144 [24:45<00:17,  5.98s/it]
+claude-opus-4-8:  98%|█████████▊| 141/144 [24:45<00:17,  5.98s/it][A                                                        
+                                                                  [ARunning Count: 3
+Total:  98%|█████████▊| 141/144 [24:52<00:17,  5.98s/it]
+claude-opus-4-8:  98%|█████████▊| 141/144 [24:52<00:17,  5.98s/it][A                                                        
+                                                                  [ARunning Count: 3
+Total:  98%|█████████▊| 141/144 [24:58<00:17,  5.98s/it]
+claude-opus-4-8:  98%|█████████▊| 141/144 [24:58<00:17,  5.98s/it][ATotal:  99%|█████████▊| 142/144 [25:07<00:21, 10.89s/it]
+claude-opus-4-8:  99%|█████████▊| 142/144 [25:07<00:21, 10.89s/it][A                                                        
+                                                                  [ARunning Count: 2
+Total:  99%|█████████▊| 142/144 [25:11<00:21, 10.89s/it]
+claude-opus-4-8:  99%|█████████▊| 142/144 [25:11<00:21, 10.89s/it][ATotal:  99%|█████████▉| 143/144 [25:16<00:10, 10.38s/it]
+claude-opus-4-8:  99%|█████████▉| 143/144 [25:16<00:10, 10.38s/it][A                                                        
+                                                                  [ARunning Count: 1
+Total:  99%|█████████▉| 143/144 [25:17<00:10, 10.38s/it]
+claude-opus-4-8:  99%|█████████▉| 143/144 [25:17<00:10, 10.38s/it][A                                                        
+                                                                  [ARunning Count: 1
+Total:  99%|█████████▉| 143/144 [25:27<00:10, 10.38s/it]
+claude-opus-4-8:  99%|█████████▉| 143/144 [25:27<00:10, 10.38s/it][ATotal: 100%|██████████| 144/144 [25:31<00:00, 11.59s/it]
+claude-opus-4-8: 100%|██████████| 144/144 [25:31<00:00, 11.59s/it][A                                                        
+                                                                  [ARunning Count: 0
+Total: 100%|██████████| 144/144 [25:33<00:00, 11.59s/it]
+claude-opus-4-8: 100%|██████████| 144/144 [25:33<00:00, 11.59s/it][ATotal: 100%|██████████| 144/144 [25:33<00:00, 10.65s/it]
+claude-opus-4-8: 100%|██████████| 144/144 [25:33<00:00, 10.65s/it]
+
+
+============================================
+[96mMessage: 144 sample(s) started. [0m
+[92m   >> 143 sample(s) finished successfully.[0m
+[91m   >> 1 sample(s) failed.[0m
+[96m   >> results are saved to outputs/claude-opus-4-8/os/2026-07-13-09-05-40-run[0m
+============================================
+
+

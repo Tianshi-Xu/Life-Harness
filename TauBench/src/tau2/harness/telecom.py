@@ -519,10 +519,11 @@ class ResumeLineStatusCheck:
                 "If the customer is still experiencing issues, check for other causes "
                 "(data quota, roaming settings, device configuration)."
             )
-        if line.status != LineStatus.SUSPENDED:
+        if line.status not in [LineStatus.SUSPENDED, LineStatus.PENDING_ACTIVATION]:
             raise ValueError(
                 f"Line {line_id} has status '{line.status.value}'. "
-                "resume_line can only reactivate lines that are currently Suspended. "
+                "resume_line can only reactivate lines that are currently Suspended "
+                "or Pending Activation. "
                 "Transfer to a human agent if the line is Closed or in an unexpected state."
             )
 
@@ -809,12 +810,10 @@ class HarnessedTelecomTools(HarnessedToolKitMixin, TelecomTools):
         "enable_roaming": [
             CustomerIDValidationRule(),
             LineOwnershipRule(),
-            EnableRoamingAlreadyEnabledRule(),
         ],
         "disable_roaming": [
             CustomerIDValidationRule(),
             LineOwnershipRule(),
-            DisableRoamingAlreadyDisabledRule(),
         ],
     }
 

@@ -1,0 +1,13 @@
+assignments:
+- agent:
+  - gemini-3.1-pro-preview
+  task:
+  - alfworld-std
+concurrency:
+  agent:
+    gemini-3.1-pro-preview: 5
+  task:
+    alfworld-std: 32
+import: definition.yaml
+output: outputs/gemini-3.1-pro-preview/alfworld/{TIMESTAMP}-run
+trials: 1

@@ -1,0 +1,71 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            BuildKit is currently disabled; enable it by removing the DOCKER_BUILDKIT=0
+            environment-variable.
+
+Sending build context to Docker daemon  302.1MB
+Step 1/22 : FROM python:3.9-bullseye AS worker
+ ---> 3dcaf39bbe2d
+Step 2/22 : ENV DEBIAN_FRONTEND=noninteractive
+ ---> Using cache
+ ---> 6df652078bb1
+Step 3/22 : ENV PYTHONUNBUFFERED=1
+ ---> Using cache
+ ---> e70f679eb25b
+Step 4/22 : ENV TQDM_DISABLE=1
+ ---> Using cache
+ ---> 554e9405e56c
+Step 5/22 : WORKDIR /app
+ ---> Using cache
+ ---> dd23a320f8cd
+Step 6/22 : COPY data/webshop_repo /usr/src/webshop
+ ---> Using cache
+ ---> ad4085b007c7
+Step 7/22 : RUN cd /usr/src/webshop &&     git checkout 64fa2a5c15c7daa698b9ac93f5bb5437b634c9bd || true
+ ---> Using cache
+ ---> 8d73721a7de1
+Step 8/22 : COPY --from=longinyu/agentbench-webshop:latest /root/webshop/data /usr/src/webshop/data
+ ---> Using cache
+ ---> 260456173871
+Step 9/22 : RUN rm -f /usr/src/webshop/data/items_shuffle.json /usr/src/webshop/data/items_ins_v2.json
+ ---> Using cache
+ ---> d8ae92e672e4
+Step 10/22 : RUN if [ -f /etc/apt/sources.list.d/debian.sources ]; then       sed -i 's|deb.debian.org|mirrors.aliyun.com|g' /etc/apt/sources.list.d/debian.sources &&       sed -i 's|security.debian.org|mirrors.aliyun.com|g' /etc/apt/sources.list.d/debian.sources;     else       sed -i 's|deb.debian.org|mirrors.aliyun.com|g' /etc/apt/sources.list &&       sed -i 's|security.debian.org|mirrors.aliyun.com|g' /etc/apt/sources.list;     fi &&     apt-get update &&     (apt-get install -y git openjdk-11-jdk-headless ||      (apt-get update && apt-get install -y --fix-missing git openjdk-11-jdk-headless)) &&     apt-get clean &&     rm -rf /var/lib/apt/lists/*
+ ---> Using cache
+ ---> d28967de4574
+Step 11/22 : COPY ./src/server/tasks/webshop/requirements.txt /app/src/server/tasks/webshop/requirements.txt
+ ---> Using cache
+ ---> c144875461ec
+Step 12/22 : RUN echo "setuptools<70.0.0" > /tmp/constraint.txt &&     echo "spacy<3.8.0" >> /tmp/constraint.txt &&     echo "thinc<8.3.0" >> /tmp/constraint.txt &&     export PIP_CONSTRAINT=/tmp/constraint.txt &&     export PIP_BUILD_CONSTRAINT=/tmp/constraint.txt &&     python -m pip install --upgrade pip -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple &&     python -m pip install --retries 5 --timeout 300       --index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple       --extra-index-url https://download.pytorch.org/whl/cpu       -r /app/src/server/tasks/webshop/requirements.txt       agentrl-worker &&     python -m spacy download en_core_web_sm &&     python -m spacy download en_core_web_lg
+ ---> Using cache
+ ---> 45f462393396
+Step 13/22 : ENV PYTHONPATH="/usr/src/webshop"
+ ---> Using cache
+ ---> cc41e88ca9d7
+Step 14/22 : ENV _JAVA_OPTIONS="-Xmx1g"
+ ---> Using cache
+ ---> 6b3576a10cee
+Step 15/22 : COPY ./src/server/tasks/webshop/webshop.patch /tmp/webshop.patch
+ ---> Using cache
+ ---> f285ccb5de79
+Step 16/22 : RUN cd /usr/src/webshop &&     git apply --check /tmp/webshop.patch &&     git apply /tmp/webshop.patch &&     rm /tmp/webshop.patch &&     sed -i "s|items_shuffle.json'|items_shuffle_1000.json'|" /usr/src/webshop/web_agent_site/utils.py &&     sed -i "s|items_ins_v2.json'|items_ins_v2_1000.json'|" /usr/src/webshop/web_agent_site/utils.py &&     mkdir -p /usr/src/webshop/search_engine/indexes /usr/src/webshop/search_engine/resources
+ ---> Running in 33fa5f54a4f1
+ ---> Removed intermediate container 33fa5f54a4f1
+ ---> 4994e9b692f3
+Step 17/22 : COPY --from=longinyu/agentbench-webshop:latest /root/webshop/search_engine/indexes_1k /usr/src/webshop/search_engine/indexes_1k
+ ---> 2234554aa38a
+Step 18/22 : COPY ./src/server/tasks/webshop /app/src/server/tasks/webshop
+ ---> a6ed7b478f9d
+Step 19/22 : COPY ./configs/tasks/webshop.yaml /app/configs/tasks/webshop.yaml
+ ---> 9f20bf926924
+Step 20/22 : COPY ./extra/worker-entrypoint.sh /entrypoint.sh
+ ---> 51696e6322fc
+Step 21/22 : RUN chmod +x /entrypoint.sh
+ ---> Running in 32017827f71b
+ ---> Removed intermediate container 32017827f71b
+ ---> 55f4d8b41962
+Step 22/22 : ENTRYPOINT ["/entrypoint.sh", "-c", "configs/tasks/webshop.yaml"]
+ ---> Running in e412e1953323
+ ---> Removed intermediate container e412e1953323
+ ---> c8455a333bd5
+Successfully built c8455a333bd5
+Successfully tagged agentbench-webshop-std:latest

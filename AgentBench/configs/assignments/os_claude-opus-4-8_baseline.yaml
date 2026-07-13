@@ -1,0 +1,13 @@
+assignments:
+- agent:
+  - claude-opus-4-8
+  task:
+  - os-std
+concurrency:
+  agent:
+    claude-opus-4-8: 5
+  task:
+    os-std: 16
+import: definition.yaml
+output: outputs/claude-opus-4-8/os/{TIMESTAMP}-baseline
+trials: 1

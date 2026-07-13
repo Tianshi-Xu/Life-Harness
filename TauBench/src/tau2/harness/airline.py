@@ -757,6 +757,7 @@ class BookReservationPaymentTotalRule:
     from the DB are skipped (the tool itself will raise a suitable error).
 
     Formula: expected_total = sum(prices[cabin] for each flight) × num_passengers
+    + insurance ($30/passenger if selected) + baggage fees ($50 × nonfree_baggages)
 
     When a mismatch is detected the error message also computes the optimal
     per-instrument breakdown (certificates and gift cards first, remainder to
@@ -773,6 +774,8 @@ class BookReservationPaymentTotalRule:
         cabin: str = "",
         passengers: list | None = None,
         payment_methods: list | None = None,
+        insurance: str = "",
+        nonfree_baggages: int = 0,
         **_: Any,
     ) -> None:
         flights = flights or []
@@ -811,6 +814,9 @@ class BookReservationPaymentTotalRule:
             return
 
         expected_total *= num_pax
+        if insurance == "yes":
+            expected_total += 30 * num_pax
+        expected_total += 50 * nonfree_baggages
         paid_total = sum(
             (pm.get("amount") if isinstance(pm, dict) else getattr(pm, "amount", 0))
             for pm in payment_methods
@@ -879,7 +885,7 @@ class BookReservationPaymentTotalRule:
 
         selected_fare = expected_total // num_pax if num_pax else expected_total
         raise ValueError(
-            f"Payment total mismatch: submitted ${paid_total} ≠ actual ticket cost "
+            f"Payment total mismatch: submitted ${paid_total} ≠ actual total cost "
             f"${expected_total} "
             f"(selected {cabin} itinerary costs ${selected_fare}/passenger × "
             f"{num_pax} passenger(s)).\n"
@@ -1294,7 +1300,7 @@ class HarnessedAirlineTools(HarnessedToolKitMixin, AirlineTools):
             MaxPassengersRule(),
             FlightStatusBookableRule(),
             BaggageAllowanceRule(),
-            BookReservationPaymentTotalRule(),   # A15: payment sum == ticket total
+            BookReservationPaymentTotalRule(),
         ],
         "cancel_reservation": [CancelFlightRule()],
         "update_reservation_flights": [
@@ -1446,12 +1452,20 @@ class ReservationPolicyContextAnnotator:
         free_total = free_per_pax * num_pax
         insurance = getattr(result, "insurance", "no")
 
-        return (
+        parts = [
             f"[H4] User membership is {membership}; this {cabin} reservation has "
             f"{num_pax} passenger(s), so checked-bag allowance is {free_total} total "
             f"({free_per_pax}/passenger). Insurance={insurance}; insurance only supports "
             "cancellation for covered health/weather reasons, not personal conflicts."
-        )
+        ]
+
+        if cabin == "basic_economy":
+            parts.append(
+                " This is a basic_economy reservation — cabin upgrades (same flight "
+                "numbers, new cabin class) are available via update_reservation_flights."
+            )
+
+        return "".join(parts)
 
 
 class ReservationFlightSummaryAnnotator:

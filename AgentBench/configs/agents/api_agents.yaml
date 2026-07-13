@@ -36,6 +36,46 @@ qwen3-4b-instruct:
             temperature: 0.0
 
 
+claude-opus-4-8:
+    import: "./openai-chat.yaml"
+    parameters:
+        name: "claude-opus-4-8"
+        url: "https://routify-pub.alibaba-inc.com/protocol/openai/v1/chat/completions"
+        headers:
+            Content-Type: "application/json"
+            Authorization: "Bearer sk-856330ce991f4080b9cc5c2614cefcb7"
+        body:
+            model: "claude-opus-4-8"
+            max_tokens: 4096
+            temperature: null
+
+gemini-3.1-pro-preview:
+    import: "./openai-chat.yaml"
+    parameters:
+        name: "gemini-3.1-pro-preview"
+        url: "https://routify-pub.alibaba-inc.com/protocol/openai/v1/chat/completions"
+        headers:
+            Content-Type: "application/json"
+            Authorization: "Bearer sk-856330ce991f4080b9cc5c2614cefcb7"
+        body:
+            model: "gemini-3.1-pro-preview"
+            max_tokens: 4096
+            temperature: 0.0
+
+gpt-5.5:
+    import: "./openai-chat.yaml"
+    parameters:
+        name: "gpt-5.5"
+        url: "https://routify-pub.alibaba-inc.com/protocol/openai/v1/chat/completions"
+        headers:
+            Content-Type: "application/json"
+            Authorization: "Bearer sk-856330ce991f4080b9cc5c2614cefcb7"
+        body:
+            model: "gpt-5.5"
+            max_tokens: 4096
+            temperature: 0.0
+
+
 # Qwen3.5-4B:
 #     import: "./openai-chat.yaml"
 #     parameters:

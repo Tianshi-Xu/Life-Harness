@@ -1,0 +1,13 @@
+assignments:
+- agent:
+  - gemini-3.1-pro-preview
+  task:
+  - webshop-std
+concurrency:
+  agent:
+    gemini-3.1-pro-preview: 5
+  task:
+    webshop-std: 16
+import: definition.yaml
+output: outputs/gemini-3.1-pro-preview/webshop/{TIMESTAMP}-run
+trials: 1
