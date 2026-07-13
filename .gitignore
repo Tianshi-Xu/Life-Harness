@@ -13,6 +13,7 @@ __pycache__/
 .idea/
 .vscode/
 .qoder/
+test_api.sh
 logs/
 outputs/
 outputs_old/
