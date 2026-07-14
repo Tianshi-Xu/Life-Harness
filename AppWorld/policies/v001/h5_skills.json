@@ -1,0 +1,72 @@
+[
+  {
+    "id": "selection_qualifier_not_write",
+    "title": "Treat prior liked/downloaded state as a filter, not a new write",
+    "pattern": "liked downloaded already rating review songs albums playlists which have",
+    "tip": "When 'liked' or 'downloaded' qualifies a noun (for example, 'songs I have liked'), it defines the target set. Do not call like/unlike merely because the word appears. Read and filter the qualifying state, then execute the actual requested operation such as rate, review, remove, or report.",
+    "source_task_ids": ["692c77d"]
+  },
+  {
+    "id": "create_or_update_conflict_recovery",
+    "title": "Read existing records before create-or-update writes",
+    "pattern": "rate rating review reviews increase decrease update existing already all songs albums playlists",
+    "tip": "For rating or review tasks, select both review-read and review-update APIs as well as the create API. Before each write, inspect any existing user review. If creation reports an existing record, do not retry it: use the exact observed record ID with the corresponding update API, or leave it unchanged when it already satisfies the requested rating.",
+    "source_task_ids": ["692c77d"]
+  },
+  {
+    "id": "collect_then_apply_all",
+    "title": "Collect the full target set before bulk writes",
+    "pattern": "all every each entire follow unfollow like unlike remove delete rate review accept reject comment payment request songs artists transactions messages",
+    "tip": "For an all/every task, enumerate every relevant container and every page first, deduplicate target IDs, then perform the requested write once per target. Do not submit after processing only the first page or first container.",
+    "source_task_ids": ["07b42fd", "692c77d", "6ea6792", "aa8502b", "afc0fce", "b7a9ee9", "ce359b5"]
+  },
+  {
+    "id": "detail_lookup_for_metric",
+    "title": "Use detail records for extrema and hidden metrics",
+    "pattern": "most least highest lowest oldest newest played liked rating release title duration longest shortest song album playlist",
+    "tip": "Library and playlist listings often provide IDs but omit global metrics. Enumerate the requested scope, call the public detail endpoint for every candidate, compare the requested metric exactly, and only then return the concise answer or act on the winner.",
+    "source_task_ids": ["27e1026", "82e2fac", "e7a10f8", "e85d92a", "287e338"]
+  },
+  {
+    "id": "discover_files_before_open",
+    "title": "Discover the file tree before reading or mutating paths",
+    "pattern": "file files directory folder receipt bill photograph photo backup csv zip tar compress organize move filesystem",
+    "tip": "Start from the known parent directory and enumerate exact returned paths. Recurse as needed; never invent a filename. For multi-file work, build the complete source-to-destination plan before moving, deleting, compressing, or exporting.",
+    "source_task_ids": ["34d9492", "3c13f5a", "6104387", "76f2c72", "7d7fbf6"]
+  },
+  {
+    "id": "cross_app_join",
+    "title": "Resolve cross-app joins before writing",
+    "pattern": "friends coworkers roommates siblings contacts phone venmo note simple note transaction payment request text message yesterday today date since",
+    "tip": "For cross-app tasks, first resolve people to exact contact emails/phone numbers, obtain the current date when time-relative, collect source records across all pages, then join by exact identifiers before issuing target-app writes.",
+    "source_task_ids": ["22cc237", "29caf6f", "2a163ab", "3c13f5a", "afc0fce", "d0b1f43"]
+  },
+  {
+    "id": "set_logic_before_cleanup",
+    "title": "Materialize keep/remove sets before cleanup",
+    "pattern": "cleanup keep only remove rest liked downloaded intersection union both either neither before after year",
+    "tip": "Translate AND/OR and date inequalities literally. Collect all candidate IDs and all keep-condition sets first, compute the final keep/remove set, and only then mutate libraries so early removals cannot destroy information needed later.",
+    "source_task_ids": ["229360a", "ce359b5"]
+  },
+  {
+    "id": "multi_stage_destructive_last",
+    "title": "Perform destructive terminal actions last",
+    "pattern": "export backup terminate account delete compress archive migrate cleanup after complete",
+    "tip": "Complete and verify all discovery, transformation, and output creation before deleting source directories or terminating an account. A terminal destructive action must be the final requested write, never an early shortcut.",
+    "source_task_ids": ["6104387", "7d7fbf6"]
+  },
+  {
+    "id": "recover_instead_of_fail",
+    "title": "Change information source before declaring failure",
+    "pattern": "what how name title total answer most least cannot missing unavailable no field fail",
+    "tip": "If one listing omits a needed field, do not declare failure. Use the corresponding detail/search endpoint, inspect another relevant app, or derive the value from complete records. Submit only a concise evidence-backed answer.",
+    "source_task_ids": ["82e2fac", "287e338", "27e1026", "d0b1f43"]
+  },
+  {
+    "id": "relationship_scope_and_time",
+    "title": "Resolve relationship scope and complete time boundaries",
+    "pattern": "roommates coworkers friends siblings yesterday today days since january february march transactions payments messages",
+    "tip": "Resolve every named relationship through phone contacts, use the environment's current date, construct inclusive 00:00:00–23:59:59 boundaries, and scan every result page before filtering or aggregating.",
+    "source_task_ids": ["2a163ab", "afc0fce", "d0b1f43", "22cc237"]
+  }
+]

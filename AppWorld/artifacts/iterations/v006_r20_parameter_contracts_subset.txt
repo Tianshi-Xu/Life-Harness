@@ -1,0 +1,11 @@
+# Stable guards
+287e338_1
+7d7fbf6_2
+
+# Parameter-contract targets
+c901732_1
+afc0fce_2
+6104387_1
+ce359b5_2
+22cc237_3
+692c77d_1

@@ -1,0 +1,20 @@
+{
+  "version": "v005",
+  "source_split": "train",
+  "source_experiment": "simplified_function_calling_agent/local/qwen3-4b/train",
+  "oracle_data_used": false,
+  "design": "strict-independent-four-layer",
+  "layers": {
+    "H2": "current-action validation against the complete environment contract and representation-only repair",
+    "H3": "one-time environment contract augmentation on selected tool descriptions",
+    "H4": "post-execution statistical trajectory feedback only",
+    "H5": "at most one task-start procedural hint, requiring two independent lexical cues"
+  },
+  "removed_cross_layer_channels": [
+    "H4-to-H2 loop quarantine",
+    "H4-to-H2 rejection memory",
+    "H5-to-API-predictor tool forcing",
+    "H2 forced alternate actions",
+    "H4 observation and history rewriting"
+  ]
+}

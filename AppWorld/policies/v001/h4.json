@@ -1,0 +1,8 @@
+{
+  "duplicate_threshold": 2,
+  "error_streak_threshold": 2,
+  "soft_prompt_token_threshold": 24000,
+  "critical_prompt_token_threshold": 29000,
+  "soft_max_completion_tokens": 1000,
+  "critical_max_completion_tokens": 256
+}

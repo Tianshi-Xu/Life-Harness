@@ -1,0 +1,2 @@
+# Regression for exact A↔B read-loop quarantine in the rating task.
+692c77d_3

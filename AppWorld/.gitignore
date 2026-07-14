@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+
+# Experiment outputs (large, not for version control)
+experiments/outputs/
+artifacts/run_logs/
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Logs
+*.log

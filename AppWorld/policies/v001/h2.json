@@ -1,0 +1,10 @@
+{
+  "block_fail_before_step": 49,
+  "max_premature_fail_blocks": 3,
+  "max_forced_detail_calls": 10,
+  "tool_aliases": {
+    "phone__show_contacts": "phone__search_contacts",
+    "phone__get_contacts": "phone__search_contacts",
+    "spotify__complete_task": "supervisor__complete_task"
+  }
+}

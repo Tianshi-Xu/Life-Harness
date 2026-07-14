@@ -1,0 +1,20 @@
+# v003 harness iteration log
+
+This log deliberately records only runtime-observable failure classes, code changes,
+unit regressions, and task-level completion status. It does not contain evaluator
+requirements, labels, or reference outcomes.
+
+| Round | Evidence and earliest layer | Minimal update | Regression |
+| --- | --- | --- | --- |
+| r01 | Repeated H2 blocks of calls that never reached the environment; H4 history compaction | Replace stale blocked assistant/tool pairs with one control-state summary | 33 layer tests passed; prior context failures absent; 0/3 task-level successes |
+| r02 | Long deterministic environment rejection traces consume subsequent prompt context; H4 post-execution | Replace a long error/trace with the callable, rejection class when available, and conservative recovery rule | 34 layer tests passed; numeric output reduction observed; 0/1 task-level successes |
+| r03 | Qwen3 continues producing long `<think>` planning despite prompt-only `/no_think`; H5 task conditioning | Evaluated vLLM's per-request `chat_template_kwargs.enable_thinking=false` with a harness-local transport shim; the task used more steps/errors and remained unsuccessful, so the switch is now explicit opt-in rather than default | 35 layer tests passed; 0/1 task-level successes; rollback retained |
+| r04 | H4 loop quarantine was cleared by any different call, including another deterministic failure; post-execution loop recovery | Keep quarantined A↔B signatures until a different environment call succeeds | 36 layer tests passed; 0/1 task-level successes; no loop false-positive seen in the regression |
+| r05 | Recurrent pre-auth API calls were blocked for absent passwords/tokens; H2 pre-execution | Replace the first such block with one bounded read-only supervisor credential discovery call | 37 layer tests passed; 0/1 task-level successes; no repeated credential rescue occurred |
+| r06 | Repeated exact calls already rejected by the environment produce many H2 control messages; H2 pre-execution | Preserve the existing block decision but replace verbose repeated feedback with a compact state instruction | 37 layer tests passed; feedback size reduced; 0/1 task-level successes |
+| r07 | H4 could remove only a blocked tool reply from a mixed assistant action batch, leaving an invalid tool-call history; H4 post-execution history compaction | Compact only fully blocked assistant/tool pairs and retain mixed batches intact | 38 layer tests passed; protocol-safe compaction observed; 0/1 task-level successes |
+| r08 | Authorization errors were folded into generic validation recovery; H4 post-execution | Classify authorization separately and require an observed permitted relationship before another write | 38 layer tests passed; 0/1 task-level successes |
+| r09 | Broad error keywords could classify ordinary successful record text as an execution failure; H4 post-execution | Require an explicit execution-failure/HTTP-status signal before error compaction, retries, or loop-progress suppression | 39 layer tests passed; 0/1 task-level successes, including the selected prior-success regression |
+| r10 | The model occasionally emits tool-name variants not present in the schema; H5 task conditioning | Add one schema-exact-name reminder, without auto-aliasing or altering an emitted action | 39 layer tests passed; 0/1 task-level successes; no unknown-tool block occurred in this subset |
+| r11 | Generic H4 error compaction erased a diagnostic needed to change a rejected action; H4 post-execution | Keep one bounded, credential/JWT-redacted environment `message` diagnostic with the compact recovery state | 40 layer tests passed; eliminated the selected trajectory's unchanged-retry blocks but remained 0/1 task-level successes |
+| r12 | Full train exposed context overflow before post-action H4 compaction could run; H4 before the next model request | Append the complete fresh tool exchange, protect it, compact only older consumed history, then call the model | 41 layer tests passed; both context regressions completed without context/API errors, though both remained 0/1 task-level successes |

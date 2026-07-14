@@ -1,0 +1,7 @@
+# Stable guards
+287e338_1
+7d7fbf6_2
+
+# Historical no-action/repetition/context-growth cases
+82e2fac_2
+34d9492_2

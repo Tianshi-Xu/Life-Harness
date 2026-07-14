@@ -1,0 +1,38 @@
+[
+  {
+    "id": "enumerate_before_aggregate_or_bulk_write",
+    "title": "Enumerate before aggregating or applying bulk changes",
+    "pattern": "all every each entire most least highest lowest total count bulk songs song files records pages",
+    "tip": "When completeness matters, collect all relevant pages and containers before computing an aggregate or applying writes. Track observed identifiers and avoid submitting from a partial first page."
+  },
+  {
+    "id": "classify_complete_collection_before_submit",
+    "title": "Classify and verify the complete collection",
+    "pattern": "organize arrange sort photos photographs files directory subdirectories folders vacation move classify date month",
+    "tip": "Enumerate the complete source collection before writing, classify every observed item from retrieved metadata, and track each item through its write. Before submitting, re-list or otherwise verify that no source item remains unprocessed."
+  },
+  {
+    "id": "discover_identifiers_before_mutation",
+    "title": "Discover exact identifiers before mutation",
+    "pattern": "file path directory folder contact person account record update delete move compress pay message",
+    "tip": "Use read or list results to obtain exact identifiers, paths, and ownership before a write. Do not invent values that the environment can reveal."
+  },
+  {
+    "id": "destructive_terminal_actions_last",
+    "title": "Perform destructive terminal actions last",
+    "pattern": "delete remove terminate compress archive cleanup migrate backup export account directory",
+    "tip": "Finish discovery and creation of required outputs before deleting sources or performing an irreversible terminal action."
+  },
+  {
+    "id": "resolve_people_and_reconcile_payments",
+    "title": "Resolve real accounts and reconcile payments before requesting money",
+    "pattern": "coworkers friends roommates dinner bill shares paid sent venmo payment request note contacts people",
+    "tip": "Read the source note, resolve each named person to an exact observed account identifier using available contact/user search tools, enumerate existing payments, and request only the unpaid difference. Never invent an email address from a name."
+  },
+  {
+    "id": "login_before_authenticated_calls",
+    "title": "Login before authenticated API calls",
+    "pattern": "login access_token password authenticate spotify phone venmo file_system simple_note amazon gmail splitwise todoist play search show create delete update",
+    "tip": "Before calling any app API that requires access_token: 1) call supervisor__show_profile for the email, 2) call supervisor__show_account_passwords for the password, 3) call {app}__login with the correct username parameter and the exact password for that app, 4) use the returned access_token (a JWT starting with 'eyJ') for all subsequent calls. Never use a password as access_token. Never use a tutorial example password."
+  }
+]

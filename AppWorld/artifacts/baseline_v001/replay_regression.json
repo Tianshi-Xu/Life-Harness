@@ -1,0 +1,1429 @@
+{
+  "summary": {
+    "successful": {
+      "tasks": 9,
+      "tasks_with_h2_repairs": 0,
+      "h2_repairs": 0,
+      "tasks_with_h2_blocks": 0,
+      "h2_blocks": 0,
+      "tasks_with_h4_triggers": 5,
+      "h4_triggers": 5,
+      "tasks_with_h5_skills": 9
+    },
+    "failed": {
+      "tasks": 81,
+      "tasks_with_h2_repairs": 37,
+      "h2_repairs": 144,
+      "tasks_with_h2_blocks": 36,
+      "h2_blocks": 90,
+      "tasks_with_h4_triggers": 55,
+      "h4_triggers": 337,
+      "tasks_with_h5_skills": 81
+    }
+  },
+  "tasks": [
+    {
+      "task_id": "07b42fd_1",
+      "success": true,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "collect_then_apply_all",
+        "detail_lookup_for_metric",
+        "recover_instead_of_fail"
+      ]
+    },
+    {
+      "task_id": "07b42fd_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "collect_then_apply_all",
+        "detail_lookup_for_metric",
+        "recover_instead_of_fail"
+      ]
+    },
+    {
+      "task_id": "07b42fd_3",
+      "success": true,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 1
+      },
+      "h5_skills": [
+        "collect_then_apply_all",
+        "detail_lookup_for_metric",
+        "recover_instead_of_fail"
+      ]
+    },
+    {
+      "task_id": "229360a_1",
+      "success": false,
+      "h2_repairs": {
+        "restored spotify access token from successful login": 2
+      },
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 1,
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "set_logic_before_cleanup",
+        "detail_lookup_for_metric",
+        "collect_then_apply_all"
+      ]
+    },
+    {
+      "task_id": "229360a_2",
+      "success": false,
+      "h2_repairs": {
+        "restored spotify username from supervisor profile": 2
+      },
+      "h2_blocks": {
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {
+        "duplicate_action_observation": 1,
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "set_logic_before_cleanup",
+        "detail_lookup_for_metric",
+        "collect_then_apply_all"
+      ]
+    },
+    {
+      "task_id": "229360a_3",
+      "success": false,
+      "h2_repairs": {
+        "restored spotify access token from successful login": 2,
+        "restored spotify username from supervisor profile": 1
+      },
+      "h2_blocks": {},
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "set_logic_before_cleanup",
+        "detail_lookup_for_metric",
+        "collect_then_apply_all"
+      ]
+    },
+    {
+      "task_id": "22cc237_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Blocked authenticated `simple_note__search_notes` until a successful `simple_note__login` returns an access token": 1,
+        "[H2 action gate] Blocked authenticated `phone__search_contacts` until a successful `phone__login` returns an access token": 7,
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "cross_app_join",
+        "collect_then_apply_all",
+        "relationship_scope_and_time"
+      ]
+    },
+    {
+      "task_id": "22cc237_2",
+      "success": false,
+      "h2_repairs": {
+        "restored venmo username from supervisor profile": 1,
+        "restored simple_note username from supervisor profile": 2,
+        "restored phone username from supervisor profile": 3
+      },
+      "h2_blocks": {
+        "[H2 action gate] Blocked authenticated `simple_note__search_notes` until a successful `simple_note__login` returns an access token": 2,
+        "[H2 action gate] Blocked authenticated `phone__search_contacts` until a successful `phone__login` returns an access token": 3,
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {
+        "duplicate_action_observation": 1,
+        "error_streak": 8,
+        "abab_loop": 1
+      },
+      "h5_skills": [
+        "cross_app_join",
+        "collect_then_apply_all",
+        "relationship_scope_and_time"
+      ]
+    },
+    {
+      "task_id": "22cc237_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Blocked authenticated `simple_note__search_notes` until a successful `simple_note__login` returns an access token": 1,
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {},
+      "h5_skills": [
+        "cross_app_join",
+        "collect_then_apply_all",
+        "relationship_scope_and_time"
+      ]
+    },
+    {
+      "task_id": "27e1026_1",
+      "success": false,
+      "h2_repairs": {
+        "removed unsupported read argument access_token": 2
+      },
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 1
+      },
+      "h5_skills": [
+        "detail_lookup_for_metric",
+        "recover_instead_of_fail",
+        "multi_stage_destructive_last"
+      ]
+    },
+    {
+      "task_id": "27e1026_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 1
+      },
+      "h5_skills": [
+        "detail_lookup_for_metric",
+        "recover_instead_of_fail",
+        "multi_stage_destructive_last"
+      ]
+    },
+    {
+      "task_id": "27e1026_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 1
+      },
+      "h5_skills": [
+        "detail_lookup_for_metric",
+        "recover_instead_of_fail",
+        "multi_stage_destructive_last"
+      ]
+    },
+    {
+      "task_id": "287e338_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 10
+      },
+      "h5_skills": [
+        "recover_instead_of_fail",
+        "detail_lookup_for_metric"
+      ]
+    },
+    {
+      "task_id": "287e338_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "recover_instead_of_fail",
+        "detail_lookup_for_metric"
+      ]
+    },
+    {
+      "task_id": "287e338_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "recover_instead_of_fail",
+        "detail_lookup_for_metric"
+      ]
+    },
+    {
+      "task_id": "29caf6f_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "cross_app_join",
+        "collect_then_apply_all",
+        "multi_stage_destructive_last"
+      ]
+    },
+    {
+      "task_id": "29caf6f_2",
+      "success": false,
+      "h2_repairs": {
+        "restored simple_note username from supervisor profile": 1
+      },
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 1
+      },
+      "h5_skills": [
+        "cross_app_join",
+        "collect_then_apply_all",
+        "multi_stage_destructive_last"
+      ]
+    },
+    {
+      "task_id": "29caf6f_3",
+      "success": false,
+      "h2_repairs": {
+        "restored simple_note username from supervisor profile": 1,
+        "restored phone username from supervisor profile": 2
+      },
+      "h2_blocks": {
+        "[H2 action gate] Blocked authenticated `phone__send_text_message` until a successful `phone__login` returns an access token": 1
+      },
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "cross_app_join",
+        "collect_then_apply_all",
+        "multi_stage_destructive_last"
+      ]
+    },
+    {
+      "task_id": "2a163ab_1",
+      "success": false,
+      "h2_repairs": {
+        "restored venmo username from supervisor profile": 1,
+        "restored venmo password from supervisor credentials": 1,
+        "tool alias phone__get_contacts -> phone__search_contacts": 3,
+        "restored venmo access token from successful login": 1
+      },
+      "h2_blocks": {
+        "[H2 action gate] Blocked authenticated `phone__search_contacts` until a successful `phone__login` returns an access token": 3
+      },
+      "h4_triggers": {
+        "error_streak": 2
+      },
+      "h5_skills": [
+        "cross_app_join",
+        "collect_then_apply_all",
+        "relationship_scope_and_time"
+      ]
+    },
+    {
+      "task_id": "2a163ab_2",
+      "success": false,
+      "h2_repairs": {
+        "restored venmo username from supervisor profile": 1,
+        "restored phone username from supervisor profile": 3
+      },
+      "h2_blocks": {
+        "[H2 action gate] Blocked authenticated `phone__search_contacts` until a successful `phone__login` returns an access token": 1
+      },
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "cross_app_join",
+        "collect_then_apply_all",
+        "relationship_scope_and_time"
+      ]
+    },
+    {
+      "task_id": "2a163ab_3",
+      "success": false,
+      "h2_repairs": {
+        "tool alias phone__get_contacts -> phone__search_contacts": 1
+      },
+      "h2_blocks": {
+        "[H2 action gate] Blocked authenticated `phone__search_contacts` until a successful `phone__login` returns an access token": 1
+      },
+      "h4_triggers": {
+        "no_tool_action": 1
+      },
+      "h5_skills": [
+        "cross_app_join",
+        "relationship_scope_and_time",
+        "collect_then_apply_all"
+      ]
+    },
+    {
+      "task_id": "302c169_1",
+      "success": false,
+      "h2_repairs": {
+        "removed unsupported read argument access_token": 1
+      },
+      "h2_blocks": {
+        "[H2 action gate] Blocked authenticated `phone__show_alarms` until a successful `phone__login` returns an access token": 1,
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "cross_app_join",
+        "discover_files_before_open",
+        "set_logic_before_cleanup"
+      ]
+    },
+    {
+      "task_id": "302c169_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Blocked authenticated `phone__show_alarms` until a successful `phone__login` returns an access token": 1,
+        "[H2 action gate] Blocked `supervisor__complete_task` because arguments ['message'] are not in its schema": 1,
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "cross_app_join",
+        "discover_files_before_open",
+        "set_logic_before_cleanup"
+      ]
+    },
+    {
+      "task_id": "302c169_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Blocked authenticated `phone__show_alarms` until a successful `phone__login` returns an access token": 1,
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {},
+      "h5_skills": [
+        "cross_app_join",
+        "discover_files_before_open",
+        "set_logic_before_cleanup"
+      ]
+    },
+    {
+      "task_id": "34d9492_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Blocked authenticated `file_system__directory_exists` until a successful `file_system__login` returns an access token": 3,
+        "[H2 action gate] Blocked authenticated `file_system__create_directory` until a successful `file_system__login` returns an access token": 3,
+        "[H2 action gate] Blocked authenticated `file_system__show_directory` until a successful `file_system__login` returns an access token": 1,
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {
+        "no_tool_action": 1,
+        "error_streak": 2
+      },
+      "h5_skills": [
+        "discover_files_before_open",
+        "relationship_scope_and_time",
+        "set_logic_before_cleanup"
+      ]
+    },
+    {
+      "task_id": "34d9492_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 10
+      },
+      "h5_skills": [
+        "discover_files_before_open",
+        "set_logic_before_cleanup",
+        "multi_stage_destructive_last"
+      ]
+    },
+    {
+      "task_id": "34d9492_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Blocked authenticated `file_system__directory_exists` until a successful `file_system__login` returns an access token": 1,
+        "[H2 action gate] Blocked authenticated `file_system__create_directory` until a successful `file_system__login` returns an access token": 1,
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {
+        "no_tool_action": 1,
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "discover_files_before_open",
+        "set_logic_before_cleanup",
+        "multi_stage_destructive_last"
+      ]
+    },
+    {
+      "task_id": "3c13f5a_1",
+      "success": false,
+      "h2_repairs": {
+        "restored file_system username from supervisor profile": 1
+      },
+      "h2_blocks": {},
+      "h4_triggers": {
+        "file_path_guess_failed": 36,
+        "error_streak": 35,
+        "abab_loop": 28,
+        "budget_60": 1,
+        "no_tool_action": 1,
+        "budget_80": 1
+      },
+      "h5_skills": [
+        "discover_files_before_open",
+        "cross_app_join",
+        "relationship_scope_and_time"
+      ]
+    },
+    {
+      "task_id": "3c13f5a_2",
+      "success": false,
+      "h2_repairs": {
+        "restored file_system username from supervisor profile": 2
+      },
+      "h2_blocks": {
+        "[H2 action gate] Blocked authenticated `file_system__show_file` until a successful `file_system__login` returns an access token": 1,
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {
+        "error_streak": 5,
+        "file_path_guess_failed": 5
+      },
+      "h5_skills": [
+        "discover_files_before_open",
+        "cross_app_join",
+        "multi_stage_destructive_last"
+      ]
+    },
+    {
+      "task_id": "3c13f5a_3",
+      "success": false,
+      "h2_repairs": {
+        "restored file_system username from supervisor profile": 2,
+        "restored file_system password from supervisor credentials": 1,
+        "restored phone username from supervisor profile": 4,
+        "restored phone password from supervisor credentials": 4,
+        "argument alias phone_number -> username": 1
+      },
+      "h2_blocks": {
+        "[H2 action gate] Blocked authenticated `file_system__show_file` until a successful `file_system__login` returns an access token": 1,
+        "[H2 action gate] Blocked authenticated `phone__search_contacts` until a successful `phone__login` returns an access token": 1,
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {
+        "error_streak": 4
+      },
+      "h5_skills": [
+        "discover_files_before_open",
+        "cross_app_join",
+        "relationship_scope_and_time"
+      ]
+    },
+    {
+      "task_id": "60d0b5b_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Blocked unknown tool `phone__get_contact_info`": 3,
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {
+        "duplicate_action_observation": 2,
+        "error_streak": 2
+      },
+      "h5_skills": [
+        "cross_app_join",
+        "collect_then_apply_all",
+        "multi_stage_destructive_last"
+      ]
+    },
+    {
+      "task_id": "60d0b5b_2",
+      "success": false,
+      "h2_repairs": {
+        "tool alias phone__show_contacts -> phone__search_contacts": 3
+      },
+      "h2_blocks": {
+        "[H2 action gate] Blocked authenticated `phone__search_contacts` until a successful `phone__login` returns an access token": 3,
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {
+        "duplicate_action_observation": 2,
+        "error_streak": 2
+      },
+      "h5_skills": [
+        "cross_app_join",
+        "collect_then_apply_all",
+        "multi_stage_destructive_last"
+      ]
+    },
+    {
+      "task_id": "60d0b5b_3",
+      "success": false,
+      "h2_repairs": {
+        "restored venmo username from supervisor profile": 1,
+        "tool alias phone__show_contacts -> phone__search_contacts": 2
+      },
+      "h2_blocks": {
+        "[H2 action gate] Blocked authenticated `phone__search_contacts` until a successful `phone__login` returns an access token": 2,
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {
+        "no_tool_action": 2,
+        "duplicate_action_observation": 1,
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "cross_app_join",
+        "collect_then_apply_all",
+        "multi_stage_destructive_last"
+      ]
+    },
+    {
+      "task_id": "6104387_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 10
+      },
+      "h5_skills": [
+        "multi_stage_destructive_last",
+        "discover_files_before_open",
+        "collect_then_apply_all"
+      ]
+    },
+    {
+      "task_id": "6104387_2",
+      "success": false,
+      "h2_repairs": {
+        "restored spotify username from supervisor profile": 1,
+        "restored spotify password from supervisor credentials": 1,
+        "restored spotify access token from successful login": 2
+      },
+      "h2_blocks": {
+        "[H2 action gate] Blocked authenticated `file_system__create_directory` until a successful `file_system__login` returns an access token": 1,
+        "[H2 action gate] Blocked authenticated `file_system__create_file` until a successful `file_system__login` returns an access token": 1,
+        "[H2 action gate] Blocked authenticated `file_system__show_directory` until a successful `file_system__login` returns an access token": 1,
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {
+        "no_tool_action": 1
+      },
+      "h5_skills": [
+        "multi_stage_destructive_last",
+        "discover_files_before_open",
+        "collect_then_apply_all"
+      ]
+    },
+    {
+      "task_id": "6104387_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 1
+      },
+      "h5_skills": [
+        "multi_stage_destructive_last",
+        "discover_files_before_open",
+        "collect_then_apply_all"
+      ]
+    },
+    {
+      "task_id": "692c77d_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 1,
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "collect_then_apply_all",
+        "detail_lookup_for_metric",
+        "set_logic_before_cleanup"
+      ]
+    },
+    {
+      "task_id": "692c77d_2",
+      "success": false,
+      "h2_repairs": {
+        "restored spotify username from supervisor profile": 1
+      },
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "detail_lookup_for_metric",
+        "collect_then_apply_all",
+        "set_logic_before_cleanup"
+      ]
+    },
+    {
+      "task_id": "692c77d_3",
+      "success": false,
+      "h2_repairs": {
+        "restored spotify username from supervisor profile": 1
+      },
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 1
+      },
+      "h5_skills": [
+        "detail_lookup_for_metric",
+        "collect_then_apply_all",
+        "set_logic_before_cleanup"
+      ]
+    },
+    {
+      "task_id": "6ea6792_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 1
+      },
+      "h5_skills": [
+        "cross_app_join",
+        "collect_then_apply_all",
+        "relationship_scope_and_time"
+      ]
+    },
+    {
+      "task_id": "6ea6792_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {},
+      "h5_skills": [
+        "cross_app_join",
+        "collect_then_apply_all",
+        "relationship_scope_and_time"
+      ]
+    },
+    {
+      "task_id": "6ea6792_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "cross_app_join",
+        "collect_then_apply_all",
+        "relationship_scope_and_time"
+      ]
+    },
+    {
+      "task_id": "76f2c72_1",
+      "success": true,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "file_path_guess_failed": 1
+      },
+      "h5_skills": [
+        "discover_files_before_open",
+        "recover_instead_of_fail",
+        "set_logic_before_cleanup"
+      ]
+    },
+    {
+      "task_id": "76f2c72_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Blocked authenticated `file_system__show_directory` until a successful `file_system__login` returns an access token": 1,
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {},
+      "h5_skills": [
+        "discover_files_before_open",
+        "recover_instead_of_fail",
+        "set_logic_before_cleanup"
+      ]
+    },
+    {
+      "task_id": "76f2c72_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Blocked authenticated `file_system__show_directory` until a successful `file_system__login` returns an access token": 1,
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {},
+      "h5_skills": [
+        "discover_files_before_open",
+        "recover_instead_of_fail",
+        "set_logic_before_cleanup"
+      ]
+    },
+    {
+      "task_id": "771d8fc_1",
+      "success": false,
+      "h2_repairs": {
+        "restored phone password from supervisor credentials": 44
+      },
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 2,
+        "error_streak": 43,
+        "duplicate_action_observation": 42,
+        "budget_60": 1,
+        "budget_80": 1,
+        "budget_90": 1
+      },
+      "h5_skills": [
+        "collect_then_apply_all",
+        "cross_app_join",
+        "relationship_scope_and_time"
+      ]
+    },
+    {
+      "task_id": "771d8fc_2",
+      "success": false,
+      "h2_repairs": {
+        "restored phone username from supervisor profile": 2,
+        "argument alias phone_number -> username": 1
+      },
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "collect_then_apply_all",
+        "cross_app_join",
+        "relationship_scope_and_time"
+      ]
+    },
+    {
+      "task_id": "771d8fc_3",
+      "success": false,
+      "h2_repairs": {
+        "restored phone username from supervisor profile": 1
+      },
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "collect_then_apply_all",
+        "cross_app_join",
+        "relationship_scope_and_time"
+      ]
+    },
+    {
+      "task_id": "7d7fbf6_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Blocked authenticated `file_system__show_directory` until a successful `file_system__login` returns an access token": 1,
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {
+        "no_tool_action": 1
+      },
+      "h5_skills": [
+        "discover_files_before_open",
+        "collect_then_apply_all",
+        "multi_stage_destructive_last"
+      ]
+    },
+    {
+      "task_id": "7d7fbf6_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Blocked authenticated `file_system__show_directory` until a successful `file_system__login` returns an access token": 3,
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {
+        "duplicate_action_observation": 2,
+        "error_streak": 2
+      },
+      "h5_skills": [
+        "discover_files_before_open",
+        "collect_then_apply_all",
+        "multi_stage_destructive_last"
+      ]
+    },
+    {
+      "task_id": "7d7fbf6_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Blocked authenticated `file_system__show_directory` until a successful `file_system__login` returns an access token": 1,
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {
+        "no_tool_action": 1
+      },
+      "h5_skills": [
+        "discover_files_before_open",
+        "collect_then_apply_all",
+        "multi_stage_destructive_last"
+      ]
+    },
+    {
+      "task_id": "82e2fac_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {},
+      "h5_skills": [
+        "detail_lookup_for_metric",
+        "recover_instead_of_fail",
+        "set_logic_before_cleanup"
+      ]
+    },
+    {
+      "task_id": "82e2fac_2",
+      "success": true,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "detail_lookup_for_metric",
+        "recover_instead_of_fail"
+      ]
+    },
+    {
+      "task_id": "82e2fac_3",
+      "success": false,
+      "h2_repairs": {
+        "restored spotify access token from successful login": 1,
+        "restored spotify username from supervisor profile": 1
+      },
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 1
+      },
+      "h5_skills": [
+        "detail_lookup_for_metric",
+        "recover_instead_of_fail"
+      ]
+    },
+    {
+      "task_id": "aa8502b_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "collect_then_apply_all",
+        "detail_lookup_for_metric",
+        "recover_instead_of_fail"
+      ]
+    },
+    {
+      "task_id": "aa8502b_2",
+      "success": false,
+      "h2_repairs": {
+        "restored spotify username from supervisor profile": 1
+      },
+      "h2_blocks": {
+        "[H2 action gate] Blocked unknown tool `spotify__current_user_followed_artists`": 1,
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {},
+      "h5_skills": [
+        "collect_then_apply_all",
+        "detail_lookup_for_metric",
+        "set_logic_before_cleanup"
+      ]
+    },
+    {
+      "task_id": "aa8502b_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "collect_then_apply_all",
+        "detail_lookup_for_metric",
+        "recover_instead_of_fail"
+      ]
+    },
+    {
+      "task_id": "afc0fce_1",
+      "success": false,
+      "h2_repairs": {
+        "restored venmo access token from successful login": 1,
+        "restored venmo username from supervisor profile": 2,
+        "restored venmo password from supervisor credentials": 1
+      },
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 2
+      },
+      "h5_skills": [
+        "relationship_scope_and_time",
+        "collect_then_apply_all",
+        "cross_app_join"
+      ]
+    },
+    {
+      "task_id": "afc0fce_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "relationship_scope_and_time",
+        "collect_then_apply_all",
+        "cross_app_join"
+      ]
+    },
+    {
+      "task_id": "afc0fce_3",
+      "success": false,
+      "h2_repairs": {
+        "tool alias phone__show_contacts -> phone__search_contacts": 1
+      },
+      "h2_blocks": {
+        "[H2 action gate] Blocked authenticated `phone__search_contacts` until a successful `phone__login` returns an access token": 1
+      },
+      "h4_triggers": {
+        "no_tool_action": 1
+      },
+      "h5_skills": [
+        "relationship_scope_and_time",
+        "collect_then_apply_all",
+        "cross_app_join"
+      ]
+    },
+    {
+      "task_id": "b0a8eae_1",
+      "success": false,
+      "h2_repairs": {
+        "restored simple_note username from supervisor profile": 1,
+        "restored spotify access token from successful login": 7,
+        "restored spotify username from supervisor profile": 6
+      },
+      "h2_blocks": {
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {
+        "abab_loop": 2
+      },
+      "h5_skills": [
+        "cross_app_join",
+        "detail_lookup_for_metric",
+        "collect_then_apply_all"
+      ]
+    },
+    {
+      "task_id": "b0a8eae_2",
+      "success": false,
+      "h2_repairs": {
+        "restored simple_note username from supervisor profile": 1
+      },
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "cross_app_join",
+        "detail_lookup_for_metric",
+        "collect_then_apply_all"
+      ]
+    },
+    {
+      "task_id": "b0a8eae_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {},
+      "h5_skills": [
+        "cross_app_join",
+        "detail_lookup_for_metric",
+        "collect_then_apply_all"
+      ]
+    },
+    {
+      "task_id": "b7a9ee9_1",
+      "success": false,
+      "h2_repairs": {
+        "removed unsupported read argument access_token": 1,
+        "tool alias spotify__complete_task -> supervisor__complete_task": 1
+      },
+      "h2_blocks": {},
+      "h4_triggers": {
+        "budget_60": 1,
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "collect_then_apply_all"
+      ]
+    },
+    {
+      "task_id": "b7a9ee9_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 1,
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "collect_then_apply_all"
+      ]
+    },
+    {
+      "task_id": "b7a9ee9_3",
+      "success": false,
+      "h2_repairs": {
+        "restored spotify username from supervisor profile": 1
+      },
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 1,
+        "budget_60": 1
+      },
+      "h5_skills": [
+        "collect_then_apply_all"
+      ]
+    },
+    {
+      "task_id": "c901732_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 10
+      },
+      "h5_skills": [
+        "detail_lookup_for_metric",
+        "recover_instead_of_fail"
+      ]
+    },
+    {
+      "task_id": "c901732_2",
+      "success": false,
+      "h2_repairs": {
+        "restored spotify username from supervisor profile": 1
+      },
+      "h2_blocks": {
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {
+        "no_tool_action": 1
+      },
+      "h5_skills": [
+        "detail_lookup_for_metric",
+        "recover_instead_of_fail"
+      ]
+    },
+    {
+      "task_id": "c901732_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 10
+      },
+      "h5_skills": [
+        "detail_lookup_for_metric",
+        "recover_instead_of_fail"
+      ]
+    },
+    {
+      "task_id": "ccb4494_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "collect_then_apply_all",
+        "detail_lookup_for_metric"
+      ]
+    },
+    {
+      "task_id": "ccb4494_2",
+      "success": false,
+      "h2_repairs": {
+        "restored spotify username from supervisor profile": 1
+      },
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "collect_then_apply_all",
+        "detail_lookup_for_metric"
+      ]
+    },
+    {
+      "task_id": "ccb4494_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "collect_then_apply_all",
+        "detail_lookup_for_metric"
+      ]
+    },
+    {
+      "task_id": "ce359b5_1",
+      "success": false,
+      "h2_repairs": {
+        "restored spotify username from supervisor profile": 1,
+        "removed unsupported read argument max_release_date": 1,
+        "removed unsupported read argument min_release_date": 1,
+        "removed unsupported read argument access_token": 1
+      },
+      "h2_blocks": {
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {
+        "no_tool_action": 1,
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "collect_then_apply_all",
+        "set_logic_before_cleanup",
+        "cross_app_join"
+      ]
+    },
+    {
+      "task_id": "ce359b5_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {},
+      "h5_skills": [
+        "set_logic_before_cleanup",
+        "collect_then_apply_all",
+        "detail_lookup_for_metric"
+      ]
+    },
+    {
+      "task_id": "ce359b5_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "collect_then_apply_all",
+        "set_logic_before_cleanup",
+        "cross_app_join"
+      ]
+    },
+    {
+      "task_id": "cf6abd2_1",
+      "success": false,
+      "h2_repairs": {
+        "restored simple_note username from supervisor profile": 1,
+        "restored simple_note password from supervisor credentials": 1
+      },
+      "h2_blocks": {
+        "[H2 action gate] Blocked authenticated `simple_note__search_notes` until a successful `simple_note__login` returns an access token": 1,
+        "[H2 action gate] Blocked authenticated `simple_note__update_note` until a successful `simple_note__login` returns an access token": 1
+      },
+      "h4_triggers": {},
+      "h5_skills": [
+        "cross_app_join"
+      ]
+    },
+    {
+      "task_id": "cf6abd2_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Blocked authenticated `simple_note__update_note` until a successful `simple_note__login` returns an access token": 1,
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {
+        "no_tool_action": 2
+      },
+      "h5_skills": [
+        "cross_app_join"
+      ]
+    },
+    {
+      "task_id": "cf6abd2_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Blocked authenticated `simple_note__update_note` until a successful `simple_note__login` returns an access token": 1,
+        "[H2 action gate] Premature `status=fail` was blocked while interaction budget remains": 1
+      },
+      "h4_triggers": {
+        "no_tool_action": 1
+      },
+      "h5_skills": [
+        "cross_app_join",
+        "recover_instead_of_fail"
+      ]
+    },
+    {
+      "task_id": "d0b1f43_1",
+      "success": false,
+      "h2_repairs": {
+        "restored venmo username from supervisor profile": 2
+      },
+      "h2_blocks": {},
+      "h4_triggers": {
+        "abab_loop": 1
+      },
+      "h5_skills": [
+        "cross_app_join",
+        "relationship_scope_and_time",
+        "recover_instead_of_fail"
+      ]
+    },
+    {
+      "task_id": "d0b1f43_2",
+      "success": false,
+      "h2_repairs": {
+        "restored venmo username from supervisor profile": 1
+      },
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 1
+      },
+      "h5_skills": [
+        "cross_app_join",
+        "relationship_scope_and_time",
+        "recover_instead_of_fail"
+      ]
+    },
+    {
+      "task_id": "d0b1f43_3",
+      "success": false,
+      "h2_repairs": {
+        "restored venmo username from supervisor profile": 1
+      },
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 1
+      },
+      "h5_skills": [
+        "cross_app_join",
+        "relationship_scope_and_time",
+        "recover_instead_of_fail"
+      ]
+    },
+    {
+      "task_id": "e3d6c94_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 1
+      },
+      "h5_skills": [
+        "collect_then_apply_all",
+        "detail_lookup_for_metric",
+        "set_logic_before_cleanup"
+      ]
+    },
+    {
+      "task_id": "e3d6c94_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 1
+      },
+      "h5_skills": [
+        "collect_then_apply_all",
+        "detail_lookup_for_metric",
+        "multi_stage_destructive_last"
+      ]
+    },
+    {
+      "task_id": "e3d6c94_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "collect_then_apply_all",
+        "detail_lookup_for_metric",
+        "set_logic_before_cleanup"
+      ]
+    },
+    {
+      "task_id": "e7a10f8_1",
+      "success": true,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 1
+      },
+      "h5_skills": [
+        "detail_lookup_for_metric",
+        "recover_instead_of_fail"
+      ]
+    },
+    {
+      "task_id": "e7a10f8_2",
+      "success": true,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 1
+      },
+      "h5_skills": [
+        "detail_lookup_for_metric",
+        "recover_instead_of_fail"
+      ]
+    },
+    {
+      "task_id": "e7a10f8_3",
+      "success": true,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_action": 1
+      },
+      "h5_skills": [
+        "detail_lookup_for_metric",
+        "recover_instead_of_fail"
+      ]
+    },
+    {
+      "task_id": "e85d92a_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "detail_lookup_for_metric",
+        "recover_instead_of_fail"
+      ]
+    },
+    {
+      "task_id": "e85d92a_2",
+      "success": true,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "detail_lookup_for_metric",
+        "recover_instead_of_fail"
+      ]
+    },
+    {
+      "task_id": "e85d92a_3",
+      "success": true,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "detail_lookup_for_metric",
+        "recover_instead_of_fail"
+      ]
+    }
+  ]
+}

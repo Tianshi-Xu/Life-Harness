@@ -1,0 +1,7 @@
+{
+  "duplicate_threshold": 3,
+  "error_streak_threshold": 2,
+  "budget_fraction": 0.8,
+  "max_no_action_history_characters": 12000,
+  "max_auth_emissions": 1
+}

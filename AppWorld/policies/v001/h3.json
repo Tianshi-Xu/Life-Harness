@@ -1,0 +1,9 @@
+{
+  "exact": {
+    "spotify__show_song": "This public detail endpoint needs only `song_id`; it returns play_count, like_count, rating, release_date, and artist details. Do not pass an access token.",
+    "spotify__show_album": "This public detail endpoint needs only `album_id`; do not pass an access token.",
+    "spotify__show_playlist": "Use this detail endpoint to enumerate a playlist's songs after obtaining exact playlist IDs from the library/search endpoint.",
+    "spotify__show_liked_songs": "This library listing identifies liked songs but may omit global metrics such as like_count/play_count; call `show_song` for those metrics.",
+    "file_system__show_file": "A user statement that a file exists is not its exact path. Discover the path with `show_directory` first."
+  }
+}

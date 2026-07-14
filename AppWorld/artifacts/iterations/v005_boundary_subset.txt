@@ -1,0 +1,9 @@
+# Previously successful tasks: regression guards
+82e2fac_2
+7d7fbf6_1
+7d7fbf6_2
+7d7fbf6_3
+
+# Representative recurring failures: opportunity checks
+afc0fce_2
+ce359b5_2

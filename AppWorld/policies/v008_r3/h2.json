@@ -1,0 +1,7 @@
+{
+  "coerce_integer_strings": true,
+  "drop_undeclared_access_token": true,
+  "reject_unknown_arguments": true,
+  "min_steps_before_complete": 3,
+  "min_steps_before_fail": 7
+}

@@ -1,0 +1,17 @@
+# Success/regression guards and extrema aggregation
+82e2fac_2
+7d7fbf6_1
+7d7fbf6_2
+7d7fbf6_3
+
+# Repetition, context growth, and filesystem procedure
+287e338_1
+34d9492_2
+6104387_1
+c901732_1
+
+# State conflicts, cross-app joins, and long-horizon writes
+692c77d_1
+afc0fce_2
+ce359b5_2
+22cc237_3

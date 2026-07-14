@@ -1,0 +1,28 @@
+{
+  "parameter_contracts": {
+    "sort_by": "When `sort_by` is provided, prefix the field name with `+` for ascending or `-` for descending order."
+  },
+  "tool_parameter_contracts": {
+    "file_system__": {
+      "access_token": "Authentication contract: `access_token` must be the token returned by `file_system__login`. A file-system password is not an access token; use the supervisor profile and account password only as inputs to login."
+    },
+    "phone__": {
+      "access_token": "Authentication contract: `access_token` must be the token returned by `phone__login`. For that login, pass the supervisor phone number in the argument named `username` and copy the exact phone account password; a password or placeholder is not an access token."
+    },
+    "simple_note__": {
+      "access_token": "Authentication contract: `access_token` must be the token returned by `simple_note__login`. A password or placeholder is not an access token; use supervisor credentials only as inputs to login."
+    },
+    "venmo__": {
+      "access_token": "Authentication contract: `access_token` must be the token returned by `venmo__login`. A password or placeholder is not an access token; use supervisor credentials only as inputs to login."
+    },
+    "supervisor__": {
+      "answer": "Omit for action-only instructions (e.g., Play, Start, Stop, Delete, Send, Create, Update, Move, Add, Remove); provide only for explicit questions requesting a value, name, or number."
+    },
+    "file_system__login": {
+      "username": "Use the supervisor email as `username` (not `email`)."
+    },
+    "phone__login": {
+      "username": "Use the supervisor phone number as `username` (not `email`)."
+    }
+  }
+}

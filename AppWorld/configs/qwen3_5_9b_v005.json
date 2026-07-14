@@ -1,0 +1,14 @@
+{
+  "base_experiment": "simplified_function_calling_agent/local/qwen3-4b/train",
+  "model_name": "Qwen3.5-9B",
+  "experiment_name": "life_harness/qwen3.5-9b/v005/train",
+  "dataset": "train",
+  "num_processes": 16,
+  "h5_top_k": 1,
+  "layers": {
+    "h2": true,
+    "h3": true,
+    "h4": true,
+    "h5": true
+  }
+}

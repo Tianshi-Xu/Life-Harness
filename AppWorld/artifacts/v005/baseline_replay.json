@@ -1,0 +1,933 @@
+{
+  "summary": {
+    "successful": {
+      "tasks": 9,
+      "tasks_with_h2_repairs": 0,
+      "h2_repairs": 0,
+      "tasks_with_h2_blocks": 0,
+      "h2_blocks": 0,
+      "tasks_with_h4_triggers": 0,
+      "h4_triggers": 0,
+      "tasks_with_h5_skills": 3
+    },
+    "failed": {
+      "tasks": 81,
+      "tasks_with_h2_repairs": 0,
+      "h2_repairs": 0,
+      "tasks_with_h2_blocks": 18,
+      "h2_blocks": 29,
+      "tasks_with_h4_triggers": 32,
+      "h4_triggers": 41,
+      "tasks_with_h5_skills": 35
+    }
+  },
+  "tasks": [
+    {
+      "task_id": "07b42fd_1",
+      "success": true,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "enumerate_before_aggregate_or_bulk_write"
+      ]
+    },
+    {
+      "task_id": "07b42fd_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "enumerate_before_aggregate_or_bulk_write"
+      ]
+    },
+    {
+      "task_id": "07b42fd_3",
+      "success": true,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "enumerate_before_aggregate_or_bulk_write"
+      ]
+    },
+    {
+      "task_id": "229360a_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "enumerate_before_aggregate_or_bulk_write"
+      ]
+    },
+    {
+      "task_id": "229360a_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "enumerate_before_aggregate_or_bulk_write"
+      ]
+    },
+    {
+      "task_id": "229360a_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "enumerate_before_aggregate_or_bulk_write"
+      ]
+    },
+    {
+      "task_id": "22cc237_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": []
+    },
+    {
+      "task_id": "22cc237_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Action not executed: missing required argument(s): `username`": 1
+      },
+      "h4_triggers": {
+        "error_streak": 1,
+        "abab": 1
+      },
+      "h5_skills": []
+    },
+    {
+      "task_id": "22cc237_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "27e1026_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Action not executed: undeclared argument(s): `access_token`": 2
+      },
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "27e1026_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "27e1026_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "287e338_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_streak": 1
+      },
+      "h5_skills": []
+    },
+    {
+      "task_id": "287e338_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "287e338_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "29caf6f_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "discover_identifiers_before_mutation"
+      ]
+    },
+    {
+      "task_id": "29caf6f_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "discover_identifiers_before_mutation"
+      ]
+    },
+    {
+      "task_id": "29caf6f_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "discover_identifiers_before_mutation"
+      ]
+    },
+    {
+      "task_id": "2a163ab_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Action not executed: unknown or unavailable tool `phone__get_contacts`": 3
+      },
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": []
+    },
+    {
+      "task_id": "2a163ab_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Action not executed: missing required argument(s): `access_token`": 1,
+        "[H2 action gate] Action not executed: missing required argument(s): `username`": 1
+      },
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": []
+    },
+    {
+      "task_id": "2a163ab_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Action not executed: unknown or unavailable tool `phone__get_contacts`": 1
+      },
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "302c169_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Action not executed: undeclared argument(s): `access_token`": 1
+      },
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": []
+    },
+    {
+      "task_id": "302c169_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Action not executed: undeclared argument(s): `message`": 1
+      },
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": []
+    },
+    {
+      "task_id": "302c169_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "34d9492_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "discover_identifiers_before_mutation"
+      ]
+    },
+    {
+      "task_id": "34d9492_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_streak": 1
+      },
+      "h5_skills": [
+        "discover_identifiers_before_mutation"
+      ]
+    },
+    {
+      "task_id": "34d9492_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "discover_identifiers_before_mutation"
+      ]
+    },
+    {
+      "task_id": "3c13f5a_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "error_streak": 1,
+        "abab": 2,
+        "budget": 1
+      },
+      "h5_skills": []
+    },
+    {
+      "task_id": "3c13f5a_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Action not executed: missing required argument(s): `username`": 1
+      },
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": []
+    },
+    {
+      "task_id": "3c13f5a_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Action not executed: undeclared argument(s): `phone_number`": 1
+      },
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": []
+    },
+    {
+      "task_id": "60d0b5b_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Action not executed: unknown or unavailable tool `phone__get_contact_info`": 3
+      },
+      "h4_triggers": {
+        "error_streak": 1,
+        "exact_duplicate": 1
+      },
+      "h5_skills": []
+    },
+    {
+      "task_id": "60d0b5b_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Action not executed: unknown or unavailable tool `phone__show_contacts`": 3
+      },
+      "h4_triggers": {
+        "error_streak": 1,
+        "exact_duplicate": 1
+      },
+      "h5_skills": []
+    },
+    {
+      "task_id": "60d0b5b_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Action not executed: unknown or unavailable tool `phone__show_contacts`": 2
+      },
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": []
+    },
+    {
+      "task_id": "6104387_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_streak": 1
+      },
+      "h5_skills": [
+        "destructive_terminal_actions_last"
+      ]
+    },
+    {
+      "task_id": "6104387_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "destructive_terminal_actions_last"
+      ]
+    },
+    {
+      "task_id": "6104387_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "destructive_terminal_actions_last"
+      ]
+    },
+    {
+      "task_id": "692c77d_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "enumerate_before_aggregate_or_bulk_write"
+      ]
+    },
+    {
+      "task_id": "692c77d_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "enumerate_before_aggregate_or_bulk_write"
+      ]
+    },
+    {
+      "task_id": "692c77d_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "enumerate_before_aggregate_or_bulk_write"
+      ]
+    },
+    {
+      "task_id": "6ea6792_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "6ea6792_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "6ea6792_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "76f2c72_1",
+      "success": true,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "discover_identifiers_before_mutation"
+      ]
+    },
+    {
+      "task_id": "76f2c72_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "discover_identifiers_before_mutation"
+      ]
+    },
+    {
+      "task_id": "76f2c72_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "discover_identifiers_before_mutation"
+      ]
+    },
+    {
+      "task_id": "771d8fc_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "error_streak": 1,
+        "exact_duplicate": 1,
+        "budget": 1
+      },
+      "h5_skills": []
+    },
+    {
+      "task_id": "771d8fc_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Action not executed: undeclared argument(s): `phone_number`": 1
+      },
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "771d8fc_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "7d7fbf6_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "discover_identifiers_before_mutation"
+      ]
+    },
+    {
+      "task_id": "7d7fbf6_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "error_streak": 1,
+        "exact_duplicate": 1
+      },
+      "h5_skills": [
+        "discover_identifiers_before_mutation"
+      ]
+    },
+    {
+      "task_id": "7d7fbf6_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "discover_identifiers_before_mutation"
+      ]
+    },
+    {
+      "task_id": "82e2fac_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "82e2fac_2",
+      "success": true,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "82e2fac_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "aa8502b_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "enumerate_before_aggregate_or_bulk_write"
+      ]
+    },
+    {
+      "task_id": "aa8502b_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Action not executed: unknown or unavailable tool `spotify__current_user_followed_artists`": 1
+      },
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "aa8502b_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "enumerate_before_aggregate_or_bulk_write"
+      ]
+    },
+    {
+      "task_id": "afc0fce_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_streak": 1
+      },
+      "h5_skills": []
+    },
+    {
+      "task_id": "afc0fce_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "afc0fce_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Action not executed: unknown or unavailable tool `phone__show_contacts`": 1
+      },
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "b0a8eae_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "b0a8eae_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "b0a8eae_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "b7a9ee9_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Action not executed: undeclared argument(s): `access_token`": 1,
+        "[H2 action gate] Action not executed: unknown or unavailable tool `spotify__complete_task`": 1
+      },
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "enumerate_before_aggregate_or_bulk_write"
+      ]
+    },
+    {
+      "task_id": "b7a9ee9_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "enumerate_before_aggregate_or_bulk_write"
+      ]
+    },
+    {
+      "task_id": "b7a9ee9_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "enumerate_before_aggregate_or_bulk_write"
+      ]
+    },
+    {
+      "task_id": "c901732_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_streak": 1
+      },
+      "h5_skills": []
+    },
+    {
+      "task_id": "c901732_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "c901732_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_streak": 1
+      },
+      "h5_skills": []
+    },
+    {
+      "task_id": "ccb4494_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "enumerate_before_aggregate_or_bulk_write"
+      ]
+    },
+    {
+      "task_id": "ccb4494_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "enumerate_before_aggregate_or_bulk_write"
+      ]
+    },
+    {
+      "task_id": "ccb4494_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "enumerate_before_aggregate_or_bulk_write"
+      ]
+    },
+    {
+      "task_id": "ce359b5_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Action not executed: undeclared argument(s): `max_release_date`, `min_release_date`": 1,
+        "[H2 action gate] Action not executed: undeclared argument(s): `access_token`": 1
+      },
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "enumerate_before_aggregate_or_bulk_write"
+      ]
+    },
+    {
+      "task_id": "ce359b5_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "enumerate_before_aggregate_or_bulk_write"
+      ]
+    },
+    {
+      "task_id": "ce359b5_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "error_streak": 1
+      },
+      "h5_skills": [
+        "enumerate_before_aggregate_or_bulk_write"
+      ]
+    },
+    {
+      "task_id": "cf6abd2_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {
+        "[H2 action gate] Action not executed: missing required argument(s): `access_token`": 1
+      },
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "cf6abd2_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {
+        "no_tool_streak": 1
+      },
+      "h5_skills": []
+    },
+    {
+      "task_id": "cf6abd2_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "d0b1f43_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "d0b1f43_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "d0b1f43_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "e3d6c94_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "enumerate_before_aggregate_or_bulk_write"
+      ]
+    },
+    {
+      "task_id": "e3d6c94_2",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "enumerate_before_aggregate_or_bulk_write"
+      ]
+    },
+    {
+      "task_id": "e3d6c94_3",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": [
+        "enumerate_before_aggregate_or_bulk_write"
+      ]
+    },
+    {
+      "task_id": "e7a10f8_1",
+      "success": true,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "e7a10f8_2",
+      "success": true,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "e7a10f8_3",
+      "success": true,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "e85d92a_1",
+      "success": false,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "e85d92a_2",
+      "success": true,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    },
+    {
+      "task_id": "e85d92a_3",
+      "success": true,
+      "h2_repairs": {},
+      "h2_blocks": {},
+      "h4_triggers": {},
+      "h5_skills": []
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Stable guards
+287e338_1
+7d7fbf6_2
+c901732_1
+
+# Numeric-rating versus binary-like target
+692c77d_1

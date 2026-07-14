@@ -1,0 +1,12 @@
+{
+  "version": "v001",
+  "source_split": "train",
+  "source_experiment": "simplified_function_calling_agent/local/qwen3-4b/train",
+  "oracle_data_used": false,
+  "layers": ["H2", "H3", "H4", "H5"],
+  "baseline": {
+    "task_goal_completion": 10.0,
+    "scenario_goal_completion": 3.3,
+    "tasks": 90
+  }
+}
