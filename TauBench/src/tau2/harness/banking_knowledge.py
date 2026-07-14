@@ -88,7 +88,7 @@ class LogVerificationUserIdRule:
 
     This is the single most impactful gate: it blocks every hallucinated,
     placeholder, or social-engineering bypass value (e.g. 'usr_12345',
-    '9K2X7M4P1N8Q3R5T6A') before it writes to verification_history.
+    'FAKE_USER_ID_123') before it writes to verification_history.
     """
 
     tool_name = "log_verification"

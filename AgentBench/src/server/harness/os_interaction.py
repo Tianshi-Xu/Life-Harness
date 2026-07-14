@@ -15,99 +15,15 @@ H5  Goal-directed Hint     — task-type-aware skill (BM25 + score threshold + c
                              (lint only fires when no candidate exists to avoid over-correction;
                               submit hint suppressed when H4 has active recovery prompt)
 
-Architecture changes (v7 vs v6):
-  - H5 files_containing_pattern: removed TASK_COUNT_MATCHES — this skill says "Count FILES
-    (not lines)" which is actively wrong for count_matches tasks that count lines in files.
-    Kept only TASK_COUNT_FILES.  Fixes IDX 222/493/510/780/998 false injections.
-  - H5 home_dir_file_glob: restricted to [COUNT_FILES, COUNT_LINES] (removed COUNT_MATCHES,
-    COUNT_UNIQUE).  Replaced example "~/project_files" → "~/mysubdir" to prevent BM25
-    false-match against "project_logs" task descriptions (IDX 215 fix).
-  - H5 count_entries_by_date: removed generic keywords "entries"/"messages"/"records" —
-    these caused injection for ERROR-counting tasks with no date context (IDX 632).
-    Added "yyyy-mm" to reinforce date-specificity signal.
-  - H5 today_date_command: removed bare "date" from keywords (too generic, caused IDX 932
-    unique-ERROR task to receive this tip).  Changed text to remove "log file" phrase.
-  - H5 ip_status_extract: rewrote to lead with `head -3 FILE` advice and explicitly
-    recommend `awk '{print $1}'` when task says "each line starts with IP" — grep -oE
-    inflates count by matching IPs embedded in timestamps (IDX 524/577/859 pattern).
-  - H0 _detect_task_type: added pre-check for "how many files contain X" → TASK_COUNT_FILES
-    before the generic contain+count → TASK_COUNT_MATCHES rule, fixing misclassification of
-    IDX 215-style tasks ("how many log files contain the word ERROR").
-
-Architecture changes (v6 vs v5):
-  - H5 score threshold (h5_score_threshold=6.0): skills scoring below threshold are NOT
-    injected even if ranked #1 — prevents noisy low-relevance injections (IDX 426/663
-    had BM25=5.36 and were harmful; now blocked).
-  - H5 context-driven case_insensitive_hint override: when ctx.case_sensitive is False,
-    case_insensitive_hint is force-inserted into the top-k result even if a higher-scoring
-    skill won BM25 (fixes IDX 31/83/809 where "Ignore case" tasks got wrong skill).
-  - H5 _CASE_INSENS_SIGNALS extended with "ignore case" + regex fallback to detect
-    "Ignore case sensitivity" phrasing that was previously not parsed.
-  - H5 home_dir_file_glob keywords narrowed from ["home","txt","text","files",...] to
-    ["glob","wildcard","star","asterisk"] — skill was over-matching most home-dir file
-    tasks; H4's no_such_file recovery handles actual glob mistakes reactively.
-  - H5 case_insensitive_hint keywords: removed bare "case" (too generic, caused false
-    positives on unrelated unique-IP tasks).
-  - H4 _ERROR_RE extended with "invalid mode", "invalid option", "unrecognized option",
-    "find: warning:", "grep: warning:", "xargs: warning:" — catches IDX 788 pattern
-    where find returned "invalid mode" error but zero-nudge fired instead of error path.
-  - H4 zero-nudge (step_guidance): replaced "run `ls` to verify" with softer message
-    that does NOT instruct additional exploration (prevents cascading wrong-exploration
-    when 0 IS the correct answer, e.g. mtime-filter tasks like IDX 245).
-  - H4 verification window extended from round_num==0 to round_num<=1 (first two bash
-    calls both emit "verify before committing" rather than "submit it") — guards against
-    round-1 premature submission of wrong intermediate answers (IDX 952).
-  - H4 candidate_string_answer guard: rejects single-line outputs longer than 120 chars
-    or starting with tool-name prefixes (find:/grep:/ls: etc.) — prevents find: warning:
-    text from being promoted as the string answer (IDX 663).
-
-Architecture changes (v5 vs v4):
-  - H5 round-0 submit hint changed to verification nudge: "you got 'N' on your first
-    bash command — verify your command was exactly right before submitting."  Previously
-    the immediate "Hint: submit 'N'" caused agents to submit 1-shot wrong answers
-    (22/35 fails in v4 analysis).  From round 1+, the original prompt-to-submit resumes.
-  - H4 post-ls nudge: after H4 fires recovery_prompt (path error / empty), if the NEXT
-    bash is `ls` and shows files, inject "files confirmed — run your count command now."
-    Fixes agents that confirmed file existence via ls but then submitted 0 anyway.
-  - H4 grep-c output detection: when bash output contains multiple lines of `file:N` format
-    (grep -c per-file output), warn and suggest the correct summation approach.
-  - H5 new skill `date_pattern_extract`: warns against literal 'YYYY-MM-DD' in grep,
-    shows correct `grep -oE '[0-9]{4}-[0-9]{2}-[0-9]{2}'` pattern.
-  - H5 new skill `lines_total_vs_excluding`: clarifies total vs containing vs excluding lines.
-  - H5 `count_lines_matching` skill updated to mention -i flag for case-insensitive.
-  - OSShellState gains `h4_fired_last_round` flag (used by post-ls nudge).
-
-Architecture changes (v4 vs v3):
-  - H5 submit hint now suppressed when H4 has an active recovery prompt (h4_audit_active
-    flag passed from task.py).  Previously H4 and H5 emitted conflicting signals — H4
-    said "retry, path is missing" while H5 said "submit '0'" — and the model followed H5.
-  - Zero-candidate hint changed from unconditional "submit" to a verification nudge:
-    "result is 0 — verify path/filter before submitting."  Reduces wrong-zero submissions.
-  - String answer promotion extended from LARGEST/SMALLEST only to any task with a clean
-    single-line output (answer_shape=ANSWER_STRING or None).  Fixes tasks like "find the
-    date with most events" where the model found the answer but couldn't submit it.
-  - H4 error detection broadened: "paths must precede expression" and "unary operator"
-    now trigger no_such_file recovery, catching bash pipe mistakes.
-  - no_such_file recovery prompt now explicitly warns: "the '0' may be from an error exit,
-    not a real count — DO NOT submit it."
-  - XML rescue feedback: when <tool_call> found in content but JSON parse fails (truncated),
-    task.py injects an explicit feedback message so the model stops looping.
-  - count_lines_matching skill updated to warn explicitly against grep -c | wc -l antipattern.
-  - New skills: home_dir_file_glob (glob pattern fix), ip_status_extract (awk IP+status).
-
-Architecture changes (v3 vs v2):
-  - Budget management is a sub-branch of H4: post_step_monitor(remaining_rounds)
-    handles budget warn/force alongside stall/error/empty checks.
-  - Answer normalisation runs at H2 rescue time in addition to commit time.
-  - Implausibility check restricted to answer_shape==ANSWER_INTEGER.
-  - Zero is no longer unconditionally implausible.
-
-Generalization notes:
-  - H0 parsing is commonsense regex/lexical; no training-set statistics.
+Design notes:
+  - H0 parsing uses commonsense regex/lexical rules; no training-set statistics.
   - Skill library (OS_SKILLS) ranks by BM25 against the episode's raw description.
   - H4 budget force only fires when H1 has a concrete plausible integer candidate.
   - H2 answer normaliser is shape-conditional: only mutates if H0 set answer_shape.
   - All thresholds are behavioural (round counts, repeat counts, char lengths).
+  - H5 score threshold prevents low-relevance skill injection.
+  - H4 error detection covers common bash error patterns (path, mode, option).
+  - H2 rescue handles JSON, kwarg, positional, bare, and XML tool-call formats.
 """
 
 import copy
@@ -471,7 +387,7 @@ OS_SKILLS: List[Dict[str, Any]] = [
         "id": "today_date_command",
         "task_types": [TASK_COUNT_MATCHES, TASK_COUNT_LINES, TASK_COUNT_UNIQUE, TASK_COUNT_FILES],
         # Removed bare "date" from keywords: too generic, caused false injection for log tasks
-        # that mention dates in passing (IDX 932 unique-ERROR-message task was hit).
+        # that mention dates in passing.
         # Keep only strong "today"/"current date"/"this day" signals.
         "keywords": ["today", "current date", "this day"],
         "text": (
@@ -518,7 +434,7 @@ OS_SKILLS: List[Dict[str, Any]] = [
         # ONLY for count_files: this skill says "Count FILES (not lines)" which is
         # actively wrong for count_matches tasks (which count lines/matches, not files).
         # Removed TASK_COUNT_MATCHES to prevent injection when tasks count LINES in files
-        # that contain a pattern (IDX 222/493/510/780/998 were harmed by wrong injection).
+        # that contain a pattern.
         "task_types": [TASK_COUNT_FILES],
         "keywords": ["files", "containing", "include", "with", "mention", "word", "which"],
         "text": (
@@ -564,7 +480,7 @@ OS_SKILLS: List[Dict[str, Any]] = [
     {
         "id": "lines_total_vs_excluding",
         # Narrow: only inject when the task involves EXCLUDING lines (grep -v).
-        # Removed "total"/"all lines" keywords — too broad and caused IDX 419
+        # Removed "total"/"all lines" keywords — too broad.
         # (count lines CONTAINING pattern) to receive confusing "Total ALL lines: wc -l" tip.
         "task_types": [TASK_COUNT_LINES],
         "keywords": ["excluding", "except", "without", "not containing", "non-empty", "invert"],
@@ -578,8 +494,8 @@ OS_SKILLS: List[Dict[str, Any]] = [
     {
         "id": "date_pattern_extract",
         # Only for UNIQUE-date counting tasks, NOT for count_matches or count_lines.
-        # IDX 944 (count entries in March 2023) is count_matches → uses simple grep, not this skill.
-        # IDX 274/419 were harmed by injecting this skill for non-unique-date tasks.
+        # Date-range count tasks use simple grep, not this skill.
+        # Non-unique-date tasks should not receive this skill.
         "task_types": [TASK_COUNT_UNIQUE],
         "keywords": ["date", "dates", "timestamp", "unique dates", "distinct dates", "yyyy", "different dates"],
         "text": (
@@ -595,7 +511,7 @@ OS_SKILLS: List[Dict[str, Any]] = [
     {
         "id": "home_dir_file_glob",
         # Narrowed to COUNT_FILES and COUNT_LINES only: MATCHES and UNIQUE caused false
-        # injections for unrelated tasks (IDX 215 got this tip for a unique-error-counting
+        # injections for unrelated tasks (unique-error-counting
         # task and ran the wrong path).  Example subdir renamed from "project_files" to
         # "mysubdir" to prevent BM25 false-match against "project_logs" task descriptions.
         "task_types": [TASK_COUNT_FILES, TASK_COUNT_LINES],
@@ -614,7 +530,7 @@ OS_SKILLS: List[Dict[str, Any]] = [
         # tasks, not just HTTP-specific ones.  The skill text now leads with the GENERIC
         # approach before offering format-specific awk patterns.
         # Removed "unique ip" — "unique" alone caused false BM25 matches against tasks
-        # asking for "unique error messages" (IDX 215/932), pushing out grep_bracket_word_bug.
+        # asking for "unique error messages", pushing out grep_bracket_word_bug.
         "keywords": ["ip", "address", "addresses", "access", "http", "apache",
                      "nginx", "web", "status", "200", "404", "request"],
         "text": (
@@ -668,10 +584,10 @@ OS_SKILLS: List[Dict[str, Any]] = [
         "id": "count_entries_by_date",
         "task_types": [TASK_COUNT_MATCHES, TASK_COUNT_LINES],
         # Removed generic keywords "entries"/"messages"/"records": too broad, caused false
-        # injection for ERROR-counting tasks (IDX 632) where no specific date is involved.
+        # injection for ERROR-counting tasks where no specific date is involved.
         # Retained month names and explicit date phrases as the discrimination signal.
         # Removed "yyyy-mm" — it matched log format strings like "[YYYY-MM-DD HH:MM:SS]"
-        # in tasks that mention date format without asking about a specific date (IDX 552).
+        # in tasks that mention date format without asking about a specific date.
         "keywords": ["january", "february", "march", "april",
                      "may", "june", "july", "august", "september", "october", "november", "december",
                      "month", "specific date", "occurred", "happened", "on the date"],
@@ -835,7 +751,7 @@ def _detect_task_type(desc: str) -> str:
         return TASK_COUNT_LINES
     # "how many/count files that contain X" → count_files, not count_matches.
     # Must be checked BEFORE the generic contain+count → count_matches rule, which
-    # otherwise fires first and misclassifies file-counting tasks (e.g. IDX 215:
+    # otherwise fires first and misclassifies file-counting tasks (e.g.
     # "how many log files contain the word ERROR").
     if re.search(r"\bhow\s+many\s+(?:\w+\s+){0,3}files?\b", t) and \
        re.search(r"\bcontain(?:ing)?\b", t):
@@ -1353,8 +1269,8 @@ _RESCUE_ANSWER_JSON_RE = re.compile(
     r"answer_action\s*[\({]\s*\{?\s*[\"']?answer[\"']?\s*:\s*[\"']([^\"']+)[\"']",
     re.IGNORECASE,
 )
-# Python-kwarg style: answer_action(answer='5') / answer_action(answer="5") — the
-# dominant failure mode on Qwen3-4B-Instruct (38/43 fails in 2026-04-18 eval).
+# Python-kwarg style: answer_action(answer='5') / answer_action(answer="5") — a
+# common failure mode on weak instruction-tuned models.
 _RESCUE_ANSWER_KWARG_RE = re.compile(
     r"answer_action\s*\(\s*answer\s*=\s*(?:['\"]([^'\"]{1,200})['\"]|([^\)\n]{1,120}))\s*\)",
     re.IGNORECASE,
@@ -1389,10 +1305,10 @@ _RESCUE_FINISH_KWARG_RE = re.compile(
 # ReAct fallback: "Act: answer(5)" / "Act: bash" + ```bash ... ```
 _REACT_ANSWER_RE = re.compile(r"Act:\s*answer\s*\(([^)]+)\)", re.IGNORECASE)
 _REACT_BASH_FENCE = re.compile(r"```bash\n(.*?)\n```", re.DOTALL)
-# Qwen3 OpenAI-JSON style: <tool_call>\n{"name":"bash_action","arguments":{...}}\n</tool_call>
+# OpenAI-JSON style wrapped in XML tags: <tool_call>\n{"name":"bash_action","arguments":{...}}\n</tool_call>
 # MUST be greedy (.*) — the outer JSON has nested dicts (}} at the end), so non-greedy
 # .*? stops at the first } (inner dict) and produces incomplete JSON that json.loads rejects.
-# Closer is optional: Qwen2.5-7B often emits `<tool_call>\n{...}` with no
+# Closer is optional: some models emit `<tool_call>\n{...}` with no
 # `</tool_call>` and no trailing prose, which made the previous strict-closer
 # regex silently miss the call and the agent loop until task_limit_reached.
 # When the closer is missing we accept end-of-string (`\Z`); for messier cases
@@ -1403,7 +1319,7 @@ _RESCUE_TOOL_CALL_XML_RE = re.compile(
     re.DOTALL | re.IGNORECASE,
 )
 _RESCUE_TOOL_CALL_OPEN_RE = re.compile(r"<tool_call>", re.IGNORECASE)
-# Qwen3 writes bash grouping \( \) inside JSON strings, which is invalid JSON.
+# Some models write bash grouping \( \) inside JSON strings, which is invalid JSON.
 # Convert invalid \X to \\X so json.loads sees a valid escaped backslash, and
 # the resulting parsed string retains \( as correct bash syntax.
 _INVALID_JSON_ESCAPE_RE = re.compile(r'\\([^"\\/bfnrtu])')
@@ -1456,7 +1372,7 @@ def _balanced_json_object(content: str, start: int) -> Optional[Tuple[int, int]]
 def _rescue_tool_call_balanced(content: str) -> Optional[Dict[str, Any]]:
     """Fallback for <tool_call> blocks the strict regex misses.
 
-    Triggered for two real-world Qwen patterns the closing-tag regex couldn't
+    Triggered for two real-world patterns the closing-tag regex couldn't
     handle even after relaxing the closer:
       1. trailing prose after the JSON (no </tool_call>): `<tool_call>{...}\nNote: ...`
       2. malformed escapes that defeat greedy backtracking
@@ -1502,7 +1418,7 @@ def rescue_tool_call_from_text(content: str) -> Optional[Dict[str, Any]]:
     """
     if not content:
         return None
-    # XML <tool_call>{"name":...,"arguments":{...}}</tool_call> — Qwen3's OpenAI-JSON format.
+    # XML-wrapped OpenAI-JSON format: {"name":...,"arguments":{...}}
     # Try this first because it's unambiguous (contains name + full arguments dict).
     m = _RESCUE_TOOL_CALL_XML_RE.search(content)
     if m:
@@ -1515,9 +1431,9 @@ def rescue_tool_call_from_text(content: str) -> Optional[Dict[str, Any]]:
                 return {"name": name, "arguments": args}
         except Exception:
             pass
-    # Brace-balanced fallback — covers the Qwen2.5-7B "no closing tag" case
+    # Brace-balanced fallback — covers the "no closing tag" case
     # (and trailing-prose variants) that the regex above misses.  Without
-    # this fallback, IDX 12 / similar episodes loop until task_limit_reached
+    # this fallback, certain episodes loop until task_limit_reached
     # because every assistant turn is text-only and H2 silently no-ops.
     if "<tool_call>" in content.lower():
         rescued = _rescue_tool_call_balanced(content)
@@ -2184,7 +2100,7 @@ class OSHarnessRuntime:
             # byte-to-KB conversion) are NOT included here — they fall back to
             # the no-candidate-only path so that a plausible candidate the
             # agent already has is not overridden by fragile advice.
-            # IDX 124 (Llama, total .txt KB) regressed because the
+            # Certain tasks (e.g. total .txt KB) regressed because the
             # "human-readable disk usage" hint forced a `du -ch | grep total`
             # rewrite that produced per-file totals (`-exec ... {} \;` runs
             # du once per file), turning a correct candidate `0` into wrong `4`.
@@ -2212,8 +2128,8 @@ class OSHarnessRuntime:
                     # removed: "human-readable disk usage" — the suggested
                     # `du -ch ... | grep total` rewrite breaks under
                     # `-exec ... {} \;` (du runs once per file) and
-                    # turned a correct candidate `0` into `4` on Llama
-                    # IDX 124 (total .txt KB).  Stylistic hint; let
+                    # turned a correct candidate `0` into `4` on some models
+                    # total .txt KB tasks.  Stylistic hint; let
                     # candidate-promotion handle it instead.
                     or "date field includes brackets" in g
                     or "slashes inside an awk regex" in g
@@ -2290,11 +2206,11 @@ class OSHarnessRuntime:
                     # When the command is clean and produced a plausible
                     # candidate, prefer the direct submit hint: forcing a
                     # second-look on already-correct 1-shot answers regresses
-                    # models that one-shot well (Llama-3.1-8B IDX 14: model
+                    # models that one-shot well (model
                     # ran the right `find ... | wc -l`, got `2`, then under
                     # the verification nudge ran `xargs ls -l` and finally
                     # called `finish_action` with prose instead of submitting
-                    # `2`).  Models that need the safety net (Qwen-style
+                    # `2`).  Models that need the safety net (weaker
                     # buggy commands) keep getting the verification nudge
                     # because their commands surface gaps.
                     suspect = bool(bash_semantic_gaps(ctx, st.bash_history[-1]))

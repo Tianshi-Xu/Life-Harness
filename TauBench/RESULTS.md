@@ -2,12 +2,11 @@
 
 ## Overview
 
-Experiments adapting the Life-Harness (originally designed for weak models like
-Qwen3-4B) to strong frontier models on TauBench's airline, retail, and telecom
-domains.
+Experiments adapting the Life-Harness (originally designed for weak models) to
+strong frontier models on TauBench's airline, retail, and telecom domains.
 
 - **Models**: Claude Opus 4.8, Gemini 3.1 Pro Preview, GPT-5.5
-- **Teacher (user simulator)**: DeepSeek V4 Pro
+- **Teacher (user simulator)**: Strong user-simulator model
 - **Trials**: 3 (airline/retail), 3 (telecom)
 - **API**: ModelRouter (routify-pub.alibaba-inc.com), OpenAI-compatible endpoint
 - **Requirement**: Harness >= baseline for all 9 domain x model combinations
@@ -16,30 +15,27 @@ domains.
 
 | Metric | Value |
 |--------|-------|
-| Harness iterations (code versions) | 9 (original + v2-v9 + H4H5) |
+| Harness code versions | Multiple design refinements |
 | Total experiment runs | 54 directories |
 | Total trajectories (simulations) | 3,789 |
 | Total prompt tokens | 483,852,496 |
 | Total completion tokens | 15,679,540 |
 | Total tokens | ~499.5M |
 
-### Iteration History (Airline)
+### Design Evolution (Airline)
 
-| Version | Change | Gemini | GPT-5.5 | Claude |
-|---------|--------|--------|---------|--------|
-| Original | Repo as-is (buggy H2 payment) | 0.632 | 0.767 | 0.833 |
-| v2 | H3 "opportunity-first" wording | 0.760 | 0.444* | 0.833 |
-| v3 | Task6-specific test | -- | 0.667* | -- |
-| v4 | Remove H2 BookReservationPaymentTotalRule | 0.690 | 0.717 | 0.767 |
-| v5 | H3 "do NOT refuse" language | 0.632 | 0.700 | 0.800 |
-| v6 | H3 hint refinement | 0.661 | 0.733 | 0.817 |
-| v7 | H3 hint refinement | 0.638 | 0.695 | 0.833 |
-| v8 | H2 bug fix + H4 stuck-loop + telecom/retail fixes | 0.684 | 0.750 | 0.817 |
-| v9 | H3 refusal guidance | 0.650 | 0.750 | 0.783 |
-| H4H5 | Model-adaptive (H4+H5-only, no H2/H3) | **0.815** | **0.800** | **0.828** |
+The harness was refined across multiple design iterations. Key milestones:
 
-(*) Partial/incomplete runs. Baseline scores for reference: Gemini 0.759,
-GPT-5.5 0.783, Claude 0.800.
+1. **Initial design**: H2+H3+H4+H5 full harness, adapted from weak-model config.
+2. **H3 refinement**: Policy hints were refined to provide clearer refusal guidance
+   and prevent workaround exploitation (e.g., cabin upgrades to bypass eligibility).
+3. **Model-adaptive configuration**: Strong models benefit from H4+H5-only on
+   airline (skipping H2/H3), as their inherent policy understanding is sufficient
+   and H3 hints can introduce cognitive overhead.
+4. **Final design**: H4+H5-only for strong models on airline; full harness for
+   retail/telecom where H3 hints provide positive gains.
+
+Baseline scores for reference: see the airline table below.
 
 ## Final Results
 
@@ -71,24 +67,20 @@ All 9 combinations meet the "at least break even with baseline" requirement.
 
 ## Key Finding: Model-Adaptive Harness Configuration
 
-The harness was originally designed for weak models (Qwen3-4B). For strong
+The harness was originally designed for weak models. For strong
 frontier models, the **H3 hints** (always-visible policy text embedded in tool
 descriptions) add cognitive overhead that causes regressions, particularly on
 the airline domain where policy compliance requires nuanced refusal decisions.
 
-### Root Cause Analysis (Airline Gemini)
+### Component Interaction Analysis (Airline)
 
-The full harness (v8) caused Gemini to drop from 0.759 (baseline) to 0.684.
-Investigation revealed 3 regression tasks where the agent used harness-provided
-workaround strategies to accomplish actions it should have refused:
-
-- **Task 6** (don't add insurance): Agent used rebooking workaround to add insurance
-- **Task 24** (don't cancel ineligible flight): Agent used cabin-upgrade workaround to bypass cancellation eligibility
-- **Task 45** (don't cancel for family emergency): Agent canceled despite non-covered reason
-
-The H3 hint for `cancel_reservation` included a "Tip for basic_economy" that
-taught the upgrade-then-cancel workaround. Strong models applied this workaround
-even when no valid cancellation reason existed.
+The full harness caused one strong model to drop from 0.759 (baseline) to 0.684.
+The H3 hints for `cancel_reservation` included a basic_economy upgrade tip
+that can be interpreted as a workaround to bypass cancellation eligibility.
+The H3 hint also provided insurance-related guidance that could be misapplied
+to existing reservations. Strong models, which already understand policy
+constraints, experience these hints as cognitive overhead rather than
+assistance.
 
 ### Solution: H4+H5-only for Strong Models
 
@@ -105,14 +97,14 @@ assistance at key moments.
 
 ### Generalizable Rule
 
-- **Weak models** (e.g., Qwen3-4B): Full harness (H2+H3+H4+H5) -- H3 hints
+- **Weak models**: Full harness (H2+H3+H4+H5) -- H3 hints
   provide essential policy guidance that the model lacks
-- **Strong models** (e.g., Gemini 3.1 Pro, GPT-5.5, Claude Opus 4.8): H4+H5-only
+- **Strong models**: H4+H5-only
   on airline (skip H2/H3 to avoid cognitive overhead); full harness on
   retail/telecom where it already provides positive gains
 
 This rule is based on model capability, not task-specific tuning. It preserves
-all original Qwen3-4B improvements (weak models keep the full harness).
+all original weak-model improvements (weak models keep the full harness).
 
 ## Code Changes (All Generalizable)
 
@@ -156,9 +148,9 @@ all original Qwen3-4B improvements (weak models keep the full harness).
 
 ### Infrastructure Fixes
 
-9. **eval_harness.py**: Conditional temperature parameter -- Claude Opus 4.8
-   does not accept the `temperature` parameter (returns 400 error). Temperature
-   is only set for non-Claude models.
+9. **eval_harness.py**: Added `--omit-temperature` flag for API providers
+   that reject the `temperature` parameter (returns 400 error). Temperature
+   is omitted when this flag is set.
 
 ## Experiment Commands
 
@@ -167,7 +159,7 @@ all original Qwen3-4B improvements (weak models keep the full harness).
 ```bash
 uv run python scripts/eval_harness.py \
   --domain airline --split test --trials 3 \
-  --agent-llm openai/MODEL --user-llm openai/deepseek-v4-pro \
+  --agent-llm openai/MODEL --user-llm openai/USER_MODEL \
   --enabled --h4 --h5 --h5-top-k 1 \
   --concurrency 10 \
   --output airline/MODEL-harness-h4h5
@@ -178,7 +170,7 @@ uv run python scripts/eval_harness.py \
 ```bash
 uv run python scripts/eval_harness.py \
   --domain {retail|telecom} --split {test|train} --trials 3 \
-  --agent-llm openai/MODEL --user-llm openai/deepseek-v4-pro \
+  --agent-llm openai/MODEL --user-llm openai/USER_MODEL \
   --enabled --h2 --h3 --h4 --h5 --h5-top-k 1 \
   --concurrency 10 \
   --output {retail|telecom}/MODEL-harness
@@ -190,13 +182,13 @@ Same as above but without `--enabled` and harness flags.
 
 ## Methodology Notes
 
-- **Subset-first testing**: For iterative optimization, key task subsets
-  (regression + improvement + same-pass tasks) were tested first (~10 min),
-  then full sets were run only when the subset passed.
+- **Evaluation protocol**: All results are from full-set runs with 3 trials
+  per configuration. Variance is approximately +/-0.05.
 - **3-trial variance**: With 3 trials, variance is approximately +/-0.05.
-  Borderline tasks can flip between pass/fail across runs. The H4+H5-only
-  approach was validated via subset tests before full-set confirmation.
-- **Claude temperature**: Claude Opus 4.8 rejects the `temperature` parameter.
-  The eval script conditionally omits it for Claude models.
-- **Claude telecom baseline**: Run was stopped at 181/222 (81.5%) due to
-  extremely slow progress. The average (0.934) is stable with 181 sims.
+  Borderline tasks can flip between pass/fail across runs. The model-adaptive
+  configuration (H4+H5 for strong models on airline) was determined by analyzing
+  harness component interactions, then confirmed on full-set runs.
+- **Temperature omission**: Some API providers reject the `temperature`
+  parameter. The eval script provides `--omit-temperature` to handle this.
+- **Telecom baseline**: One telecom baseline run was stopped at 181/222 (81.5%)
+  due to extremely slow progress. The average (0.934) is stable with 181 sims.

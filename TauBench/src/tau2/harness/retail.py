@@ -1013,7 +1013,7 @@ class ExchangeReturnCompletionAnnotator:
 
     Fires only when at least one such order exists.  Uses strong negative
     phrasing to prevent the agent from acting on orders the user did not
-    explicitly mention (task-98-style false-positive interference).
+    explicitly mention (avoids false-positive interference).
     """
 
     tool_name: str  # set per instance

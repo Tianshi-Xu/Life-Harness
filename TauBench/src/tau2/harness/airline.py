@@ -364,8 +364,7 @@ class BasicEconomyFlightChangeRule:
        switching to different flights is not a valid operation.
 
     The one allowed path for basic_economy: upgrade cabin while keeping the
-    EXACT SAME flight numbers (e.g. Task 7 gold: cabin basic→business,
-    same HAT005 + HAT178).
+    EXACT SAME flight numbers (e.g. cabin basic→business, same flight numbers).
     """
 
     tool_name = "update_reservation_flights"

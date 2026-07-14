@@ -34,7 +34,7 @@ improvement to fix Claude API compatibility and attribute-checklist issues.
 | Claude | 0.717 | 0.743 | +0.025 |
 | Gemini | 0.765 | 0.784 | +0.019 |
 
-### OS (bash interaction, 144 samples)
+### OS (bash interaction, 144 samples, 16 rounds)
 
 | Model | Baseline | Harness | Delta |
 |-------|----------|---------|-------|

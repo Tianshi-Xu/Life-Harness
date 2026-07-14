@@ -10,6 +10,12 @@ COPY data/webshop_repo /usr/src/webshop
 RUN cd /usr/src/webshop && \
     git checkout 64fa2a5c15c7daa698b9ac93f5bb5437b634c9bd || true
 COPY --from=longinyu/agentbench-webshop:latest /root/webshop/data /usr/src/webshop/data
+RUN rm -f /usr/src/webshop/data/items_shuffle.json
+
+# Generate 100k product data from pre-built resources (memory-efficient subset)
+COPY --from=longinyu/agentbench-webshop:latest /root/webshop/search_engine/resources_100k/documents.jsonl /tmp/documents_100k.jsonl
+COPY ./src/server/tasks/webshop/convert_100k.py /tmp/convert_100k.py
+RUN python3 /tmp/convert_100k.py && rm -f /tmp/documents_100k.jsonl /tmp/convert_100k.py /usr/src/webshop/data/items_ins_v2.json
 
 RUN echo 'deb http://archive.debian.org/debian bullseye main' > /etc/apt/sources.list && \
     echo 'Acquire::Check-Valid-Until "false";' > /etc/apt/apt.conf.d/99no-check-valid && \
@@ -34,15 +40,17 @@ RUN echo "setuptools<70.0.0" > /tmp/constraint.txt && \
     python -m spacy download en_core_web_lg
 
 ENV PYTHONPATH="/usr/src/webshop"
+ENV _JAVA_OPTIONS="-Xmx2g"
 
 COPY ./src/server/tasks/webshop/webshop.patch /tmp/webshop.patch
 RUN cd /usr/src/webshop && \
     git apply --check /tmp/webshop.patch && \
     git apply /tmp/webshop.patch && \
     rm /tmp/webshop.patch && \
+    sed -i "s|items_shuffle.json'|items_shuffle_100k.json'|" /usr/src/webshop/web_agent_site/utils.py && \
+    sed -i "s|items_ins_v2.json'|items_ins_v2_100k.json'|" /usr/src/webshop/web_agent_site/utils.py && \
     mkdir -p /usr/src/webshop/search_engine/indexes /usr/src/webshop/search_engine/resources
-COPY --from=longinyu/agentbench-webshop:latest /root/webshop/search_engine/indexes /usr/src/webshop/search_engine/indexes
-COPY --from=longinyu/agentbench-webshop:latest /root/webshop/search_engine/resources /usr/src/webshop/search_engine/resources
+COPY --from=longinyu/agentbench-webshop:latest /root/webshop/search_engine/indexes_100k /usr/src/webshop/search_engine/indexes_100k
 
 COPY ./src/server/tasks/webshop /app/src/server/tasks/webshop
 COPY ./configs/tasks/webshop.yaml /app/configs/tasks/webshop.yaml

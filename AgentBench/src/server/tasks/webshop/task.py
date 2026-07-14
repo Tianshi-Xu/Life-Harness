@@ -98,7 +98,7 @@ class WebShop(Task):
             self.sample_size,
         )
         self.logger.info('Initializing WebShop environment...')
-        self.server = WebAgentTextEnv(observation_mode="text", human_goals=True).server
+        self.server = WebAgentTextEnv(observation_mode="text", human_goals=True, num_products=100000).server
         self.tools = tools
         self.max_rounds = configs.get('round', 20)
 

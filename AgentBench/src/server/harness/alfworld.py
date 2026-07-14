@@ -617,7 +617,7 @@ def _pick_forced_action(admissible: List[str], last_output: str) -> Optional[str
 # H5 tool-contract mapping (module-level so it can't conflict with dataclass fields).
 # Maps task_type → the single tool-contract skill id to inject at cold-start.
 #
-# Empirical findings (Qwen3-4B, 100 episodes):
+# Empirical findings (weak models, 100 episodes):
 #   - look_at_obj: "examine_plain_is_useless" caused small models to over-generalise
 #     "examine X with desklamp" into the search phase, triggering the 3-repeated-action
 #     terminator. H4 already has a reactive "examine_without_lamp" recovery prompt that

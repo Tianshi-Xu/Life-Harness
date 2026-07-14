@@ -152,7 +152,7 @@ def parse_args():
     p.add_argument("--concurrency", type=int, default=10, help="Max parallel tasks")
     p.add_argument(
         "--agent-llm",
-        default="openai/Qwen/Qwen3-4B-Instruct-2507",
+        default="openai/agent-model",
         help="Agent LLM identifier",
     )
     p.add_argument(
@@ -173,8 +173,14 @@ def parse_args():
         ),
     )
     p.add_argument(
+        "--omit-temperature",
+        action="store_true",
+        default=False,
+        help="Omit temperature parameter for API providers that reject it.",
+    )
+    p.add_argument(
         "--user-llm",
-        default="openai/deepseek-v4-flash",
+        default="openai/user-simulator",
         help="User LLM identifier",
     )
     p.add_argument(
@@ -219,7 +225,7 @@ def parse_args():
         help=(
             "Request non-thinking mode for user LLM providers that support it. "
             "For Alibaba DashScope/OpenAI-compatible endpoints this sends "
-            "extra_body={enable_thinking: false}; for DeepSeek/OpenRouter-style "
+            "extra_body={enable_thinking: false}; for other compatible "
             "endpoints this sends a disabled thinking/reasoning body."
         ),
     )
@@ -570,7 +576,7 @@ def main():
         "api_base": args.agent_api_base,
         "api_key": os.getenv("AGENT_API_KEY", "EMPTY"),
     }
-    if "claude" not in args.agent_llm.lower():
+    if not args.omit_temperature:
         llm_args_agent["temperature"] = 0.0
     if args.agent_max_tokens > 0:
         llm_args_agent["max_tokens"] = args.agent_max_tokens
