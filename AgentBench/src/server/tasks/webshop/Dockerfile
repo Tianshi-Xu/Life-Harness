@@ -11,16 +11,10 @@ RUN cd /usr/src/webshop && \
     git checkout 64fa2a5c15c7daa698b9ac93f5bb5437b634c9bd || true
 COPY --from=longinyu/agentbench-webshop:latest /root/webshop/data /usr/src/webshop/data
 
-RUN if [ -f /etc/apt/sources.list.d/debian.sources ]; then \
-      sed -i 's|deb.debian.org|mirrors.aliyun.com|g' /etc/apt/sources.list.d/debian.sources && \
-      sed -i 's|security.debian.org|mirrors.aliyun.com|g' /etc/apt/sources.list.d/debian.sources; \
-    else \
-      sed -i 's|deb.debian.org|mirrors.aliyun.com|g' /etc/apt/sources.list && \
-      sed -i 's|security.debian.org|mirrors.aliyun.com|g' /etc/apt/sources.list; \
-    fi && \
+RUN echo 'deb http://archive.debian.org/debian bullseye main' > /etc/apt/sources.list && \
+    echo 'Acquire::Check-Valid-Until "false";' > /etc/apt/apt.conf.d/99no-check-valid && \
     apt-get update && \
-    (apt-get install -y git openjdk-11-jdk-headless || \
-     (apt-get update && apt-get install -y --fix-missing git openjdk-11-jdk-headless)) && \
+    apt-get install -y --no-install-recommends git openjdk-11-jdk-headless && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 

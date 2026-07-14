@@ -3,7 +3,7 @@ name: agentbench-fc
 services:
 
   controller:
-    image: docker.1panel.live/jingbh/agentrl-controller:latest
+    image: docker.m.daocloud.io/jingbh/agentrl-controller:latest
     container_name: agentrl-controller
     ports:
       - "5020:5020"

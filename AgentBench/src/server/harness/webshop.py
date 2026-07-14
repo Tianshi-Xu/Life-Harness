@@ -1084,9 +1084,9 @@ def _fuzzy_match_click(value: str, clickables: List[str], threshold: float) -> O
 # ─────────────────────────────────────────────────────────────────────────────
 
 _H3_SEARCH_HINT = (
-    "Search for the product using specific keywords matching all required attributes "
-    "(item type, color, size, material, etc.). Do NOT include price or budget words — "
-    "WebShop search ignores price; use the product name and key features only."
+    "Search using keywords that capture the product name AND all descriptive features "
+    "from the instruction (color, size, material, quantity, and any adjectives). "
+    "Do NOT include price, budget, or dollar amounts — WebShop search ignores price."
 )
 _H3_CLICK_HINT = (
     "On a product page, select ALL required attributes (color, size, variant, etc.) "
@@ -1676,38 +1676,48 @@ def _build_attribute_checklist(
                 f"Otherwise go back to search."
             )
         elif all_ok:
-            # Check whether important task descriptors aren't covered by any tracked attr.
-            # If so, append a verification nudge so the agent confirms the right product.
-            tracked_words: set = set()
-            if req.color:
-                tracked_words.update(req.color.lower().split())
-            if req.size:
-                tracked_words.update(req.size.lower().split())
-            if req.material:
-                tracked_words.update(req.material.lower().split())
-            for sp in req.specs:
-                tracked_words.update(sp.lower().split())
-            # Also include words matched by IG/style so we don't double-nudge
-            for k in attr_statuses:
-                tracked_words.update(re.findall(r'[a-z]{4,}', k.lower()))
+            # Defensive: check for unselected color/size groups on the page
+            # that weren't in the parsed requirements. If found, don't force buy.
+            unselected_untracked = False
+            for group in ("color", "size"):
+                if group not in attr_statuses:
+                    opts = state.attribute_options.get(group, [])
+                    sel = state.selected_attributes.get(group, "")
+                    if opts and not sel:
+                        unselected_untracked = True
+                        checklist += f"\n→ Select a {group} option before buying."
 
-            unchecked_kws = [
-                w for w in req.task_keywords
-                if w not in tracked_words
-                and w not in _CATEGORY_GENERIC_WORDS
-                and w not in _COLOR_TOKENS   # covered by color check
-                and w not in _SIZE_TOKENS    # covered by size check
-                and len(w) >= 4
-            ][:3]
+            if not unselected_untracked:
+                # Check whether important task descriptors aren't covered by any tracked attr.
+                tracked_words: set = set()
+                if req.color:
+                    tracked_words.update(req.color.lower().split())
+                if req.size:
+                    tracked_words.update(req.size.lower().split())
+                if req.material:
+                    tracked_words.update(req.material.lower().split())
+                for sp in req.specs:
+                    tracked_words.update(sp.lower().split())
+                for k in attr_statuses:
+                    tracked_words.update(re.findall(r'[a-z]{4,}', k.lower()))
 
-            if unchecked_kws:
-                kw_str = ", ".join(f"'{w}'" for w in unchecked_kws)
-                checklist += (
-                    f"\n→ All attributes selected. Also verify the product mentions "
-                    f"{kw_str} before clicking 'buy now'."
-                )
-            else:
-                checklist += "\n→ All checked. Click 'buy now' to complete the purchase."
+                unchecked_kws = [
+                    w for w in req.task_keywords
+                    if w not in tracked_words
+                    and w not in _CATEGORY_GENERIC_WORDS
+                    and w not in _COLOR_TOKENS
+                    and w not in _SIZE_TOKENS
+                    and len(w) >= 4
+                ][:3]
+
+                if unchecked_kws:
+                    kw_str = ", ".join(f"'{w}'" for w in unchecked_kws)
+                    checklist += (
+                        f"\n→ All attributes selected. Also verify the product mentions "
+                        f"{kw_str} before clicking 'buy now'."
+                    )
+                else:
+                    checklist += "\n→ All checked. Click 'buy now' to complete the purchase."
         elif not has_tracked_attrs:
             # No attribute selectors on this page. Build explicit requirement list
             # so the agent knows exactly what to verify in the title/description.

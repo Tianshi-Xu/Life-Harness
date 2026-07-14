@@ -25,11 +25,11 @@ prompt_with_max_turn = """You are a web shopping agent. Follow the task instruct
 
 CRITICAL RULES:
 1. You MUST call a tool EVERY turn. NEVER respond with only text — always call search_action or click_action.
-2. On search results: read product titles carefully. Click the product whose title best matches ALL key terms in the instruction (brand name, product type, specific features).
-3. On a product page: select ALL required attributes (color, size, etc.) THEN click 'buy now' immediately.
-4. After selecting attributes, click 'buy now' right away. Do NOT hesitate or deliberate — just buy.
-5. If the Hint says "All checked" or "All attributes selected", your ONLY correct action is click 'buy now'.
-6. Keywords in search should be the product name and key features, NOT prices or filler words.
+2. On search results: read product titles carefully. Click the product whose title best matches ALL key terms in the instruction (brand name, product type, specific features, descriptive qualities).
+3. On a product page: select ALL required attributes (color, size, etc.) that match the task instruction. Verify each selection is correct before proceeding.
+4. After selecting all required attributes, click 'buy now' to complete the purchase.
+5. If the Hint says "All checked" or "All attributes selected", click 'buy now'.
+6. Search keywords should include the product name and all descriptive features from the instruction. Do NOT include price or dollar amounts.
 7. The click value MUST be exactly one of the available clickable values.
 """
 
@@ -152,17 +152,20 @@ class WebShop(Task):
             reward = 0
             call_id = None
             _no_tool_consecutive = 0
+            pending_hints = []
 
             for j in range(self.max_rounds):
                 available_actions = env.get_available_actions()
                 has_search_bar, clickables = _parse_available_actions(available_actions)
 
+                # Prepend any pending harness hints to the observation message
+                hint_prefix = ""
+                if harness_runtime and pending_hints:
+                    hint_prefix = "\n".join(pending_hints) + "\n\n"
+                    pending_hints = []
+
                 if j == 0:
-                    session.inject(ChatCompletionUserMessageParam(
-                        role='user',
-                        content=f'The initial observation:\n{observation}\n\nAvailable Actions:\n{available_actions}'
-                    ))
-                    # H4-E: initial search hint on step 0
+                    init_content = f'The initial observation:\n{observation}\n\nAvailable Actions:\n{available_actions}'
                     if harness_runtime:
                         first_hint = harness_runtime.step_guidance(
                             step_num=0,
@@ -172,20 +175,21 @@ class WebShop(Task):
                             clickables=clickables,
                         )
                         if first_hint:
-                            session.inject(ChatCompletionUserMessageParam(
-                                role='user',
-                                content=first_hint,
-                            ))
+                            init_content = first_hint + "\n\n" + init_content
+                    session.inject(ChatCompletionUserMessageParam(
+                        role='user',
+                        content=hint_prefix + init_content
+                    ))
                 else:
                     if action is None:
                         session.inject(ChatCompletionUserMessageParam(
                             role='user',
-                            content=f'Observation:\n{observation}\n\nAvailable Actions:\n{available_actions}'
+                            content=hint_prefix + f'Observation:\n{observation}\n\nAvailable Actions:\n{available_actions}'
                         ))
                     else:
                         session.inject(ChatCompletionToolMessageParam(
                             role='tool',
-                            content=f'Action: {action}\n\nObservation:\n{observation}\n\nAvailable Actions:\n{available_actions}',
+                            content=hint_prefix + f'Action: {action}\n\nObservation:\n{observation}\n\nAvailable Actions:\n{available_actions}',
                             tool_call_id=call_id
                         ))
 
@@ -308,17 +312,14 @@ class WebShop(Task):
                         # H1: update page state
                         harness_runtime.update_state(action, observation, post_has_sb, post_clickables)
 
-                        # H4: shopping monitor
+                        # H4: shopping monitor — collect hints instead of injecting
                         h4_result = harness_runtime.post_step_monitor(
                             action, observation, post_has_sb, post_clickables
                         )
                         if h4_result.get("recovery_prompt"):
-                            session.inject(ChatCompletionUserMessageParam(
-                                role='user',
-                                content=h4_result["recovery_prompt"],
-                            ))
+                            pending_hints.append(h4_result["recovery_prompt"])
 
-                        # H4-E: state-driven per-step guidance (page state + requirements)
+                        # H4-E: state-driven per-step guidance
                         h4e_hint = harness_runtime.step_guidance(
                             step_num=j + 1,
                             max_steps=self.max_rounds,
@@ -327,10 +328,7 @@ class WebShop(Task):
                             clickables=post_clickables,
                         )
                         if h4e_hint:
-                            session.inject(ChatCompletionUserMessageParam(
-                                role='user',
-                                content=h4e_hint,
-                            ))
+                            pending_hints.append(h4e_hint)
 
                         # H4-D: step-budget management
                         budget_result = harness_runtime.budget_check(
@@ -340,10 +338,7 @@ class WebShop(Task):
                         if budget_result.get("force_action"):
                             harness_runtime.force_next_action = budget_result["force_action"]
                         if budget_result.get("hint"):
-                            session.inject(ChatCompletionUserMessageParam(
-                                role='user',
-                                content=budget_result["hint"],
-                            ))
+                            pending_hints.append(budget_result["hint"])
 
                 history[-1]["reward"] = reward
                 history[-1]["done"] = done

@@ -1,0 +1,13 @@
+assignments:
+- agent:
+  - claude-opus-4-8
+  task:
+  - webshop-sub50-baseline
+concurrency:
+  agent:
+    claude-opus-4-8: 5
+  task:
+    webshop-sub50-baseline: 16
+import: definition.yaml
+output: outputs/claude-opus-4-8/webshop/{TIMESTAMP}-sub50-baseline
+trials: 1

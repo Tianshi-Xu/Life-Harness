@@ -1,0 +1,13 @@
+assignments:
+- agent:
+  - gpt-5.5
+  task:
+  - webshop-sub50
+concurrency:
+  agent:
+    gpt-5.5: 5
+  task:
+    webshop-sub50: 5
+import: definition.yaml
+output: outputs/gpt-5.5/webshop/{TIMESTAMP}-sub50-run
+trials: 1
