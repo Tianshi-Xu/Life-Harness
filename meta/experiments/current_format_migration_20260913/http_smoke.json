@@ -1,0 +1,14 @@
+[
+  {
+    "name": "dbbench-std",
+    "indices": 300,
+    "statuses": [null, "running", "completed"],
+    "scripted_tool_calls": 2
+  },
+  {
+    "name": "alfworld-std",
+    "indices": 109,
+    "statuses": [null, "running"],
+    "scripted_tool_calls": 1
+  }
+]

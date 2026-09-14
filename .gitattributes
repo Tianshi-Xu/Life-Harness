@@ -1,0 +1,2 @@
+# Frozen upstream-compatible task snapshots retain their byte-for-byte source.
+meta/experiments/current_agentbench_source_20260914/task_snapshot/** -whitespace

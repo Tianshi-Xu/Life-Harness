@@ -1,0 +1,188 @@
+{
+  "alfworld": {
+    "baseline": 43,
+    "final": 49,
+    "accepted": "candidate_03.py",
+    "rounds": [
+      {
+        "iteration": 1,
+        "proposal": {
+          "name": "container_aware_search_guidance",
+          "target_layer": "h4",
+          "changed_symbols": [
+            "_WorldState.closed_containers",
+            "_WorldState.searched_containers",
+            "_WorldState.update",
+            "Harness._container_family",
+            "Harness._container_matches_target",
+            "Harness._closed_container_hint",
+            "Harness._pending_closed_hint",
+            "Harness._step_guidance"
+          ],
+          "hypothesis": "During the FIND phase, H4 search guidance only ever proposes 'go to <location>' and never proposes the 'open <receptacle>' action, so targets hidden inside closed containers are never observed and the agent loops through a location sweep until the task limit. Baseline evidence: in 5 of 7 failed episodes the target was never observed while closed containers were passed; episode 78's hints cycled 'go to drawer N' for roughly 44 turns and the first open action appears only at turn 49; episode 764 never opened any of its 9 cabinets even though 'open cabinet N' stayed continuously available, and guidance went silent (dedup) once unvisited emptied. Mechanism: track which receptacles are closed/unsearched from public observations ('X is closed/open') and from admissible 'open X' actions; while the target is unfound, prefer a 'the X is closed \u2014 use: open X.' hint for containers whose family matches the target's commonsense search priority (_SEARCH_PRIORITY); once no unvisited location remains, fall back to a remembered still-closed receptacle instead of silence. The 'use:' phrasing reuses the existing 2-ignored-hints escalation so the open action can be forced, and the changing hint content removes dedup silence.",
+          "risks": "Opening matching receptacles at the current location can consume extra turns before resuming the location sweep, so tasks whose target lies on an open surface elsewhere may lose slack; the priority-family filter bounds this but container-heavy rooms can still chain several opens. The 2-ignored-hint escalation can force one open action in stuck states, displacing a navigation the agent intended. Remembered receptacle locations can be stale after complex navigation, making the rescue fallback hint imprecise. Fast successes (target visible in the first observations) exit FIND before any open hint and should be mostly unaffected."
+        },
+        "successes": 47,
+        "previous": 43,
+        "accepted": true,
+        "wins": 4,
+        "losses": 0,
+        "tokens": 2769888
+      },
+      {
+        "iteration": 2,
+        "proposal": {
+          "name": "transform_state_recovery_guidance",
+          "target_layer": "h4",
+          "changed_symbols": [
+            "_XFORM_DONE",
+            "_XFORM_ADJ",
+            "_WorldState.item_state",
+            "_WorldState.update",
+            "Harness._pending_transform_hint",
+            "Harness._step_guidance"
+          ],
+          "hypothesis": "H4 guidance never tracks the target's transformation state, so when the agent moves or counter-transforms the target the harness either goes silent or keeps telling it to place the item. Observed in the two winnable failures of the 47/50 incumbent: (1) episode 1771 ('put a cool lettuce in diningtable'): the agent put the uncooled lettuce into the fridge (turn 6) and later onto the destination diningtable (turn 15); with inventory empty and no cool action admissible, the CLEAN/HEAT/COOL branches emitted nothing, guidance was silent for the last 6 turns, the agent looped 'examine diningtable 1' three times and the episode died as 'agent invalid action' at turn 17. (2) episode 1525 ('put a hot plate in fridge'): the agent heated the plate (turn 36), then executed 'cool plate 1 with fridge 1' at the destination (turn 38), destroying the required hot state; guidance still said 'go to fridge to place the plate 1' and the cold plate was delivered. Episode 2557 is scene-unwinnable (only 'keychain 1' exists across all 13 reachable locations in both runs) and is not targeted. Mechanism: _WorldState.update parses successful transform observations ('You heat/cool/clean the X using Y') into item_state; _step_guidance then (a) replaces transform-subgoal silence with retrieval guidance when the transform action is unavailable ('the lettuce is not cooled yet - pick it up from fridge 1, then use the cool action at the fridge'), and (b) at GOTO_DEST/PUT detects that the held target's last temperature transform contradicts the required one and directs re-application ('the plate 1 is cold now - go to the microwave and heat it again before placing it'; when standing at the appliance with the action admissible: 'needs heating again - use: heat plate 1 with microwave 1', reusing the existing use:-hint escalation). Activation is restricted to the anomalous states: across iter_01, 67 put observations occur and only 1771 shows a pre-transform put, and no successful episode contains a heat/cool counter-transform.",
+          "risks": "The retrieval hint uses placed_locations[-1] as the target's location, which is stale if the agent's most recent put was an unrelated item, misdirecting one pickup. The counter-transform branch can fire earlier than the agent's own self-correction on flip sequences (cool-heat-cool as in baseline 2105), and the 'use:' re-transform hint can escalate to a forced action after two ignores, displacing the model's chosen action. About 20 of 50 episodes are transform tasks, so any regression there is amplified; however activation requires pre-transform-put or counter-transform states that appear only in the two targeted failures and in none of the 47 incumbent successes."
+        },
+        "successes": 48,
+        "previous": 47,
+        "accepted": true,
+        "wins": 1,
+        "losses": 0,
+        "tokens": 2834436
+      },
+      {
+        "iteration": 3,
+        "proposal": {
+          "name": "closed_destination_open_hint",
+          "target_layer": "h4",
+          "changed_symbols": [
+            "Harness._closed_destination_action",
+            "Harness._step_guidance"
+          ],
+          "hypothesis": "In the GOTO_DEST/PUT branch, H4 guidance never recognized that the destination itself being closed is what blocks the put: when the agent holds the target at the destination and no put action is admissible, the branch emitted 'go to <dest> to place the item' (or went silent after dedup) even though the agent was already there and the only missing step was opening the receptacle. Evidence: iter_02 episode 1525 ('put a hot plate in fridge', the only winnable failure of the 48/50 run) - the agent heated the plate and stood at the closed fridge from turn 37; 'put plate 1 in/on fridge 1' never appeared in admissible actions; hints at turns 37/41/45/49 all repeated 'go to fridge to place the plate 1'; the model instead executed the then-available destructive 'cool plate 1 with fridge 1' (turn 38) and burned the remaining turns in a heat/cool flip without ever running 'open fridge 1'. The same closed-destination state occurs in successful openable-destination episodes (2105 microwave, 1894/764 cabinet), where the model opened the receptacle unprompted. Mechanism: an admissible 'open X' action is only offered while standing at a closed openable X, so when its family matches the parsed destination type the destination itself is closed; _closed_destination_action detects this and _step_guidance emits 'Hint: the <X> is closed - use: open <X>.' instead of the generic go-to hint, reusing the existing use:-hint escalation so the open action is forced after two ignores.",
+          "risks": "The new hint also fires in the analogous state of episodes whose destination is an openable receptacle, replacing the old text there; in replayed successes the model already opened the destination at that point. After two ignored hints the existing escalation queues a forced open action, which can displace one navigation the model intended, but only when the agent already holds the target while standing at a closed destination of the correct family. For multi-instance destinations (cabinet/drawer) the suggested instance is the one at the current location, which may differ from the model's intended instance, though any instance of the type satisfies these placement tasks. If the target was never actually transformed (subgoal advanced on a transform observation of another item), the open hint can interleave with the existing nothing-happens put-recovery, costing at most one turn. Non-closed destinations are unaffected because put_a remains admissible and takes precedence in the branch chain."
+        },
+        "successes": 49,
+        "previous": 48,
+        "accepted": true,
+        "wins": 1,
+        "losses": 0,
+        "tokens": 2606101
+      }
+    ],
+    "historical_h2345": 44,
+    "historical_best": 44,
+    "final_vs_migrated_baseline": {
+      "wins": 6,
+      "losses": 0,
+      "net": 6
+    },
+    "final_vs_historical_h2345": {
+      "wins": 5,
+      "losses": 0,
+      "net": 5
+    },
+    "final_vs_historical_best": {
+      "wins": 5,
+      "losses": 0,
+      "net": 5
+    },
+    "live_episodes_including_diagnostic": 200,
+    "agent_tokens_including_diagnostic": 11319554,
+    "infra_errors": 0,
+    "baseline_tokens": 3109129,
+    "final_tokens": 2606101
+  },
+  "dbbench": {
+    "baseline": 24,
+    "final": 29,
+    "accepted": "candidate_03.py",
+    "rounds": [
+      {
+        "iteration": 1,
+        "proposal": {
+          "name": "fix_grouped_scalar_shape_misclassification",
+          "target_layer": "h2",
+          "changed_symbols": [
+            "_detect_answer_shape",
+            "_scalar_request",
+            "_ensure_ready"
+          ],
+          "hypothesis": "H2's 'expects ONE number' commit gate only misfires when the answer-shape classifier mislabels a grouped/list question as scalar, and that label comes from two generic lexical defects in _detect_answer_shape. (1) Counting tasks recognize 'for each / of each / per / grouped by' but not 'in each' or 'at each', so 'How many matches ... in each competition?' and 'How many games ... at each location?' were labeled scalar. (2) SELECT tasks treat any occurrence of 'total' as a scalar request even when it is a public column-header word, so 'display their rank and total passengers' (header 'Total Passengers') and 'display their Position and Total scores' (header 'Total') were labeled scalar. Observed evidence: in all 4 baseline episodes where the scalar-collapse gate fired, it rejected a tuple-format multi-row commit produced directly by the model's own correct GROUP BY/list query (per-competition counts, per-location game/win rows, per-gymnast rows) and re-prompted the model to 'remove GROUP BY and use a global aggregate'; in each episode the model then did exactly that and submitted a single collapsed value (40 instead of 5 per-competition counts; 34 instead of 10 per-location rows; 15.650 instead of 3 gymnast rows), failing the task. Fix: one shared grouped-phrase pattern for counting/SELECT shapes plus a header-aware scalar trigger that keeps 'how many / number of / count of' unconditional but ignores bare 'total'/'count' when the word belongs to a public column header. The gate itself and every other shape rule are unchanged.",
+          "risks": "A genuinely scalar question phrased with 'in each / at each' would now be classified multi-row and lose the collapse block; no such task exists in this run's 50 public instructions, and scalar 'how many ... ?' without per-group phrasing is unchanged. A true total request that reuses a header word (e.g. a question asking for one total while a 'Total' column exists) is still protected whenever it says 'how many / number of / count of'; only bare-'total' questions are relaxed. For the four affected tasks H4 guidance changes from 'submit the bare value(s)' to 'submit ALL rows', which may nudge an earlier commit on the compound two-aggregate question ('how many games ... and total wins ...') before both aggregates are fetched, and the removed block can no longer catch a genuinely wrong tuple commit on these tasks."
+        },
+        "successes": 25,
+        "previous": 24,
+        "accepted": true,
+        "wins": 1,
+        "losses": 0,
+        "tokens": 222861
+      },
+      {
+        "iteration": 2,
+        "proposal": {
+          "name": "header_word_total_type_misclassification",
+          "target_layer": "h2",
+          "changed_symbols": [
+            "_infer_public_type",
+            "_ensure_ready",
+            "_header_word_set",
+            "_total_is_sum_request"
+          ],
+          "hypothesis": "Query-intent inference runs before answer-shape detection, and its SUM trigger ('sum|total') fires on a bare 'total' even when that word is only part of a public column header, so the task is typed aggregation-SUM with a scalar shape and the iteration-1 header-aware guard inside _detect_answer_shape is never reached. The scalar-collapse commit gate then rejects the correct multi-row answer the model produced with its own list/GROUP BY query. Observed evidence: in iter_01 (identical in baseline) episode 2774 ('display their rank and total passengers', header 'Total Passengers') the model's correct 3-row result [('1','18,459,191'),('2','15,759,181'),('19','1,225,982')] was blocked by 'this task expects ONE number', H4's implausible-candidate hint pushed a destructive CAST (comma values truncated to 18.000000), and the model finally collapsed to COUNT=3; episode 2621 ('display their `Position` and `Total` scores', header 'Total') had its 3 correct gymnast rows blocked 3 times and ended committing bare floats 15.925/15.800/15.650. Both tasks fail in baseline and iter_01, while iteration-1's fix already repaired the analogous SELECT-path case (1717). Fix: _infer_public_type now receives the public column list from _ensure_ready and a bare 'total' triggers SUM only when it is not a word of a public column header (the same vocabulary test already used by _scalar_request); 'sum' and 'total of' remain unconditional SUM triggers, and when columns are unknown the historical behavior is kept. Every other type/shape rule and all gates are unchanged.",
+          "risks": "A genuine scalar SUM question that only says bare 'total' while some public header contains 'Total' would now be typed SELECT/multi_row: the scalar-collapse and zero-after-empty gates no longer apply and H4 step guidance may nudge 'submit ALL rows'; no such question exists among the 50 public instructions, and explicit 'sum' or 'total of' phrasing still triggers SUM. Episode 545 ('which nation earned the least amount of total medals?', header 'Total') changes from AGG_SUM to AGG_MIN with the same scalar_float answer shape, so gates and monitors are identical; only the H5 skill and first-turn hint text differ, and that task fails in both baseline and iter_01 regardless. On the two targeted tasks the removed block can no longer catch a genuinely wrong multi-row commit, the same class of risk accepted in iteration 1."
+        },
+        "successes": 27,
+        "previous": 25,
+        "accepted": true,
+        "wins": 2,
+        "losses": 0,
+        "tokens": 164488
+      },
+      {
+        "iteration": 3,
+        "proposal": {
+          "name": "canonicalize_multi_row_tuple_rendering",
+          "target_layer": "h2",
+          "changed_symbols": [
+            "_gate_commit",
+            "_canonicalize_multi_row_answers",
+            "_parse_db_rows"
+          ],
+          "hypothesis": "Multi-row tuple answers are graded by exact string match against the environment's own row rendering, so commits with correct values but deviating formatting fail even though structurally identical commits succeed. Evidence: episode 2774 returned [('1', '18,459,191'), ...] and committed [\"('1','18,459,191')\", ...] (missing the ', ' separator) and failed, while other multi-row commits that mirror the DB rendering (e.g. 1717, 2548, 2621) pass; episode 2325 returned [('Helsingborg , Sweden', 1), ...] and committed [\"('Helsingborg , Sweden', '1')\", ...] (count cell quoted although the environment renders a bare int) and failed in all phases. Mechanism: in H2 _gate_commit, when the inferred shape is multi_row_multi_col, replace each committed tuple string with the exact str(row) rendering of the DB row from the last response whose stringified cells match, falling back to str(parsed_tuple) for unmatched tuples. This is a deterministic pre-execution repair requiring no extra turns and no model cooperation.",
+          "risks": "Commits whose tuples do not match any row in the last DB response are re-rendered via str(); a currently passing commit is unchanged only if it already equals its repr rendering, which holds for observed passing multi-row commits, but a hypothetical passing episode using a non-repr rendering could be altered. Last responses containing non-literal objects (e.g. Decimal(...)) are unparseable by literal_eval, so those commits pass through unchanged. Scalar, single-column and mutation shapes are untouched. Cell-stringification could in principle collide 'None' with a literal 'None' text cell, but the result is still substitution to the environment's own rendering of the matched row."
+        },
+        "successes": 29,
+        "previous": 27,
+        "accepted": true,
+        "wins": 3,
+        "losses": 1,
+        "tokens": 208102
+      }
+    ],
+    "historical_h2345": 29,
+    "historical_best": 35,
+    "final_vs_migrated_baseline": {
+      "wins": 5,
+      "losses": 0,
+      "net": 5
+    },
+    "final_vs_historical_h2345": {
+      "wins": 4,
+      "losses": 4,
+      "net": 0
+    },
+    "final_vs_historical_best": {
+      "wins": 1,
+      "losses": 7,
+      "net": -6
+    },
+    "live_episodes_including_diagnostic": 250,
+    "agent_tokens_including_diagnostic": 1044078,
+    "infra_errors": 0,
+    "baseline_tokens": 228594,
+    "final_tokens": 208102
+  }
+}

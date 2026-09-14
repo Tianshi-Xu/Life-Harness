@@ -1,3 +1,4 @@
+import copy
 import json
 import logging
 import re
@@ -16,10 +17,10 @@ from openai.types.chat import (ChatCompletionSystemMessageParam,
 from web_agent_site.envs.web_agent_text_env import WebAgentTextEnv
 
 from src.server.harness import (
+    WebShopHarness,
     WebShopHarnessConfig,
-    WebShopHarnessRuntime,
-    patch_webshop_tool_descriptions,
 )
+from src.server.harness.session import FourHookSession
 
 prompt_with_max_turn = """You are a web shopping agent. Follow the task instruction to find and buy the correct product.
 
@@ -79,9 +80,6 @@ class WebShop(Task):
             h5_top_k=int(h5_top_k),
             h5_score_threshold=float(h5_score_threshold),
         )
-        if self.harness_config.enabled and self.harness_config.h3_enabled:
-            tools = patch_webshop_tool_descriptions(tools)
-
         super().__init__(**configs)
         self.logger = logging.getLogger(__name__)
         self.ranging = (configs.pop("start", 0), configs.pop("end", 500))
@@ -99,6 +97,7 @@ class WebShop(Task):
         )
         self.logger.info('Initializing WebShop environment...')
         self.server = WebAgentTextEnv(observation_mode="text", human_goals=True, num_products=100000).server
+        self.base_tools = copy.deepcopy(tools)
         self.tools = tools
         self.max_rounds = configs.get('round', 20)
 
@@ -124,12 +123,22 @@ class WebShop(Task):
         )
         try:
             env.reset(index)
-            # Harness: initialise per-episode runtime
+            four_hook_session = None
+            if self.harness_config.enabled:
+                instruction = _extract_instruction(env.observation)
+                four_hook_session = FourHookSession(
+                    session,
+                    WebShopHarness(self.harness_config),
+                    self.base_tools,
+                    self.max_rounds,
+                    self.harness_config,
+                    task_context={"instruction": instruction},
+                )
+                session = four_hook_session
+
+            # The released policy now runs exclusively through h2/h3/h4/h5.
             harness_runtime = None
             cold_skills = []
-            if self.harness_config.enabled:
-                harness_runtime = WebShopHarnessRuntime(config=self.harness_config)
-                harness_runtime.init_task(_extract_instruction(env.observation))
 
             # H5 cold-start: gather per-task tips before the first system message.
             if harness_runtime and self.harness_config.h5_enabled:
@@ -361,6 +370,7 @@ class WebShop(Task):
                 result={
                     "reward": reward,
                     "history": history,
+                    "harness_trace": four_hook_session.trace if four_hook_session else {},
                 },
             )
         except AgentCancelledException:

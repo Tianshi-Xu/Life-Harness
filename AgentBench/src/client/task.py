@@ -11,6 +11,21 @@ from src.utils import *
 from .agent import AgentClient
 
 
+def _merge_openai_messages(current: List[dict], incoming: List[dict]) -> List[dict]:
+    """Accept AgentRL full-history snapshots as well as incremental messages.
+
+    Worker 0.4 strips history_ptr from HTTP responses. A full snapshot retains
+    the original system + task prefix; a delta only contains later messages.
+    Replacing snapshots is necessary to remove ephemeral guidance and retain
+    H2-corrected assistant calls without duplicating the previous trajectory.
+    """
+    snapshot = (len(current) >= 2 and len(incoming) >= 2
+                and current[0].get("role") == "system"
+                and current[1].get("role") == "user"
+                and incoming[:2] == current[:2])
+    return copy.deepcopy(incoming if snapshot else current + incoming)
+
+
 def _slim_outputs_for_worker_aggregate(results: List[TaskOutput]) -> List[TaskOutput]:
     """Worker aggregate only needs compact fields; drop huge traces like openai_messages."""
     slim: List[TaskOutput] = []
@@ -613,8 +628,7 @@ class TaskClient:
 
             resp_payload = result.json()
             if use_header_sid and hasattr(agent, "inference_openai"):
-                for m in resp_payload.get("messages", []):
-                    api_messages.append(copy.deepcopy(m))
+                api_messages = _merge_openai_messages(api_messages, resp_payload.get("messages", []))
                 if resp_payload.get("tools"):
                     api_tools = resp_payload["tools"]
             latest_output = _normalize_output(resp_payload)

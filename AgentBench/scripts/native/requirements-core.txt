@@ -1,0 +1,6 @@
+# Worker runtime uses Pydantic 2, unlike the repository's legacy client stack.
+agentrl-worker==0.4.0
+mysql-connector-python==9.7.0
+pyyaml==6.0.3
+requests>=2.28
+jsonlines>=3

@@ -63,6 +63,18 @@ def parse_args():
             "retrieve_policy remain disabled even when their individual flags are set."
         ),
     )
+    p.add_argument(
+        "--harness-plugin",
+        default=None,
+        metavar="PATH",
+        help=(
+            "Path to a single-file Python harness plugin. The module is imported "
+            "once, before any domain environment is constructed, so it can patch/"
+            "extend harness components (H2 rules, H4 annotators, H5 skills). If the "
+            "module defines a callable register(), it is invoked after import. "
+            "Used by the meta/ outer loop to evaluate candidate harnesses."
+        ),
+    )
     p.add_argument("--h2", action="store_true", help="Enable H2 harness rules")
     p.add_argument(
         "--h3",
@@ -541,8 +553,34 @@ def _resolve_save_dir(output: str | None, save_to: str | None, label: str, ts: s
     return simulations_dir / run_name
 
 
+def _load_harness_plugin(path: str) -> None:
+    """Import a candidate harness plugin before environments are built.
+
+    The plugin may patch/extend tau2.harness components (H2 rules, H4
+    annotators, H5 skills) or domain Tools classes. If it defines a callable
+    ``register()``, that is invoked once after import.
+    """
+    import importlib.util
+    import pathlib
+
+    plugin_path = pathlib.Path(path).resolve()
+    if not plugin_path.is_file():
+        raise ValueError(f"--harness-plugin not found: {plugin_path}")
+    spec = importlib.util.spec_from_file_location(
+        f"tau2_harness_plugin_{plugin_path.stem}", plugin_path
+    )
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    register = getattr(module, "register", None)
+    if callable(register):
+        register()
+    print(f"  [harness-plugin] loaded {plugin_path}")
+
+
 def main():
     args = parse_args()
+    if args.harness_plugin:
+        _load_harness_plugin(args.harness_plugin)
     if args.malicious_user:
         os.environ["TAU2_MALICIOUS_USER_SIMULATION"] = "1"
     else:
@@ -760,6 +798,7 @@ def main():
     )
     summary["nl_assertions_llm"] = args.user_llm if args.nl else None
     summary["harness_master_enabled"] = args.enabled
+    summary["harness_plugin"] = args.harness_plugin
     summary["harness_h2_selected"] = args.h2
     summary["harness_h3_selected"] = args.h3
     summary["harness_h4_selected"] = args.h4

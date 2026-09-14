@@ -11,6 +11,21 @@ The paper experiments in this folder use the following AgentBench tasks:
 - OS
 - WebShop
 
+## Current four-hook release (2026-09-14)
+
+ALFWorld, DBBench, WebShop, and OS Interaction now expose the current
+`Harness.h2/h3/h4/h5` interface. Their Tasks call the hooks through
+`FourHookSession`; the bundled client supports full-history replacement for
+ephemeral H4 guidance and repaired H2 actions. Update worker and client
+together. Custom clients must recognize full message snapshots instead of
+blindly appending them.
+
+The loss-preservation replay kept ALFWorld at 104/109 and DBBench at 190/300,
+with identical per-task outcomes and normalized model inputs. See the
+[migration report](../meta/experiments/current_format_migration_20260913/MIGRATION.md).
+Native deployment uses the documented isolated environments; see
+[NATIVE_ENVIRONMENT.md](NATIVE_ENVIRONMENT.md).
+
 ## Installation
 
 ```bash
@@ -20,7 +35,11 @@ conda activate agent-bench
 pip install -r requirements.txt
 ```
 
-Docker is required for the task workers:
+The default deployment below uses Docker. For a native deployment of ALFWorld
+and DBBench, plus the current OS/WebShop limitations, see
+[NATIVE_ENVIRONMENT.md](NATIVE_ENVIRONMENT.md).
+
+Check Docker before using the default deployment:
 
 ```bash
 docker ps

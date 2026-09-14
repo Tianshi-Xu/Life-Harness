@@ -1,0 +1,249 @@
+{
+  "protocol": "Frozen full repository std splits, one trial, no test optimization",
+  "domains": {
+    "alfworld": {
+      "profiles": {
+        "published_h2345": {
+          "successes": 100,
+          "n": 109,
+          "accuracy": 0.9174311926605505,
+          "wilson_95_interval": [
+            0.8504878975927597,
+            0.9559532894588865
+          ],
+          "tokens": 5621939,
+          "turns": 1552,
+          "infra_errors": 0
+        },
+        "evolved_best": {
+          "successes": 103,
+          "n": 109,
+          "accuracy": 0.944954128440367,
+          "wilson_95_interval": [
+            0.885082725847891,
+            0.9745304076027645
+          ],
+          "tokens": 4858941,
+          "turns": 1540,
+          "infra_errors": 0
+        }
+      },
+      "evolved_vs": {
+        "published_h2345": {
+          "n": 109,
+          "wins": 3,
+          "losses": 0,
+          "both_success": 100,
+          "both_failure": 6,
+          "net": 3,
+          "difference": 0.027522935779816515,
+          "paired_bootstrap_95_interval": [
+            0.0,
+            0.06422018348623854
+          ],
+          "exact_mcnemar_p": 0.25
+        }
+      },
+      "by_task_type": {
+        "look_at_obj": {
+          "n": 18,
+          "successes": {
+            "published_h2345": 18,
+            "evolved_best": 18
+          }
+        },
+        "pick_and_place": {
+          "n": 9,
+          "successes": {
+            "published_h2345": 7,
+            "evolved_best": 9
+          }
+        },
+        "pick_clean_then_place": {
+          "n": 5,
+          "successes": {
+            "published_h2345": 5,
+            "evolved_best": 5
+          }
+        },
+        "pick_cool_then_place": {
+          "n": 29,
+          "successes": {
+            "published_h2345": 27,
+            "evolved_best": 27
+          }
+        },
+        "pick_heat_then_place": {
+          "n": 27,
+          "successes": {
+            "published_h2345": 27,
+            "evolved_best": 27
+          }
+        },
+        "pick_two_obj": {
+          "n": 21,
+          "successes": {
+            "published_h2345": 16,
+            "evolved_best": 17
+          }
+        }
+      }
+    },
+    "dbbench": {
+      "profiles": {
+        "published_h2345": {
+          "successes": 189,
+          "n": 300,
+          "accuracy": 0.63,
+          "wilson_95_interval": [
+            0.5740445552913591,
+            0.6826682721902588
+          ],
+          "tokens": 1390661,
+          "turns": 873,
+          "infra_errors": 0
+        },
+        "evolved_best": {
+          "successes": 148,
+          "n": 300,
+          "accuracy": 0.49333333333333335,
+          "wilson_95_interval": [
+            0.43720207035328285,
+            0.5496331692630444
+          ],
+          "tokens": 1342100,
+          "turns": 926,
+          "infra_errors": 0
+        },
+        "published_h35": {
+          "successes": 187,
+          "n": 300,
+          "accuracy": 0.6233333333333333,
+          "wilson_95_interval": [
+            0.5672684321681708,
+            0.6762796349297745
+          ],
+          "tokens": 1347706,
+          "turns": 846,
+          "infra_errors": 0
+        }
+      },
+      "evolved_vs": {
+        "published_h2345": {
+          "n": 300,
+          "wins": 10,
+          "losses": 51,
+          "both_success": 138,
+          "both_failure": 101,
+          "net": -41,
+          "difference": -0.13666666666666666,
+          "paired_bootstrap_95_interval": [
+            -0.18666666666666668,
+            -0.08666666666666667
+          ],
+          "exact_mcnemar_p": 9.624425087798039e-08
+        },
+        "published_h35": {
+          "n": 300,
+          "wins": 7,
+          "losses": 46,
+          "both_success": 141,
+          "both_failure": 106,
+          "net": -39,
+          "difference": -0.13,
+          "paired_bootstrap_95_interval": [
+            -0.17666666666666667,
+            -0.08333333333333333
+          ],
+          "exact_mcnemar_p": 4.003196174551249e-08
+        }
+      },
+      "by_task_type": {
+        "INSERT": {
+          "n": 100,
+          "successes": {
+            "published_h2345": 54,
+            "evolved_best": 33,
+            "published_h35": 47
+          }
+        },
+        "UPDATE": {
+          "n": 100,
+          "successes": {
+            "published_h2345": 86,
+            "evolved_best": 72,
+            "published_h35": 86
+          }
+        },
+        "aggregation-AVG": {
+          "n": 8,
+          "successes": {
+            "published_h2345": 6,
+            "evolved_best": 6,
+            "published_h35": 7
+          }
+        },
+        "aggregation-MAX": {
+          "n": 8,
+          "successes": {
+            "published_h2345": 2,
+            "evolved_best": 2,
+            "published_h35": 2
+          }
+        },
+        "aggregation-MIN": {
+          "n": 8,
+          "successes": {
+            "published_h2345": 6,
+            "evolved_best": 6,
+            "published_h35": 6
+          }
+        },
+        "aggregation-SUM": {
+          "n": 8,
+          "successes": {
+            "published_h2345": 3,
+            "evolved_best": 3,
+            "published_h35": 3
+          }
+        },
+        "comparison": {
+          "n": 17,
+          "successes": {
+            "published_h2345": 11,
+            "evolved_best": 7,
+            "published_h35": 10
+          }
+        },
+        "counting": {
+          "n": 17,
+          "successes": {
+            "published_h2345": 5,
+            "evolved_best": 4,
+            "published_h35": 5
+          }
+        },
+        "other": {
+          "n": 17,
+          "successes": {
+            "published_h2345": 10,
+            "evolved_best": 9,
+            "published_h35": 10
+          }
+        },
+        "ranking": {
+          "n": 17,
+          "successes": {
+            "published_h2345": 6,
+            "evolved_best": 6,
+            "published_h35": 11
+          }
+        }
+      }
+    }
+  },
+  "total_episodes": 1118,
+  "agent_tokens": 14561347,
+  "bootstrap": "10000 paired empirical resamples, seed 20260913; intervals conditional on this one model trial; no multiplicity adjustment",
+  "archived_infra_attempts": []
+}

@@ -1,0 +1,94 @@
+{
+  "domains": {
+    "airline": {
+      "format": "H2/H3/H4/H5 registries + register() plugin",
+      "selection_cases": 8,
+      "train_tasks": 30
+    },
+    "retail": {
+      "format": "H2/H3/H4/H5 registries + register() plugin",
+      "selection_cases": 8,
+      "train_tasks": 74
+    },
+    "telecom": {
+      "format": "H2/H3/H4/H5 registries + register() plugin",
+      "selection_cases": 8,
+      "train_tasks": 74
+    },
+    "alfworld": {
+      "format": "Harness.h2/h3/h4/h5",
+      "frozen_replay": "104/109",
+      "semantic_model_input_differences": 0,
+      "raw_h4_boundary_differences": 21
+    },
+    "dbbench": {
+      "format": "Harness.h2/h3/h4/h5 + bound public context",
+      "context_cases": 300,
+      "frozen_replay": "190/300",
+      "semantic_model_input_differences": 0,
+      "tool_input_differences": 0
+    },
+    "webshop": {
+      "format": "Harness.h2/h3/h4/h5",
+      "context_cases": 6
+    },
+    "os_interaction": {
+      "format": "Harness.h2/h3/h4/h5",
+      "context_cases": 1000
+    }
+  },
+  "agentbench_hook_contract": "pass",
+  "db_context_equivalence": "pass (300 standard tasks)",
+  "db_h5_equivalence": "pass (300 standard tasks)",
+  "db_oracle_rejection": "pass",
+  "os_context_equivalence": "pass (1000 train tasks)",
+  "os_h5_equivalence": "pass (1000 train tasks)",
+  "webshop_context_equivalence": "pass (6 representative task types)",
+  "webshop_h5_equivalence": "pass (6 representative task types)",
+  "tau_plugin_contract": "pass",
+  "native_http_smoke": {
+    "dbbench-std": "pass (300 indices; execute + commit completed)",
+    "alfworld-std": "pass (109 indices; environment action executed and session cancelled)"
+  },
+  "db_standard_profiles": {
+    "configs/tasks/dbbench.yaml": {
+      "enabled": true,
+      "h2": true,
+      "h3": true,
+      "h4": true,
+      "h5": true
+    },
+    ".native/configs/dbbench.yaml": {
+      "enabled": true,
+      "h2": true,
+      "h3": true,
+      "h4": true,
+      "h5": true
+    }
+  },
+  "current_iteration_source": {
+    "manifest": "meta/experiments/current_agentbench_source_20260914/manifest.json",
+    "snapshot_files_verified": 32,
+    "starting_candidates_verified": [
+      "alfworld",
+      "dbbench"
+    ]
+  },
+  "hashes": {
+    "AgentBench/src/server/harness/alfworld.py": "5961941d963bec9569696930c18a993335d1e09dedd3f8a7e5dbfed7923842cd",
+    "AgentBench/src/server/harness/dbbench.py": "e2d957dc413114ef0863a7571de7826c8923caa57821881fa5cce31e835bfb06",
+    "AgentBench/src/server/harness/webshop.py": "8be626dcd3b593c6be6261450222142ebd57c816d82a06f5c916a27ea914c1bf",
+    "AgentBench/src/server/harness/os_interaction.py": "57c0bbe2ac788faa2b1e56a5fac805a5c594b2c6d3067f3a9a71a104847f7574",
+    "AgentBench/src/server/harness/session.py": "1bfa5e2219beaa8b145fb642255fb5eeadf9fa919bcadfd7121f0dffc4810ba7",
+    "AgentBench/src/server/tasks/alfworld/task.py": "1fb9dc9fb2e402e4750e815f7a252b353396eb86cf67a7ae00c184ca3fee2dec",
+    "AgentBench/src/server/tasks/dbbench/task.py": "58130401067a56f89ce95bb1f0ac5fe2c2c82fc9d6a0998a1bfb15eb9a10c3c4",
+    "AgentBench/src/server/tasks/webshop/task.py": "bed36fe6ea33dc00122ccb6ac7074271eedb8b43555109a993de0f55847ab392",
+    "AgentBench/src/server/tasks/os_interaction/task.py": "13bb4d13bd4e3cd36697dfac8e3e9f4e4de7ba6dc291cb42168c99e5b633b9e6",
+    "AgentBench/configs/tasks/dbbench.yaml": "35e3bd27e20fe8ae11950377487d6a811d82399715dea7cf9017aa6131ecc2e9",
+    "AgentBench/.native/configs/dbbench.yaml": "2639293e9debdd142d03d221c4db272f39cddb04f6462a79f133ea758af430aa",
+    "meta/experiments/current_agentbench_source_20260914/manifest.json": "8d99a277107aec2faa79405b90b78bf704e6673ea9088d9b19ae60c3ee4992b8",
+    "meta/agentbench_evaluate.py": "874186c964c62d2a0f452e5d78e07388bbb64a03f0d545394ebe4ad4425e6266",
+    "meta/agentbench_preflight.py": "7891f855f38c299e120d677907162b2a84edb69c3d4517ad3aef072307636a3c",
+    "meta/agentbench_loop.py": "fe3357228908493ac6c80807acc1cd47897ddce35bf2d3f220b5e4f3a0003417"
+  }
+}

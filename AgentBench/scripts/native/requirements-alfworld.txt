@@ -1,0 +1,7 @@
+agentrl-worker==0.4.0
+pyyaml==6.0.3
+jsonlines>=3
+alfworld==0.4.2
+numpy<2
+setuptools<70
+nltk

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import copy
 import glob
 import json
 import logging
@@ -24,11 +25,12 @@ from openai.types.chat import (ChatCompletionSystemMessageParam,
                                ChatCompletionUserMessageParam)
 
 from src.server.harness import (
+    OSInteractionHarness,
     OSHarnessConfig,
     OSHarnessRuntime,
-    patch_os_tool_descriptions,
     rescue_tool_call_from_text,
 )
+from src.server.harness.session import FourHookSession
 
 from .environment import OSEnvironmentDelegation
 
@@ -182,14 +184,11 @@ class OSInteraction(Task):
             h5_top_k=int(h5_top_k),
             h5_score_threshold=float(h5_score_threshold),
         )
-        # H3 tool description patching (apply once at class init)
-        if self.harness_config.enabled and self.harness_config.h3_enabled:
-            tools = patch_os_tool_descriptions(tools)
-
         super().__init__(tools=tools, **kwargs)
         self.round_limit: int = round_limit
         self.data_config = data_config
         self.docker_config = docker_config
+        self.base_tools = copy.deepcopy(tools)
         self.tools = tools
         self.full_async = True
         self.shuffle_seed = shuffle_seed
@@ -518,16 +517,24 @@ class OSInteraction(Task):
         if setup_result:
             return setup_result
 
-        # Initialize harness runtime per sample
-        harness_runtime: Optional[OSHarnessRuntime] = None
-        harness_trace: Dict[str, List[Any]] = {
-            "h2": [], "h3": [], "h4": [], "h5": [],
-        }
+        four_hook_session = None
         if self.harness_config.enabled:
-            harness_runtime = OSHarnessRuntime(self.harness_config)
-            harness_runtime.init_task(config.description)
-            if self.harness_config.h3_enabled:
-                harness_trace["h3"].append({"applied": True})
+            four_hook_session = FourHookSession(
+                session,
+                OSInteractionHarness(self.harness_config),
+                self.base_tools,
+                self.round_limit,
+                self.harness_config,
+                task_context={"description": config.description},
+            )
+            session = four_hook_session
+
+        # The released policy now runs exclusively through h2/h3/h4/h5.
+        harness_runtime: Optional[OSHarnessRuntime] = None
+        harness_trace: Dict[str, List[Any]] = (
+            four_hook_session.trace if four_hook_session else
+            {"h2": [], "h3": [], "h4": [], "h5": []}
+        )
 
         # Inject initial messages + H5 cold start
         cold_skills = []

@@ -25,3 +25,20 @@ my_tau_bench/data/tau2/results/
 *.fdb_latexmk
 *.synctex.gz
 *.bbl
+
+# Local iteration state, credentials, model logs, and disposable worktrees.
+meta/deploy/env.sh
+meta/deploy/*.bak
+meta/deploy/logs/
+meta/runs/
+meta/runs_life/
+meta/runs_agentbench/
+meta/worktrees/
+meta/experiments/*
+!meta/experiments/current_agentbench_source_20260914/
+!meta/experiments/current_agentbench_source_20260914/**
+!meta/experiments/current_format_migration_20260913/
+!meta/experiments/current_format_migration_20260913/**
+meta/experiments/**/__pycache__/
+meta/experiments/**/*.py[cod]
+meta/experiments/**/*.log

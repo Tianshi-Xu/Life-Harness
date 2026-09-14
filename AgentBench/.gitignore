@@ -27,3 +27,5 @@ analysis
 .github
 logs_*.log
 .venv/
+.native/
+scripts/native/*-installed.txt

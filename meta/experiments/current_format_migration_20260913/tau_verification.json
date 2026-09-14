@@ -1,0 +1,55 @@
+{
+  "format": "H2/H3/H4 registries + H5 skill registry + register() plugin",
+  "selection_cases": 24,
+  "selected_classes": {
+    "airline": {
+      "000": "AirlineTools",
+      "100": "HarnessedAirlineTools",
+      "010": "H3AirlineTools",
+      "001": "H4AirlineTools",
+      "110": "H3HarnessedAirlineTools",
+      "101": "H4HarnessedAirlineTools",
+      "011": "H4AirlineTools",
+      "111": "H3H4HarnessedAirlineTools"
+    },
+    "retail": {
+      "000": "RetailTools",
+      "100": "HarnessedRetailTools",
+      "010": "H3RetailTools",
+      "001": "H4RetailTools",
+      "110": "H3HarnessedRetailTools",
+      "101": "H4HarnessedRetailTools",
+      "011": "H3H4RetailTools",
+      "111": "H3H4HarnessedRetailTools"
+    },
+    "telecom": {
+      "000": "TelecomTools",
+      "100": "HarnessedTelecomTools",
+      "010": "H3TelecomTools",
+      "001": "H4TelecomTools",
+      "110": "H3HarnessedTelecomTools",
+      "101": "H4HarnessedTelecomTools",
+      "011": "H3H4TelecomTools",
+      "111": "H3H4HarnessedTelecomTools"
+    }
+  },
+  "noop_plugin_state_equivalence": "pass",
+  "h5_skill_counts": {
+    "airline": 7,
+    "retail": 9,
+    "telecom": 12
+  },
+  "declared_train_tasks": {
+    "airline": 30,
+    "retail": 74,
+    "telecom": 74
+  },
+  "source_hashes": {
+    "TauBench/src/tau2/harness/base.py": "e27f99443834ad3a55fde327abf67d254765aecb907da862dc39f7ab0a37e383",
+    "TauBench/src/tau2/harness/airline.py": "6494aa2fbe1da743de1c54eb4e8baff8b17137109d6847f4a34ae11ba4f9f0fe",
+    "TauBench/src/tau2/harness/retail.py": "299b4437a7ca08d25482b8c3abcdb0cf7a11f869891466a1b0d065dbbc935b80",
+    "TauBench/src/tau2/harness/telecom.py": "c8761419290a6ff1f9953a1c8fc256128a70aa0cddb0f0f11c4cf5181b439a00",
+    "TauBench/src/tau2/harness/skills.py": "f27db5ecc495f25e49aefb5df7dfd104fb6fe93a214f6b6743451cbf7939931a",
+    "TauBench/scripts/eval_harness.py": "161657fad5c0ef2dbfa69446f870f6c560a1c407fecf1fe6401e0020921b18f5"
+  }
+}
