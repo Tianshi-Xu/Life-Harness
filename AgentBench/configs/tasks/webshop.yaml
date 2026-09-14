@@ -106,8 +106,10 @@ webshop-sub50-baseline:
 webshop-env_train:
   parameters:
     name: webshop-env_train
-    start: 1000
-    end: 10000
+    # The bundled 100k product index exposes 1,021 valid human goals. Keep the
+    # train pool disjoint from webshop-std (0:200) while avoiding invalid IDs.
+    start: 200
+    end: 1021
     shuffle_seed: 44
     sample_size: 100
     enabled: true

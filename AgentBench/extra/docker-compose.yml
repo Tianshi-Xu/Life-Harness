@@ -50,6 +50,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - ../configs:/app/configs
       - ../src/server/tasks/dbbench:/app/src/server/tasks/dbbench
+      - ../src/server/tasks/native_environment.py:/app/src/server/tasks/native_environment.py
       - ../src/server/harness:/app/src/server/harness
     environment:
       - DBBENCH_STD_PARAMETERS_ENV_OPTIONS_NETWORK_NAME=agentbench-fc_default
@@ -68,6 +69,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - ../configs:/app/configs
       - ../src/server/tasks/dbbench:/app/src/server/tasks/dbbench
+      - ../src/server/tasks/native_environment.py:/app/src/server/tasks/native_environment.py
       - ../src/server/harness:/app/src/server/harness
     environment:
       - DBBENCH_ENV_TRAIN_PARAMETERS_ENV_OPTIONS_NETWORK_NAME=agentbench-fc_default

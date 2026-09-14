@@ -12,6 +12,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
       -r ./src/server/tasks/dbbench/requirements.txt
 
 COPY ./src/server/tasks/dbbench /app/src/server/tasks/dbbench
+COPY ./src/server/tasks/native_environment.py /app/src/server/tasks/native_environment.py
 COPY ./configs/tasks/dbbench.yaml /app/configs/tasks/dbbench.yaml
 COPY ./data/dbbench /app/data/dbbench
 

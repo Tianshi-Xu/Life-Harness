@@ -1,0 +1,6 @@
+[submodule "AgentBench/data/alfworld_repo"]
+	path = AgentBench/data/alfworld_repo
+	url = https://github.com/alfworld/alfworld.git
+[submodule "AgentBench/data/webshop_repo"]
+	path = AgentBench/data/webshop_repo
+	url = https://github.com/princeton-nlp/WebShop.git

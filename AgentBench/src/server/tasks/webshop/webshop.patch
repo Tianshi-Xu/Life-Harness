@@ -124,3 +124,24 @@ index f1d7447..6a27feb 100644
  DEFAULT_REVIEW_PATH = join(BASE_DIR, '../data/reviews.json')
  
  FEAT_CONV = join(BASE_DIR, '../data/feat_conv.pt')
+diff --git a/web_agent_site/engine/engine.py b/web_agent_site/engine/engine.py
+--- a/web_agent_site/engine/engine.py
++++ b/web_agent_site/engine/engine.py
+@@ -290,10 +290,13 @@ def load_products(filepath, num_products=None, human_goals=True):
+             pricing = [100.0]
+             price_tag = '$100.0'
+         else:
+-            pricing = [
+-                float(Decimal(re.sub(r'[^\d.]', '', price)))
+-                for price in pricing.split('$')[1:]
+-            ]
++            if isinstance(pricing, list):
++                pricing = [float(price) for price in pricing]
++            else:
++                pricing = [
++                    float(Decimal(re.sub(r'[^\d.]', '', price)))
++                    for price in pricing.split('$')[1:]
++                ]
+             if len(pricing) == 1:
+                 price_tag = f"${pricing[0]}"
+             else:

@@ -7,8 +7,9 @@ ENV TQDM_DISABLE=1
 WORKDIR /app
 
 COPY data/webshop_repo /usr/src/webshop
-RUN cd /usr/src/webshop && \
-    git checkout 64fa2a5c15c7daa698b9ac93f5bb5437b634c9bd || true
+# The gitlink pins the WebShop source revision. Its copied .git file points back
+# into the host checkout and is invalid inside the image.
+RUN rm -f /usr/src/webshop/.git
 COPY --from=longinyu/agentbench-webshop:latest /root/webshop/data /usr/src/webshop/data
 RUN rm -f /usr/src/webshop/data/items_shuffle.json
 
@@ -17,8 +18,7 @@ COPY --from=longinyu/agentbench-webshop:latest /root/webshop/search_engine/resou
 COPY ./src/server/tasks/webshop/convert_100k.py /tmp/convert_100k.py
 RUN python3 /tmp/convert_100k.py && rm -f /tmp/documents_100k.jsonl /tmp/convert_100k.py /usr/src/webshop/data/items_ins_v2.json
 
-RUN echo 'deb http://archive.debian.org/debian bullseye main' > /etc/apt/sources.list && \
-    echo 'Acquire::Check-Valid-Until "false";' > /etc/apt/apt.conf.d/99no-check-valid && \
+RUN echo 'deb https://mirrors.tuna.tsinghua.edu.cn/debian bullseye main' > /etc/apt/sources.list && \
     apt-get update && \
     apt-get install -y --no-install-recommends git openjdk-11-jdk-headless && \
     apt-get clean && \
