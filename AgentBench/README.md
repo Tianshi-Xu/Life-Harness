@@ -35,8 +35,8 @@ conda activate agent-bench
 pip install -r requirements.txt
 ```
 
-The default deployment below uses Docker. For a native deployment of ALFWorld
-and DBBench, plus the current OS/WebShop limitations, see
+The default deployment below uses Docker. For a verified native deployment of
+ALFWorld, DBBench, and WebShop, plus the current OS limitation, see
 [NATIVE_ENVIRONMENT.md](NATIVE_ENVIRONMENT.md).
 
 Check Docker before using the default deployment:

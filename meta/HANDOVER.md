@@ -30,8 +30,9 @@
   40960），经 round-robin 代理 `http://127.0.0.1:8400/v1`。
   启停：`bash meta/deploy/start_vllm.sh` / `stop_vllm.sh`；健康检查
   `curl http://127.0.0.1:8400/health`。
-- user simulator：`openai/qwen3.8-flash`（阿里云 MaaS cn-beijing endpoint，
-  key 在 `meta/deploy/env.sh`）。跑之前 `source meta/deploy/env.sh`。
+- user simulator：`openai/deepseek-flash`，通过 ModelRouter 的 OpenAI-compatible
+  endpoint；本机 `meta/deploy/env.sh` 从 `/mnt/workspace/xts/skill/test_ap/env.sh`
+  读取凭据。跑之前 `source meta/deploy/env.sh`。
 - proposer（写代码的模型）：DeepSeek-Flash，经 headless `qoder` CLI 调用
   （`meta/proposer.py` 包装）。
 - 评估纪律：**进化只用 tau2 train split**；test split 只在 `--test` finalize 时
@@ -141,12 +142,12 @@ META_MOCK_EVAL=1 python3 life_loop.py --run-name smoke --fresh \
 # 我们的循环（layered 学习臂，retail 15题）：
 python3 life_loop.py --run-name life_retail_chain --fresh --iterations 1 \
     --domains retail --num-tasks 15 \
-    --agent-llm openai/qwen3-4b --user-llm openai/qwen3.8-flash
+    --agent-llm openai/qwen3-4b --user-llm openai/deepseek-flash
 
 # meta 循环（对照）：
 python3 meta_harness.py --run-name meta_retail --fresh --iterations 2 \
     --domains retail --num-tasks 15 \
-    --agent-llm openai/qwen3-4b --user-llm openai/qwen3.8-flash
+    --agent-llm openai/qwen3-4b --user-llm openai/deepseek-flash
 
 # 正式对比臂（双方从零起步）——评估规模请先解决噪声问题再上：
 python3 life_loop.py   --run-name life_fs --fresh --from-scratch ...

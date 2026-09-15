@@ -5,14 +5,14 @@ import yaml
 ROOT = Path(__file__).resolve().parents[2]
 out = ROOT / '.native/configs'
 out.mkdir(parents=True, exist_ok=True)
-for task in ('alfworld', 'dbbench'):
+for task in ('alfworld', 'dbbench', 'webshop'):
     config = yaml.safe_load((ROOT / f'configs/tasks/{task}.yaml').read_text())
     params = config['default']['parameters']
     params['concurrency'] = 1
     if task == 'alfworld':
         for key in ('data_path', 'config_path', 'prompts_path'):
             params[key] = str(ROOT / params[key].removeprefix('/app/'))
-    else:
+    elif task == 'dbbench':
         params['env_driver'] = 'native_mysql'
         params['env_options'] = {'host': '127.0.0.1', 'port': 13306}
         params['db_password'] = ''  # private dedicated loopback test instance

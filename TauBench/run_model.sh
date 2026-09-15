@@ -6,7 +6,21 @@ set -euo pipefail
 cd "$(dirname "$0")"
 MODEL="$1"
 AGENT="openai/${MODEL}"
-TEACHER="openai/deepseek-v4-pro"
+
+# Load machine-local routing without copying credentials into this repository.
+# `.env` may set TAU_TEACHER_ENV_FILE to a shell file that exports the API key.
+if [[ -f .env ]]; then
+  set -a
+  # shellcheck disable=SC1091
+  source .env
+  set +a
+fi
+if [[ -n "${TAU_TEACHER_ENV_FILE:-}" ]]; then
+  # shellcheck disable=SC1090
+  source "$TAU_TEACHER_ENV_FILE"
+fi
+
+TEACHER="${TAU_TEACHER_MODEL:-openai/deepseek-flash}"
 TAG=$(echo "$MODEL" | tr '.' '_')
 
 echo "=== [$MODEL] start ==="

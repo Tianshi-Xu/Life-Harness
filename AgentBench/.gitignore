@@ -28,4 +28,5 @@ analysis
 logs_*.log
 .venv/
 .native/
+:memory:.ses
 scripts/native/*-installed.txt

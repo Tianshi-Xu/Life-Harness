@@ -38,6 +38,21 @@ USER_API_KEY_ENV="OPENAI_API_KEY"
 OPENAI_API_KEY="<USER_SIMULATOR_API_KEY>"
 ```
 
+`run_model.sh` and `run_bench.sh` use `openai/deepseek-flash` as the default
+user simulator. For machine-local credentials, `.env` may set
+`TAU_TEACHER_ENV_FILE` to a shell file that exports the API key; the scripts
+source that file at runtime and do not copy its contents into the repository.
+Override the model with `TAU_TEACHER_MODEL` when needed.
+
+For an OpenAI-compatible ModelRouter route, the local `.env` can contain:
+
+```bash
+TAU_TEACHER_MODEL="openai/deepseek-flash"
+TAU_TEACHER_ENV_FILE="/path/to/private/modelrouter-env.sh"
+USER_API_BASE="https://model-router.example/protocol/openai/v1"
+USER_API_KEY_ENV="MR_API_KEY"
+```
+
 You can also pass these values explicitly with `--agent-api-base`,
 `--user-api-base`, and `--user-api-key-env`.
 
@@ -67,7 +82,7 @@ uv run python scripts/eval_harness.py \
   --output telecom/harness
 
 uv run python scripts/eval_harness.py --domain airline --split test --trials 3 \
-  --agent-llm openai/claude-opus-4-8 --user-llm openai/deepseek-v4-pro \
+  --agent-llm openai/claude-opus-4-8 --user-llm openai/deepseek-flash \
   --concurrency 8 \
   --h2 --h3 --h4 --h5 --h5-top-k 1 --output airline/claude-harness
 ```

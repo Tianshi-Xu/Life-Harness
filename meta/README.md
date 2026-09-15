@@ -413,7 +413,8 @@ endpoints. For the current pilot setup:
 - Agent (frozen): local Qwen3-4B — `bash deploy/start_vllm.sh` launches 8
   vLLM instances (GPUs 2-5, 2 per GPU) behind a round-robin proxy at
   `http://127.0.0.1:8400/v1`; `deploy/stop_vllm.sh` tears it down.
-- User simulator: qwen3.8-flash via Aliyun MaaS (cn-beijing).
+- User simulator: `deepseek-flash` through the configured OpenAI-compatible
+  ModelRouter route.
 - `source deploy/env.sh` exports `AGENT_API_BASE`/`AGENT_API_KEY`/
   `USER_API_BASE`/`OPENAI_API_KEY`; the flag values are in that file's
   `AGENT_FLAGS`/`USER_FLAGS` comments.
@@ -430,13 +431,13 @@ source deploy/env.sh
 python meta_harness.py --run-name linkcheck --fresh --iterations 0 \
     --domains airline --num-tasks 2 \
     --agent-llm openai/qwen3-4b \
-    --user-llm openai/qwen3.8-flash
+    --user-llm openai/deepseek-flash
 
 # real pilot, airline only, small search subset:
 python meta_harness.py --run-name pilot_airline --fresh \
     --iterations 5 --domains airline --num-tasks 15 \
     --agent-llm openai/qwen3-4b \
-    --user-llm openai/qwen3.8-flash
+    --user-llm openai/deepseek-flash
 
 # full run:
 python meta_harness.py --run-name tau2_full --iterations 10
@@ -458,8 +459,8 @@ Useful cost knobs: `--domains`, `--num-tasks`, `--candidates-per-iter`,
 设计边界。TauBench 的 airline/retail/telecom 通过注册表和 `register()` 加载候选；
 AgentBench 的 ALFWorld/DBBench/WebShop/OS Interaction 通过共享 `FourHookSession`
 调用 `Harness.h2/h3/h4/h5`。ALFWorld 和 DBBench 另有可直接创建新 run 的冻结源；
-WebShop 与 OS Interaction 当前只有发布执行入口，分别等待原商品索引和隔离环境后再做
-分数级迭代。
+WebShop 的 100k 商品、Lucene 索引和原生 worker 已补齐，可以运行发布版本评测，但尚未
+制作独立的冻结迭代源；OS Interaction 仍等待满足原语义的隔离环境。
 
 先在仓库根目录配置环境。`env.sh` 含本机凭据且不会被 git 跟踪：
 

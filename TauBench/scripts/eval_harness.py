@@ -38,11 +38,19 @@ from collections import defaultdict
 from datetime import datetime
 from pathlib import PurePosixPath
 
+from dotenv import load_dotenv
 from tau2.data_model.simulation import TextRunConfig
 from tau2.data_model.tasks import StructuredUserInstructions, Task
 from tau2.evaluator.evaluator import EvaluationType
 from tau2.runner.batch import run_tasks
 from tau2.utils.utils import DATA_DIR
+
+
+# `.env` is loaded by tau2.utils.utils. It may point at a machine-local shell
+# environment file so credentials remain outside this repository.
+_teacher_env_file = os.getenv("TAU_TEACHER_ENV_FILE")
+if _teacher_env_file:
+    load_dotenv(_teacher_env_file, override=False)
 
 
 def parse_args():
@@ -192,7 +200,7 @@ def parse_args():
     )
     p.add_argument(
         "--user-llm",
-        default="openai/user-simulator",
+        default=os.getenv("TAU_TEACHER_MODEL", "openai/deepseek-flash"),
         help="User LLM identifier",
     )
     p.add_argument(

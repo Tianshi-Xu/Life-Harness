@@ -221,9 +221,9 @@ These runs expose a bounded evidence index first, retrieve representative
 details on demand, screen on failures plus regression sentries, and accept only
 a strict success-count increase on the complete frozen 50-task pool. Provide a
 disjoint `--heldout-indices FILE` when creating a run if it will later be
-finalized with `--finalize`. WebShop and OS Interaction have the same runtime
-hook interface; their full local iteration still requires the original product
-index and process-isolated OS environment respectively.
+finalized with `--finalize`. WebShop now has a verified native 100k-product
+environment and worker path. OS Interaction still requires a process-isolated
+environment for comparable local runs.
 
 ### Run the Meta-Harness baseline
 
