@@ -1,0 +1,151 @@
+{
+  "accuracy": 0.35,
+  "average_reward": 0.35,
+  "pass@k": 0.35,
+  "pass^k": 0.35,
+  "k": 1,
+  "per_task": {
+    "22": 0.0,
+    "19": 0.0,
+    "16": 0.0,
+    "2": 1.0,
+    "24": 0.0,
+    "13": 1.0,
+    "26": 1.0,
+    "8": 0.0,
+    "25": 0.0,
+    "29": 0.0,
+    "31": 1.0,
+    "6": 1.0,
+    "30": 0.0,
+    "48": 1.0,
+    "18": 0.0,
+    "44": 0.0,
+    "37": 0.0,
+    "45": 0.0,
+    "32": 1.0,
+    "35": 0.0
+  },
+  "total_simulations": 20,
+  "total_tokens": 1853141,
+  "harness_plugin": "/mnt/data2/xts/harness/Life-Harness/meta/experiments/meta_from_scratch_six_20260915/airline/workspace/agents/bag_fee_normalizer.py",
+  "save_dir": "/mnt/data2/xts/harness/Life-Harness/TauBench/data/simulations/meta_harness/meta_from_scratch_six_20260915_airline/airline/test_round_03_test",
+  "cmd": [
+    "uv",
+    "run",
+    "python",
+    "scripts/eval_harness.py",
+    "--domain",
+    "airline",
+    "--split",
+    "test",
+    "--save-to",
+    "meta_harness/meta_from_scratch_six_20260915_airline/airline/test_round_03_test",
+    "--trials",
+    "1",
+    "--concurrency",
+    "8",
+    "--enabled",
+    "--harness-plugin",
+    "/mnt/data2/xts/harness/Life-Harness/meta/experiments/meta_from_scratch_six_20260915/airline/workspace/agents/bag_fee_normalizer.py",
+    "--task-id-file",
+    "/mnt/data2/xts/harness/Life-Harness/meta/experiments/meta_from_scratch_six_20260915/airline/task_ids/test.txt",
+    "--agent-llm",
+    "openai/qwen3-4b",
+    "--user-llm",
+    "openai/deepseek-flash",
+    "--user-api-base",
+    "https://routify-pub.alibaba-inc.com/protocol/openai/v1"
+  ],
+  "domain": "airline",
+  "split": "test",
+  "candidate": "test_round_03",
+  "flags": "",
+  "per_task_trials": {
+    "22": [
+      0.0
+    ],
+    "19": [
+      0.0
+    ],
+    "16": [
+      0.0
+    ],
+    "2": [
+      1.0
+    ],
+    "24": [
+      0.0
+    ],
+    "13": [
+      1.0
+    ],
+    "26": [
+      1.0
+    ],
+    "8": [
+      0.0
+    ],
+    "25": [
+      0.0
+    ],
+    "29": [
+      0.0
+    ],
+    "31": [
+      1.0
+    ],
+    "6": [
+      1.0
+    ],
+    "30": [
+      0.0
+    ],
+    "48": [
+      1.0
+    ],
+    "18": [
+      0.0
+    ],
+    "44": [
+      0.0
+    ],
+    "37": [
+      0.0
+    ],
+    "45": [
+      0.0
+    ],
+    "32": [
+      1.0
+    ],
+    "35": [
+      0.0
+    ]
+  },
+  "batch": null,
+  "task_ids": [
+    "2",
+    "6",
+    "8",
+    "13",
+    "16",
+    "18",
+    "19",
+    "22",
+    "24",
+    "25",
+    "26",
+    "29",
+    "30",
+    "31",
+    "32",
+    "35",
+    "37",
+    "44",
+    "45",
+    "48"
+  ],
+  "plugin_hash": "ba1f514159e0acad16b9cf47fd6e27d0a20c8ef4ec34e5c7730e5da088e46374",
+  "released_h_flags": []
+}

@@ -2,6 +2,7 @@ import json
 import logging
 import os
 import re
+import threading
 import time
 import uuid
 import warnings
@@ -58,6 +59,35 @@ llm_log_dir: ContextVar[Optional[Path]] = ContextVar("llm_log_dir", default=None
 
 # Context variable to store the LLM logging mode ("all" or "latest")
 llm_log_mode: ContextVar[str] = ContextVar("llm_log_mode", default="latest")
+
+# Optional process-wide pacing for the user simulator.  TauBench runs one
+# simulation per worker thread, so limiting task concurrency alone can still
+# create a burst of user-model requests at every dialogue turn.  The interval
+# is opt-in and only applies to user-simulator calls; local agent calls remain
+# fully concurrent.
+_user_llm_rate_lock = threading.Lock()
+_user_llm_next_request_at = 0.0
+
+
+def _pace_user_simulator(call_name: Optional[str]) -> None:
+    if call_name != "user_simulator_response":
+        return
+    raw_interval = os.environ.get("TAU_USER_LLM_MIN_INTERVAL_SECONDS", "")
+    try:
+        interval = float(raw_interval)
+    except ValueError:
+        return
+    if interval <= 0:
+        return
+
+    global _user_llm_next_request_at
+    with _user_llm_rate_lock:
+        now = time.monotonic()
+        request_at = max(now, _user_llm_next_request_at)
+        _user_llm_next_request_at = request_at + interval
+    delay = request_at - now
+    if delay > 0:
+        time.sleep(delay)
 
 # litellm._turn_on_debug()
 
@@ -562,6 +592,7 @@ def generate(
     }
     request_timestamp = datetime.now().isoformat()
 
+    _pace_user_simulator(call_name)
     start_time = time.perf_counter()
     try:
         response = completion(

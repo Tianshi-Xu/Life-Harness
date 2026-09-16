@@ -1,0 +1,283 @@
+{
+  "ok": true,
+  "identity_sha256": "60203fe7ceb0d31c93729ad3797255470d1830bd75004394d9c1ac431763db88",
+  "frozen_hashes": {
+    "adapter.py": "c07a04b9b77af5a44642366c221d9f110c6abb68f6c094999df27cb036dbb15e",
+    "agentbench_evaluate.py": "21a21882956d74ba6b17644aefcffb423702834fc6c64620b2196f603294dfe3",
+    "tau_evaluate.py": "106caa81a88a8af4faf694def0bf4f452497dff148751fae5d50c6b9ea3d5ca2",
+    "prepare.py": "c90c8e7e6cbfb2f8b2fe6acd75816e611a42eb3223345a9d0bdc1e52be20a47d",
+    "manifest.json": "805d13dc3d07019cbd30e0cc50ac400526d3866aeaf8e6c96f0f807537732edd"
+  },
+  "domains": {
+    "airline": {
+      "rounds": 6,
+      "accepted": 3,
+      "final_candidate": "itinerary_continuity_gate.py",
+      "final_test": 0.5,
+      "best_test": 0.55,
+      "tests": [
+        {
+          "round": 1,
+          "path": "airline/evals/test_round_01/test.json",
+          "n": 20,
+          "score": 0.3
+        },
+        {
+          "round": 2,
+          "path": "airline/evals/test_round_02/test.json",
+          "n": 20,
+          "score": 0.45
+        },
+        {
+          "round": 3,
+          "path": "airline/evals/test_round_03/test.json",
+          "n": 20,
+          "score": 0.35
+        },
+        {
+          "round": 4,
+          "path": "airline/evals/test_round_04/test.json",
+          "n": 20,
+          "score": 0.45
+        },
+        {
+          "round": 5,
+          "path": "airline/evals/test_round_05/test.json",
+          "n": 20,
+          "score": 0.55
+        },
+        {
+          "round": 6,
+          "path": "airline/evals/test_round_06/test.json",
+          "n": 20,
+          "score": 0.5
+        }
+      ]
+    },
+    "retail": {
+      "rounds": 6,
+      "accepted": 3,
+      "final_candidate": "refund_payment_repair.py",
+      "final_test": 0.475,
+      "best_test": 0.55,
+      "tests": [
+        {
+          "round": 1,
+          "path": "retail/evals/test_round_01/test.json",
+          "n": 40,
+          "score": 0.35
+        },
+        {
+          "round": 2,
+          "path": "retail/evals/test_round_02/test.json",
+          "n": 40,
+          "score": 0.4
+        },
+        {
+          "round": 3,
+          "path": "retail/evals/test_round_03/test.json",
+          "n": 40,
+          "score": 0.475
+        },
+        {
+          "round": 4,
+          "path": "retail/evals/test_round_04/test.json",
+          "n": 40,
+          "score": 0.475
+        },
+        {
+          "round": 5,
+          "path": "retail/evals/test_round_05/test.json",
+          "n": 40,
+          "score": 0.55
+        },
+        {
+          "round": 6,
+          "path": "retail/evals/test_round_06/test.json",
+          "n": 40,
+          "score": 0.475
+        }
+      ]
+    },
+    "telecom": {
+      "rounds": 6,
+      "accepted": 3,
+      "final_candidate": "caller_line_scope.py",
+      "final_test": 0.425,
+      "best_test": 0.475,
+      "tests": [
+        {
+          "round": 1,
+          "path": "telecom/evals/test_round_01/test.json",
+          "n": 40,
+          "score": 0.35
+        },
+        {
+          "round": 2,
+          "path": "telecom/evals/test_round_02/test.json",
+          "n": 40,
+          "score": 0.35
+        },
+        {
+          "round": 3,
+          "path": "telecom/evals/test_round_03/test.json",
+          "n": 40,
+          "score": 0.4
+        },
+        {
+          "round": 4,
+          "path": "telecom/evals/test_round_04/test.json",
+          "n": 40,
+          "score": 0.3
+        },
+        {
+          "round": 5,
+          "path": "telecom/evals/test_round_05/test.json",
+          "n": 40,
+          "score": 0.475
+        },
+        {
+          "round": 6,
+          "path": "telecom/evals/test_round_06/test.json",
+          "n": 40,
+          "score": 0.425
+        }
+      ]
+    },
+    "alfworld": {
+      "rounds": 6,
+      "accepted": 5,
+      "final_candidate": "transform_effect_nudge.py",
+      "final_test": 0.5321100917431193,
+      "best_test": 0.5871559633027523,
+      "tests": [
+        {
+          "round": 1,
+          "path": "alfworld/evals/test_round_01/summary.json",
+          "n": 109,
+          "score": 0.30275229357798167
+        },
+        {
+          "round": 2,
+          "path": "alfworld/evals/test_round_02/summary.json",
+          "n": 109,
+          "score": 0.43119266055045874
+        },
+        {
+          "round": 3,
+          "path": "alfworld/evals/test_round_03/summary.json",
+          "n": 109,
+          "score": 0.46788990825688076
+        },
+        {
+          "round": 4,
+          "path": "alfworld/evals/test_round_04/summary.json",
+          "n": 109,
+          "score": 0.5596330275229358
+        },
+        {
+          "round": 5,
+          "path": "alfworld/evals/test_round_05/summary.json",
+          "n": 109,
+          "score": 0.5871559633027523
+        },
+        {
+          "round": 6,
+          "path": "alfworld/evals/test_round_06/summary.json",
+          "n": 109,
+          "score": 0.5321100917431193
+        }
+      ]
+    },
+    "dbbench": {
+      "rounds": 6,
+      "accepted": 4,
+      "final_candidate": "missing_table_repeat_probe.py",
+      "final_test": 0.48,
+      "best_test": 0.49666666666666665,
+      "tests": [
+        {
+          "round": 1,
+          "path": "dbbench/evals/test_round_01/summary.json",
+          "n": 300,
+          "score": 0.48333333333333334
+        },
+        {
+          "round": 2,
+          "path": "dbbench/evals/test_round_02/summary.json",
+          "n": 300,
+          "score": 0.49
+        },
+        {
+          "round": 3,
+          "path": "dbbench/evals/test_round_03/summary.json",
+          "n": 300,
+          "score": 0.4866666666666667
+        },
+        {
+          "round": 4,
+          "path": "dbbench/evals/test_round_04/summary.json",
+          "n": 300,
+          "score": 0.49666666666666665
+        },
+        {
+          "round": 5,
+          "path": "dbbench/evals/test_round_05/summary.json",
+          "n": 300,
+          "score": 0.48333333333333334
+        },
+        {
+          "round": 6,
+          "path": "dbbench/evals/test_round_06/summary.json",
+          "n": 300,
+          "score": 0.48
+        }
+      ]
+    },
+    "webshop": {
+      "rounds": 6,
+      "accepted": 5,
+      "final_candidate": "option_group_title_anchor.py",
+      "final_test": 0.31,
+      "best_test": 0.31,
+      "tests": [
+        {
+          "round": 1,
+          "path": "webshop/evals/test_round_01/summary.json",
+          "n": 200,
+          "score": 0.265
+        },
+        {
+          "round": 2,
+          "path": "webshop/evals/test_round_02/summary.json",
+          "n": 200,
+          "score": 0.255
+        },
+        {
+          "round": 3,
+          "path": "webshop/evals/test_round_03/summary.json",
+          "n": 200,
+          "score": 0.295
+        },
+        {
+          "round": 4,
+          "path": "webshop/evals/test_round_04/summary.json",
+          "n": 200,
+          "score": 0.28
+        },
+        {
+          "round": 5,
+          "path": "webshop/evals/test_round_05/summary.json",
+          "n": 200,
+          "score": 0.305
+        },
+        {
+          "round": 6,
+          "path": "webshop/evals/test_round_06/summary.json",
+          "n": 200,
+          "score": 0.31
+        }
+      ]
+    }
+  }
+}

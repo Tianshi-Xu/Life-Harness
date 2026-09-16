@@ -1,0 +1,231 @@
+{
+  "accuracy": 0.36666666666666664,
+  "average_reward": 0.36666666666666664,
+  "pass@k": 0.5,
+  "pass^k": 0.23333333333333334,
+  "k": 2,
+  "per_task": {
+    "3": 0.0,
+    "0": 1.0,
+    "4": 1.0,
+    "1": 1.0,
+    "9": 0.5,
+    "7": 0.0,
+    "5": 0.0,
+    "11": 0.0,
+    "10": 0.5,
+    "14": 0.0,
+    "17": 0.0,
+    "15": 0.0,
+    "12": 0.0,
+    "21": 0.0,
+    "27": 0.5,
+    "20": 0.5,
+    "28": 0.5,
+    "23": 0.0,
+    "34": 1.0,
+    "36": 1.0,
+    "33": 0.0,
+    "38": 0.0,
+    "40": 0.5,
+    "41": 0.0,
+    "39": 0.0,
+    "46": 1.0,
+    "43": 0.5,
+    "42": 0.0,
+    "47": 1.0,
+    "49": 0.5
+  },
+  "total_simulations": 60,
+  "total_tokens": 5728421,
+  "harness_plugin": "/mnt/data2/xts/harness/Life-Harness/meta/experiments/meta_from_scratch_six_20260915/airline/workspace/agents/baseline_zero.py",
+  "save_dir": "/mnt/data2/xts/harness/Life-Harness/TauBench/data/simulations/meta_harness/meta_from_scratch_six_20260915_airline/airline/batch_00_baseline",
+  "cmd": [
+    "uv",
+    "run",
+    "python",
+    "scripts/eval_harness.py",
+    "--domain",
+    "airline",
+    "--split",
+    "train",
+    "--save-to",
+    "meta_harness/meta_from_scratch_six_20260915_airline/airline/batch_00_baseline",
+    "--trials",
+    "2",
+    "--concurrency",
+    "8",
+    "--enabled",
+    "--harness-plugin",
+    "/mnt/data2/xts/harness/Life-Harness/meta/experiments/meta_from_scratch_six_20260915/airline/workspace/agents/baseline_zero.py",
+    "--task-id-file",
+    "/mnt/data2/xts/harness/Life-Harness/meta/experiments/meta_from_scratch_six_20260915/airline/task_ids/batch_00.txt",
+    "--agent-llm",
+    "openai/qwen3-4b",
+    "--user-llm",
+    "openai/deepseek-flash",
+    "--user-api-base",
+    "https://routify-pub.alibaba-inc.com/protocol/openai/v1"
+  ],
+  "domain": "airline",
+  "split": "train",
+  "candidate": "batch_00_baseline",
+  "flags": "",
+  "batch": 0,
+  "task_ids": [
+    "0",
+    "1",
+    "3",
+    "4",
+    "5",
+    "7",
+    "9",
+    "10",
+    "11",
+    "12",
+    "14",
+    "15",
+    "17",
+    "20",
+    "21",
+    "23",
+    "27",
+    "28",
+    "33",
+    "34",
+    "36",
+    "38",
+    "39",
+    "40",
+    "41",
+    "42",
+    "43",
+    "46",
+    "47",
+    "49"
+  ],
+  "plugin_hash": "60203fe7ceb0d31c93729ad3797255470d1830bd75004394d9c1ac431763db88",
+  "released_h_flags": [],
+  "per_task_trials": {
+    "3": [
+      0.0,
+      0.0
+    ],
+    "0": [
+      1.0,
+      1.0
+    ],
+    "4": [
+      1.0,
+      1.0
+    ],
+    "1": [
+      1.0,
+      1.0
+    ],
+    "9": [
+      0.0,
+      1.0
+    ],
+    "7": [
+      0.0,
+      0.0
+    ],
+    "5": [
+      0.0,
+      0.0
+    ],
+    "11": [
+      0.0,
+      0.0
+    ],
+    "10": [
+      1.0,
+      0.0
+    ],
+    "14": [
+      0.0,
+      0.0
+    ],
+    "17": [
+      0.0,
+      0.0
+    ],
+    "15": [
+      0.0,
+      0.0
+    ],
+    "12": [
+      0.0,
+      0.0
+    ],
+    "21": [
+      0.0,
+      0.0
+    ],
+    "27": [
+      1.0,
+      0.0
+    ],
+    "20": [
+      1.0,
+      0.0
+    ],
+    "28": [
+      1.0,
+      0.0
+    ],
+    "23": [
+      0.0,
+      0.0
+    ],
+    "34": [
+      1.0,
+      1.0
+    ],
+    "36": [
+      1.0,
+      1.0
+    ],
+    "33": [
+      0.0,
+      0.0
+    ],
+    "38": [
+      0.0,
+      0.0
+    ],
+    "40": [
+      1.0,
+      0.0
+    ],
+    "41": [
+      0.0,
+      0.0
+    ],
+    "39": [
+      0.0,
+      0.0
+    ],
+    "46": [
+      1.0,
+      1.0
+    ],
+    "43": [
+      1.0,
+      0.0
+    ],
+    "42": [
+      0.0,
+      0.0
+    ],
+    "47": [
+      1.0,
+      1.0
+    ],
+    "49": [
+      0.0,
+      1.0
+    ]
+  }
+}

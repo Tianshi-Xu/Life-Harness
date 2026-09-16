@@ -254,3 +254,43 @@ models, trials, concurrency, maximum steps, and proposer budget identical. Use
 `--from-scratch` on both `life_loop.py` and `meta_harness.py`; compare held-out
 results only after both runs are frozen. More operational detail is in
 [`meta/README.md`](meta/README.md).
+
+### Recorded six-round Meta-Harness baseline (2026-09-16)
+
+We also ran the cloned upstream Meta-Harness evolution method from the identity
+implementation on every currently runnable non-OS environment: Airline,
+Retail, Telecom, ALFWorld, DBBench, and WebShop. No released Life-Harness H2-H5
+code was loaded. Each domain ran six rounds, each round used at least 50
+training trajectories (Airline has only 30 distinct public training tasks, so
+each task used two trials), a non-improving round changed the next training
+sample, and the full fixed test split was evaluated after every round. The
+complete 36-row table and protocol caveats are in the
+[experiment results](meta/experiments/meta_from_scratch_six_20260915/RESULTS.md).
+
+The final retained candidates scored 0.5000 on Airline, 0.4750 on Retail,
+0.4250 on Telecom, 0.5321 on ALFWorld, 0.4800 on DBBench, and 0.3100 on
+WebShop. These are final-round results; the same table reports the best observed
+test score separately because test results never selected candidates. Telecom
+rounds 5--6 changed the user simulator after repeated provider rate limits, so
+comparisons across that boundary include a model change. Candidate acceptance
+remained a same-sample comparison with one simulator and identical settings.
+
+To reproduce or resume one domain from this frozen protocol, configure the
+local eight-worker Qwen endpoint and Tau user-model route as described above,
+then run:
+
+```bash
+source meta/deploy/env.sh
+export PATH=/mnt/data/xts/tools/uv/bin:$PATH
+python -u meta/experiments/meta_from_scratch_six_20260915/adapter.py retail
+
+# Inspect progress, regenerate compact results, and verify the record.
+python meta/experiments/meta_from_scratch_six_20260915/status.py
+python meta/experiments/meta_from_scratch_six_20260915/summarize.py
+python meta/experiments/meta_from_scratch_six_20260915/audit.py
+```
+
+Replace `retail` with any of the other five recorded domains. The adapter is
+resumable: it reuses completed frozen phases and continues at the first missing
+round. Start a fresh experiment under a new directory and regenerate its
+manifest and task batches; do not erase this recorded run.

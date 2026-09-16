@@ -44,6 +44,15 @@ user simulator. For machine-local credentials, `.env` may set
 source that file at runtime and do not copy its contents into the repository.
 Override the model with `TAU_TEACHER_MODEL` when needed.
 
+High task concurrency can still burst user-simulator requests at each dialogue
+turn. Set `TAU_USER_LLM_MIN_INTERVAL_SECONDS` to pace only those external
+requests process-wide while keeping local agent calls concurrent. For example,
+`3.75` caps the user-model route at 16 requests per minute:
+
+```bash
+export TAU_USER_LLM_MIN_INTERVAL_SECONDS=3.75
+```
+
 For an OpenAI-compatible ModelRouter route, the local `.env` can contain:
 
 ```bash

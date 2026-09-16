@@ -1,0 +1,74 @@
+{
+  "airline": {
+    "train_pool": 30,
+    "batch_sizes": [
+      30,
+      30,
+      30,
+      30,
+      30,
+      30
+    ],
+    "test_size": 20
+  },
+  "retail": {
+    "train_pool": 74,
+    "batch_sizes": [
+      50,
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "test_size": 40
+  },
+  "telecom": {
+    "train_pool": 74,
+    "batch_sizes": [
+      50,
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "test_size": 40
+  },
+  "alfworld": {
+    "train_pool": 3150,
+    "batch_sizes": [
+      50,
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "test_size": 109
+  },
+  "dbbench": {
+    "train_pool": 4803,
+    "batch_sizes": [
+      50,
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "test_size": 300
+  },
+  "webshop": {
+    "train_pool": 821,
+    "batch_sizes": [
+      50,
+      50,
+      50,
+      50,
+      50,
+      50
+    ],
+    "test_size": 200
+  }
+}

@@ -90,6 +90,14 @@ def check_not_finalized(run_dir: Path) -> None:
         )
 
 
+def resolve_candidate_flags(entry: dict, from_scratch: bool) -> str:
+    """Resolve built-in layers without letting a proposal cross run modes."""
+    if from_scratch:
+        return ""
+    flags = entry.get("flags")
+    return ",".join(flags) if flags else "h2,h3,h4,h5"
+
+
 # ---------------------------------------------------------------- eval
 
 
@@ -420,9 +428,10 @@ def evolve(args: argparse.Namespace) -> None:
                     "outcome": "rejected", "reject_reason": reason,
                 })
                 continue
-            flags = entry.get("flags")
-            default_flags = "" if args.from_scratch else "h2,h3,h4,h5"
-            flags_str = ",".join(flags) if flags else default_flags
+            # From-scratch is an experiment boundary, not a proposer hint.
+            # A candidate-authored manifest must never be able to silently
+            # turn the released H2-H5 implementation back on.
+            flags_str = resolve_candidate_flags(entry, args.from_scratch)
             per_domain = {}
             for domain in args.domains:
                 print(f"  [eval] {domain}/{name} ...")

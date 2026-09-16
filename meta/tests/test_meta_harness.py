@@ -9,6 +9,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import meta_harness as meta
 
 class MetaTests(unittest.TestCase):
+    def test_from_scratch_ignores_candidate_h_layer_flags(self):
+        entry = {'flags': ['h2', 'h3', 'h4', 'h5']}
+        self.assertEqual(meta.resolve_candidate_flags(entry, True), '')
+        self.assertEqual(meta.resolve_candidate_flags(entry, False), 'h2,h3,h4,h5')
+
     def test_saved_manifest_reused_without_reproposal(self):
         with tempfile.TemporaryDirectory() as d:
             root=Path(d);(root/'prompts').mkdir()

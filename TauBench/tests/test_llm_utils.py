@@ -1,4 +1,5 @@
 import pytest
+import tau2.utils.llm_utils as llm_utils
 
 from tau2.data_model.message import (
     AssistantMessage,
@@ -9,6 +10,22 @@ from tau2.data_model.message import (
 )
 from tau2.environment.tool import Tool, as_tool
 from tau2.utils.llm_utils import generate
+
+
+def test_user_simulator_pacing_does_not_throttle_agent_calls(monkeypatch):
+    monkeypatch.setenv("TAU_USER_LLM_MIN_INTERVAL_SECONDS", "3.75")
+    times = iter([10.0, 10.0])
+    sleeps = []
+    monkeypatch.setattr(llm_utils.time, "monotonic", lambda: next(times))
+    monkeypatch.setattr(llm_utils.time, "sleep", sleeps.append)
+    monkeypatch.setattr(llm_utils, "_user_llm_next_request_at", 0.0)
+
+    llm_utils._pace_user_simulator("user_simulator_response")
+    llm_utils._pace_user_simulator("agent_response")
+    llm_utils._pace_user_simulator("user_simulator_response")
+
+    assert sleeps == [3.75]
+    assert llm_utils._user_llm_next_request_at == 17.5
 
 
 @pytest.fixture
