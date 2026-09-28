@@ -2,7 +2,7 @@
 from pathlib import Path
 import argparse, ast, copy, hashlib, importlib.util, json, os, re, shutil, subprocess, sys, time, types
 
-HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[2];AB=ROOT/'AgentBench';TAU=ROOT/'TauBench';UP=ROOT.parent/'meta-harness/reference_examples/terminal_bench_2'
+HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[2];AB=ROOT/'AgentBench';TAU=ROOT/'TauBench';UP=HERE/'upstream_reference'
 sys.path.insert(0,str(HERE));import agentbench_evaluate
 MANIFEST=json.loads((HERE/'manifest.json').read_text());TAU_DOMAINS=('airline','retail','telecom');AB_DOMAINS=('alfworld','dbbench','webshop')
 def digest(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()

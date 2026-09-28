@@ -1,0 +1,121 @@
+default:
+  module: src.server.tasks.webshop.WebShop
+  parameters:
+    concurrency: 64
+    round: 20
+    tools:
+    - type: "function"
+      function:
+        name: "search_action"
+        description: "Use search functionality with specified keywords."
+        parameters:
+          type: "object"
+          properties:
+            keywords:
+              type: "string"
+              description: "The keywords to use in the search function."
+          required:
+            - "keywords"
+          additionalProperties: False
+    - type: "function"
+      function:
+        name: "click_action"
+        description: "Click a button or link with a specified value."
+        parameters:
+          type: "object"
+          properties:
+            value:
+              type: "string"
+              description: "The value to click from the list of available actions."
+          required:
+            - "value"
+          additionalProperties: False
+
+webshop-std:
+  parameters:
+    name: webshop-std
+    start: 0
+    end: 200
+    enabled: true
+    h2: false
+    h3: true
+    h4: true
+    h5: true
+    h5_top_k: 1
+    h5_score_threshold: 3.0
+
+webshop-std-baseline:
+  parameters:
+    name: webshop-std
+    start: 0
+    end: 200
+    enabled: false
+    h2: false
+    h3: false
+    h4: false
+    h5: false
+
+webshop-quick:
+  parameters:
+    name: webshop-quick
+    start: 0
+    end: 10
+    enabled: true
+    h2: false
+    h3: true
+    h4: false
+    h5: true
+    h5_top_k: 1
+    h5_score_threshold: 3.0
+
+webshop-quick-baseline:
+  parameters:
+    name: webshop-quick
+    start: 0
+    end: 10
+    enabled: false
+    h2: false
+    h3: false
+    h4: false
+    h5: false
+
+webshop-sub50:
+  parameters:
+    name: webshop-sub50
+    start: 0
+    end: 50
+    enabled: true
+    h2: false
+    h3: true
+    h4: true
+    h5: true
+    h5_top_k: 1
+    h5_score_threshold: 3.0
+
+webshop-sub50-baseline:
+  parameters:
+    name: webshop-sub50
+    start: 0
+    end: 50
+    enabled: false
+    h2: false
+    h3: false
+    h4: false
+    h5: false
+
+webshop-env_train:
+  parameters:
+    name: webshop-env_train
+    # The bundled 100k product index exposes 1,021 valid human goals. Keep the
+    # train pool disjoint from webshop-std (0:200) while avoiding invalid IDs.
+    start: 200
+    end: 1021
+    shuffle_seed: 44
+    sample_size: 100
+    enabled: true
+    h2: true
+    h3: false
+    h4: true
+    h5: true
+    h5_top_k: 1
+    h5_score_threshold: 3.0

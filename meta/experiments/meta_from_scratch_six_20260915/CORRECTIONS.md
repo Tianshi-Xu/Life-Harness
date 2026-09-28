@@ -1,5 +1,19 @@
 # Runtime corrections
 
+## Post-run source packaging (2026-09-28)
+
+This branch originally pointed to a Meta-Harness clone outside the repository
+and omitted 39 task snapshot files under an ignored experiment directory. A
+fresh checkout therefore could audit scores but lacked source files needed to
+inspect or reuse the frozen method. The exact upstream files from commit
+`44b9942127847f7421db70d8c7e48407f09a3c70` and the frozen task snapshot
+were added to this experiment directory. Their hashes match `manifest.json`.
+Only the upstream source path in `adapter.py` and `prepare.py` changed;
+`frozen_run_20260915.json` preserves their original run-time hashes and
+`frozen.json` hashes the packaged drivers. `AUDIT.json` was regenerated after
+adding source integrity checks. No model call, candidate, score, or task content
+was rerun or changed.
+
 After ALFWorld round 1 finished all candidate episodes, the adapter wrote the
 small compatibility summary expected by upstream Meta-Harness onto the native
 evaluator's `summary.json`. This removed aggregate keys before the acceptance

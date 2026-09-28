@@ -1,6 +1,9 @@
 # AgentBench 无 Docker 部署
 
-本机部署记录：2026-09-12，WebShop 于 2026-09-15 补齐。运行时、下载件和生成配置均放在忽略的 `.native/`；
+以下是 **2026-09-12 至 2026-09-15 原实验机** 的部署记录，不表示新检出机器也已配置好。
+2026-09-28 当前开发机的逐项状态见[根 README](../README.md#development-branch-and-environment-status-2026-09-28)
+及 `meta/experiments/meta_from_scratch_six_20260915/check_local_setup.py`。
+原实验机上，运行时、下载件和生成配置均放在忽略的 `.native/`；
 MySQL 数据目录在 `/tmp/life-agentbench-native/mysql`。没有修改系统 Python、
 安装系统服务，也没有修改 H2–H5、题目或评分标准。
 

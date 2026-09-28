@@ -29,7 +29,17 @@ rate-limit errors; [CORRECTIONS.md](CORRECTIONS.md) records the excluded attempt
 and exact boundary. One trial is used except for airline training as described
 above.
 
-Run one resumable domain with:
+The original run used an external clone of upstream Meta-Harness. This branch
+now includes the three exact upstream files at `upstream_reference/` and the
+39 frozen AgentBench task/configuration files at `task_snapshot/`; both sets
+match `manifest.json` SHA-256 values. `adapter.py` and `prepare.py` now resolve
+the upstream files from this experiment directory. The source used during the
+run is preserved by `frozen_run_20260915.json`; `frozen.json` hashes the two
+post-run path edits. No candidate, evaluator, task, score, or result was
+changed by this packaging step. See [CORRECTIONS.md](CORRECTIONS.md).
+
+On the original run host, where ignored raw episodes and benchmark runtimes
+still exist, run one resumable domain with:
 
 ```bash
 source meta/deploy/env.sh
@@ -38,10 +48,13 @@ python -u meta/experiments/meta_from_scratch_six_20260915/adapter.py airline
 ```
 
 Replace `airline` with `retail`, `telecom`, `alfworld`, `dbbench`, or `webshop`.
-Run `python meta/experiments/meta_from_scratch_six_20260915/status.py` for a
-compact progress report. `manifest.json`, `frozen.json`, each `state.json`,
-per-round candidates, public training evidence, model-call records, and all
-train/test summaries form the experiment record.
+On a clean clone, first run `check_local_setup.py` and install the external
+assets described in the root README. A clean clone has the compact experiment
+record but not ignored raw episodes; it cannot resume the old model calls from
+their exact interruption point. Run `status.py` for a compact progress report.
+`manifest.json`, the two frozen hash files, each `state.json`, per-round
+candidates, public training summaries, and all train/test summaries form the
+committed experiment record.
 
 After completion, regenerate the compact tables and audit all frozen hashes,
 round transitions, test cardinalities, and per-task score means with:

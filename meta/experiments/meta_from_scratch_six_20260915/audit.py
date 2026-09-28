@@ -64,10 +64,19 @@ def main() -> None:
         assert actual == expected, f"frozen hash changed: {relative}"
         checked_hashes[relative] = actual
 
+    for relative, expected in manifest["upstream"]["files"].items():
+        actual = sha256(ROOT / "upstream_reference" / relative)
+        assert actual == expected, f"upstream source changed: {relative}"
+    for relative, expected in manifest["snapshot_hashes"].items():
+        actual = sha256(ROOT / "task_snapshot" / relative)
+        assert actual == expected, f"task snapshot changed: {relative}"
+
     report = {
         "ok": True,
         "identity_sha256": IDENTITY_SHA256,
         "frozen_hashes": checked_hashes,
+        "upstream_files": len(manifest["upstream"]["files"]),
+        "snapshot_files": len(manifest["snapshot_hashes"]),
         "domains": {},
     }
     for domain in DOMAINS:
@@ -119,7 +128,8 @@ def main() -> None:
         }
 
     (ROOT / "AUDIT.json").write_text(json.dumps(report, indent=2) + "\n")
-    print("audit passed: 6 domains, 36 rounds, 36 complete test phases")
+    print("audit passed: 6 domains, 36 rounds, 36 complete test phases, "
+          f"{report['upstream_files']} upstream files, {report['snapshot_files']} task snapshot files")
 
 
 if __name__ == "__main__":

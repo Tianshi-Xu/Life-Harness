@@ -7,7 +7,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
 AB = ROOT / "AgentBench"
 TAU = ROOT / "TauBench"
-UP = ROOT.parent / "meta-harness/reference_examples/terminal_bench_2"
+UP = HERE / "upstream_reference"
 DOMAINS = ("airline", "retail", "telecom", "alfworld", "dbbench", "webshop")
 
 def digest(path):

@@ -275,22 +275,72 @@ rounds 5--6 changed the user simulator after repeated provider rate limits, so
 comparisons across that boundary include a model change. Candidate acceptance
 remained a same-sample comparison with one simulator and identical settings.
 
-To reproduce or resume one domain from this frozen protocol, configure the
-local eight-worker Qwen endpoint and Tau user-model route as described above,
-then run:
+The compact record, candidate files, frozen task definitions, and a copy of the
+exact upstream Meta-Harness implementation are committed in this branch.
+Audit them without a model endpoint or benchmark services:
 
 ```bash
-source meta/deploy/env.sh
-export PATH=/mnt/data/xts/tools/uv/bin:$PATH
-python -u meta/experiments/meta_from_scratch_six_20260915/adapter.py retail
-
-# Inspect progress, regenerate compact results, and verify the record.
 python meta/experiments/meta_from_scratch_six_20260915/status.py
-python meta/experiments/meta_from_scratch_six_20260915/summarize.py
 python meta/experiments/meta_from_scratch_six_20260915/audit.py
+python meta/experiments/meta_from_scratch_six_20260915/check_local_setup.py
 ```
 
-Replace `retail` with any of the other five recorded domains. The adapter is
-resumable: it reuses completed frozen phases and continues at the first missing
-round. Start a fresh experiment under a new directory and regenerate its
-manifest and task batches; do not erase this recorded run.
+The adapter can resume incomplete phases on the original experiment host, where
+the ignored raw episode files remain available. A clean clone contains the
+auditable compact record, but not those raw trajectories or the large native
+benchmark assets. For a new iteration, create a new experiment directory and
+freeze its own manifest and task batches; leave this completed record intact.
+
+### Development branch and environment status (2026-09-28)
+
+Use `meta-six-round-baseline-20260916` as the development branch. It contains
+the released Life-Harness code, both benchmark suites, the six-domain experiment
+record, its 39 frozen AgentBench source/configuration files, and the three
+hash-checked files from upstream Meta-Harness commit
+`44b9942127847f7421db70d8c7e48407f09a3c70` (with its MIT license).
+The two AgentBench source submodules are pinned by gitlinks. The 2026-09-15
+run itself was not repeated after packaging these missing files; the original
+driver hashes are retained in `frozen_run_20260915.json`, while `frozen.json`
+records the post-run path-only portability edits.
+
+This checkout is on a different machine from the one used for the six-round
+run. The old [native setup record](AgentBench/NATIVE_ENVIRONMENT.md) describes
+that run host, **not** the current machine. Local status was checked on
+2026-09-28:
+
+| Benchmark | Tracked inputs here | Local runtime here | Remaining requirement |
+| --- | --- | --- | --- |
+| Airline, Retail, Telecom | Task JSON files present | TauBench `uv` environment installed | Restart local Qwen service; configure teacher route and credentials |
+| ALFWorld | Train/test lists and three game archives present; both source submodules initialized | Python/TextWorld environment absent; selected game files not extracted | Extract archives and install native ALFWorld stack |
+| DBBench | Train/test JSONL files present | Native MySQL and worker Python environment absent | Install native worker stack and start isolated MySQL |
+| WebShop | Pinned source submodule initialized | 100k data/index, native Python environment, and Java 11 absent | Download and verify raw data, build index, install Java 11 and native stack |
+| OS | Source present | No comparable isolated worker | Remains outside this six-domain experiment |
+
+Thus the benchmark **source and experiment record are complete in the branch**,
+but the six environments are **not all runnable on this machine yet**. Virtual
+environments, MySQL data, extracted games, WebShop's multi-gigabyte product
+files/index, model weights, provider credentials, and raw episode logs are local
+assets and are not tracked by Git. `check_local_setup.py` reports file and
+package availability; a passing row still needs a live service and a real
+smoke test before scoring. The Qwen service used for the historical run was
+shut down and has not been restarted here.
+
+To get the complete tracked branch and pinned upstream sources on a new host:
+
+```bash
+git clone --branch meta-six-round-baseline-20260916 --recurse-submodules \
+  https://github.com/Tianshi-Xu/Life-Harness.git Life-Harness
+cd Life-Harness
+cd TauBench && uv sync --frozen && cd ..
+python meta/experiments/meta_from_scratch_six_20260915/audit.py
+python meta/experiments/meta_from_scratch_six_20260915/check_local_setup.py
+```
+
+For ALFWorld, DBBench, and WebShop, follow
+[AgentBench native setup](AgentBench/NATIVE_ENVIRONMENT.md) and run its
+no-model smoke checks after installing the external assets. Keep provider
+secrets in ignored local configuration. The frozen experiment's
+[protocol](meta/experiments/meta_from_scratch_six_20260915/EXPERIMENT.md),
+[results](meta/experiments/meta_from_scratch_six_20260915/RESULTS.md), and
+[corrections](meta/experiments/meta_from_scratch_six_20260915/CORRECTIONS.md)
+are the starting point for development on this branch.
