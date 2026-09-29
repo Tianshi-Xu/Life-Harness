@@ -336,9 +336,11 @@ python meta/experiments/meta_from_scratch_six_20260915/audit.py
 python meta/experiments/meta_from_scratch_six_20260915/check_local_setup.py
 ```
 
-For ALFWorld, DBBench, and WebShop, follow
-[AgentBench native setup](AgentBench/NATIVE_ENVIRONMENT.md) and run its
-no-model smoke checks after installing the external assets. Keep provider
+For ALFWorld, DBBench, and WebShop on a fresh host, follow the
+[new-machine setup checklist](AgentBench/NEW_MACHINE_SETUP.md), then run the
+no-model smoke checks in the
+[original native deployment record](AgentBench/NATIVE_ENVIRONMENT.md).
+Keep provider
 secrets in ignored local configuration. The frozen experiment's
 [protocol](meta/experiments/meta_from_scratch_six_20260915/EXPERIMENT.md),
 [results](meta/experiments/meta_from_scratch_six_20260915/RESULTS.md), and

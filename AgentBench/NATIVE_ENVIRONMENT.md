@@ -1,6 +1,7 @@
 # AgentBench 无 Docker 部署
 
 以下是 **2026-09-12 至 2026-09-15 原实验机** 的部署记录，不表示新检出机器也已配置好。
+新机器请先按[从零安装清单](NEW_MACHINE_SETUP.md)配置，再使用本页的启动和冒烟命令。
 2026-09-28 当前开发机的逐项状态见[根 README](../README.md#development-branch-and-environment-status-2026-09-28)
 及 `meta/experiments/meta_from_scratch_six_20260915/check_local_setup.py`。
 原实验机上，运行时、下载件和生成配置均放在忽略的 `.native/`；
@@ -118,10 +119,11 @@ Python 环境位于 `.native/webshop-venv`，原始和生成数据保留在被 g
 
 ## 上游来源
 
-本机 core 使用 Python 3.12.3 的独立 venv（可读取已有系统包），WebShop 使用单独的
-Python 3.12 venv，ALFWorld 使用完全独立的 Python 3.10.21 venv。安装清单和固定依赖
-分别记录在 `scripts/native/{core,alfworld}-installed.txt` 与
-`scripts/native/requirements-webshop.txt`。ALFWorld 0.4.2 + TextWorld 1.7.0 +
+原机 core 使用 Python 3.12.3 的独立 venv（可读取已有系统包），WebShop 使用单独的
+Python 3.12 venv，ALFWorld 使用完全独立的 Python 3.10.21 venv。
+原机的已安装包快照 `scripts/native/{core,alfworld}-installed.txt` 未进入本分支；
+新机器以已提交的 `scripts/native/requirements-{core,alfworld,webshop}.txt`
+为安装输入，并以无模型冒烟测试核验。ALFWorld 0.4.2 + TextWorld 1.7.0 +
 fast-downward-textworld 20.6.4 + NumPy 1.26.4 已通过上述检查。
 仓库附带的旧 TextWorld 源码是 1.3.2；本次采用官方可安装的新文本栈，尚未证明与旧
 Docker 环境逐轨迹等价。之后比较 baseline/Life 时应固定使用同一份原生运行时，
