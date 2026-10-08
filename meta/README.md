@@ -7,6 +7,29 @@ AgentBench pilot (ALFWorld / DBBench) is documented in
 [`experiments/agentbench_zero_20260912/EXPERIMENT.md`](experiments/agentbench_zero_20260912/EXPERIMENT.md);
 it uses its own four-hook adapter and does not replace the standard workers.
 
+Future native Life runs can opt into the policy-free
+[`agentbench_hooks/` v3 interface](agentbench_hooks/INTERFACE.md): four empty
+H2–H5 templates, public task context, per-episode shared state, H3 message
+conditioning, H2 recovery/control, persistent guidance and an uncapped Task
+bridge. All strategy content must still evolve. This does not switch old
+drivers or rewrite the sealed six-/nine-round artifacts. New evaluators must
+bind the returned interface receipt into their run/cache fingerprints.
+
+New AgentBench Life runs should use the current
+[`life_evolve/`](life_evolve/README.md) entry point: **no total interaction-count
+cap**, and at most **three candidate-preflight repair opportunities**, with any
+number of read/reason/edit interactions inside each repair. Flash per-request
+output remains 100000; global Flash concurrency stays <=8. The paid CLI keeps
+public-only session/usage checkpoints, including failures. Historical
+`life_optimizer/` and `life_optimizer_v25/` profiles remain unchanged for sealed
+experiment verification; no existing driver is switched or run started.
+
+The current optimizer retains public training trajectories read on demand,
+mandatory failure diagnosis and cross-layer rule contracts, and a controlled
+no-model hook replay/fixture tool before submission. One Flash agent handles
+diagnosis and edits; no per-case Debugger is added. Bundle-v2 and same-batch strict
+improvement remain unchanged. This does not switch sealed drivers or start a run.
+
 ## Two loops, two methods
 
 - `meta_harness.py` — meta-harness style: candidate single-file plugins

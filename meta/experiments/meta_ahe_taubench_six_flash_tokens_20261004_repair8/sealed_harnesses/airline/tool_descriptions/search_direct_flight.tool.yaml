@@ -1,0 +1,24 @@
+type: tool
+name: search_direct_flight
+description: Search for direct flights between two cities on a specific date.
+input_schema:
+  properties:
+    origin:
+      description: The origin city airport in three letters, such as 'JFK'.
+      title: Origin
+      type: string
+    destination:
+      description: The destination city airport in three letters, such as 'LAX'.
+      title: Destination
+      type: string
+    date:
+      description: The date of the flight in the format 'YYYY-MM-DD', such as '2024-01-01'.
+      title: Date
+      type: string
+  required:
+  - origin
+  - destination
+  - date
+  title: parameters
+  type: object
+disable_parallel: true

@@ -1,0 +1,14 @@
+{
+  "experiment": "life_agentbench_v3_twelve_db_web_20261002",
+  "inherited_training_seal_sha256": "c05c921b40a4736e2b57cb1056985d5e8f7c089e7da9f76de7f807c581addd93",
+  "prior_test_exposure": true,
+  "protocol_sha256": "5e3aec880ed194d6509fc7f7215405daf076fd5bebd5d06253455aa81a8473d1",
+  "run_config_sha256": {
+    "dbbench": "5c05673d5ce57719d692ed0a173831101fb7a8a0d041b25292147fbe44c2044e",
+    "webshop": "2202cb91cab979e9a0d38d9bfd2d006ac616f022ccd9e318638221325883495b"
+  },
+  "state_sha256": {
+    "dbbench": "d32c50f566ee60d979c4dbd2c682c318f385f5f815f896aec68bbda9bcbd071a",
+    "webshop": "059b1492a6d7b6390206df010276b5611c9e12a7277ffcc23fa1dcb348f4268f"
+  }
+}

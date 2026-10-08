@@ -250,6 +250,11 @@ def parse_args():
         ),
     )
     p.add_argument(
+        "--user-enable-thinking",
+        action="store_true",
+        help="Explicitly enable thinking for compatible user LLM endpoints.",
+    )
+    p.add_argument(
         "--nl",
         action="store_true",
         default=False,
@@ -648,10 +653,14 @@ def main():
                 raise ValueError(f"{key_env} is not set for --user-api-key-env")
             os.environ["OPENAI_API_KEY"] = key
             user_api_key_source = key_env
+        if args.user_enable_thinking and args.user_disable_thinking:
+            raise ValueError("User thinking cannot be both enabled and disabled")
         extra_body = {}
         if "openrouter.ai" in user_api_base and not args.user_enable_reasoning:
             extra_body["reasoning"] = {"enabled": False}
-        if args.user_disable_thinking:
+        if args.user_enable_thinking:
+            extra_body["enable_thinking"] = True
+        elif args.user_disable_thinking:
             if "dashscope.aliyuncs.com" in user_api_base:
                 extra_body["enable_thinking"] = False
             else:
@@ -759,6 +768,7 @@ def main():
     print(f"  User API base: {user_api_base or 'provider default'}")
     print(f"  User API key : {user_api_key_source or 'provider default'}")
     print(f"  User reasoning: {args.user_enable_reasoning}")
+    print(f"  User enable thinking: {args.user_enable_thinking}")
     print(f"  User disable thinking: {args.user_disable_thinking}")
     print(f"  User max tokens: {args.user_max_tokens or 'provider default'}")
     print(f"  malicious user : {args.malicious_user}")
@@ -798,6 +808,7 @@ def main():
     summary["user_api_base"] = user_api_base or None
     summary["user_api_key_env"] = user_api_key_source
     summary["user_reasoning_enabled"] = args.user_enable_reasoning
+    summary["user_enable_thinking"] = args.user_enable_thinking
     summary["user_disable_thinking"] = args.user_disable_thinking
     summary["user_max_tokens"] = args.user_max_tokens or None
     summary["malicious_user"] = args.malicious_user

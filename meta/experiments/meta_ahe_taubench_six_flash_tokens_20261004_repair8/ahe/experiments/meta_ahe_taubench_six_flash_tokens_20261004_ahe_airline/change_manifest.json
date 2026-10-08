@@ -1,0 +1,83 @@
+{
+  "iteration": 6,
+  "changes": [
+    {
+      "id": "chg-22",
+      "type": "rollback",
+      "description": "Roll back the two INEFFECTIVE middlewares added in iteration 5 (PreconditionGuardMiddleware chg-20 and ReadBeforeCancelMiddleware chg-21), removing them from code_agent.yaml and deleting the files. The workspace is now byte-identical to runs/iteration_004/input/workspace, the best-ever measured snapshot (pass@1 45.0%). chg-20 fixed 0/3 of its predicted tasks; chg-21 fixed 0/1 and its marker text ('READ BEFORE'/'CANCELLATION FACTS') appears zero times in all 20 preserved iteration-5 trajectories, i.e. it was dead code in every task that could be inspected.",
+      "files": [
+        "code_agent.yaml",
+        "middleware/precondition_guard.py",
+        "middleware/read_before_cancel.py"
+      ],
+      "failure_pattern": "Accumulated repair middleware that fires only on already-failing trajectories was not converting failures into passes; it added ~17 injected notes across 4 of the 10 inspectable tasks with no task flipping to pass.",
+      "predicted_fixes": [
+        "native_76a50887d8f1c2e9301755428990ad81479ee21c25b43215cf524541e0503269",
+        "native_86e50149658661312a9e0b35558d84f6c6d3da797f552a9657fe0558ca40cdef"
+      ],
+      "risk_tasks": [],
+      "constraint_level": "middleware",
+      "why_this_component": "This is a removal, not a new mechanism. The change-attribution report rated all three iteration-5 changes INEFFECTIVE and told me to roll back; rolling back chg-19 would have restored iteration 4's bundle (itself measured at 41.7% vs 45.0%), so only the two genuinely new middlewares are removed."
+    },
+    {
+      "id": "chg-23",
+      "type": "improvement",
+      "description": "Extend PolicyGuardMiddleware's cancellation-eligibility verdict with three facts the traces show it got wrong. (1) The policy's FIRST bar - 'if any portion of the flight has already been flown, the agent cannot help' - was never tested at all: _verdict consulted the cabin first and returned None for business, so reservation 4XGCCM (business, flights 2024-05-03/04, current time 2024-05-15) was reported as eligible and was cancelled in both rollouts of 0b918943. The bar is now evaluated before every other criterion. (2) The insurance note said 'health or weather only, not change of plan or personal events', and rollout 1 of 7902699b read 'I am sick' as not a health reason and refused a cancellation the insurance does cover; the note now states that illness/injury is a health reason. (3) Both rollouts of 7902699b and both rollouts of 4fc82b26 tried to manufacture eligibility by rewriting the reservation (7902699b: 'let's upgrade XEHM4B to business and then cancel it', executed in rollout 1; 4fc82b26: downgraded a business reservation to basic_economy after being refused a passenger removal); every negative verdict now ends with an explicit anti-workaround sentence. Task 73475cb4 cancelled HTR26G four messages after the note said the cancellation was not permitted, which is why the wording now names the forbidden exit rather than only the rule.",
+      "files": [
+        "middleware/policy_guard.py"
+      ],
+      "failure_pattern": "Illegal cancellation. The deciding facts are already in the conversation (departed flights, insurance reason, cabin/age) but the agent either never sees a verdict for them or resolves the ambiguity the wrong way, then mutates the reservation to create a ground.",
+      "predicted_fixes": [
+        "native_0b918943df0962bc7a1824c0555a389347b4febdc7cf9d1254406d80ce44e3f9",
+        "native_7902699be42c8a8e46fbbb4501726517e86b22c56a189f7625a6da49081b2451"
+      ],
+      "risk_tasks": [
+        "native_3d914f9348c9cc0ff8a79716700b9fcd4d2f3e711608004eb8f138bcba7f14d9",
+        "native_4a44dc15364204a80fe80e9039455cc1608281820fe2b24f1e5233ade6af1dd5",
+        "native_44cb730c420480a0477b505ae68af508fb90f96cf0ec54c6ad16949dd427f13a",
+        "native_5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+      ],
+      "constraint_level": "middleware",
+      "why_this_component": "The same verdict text lives in the get_reservation_details description (chg-8/chg-7), and that level has now been tried twice without effect while the execution-level note produced the biggest single gain in this experiment's history (iteration 3, +15.0 points). The note is attached only to the one tool result at the moment the decision is made, changes nothing else about the payload, and is a no-op for every legitimate cancellation."
+    },
+    {
+      "id": "chg-24",
+      "type": "improvement",
+      "description": "Extend LoopGuardMiddleware with a fourth pathology: a call that failed because an argument was a value copied verbatim out of the tool's own schema examples ('ZFA04Y', '8JX2WO', 'sara_doe_496', 'credit_card_7815826', 'HAT001'). Rollout 1 of 4fc82b26 emitted a complete update_reservation_flights call whose reservation_id, flight_number and payment_id were all schema samples; rollout 1 of 4a44dc15 asked for reservation 'ZFA04Y' and for flight 'IAH to SEA'. Both got 'not found' back. The note names the offending parameter and value, states that schema sample text is not data, and points at where real ids come from. A second, related check flags identifier parameters (user_id/reservation_id/payment_id/flight_number) that were given a phrase instead of a code. Both new checks are gated on the call having already failed, so healthy trajectories stay byte-identical.",
+      "files": [
+        "middleware/loop_guard.py"
+      ],
+      "failure_pattern": "Placeholder/fabricated identifiers - the agent calls a lookup tool with text taken from the tool documentation instead of from retrieved data, then wastes turns recovering.",
+      "predicted_fixes": [
+        "native_4fc82b26aecb47d2868c4efbe3581732a3e7cbcc6c2efb32062c08170a05eeb8",
+        "native_4a44dc15364204a80fe80e9039455cc1608281820fe2b24f1e5233ade6af1dd5"
+      ],
+      "risk_tasks": [],
+      "constraint_level": "middleware",
+      "why_this_component": "The existing loop guard already owned the sibling case (a value equal to its own parameter name) and is the one mechanism this experiment has shown can change behaviour without touching a healthy trajectory; extending it keeps the repair in one place instead of adding a third middleware."
+    },
+    {
+      "id": "chg-25",
+      "type": "improvement",
+      "description": "Remove the fabricated id-shaped sample values from the description of every id, payment-id and flight-number parameter (12 descriptions across book_reservation, cancel_reservation, get_reservation_details, get_user_details, send_certificate, update_reservation_baggages, update_reservation_flights, update_reservation_passengers). Each now says where the real value comes from and that the sample text in the schema must not be copied. Only 'description' nodes changed - a structural diff of the parsed YAML against the previous workspace is empty apart from description text, so names, types, required lists, enums and dispatch settings are untouched.",
+      "files": [
+        "tool_descriptions/book_reservation.tool.yaml",
+        "tool_descriptions/cancel_reservation.tool.yaml",
+        "tool_descriptions/get_reservation_details.tool.yaml",
+        "tool_descriptions/get_user_details.tool.yaml",
+        "tool_descriptions/send_certificate.tool.yaml",
+        "tool_descriptions/update_reservation_baggages.tool.yaml",
+        "tool_descriptions/update_reservation_flights.tool.yaml",
+        "tool_descriptions/update_reservation_passengers.tool.yaml"
+      ],
+      "failure_pattern": "Same as chg-24, but fixed at the source: the schemas shipped id-shaped sample values that the model demonstrably pasted into real calls. chg-24 repairs the call after it fails; this removes the trap before it can be sprung.",
+      "predicted_fixes": [
+        "native_4fc82b26aecb47d2868c4efbe3581732a3e7cbcc6c2efb32062c08170a05eeb8",
+        "native_4a44dc15364204a80fe80e9039455cc1608281820fe2b24f1e5233ade6af1dd5"
+      ],
+      "risk_tasks": [],
+      "constraint_level": "tool_desc",
+      "why_this_component": "Iteration 4's description rewrites were ineffective because they ADDED policy prose to already-long descriptions; this edit only deletes misleading sample literals and replaces them with a pointer to the real source, so it cannot compete with the user's request for attention."
+    }
+  ]
+}

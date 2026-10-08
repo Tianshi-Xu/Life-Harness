@@ -1,0 +1,519 @@
+{
+  "accepted_bundle_ids": [
+    "telecom_h2345_account_boundary_v1",
+    "telecom_h2345_account_report_v2"
+  ],
+  "active_snapshot": [
+    {
+      "artifact_path": "versions/telecom_h2345_account_report_v2/op_h2_boundary_r2.py",
+      "mechanism_id": "m_account_action_boundary",
+      "revision": 2,
+      "sha256": "49363041c99d0b7218ddd82fcb36ad81f50459bf57d8274c48742c8f51322849",
+      "target_layer": "h2"
+    },
+    {
+      "artifact_path": "versions/telecom_h2345_account_report_v2/op_h3_notes_r2.py",
+      "mechanism_id": "m_tool_contract_notes",
+      "revision": 2,
+      "sha256": "bf140864c2feae9e6dc8a2310d46013822a094186895ab83959d4289f1bd2075",
+      "target_layer": "h3"
+    },
+    {
+      "artifact_path": "versions/telecom_h2345_account_report_v2/op_h4_report_r2.py",
+      "mechanism_id": "m_episode_progress_monitor",
+      "revision": 2,
+      "sha256": "71419c0759098b432047e005fc5ec4d58963460b99dabf853fc99f845bdeaae5",
+      "target_layer": "h4"
+    },
+    {
+      "artifact_path": "versions/telecom_h2345_account_report_v2/op_h5_skill_r2.py",
+      "mechanism_id": "m_cold_start_duty_split",
+      "revision": 2,
+      "sha256": "eb480159357e83593e2fedbb9bc60c2be1e385399154f5cb80c912da5e330f3b",
+      "target_layer": "h5"
+    }
+  ],
+  "active_snapshot_sha256": "b9915c00dada17ffa55c94b12eb0e8185632583aa2baa383626971125e4c57ba",
+  "domain": "telecom",
+  "operation_log": [
+    {
+      "bundle_id": "telecom_h2345_account_boundary_v1",
+      "committed_snapshot_sha256": "a2c073f1b338362a600ab3711b347a6ac921dbdefa8a1f7220311d0641f7e661",
+      "operations": [
+        {
+          "artifact": "artifacts/h2_action_guard.py",
+          "artifact_sha256": "ab50d551003833c8d525fc4f552f3b94b07076c8fffe2580fd3d17580b28e83e",
+          "hypothesis": "An assistant action that invokes a customer phone action cannot be dispatched; replacing the first occurrence with the instruction addressed to the customer keeps the user-facing turn and removing the not-found error loop restores progress, while a repeat needs corrective feedback instead of a repeated instruction. A get_customer_by_phone call whose digits match exactly one stored number must be dispatched with the stored literal.",
+          "mechanism_id": "m_account_action_boundary",
+          "op": "add",
+          "operation_id": "op_h2_guard",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/h3_tool_contract.py",
+          "artifact_sha256": "27df30b747330c18f1b4621394796bf25078a2283a0f6f81958a89b903829726",
+          "hypothesis": "Recording the model-facing agent tool names in shared state gives H2 a checked capability boundary, and appending the exact-format rule to the two customer-lookup descriptions addresses the digit-stripping and invented-date-of-birth behaviour without changing names, schemas or dispatch.",
+          "mechanism_id": "m_tool_contract_notes",
+          "op": "add",
+          "operation_id": "op_h3_notes",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/h4_issue_monitor.py",
+          "artifact_sha256": "e7754dbd996a740f0daa003ee2b059f6c01e80c8a6a7b15ff2b96dc2e78a2e4f",
+          "hypothesis": "Failures never consulted the account even though the reason for \"No Service\" is visible in the business DB. Deriving the identified customer from public tool results and emitting that customer's suspended lines and open bills once per changed fact signature, plus one identification hint when customer-device requests accumulate without identification, gives the per-turn progress/next-check information the episode lacks.",
+          "mechanism_id": "m_episode_progress_monitor",
+          "op": "add",
+          "operation_id": "op_h4_monitor",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/h5_role_skill.py",
+          "artifact_sha256": "9f347f7a7d97b09ff65f7343baafd5642e46e55f6e13f0557696e8e38ac3564a",
+          "hypothesis": "Every observed trajectory starts by calling a phone action the agent does not own, so a first-turn skill that states the duty split and the identification order prevents the loop instead of repairing it afterwards.",
+          "mechanism_id": "m_cold_start_duty_split",
+          "op": "add",
+          "operation_id": "op_h5_skill",
+          "target_layer": "h5"
+        }
+      ],
+      "parent_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "bundle_id": "telecom_h2345_account_report_v2",
+      "committed_snapshot_sha256": "b9915c00dada17ffa55c94b12eb0e8185632583aa2baa383626971125e4c57ba",
+      "operations": [
+        {
+          "artifact": "artifacts/m_account_action_boundary_r2.py",
+          "artifact_sha256": "49363041c99d0b7218ddd82fcb36ad81f50459bf57d8274c48742c8f51322849",
+          "expected_revision": 1,
+          "expected_sha256": "ab50d551003833c8d525fc4f552f3b94b07076c8fffe2580fd3d17580b28e83e",
+          "hypothesis": "Keeping the proven rewrite of customer-only phone actions into customer instructions and the stored-phone canonicalisation, but naming the tools the agent actually has (recorded by H3) in the repeat correction, makes the corrective actionable for the model instead of a hard-coded list that may not match the model-facing tool set.",
+          "mechanism_id": "m_account_action_boundary",
+          "op": "modify",
+          "operation_id": "op_h2_boundary_r2",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/m_tool_contract_notes_r2.py",
+          "artifact_sha256": "bf140864c2feae9e6dc8a2310d46013822a094186895ab83959d4289f1bd2075",
+          "expected_revision": 1,
+          "expected_sha256": "27df30b747330c18f1b4621394796bf25078a2283a0f6f81958a89b903829726",
+          "hypothesis": "The lookup-format notes stay; adding to get_details_by_id the fact that a line ID yields the line's status, suspension date, contract end date, roaming flag and data usage points the model at the account record whose absence explains the inspected failures, without changing names, schemas or dispatch.",
+          "mechanism_id": "m_tool_contract_notes",
+          "op": "modify",
+          "operation_id": "op_h3_notes_r2",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/m_episode_progress_monitor_r2.py",
+          "artifact_sha256": "71419c0759098b432047e005fc5ec4d58963460b99dabf853fc99f845bdeaae5",
+          "expected_revision": 1,
+          "expected_sha256": "e7754dbd996a740f0daa003ee2b059f6c01e80c8a6a7b15ff2b96dc2e78a2e4f",
+          "hypothesis": "Replacing the suspended-line/open-bill only summary with a complete, per-signature account report fixes two observed defects: an Active or under-limit line attached to the customer's number was omitted entirely (so the agent only saw a sibling suspended line and resumed that one), and a resumable suspended line was not distinguished from a contract-ended one (so the agent invented a blocked action). Mapping the customer-given number to its line, printing status/contract end/roaming/data-vs-limit plus open bills, and naming the permitted tool call for each anomaly, re-emitted whenever the account changes, gives the episode-local progress and next-step information the failures lacked.",
+          "mechanism_id": "m_episode_progress_monitor",
+          "op": "modify",
+          "operation_id": "op_h4_report_r2",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/m_cold_start_duty_split_r2.py",
+          "artifact_sha256": "eb480159357e83593e2fedbb9bc60c2be1e385399154f5cb80c912da5e330f3b",
+          "expected_revision": 1,
+          "expected_sha256": "9f347f7a7d97b09ff65f7343baafd5642e46e55f6e13f0557696e8e38ac3564a",
+          "hypothesis": "The duty split and identification order are kept; extending the same skill with the concrete account checks (status, contract end date, roaming flag, data usage against the plan limit, bills) and the rule not to promise a check that was not made states the account-first habit at cold start, when the failing episodes committed to a device-only plan.",
+          "mechanism_id": "m_cold_start_duty_split",
+          "op": "modify",
+          "operation_id": "op_h5_skill_r2",
+          "target_layer": "h5"
+        }
+      ],
+      "parent_snapshot_sha256": "a2c073f1b338362a600ab3711b347a6ac921dbdefa8a1f7220311d0641f7e661"
+    }
+  ],
+  "prior_test_exposure": true,
+  "round": 6,
+  "rounds": [
+    {
+      "accepted": true,
+      "active_snapshot_sha256": "a2c073f1b338362a600ab3711b347a6ac921dbdefa8a1f7220311d0641f7e661",
+      "ahe_measured_batch": 1,
+      "ahe_score": 0.46,
+      "bundle_hypothesis": "Telecom TRAIN failures cluster on the boundary between the agent's account tools and the phone actions the public support manual assigns to the customer: the model calls device actions that the environment cannot dispatch (every such call is a not-found error, sometimes until TOO_MANY_ERRORS) and it normalises customer identifiers before a lookup (get_customer_by_phone with bare digits against a stored \"555-123-2002\" returns not found and collapses identification). Converting the first customer-only request into a customer-facing instruction, vetoing its repetition, canonicalising lookup arguments from the read-only business DB, recording the agent tool boundary, and surfacing the identified customer's line/bill facts should remove the wasted and error-producing turns without touching genuine account calls or existing successful guidance.",
+      "bundle_id": "telecom_h2345_account_boundary_v1",
+      "candidate_score": 0.36,
+      "candidate_successes": 18,
+      "comparison_batch": 0,
+      "comparison_infra_errors": 0,
+      "comparison_score": 0.36,
+      "gap_pp": 10.000000000000004,
+      "incumbent_score": 0.24,
+      "incumbent_successes": 12,
+      "new_optimizer_tokens": 0,
+      "new_proposer_requests": 0,
+      "operations": [
+        {
+          "artifact": "artifacts/h2_action_guard.py",
+          "artifact_sha256": "ab50d551003833c8d525fc4f552f3b94b07076c8fffe2580fd3d17580b28e83e",
+          "hypothesis": "An assistant action that invokes a customer phone action cannot be dispatched; replacing the first occurrence with the instruction addressed to the customer keeps the user-facing turn and removing the not-found error loop restores progress, while a repeat needs corrective feedback instead of a repeated instruction. A get_customer_by_phone call whose digits match exactly one stored number must be dispatched with the stored literal.",
+          "mechanism_id": "m_account_action_boundary",
+          "op": "add",
+          "operation_id": "op_h2_guard",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/h3_tool_contract.py",
+          "artifact_sha256": "27df30b747330c18f1b4621394796bf25078a2283a0f6f81958a89b903829726",
+          "hypothesis": "Recording the model-facing agent tool names in shared state gives H2 a checked capability boundary, and appending the exact-format rule to the two customer-lookup descriptions addresses the digit-stripping and invented-date-of-birth behaviour without changing names, schemas or dispatch.",
+          "mechanism_id": "m_tool_contract_notes",
+          "op": "add",
+          "operation_id": "op_h3_notes",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/h4_issue_monitor.py",
+          "artifact_sha256": "e7754dbd996a740f0daa003ee2b059f6c01e80c8a6a7b15ff2b96dc2e78a2e4f",
+          "hypothesis": "Failures never consulted the account even though the reason for \"No Service\" is visible in the business DB. Deriving the identified customer from public tool results and emitting that customer's suspended lines and open bills once per changed fact signature, plus one identification hint when customer-device requests accumulate without identification, gives the per-turn progress/next-check information the episode lacks.",
+          "mechanism_id": "m_episode_progress_monitor",
+          "op": "add",
+          "operation_id": "op_h4_monitor",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/h5_role_skill.py",
+          "artifact_sha256": "9f347f7a7d97b09ff65f7343baafd5642e46e55f6e13f0557696e8e38ac3564a",
+          "hypothesis": "Every observed trajectory starts by calling a phone action the agent does not own, so a first-turn skill that states the duty split and the identification order prevents the loop instead of repairing it afterwards.",
+          "mechanism_id": "m_cold_start_duty_split",
+          "op": "add",
+          "operation_id": "op_h5_skill",
+          "target_layer": "h5"
+        }
+      ],
+      "optimizer_usage": {
+        "accounting_complete": true,
+        "attempts": 52,
+        "inference_accounting_complete": true,
+        "input_tokens": 8196321,
+        "known_usage_calls": 52,
+        "output_tokens": 169255,
+        "pending_calls": 0,
+        "rate_limit_rejections_without_usage": 0,
+        "total_tokens": 8365576,
+        "unknown_usage_calls": 0
+      },
+      "proposer_requests": 52,
+      "repairs_granted": 3,
+      "reused_paid_candidate": true,
+      "round": 1,
+      "same_batch_comparison": false,
+      "train_batch": 0
+    },
+    {
+      "accepted": true,
+      "active_snapshot_sha256": "b9915c00dada17ffa55c94b12eb0e8185632583aa2baa383626971125e4c57ba",
+      "ahe_measured_batch": 2,
+      "ahe_score": 0.54,
+      "bundle_hypothesis": "The remaining TRAIN failures are account-side omissions, not device-diagnosis gaps: the model works through customer-performed phone steps for hundreds of turns while never inspecting or changing the business record that actually explains the symptom. In the inspected failures the customer's own line was reachable with one tool call but the agent (a) never looked at it, (b) resumed a sibling line instead of the number the customer gave, or (c) hallucinated that the contract had ended and offered a transfer instead of resuming a line the policy allows it to resume; a roaming-disabled line in an abroad episode was never enabled either. H2 already removes the impossible phone calls, H3 already records the real tool list, so the missing piece is an H4 account report that maps the number the customer gave to its line, prints that line's status, suspension, contract end date, roaming flag and data usage against the plan limit plus the customer's open bills, and names the account-side action each anomaly permits, re-emitting after every change so the agent sees the effect of its write. H5 states the same account-check order on the first turn; H2 uses the recorded tool list in its repeat correction instead of a hard-coded one.",
+      "bundle_id": "telecom_h2345_account_report_v2",
+      "candidate_score": 0.78,
+      "candidate_successes": 39,
+      "comparison_batch": 1,
+      "comparison_infra_errors": 0,
+      "comparison_score": 0.78,
+      "gap_pp": -24.0,
+      "incumbent_score": 0.5,
+      "incumbent_successes": 25,
+      "operations": [
+        {
+          "artifact": "artifacts/m_account_action_boundary_r2.py",
+          "artifact_sha256": "49363041c99d0b7218ddd82fcb36ad81f50459bf57d8274c48742c8f51322849",
+          "expected_revision": 1,
+          "expected_sha256": "ab50d551003833c8d525fc4f552f3b94b07076c8fffe2580fd3d17580b28e83e",
+          "hypothesis": "Keeping the proven rewrite of customer-only phone actions into customer instructions and the stored-phone canonicalisation, but naming the tools the agent actually has (recorded by H3) in the repeat correction, makes the corrective actionable for the model instead of a hard-coded list that may not match the model-facing tool set.",
+          "mechanism_id": "m_account_action_boundary",
+          "op": "modify",
+          "operation_id": "op_h2_boundary_r2",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/m_tool_contract_notes_r2.py",
+          "artifact_sha256": "bf140864c2feae9e6dc8a2310d46013822a094186895ab83959d4289f1bd2075",
+          "expected_revision": 1,
+          "expected_sha256": "27df30b747330c18f1b4621394796bf25078a2283a0f6f81958a89b903829726",
+          "hypothesis": "The lookup-format notes stay; adding to get_details_by_id the fact that a line ID yields the line's status, suspension date, contract end date, roaming flag and data usage points the model at the account record whose absence explains the inspected failures, without changing names, schemas or dispatch.",
+          "mechanism_id": "m_tool_contract_notes",
+          "op": "modify",
+          "operation_id": "op_h3_notes_r2",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/m_episode_progress_monitor_r2.py",
+          "artifact_sha256": "71419c0759098b432047e005fc5ec4d58963460b99dabf853fc99f845bdeaae5",
+          "expected_revision": 1,
+          "expected_sha256": "e7754dbd996a740f0daa003ee2b059f6c01e80c8a6a7b15ff2b96dc2e78a2e4f",
+          "hypothesis": "Replacing the suspended-line/open-bill only summary with a complete, per-signature account report fixes two observed defects: an Active or under-limit line attached to the customer's number was omitted entirely (so the agent only saw a sibling suspended line and resumed that one), and a resumable suspended line was not distinguished from a contract-ended one (so the agent invented a blocked action). Mapping the customer-given number to its line, printing status/contract end/roaming/data-vs-limit plus open bills, and naming the permitted tool call for each anomaly, re-emitted whenever the account changes, gives the episode-local progress and next-step information the failures lacked.",
+          "mechanism_id": "m_episode_progress_monitor",
+          "op": "modify",
+          "operation_id": "op_h4_report_r2",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/m_cold_start_duty_split_r2.py",
+          "artifact_sha256": "eb480159357e83593e2fedbb9bc60c2be1e385399154f5cb80c912da5e330f3b",
+          "expected_revision": 1,
+          "expected_sha256": "9f347f7a7d97b09ff65f7343baafd5642e46e55f6e13f0557696e8e38ac3564a",
+          "hypothesis": "The duty split and identification order are kept; extending the same skill with the concrete account checks (status, contract end date, roaming flag, data usage against the plan limit, bills) and the rule not to promise a check that was not made states the account-first habit at cold start, when the failing episodes committed to a device-only plan.",
+          "mechanism_id": "m_cold_start_duty_split",
+          "op": "modify",
+          "operation_id": "op_h5_skill_r2",
+          "target_layer": "h5"
+        }
+      ],
+      "optimizer_usage": {
+        "accounting_complete": true,
+        "attempts": 34,
+        "inference_accounting_complete": true,
+        "input_tokens": 3027363,
+        "known_usage_calls": 34,
+        "output_tokens": 62045,
+        "pending_calls": 0,
+        "rate_limit_rejections_without_usage": 0,
+        "total_tokens": 3089408,
+        "unknown_usage_calls": 0
+      },
+      "proposer_requests": 34,
+      "repairs_granted": 0,
+      "round": 2,
+      "same_batch_comparison": false,
+      "train_batch": 1
+    },
+    {
+      "accepted": false,
+      "active_snapshot_sha256": "b9915c00dada17ffa55c94b12eb0e8185632583aa2baa383626971125e4c57ba",
+      "ahe_measured_batch": 3,
+      "ahe_score": 0.86,
+      "bundle_hypothesis": "The remaining TRAIN failures are not diagnosis gaps inside the account: they are announced-but-never-dispatched account actions and unread customer device reports. In native_1960430951 the agent wrote 'Let's first enable roaming for line L1002 ... Would you like to proceed?' and never called enable_roaming, although H4 had printed that exact permitted call and the line's roaming flag stayed false in the final business state, while the same task shape (native_034c244c) passes once enable_roaming is dispatched. In native_dd05bfd, native_8f0e7317 and native_dce8d5b879 the last assistant message announces or reports a transfer ('I will transfer you to a human agent', 'YOU ARE BEING TRANSFERRED') while transfer_to_human_agents was never called, so the user was never handed over; in native_dce8d5b879 the customer also asked directly whether to turn Data Roaming on and their report ('Data Roaming is OFF on my phone') was never answered, and in native_89681c the customer's report of a missing SIM and disabled mobile data was left unaddressed before the transfer. H2 already vetoes repeated customer-only phone calls and rewrites the first one; the missing pieces are (a) H4 progress state that turns each customer device report into the step the public support manual prescribes and publishes the pending account/customer work, and (b) H2 repair of a plain message that narrates a pending account action or a transfer that no tool call ever executed. H5 states the same dispatch rule at cold start. Nothing about the proven account report, lookup canonicalisation, phone-action rewrite or tool-list notes changes.",
+      "bundle_id": "bundle_201cd6ed44533840",
+      "candidate_score": 0.74,
+      "candidate_successes": 37,
+      "comparison_batch": 2,
+      "comparison_infra_errors": 0,
+      "comparison_score": 0.78,
+      "gap_pp": 7.9999999999999964,
+      "incumbent_score": 0.78,
+      "incumbent_successes": 39,
+      "operations": [
+        {
+          "artifact": "artifacts/m_account_action_boundary_r3.py",
+          "artifact_sha256": "b9f43cb887a02abaf5d34a6b1d6d09ee15538f27ce2e5f969624ff643bb8f0a0",
+          "expected_revision": 2,
+          "expected_sha256": "49363041c99d0b7218ddd82fcb36ad81f50459bf57d8274c48742c8f51322849",
+          "hypothesis": "Keeping the proven phone-action rewrite, the stored-phone canonicalisation and the repeat veto, but adding a repair for a plain assistant message that narrates a pending account action (H4 marks enable_roaming as the permitted, consent-free step and publishes it in shared state) or announces a transfer while transfer_to_human_agents was never called. The corrective names the exact call to make and the work still outstanding, is emitted once per pending item, and leaves plain messages that announce nothing pending byte-identical.",
+          "mechanism_id": "m_account_action_boundary",
+          "op": "modify",
+          "operation_id": "op_h2_boundary_r3",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/m_episode_progress_monitor_r3.py",
+          "artifact_sha256": "73734699404a729849a0135b1353f6e2948cebc98eb0e4163889989afa85068e",
+          "expected_revision": 2,
+          "expected_sha256": "71419c0759098b432047e005fc5ec4d58963460b99dabf853fc99f845bdeaae5",
+          "hypothesis": "The account report, its permitted next step and the identification nudge stay exactly as accepted in revision 2. Added: the customer's own device reports are parsed into episode-local state (airplane mode, SIM, mobile data, roaming, APN/MMSC, Wi-Fi calling, data saver, network mode, app permissions), each unresolved finding is answered with the step the public support manual prescribes for it, and a pending-work ledger (unexecuted account calls, unpaid bills, unreported device fixes) is published in shared state for H2 to consume. This addresses the failures where the customer's own report was ignored and the episode ended on a narration.",
+          "mechanism_id": "m_episode_progress_monitor",
+          "op": "modify",
+          "operation_id": "op_h4_report_r3",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/m_cold_start_duty_split_r3.py",
+          "artifact_sha256": "27c53c55958b513b3835c5a20a736c20bcc7b9161b89ed2180e5a51c80e7929a",
+          "expected_revision": 2,
+          "expected_sha256": "eb480159357e83593e2fedbb9bc60c2be1e385399154f5cb80c912da5e330f3b",
+          "hypothesis": "The duty split, identification order and account-check skill are kept unchanged; the final sentence adds the rule the inspected failures broke: a decided account step must be dispatched as a tool call in the same turn, and a transfer requires the transfer_to_human_agents call before the hold message.",
+          "mechanism_id": "m_cold_start_duty_split",
+          "op": "modify",
+          "operation_id": "op_h5_skill_r3",
+          "target_layer": "h5"
+        }
+      ],
+      "optimizer_usage": {
+        "accounting_complete": true,
+        "attempts": 33,
+        "inference_accounting_complete": true,
+        "input_tokens": 5186119,
+        "known_usage_calls": 33,
+        "output_tokens": 112326,
+        "pending_calls": 0,
+        "rate_limit_rejections_without_usage": 0,
+        "total_tokens": 5298445,
+        "unknown_usage_calls": 0
+      },
+      "proposer_requests": 33,
+      "repairs_granted": 0,
+      "round": 3,
+      "same_batch_comparison": false,
+      "train_batch": 2
+    },
+    {
+      "accepted": false,
+      "active_snapshot_sha256": "b9915c00dada17ffa55c94b12eb0e8185632583aa2baa383626971125e4c57ba",
+      "ahe_measured_batch": 4,
+      "ahe_score": 0.88,
+      "bundle_hypothesis": "The remaining TRAIN failures are technical-support episodes that stop one manual check short of resolution: the account side is already reported (and in several failures even fixed), but the agent never performs the support manual's later device checks and ends in a transfer. native_25c3df65 (success) is resolved only when the customer turns Wi-Fi Calling OFF, and none of the failing MMS episodes (562fcd69, fa5b932, d6e11f77, 8f0e7317, 571c52b0) ever tests that branch; native_941ff6ba shows the account-side reminder already works when an account anomaly exists. H4 therefore keeps the proven account report byte-identical, and only when a technical symptom is present does it append the FIRST still untested manual check for that symptom (derived from the customer's own reports, not from any hidden state), naming the manual's own device tool. The hint is re-emitted only when the account facts or the untested check change, so it stays non-repetitive. Second, H4 stops claiming a line is over its plan data limit once refuel_data has added data: 562fcd69 msg 45 still asserted the over-limit anomaly after 2 GB were refueled, which is a false, non-actionable next step.",
+      "bundle_id": "telecom_h2345_account_report_v3",
+      "candidate_score": 0.76,
+      "candidate_successes": 38,
+      "comparison_batch": 3,
+      "comparison_infra_errors": 0,
+      "comparison_score": 0.82,
+      "gap_pp": 6.000000000000005,
+      "incumbent_score": 0.82,
+      "incumbent_successes": 41,
+      "operations": [
+        {
+          "artifact": "artifacts/m_episode_progress_monitor_r3.py",
+          "artifact_sha256": "5cce1dfa517978d01d9627cf22fa29b7fa330497a7cd32a0a2c74c690a8d4d17",
+          "expected_revision": 2,
+          "expected_sha256": "71419c0759098b432047e005fc5ec4d58963460b99dabf853fc99f845bdeaae5",
+          "hypothesis": "Keep the proven account report and permitted account-side next step unchanged. When the customer's public messages describe a technical symptom (MMS, service or mobile data) and one of the support manual's device checks for that symptom has not yet been reported by the customer, append that next untested check, named with the manual's own tool, plus the rule not to transfer before the manual's checks are done. Track coverage from the customer's own reports only (never from what the agent merely says), recompute the remainder each turn, and re-emit only when the hint text changes. Also make the over-limit anomaly refuel-aware so a refueled line is no longer reported as over its plan limit.",
+          "mechanism_id": "m_episode_progress_monitor",
+          "op": "modify",
+          "operation_id": "op_h4_manual_completion_r3",
+          "target_layer": "h4"
+        }
+      ],
+      "optimizer_usage": {
+        "accounting_complete": true,
+        "attempts": 32,
+        "inference_accounting_complete": true,
+        "input_tokens": 4630041,
+        "known_usage_calls": 32,
+        "output_tokens": 103934,
+        "pending_calls": 0,
+        "rate_limit_rejections_without_usage": 0,
+        "total_tokens": 4733975,
+        "unknown_usage_calls": 0
+      },
+      "proposer_requests": 32,
+      "repairs_granted": 0,
+      "round": 4,
+      "same_batch_comparison": false,
+      "train_batch": 3
+    },
+    {
+      "accepted": false,
+      "active_snapshot_sha256": "b9915c00dada17ffa55c94b12eb0e8185632583aa2baa383626971125e4c57ba",
+      "ahe_measured_batch": 5,
+      "ahe_score": 0.88,
+      "bundle_hypothesis": "The remaining TRAIN failures are episodes that stop asking a step the customer has already answered. In native_3b8b9049 the customer reports the status bar, APN and network status (5G) and the agent re-requests the network status four more times in near-identical wording before transferring; in native_97ff8a8c the identical 3G-or-higher instruction is sent five times while the customer says the MMS still will not send; in native_25c3df65 an APN the customer already reported is requested again; none of these episodes ever asks the manual's Wi-Fi Calling, Data Saver or messaging-permission branches, although a comparable success (native_89681c70) only finishes after the Wi-Fi Calling and storage-permission checks. A second, independent defect appears in the refuel flow: a2a9bd5a, fa5b932d and 25c3df65 call refuel_data without ever asking how much data the customer wants or confirming the price, exactly the charged change the public policy requires the agent to agree with the customer first, and the H4 hint that first names refuel_data does not mention that consent step. Third, H4's over-limit claim ignores data already refueled on the line, so it re-asserts a false anomaly after a successful refuel. The repairs stay inside public history and the public policy: H2's existing repeat veto and H4's stall repair both name only the manual checks the customer has NOT reported (tracked from the customer's own reports, never from what the agent says it did, emitted at most once per episode), H3 adds the policy's consent sequence to the refuel description, and H4's over-limit test becomes refuel-aware. Episodes that do not repeat a request, and reports taken before any refuel, are byte-identical to revision 2.",
+      "bundle_id": "bundle_0b99e14d2588881d",
+      "candidate_score": 0.84,
+      "candidate_successes": 42,
+      "comparison_batch": 4,
+      "comparison_infra_errors": 0,
+      "comparison_score": 0.88,
+      "gap_pp": 0.0,
+      "incumbent_score": 0.88,
+      "incumbent_successes": 44,
+      "operations": [
+        {
+          "artifact": "artifacts/m_account_action_boundary_r3.py",
+          "artifact_sha256": "d5a409bdb7d30954aa22bc87738b7ddf51c60ce3bae8494e52830c254512196b",
+          "expected_revision": 2,
+          "expected_sha256": "49363041c99d0b7218ddd82fcb36ad81f50459bf57d8274c48742c8f51322849",
+          "hypothesis": "Keep the proven phone-action rewrite, the stored-phone canonicalisation and the repeat veto byte-identical, but let the veto's corrective also name the manual checks the customer has not reported yet, so a model that is vetoed for re-calling an answered phone action gets a next step instead of concluding that the case must be transferred (as happened in a2a9bd5a immediately after the veto fired). No new overrides are added: the corrective text only grows, and clean account actions still pass through unchanged.",
+          "mechanism_id": "m_account_action_boundary",
+          "op": "modify",
+          "operation_id": "op_h2_boundary_r3",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/m_tool_contract_notes_r3.py",
+          "artifact_sha256": "e164ddf97363811dffa4f9e862a7c345da149d28ffae01358ee9c6974a7392c3",
+          "expected_revision": 2,
+          "expected_sha256": "bf140864c2feae9e6dc8a2310d46013822a094186895ab83959d4289f1bd2075",
+          "hypothesis": "The lookup-format and line-detail notes stay. Adding the public policy's refuel sequence (ask how much data, confirm the price, then apply it to the line associated with the phone number the customer provided) to the refuel_data description addresses the three inspected failures that refueled without the customer's agreement on amount and price. Names, schemas, order and dispatch are untouched.",
+          "mechanism_id": "m_tool_contract_notes",
+          "op": "modify",
+          "operation_id": "op_h3_notes_r3",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/m_episode_progress_monitor_r3.py",
+          "artifact_sha256": "595077653ea776bca3c918dab279e31590ce12acf97b2c7d627e5054fe85ecc6",
+          "expected_revision": 2,
+          "expected_sha256": "71419c0759098b432047e005fc5ec4d58963460b99dabf853fc99f845bdeaae5",
+          "hypothesis": "The account report, the permitted account-side step and the identification nudge stay as accepted in revision 2, and they are still re-emitted exactly when the account signature changes. Added: a single stall repair that fires only on public repetition evidence (three identical assistant requests, or a manual branch requested twice after the customer already reported it while the customer says the symptom still fails) and then lists the manual checks the customer has NOT reported, derived from the customer's own reports only. Also the over-limit test now counts data already refueled on the line, so the report no longer re-asserts a false anomaly after a successful refuel. Unrepeated or pre-refuel reports are byte-identical to revision 2.",
+          "mechanism_id": "m_episode_progress_monitor",
+          "op": "modify",
+          "operation_id": "op_h4_stall_r3",
+          "target_layer": "h4"
+        }
+      ],
+      "optimizer_usage": {
+        "accounting_complete": true,
+        "attempts": 36,
+        "inference_accounting_complete": true,
+        "input_tokens": 5566723,
+        "known_usage_calls": 36,
+        "output_tokens": 77855,
+        "pending_calls": 0,
+        "rate_limit_rejections_without_usage": 0,
+        "total_tokens": 5644578,
+        "unknown_usage_calls": 0
+      },
+      "proposer_requests": 36,
+      "repairs_granted": 0,
+      "round": 5,
+      "same_batch_comparison": false,
+      "train_batch": 4
+    },
+    {
+      "accepted": false,
+      "active_snapshot_sha256": "b9915c00dada17ffa55c94b12eb0e8185632583aa2baa383626971125e4c57ba",
+      "ahe_measured_batch": 5,
+      "ahe_score": 1.0,
+      "bundle_hypothesis": "The remaining TRAIN failures are no longer account-report gaps but missing customer-side halves of a requirement the report already names on the account side. native_1960430951 (fail) is an abroad/MMS episode in which the agent enabled the line's roaming flag and refuelled the over-limit line, yet the customer's own public reports kept returning 'Data Roaming: No' on the phone and the MMS stayed broken until the episode ended on an offer to transfer; the two comparable controls native_a2a9bd5a and native_88e3142c (both succeed, same customer C1001 and same over-limit line L1002) only finish after the agent guides the customer to turn Data Roaming ON in the phone settings. The public support manual makes roaming two-sided ('guide them to use toggle_roaming()' AND 'check that the line associated with the phone number the user provided is roaming enabled'), but H4 currently names only the line's flag and drops that sentence entirely once the flag is enabled, so the device-side step is never surfaced. H4 therefore adds one sentence, only while the customer is outside their home network and has not reported their phone's Data Roaming switch as ON, telling the agent to guide the customer to turn Data Roaming ON (the customer's toggle_roaming). Every other episode - not abroad, or the customer already reported roaming ON - produces exactly the previous report text, and H2/H3/H5 are unchanged.",
+      "bundle_id": "bundle_64b424be3a95a8a0",
+      "candidate_score": 0.74,
+      "candidate_successes": 37,
+      "comparison_batch": 5,
+      "comparison_infra_errors": 0,
+      "comparison_score": 0.76,
+      "gap_pp": 24.0,
+      "incumbent_score": 0.76,
+      "incumbent_successes": 38,
+      "operations": [
+        {
+          "artifact": "artifacts/op_h4_report_r3.py",
+          "artifact_sha256": "c6bfd46b4051d366d27f5b8184196cb7ed23279afbec5cf5cb8bff4393aeef2d",
+          "expected_revision": 2,
+          "expected_sha256": "71419c0759098b432047e005fc5ec4d58963460b99dabf853fc99f845bdeaae5",
+          "hypothesis": "Keep the accepted account report, its permitted account-side next step and the identification nudge byte-identical, and add one customer-side step to the same report only when the public history shows the customer is outside their home network and the customer's own last report of the phone's Data Roaming switch is not ON: guide the customer to turn Data Roaming ON in their phone settings (their toggle_roaming). The line's roaming flag alone does not give the phone data abroad, which is why the two comparable successful controls (native_a2a9bd5a, native_88e3142c) end only after the phone toggle, and why native_1960430951 resolved nothing while the customer kept reporting 'Data Roaming: No'. Coverage is read from the customer's own messages only, closest-window wording only, so a neighbouring setting cannot decide it; non-travel episodes and episodes where the customer already reported roaming ON are byte-identical to revision 2. H2 already rewrites a raw toggle_roaming call into the customer instruction and vetoes its repetition, H3 already records the tool list, and H5 already states the duty split and account-first order, so no other layer changes.",
+          "mechanism_id": "m_episode_progress_monitor",
+          "op": "modify",
+          "operation_id": "op_h4_roaming_step_r3",
+          "target_layer": "h4"
+        }
+      ],
+      "optimizer_usage": {
+        "accounting_complete": true,
+        "attempts": 30,
+        "inference_accounting_complete": true,
+        "input_tokens": 3248014,
+        "known_usage_calls": 30,
+        "output_tokens": 76001,
+        "pending_calls": 0,
+        "rate_limit_rejections_without_usage": 0,
+        "total_tokens": 3324015,
+        "unknown_usage_calls": 0
+      },
+      "proposer_requests": 30,
+      "repairs_granted": 0,
+      "round": 6,
+      "same_batch_comparison": true,
+      "train_batch": 5
+    }
+  ]
+}

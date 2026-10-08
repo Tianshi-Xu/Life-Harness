@@ -1,0 +1,69 @@
+type: agent
+name: ahe_retail
+system_prompt: ./systemprompt.md
+system_prompt_type: jinja
+tool_call_mode: openai
+max_iterations: 300
+max_context_tokens: 40000
+llm_config:
+  model: ${env.LLM_MODEL}
+  base_url: ${env.LLM_BASE_URL}
+  api_key: ${env.LLM_API_KEY}
+  max_tokens: 4096
+  temperature: 0.0
+  api_type: openai_chat_completion
+  stream: false
+  extra_body:
+    chat_template_kwargs:
+      enable_thinking: false
+tools:
+- name: calculate
+  yaml_path: ./tool_descriptions/calculate.tool.yaml
+  binding: tools.native:calculate
+- name: cancel_pending_order
+  yaml_path: ./tool_descriptions/cancel_pending_order.tool.yaml
+  binding: tools.native:cancel_pending_order
+- name: exchange_delivered_order_items
+  yaml_path: ./tool_descriptions/exchange_delivered_order_items.tool.yaml
+  binding: tools.native:exchange_delivered_order_items
+- name: find_user_id_by_name_zip
+  yaml_path: ./tool_descriptions/find_user_id_by_name_zip.tool.yaml
+  binding: tools.native:find_user_id_by_name_zip
+- name: find_user_id_by_email
+  yaml_path: ./tool_descriptions/find_user_id_by_email.tool.yaml
+  binding: tools.native:find_user_id_by_email
+- name: get_order_details
+  yaml_path: ./tool_descriptions/get_order_details.tool.yaml
+  binding: tools.native:get_order_details
+- name: get_product_details
+  yaml_path: ./tool_descriptions/get_product_details.tool.yaml
+  binding: tools.native:get_product_details
+- name: get_item_details
+  yaml_path: ./tool_descriptions/get_item_details.tool.yaml
+  binding: tools.native:get_item_details
+- name: get_user_details
+  yaml_path: ./tool_descriptions/get_user_details.tool.yaml
+  binding: tools.native:get_user_details
+- name: list_all_product_types
+  yaml_path: ./tool_descriptions/list_all_product_types.tool.yaml
+  binding: tools.native:list_all_product_types
+- name: modify_pending_order_address
+  yaml_path: ./tool_descriptions/modify_pending_order_address.tool.yaml
+  binding: tools.native:modify_pending_order_address
+- name: modify_pending_order_items
+  yaml_path: ./tool_descriptions/modify_pending_order_items.tool.yaml
+  binding: tools.native:modify_pending_order_items
+- name: modify_pending_order_payment
+  yaml_path: ./tool_descriptions/modify_pending_order_payment.tool.yaml
+  binding: tools.native:modify_pending_order_payment
+- name: modify_user_address
+  yaml_path: ./tool_descriptions/modify_user_address.tool.yaml
+  binding: tools.native:modify_user_address
+- name: return_delivered_order_items
+  yaml_path: ./tool_descriptions/return_delivered_order_items.tool.yaml
+  binding: tools.native:return_delivered_order_items
+- name: transfer_to_human_agents
+  yaml_path: ./tool_descriptions/transfer_to_human_agents.tool.yaml
+  binding: tools.native:transfer_to_human_agents
+tracers:
+- import: nexau.archs.tracer.adapters.in_memory:InMemoryTracer

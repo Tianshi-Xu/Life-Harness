@@ -1,0 +1,335 @@
+{
+  "status": "running",
+  "domain": "retail",
+  "family": "tau",
+  "round": 0,
+  "batch": 0,
+  "accepted": [
+    {
+      "round": 0,
+      "name": "zero",
+      "target_layer": "zero",
+      "file": "layer_000_zero.py",
+      "sha256": "6fcdf5fe8669ffa3708d538b2d3fde3ea983bfe69e33a297d278df606f211044"
+    }
+  ],
+  "rounds": [],
+  "baseline_phase": "batch_00_incumbent",
+  "baseline_summary": {
+    "accuracy": 0.4,
+    "average_reward": 0.4,
+    "pass@k": 0.4,
+    "pass^k": 0.4,
+    "k": 1,
+    "per_task": {
+      "16": 1.0,
+      "10": 0.0,
+      "0": 1.0,
+      "6": 1.0,
+      "15": 0.0,
+      "3": 0.0,
+      "13": 0.0,
+      "30": 0.0,
+      "24": 1.0,
+      "20": 0.0,
+      "31": 0.0,
+      "23": 0.0,
+      "34": 1.0,
+      "1": 0.0,
+      "43": 0.0,
+      "41": 1.0,
+      "37": 0.0,
+      "35": 0.0,
+      "44": 1.0,
+      "48": 1.0,
+      "59": 1.0,
+      "67": 0.0,
+      "66": 1.0,
+      "58": 1.0,
+      "63": 0.0,
+      "73": 1.0,
+      "52": 0.0,
+      "75": 1.0,
+      "57": 0.0,
+      "69": 1.0,
+      "80": 1.0,
+      "82": 0.0,
+      "78": 1.0,
+      "84": 0.0,
+      "50": 1.0,
+      "87": 1.0,
+      "88": 1.0,
+      "76": 0.0,
+      "91": 1.0,
+      "54": 0.0,
+      "106": 0.0,
+      "98": 0.0,
+      "95": 0.0,
+      "107": 0.0,
+      "103": 0.0,
+      "105": 0.0,
+      "113": 0.0,
+      "104": 0.0,
+      "109": 0.0,
+      "96": 0.0
+    },
+    "total_simulations": 50,
+    "total_tokens": 7981357,
+    "harness_plugin": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_from_scratch_six_20260930/retail/runtime/incumbent/loader.py",
+    "save_dir": "/mnt/data/xts/harness/Life-Harness/TauBench/data/simulations/meta_harness/life_from_scratch_six_20260930_retail/retail/batch_00_incumbent",
+    "cmd": [
+      "uv",
+      "run",
+      "python",
+      "scripts/eval_harness.py",
+      "--domain",
+      "retail",
+      "--split",
+      "train",
+      "--save-to",
+      "meta_harness/life_from_scratch_six_20260930_retail/retail/batch_00_incumbent",
+      "--trials",
+      "1",
+      "--concurrency",
+      "8",
+      "--enabled",
+      "--h2",
+      "--h3",
+      "--h4",
+      "--h5",
+      "--harness-plugin",
+      "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_from_scratch_six_20260930/retail/runtime/incumbent/loader.py",
+      "--task-id-file",
+      "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_from_scratch_six_20260930/retail/task_ids/batch_00.txt",
+      "--agent-llm",
+      "openai/qwen3-4b",
+      "--user-llm",
+      "openai/qwen3.8-flash",
+      "--user-api-base",
+      "https://maas.qianwenaiapi.com/compatible-mode/v1",
+      "--user-enable-thinking",
+      "--nl"
+    ],
+    "domain": "retail",
+    "split": "train",
+    "candidate": "batch_00_incumbent",
+    "flags": "h2,h3,h4,h5",
+    "per_task_trials": {
+      "16": [
+        1.0
+      ],
+      "10": [
+        0.0
+      ],
+      "0": [
+        1.0
+      ],
+      "6": [
+        1.0
+      ],
+      "15": [
+        0.0
+      ],
+      "3": [
+        0.0
+      ],
+      "13": [
+        0.0
+      ],
+      "30": [
+        0.0
+      ],
+      "24": [
+        1.0
+      ],
+      "20": [
+        0.0
+      ],
+      "31": [
+        0.0
+      ],
+      "23": [
+        0.0
+      ],
+      "34": [
+        1.0
+      ],
+      "1": [
+        0.0
+      ],
+      "43": [
+        0.0
+      ],
+      "41": [
+        1.0
+      ],
+      "37": [
+        0.0
+      ],
+      "35": [
+        0.0
+      ],
+      "44": [
+        1.0
+      ],
+      "48": [
+        1.0
+      ],
+      "59": [
+        1.0
+      ],
+      "67": [
+        0.0
+      ],
+      "66": [
+        1.0
+      ],
+      "58": [
+        1.0
+      ],
+      "63": [
+        0.0
+      ],
+      "73": [
+        1.0
+      ],
+      "52": [
+        0.0
+      ],
+      "75": [
+        1.0
+      ],
+      "57": [
+        0.0
+      ],
+      "69": [
+        1.0
+      ],
+      "80": [
+        1.0
+      ],
+      "82": [
+        0.0
+      ],
+      "78": [
+        1.0
+      ],
+      "84": [
+        0.0
+      ],
+      "50": [
+        1.0
+      ],
+      "87": [
+        1.0
+      ],
+      "88": [
+        1.0
+      ],
+      "76": [
+        0.0
+      ],
+      "91": [
+        1.0
+      ],
+      "54": [
+        0.0
+      ],
+      "106": [
+        0.0
+      ],
+      "98": [
+        0.0
+      ],
+      "95": [
+        0.0
+      ],
+      "107": [
+        0.0
+      ],
+      "103": [
+        0.0
+      ],
+      "105": [
+        0.0
+      ],
+      "113": [
+        0.0
+      ],
+      "104": [
+        0.0
+      ],
+      "109": [
+        0.0
+      ],
+      "96": [
+        0.0
+      ]
+    },
+    "phase": "batch_00_incumbent",
+    "batch": 0,
+    "task_ids": [
+      "73",
+      "6",
+      "96",
+      "37",
+      "59",
+      "31",
+      "82",
+      "54",
+      "35",
+      "16",
+      "67",
+      "104",
+      "41",
+      "34",
+      "84",
+      "24",
+      "48",
+      "15",
+      "44",
+      "88",
+      "75",
+      "50",
+      "63",
+      "23",
+      "103",
+      "10",
+      "20",
+      "0",
+      "98",
+      "30",
+      "57",
+      "69",
+      "87",
+      "1",
+      "3",
+      "91",
+      "43",
+      "106",
+      "58",
+      "80",
+      "78",
+      "95",
+      "105",
+      "13",
+      "113",
+      "107",
+      "52",
+      "76",
+      "66",
+      "109"
+    ],
+    "trials": 1,
+    "concurrency": 8,
+    "solver": "openai/qwen3-4b",
+    "user": "openai/qwen3.8-flash",
+    "plugin_hashes": {
+      "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_from_scratch_six_20260930/retail/runtime/incumbent/loader.py": "721f9bcb5484cb641a3a232bbdecc74a77f64d4bdb883e2f1c26df925757bcda",
+      "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_from_scratch_six_20260930/retail/runtime/incumbent/manifest.json": "c83a3a384f1b06453c98734252d438b4c371640129df709f90b0aaf67ea0785b",
+      "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_from_scratch_six_20260930/retail/chain/layer_000_zero.py": "6fcdf5fe8669ffa3708d538b2d3fde3ea983bfe69e33a297d278df606f211044"
+    },
+    "protocol_hash": "1ca2de59570d9a7726ffb00123bd80a1c08e3ad8559925d6b9f84824db781f7c",
+    "task_limit": null
+  }
+}

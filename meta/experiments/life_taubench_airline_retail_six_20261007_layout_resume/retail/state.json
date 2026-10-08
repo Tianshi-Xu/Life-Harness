@@ -1,0 +1,427 @@
+{
+  "accepted_bundle_ids": [
+    "bundle_e9fa577fdab3c512",
+    "bundle_008f3265e5480fba"
+  ],
+  "active_snapshot": [
+    {
+      "artifact_path": "versions/bundle_008f3265e5480fba/h3_replacement_options_panel.py",
+      "mechanism_id": "retail_record_context_view",
+      "revision": 2,
+      "sha256": "96288092d3917dd256e10f825138b2ed670984fbf12fba54e34bb4bda03f7f43",
+      "target_layer": "h3"
+    },
+    {
+      "artifact_path": "versions/bundle_008f3265e5480fba/h2_provable_item_write_gate.py",
+      "mechanism_id": "retail_provable_action_guard",
+      "revision": 2,
+      "sha256": "e455a57e93d4964dd9199847d79fb6d3fc635ae7c7768a03f7216db0fafda9f2",
+      "target_layer": "h2"
+    }
+  ],
+  "active_snapshot_sha256": "78e0564bab93b1c5c7889c996ed1bd217c34224ef8b647647e074efdc8b31f97",
+  "domain": "retail",
+  "operation_log": [
+    {
+      "bundle_id": "bundle_e9fa577fdab3c512",
+      "committed_snapshot_sha256": "4c656d816c80eba6bc290f215aae234f5771622fa6a72bee168e9ed3abaed998",
+      "operations": [
+        {
+          "artifact": "artifacts/h3_record_context.py",
+          "artifact_sha256": "af225fe5f86fa1a256ed93873b3b47adcf5e61b98ca0730ba85e943fc497a4c7",
+          "hypothesis": "After a successful authentication the solver asks the customer for ids the account already holds and copies the '#W0000000' description example (native_9bdb2af6 loops eleven times on it, native_35135aaa uses a user id as an order id, native_3d914f9 guesses an email and a zip and then transfers). Naming the authenticated customer's own order ids with their recorded statuses in the model-visible system message at exactly those turns, taking no action and touching neither episode history nor the user simulator, replaces the guess with the record the tools already return; the three description sentences state the two tool semantics that were misread (real ids come from the account, and modify_user_address does not change an order's shipping address, per native_785f3ec7).",
+          "mechanism_id": "retail_record_context_view",
+          "op": "add",
+          "operation_id": "h3_record_context",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/h2_record_guard.py",
+          "artifact_sha256": "fcd7ccafd38e6ec87fa61a1be7670386c404045ec086cdd482131504fe98a2af",
+          "hypothesis": "Some recorded actions cannot succeed under the current records: the identical get_order_details('#W0000000') resend that ends native_9bdb2af6 in TOO_MANY_ERRORS, the second return_delivered_order_items on an order already in 'return requested' in native_1da51b8d, and order ids that survive only in a different format. Recovering a pure formatting mismatch and vetoing each provable-futile signature at most once, at most three per episode, returning the recorded error or status plus the authenticated customer's real order ids and statuses as tool feedback, replaces a guaranteed error turn with a usable next step; no action that could succeed is replaced or blocked, and the layer returns the proposed action untouched whenever it cannot prove the failure.",
+          "mechanism_id": "retail_provable_action_guard",
+          "op": "add",
+          "operation_id": "h2_record_guard",
+          "target_layer": "h2"
+        }
+      ],
+      "parent_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "bundle_id": "bundle_008f3265e5480fba",
+      "committed_snapshot_sha256": "78e0564bab93b1c5c7889c996ed1bd217c34224ef8b647647e074efdc8b31f97",
+      "operations": [
+        {
+          "artifact": "artifacts/retail_provable_action_guard_r2.py",
+          "artifact_sha256": "e455a57e93d4964dd9199847d79fb6d3fc635ae7c7768a03f7216db0fafda9f2",
+          "expected_revision": 1,
+          "expected_sha256": "fcd7ccafd38e6ec87fa61a1be7670386c404045ec086cdd482131504fe98a2af",
+          "hypothesis": "Recorded episodes hand the item id that is already in the order to new_item_ids (native_f369cb89, native_5feceb66) and the environment accepts that no-op write, so the requested option is never ordered; a second recorded class contradicts the records directly (an item that is not in the target order, a replacement list whose length does not match, an unknown or other-product or unavailable replacement id). Each of those can only fail or produce records the customer did not ask for, so vetoing them once per distinct signature, at most four per episode, and returning the order's real item ids or that product's available variants with the option values that differ replaces a wasted or wrong write with a usable next step; an identical retry after the veto is allowed through, so the layer never loops. A transfer to a human agent whose whole conversation contains no customer request for a human is likewise outside the policy's 'if and only if' rule and is reconsidered once with the recorded facts.",
+          "mechanism_id": "retail_provable_action_guard",
+          "op": "modify",
+          "operation_id": "h2_provable_item_write_gate",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/retail_record_context_view_r2.py",
+          "artifact_sha256": "96288092d3917dd256e10f825138b2ed670984fbf12fba54e34bb4bda03f7f43",
+          "expected_revision": 1,
+          "expected_sha256": "af225fe5f86fa1a256ed93873b3b47adcf5e61b98ca0730ba85e943fc497a4c7",
+          "hypothesis": "In the two recorded no-op exchanges the model had only the old item's own details in context, so it copied that item id as the replacement; the business records already hold each product's available variants with their option values, availability and price. Appending one model-only panel that names the customer's current item and, closest option change first, that product's available variants with the option values that differ (plus a description sentence saying a replacement id must be read from get_product_details) puts the real replacement ids in front of the model at the exact turn it composes the write, without changing any name, schema, order or dispatch, and without touching episode history or the user simulator; it is only emitted when the latest customer turn asks to change an item the authenticated customer already owns and the same-product name is actually mentioned, so unwritten turns are unchanged.",
+          "mechanism_id": "retail_record_context_view",
+          "op": "modify",
+          "operation_id": "h3_replacement_options_panel",
+          "target_layer": "h3"
+        }
+      ],
+      "parent_snapshot_sha256": "4c656d816c80eba6bc290f215aae234f5771622fa6a72bee168e9ed3abaed998"
+    }
+  ],
+  "prior_test_exposure": true,
+  "round": 6,
+  "rounds": [
+    {
+      "accepted": false,
+      "active_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "bundle_hypothesis": "Retail failures on this batch are dominated by action-selection errors that the public business state already contradicts: order ids that do not exist (a user id or the '#W0000000' placeholder), writes aimed at orders whose status forbids them, item modifications proposed with the current item id instead of an available variant, exact repeats of a call that already returned an error, and give-up transfers before the customer's request has been attempted. A single contract fixes these: H5 states the public procedure at cold start, H2 repairs malformed order ids and vetoes pending actions that the recorded business state or the recorded error history contradicts, and H4 diagnoses a fresh tool error once using the same DB facts.",
+      "bundle_id": "bundle_bd190be5e26eba43",
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.4,
+      "candidate_successes": 20,
+      "incumbent_infra_errors": 0,
+      "incumbent_score": 0.4,
+      "incumbent_successes": 20,
+      "operations": [
+        {
+          "artifact": "artifacts/retail_action_gate.py",
+          "artifact_sha256": "a4e93f772f88fc33d83d1efe63505c3230f1591126da1301ceecdb6d9a86d2ae",
+          "hypothesis": "Pending actions that contradict the recorded business DB (unknown order id, wrong status for the tool, item ids absent from the order) or that repeat an already failed call cannot succeed; repairing malformed order ids and vetoing those calls with DB-derived corrective feedback replaces a wasted error turn with a usable next step, and it costs at most one turn per gated call.",
+          "mechanism_id": "retail_action_gate",
+          "op": "add",
+          "operation_id": "h2_retail_action_gate",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/retail_failure_diagnosis.py",
+          "artifact_sha256": "b40adc616555f1dea50c0a1c1af3c05239de77433ac1c6157795683c930d00ee",
+          "hypothesis": "After the first tool error the solver often retries the same call; one episode-local hint that names the error, the order's real status and items, the product's available variant ids, and whether a write already succeeded on that order turns a blind retry into an argument change, without repeating hints for the same failure signature.",
+          "mechanism_id": "retail_failure_diagnosis",
+          "op": "add",
+          "operation_id": "h4_retail_failure_diagnosis",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/retail_cold_start.py",
+          "artifact_sha256": "10a9bceff6c65bf8d69263f138bac38ccc9bc32392ed5e195aa32b628448a634",
+          "hypothesis": "The first solver turn has no episode evidence yet; stating the public retail workflow (authenticate, read the customer's orders, check status, choose an available variant id, one write per order, read errors instead of repeating calls, no invented procedures, transfer only on request) prevents the early divergence seen in this batch without adding any hidden action.",
+          "mechanism_id": "retail_cold_start",
+          "op": "add",
+          "operation_id": "h5_retail_cold_start",
+          "target_layer": "h5"
+        }
+      ],
+      "optimizer_usage": {
+        "accounting_complete": true,
+        "attempts": 36,
+        "inference_accounting_complete": true,
+        "input_tokens": 3644000,
+        "known_usage_calls": 36,
+        "output_tokens": 81478,
+        "pending_calls": 0,
+        "rate_limit_rejections_without_usage": 0,
+        "total_tokens": 3725478,
+        "unknown_usage_calls": 0
+      },
+      "proposer_requests": 36,
+      "repairs_granted": 0,
+      "retained_score": 0.4,
+      "round": 1,
+      "train_batch": 0,
+      "train_episodes": 50,
+      "train_n": 50,
+      "train_trials": 1
+    },
+    {
+      "accepted": false,
+      "active_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "bundle_hypothesis": "On this retail TRAIN batch the incumbent often exposes only 16/50 successes, and the recorded failures are not knowledge gaps: they are execution failures with public, checkable triggers. Reading the failing episodes and the matched successes shows the first divergence is usually one of (a) an order id that the public business records contradict - the '#W0000000' example copied back verbatim or invented '#P000000x' sequences, driving 'Error: Order not found' until TOO_MANY_ERRORS; (b) the identical call resent after it already returned an error, again until TOO_MANY_ERRORS; (c) cancel/modify/return/exchange aimed at an order whose recorded status forbids that tool; (d) an item offered as its own replacement; (e) transfer_to_human_agents as the very first action while the request is covered by the retail tools; (f) asking the customer for an order id, address or item id that get_user_details already exposes. The contract therefore has one public goal - resolve the customer's request with the retail tools, using the customer's own records rather than the customer's memory - implemented as: H3 states the order-id contract in the model-visible tool descriptions and points get_user_details at the records; H4 owns episode-local account state, emitting one compact record panel (ids, statuses, items, shipping address) at the first solver call after authentication is visible, then at most one recovery note per distinct tool error; H2 owns action control, repairing a recoverable order id and otherwise suppressing a provably futile pending action once per distinct signature with the recorded error/status plus the authenticated customer's real ids, and nudging a message that asks for an order id that shared state already holds. H5 is left unchanged: its previous wording variant produced no measured gain, and the goal statement now travels with the two active layers, so no new H5 content is added.",
+      "bundle_id": "bundle_4c7325fdcc149f7f",
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.26,
+      "candidate_successes": 13,
+      "incumbent_infra_errors": 0,
+      "incumbent_score": 0.32,
+      "incumbent_successes": 16,
+      "operations": [
+        {
+          "artifact": "artifacts/h2_business_state_gate.py",
+          "artifact_sha256": "f2afddfd8a188dcd1c7dda92b3e6317c8810c2dbbb91da339608f5b14fa3ad0e",
+          "hypothesis": "A pending call whose order id is absent from the business records, whose target order's recorded status forbids that tool, that repeats an identical call already answered with 'Error: ...', that offers an item as its own exchange replacement, or that transfers to a human before any tool was used, cannot succeed; repairing a recoverable id or suppressing that action once (returning the recorded error/status and the authenticated customer's real order ids) replaces a wasted error turn with a usable next step and costs at most one turn per distinct signature.",
+          "mechanism_id": "retail_futile_action_gate",
+          "op": "add",
+          "operation_id": "h2_business_state_gate",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/h4_account_record_panel.py",
+          "artifact_sha256": "8c3fea8c70a61f098453ef570589a9e34b241b26a0aaa32a68bedd5417348245",
+          "hypothesis": "After authentication the solver repeatedly asks the customer for, or invents, identifiers that the agent-side business DB already holds; one compact panel of the authenticated customer's order ids, statuses, items and shipping address, emitted once as soon as authentication (a find_user_id / get_user_details result) is visible, plus one short recovery note per distinct tool error and the same facts exposed through shared state, removes the guess-and-ask loop without adding any hidden action.",
+          "mechanism_id": "retail_account_record_panel",
+          "op": "add",
+          "operation_id": "h4_account_record_panel",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/h3_order_id_contract.py",
+          "artifact_sha256": "79d1cccc350ad2a17b089ecdb35fb9773dd0b6031071b2ffa6b86f4651c93ab7",
+          "hypothesis": "The order_id argument schema itself advertises '#W0000000', which recorded episodes copy back as an order id; stating in every order tool's description that the id must be read from the customer's own account (get_user_details) and that the schema example is never a real order, without changing any name, schema, order or dispatch, removes that trap at its source.",
+          "mechanism_id": "retail_order_id_contract",
+          "op": "add",
+          "operation_id": "h3_order_id_contract",
+          "target_layer": "h3"
+        }
+      ],
+      "optimizer_usage": {
+        "accounting_complete": true,
+        "attempts": 37,
+        "inference_accounting_complete": true,
+        "input_tokens": 3441999,
+        "known_usage_calls": 37,
+        "output_tokens": 87401,
+        "pending_calls": 0,
+        "rate_limit_rejections_without_usage": 0,
+        "total_tokens": 3529400,
+        "unknown_usage_calls": 0
+      },
+      "proposer_requests": 37,
+      "repairs_granted": 0,
+      "retained_score": 0.32,
+      "round": 2,
+      "train_batch": 1,
+      "train_episodes": 50,
+      "train_n": 50,
+      "train_trials": 1
+    },
+    {
+      "accepted": false,
+      "active_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "bundle_hypothesis": "The 26 recorded TRAIN failures are execution failures with public, checkable triggers, not knowledge gaps: in the inspected traces the solver either ignores the customer's own account record (native_8b940be7 asks the customer for an order id, then calls get_order_details with the schema example '#W0000000', then transfers to a human although the account lists two orders; native_25fc0e70 keeps re-asking for ids the account already contains) or repeats a call that the current records already answer with an error (native_454f63ac resends modify_pending_order_items with new_item_ids equal to item_ids until TOO_MANY_ERRORS). One contract fixes this at the layers that can see it: H5 states the public record-first procedure once at cold start; H3 puts the same facts into the descriptions of the tools that are actually being misused (get_user_details returns the customer's own order ids, order ids are copied from the account, replacement item ids must differ, transfer is not for requests the tools can serve); H2 vetoes only actions whose failure is provable from the current business records (an order id absent from the records, new_item_ids repeating item_ids, an exact resend of an already errored call, a transfer before the account was ever read) with corrective feedback carrying the true ids, statuses and available variants. Every veto is bounded, deduplicated by signature and never replaces a call that could succeed.",
+      "bundle_id": "bundle_406e57596c92fee7",
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.42,
+      "candidate_successes": 21,
+      "incumbent_infra_errors": 0,
+      "incumbent_score": 0.48,
+      "incumbent_successes": 24,
+      "operations": [
+        {
+          "artifact": "artifacts/h5_retail_record_first.py",
+          "artifact_sha256": "7fa72bda116fc8f60fb44bd1729f4e18a26cd5897ba58a8af8793b3398cd9384",
+          "hypothesis": "The first solver turn has no episode evidence, so the recorded ask-the-customer and placeholder-id divergences start before any tool result exists; stating the public record-first procedure (authenticate, then read the customer's own account, take ids exactly from it, one call per turn, confirm before writes, change arguments after an error instead of resending, transfer last) prevents that divergence without any hidden action.",
+          "mechanism_id": "retail_record_first_contract",
+          "op": "add",
+          "operation_id": "h5_retail_record_first",
+          "target_layer": "h5"
+        },
+        {
+          "artifact": "artifacts/h3_retail_record_hints.py",
+          "artifact_sha256": "089e20da62df8b9597a8f21a64bf5eb669c325ee18be63151acdc1b3a014c140",
+          "hypothesis": "The tool descriptions the solver reads every turn never say where a real order id comes from or that a replacement item must differ from the item it replaces; adding only those sentences to function.description (no name, schema, order or dispatch change) removes the '#W0000000', ask-the-customer and same-item-replacement traps at their source.",
+          "mechanism_id": "retail_record_tool_hints",
+          "op": "add",
+          "operation_id": "h3_retail_record_hints",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/h2_retail_record_gate.py",
+          "artifact_sha256": "d2b150fa1ddd735f1e6551d4e4f49c524dd9a89271b872564c9cd91656935958",
+          "hypothesis": "Actions whose failure the current business records already prove (order id absent from the records, new_item_ids repeating item_ids, an exact resend of a call already answered with an error, a transfer before the customer's own account was read) waste turns and, in the recorded traces, end in TOO_MANY_ERRORS or an unusable handoff; vetoing each distinct one at most once, at most three per episode, with feedback carrying the account's real order ids, statuses and available variants replaces a guaranteed error with a usable next step and never blocks a call that could succeed.",
+          "mechanism_id": "retail_record_gate_bounded",
+          "op": "add",
+          "operation_id": "h2_retail_record_gate",
+          "target_layer": "h2"
+        }
+      ],
+      "optimizer_usage": {
+        "accounting_complete": true,
+        "attempts": 32,
+        "inference_accounting_complete": true,
+        "input_tokens": 2760435,
+        "known_usage_calls": 32,
+        "output_tokens": 56957,
+        "pending_calls": 0,
+        "rate_limit_rejections_without_usage": 0,
+        "total_tokens": 2817392,
+        "unknown_usage_calls": 0
+      },
+      "proposer_requests": 32,
+      "repairs_granted": 0,
+      "retained_score": 0.48,
+      "round": 3,
+      "train_batch": 2,
+      "train_episodes": 50,
+      "train_n": 50,
+      "train_trials": 1
+    },
+    {
+      "accepted": false,
+      "active_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "bundle_hypothesis": "The 35 recorded TRAIN failures are execution failures on public, checkable triggers, not knowledge gaps. Two inspected traces show the first divergence before any environment action has resolved the customer: in native_25fc0e70 the customer says the order id '9502126'/'W9502127', the agent calls get_order_details with that non-canonical string three times, each returns 'Error: Order not found', and the episode ends at 16 messages without ever authenticating or reading the customer's own account; in native_f369cb89 the agent fabricates every identifier it was never given - the description example '1008292230' as an item id, '6086499569' as a product id, 'credit_card_0000000' as a payment method, 'liam_moore_123' as a user id and the example zip '12345' - while the agent-side business records already contain the right account, its orders, items, available same-product variants and payment methods. The contract therefore has one public goal - resolve the customer's request from the store's own records instead of from guessed or remembered identifiers - implemented at the two layers that can see the evidence: H3 appends one sentence to the descriptions that actually advertise placeholder ids, saying those examples are never real arguments, and H4 owns episode-local record state, resolving the conversation's customer from public history (customer email/user id/order id, exact or uniquely matching numeric order id corroborated by the items the customer named, or a unique name+zip), emitting one compact record panel with that account's orders, statuses, item ids, available same-product variants and payment methods plus the exact authentication call to make, then at most one diagnosis per distinct tool error and one format note when no record matches the id the customer used. No action is ever replaced or vetoed, so a wrong inference can only cost context, not a turn; H2 and H5 stay unchanged because the recorded H2 vetoes and H5 wording variants produced no measured gain and this mechanism does not need them.",
+      "bundle_id": "bundle_b3e0da3919df935d",
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.24,
+      "candidate_successes": 12,
+      "incumbent_infra_errors": 0,
+      "incumbent_score": 0.3,
+      "incumbent_successes": 15,
+      "operations": [
+        {
+          "artifact": "artifacts/h3_placeholder_ids.py",
+          "artifact_sha256": "d7578b68a4f247b427e233318fff51875ec9904dfcdad9964c2465dfc793b9da",
+          "hypothesis": "Recorded failing episodes copy the literal 'such as' values out of tool descriptions ('1008292230' as an item id in native_f369cb89, 'credit_card_0000000' as a payment method, the example zip '12345' with an invented user id); stating in exactly those descriptions that every printed id is a format example and that real ids must come back from this customer's own records and tool results removes that trap at its source without changing any tool name, schema, order or dispatch.",
+          "mechanism_id": "retail_placeholder_id_note",
+          "op": "add",
+          "operation_id": "h3_placeholder_ids",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/h4_grounded_records.py",
+          "artifact_sha256": "2dd3bfb622611f0e73612fbe723a2e27fd0fa26d98273702cf98d608f0897f3e",
+          "hypothesis": "The recorded failures never resolve the customer from the records they already hold: native_25fc0e70 dies after three 'Order not found' calls for an id the customer typed without its '#' prefix, while the bound business DB contains #W9502127 [delivered] with exactly the air purifier and vacuum cleaner the customer described, and native_f369cb89 invents item, product, payment and user ids while the DB holds the matching account. Resolving the conversation's customer from public history, emitting one episode-local record panel (account, exact authentication call, order ids with statuses and item ids, available same-product replacement variants with prices, payment methods, address) plus at most one diagnosis per distinct tool error and one id-format note when no record matches, gives the solver usable next-step facts without replacing or vetoing any action; each event is emitted at most once per episode, capped, and stored under 'h4.*' keys in the host shared dict.",
+          "mechanism_id": "retail_grounded_customer_records",
+          "op": "add",
+          "operation_id": "h4_grounded_records",
+          "target_layer": "h4"
+        }
+      ],
+      "optimizer_usage": {
+        "accounting_complete": true,
+        "attempts": 26,
+        "inference_accounting_complete": true,
+        "input_tokens": 10040874,
+        "known_usage_calls": 26,
+        "output_tokens": 83472,
+        "pending_calls": 0,
+        "rate_limit_rejections_without_usage": 0,
+        "total_tokens": 10124346,
+        "unknown_usage_calls": 0
+      },
+      "proposer_requests": 26,
+      "repairs_granted": 0,
+      "retained_score": 0.3,
+      "round": 4,
+      "train_batch": 3,
+      "train_episodes": 50,
+      "train_n": 50,
+      "train_trials": 1
+    },
+    {
+      "accepted": true,
+      "active_snapshot_sha256": "4c656d816c80eba6bc290f215aae234f5771622fa6a72bee168e9ed3abaed998",
+      "bundle_hypothesis": "The recorded TRAIN failures are execution failures with public, checkable triggers, not knowledge gaps: after authenticating, the solver asks the customer for order/item ids the account already holds, copies the '#W0000000' format example out of a tool description, repeats a call the records already answered with an error, or aims a return/cancel at an order whose recorded status forbids it; in native_785f3ec7 it also believes modify_user_address changed the orders' shipping addresses. One contract states the public goal (resolve the request from the customer's own records) at the two layers that can see the evidence without disturbing the conversation: H3 computes the episode facts from public history plus the bound business records on every solver call and appends one short record note to the MODEL-VISIBLE system message only (never to episode history, never to what the user simulator reads), together with three description sentences that state id provenance and address scope; H2 repairs a purely formatting order-id mismatch and vetoes only actions whose failure the current records already prove (verbatim repeat of an errored call, an order id absent from the records, a status the tool requires contradicted by the record), each signature at most once and at most three vetoes per episode, with tool-role feedback that names the recorded error/status and the customer's real ids so the next action has usable arguments. H4 and H5 stay unchanged because both write into persistent conversation state or the first-turn payload, which is where the rejected bundles regressed.",
+      "bundle_id": "bundle_e9fa577fdab3c512",
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.5,
+      "candidate_successes": 25,
+      "incumbent_infra_errors": 0,
+      "incumbent_score": 0.42,
+      "incumbent_successes": 21,
+      "operations": [
+        {
+          "artifact": "artifacts/h3_record_context.py",
+          "artifact_sha256": "af225fe5f86fa1a256ed93873b3b47adcf5e61b98ca0730ba85e943fc497a4c7",
+          "hypothesis": "After a successful authentication the solver asks the customer for ids the account already holds and copies the '#W0000000' description example (native_9bdb2af6 loops eleven times on it, native_35135aaa uses a user id as an order id, native_3d914f9 guesses an email and a zip and then transfers). Naming the authenticated customer's own order ids with their recorded statuses in the model-visible system message at exactly those turns, taking no action and touching neither episode history nor the user simulator, replaces the guess with the record the tools already return; the three description sentences state the two tool semantics that were misread (real ids come from the account, and modify_user_address does not change an order's shipping address, per native_785f3ec7).",
+          "mechanism_id": "retail_record_context_view",
+          "op": "add",
+          "operation_id": "h3_record_context",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/h2_record_guard.py",
+          "artifact_sha256": "fcd7ccafd38e6ec87fa61a1be7670386c404045ec086cdd482131504fe98a2af",
+          "hypothesis": "Some recorded actions cannot succeed under the current records: the identical get_order_details('#W0000000') resend that ends native_9bdb2af6 in TOO_MANY_ERRORS, the second return_delivered_order_items on an order already in 'return requested' in native_1da51b8d, and order ids that survive only in a different format. Recovering a pure formatting mismatch and vetoing each provable-futile signature at most once, at most three per episode, returning the recorded error or status plus the authenticated customer's real order ids and statuses as tool feedback, replaces a guaranteed error turn with a usable next step; no action that could succeed is replaced or blocked, and the layer returns the proposed action untouched whenever it cannot prove the failure.",
+          "mechanism_id": "retail_provable_action_guard",
+          "op": "add",
+          "operation_id": "h2_record_guard",
+          "target_layer": "h2"
+        }
+      ],
+      "optimizer_usage": {
+        "accounting_complete": true,
+        "attempts": 26,
+        "inference_accounting_complete": true,
+        "input_tokens": 2448403,
+        "known_usage_calls": 26,
+        "output_tokens": 62904,
+        "pending_calls": 0,
+        "rate_limit_rejections_without_usage": 0,
+        "total_tokens": 2511307,
+        "unknown_usage_calls": 0
+      },
+      "proposer_requests": 26,
+      "repairs_granted": 0,
+      "retained_score": 0.5,
+      "round": 5,
+      "train_batch": 4,
+      "train_episodes": 50,
+      "train_n": 50,
+      "train_trials": 1
+    },
+    {
+      "accepted": true,
+      "active_snapshot_sha256": "78e0564bab93b1c5c7889c996ed1bd217c34224ef8b647647e074efdc8b31f97",
+      "bundle_hypothesis": "The recorded retail TRAIN failures are execution failures with public, checkable triggers, and the item-level write is still one of them: in native_f369cb89 the agent read the wireless earbuds back with get_item_details and sent exchange_delivered_order_items with new_item_ids equal to item_ids (8555936349 -> 8555936349), and in native_5feceb66 the same no-op exchange was sent for the mechanical keyboard and the smart thermostat after reading only the old items; the environment accepted the write and set 'exchange requested', so the variant the customer asked for was never ordered and the final records could not match the request. A second recorded divergence is a capability denial without any tool call (native_4b227777 answered 'the exact number of t-shirt options is not included in the provided data' although get_product_details exposes it), and a third is an unwarranted handoff (native_1253e937 transferred to a human agent while the customer was still asking about a payment difference the retail policy defines). The contract stays record-first: H3 keeps the authenticated-account panel and adds a replacement-options panel (the customer's own item with its recorded option values plus, closest option change first, the available variants of the SAME product and the option values that differ) exactly when the latest customer turn asks to change an item the authenticated customer already owns; H2 keeps every provable-futility rule that is already active and adds provable item-level defects (item id not in the target order, replacement list not positionally aligned, an item offered as its own replacement, an unknown replacement id, a replacement belonging to another product, a replacement marked unavailable) plus a once-per-episode reconsideration of transfer_to_human_agents when no customer turn ever asked for a human. Feedback names the recorded order items or the product's own available variants, so a suppressed guaranteed failure is replaced by a usable next step and no action that could succeed is blocked.",
+      "bundle_id": "bundle_008f3265e5480fba",
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.42,
+      "candidate_successes": 21,
+      "incumbent_infra_errors": 0,
+      "incumbent_score": 0.3,
+      "incumbent_successes": 15,
+      "operations": [
+        {
+          "artifact": "artifacts/retail_provable_action_guard_r2.py",
+          "artifact_sha256": "e455a57e93d4964dd9199847d79fb6d3fc635ae7c7768a03f7216db0fafda9f2",
+          "expected_revision": 1,
+          "expected_sha256": "fcd7ccafd38e6ec87fa61a1be7670386c404045ec086cdd482131504fe98a2af",
+          "hypothesis": "Recorded episodes hand the item id that is already in the order to new_item_ids (native_f369cb89, native_5feceb66) and the environment accepts that no-op write, so the requested option is never ordered; a second recorded class contradicts the records directly (an item that is not in the target order, a replacement list whose length does not match, an unknown or other-product or unavailable replacement id). Each of those can only fail or produce records the customer did not ask for, so vetoing them once per distinct signature, at most four per episode, and returning the order's real item ids or that product's available variants with the option values that differ replaces a wasted or wrong write with a usable next step; an identical retry after the veto is allowed through, so the layer never loops. A transfer to a human agent whose whole conversation contains no customer request for a human is likewise outside the policy's 'if and only if' rule and is reconsidered once with the recorded facts.",
+          "mechanism_id": "retail_provable_action_guard",
+          "op": "modify",
+          "operation_id": "h2_provable_item_write_gate",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/retail_record_context_view_r2.py",
+          "artifact_sha256": "96288092d3917dd256e10f825138b2ed670984fbf12fba54e34bb4bda03f7f43",
+          "expected_revision": 1,
+          "expected_sha256": "af225fe5f86fa1a256ed93873b3b47adcf5e61b98ca0730ba85e943fc497a4c7",
+          "hypothesis": "In the two recorded no-op exchanges the model had only the old item's own details in context, so it copied that item id as the replacement; the business records already hold each product's available variants with their option values, availability and price. Appending one model-only panel that names the customer's current item and, closest option change first, that product's available variants with the option values that differ (plus a description sentence saying a replacement id must be read from get_product_details) puts the real replacement ids in front of the model at the exact turn it composes the write, without changing any name, schema, order or dispatch, and without touching episode history or the user simulator; it is only emitted when the latest customer turn asks to change an item the authenticated customer already owns and the same-product name is actually mentioned, so unwritten turns are unchanged.",
+          "mechanism_id": "retail_record_context_view",
+          "op": "modify",
+          "operation_id": "h3_replacement_options_panel",
+          "target_layer": "h3"
+        }
+      ],
+      "optimizer_usage": {
+        "accounting_complete": true,
+        "attempts": 29,
+        "inference_accounting_complete": true,
+        "input_tokens": 2931298,
+        "known_usage_calls": 29,
+        "output_tokens": 67529,
+        "pending_calls": 0,
+        "rate_limit_rejections_without_usage": 0,
+        "total_tokens": 2998827,
+        "unknown_usage_calls": 0
+      },
+      "proposer_requests": 29,
+      "repairs_granted": 0,
+      "retained_score": 0.42,
+      "round": 6,
+      "train_batch": 5,
+      "train_episodes": 50,
+      "train_n": 50,
+      "train_trials": 1
+    }
+  ]
+}

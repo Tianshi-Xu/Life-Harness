@@ -1,0 +1,14 @@
+type: tool
+name: get_reservation_details
+description: Get the details of a reservation.
+input_schema:
+  properties:
+    reservation_id:
+      description: The reservation ID, such as '8JX2WO'.
+      title: Reservation Id
+      type: string
+  required:
+  - reservation_id
+  title: parameters
+  type: object
+disable_parallel: true

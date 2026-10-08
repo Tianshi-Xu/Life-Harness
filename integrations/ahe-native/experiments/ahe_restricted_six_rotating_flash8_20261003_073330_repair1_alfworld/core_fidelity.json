@@ -1,0 +1,14 @@
+{
+  "official_commit": "8b2a55d97590363fe50c3cc6b5e833b020a4bb4c",
+  "upstream_source_modified": false,
+  "smoke_only": false,
+  "restricted_search_space": true,
+  "capability_profile": "h2345-budget-restricted-v1",
+  "unrestricted_ahe_reproduction": false,
+  "search_loop": "original run_single_experiment",
+  "statistics": "original compute_stats",
+  "selection": "original update_best_ever",
+  "optimizer": "original isolated Debugger/Evolve",
+  "batch_protocol": "/mnt/data/xts/harness/ahe-native/batches/ahe_restricted_six_rotating_flash8_20261003_073330_repair1/protocol.json",
+  "training_schedule_sha256": "6ea1837fc75829ab2f5726cf779b9ace91ac887ed65fcacf670b5fb4566b10ff"
+}

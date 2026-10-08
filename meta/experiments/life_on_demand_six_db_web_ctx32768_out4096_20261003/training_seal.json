@@ -1,0 +1,13 @@
+{
+  "experiment": "life_on_demand_six_db_web_ctx32768_out4096_20261003",
+  "prior_test_exposure": true,
+  "protocol_sha256": "9722875e88259a397fb6e97e945b4d0df3b2b8acbc86da62f21a76ac241702e7",
+  "run_config_sha256": {
+    "dbbench": "28853b24cb117c03e8b0c4bdf1d2f5e38a069a452d09a6e658b1fe68e0d8fd72",
+    "webshop": "334c5e721417af987ee7e12278d4a5cf6ed5cf8b82989f3a1e411bafaf3fc1f6"
+  },
+  "state_sha256": {
+    "dbbench": "c1cc45fc6bc369797cfd3de97964321770f5d0c02aa83393bd91651c9305f99d",
+    "webshop": "aedf328145b1e31c248969954cb3966760b34ec835cb18afd3597d495c49be3c"
+  }
+}

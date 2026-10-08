@@ -62,6 +62,8 @@ def build_eval_cmd(args: argparse.Namespace, save_to: str) -> list[str]:
         cmd += ["--user-api-base", args.user_api_base]
     if args.user_disable_thinking:
         cmd.append("--user-disable-thinking")
+    if args.user_enable_thinking:
+        cmd.append("--user-enable-thinking")
     if args.max_steps:
         cmd += ["--max-steps", str(args.max_steps)]
     if args.nl:
@@ -158,6 +160,7 @@ def main() -> int:
     p.add_argument("--user-llm", default=None)
     p.add_argument("--user-api-base", default=None)
     p.add_argument("--user-disable-thinking", action="store_true")
+    p.add_argument("--user-enable-thinking", action="store_true")
     p.add_argument("--max-steps", type=int, default=None)
     p.add_argument("--eval-timeout", type=int, default=6 * 3600)
     p.add_argument("--nl", action="store_true",

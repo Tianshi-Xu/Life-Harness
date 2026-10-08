@@ -1,0 +1,45 @@
+{
+  "optimizer_usage": {
+    "accounting_complete": true,
+    "attempts": 280,
+    "inference_accounting_complete": true,
+    "input_tokens": 36878510,
+    "known_usage_calls": 280,
+    "output_tokens": 872483,
+    "pending_calls": 0,
+    "rate_limit_rejections_without_usage": 0,
+    "total_tokens": 37750993,
+    "unknown_usage_calls": 0
+  },
+  "snapshot": [
+    {
+      "artifact_path": "versions/bundle_11fd0c258e56420d/op_h2_option_gate.py",
+      "mechanism_id": "webshop_option_gate_h2",
+      "revision": 4,
+      "sha256": "a50589b1c12cfa4d1b1fec59976eed69c4adf7bf3eb58627c059e3d8738e133c",
+      "target_layer": "h2"
+    },
+    {
+      "artifact_path": "versions/bundle_11fd0c258e56420d/op_h3_tool_policy.py",
+      "mechanism_id": "webshop_tool_policy_h3",
+      "revision": 4,
+      "sha256": "89d68947df5611d6b9a3503444aa09c0fa1fd2c670ff147e4b5460a7935b5635",
+      "target_layer": "h3"
+    },
+    {
+      "artifact_path": "versions/bundle_11fd0c258e56420d/op_h4_requirement_tracker.py",
+      "mechanism_id": "webshop_requirement_tracker_h4",
+      "revision": 4,
+      "sha256": "347cf5aa810ebde9025ab9fe14dff652abec78b6c107072a008f8dda6cb80ec3",
+      "target_layer": "h4"
+    },
+    {
+      "artifact_path": "versions/bundle_11fd0c258e56420d/op_h5_purchase_policy.py",
+      "mechanism_id": "webshop_purchase_policy_h5",
+      "revision": 4,
+      "sha256": "9c5a05fa632710a386dfb477249adb59e9940c056458f6016bc7809cba84b9aa",
+      "target_layer": "h5"
+    }
+  ],
+  "state_sha256": "13549f660db4cd545281c04a32cd6c41c618cbd5f157a113db815c818a9434d2"
+}

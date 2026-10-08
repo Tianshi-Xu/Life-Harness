@@ -1,0 +1,15 @@
+type: tool
+name: get_order_details
+description: Get the status and details of an order.
+input_schema:
+  properties:
+    order_id:
+      description: The order id, such as '#W0000000'. Be careful there is a '#' symbol
+        at the beginning of the order id.
+      title: Order Id
+      type: string
+  required:
+  - order_id
+  title: parameters
+  type: object
+disable_parallel: true

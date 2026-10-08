@@ -1,0 +1,26 @@
+{
+  "state": "complete",
+  "batch": "ahe_restricted_six_rotating_flash8_20261003_073330_repair1",
+  "pid": 2771171,
+  "created_at": "2026-10-03T08:40:23.164227+00:00",
+  "domains": {
+    "alfworld": {
+      "state": "complete",
+      "completed": 109,
+      "total": 109
+    },
+    "dbbench": {
+      "state": "complete",
+      "completed": 300,
+      "total": 300
+    },
+    "webshop": {
+      "state": "complete",
+      "completed": 200,
+      "total": 200
+    }
+  },
+  "split": "test",
+  "modelrouter_requests": 0,
+  "updated_at": "2026-10-03T10:25:36.621077+00:00"
+}

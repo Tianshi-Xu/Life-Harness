@@ -1,0 +1,14 @@
+type: tool
+name: get_customer_by_id
+description: Retrieves a customer directly by their unique ID.
+input_schema:
+  properties:
+    customer_id:
+      description: The unique identifier of the customer.
+      title: Customer Id
+      type: string
+  required:
+  - customer_id
+  title: parameters
+  type: object
+disable_parallel: true

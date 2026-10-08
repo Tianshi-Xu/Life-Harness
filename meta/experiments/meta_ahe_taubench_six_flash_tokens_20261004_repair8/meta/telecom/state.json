@@ -1,0 +1,303 @@
+{
+  "baseline_phase": "batch_05_baseline",
+  "batch": 5,
+  "incumbent": "baseline_zero.py",
+  "released_h_flags": [],
+  "rounds": [
+    {
+      "accepted": false,
+      "baseline_score": 0.3,
+      "baseline_successes": 15,
+      "candidate": {
+        "changes": "New module agents/device_action_handoff.py exporting AgentHarness and register() (register is a no-op). AgentHarness.transform_request is identity. AgentHarness.transform_response(response, public_history) inspects the model's own public output message: it knows the 13 native agent tool names as a static frozenset (_AGENT_TOOLS, mirroring source_view/native_tools.json). For any message-like object carrying a tool_calls list (dicts anywhere in the response, or an object with a tool_calls attribute), calls whose extracted name is not in _AGENT_TOOLS are removed. If valid native calls remain they are kept and other fields are left untouched; if none remain, the message's content is replaced by a plain-text request to the user (any pre-existing text is preserved and prefixed), tool_calls is set to [] so the turn is delivered as speech, and the call's name is humanised (underscores to spaces) with non-empty arguments appended as key=value details, capped at 4 steps. All of this is wrapped in try/except so the guard can never break an episode. No task identity, hidden state, schema discovery, or cross-episode mutable state.",
+        "expected_efficiency": "Public train baseline is accuracy 0.28 (14/50 successes). Replaying the 50 public train trajectories, the non-native tool-call class is the dominant error source: all 50 episodes open with at least one non-native call and the 14 too_many_errors terminations each end at exactly 10 'Tool not found' error tool-messages, which is ~87% of all 329 error tool-messages (~6.6 errors/episode). The guard removes that class (leaving ~0.9 errors/episode from genuinely malformed native calls), so too_many_errors should fall from 14/50 toward ~0 and pass rate should rise by roughly +0.06 to +0.16 absolute (0.28 -> ~0.34-0.44). Turn/token cost should stay roughly flat: the converted turn is still spent on one assistant message plus one user reply, it just asks the user to act instead of failing, and fewer episodes should hit the step ceiling because they are no longer killed by errors.",
+        "hypothesis": "Telecom episodes abort early because the solver emits tool calls for device-side actions (status bar, toggles, SIM reseat, reboot, speed test, app permissions, VPN, APN, network mode) that only the user's phone simulator owns; the runtime answers each with \"Tool '<name>' not found\", spending the fixed 10-error budget. If every tool call whose name is not one of the 13 native agent tools is rewritten into an ordinary user-facing request instead of being executed, that error class disappears, the error budget is preserved, and episodes that currently terminate with too_many_errors get to finish, raising pass rate.",
+        "import_path": "agents.device_action_handoff:AgentHarness",
+        "name": "device_action_handoff"
+      },
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.24,
+      "candidate_successes": 12,
+      "iteration": 1,
+      "parent": "baseline_zero.py",
+      "retained_candidate": "baseline_zero.py",
+      "train_batch": 0,
+      "train_episodes": 50,
+      "train_n": 50,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 1289213,
+            "output_tokens": 35117,
+            "total_tokens": 1324330
+          },
+          "implementation": {
+            "input_tokens": 326952,
+            "output_tokens": 9775,
+            "total_tokens": 336727
+          },
+          "parent": {
+            "input_tokens": 639045,
+            "output_tokens": 23972,
+            "total_tokens": 663017
+          }
+        },
+        "cached_input_tokens_known": 1105280,
+        "calls_with_cache_details": 68,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 2255210,
+        "output_tokens": 68864,
+        "recorded_upstream_attempts": 68,
+        "successful_calls": 68,
+        "total_tokens": 2324074
+      }
+    },
+    {
+      "accepted": false,
+      "baseline_score": 0.32,
+      "baseline_successes": 16,
+      "candidate": {
+        "changes": "New module agents/device_action_delegation.py exporting AgentHarness and register() (register is a no-op; real tools, budgets, user simulator and evaluator are untouched). One focused mechanism -- keep the agent's actions inside its own toolset -- enforced shape-agnostically at both plugin boundaries via a single depth-first rewriter that walks any request/response (str/dict/list/tuple/plain-object public data attributes, cycle-safe, depth-first) and edits dicts/lists in place while rebuilding tuples and re-attaching frozen objects through object.__setattr__/model_copy so the change survives an unknown container shape. (1) transform_request: for any string carrying a stable native policy anchor ('What the user can do on their device' or 'Telecom Agent Policy') it appends, once (marker-guarded, idempotent), a <tool_use_rule> block stating that the agent may act only through its own schema tools, that all on-device reading/changing is the customer's job, that a tool call for such a step will be rejected, and that the agent should instead ask the customer to do the step one at a time in plain words and wait. (2) transform_response: for any message-like node (role in {system,user,assistant,tool} or having a content field) whose tool_calls list contains a name outside the 13-tool schema, non-native calls are dropped: if native calls remain only those are kept, otherwise the off-tool call(s) are turned into an ordinary spoken customer request (humanised name plus any arguments) with tool_calls cleared. Both hooks are wrapped in try/except so the guard can never break an episode. No task identity, hidden state, schema discovery, or cross-episode mutable state.",
+        "expected_efficiency": "Public train identity baseline is 0.30 (15/50, batch 00) / 0.32 (16/50, batch 01) with ~5.8-5.9 device-not-found errors per episode and 16-18/50 too_many_errors terminations (budget 10); errors anti-correlate strongly with reward (batch 01: >=8 errors -> 22 fail / 2 pass; <5 errors -> 7 pass / 4 fail), and the user simulator already executes device steps when asked in words. The injected rule is ~375 tokens appended once to the ~6.5k-token policy message, resent each of ~28 assistant turns => roughly +10k input tokens/episode (well under +2% of total input, <1.5% of the 32k window) with no new calls. Expect the device-not-found class to fall from ~5.8/episode toward ~0.5-1.5, too_many_errors from 16-18/50 toward ~1-4/50, and pass rate to rise by a LARGE margin, roughly +0.10 to +0.18 absolute (0.30 -> ~0.40-0.48), versus an eval noise floor of about +/-0.11. Mean assistant turns should stay flat to slightly lower (each removed device-call + apology + retry triple saves 2-3 turns that are re-spent on productive steps), so turns move within roughly -15% to +5%.",
+        "hypothesis": "Telecom episodes are lost because the solver emits tool calls for the customer-side, on-device actions that the support manual merely *describes* (reading the status bar / network / SIM / APN / VPN / app state, running a speed test or an MMS test, and toggling airplane mode, mobile data, data saver, roaming, Wi-Fi, network mode, APN, SIM, app permissions or the VPN). None of those names is in the agent's 13-tool schema, so the runtime answers every one with \"Tool '<name>' not found\", draining the fixed 10-error budget; that class is ~87% of all error messages and accounts for every too_many_errors termination. If the agent is told, on every request, that on-device steps belong to the customer and must be requested in plain language (and any such call that still slips through is converted into a spoken customer request), then misplaced-call errors collapse, the error budget is preserved, and episodes that currently die with too_many_errors get to finish -- raising pass rate.",
+        "import_path": "agents.device_action_delegation:AgentHarness",
+        "name": "device_action_delegation"
+      },
+      "candidate_infra_errors": null,
+      "candidate_score": null,
+      "candidate_successes": null,
+      "iteration": 2,
+      "parent": "baseline_zero.py",
+      "retained_candidate": "baseline_zero.py",
+      "train_batch": 1,
+      "train_episodes": 50,
+      "train_n": 50,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 914277,
+            "output_tokens": 29831,
+            "total_tokens": 944108
+          },
+          "implementation": {
+            "input_tokens": 119127,
+            "output_tokens": 7658,
+            "total_tokens": 126785
+          },
+          "parent": {
+            "input_tokens": 1631567,
+            "output_tokens": 48785,
+            "total_tokens": 1680352
+          }
+        },
+        "cached_input_tokens_known": 1332096,
+        "calls_with_cache_details": 59,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 2664971,
+        "output_tokens": 86274,
+        "recorded_upstream_attempts": 59,
+        "successful_calls": 59,
+        "total_tokens": 2751245
+      }
+    },
+    {
+      "accepted": false,
+      "baseline_score": 0.28,
+      "baseline_successes": 14,
+      "candidate": {
+        "changes": "New module agents/customer_device_tool_boundary.py exporting AgentHarness and register(). One focused mechanism -- keep the agent's actions inside its own toolset -- delivered the way a base model prompt would be: request-side injection plus a guarded native-LLMAgent patch of the same rule. transform_request appends a concise, general customer-device tool-boundary rule once (idempotent, marker-guarded <customer_device_tool_boundary>) to any message whose text carries a stable native policy anchor (\"What the user can do on their device\" or \"Telecom Agent Policy\"), preferring the system/developer message and handling both string content and list-of-text-parts; requests without the anchor are returned unchanged. register() (best-effort, wrapped in try/except) patches tau2.agent.llm_agent.LLMAgent so the rule also rides on the agent's own policy/system text: it wraps __init__ to rewrite any policy-valued instance attribute and wraps the system_prompt property getter, guarded by a class-level flag. transform_response is identity (this candidate fixes the request channel only; it never edits the model's own output). Every hook is wrapped in try/except so the guard can never break an episode. Real tools, budgets, user simulator and evaluator are untouched. No task identity, hidden state, schema discovery, new model calls, or cross-episode mutable state.",
+        "expected_efficiency": "Public train baseline (batch 2) is accuracy 0.28 (14/50 successes); the device-not-found \"Tool not found\" class dominates error tool-messages and accounts for the too_many_errors terminations that end at the 10-error budget, and errors anti-correlate strongly with reward. The injected rule is ~300 tokens appended once to the ~6.5k-token policy message and resent on each of ~28 assistant turns, i.e. roughly +8-10k input tokens/episode (about +1-2% of total input, well under the 32k window) with no new calls or turns of its own. Expect the device-not-found class to fall from several per episode toward ~0-1, too_many_errors to fall toward ~0-4/50, and pass rate to rise by roughly +0.06 to +0.16 absolute (0.28 -> ~0.34-0.44) versus an eval noise floor of about +/-0.11. Mean turns/tokens should stay flat to slightly lower, since each removed device-call + retry cycle is re-spent on the customer step being requested in words rather than on a rejected call.",
+        "hypothesis": "Telecom episodes die early because the solver emits tool calls for the customer's own on-device steps, which the native policy lists by name under \"What the user can do on their device\"; each such call is answered \"Tool not found\", and after the fixed 10-error budget the episode ends at reward 0. If the model is told, in front of every request, that it may act ONLY through the functions in its own tool list and that every device-side step belongs to the CUSTOMER and must be requested in plain words, then that misplaced-call class collapses, the error budget is preserved, and episodes that currently terminate with too_many_errors get to finish -- raising pass rate.",
+        "import_path": "agents.customer_device_tool_boundary:AgentHarness",
+        "name": "customer_device_tool_boundary"
+      },
+      "candidate_infra_errors": null,
+      "candidate_score": null,
+      "candidate_successes": null,
+      "iteration": 3,
+      "parent": "baseline_zero.py",
+      "retained_candidate": "baseline_zero.py",
+      "train_batch": 2,
+      "train_episodes": 50,
+      "train_n": 50,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 619176,
+            "output_tokens": 21613,
+            "total_tokens": 640789
+          },
+          "implementation": {
+            "input_tokens": 240129,
+            "output_tokens": 6829,
+            "total_tokens": 246958
+          },
+          "parent": {
+            "input_tokens": 1246630,
+            "output_tokens": 34857,
+            "total_tokens": 1281487
+          }
+        },
+        "cached_input_tokens_known": 846976,
+        "calls_with_cache_details": 51,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 2105935,
+        "output_tokens": 63299,
+        "recorded_upstream_attempts": 51,
+        "successful_calls": 51,
+        "total_tokens": 2169234
+      }
+    },
+    {
+      "accepted": false,
+      "baseline_score": 0.28,
+      "baseline_successes": 14,
+      "candidate": {
+        "changes": "New module agents/identifier_grounding_rule.py exporting AgentHarness and register() (a plain plugin object; not a subclass of anything). ONE mechanism -- ground every identifier argument in real data -- delivered on the agent's own public surface via three idempotent, individually-guarded channels that all carry the SAME short rule (marker <identifier_grounding>) plus a one-line tool-description reminder (marker [identifier-grounding]). (1) transform_request appends the rule once, in place, to any text carrying a stable native policy anchor (\"Telecom Agent Policy\" / \"What the user can do on their device\"): a bare string; a dict with a \"messages\" list or a bare list of message dicts (string content, or list-of-{\"type\":\"text\",\"text\":...} parts), preferring system/developer roles; or an object with a \"messages\"/\"content\" attribute edited in place via guarded setattr. It also runs a bounded, cycle-safe (id()-seen, depth<=4, <=200 items/container), never-raising walk over the request so any tool-schema dict (\"function\".\"name\") whose name is in the static identifier-taking tool set gets the one-line reminder. Objects are never rebuilt or re-typed; anything without an anchor is returned byte-identical. (2) transform_response is identity. (3) register() (best-effort, fully guarded, never raises, no-op when tau2 is absent) patches tau2.agent.llm_agent.LLMAgent once (class-level flag): it wraps __init__ and then runs the same bounded walk over the fresh instance so the rule rides on any anchor-bearing policy string (dict/list slot or guarded setattr) and the reminder rides on identifier-tool descriptions; it also wraps the system_prompt property getter (preserving setter/deleter/doc) and wraps a domain object's own public policy-named callables one level deep (marker-guarded, no double-wrap). Real tools, budgets, user simulator and evaluator are untouched. Standard library only; no task ids/names/corpus, hidden state, schema discovery at runtime, new model calls, filesystem/network access, sleep, prints, or cross-episode mutable state.",
+        "expected_efficiency": "Public train identity baseline is 0.28-0.32 (14-16/50) under a per-task noise floor near +/-0.11. The rule is ~330 tokens appended once to the ~6.5k-token policy message and resent on each of ~28 assistant turns, i.e. roughly +8-10k input tokens/episode (about +1-2% of total input, well inside the 32k window) with no new calls and no turns of its own. Identifier grounding targets a subset of the remaining error/turn waste (unresolvable-identifier calls and the re-asks/retries they trigger) rather than the whole error budget, so the expected pass-rate move is modest: roughly +0.03 to +0.10 absolute versus the identity baseline, with turns and tokens roughly flat (a removed fabricated-identifier call plus its retry is re-spent on obtaining and using the real value).",
+        "hypothesis": "Episodes are lost because the solver passes an identifier argument that is not grounded in the conversation -- a guessed, invented, or example/placeholder value used as a customer id, line id, bill id, plan id, device id, or phone number, instead of a value the customer gave or an earlier tool call returned. Such a value does not resolve, so the call returns an error, the fixed error budget drains, and the issue is left unsolved (replaying the four public train batches: episodes that never pass an ungrounded identifier pass at 0.47, while episodes with at least one ungrounded identifier pass at 0.07, and the top action-side error is a fabricated customer id). If the model is told, in front of every request and alongside each identifier-taking tool, that an identifier argument must be an exact value the customer gave or an earlier tool call returned, and that when the identifier is not yet known it must first ask the customer or call the lookup tool and then copy the exact value, then that unresolvable-identifier class collapses, the error budget is preserved, and currently failing episodes can finish -- raising pass rate.",
+        "import_path": "agents.identifier_grounding_rule:AgentHarness",
+        "name": "identifier_grounding_rule"
+      },
+      "candidate_infra_errors": null,
+      "candidate_score": null,
+      "candidate_successes": null,
+      "iteration": 4,
+      "parent": "baseline_zero.py",
+      "retained_candidate": "baseline_zero.py",
+      "train_batch": 3,
+      "train_episodes": 50,
+      "train_n": 50,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 1407135,
+            "output_tokens": 47632,
+            "total_tokens": 1454767
+          },
+          "implementation": {
+            "input_tokens": 405872,
+            "output_tokens": 13043,
+            "total_tokens": 418915
+          },
+          "parent": {
+            "input_tokens": 2661546,
+            "output_tokens": 37322,
+            "total_tokens": 2698868
+          }
+        },
+        "cached_input_tokens_known": 3035392,
+        "calls_with_cache_details": 75,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 4474553,
+        "output_tokens": 97997,
+        "recorded_upstream_attempts": 75,
+        "successful_calls": 75,
+        "total_tokens": 4572550
+      }
+    },
+    {
+      "accepted": false,
+      "baseline_score": 0.28,
+      "baseline_successes": 14,
+      "candidate": {
+        "changes": "New module agents/off_schema_action_routing.py exporting AgentHarness and register() (register returns None and patches nothing; the class is a plain object, not a subclass). Channel 1 (transform_response, primary): a shape-agnostic, cycle-safe (id()-seen) descent over the model's own reply finds message-like containers holding a tool_calls list, following only the choices/message keys -- LiteLLM ModelResponse-like response.choices[i].message.tool_calls (the exact shape a prior round failed to match, with choices/message as dicts OR objects), a plain dict with top-level tool_calls, a dict {\"choices\": [...]}, a dict {\"message\": {...}}, and any list/tuple of those. Each container's calls are split into native (name in the 13-tool frozenset mirroring source_view/native_tools.json) and off-schema: if native calls remain only those are kept; if none remain, tool_calls is set to [] (content is only rewritten if that set succeeds) and content becomes a short plain-words customer request (existing non-empty text preserved and appended), capped at 4 steps. Rendered arguments keep only short non-identifier hints (e.g. mode, permission, app_name) and omit id/phone/number/sim/imei keys and 6+ digit strings so a fabricated placeholder is never echoed. Channel 2 (transform_request fallback): appends once, marker-guarded, a ~150-token general rule to the text of the message carrying a native policy anchor (\"Telecom Agent Policy\" / \"What the user can do on their device\"), preferring role system/developer, handling a dict with a messages list, a bare list of message dicts, a single message dict, message objects with .role/.content (guarded setattr), string content and list-of-{\"type\":\"text\",...} parts; requests without the anchor are returned unchanged. Channel 3 (same request hook): only when channel 1 did not intercept an off-schema call -- evidenced by a tool-role message reporting an unknown/unavailable tool -- one marker-guarded one-line reminder is appended; other errors (e.g. \"Customer with ID ... not found\") are left untouched. Guarded get/set helpers work on dicts and plain objects (plain setattr then object.__setattr__). Every hook is individually try/except, never raises, and returns the original object on any problem. Standard library only (json, re); no task identity/names, hidden state, schema discovery, new model/network/subprocess/filesystem calls, prints, or cross-episode mutable state.",
+        "expected_efficiency": "Public train identity baseline is 0.28-0.32 (14-16/50) under a per-task noise floor near +/-0.11. The non-native tool-call class dominates error tool-messages and accounts for the too_many_errors terminations that end at the 10-error budget; errors anti-correlate strongly with reward and the user simulator already performs device steps when asked in words. Channel 1 removes that class at the output boundary (unlike a prompt-only rule it does not rely on the model obeying), so expect too_many_errors to fall from ~14-18/50 toward ~0-4/50 and pass rate to rise by roughly +0.06 to +0.16 absolute (0.28 -> ~0.34-0.44). Cost stays roughly flat: the converted turn is still one assistant message plus one user reply, so turns move within about -15% to +5%, and channel 2's rule is ~150 tokens appended once to the ~6.5k-token policy message (~+4-5k input tokens/episode, about +1% of total input, well inside the 32k window) with no new calls of its own.",
+        "hypothesis": "Telecom episodes abort early because the solver emits tool calls for customer-device steps (status bar read, toggles, SIM reseat, reboot, connectivity/messaging test, app permissions, VPN, APN, network mode) that only the user's phone owns; the runtime answers each with \"Tool '<name>' not found\", spending the fixed 10-error budget until the episode ends unsolved. If every tool call whose name is not one of the 13 native agent tools is converted, on the way back from the model, into an ordinary spoken customer request -- and, when such a call still executes, a one-line reminder is planted in the error tool-message -- then that misplaced-call class collapses, the error budget is preserved, and episodes that currently die with too_many_errors get to finish, raising pass rate.",
+        "import_path": "agents.off_schema_action_routing:AgentHarness",
+        "name": "off_schema_action_routing"
+      },
+      "candidate_infra_errors": null,
+      "candidate_score": null,
+      "candidate_successes": null,
+      "iteration": 5,
+      "parent": "baseline_zero.py",
+      "retained_candidate": "baseline_zero.py",
+      "train_batch": 4,
+      "train_episodes": 50,
+      "train_n": 50,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 2049556,
+            "output_tokens": 41352,
+            "total_tokens": 2090908
+          },
+          "implementation": {
+            "input_tokens": 718922,
+            "output_tokens": 27284,
+            "total_tokens": 746206
+          },
+          "parent": {
+            "input_tokens": 2454874,
+            "output_tokens": 49763,
+            "total_tokens": 2504637
+          }
+        },
+        "cached_input_tokens_known": 3267200,
+        "calls_with_cache_details": 100,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 5223352,
+        "output_tokens": 118399,
+        "recorded_upstream_attempts": 100,
+        "successful_calls": 100,
+        "total_tokens": 5341751
+      }
+    },
+    {
+      "accepted": false,
+      "baseline_score": 0.3,
+      "baseline_successes": 15,
+      "candidate": {
+        "changes": "New module agents/grounded_identifier_gate.py exporting AgentHarness and register() (register returns None and patches nothing). ONE mechanism, delivered on ONE channel: transform_response (transform_request is pure identity, so the agent's prompt, tool schema, budgets, user simulator and evaluator are untouched and no injected rule relies on model obedience). (1) Gated key set: a static frozenset {id, customer_id, line_id, bill_id, plan_id, device_id, phone_number, dob, full_name, name} plus ANY argument key ending in \"_id\"; full_name/name are added (a refinement over the stated set) because a fabricated name lookup is the same failure class -- it silently returns []. (2) Grounding source: the public_history argument only, scanned for role==\"user\" content and role==\"tool\" content that does NOT begin with \"error\"; the model's own assistant text and every error tool-message are deliberately excluded so a value the solver invented earlier can never ground itself. (3) Normalization + fallback: value and source are lowercased with every non-alphanumeric stripped; the value is grounded iff its normalized form (len>=2) is a substring of the normalized source, OR its concatenated digit run (len>=4) is a substring of the normalized source, OR that digit signature occurs as a whole token. Values shorter than 2 normalized chars are treated as grounded (never over-drop). (4) Drop-and-ask: a shape-agnostic, cycle-safe walk (dict, list/tuple, plain object; LiteLLM ModelResponse choices[i].message.tool_calls, a dict with top-level tool_calls, {\"choices\":[...]}, {\"message\":{...}}, and any list/tuple of those) finds every message-like container carrying a tool_calls list and splits its native calls (name in the static 13-tool frozenset mirroring source_view/native_tools.json) into grounded and ungrounded; grounded calls are kept, ungrounded ones are removed. If some grounded calls remain, only they are executed (tool_calls set to that list). If none remain, the container's tool_calls is set to [] and content becomes the existing content (preserved) plus a spoken request of the wording class: \"I can't complete that yet -- I don't have the account detail it needs.  Could you please tell me the <humanised missing field names> for your account? If you don't have that to hand, just give me the phone number on your account (or your full name) and I'll look it up first, then continue from there.\" -- i.e. it asks for the missing value by plain name and, when that is not something a customer would know, offers the account-lookup keys (phone number / full name) as the fallback. (5) Off-schema (device-side) calls, non-native names, and calls with no gated arguments are left exactly as they are (a different error class belongs to a different candidate). (6) Defensive: every hook is individually try/except and never raises; if the public history is empty, absent, or of an unrecognised shape (no user/tool text found) the gate returns the response unchanged rather than guessing. Standard library only (json, re); no task identity/names, no hidden state or answers, no task-ID tables, no schema discovery at runtime, no new model/network/subprocess/filesystem calls, no prints, no cross-episode mutable state.",
+        "expected_efficiency": "Public train identity baseline is 0.28-0.32 (88/300 pooled = 0.293) under a per-task noise floor near +/-0.11. Replaying the six public train batches: ~18-24 of 50 episodes per batch (128/300) contain at least one native call with an ungrounded gated identifier, and those episodes pass at 0.11 (14/128) versus 0.45 (74/172) for clean episodes -- a real, large stratified gap. The gate's trigger is precise: of 270 flagged native calls only 42 did not error, and all 42 were get_customer_by_name returning [] from a fabricated dob/name (i.e. genuine silent failures, not successes), so the gate never drops a call that actually returns data. The mechanism does not touch the dominant off-schema device-error class, which is not binding (reward-1 episodes still average 4.3 device \"Tool not found\" errors, and the only evaluated device-side candidate scored 0.24 versus a 0.30 baseline). Realistic reach: only 56 flagged too_many_errors episodes would survive the 10-error ceiling if their identifier errors were removed, and the fabrication usually appears late (~msg 70 of ~90) next to heavy device confusion, so the conversion is partial; expect pass rate to rise roughly +0.02 to +0.08 absolute (0.28-0.32 -> ~0.30-0.40), i.e. at or just above the noise floor -- NOT the full +0.13 of the stratified gap. Turn/token cost is essentially flat: transform_request is identity so there is no prompt/token inflation; each gated turn still costs one assistant message plus one user reply, only its content changes from an unresolvable call + error to a question, and errors per flagged episode should fall by ~1-2 (customer-not-found error messages 207 -> toward ~0), so total tokens and turns should move within about -2% to +3%.",
+        "hypothesis": "Telecom episodes are lost because the solver passes INVENTED identifier arguments to its own account/service tools -- literal placeholders (customer_id/line_id = 1234567890 / 9876543210 / \"line_1234567890\", \"user's customer id\", \"user's line id\"), example-format ids (C1001, L1001), or guessed dates of birth (1970-01-01) -- that are not present in the conversation; the runtime answers \"Customer with ID ... not found\" (or an empty match list for a name search), the turn is a dead end, and 175 of the 207 measured such errors are followed by the solver giving up on tools entirely. If, at the response boundary, every native call whose gated identifier argument is not grounded in the public conversation (user utterances + non-error tool results, with digit-normalization and a digit-signature fallback) is dropped and that turn is instead delivered as a plain-language request for the missing account detail, then the unresolvable-identifier class collapses and flagged episodes (which currently pass at ~0.11 versus ~0.45 for unflagged) should convert toward the clean rate, raising pass rate.",
+        "import_path": "agents.grounded_identifier_gate:AgentHarness",
+        "name": "grounded_identifier_gate"
+      },
+      "candidate_infra_errors": null,
+      "candidate_score": null,
+      "candidate_successes": null,
+      "iteration": 6,
+      "parent": "baseline_zero.py",
+      "retained_candidate": "baseline_zero.py",
+      "train_batch": 5,
+      "train_episodes": 50,
+      "train_n": 50,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 2404466,
+            "output_tokens": 51253,
+            "total_tokens": 2455719
+          },
+          "implementation": {
+            "input_tokens": 152091,
+            "output_tokens": 16693,
+            "total_tokens": 168784
+          },
+          "parent": {
+            "input_tokens": 1501066,
+            "output_tokens": 38368,
+            "total_tokens": 1539434
+          }
+        },
+        "cached_input_tokens_known": 2829440,
+        "calls_with_cache_details": 75,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 4057623,
+        "output_tokens": 106314,
+        "recorded_upstream_attempts": 75,
+        "successful_calls": 75,
+        "total_tokens": 4163937
+      }
+    }
+  ],
+  "status": "training_complete"
+}

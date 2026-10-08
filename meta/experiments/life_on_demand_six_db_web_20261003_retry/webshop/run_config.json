@@ -1,0 +1,33 @@
+{
+  "domain": "webshop",
+  "experiment": "life_on_demand_six_db_web_20261003_retry",
+  "initial_active_snapshot": [],
+  "optimizer_source_sha256": {
+    "meta/agentbench_hooks/__init__.py": "c34c30a3223592a95bfe0d993dddfc0e1460efcadf22b447d99cfbd038d89023",
+    "meta/agentbench_hooks/contract.py": "7bab038c47d5a9aa8f2ecc7d1a1f0aceb43f637249940b7d1667971078501c8c",
+    "meta/agentbench_hooks/runtime.py": "a48c71972ac8e377e48366fffb30e27ab967c7a18fa3ad2125146e10ddb98ade",
+    "meta/evidence.py": "9d208c11183c1e78ca23cdc88c4865f94f9203b918d6a91b666a04f4cfaa9ef9",
+    "meta/life_optimizer/PROMPT.md": "48f0edd9c2bf92df848f432b8f857eb976b28f65e27303c7b180474b9408b602",
+    "meta/life_optimizer/__init__.py": "686f487293d6a027c6e2dae716b3b6e9aad235b4e5cbd8cecd9a91b7663c1a2c",
+    "meta/life_optimizer/bundle.py": "f86e9f0cd920d0ada0240daf5df185e076df3e3c395edf44165a2860c9c6ea75",
+    "meta/life_optimizer/profile.py": "b5a42341427a6d1bf787822f5f852c568e7eb0f654451a6f77093433cdf9aafd",
+    "meta/life_optimizer/smoke.py": "357e873af99753d2c0fe78ad5a677f06b4cb853a965b8ffc4c2114faa62bd60b",
+    "meta/life_optimizer/worker.py": "c70e7db78ee2bf1e3ce68f5dfa8abf703a160b5116bb5a26591da61e18fab375"
+  },
+  "prior_test_exposure": true,
+  "protocol_sha256": "f2c79a1bb27958ac0f26ddca39d9e7364dec39456efda02344ecdbcbb57ec6e3",
+  "rounds": 6,
+  "source_sha256": {
+    "agentbench_chain.py": "5fed621e659959a92c63d384ad92e5dc3170b151f4112aa2ddfaa11c558cfb21",
+    "agentbench_evaluate.py": "a8ad0574238d5555714591922919d62fef513242982c9a3efa63098400036cce",
+    "candidate_contract.py": "48d71ec292fa70457fbb2a4b811c71d4854f5f57206e374491f958df8587ce64",
+    "composition.py": "191f583716da1d72dfef8a24424b0da528d35608bab8c1230cb53ddbfe015b63",
+    "driver.py": "cfbfd4cff6c458c8ac7a1b5394757a29faf018c61c2369addefe2a477057afb5",
+    "protocol.py": "be3edac483e54e83fa17b2a22a9d5e97a67dee702ec86753ec49ba171d6de416",
+    "runner.py": "4d97a5b1aa710a656306270029be0c930bcd0c7eb5d6ee5fa462d57b3f5b26e2"
+  },
+  "transport_sha256": {
+    "api_broker.py": "1c55137b2b15ef73150e170fc9ea14e539ec8e20a83a733208f2fe4b3ce56a83",
+    "connection.py": "1d18351f216a0177471e332bdca6b71e7e533b1980b8f47c32be76a2c2fb4779"
+  }
+}

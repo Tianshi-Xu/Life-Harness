@@ -1,0 +1,14 @@
+type: tool
+name: get_customer_by_phone
+description: Finds a customer by their primary contact or line phone number.
+input_schema:
+  properties:
+    phone_number:
+      description: The phone number to search for.
+      title: Phone Number
+      type: string
+  required:
+  - phone_number
+  title: parameters
+  type: object
+disable_parallel: true

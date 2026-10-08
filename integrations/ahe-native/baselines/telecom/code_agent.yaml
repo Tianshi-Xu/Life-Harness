@@ -1,0 +1,60 @@
+type: agent
+name: ahe_telecom
+system_prompt: ./systemprompt.md
+system_prompt_type: jinja
+tool_call_mode: openai
+max_iterations: 300
+max_context_tokens: 40000
+llm_config:
+  model: ${env.LLM_MODEL}
+  base_url: ${env.LLM_BASE_URL}
+  api_key: ${env.LLM_API_KEY}
+  max_tokens: 4096
+  temperature: 0.0
+  api_type: openai_chat_completion
+  stream: false
+  extra_body:
+    chat_template_kwargs:
+      enable_thinking: false
+tools:
+- name: get_customer_by_phone
+  yaml_path: ./tool_descriptions/get_customer_by_phone.tool.yaml
+  binding: tools.native:get_customer_by_phone
+- name: get_customer_by_id
+  yaml_path: ./tool_descriptions/get_customer_by_id.tool.yaml
+  binding: tools.native:get_customer_by_id
+- name: get_customer_by_name
+  yaml_path: ./tool_descriptions/get_customer_by_name.tool.yaml
+  binding: tools.native:get_customer_by_name
+- name: get_details_by_id
+  yaml_path: ./tool_descriptions/get_details_by_id.tool.yaml
+  binding: tools.native:get_details_by_id
+- name: suspend_line
+  yaml_path: ./tool_descriptions/suspend_line.tool.yaml
+  binding: tools.native:suspend_line
+- name: resume_line
+  yaml_path: ./tool_descriptions/resume_line.tool.yaml
+  binding: tools.native:resume_line
+- name: get_bills_for_customer
+  yaml_path: ./tool_descriptions/get_bills_for_customer.tool.yaml
+  binding: tools.native:get_bills_for_customer
+- name: send_payment_request
+  yaml_path: ./tool_descriptions/send_payment_request.tool.yaml
+  binding: tools.native:send_payment_request
+- name: get_data_usage
+  yaml_path: ./tool_descriptions/get_data_usage.tool.yaml
+  binding: tools.native:get_data_usage
+- name: enable_roaming
+  yaml_path: ./tool_descriptions/enable_roaming.tool.yaml
+  binding: tools.native:enable_roaming
+- name: disable_roaming
+  yaml_path: ./tool_descriptions/disable_roaming.tool.yaml
+  binding: tools.native:disable_roaming
+- name: transfer_to_human_agents
+  yaml_path: ./tool_descriptions/transfer_to_human_agents.tool.yaml
+  binding: tools.native:transfer_to_human_agents
+- name: refuel_data
+  yaml_path: ./tool_descriptions/refuel_data.tool.yaml
+  binding: tools.native:refuel_data
+tracers:
+- import: nexau.archs.tracer.adapters.in_memory:InMemoryTracer

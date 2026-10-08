@@ -1,0 +1,23 @@
+type: tool
+name: get_customer_by_name
+description: 'Searches for customers by name and DOB. May return multiple matches
+  if names are similar,
+
+
+  DOB helps disambiguate.'
+input_schema:
+  properties:
+    full_name:
+      description: The full name of the customer.
+      title: Full Name
+      type: string
+    dob:
+      description: Date of birth for verification, in the format YYYY-MM-DD.
+      title: Dob
+      type: string
+  required:
+  - full_name
+  - dob
+  title: parameters
+  type: object
+disable_parallel: true

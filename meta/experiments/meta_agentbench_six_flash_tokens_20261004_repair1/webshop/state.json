@@ -1,0 +1,65 @@
+{
+  "baseline_phase": null,
+  "batch": 1,
+  "from_scratch": true,
+  "incumbent": "baseline_zero.py",
+  "released_h_flags": [],
+  "rounds": [
+    {
+      "accepted": false,
+      "baseline_infra_errors": 0,
+      "baseline_score": 0.26,
+      "baseline_successes": 13,
+      "candidate": {
+        "changes": "New response-side guard agents/option_first_buy.py (plain AgentHarness per the port contract; start shape copied from agents/baseline_zero.py, no baseline/Terminus2 subclassing). transform_request is identity. transform_response: locates the last observation advertising 'Available Actions'; extracts request-description tokens from the 'Instruction:' field (stopwords and decimal price literals dropped, English number words normalised to digits, mixed digit/letter codes split); parses the item page body to group advertised attribute options under their group headers (an option is an advertised non-navigation clickable; a header is a non-option part whose next part is an option); and reconstructs which option values were already clicked from prior tool-call arguments (selections are not echoed in observations). Guard: only fires when the emitted click value is the checkout action and the page still offers the checkout clickable. It rewrites the checkout click into the single highest-priority still-needed option, chosen per attribute group that lacks any request-matching selection, by argmax of (match-count, matched-fraction, option length) with ties resolved to the earliest option. Self-disabling: once a request-matching option is present in history for every group, later checkout clicks pass through unchanged (multi-group pages are completed one option per turn). Any exception, non-dict response, empty history, missing/malformed tool_calls, unparsable observation, or non-item page (no 'buy now' clickable) returns the response unchanged, making it a strict no-op outside the target situation.",
+        "expected_efficiency": "Neutral-to-positive. On non-item pages and on item pages whose request matches no option the response is byte-identical, so unaffected episodes keep their exact turn/token counts and all 13 current successes are untouched. Only affected episodes (premature checkout with an unselected request-matching option) gain 1 extra click turn per required attribute group, bounded by the number of groups (typically 1-2), i.e. a small per-episode turn/token increase. Independent offline replay over all 50 public TRAIN episodes: 24 of 50 checkout clicks are rewritten, all on episodes that currently fail, and 0 rewrites occur on any of the 13 currently-passing episodes (each rewritten failure is already at guaranteed-zero reward because its described option was never selected, so the change is non-negative and can only convert them to success).",
+        "hypothesis": "On item-detail pages that still expose attribute options described by the request (colour, size, style, flavour, pack size), the policy frequently emits the checkout click before selecting the request-matching option, so the purchase is finalised in an unselected/default variant and the episode fails. Rewriting a premature checkout click into a click on the best request-matching option -- deferring the purchase until the described option is selected -- will raise the pass rate on those failures without harming episodes that already succeed.",
+        "import_path": "agents.option_first_buy:AgentHarness",
+        "name": "option_first_buy"
+      },
+      "candidate_infra_errors": null,
+      "candidate_score": null,
+      "candidate_successes": null,
+      "iteration": 1,
+      "losses": null,
+      "outcome": "candidate_unmeasured",
+      "parent": "baseline_zero.py",
+      "retained_candidate": "baseline_zero.py",
+      "retained_candidate_sha256": "60203fe7ceb0d31c93729ad3797255470d1830bd75004394d9c1ac431763db88",
+      "solver_baseline_tokens": 325170,
+      "solver_candidate_tokens": null,
+      "train_batch": 0,
+      "train_n": 50,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 408027,
+            "output_tokens": 24655,
+            "total_tokens": 432682
+          },
+          "implementation": {
+            "input_tokens": 641507,
+            "output_tokens": 21496,
+            "total_tokens": 663003
+          },
+          "parent": {
+            "input_tokens": 1058913,
+            "output_tokens": 38382,
+            "total_tokens": 1097295
+          }
+        },
+        "cached_input_tokens_known": 1125248,
+        "calls_with_cache_details": 64,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 2108447,
+        "output_tokens": 84533,
+        "recorded_upstream_attempts": 64,
+        "successful_calls": 64,
+        "total_tokens": 2192980
+      },
+      "wins": null
+    }
+  ],
+  "status": "running"
+}

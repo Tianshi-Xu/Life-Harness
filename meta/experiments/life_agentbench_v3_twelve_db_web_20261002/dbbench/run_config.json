@@ -1,0 +1,66 @@
+{
+  "bundle_schema_version": 2,
+  "domain": "dbbench",
+  "experiment": "life_agentbench_v3_twelve_db_web_20261002",
+  "inherited_rounds": 9,
+  "inherited_training_seal_sha256": "c05c921b40a4736e2b57cb1056985d5e8f7c089e7da9f76de7f807c581addd93",
+  "initial_active_snapshot": [
+    {
+      "artifact_path": "versions/dbbench_harness_r4/op_h2_nbsp_apostrophe_gates.py",
+      "mechanism_id": "h2_sql_identifier_value_repair",
+      "revision": 3,
+      "sha256": "e9732be78641714ef786bed174120e394eea54ae0dd37da58c1ee229f2ed1876",
+      "target_layer": "h2"
+    },
+    {
+      "artifact_path": "versions/dbbench_harness_r6/op_h3_mod_template_hints_r6.py",
+      "mechanism_id": "h3_tool_description_guidance",
+      "revision": 4,
+      "sha256": "23fa3e6340591062b2c2de7e1ac67de4ce53a4c6ecfa18c29856a2baa922196e",
+      "target_layer": "h3"
+    },
+    {
+      "artifact_path": "versions/dbbench_harness_r6/op_h4_mutation_recovery_r6.py",
+      "mechanism_id": "h4_step_recovery_monitor",
+      "revision": 4,
+      "sha256": "88e9a89cdb0a2afa7965d0431a42c06ff89e95de93bfcde776ca37e0c7b9afc1",
+      "target_layer": "h4"
+    },
+    {
+      "artifact_path": "versions/dbbench_harness_r6/op_h5_mod_template_briefing_r6.py",
+      "mechanism_id": "h5_cold_start_briefing",
+      "revision": 4,
+      "sha256": "3e4ca7e2c00f3a160141ae9e580da9cac3c8d20ea4283688c46ffd894448b2af",
+      "target_layer": "h5"
+    }
+  ],
+  "interface": {
+    "base_session_sha256": "1bfa5e2219beaa8b145fb642255fb5eeadf9fa919bcadfd7121f0dffc4810ba7",
+    "interface_source_sha256": {
+      "INTERFACE.md": "de3dc7c6b7ab47c9cf7e1a53fee5184a6fea129db9166f2476ad650c55816859",
+      "__init__.py": "c34c30a3223592a95bfe0d993dddfc0e1460efcadf22b447d99cfbd038d89023",
+      "contract.py": "7bab038c47d5a9aa8f2ecc7d1a1f0aceb43f637249940b7d1667971078501c8c",
+      "runtime.py": "a48c71972ac8e377e48366fffb30e27ab967c7a18fa3ad2125146e10ddb98ade",
+      "templates/h2.py": "44ecf5b7d6cf51c08cf1a928083509f7c3f5866e561d22436a5cbc5a1fe6fbae",
+      "templates/h3.py": "53a4115bec7d842717ad86bd8e05d25c2e5ecea4f42c6635f0db9d07c39da43c",
+      "templates/h4.py": "0d5ee1a4433e39d842b6d5b0323d180aa32ea619b203b4dfb89d4a4cb1011279",
+      "templates/h5.py": "0994592350d6f8139c54b49b70c49ca5602f4ab1a72ddfb26fab5062dde6f761"
+    },
+    "interface_version": "life-agentbench-h2345-v3"
+  },
+  "prior_test_exposure": true,
+  "proposer": "ModelRouter deepseek-v4-flash",
+  "protocol_sha256": "5e3aec880ed194d6509fc7f7215405daf076fd5bebd5d06253455aa81a8473d1",
+  "rounds": 12,
+  "source_sha256": {
+    "agentbench_chain.py": "aa90e5ca094d50bc2689cea719073d2e69fefdc5cc7a9bed154116a67b8f036b",
+    "agentbench_evaluate.py": "a649c11f11f698aa2cc48d2a1d6facdec903ac311eeea5e9746b9d8bf9b75801",
+    "candidate_contract.py": "bd097ace98dbf9d051ed91be97407e381483c30bdf99e28d05fe4d817c25100e",
+    "driver.py": "79e92833c729fcb26092438b9ea4b3f6020e01ff4de4dab290fbcdc9938efb69",
+    "inheritance.py": "4df6702eb219989f60a73b0d34cb669ac831f246829d94e0ee6b26e250a62565",
+    "protocol.py": "77f6832f83e67307a8e1ce04bc81905b621d0c6135953dfdcd179b9899cce6e0",
+    "runner.py": "3b28f58bf50cab8c3cdb72a9b0c7bccd2a5632f160ab351a84b40b6a9b5b1df6",
+    "status.py": "6d8e78a2a43781fc7236e992338c1aa5dd6141baf31e32c7fc9ed8552b1cbd86"
+  },
+  "test_policy": "rounds ten through twelve train only; prior test exposure recorded; no automatic final testing"
+}

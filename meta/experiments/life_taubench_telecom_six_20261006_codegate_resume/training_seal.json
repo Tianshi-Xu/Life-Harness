@@ -1,0 +1,45 @@
+{
+  "optimizer_usage": {
+    "accounting_complete": true,
+    "attempts": 217,
+    "inference_accounting_complete": true,
+    "input_tokens": 29854581,
+    "known_usage_calls": 217,
+    "output_tokens": 601416,
+    "pending_calls": 0,
+    "rate_limit_rejections_without_usage": 0,
+    "total_tokens": 30455997,
+    "unknown_usage_calls": 0
+  },
+  "snapshot": [
+    {
+      "artifact_path": "versions/telecom_h2345_account_report_v2/op_h2_boundary_r2.py",
+      "mechanism_id": "m_account_action_boundary",
+      "revision": 2,
+      "sha256": "49363041c99d0b7218ddd82fcb36ad81f50459bf57d8274c48742c8f51322849",
+      "target_layer": "h2"
+    },
+    {
+      "artifact_path": "versions/telecom_h2345_account_report_v2/op_h3_notes_r2.py",
+      "mechanism_id": "m_tool_contract_notes",
+      "revision": 2,
+      "sha256": "bf140864c2feae9e6dc8a2310d46013822a094186895ab83959d4289f1bd2075",
+      "target_layer": "h3"
+    },
+    {
+      "artifact_path": "versions/telecom_h2345_account_report_v2/op_h4_report_r2.py",
+      "mechanism_id": "m_episode_progress_monitor",
+      "revision": 2,
+      "sha256": "71419c0759098b432047e005fc5ec4d58963460b99dabf853fc99f845bdeaae5",
+      "target_layer": "h4"
+    },
+    {
+      "artifact_path": "versions/telecom_h2345_account_report_v2/op_h5_skill_r2.py",
+      "mechanism_id": "m_cold_start_duty_split",
+      "revision": 2,
+      "sha256": "eb480159357e83593e2fedbb9bc60c2be1e385399154f5cb80c912da5e330f3b",
+      "target_layer": "h5"
+    }
+  ],
+  "state_sha256": "bb713b554891eec76276d4439048e76b5a233f2dda1cf66c63af51d09f6eec9e"
+}

@@ -1,0 +1,24 @@
+type: tool
+name: send_payment_request
+description: "Sends a payment request to the customer for a specific bill.\n\nChecks:\n\
+  \    - Customer exists\n    - Bill exists and belongs to the customer\n    - No\
+  \ other bills are already awaiting payment for this customer\nLogic: Sets bill status\
+  \ to AWAITING_PAYMENT and notifies customer.\nWarning: This method does not check\
+  \ if the bill is already PAID.\nAlways check the bill status before calling this\
+  \ method."
+input_schema:
+  properties:
+    customer_id:
+      description: ID of the customer who owns the bill.
+      title: Customer Id
+      type: string
+    bill_id:
+      description: ID of the bill to send payment request for.
+      title: Bill Id
+      type: string
+  required:
+  - customer_id
+  - bill_id
+  title: parameters
+  type: object
+disable_parallel: true

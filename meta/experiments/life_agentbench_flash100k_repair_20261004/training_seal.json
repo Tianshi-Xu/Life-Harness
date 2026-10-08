@@ -1,0 +1,17 @@
+{
+  "experiment": "life_agentbench_flash100k_repair_20261004",
+  "flash_ledger_sha256": "54c8f15d5c80ba214009c7541f047c5105f48a4b555722cc1a76db9e5ae2c197",
+  "flash_usage_sha256": "b1cfd22654fb5fea89f3eb78e77c40c9ee3d5216270b3aa4b532361790fca7cd",
+  "inheritance_sha256": "831df2a120fbd8c9b87697ba8f093d6bf82c860c69863e170d2da6d1ac54d6c5",
+  "protocol_sha256": "6179a444306bf2fe6204f73401b3a0ef9a04bd96df5d7f3a0ad7375ef6ec1579",
+  "run_config_sha256": {
+    "alfworld": "d884b2357efb56075171e91ee30af24561dc473bbbbb01ecc9386857c95b7b4d",
+    "dbbench": "18cdde9abfe88ca7d1992ecb35960dfa2ca19330b68a738a0d770147d529b2bd",
+    "webshop": "4852c2613e624f010ff230757461134c1ee250cc3433f36688110b28c0f90ef4"
+  },
+  "state_sha256": {
+    "alfworld": "01ac6583264a1198fd760b4a0e3dfce1bf3b7444448787232acb4aaf8b04fa65",
+    "dbbench": "2db908b1ebd74c0d2acb91a7c40077b44e2ee3cfdd00409fc4ff742a4a1378e3",
+    "webshop": "d1f2a73323bea8eed18a29fdfff1fb52ce81c141ffe0aa7718b67a89e61fc257"
+  }
+}

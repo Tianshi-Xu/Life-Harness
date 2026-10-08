@@ -1,0 +1,15 @@
+type: tool
+name: get_product_details
+description: Get the inventory details of a product.
+input_schema:
+  properties:
+    product_id:
+      description: The product id, such as '6086499569'. Be careful the product id
+        is different from the item id.
+      title: Product Id
+      type: string
+  required:
+  - product_id
+  title: parameters
+  type: object
+disable_parallel: true

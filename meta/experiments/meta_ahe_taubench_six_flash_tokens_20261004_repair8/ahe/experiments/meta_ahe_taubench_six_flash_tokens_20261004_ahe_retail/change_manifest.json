@@ -1,0 +1,103 @@
+{
+  "iteration": 6,
+  "changes": [
+    {
+      "id": "chg-1",
+      "type": "improvement",
+      "description": "RetailContractGuardMiddleware now proves, before an item write leaves the agent, that every new_item_id is a variant of the SAME product as the item it replaces and is not a variant the listing marks \"available\": false. Evidence: native_0fd42b3f sent the Tablet variant 2106335193 as the replacement for a Luggage Set item 6690069155 (product 5426915165) and native_3ada92f2 sent the Fleece Jacket variant 9385662952 as the replacement for a Luggage Set item 7160999700 - both answered \"Error: Variant not found\"; native_29db0c67 (4772738468) and native_3346f2bb (6546364613) were answered \"not found or available\". The guard now indexes get_order_details items (item_id -> product_id, name, options) and get_product_details variants (product_id -> {item_id: available}, item_id -> product_id, short label) from the message history and emits a note naming the correct product and listing its available variants. Also fixed a latent bug: the after-tool hook returned early on every real tool output because it assumed hook_input.tool_output was a bare string, whereas the framework passes {\"result\": \"<json>\"}; it now appends a recovery hint after a rejected replacement. Per-episode note budget raised 6 -> 14 (recorded episodes spent 6 notes in the first few turns and then ran unprotected).",
+      "files": [
+        "middleware/retail_contract_guard.py"
+      ],
+      "failure_pattern": "A replacement item id that belongs to a different product than the item being replaced, or to a variant marked unavailable, is sent to exchange_delivered_order_items / modify_pending_order_items; the environment rejects it and the agent, with no idea what went wrong, retries with other invented ids until the error budget is exhausted.",
+      "predicted_fixes": [
+        "native_0fd42b3f73c448b34940b339f87d07adf116b05c0227aad72e8f0ee90533e699",
+        "native_3ada92f28b4ceda38562ebf047c6ff05400d4c572352a1142eedfef67d21e662",
+        "native_29db0c6782dbd5000559ef4d9e953e300e2b479eed26d887ef3f92b921c06a67",
+        "native_3346f2bbf6c34bd2dbe28bd1bb657d0e9c37392a1d5ec9929e6a5df4763ddc2d",
+        "native_2fca346db656187102ce806ac732e06a62df0dbb2829e511a770556d398e1a6e"
+      ],
+      "risk_tasks": [
+        "native_1a6562590ef19d1045d06c4055742d38288e9e6dcd71ccde5cee80f1d5a774eb",
+        "native_2c624232cdd221771294dfbb310aca000a0df6ac8b66b696d90ef06fdefb64a3"
+      ],
+      "constraint_level": "middleware",
+      "why_this_component": "The prompt (rule 4) and the tool documentation already state the same-product and available:true requirements word for word, and the model still broke them in 5 of the 10 traced failures, so another prose restatement was not going to help. This is the class of error that a middleware can prove mechanically from results the agent itself read, and iteration 5's own report claimed RetailContractGuardMiddleware already covered a \"variant of a different product\" - it did not; there was no such check in the code. The check is deterministic and conservative: it fires only when both the item's product (from get_order_details) and the replacement's owning product (from get_product_details) have actually been read.",
+      "rollback_of": null
+    },
+    {
+      "id": "chg-2",
+      "type": "improvement",
+      "description": "ProgressGuardMiddleware: (a) a call that already failed with identical arguments is now refused for the whole episode, not just once - the old code showed the note, then let every repeat through (scan.notes[note_key] >= 1 -> kept.append(call)); it is still unblocked by any successful write that happens afterwards, and the per-episode note budget bounds the refusal (raised 7 -> 14); (b) the false-completion check now also runs on turns that carry tool calls, and treats the calls the model is proposing in that same turn as evidence, so a claim is only flagged when neither the history nor the current turn performs the claimed action; (c) the shipping-address claim was split out of the generic \"change\" claim (which accepted any modify_* call, including an item edit, as proof) and only modify_pending_order_address / modify_user_address can satisfy it.",
+      "files": [
+        "middleware/progress_guard.py"
+      ],
+      "failure_pattern": "Two recorded shapes. (1) Runaway repetition: native_0fd42b3f re-sent the identical rejected modify_pending_order_items seven times and terminated in TOO_MANY_ERRORS; native_3ada92f2 sent the identical rejected call three times. (2) Fabricated completion: native_454f63ac told the customer \"The shipping address for your order #W4860251 has been successfully updated\" while the only write in that turn was modify_pending_order_items and modify_pending_order_address was never called - the claim check never even looked, because that turn contained tool calls and the generic change claim was satisfied by the item edit.",
+      "predicted_fixes": [
+        "native_0fd42b3f73c448b34940b339f87d07adf116b05c0227aad72e8f0ee90533e699",
+        "native_3ada92f28b4ceda38562ebf047c6ff05400d4c572352a1142eedfef67d21e662",
+        "native_454f63ac30c8322997ef025edff6abd23e0dbe7b8a3d5126a894e4a168c1b59b",
+        "native_3346f2bbf6c34bd2dbe28bd1bb657d0e9c37392a1d5ec9929e6a5df4763ddc2d"
+      ],
+      "risk_tasks": [
+        "native_25fc0e7096fc653718202dc30b0c580b8ab87eac11a700cba03a7c021bc35b0c",
+        "native_41cfc0d1f2d127b04555b7246d84019b4d27710a3f3aff6e7764375b1e06e05d"
+      ],
+      "constraint_level": "middleware",
+      "why_this_component": "Both defects are in the guard's own control flow, not in the model's instructions: the model was already being told \"an identical call cannot succeed\" and ignored it, and the claim note already existed but was gated on a branch the failing turn never entered. Fixing the branch conditions is a middleware change; no prompt text can make a guard look at the right turn.",
+      "rollback_of": null
+    },
+    {
+      "id": "chg-3",
+      "type": "improvement",
+      "description": "systemprompt.md rule 5 now requires the details to include WHICH variant: when the customer's description matches more than one available variant, the agent must list the matching variants with their prices and ask which one they want, instead of choosing for them (an order accepts one write, so the choice is irreversible). LongTermMEMORY.md records the same two facts the traced failures exposed: a replacement can never be a different product (so a customer asking to turn a luggage set into a jacket must be told plainly that no tool can do it), and guessing a variant on the customer's behalf is the one mistake no later call can repair.",
+      "files": [
+        "systemprompt.md",
+        "LongTermMEMORY.md"
+      ],
+      "failure_pattern": "Irreversible writes made on ambiguous instructions: in the regression native_35135aaa the customer asked for \"a shorter bamboo material\" skateboard, several variants matched, the agent picked one and executed the exchange in its first turn, and the customer then had to undo both writes; native_0fd42b3f and native_3ada92f2 both asked for a product the item tools cannot substitute at all.",
+      "predicted_fixes": [
+        "native_35135aaa6cc23891b40cb3f378c53a17a1127210ce60e125ccf03efcfdaec458",
+        "native_1253e9373e781b7500266caa55150e08e210bc8cd8cc70d89985e3600155e860",
+        "native_3ada92f28b4ceda38562ebf047c6ff05400d4c572352a1142eedfef67d21e662"
+      ],
+      "risk_tasks": [
+        "native_1a6562590ef19d1045d06c4055742d38288e9e6dcd71ccde5cee80f1d5a774eb",
+        "native_4b227777d4dd1fc61c6f884f48641d02b4d121d3fd328cb08b5531fcacdabf8a",
+        "native_e7f6c011776e8db7cd330b54174fd76f7d0216b612387a5ffcfb81e6f0919683"
+      ],
+      "constraint_level": "prompt",
+      "why_this_component": "The remaining failure is a judgement about an ambiguous customer request, which cannot be proved mechanically - the guard cannot know whether \"a shorter bamboo one\" names one variant or five. Rule 5 was the rule that told the agent to fire the tool call as soon as the message \"already contains the instruction and the details\", so the correction belongs in the same rule; the added sentence only narrows that condition and is prefixed by the model's own listing of the matching variants, so it can add at most one question per ambiguous request.",
+      "rollback_of": null
+    },
+    {
+      "id": "chg-4",
+      "type": "improvement",
+      "description": "Follow-up hardening to chg-1: a variant whose availability the listing does not state is recorded as unknown instead of unavailable, so it is still offered in the note's list of usable replacements. It was already never blocked by the unavailable-variant rule (that rule only fires on an explicit \"available\": false); only the remediation list was dropping it.",
+      "files": [
+        "middleware/retail_contract_guard.py"
+      ],
+      "failure_pattern": "A remediation note that hides a usable variant from the model, which would push it towards a variant that does not satisfy the customer or towards giving up.",
+      "predicted_fixes": [],
+      "risk_tasks": [],
+      "constraint_level": "middleware",
+      "why_this_component": "Same guard and same index as chg-1; the defect is the sentinel value used for unknown availability."
+    }
+  ],
+  "rollbacks_declined": [
+    {
+      "change": "chg-4 of iteration 5 (rule 4 variant-attribute wording), reported INEFFECTIVE 0/3",
+      "decision": "kept",
+      "reason": "It is instruction text that agrees with the tool documentation and with LongTermMEMORY; no traced episode shows it causing a wrong action, and reverting it would restore wording that no longer matches the variant checks the guards now enforce. An ineffective-but-correct instruction is not worth a churn commit."
+    },
+    {
+      "change": "chg-5 of iteration 5 (read-profile note wording), reported INEFFECTIVE 0/2",
+      "decision": "kept",
+      "reason": "The change corrected the note so it agrees with the refund rule the environment actually enforces (refund settles on the order's own payment method). Rolling back would reintroduce text that contradicts the environment; INEFFECTIVE here means \"no task flipped\", not \"harmful\"."
+    },
+    {
+      "change": "chg-1 of iteration 5 (deletion of VariantGuardMiddleware), reported HARMFUL by the attribution report",
+      "decision": "not restored",
+      "reason": "The attribution report credits the deletion with the native_35135aaa regression, but iteration 5's own trace analysis showed the middleware's notes were affirmatively WRONG in two traces (native_2fca346d: it read \"get max money back\" as a demand for maximum size and blocked the exchange; native_41cfc0d1: it ranked a variant that violated the customer's own \"everything else the same\" constraint) and that the loop-4 iteration adding it net-regressed 50% -> 44%. Its one provable class - a variant of a different product - is now enforced by chg-1 of this iteration, deterministically and without re-deriving the customer's requirement from keywords. Restoring 875 lines of heuristic keyword matching to fix one regression would re-open eight."
+    }
+  ]
+}

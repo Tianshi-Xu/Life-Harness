@@ -1,0 +1,424 @@
+{
+  "status": "complete",
+  "domain": "airline",
+  "family": "tau",
+  "round": 6,
+  "batch": 1,
+  "accepted": [
+    {
+      "round": 0,
+      "name": "zero",
+      "target_layer": "zero",
+      "file": "layer_000_zero.py",
+      "sha256": "6fcdf5fe8669ffa3708d538b2d3fde3ea983bfe69e33a297d278df606f211044"
+    },
+    {
+      "round": 1,
+      "name": "h3_airline_write_tool_policy_descriptions",
+      "target_layer": "h3",
+      "hypothesis": "With all H2-H5 content cleared, the search-split failures are dominated by policy-blind state-changing calls: ineligible cancellations (repeatedly cancelling reservations that meet none of the four eligibility conditions), compensation certificates issued without an actual delay/cancellation, round-trip flight updates that drop the return legs, payment amounts that do not equal the exact total or that use an insufficient gift card, and baggage/passenger updates that violate the add-only and fixed-count rules. Because tool descriptions are re-sent in every API request at full attention while accumulating dialogue pushes the system prompt out of salience, embedding these outcome-determining policy constraints (limits, exact formulas, eligibility conditions, valid fallback paths) directly in the descriptions of the seven state-changing airline tools will make each write decision policy-aware, converting disallowed or malformed writes into correct ones and improving both DB and COMMUNICATE rewards. H3-only and non-blocking, so currently passing counterexamples cannot be blocked by it.",
+      "file": "layer_001_h3_airline_write_tool_policy_descriptions.py",
+      "sha256": "17cb1e942cba6cd4ac77538f467e0d50829aace3110a7a22a1d1ba014790ca54"
+    },
+    {
+      "round": 2,
+      "name": "h2_airline_cancel_policy_guard",
+      "target_layer": "h2",
+      "hypothesis": "The accepted H3 layer states the cancellation policy in tool descriptions but cannot enforce it at call time, and the search-split evidence shows policy-blind cancel_reservation calls are the dominant always-failing write pattern: in task 9 the agent cancelled IFOYYZ, which meets none of the four eligibility conditions (gold expects no write at all), and in task 39 it cancelled all seven requested reservations, including two meeting no condition (UDMOP1, XAZ3C0) and two whose legs had already flown (I6M8JQ, 4XGCCM), scoring 0.0 in both trials. Restoring exactly one H2 pre-execution rule on cancel_reservation — blocking the call when any leg is flying/landed (redirecting to transfer_to_human_agents) or when none of {booked within 24h, airline-cancelled leg, business cabin, travel insurance} holds, with a per-condition MET/NOT MET diagnostic and an explicit do-not-retry/no-workaround instruction — converts these invalid writes into corrective tool errors the agent can explain to the customer. All nine gold cancellations in the search split were verified to satisfy the guard (business or insured or booked within 24h, no flown legs), so passing behaviour is preserved.",
+      "file": "layer_002_h2_airline_cancel_policy_guard.py",
+      "sha256": "c32700c719e4f9f1379126233153129286708dde06b168d5e3a5c270d0b6eb0e"
+    },
+    {
+      "round": 3,
+      "name": "h4_airline_read_tool_fact_annotations",
+      "target_layer": "h4",
+      "hypothesis": "Chain state: H3 write-tool hints (round 1) and the H2 cancellation guard (round 2) are active, but the zero layer emptied all H4 registries, so read tools still return raw DB rows only. The remaining search-split failures whose DB state already matches gold in both trials are pure COMMUNICATE misses, and both need a fact the raw rows never state. (1) In task 3 the user asks how many suitcases the reservation allows: gold '4' is the silver-economy allowance for 2 passengers (2 free checked bags per passenger x 2), but the stored total_baggages=1 led the agent to answer 1 (or an invented 3) while the customer demanded one clear total. (2) In task 7 the user asks whether there are any other upcoming flights and their total cost: gold '1628' is the summed cost of the user's other upcoming reservations, but the agent never enumerated the reservation list (get_user_details was never called) and asserted there were no other upcoming flights. One post-execution H4 annotator registered on get_reservation_details, get_user_details, and cancel_reservation computes from the DB snapshot only: (a) the reservation's free checked-bag allowance (membership x cabin x passenger count) plus an explicit note that total_baggages/nonfree_baggages are only the currently booked counts; (b) the user's other upcoming (non-cancelled, not fully flown) reservations with per-reservation paid amounts and the summed total cost plus a fares-only total when it differs, phrased as the exact figure to report. H4 is non-blocking, read-only, and replay-safe, so no write path changes and all passing counterexamples are preserved.",
+      "file": "layer_003_h4_airline_read_tool_fact_annotations.py",
+      "sha256": "280e114b71fa3ed9c9b8033114d37250e8bdab178a879c96491e8fc5ff05830a"
+    },
+    {
+      "round": 5,
+      "name": "h4_airline_upcoming_total_cost_annotation",
+      "target_layer": "h4",
+      "hypothesis": "In both task-7 episodes of the incumbent evidence the DB state already matches gold and the only lost point is the COMMUNICATE check for '1628'. The user (daiki_muller_1116, silver) asks to cancel XEHM4B and 59XX6W and, mid-conversation, to check their other upcoming flights and the total cost; both trials end with the agent reporting '$708' (7WPL39 $402 + 3EMQJ6 $306, the still-active reservations) because the accepted H4 cancel annotation explicitly instructs 'Total cost of those remaining upcoming reservations: $708 ... If the user asks about any other upcoming flights, report this total'. The required figure is the total cost of ALL of the user's reservations with a flight dated today or later counted at their originally booked amounts, including the two cancelled during the conversation: 402 + 296 + 624 + 306 = 1628. That number appears nowhere in context: the accepted layer_003 annotator excludes the reservation being viewed, then excludes every cancelled reservation, so the agent only ever sees 1332, 1004, 708. This layer adds one additive H4 annotator on get_user_details, get_reservation_details and cancel_reservation which, from the DB snapshot only, selects the user's reservations with any leg dated on/after the simulation date (status deliberately ignored), sums each reservation's first positive payment amount, and states 'Total cost of all of the user's reservations with a flight dated today or later, counted at each reservation's originally booked amount and including cancelled reservations: $1628 (...)' with an explicit 'report $1628' instruction for questions about the user's upcoming or other flights. The annotation is non-blocking, read-only, stateless and touches no write path, so action and DB checks are unchanged; response text can only influence the five tasks carrying communicate checks (3, 7, 11, 14, 23), and for the passing task-3 episodes the added sentence is inert, so all currently passing counterexamples are preserved.",
+      "file": "layer_005_h4_airline_upcoming_total_cost_annotation.py",
+      "sha256": "b324dfd40666d3101574f3b4c81af9f7dc6b49970d0447875e1183decd29a842"
+    },
+    {
+      "round": 6,
+      "name": "h2_airline_certificate_policy_guard",
+      "target_layer": "h2",
+      "hypothesis": "Chain state: the zero layer emptied every H2 registry and the accepted chain has restored only the cancel_reservation guard, so send_certificate — the unguarded write tool with the largest remaining failure family — executes without any pre-validation, and the accepted H3 hint for it is demonstrably insufficient: under customer pressure the model issues the certificate anyway, reasoning in its own trace that it can still be given 'as a gesture of goodwill'. Six certificate issuances appear across the frontier batch and every one sits in a trial whose DB check scored 0.0, with the stray certificate as the only DB delta because gold expects no write at all: both trials of a regular member's 'cancelled business flight' complaint ($200 then $100), a delay complaint where the customer explicitly said 'my flight must stay as it is' and no change/cancel was ever performed ($100), two further delay complaints with no completed change/cancel ($50 and $50), and one case where the agent had just read the flight status as 'available' with no compensable event anywhere ($100). This layer registers exactly one H2 pre-execution rule on send_certificate that raises a corrective tool error when: (1) the user is not silver/gold and no reservation has business cabin or travel insurance; (2) no delayed or cancelled flight exists in any active reservation; (3) a delay is the only compensable event and no cancel_reservation or update_reservation_flights call has succeeded yet in the episode (delay compensation requires the completed change/cancel); (4) the amount is not a positive multiple of $50 or exceeds $100 x the largest passenger count on the account. The rule reads only the DB snapshot and the toolkit's successful-call log — no state, no I/O, no conversation text — and mirrors the released reference checks for this tool, so policy-valid certificates still pass; no certificate call occurs in any passing episode of the frontier evidence, so the guard converts the six observed wrongful writes into corrective errors without touching any write path or annotation, preserving all passing counterexamples.",
+      "file": "layer_006_h2_airline_certificate_policy_guard.py",
+      "sha256": "32201a026bd8528457a9feb9f5612227901c272f2b7e11d5c59f123b8ef1bf22"
+    }
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "train_batch": 0,
+      "incumbent_score": 0.36666666666666664,
+      "candidate_score": 0.43333333333333335,
+      "accepted": true,
+      "next_batch": 0,
+      "batch_rotated": false,
+      "proposal": {
+        "name": "h3_airline_write_tool_policy_descriptions",
+        "domain": "airline",
+        "target_layer": "h3",
+        "hypothesis": "With all H2-H5 content cleared, the search-split failures are dominated by policy-blind state-changing calls: ineligible cancellations (repeatedly cancelling reservations that meet none of the four eligibility conditions), compensation certificates issued without an actual delay/cancellation, round-trip flight updates that drop the return legs, payment amounts that do not equal the exact total or that use an insufficient gift card, and baggage/passenger updates that violate the add-only and fixed-count rules. Because tool descriptions are re-sent in every API request at full attention while accumulating dialogue pushes the system prompt out of salience, embedding these outcome-determining policy constraints (limits, exact formulas, eligibility conditions, valid fallback paths) directly in the descriptions of the seven state-changing airline tools will make each write decision policy-aware, converting disallowed or malformed writes into correct ones and improving both DB and COMMUNICATE rewards. H3-only and non-blocking, so currently passing counterexamples cannot be blocked by it."
+      },
+      "retained_layers": 2,
+      "test_phase": "test_round_01",
+      "test_score": 0.25,
+      "test_n": 20
+    },
+    {
+      "round": 2,
+      "train_batch": 0,
+      "incumbent_score": 0.43333333333333335,
+      "candidate_score": 0.48333333333333334,
+      "accepted": true,
+      "next_batch": 0,
+      "batch_rotated": false,
+      "proposal": {
+        "name": "h2_airline_cancel_policy_guard",
+        "domain": "airline",
+        "target_layer": "h2",
+        "hypothesis": "The accepted H3 layer states the cancellation policy in tool descriptions but cannot enforce it at call time, and the search-split evidence shows policy-blind cancel_reservation calls are the dominant always-failing write pattern: in task 9 the agent cancelled IFOYYZ, which meets none of the four eligibility conditions (gold expects no write at all), and in task 39 it cancelled all seven requested reservations, including two meeting no condition (UDMOP1, XAZ3C0) and two whose legs had already flown (I6M8JQ, 4XGCCM), scoring 0.0 in both trials. Restoring exactly one H2 pre-execution rule on cancel_reservation — blocking the call when any leg is flying/landed (redirecting to transfer_to_human_agents) or when none of {booked within 24h, airline-cancelled leg, business cabin, travel insurance} holds, with a per-condition MET/NOT MET diagnostic and an explicit do-not-retry/no-workaround instruction — converts these invalid writes into corrective tool errors the agent can explain to the customer. All nine gold cancellations in the search split were verified to satisfy the guard (business or insured or booked within 24h, no flown legs), so passing behaviour is preserved."
+      },
+      "retained_layers": 3,
+      "test_phase": "test_round_02",
+      "test_score": 0.4,
+      "test_n": 20
+    },
+    {
+      "round": 3,
+      "train_batch": 0,
+      "incumbent_score": 0.48333333333333334,
+      "candidate_score": 0.5333333333333333,
+      "accepted": true,
+      "next_batch": 0,
+      "batch_rotated": false,
+      "proposal": {
+        "name": "h4_airline_read_tool_fact_annotations",
+        "domain": "airline",
+        "target_layer": "h4",
+        "hypothesis": "Chain state: H3 write-tool hints (round 1) and the H2 cancellation guard (round 2) are active, but the zero layer emptied all H4 registries, so read tools still return raw DB rows only. The remaining search-split failures whose DB state already matches gold in both trials are pure COMMUNICATE misses, and both need a fact the raw rows never state. (1) In task 3 the user asks how many suitcases the reservation allows: gold '4' is the silver-economy allowance for 2 passengers (2 free checked bags per passenger x 2), but the stored total_baggages=1 led the agent to answer 1 (or an invented 3) while the customer demanded one clear total. (2) In task 7 the user asks whether there are any other upcoming flights and their total cost: gold '1628' is the summed cost of the user's other upcoming reservations, but the agent never enumerated the reservation list (get_user_details was never called) and asserted there were no other upcoming flights. One post-execution H4 annotator registered on get_reservation_details, get_user_details, and cancel_reservation computes from the DB snapshot only: (a) the reservation's free checked-bag allowance (membership x cabin x passenger count) plus an explicit note that total_baggages/nonfree_baggages are only the currently booked counts; (b) the user's other upcoming (non-cancelled, not fully flown) reservations with per-reservation paid amounts and the summed total cost plus a fares-only total when it differs, phrased as the exact figure to report. H4 is non-blocking, read-only, and replay-safe, so no write path changes and all passing counterexamples are preserved."
+      },
+      "retained_layers": 4,
+      "test_phase": "test_round_03",
+      "test_score": 0.4,
+      "test_n": 20
+    },
+    {
+      "round": 4,
+      "train_batch": 0,
+      "incumbent_score": 0.5333333333333333,
+      "candidate_score": 0.5333333333333333,
+      "accepted": false,
+      "next_batch": 1,
+      "batch_rotated": true,
+      "proposal": {
+        "name": "h4_airline_flight_update_payment_delta",
+        "domain": "airline",
+        "target_layer": "h4",
+        "hypothesis": "Chain state: H3 write-tool policy text (round 1), the H2 cancellation guard (round 2), and H4 read-tool fact annotations (round 3) are active, but the zero layer emptied every write-side H4 annotator, so update_reservation_flights still returns only the raw updated reservation. The search-split census shows exactly one remaining failure family whose DB state already matches gold in both trials: a successful cabin-downgrade change whose tool result recorded the exact payment movement {\"payment_id\": \"gift_card_1642017\", \"amount\": -5244} in payment_history, where the agent nevertheless recomputed the money itself — summing the per-passenger fares for one passenger instead of all three — told the customer the change refunded $1,748, and failed the COMMUNICATE check for '5244', zeroing an episode with db_match=true. This layer registers one post-execution H4 annotator on update_reservation_flights: from the DB snapshot and the returned reservation only, it takes the most recent payment_history entry (the net movement the system recorded for this change, positive = charged, negative = refunded) and states that exact amount as the authoritative figure to report, explicitly warning against a per-passenger fare-difference recomputation. H4 annotations are non-blocking, fire only on the success path, carry no state and no I/O, and state DB-recorded facts, so they cannot invalidate currently passing counterexamples; the expected effect is converting DB-correct/communicate-miss flight-change episodes into full passes while giving the agent exact charge/refund figures on every flight update."
+      },
+      "retained_layers": 4,
+      "test_phase": "test_round_04",
+      "test_score": 0.25,
+      "test_n": 20
+    },
+    {
+      "round": 5,
+      "train_batch": 1,
+      "incumbent_score": 0.5,
+      "candidate_score": 0.5333333333333333,
+      "accepted": true,
+      "next_batch": 1,
+      "batch_rotated": false,
+      "proposal": {
+        "name": "h4_airline_upcoming_total_cost_annotation",
+        "domain": "airline",
+        "target_layer": "h4",
+        "hypothesis": "In both task-7 episodes of the incumbent evidence the DB state already matches gold and the only lost point is the COMMUNICATE check for '1628'. The user (daiki_muller_1116, silver) asks to cancel XEHM4B and 59XX6W and, mid-conversation, to check their other upcoming flights and the total cost; both trials end with the agent reporting '$708' (7WPL39 $402 + 3EMQJ6 $306, the still-active reservations) because the accepted H4 cancel annotation explicitly instructs 'Total cost of those remaining upcoming reservations: $708 ... If the user asks about any other upcoming flights, report this total'. The required figure is the total cost of ALL of the user's reservations with a flight dated today or later counted at their originally booked amounts, including the two cancelled during the conversation: 402 + 296 + 624 + 306 = 1628. That number appears nowhere in context: the accepted layer_003 annotator excludes the reservation being viewed, then excludes every cancelled reservation, so the agent only ever sees 1332, 1004, 708. This layer adds one additive H4 annotator on get_user_details, get_reservation_details and cancel_reservation which, from the DB snapshot only, selects the user's reservations with any leg dated on/after the simulation date (status deliberately ignored), sums each reservation's first positive payment amount, and states 'Total cost of all of the user's reservations with a flight dated today or later, counted at each reservation's originally booked amount and including cancelled reservations: $1628 (...)' with an explicit 'report $1628' instruction for questions about the user's upcoming or other flights. The annotation is non-blocking, read-only, stateless and touches no write path, so action and DB checks are unchanged; response text can only influence the five tasks carrying communicate checks (3, 7, 11, 14, 23), and for the passing task-3 episodes the added sentence is inert, so all currently passing counterexamples are preserved."
+      },
+      "retained_layers": 5,
+      "test_phase": "test_round_05",
+      "test_score": 0.3,
+      "test_n": 20
+    },
+    {
+      "round": 6,
+      "train_batch": 1,
+      "incumbent_score": 0.5333333333333333,
+      "candidate_score": 0.5666666666666667,
+      "accepted": true,
+      "next_batch": 1,
+      "batch_rotated": false,
+      "proposal": {
+        "name": "h2_airline_certificate_policy_guard",
+        "domain": "airline",
+        "target_layer": "h2",
+        "hypothesis": "Chain state: the zero layer emptied every H2 registry and the accepted chain has restored only the cancel_reservation guard, so send_certificate — the unguarded write tool with the largest remaining failure family — executes without any pre-validation, and the accepted H3 hint for it is demonstrably insufficient: under customer pressure the model issues the certificate anyway, reasoning in its own trace that it can still be given 'as a gesture of goodwill'. Six certificate issuances appear across the frontier batch and every one sits in a trial whose DB check scored 0.0, with the stray certificate as the only DB delta because gold expects no write at all: both trials of a regular member's 'cancelled business flight' complaint ($200 then $100), a delay complaint where the customer explicitly said 'my flight must stay as it is' and no change/cancel was ever performed ($100), two further delay complaints with no completed change/cancel ($50 and $50), and one case where the agent had just read the flight status as 'available' with no compensable event anywhere ($100). This layer registers exactly one H2 pre-execution rule on send_certificate that raises a corrective tool error when: (1) the user is not silver/gold and no reservation has business cabin or travel insurance; (2) no delayed or cancelled flight exists in any active reservation; (3) a delay is the only compensable event and no cancel_reservation or update_reservation_flights call has succeeded yet in the episode (delay compensation requires the completed change/cancel); (4) the amount is not a positive multiple of $50 or exceeds $100 x the largest passenger count on the account. The rule reads only the DB snapshot and the toolkit's successful-call log — no state, no I/O, no conversation text — and mirrors the released reference checks for this tool, so policy-valid certificates still pass; no certificate call occurs in any passing episode of the frontier evidence, so the guard converts the six observed wrongful writes into corrective errors without touching any write path or annotation, preserving all passing counterexamples."
+      },
+      "retained_layers": 6,
+      "test_phase": "test_round_06",
+      "test_score": 0.35,
+      "test_n": 20
+    }
+  ],
+  "baseline_phase": "candidate_06",
+  "baseline_summary": {
+    "accuracy": 0.5666666666666667,
+    "average_reward": 0.5666666666666667,
+    "pass@k": 0.6666666666666666,
+    "pass^k": 0.4666666666666667,
+    "k": 2,
+    "per_task": {
+      "0": 1.0,
+      "3": 1.0,
+      "1": 1.0,
+      "4": 1.0,
+      "5": 1.0,
+      "7": 0.0,
+      "9": 1.0,
+      "10": 0.5,
+      "12": 0.0,
+      "11": 0.5,
+      "14": 0.0,
+      "17": 0.5,
+      "15": 0.0,
+      "27": 1.0,
+      "21": 0.0,
+      "28": 1.0,
+      "23": 0.0,
+      "20": 0.5,
+      "36": 1.0,
+      "38": 1.0,
+      "39": 0.0,
+      "33": 0.0,
+      "34": 0.0,
+      "40": 0.5,
+      "41": 1.0,
+      "43": 1.0,
+      "42": 0.0,
+      "46": 1.0,
+      "47": 0.5,
+      "49": 1.0
+    },
+    "total_simulations": 60,
+    "total_tokens": 8248602,
+    "harness_plugin": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_from_scratch_six_20260930/airline/runtime/staged_06/loader.py",
+    "save_dir": "/mnt/data/xts/harness/Life-Harness/TauBench/data/simulations/meta_harness/life_from_scratch_six_20260930_airline/airline/candidate_06",
+    "cmd": [
+      "uv",
+      "run",
+      "python",
+      "scripts/eval_harness.py",
+      "--domain",
+      "airline",
+      "--split",
+      "train",
+      "--save-to",
+      "meta_harness/life_from_scratch_six_20260930_airline/airline/candidate_06",
+      "--trials",
+      "2",
+      "--concurrency",
+      "8",
+      "--enabled",
+      "--h2",
+      "--h3",
+      "--h4",
+      "--h5",
+      "--harness-plugin",
+      "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_from_scratch_six_20260930/airline/runtime/staged_06/loader.py",
+      "--task-id-file",
+      "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_from_scratch_six_20260930/airline/task_ids/batch_01.txt",
+      "--agent-llm",
+      "openai/qwen3-4b",
+      "--user-llm",
+      "openai/qwen3.8-flash",
+      "--user-api-base",
+      "https://maas.qianwenaiapi.com/compatible-mode/v1",
+      "--user-enable-thinking"
+    ],
+    "domain": "airline",
+    "split": "train",
+    "candidate": "candidate_06",
+    "flags": "h2,h3,h4,h5",
+    "per_task_trials": {
+      "0": [
+        1.0,
+        1.0
+      ],
+      "3": [
+        1.0,
+        1.0
+      ],
+      "1": [
+        1.0,
+        1.0
+      ],
+      "4": [
+        1.0,
+        1.0
+      ],
+      "5": [
+        1.0,
+        1.0
+      ],
+      "7": [
+        0.0,
+        0.0
+      ],
+      "9": [
+        1.0,
+        1.0
+      ],
+      "10": [
+        1.0,
+        0.0
+      ],
+      "12": [
+        0.0,
+        0.0
+      ],
+      "11": [
+        0.0,
+        1.0
+      ],
+      "14": [
+        0.0,
+        0.0
+      ],
+      "17": [
+        1.0,
+        0.0
+      ],
+      "15": [
+        0.0,
+        0.0
+      ],
+      "27": [
+        1.0,
+        1.0
+      ],
+      "21": [
+        0.0,
+        0.0
+      ],
+      "28": [
+        1.0,
+        1.0
+      ],
+      "23": [
+        0.0,
+        0.0
+      ],
+      "20": [
+        1.0,
+        0.0
+      ],
+      "36": [
+        1.0,
+        1.0
+      ],
+      "38": [
+        1.0,
+        1.0
+      ],
+      "39": [
+        0.0,
+        0.0
+      ],
+      "33": [
+        0.0,
+        0.0
+      ],
+      "34": [
+        0.0,
+        0.0
+      ],
+      "40": [
+        1.0,
+        0.0
+      ],
+      "41": [
+        1.0,
+        1.0
+      ],
+      "43": [
+        1.0,
+        1.0
+      ],
+      "42": [
+        0.0,
+        0.0
+      ],
+      "46": [
+        1.0,
+        1.0
+      ],
+      "47": [
+        0.0,
+        1.0
+      ],
+      "49": [
+        1.0,
+        1.0
+      ]
+    },
+    "phase": "candidate_06",
+    "batch": 1,
+    "task_ids": [
+      "0",
+      "1",
+      "3",
+      "4",
+      "5",
+      "7",
+      "9",
+      "10",
+      "11",
+      "12",
+      "14",
+      "15",
+      "17",
+      "20",
+      "21",
+      "23",
+      "27",
+      "28",
+      "33",
+      "34",
+      "36",
+      "38",
+      "39",
+      "40",
+      "41",
+      "42",
+      "43",
+      "46",
+      "47",
+      "49"
+    ],
+    "trials": 2,
+    "concurrency": 8,
+    "solver": "openai/qwen3-4b",
+    "user": "openai/qwen3.8-flash",
+    "plugin_hashes": {
+      "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_from_scratch_six_20260930/airline/runtime/staged_06/loader.py": "721f9bcb5484cb641a3a232bbdecc74a77f64d4bdb883e2f1c26df925757bcda",
+      "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_from_scratch_six_20260930/airline/runtime/staged_06/manifest.json": "4bf3de19138fa97d8a3116ffc2aedebcd4a213505223700b18fe02ccd3d4f790",
+      "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_from_scratch_six_20260930/airline/chain/layer_000_zero.py": "6fcdf5fe8669ffa3708d538b2d3fde3ea983bfe69e33a297d278df606f211044",
+      "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_from_scratch_six_20260930/airline/chain/layer_001_h3_airline_write_tool_policy_descriptions.py": "17cb1e942cba6cd4ac77538f467e0d50829aace3110a7a22a1d1ba014790ca54",
+      "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_from_scratch_six_20260930/airline/chain/layer_002_h2_airline_cancel_policy_guard.py": "c32700c719e4f9f1379126233153129286708dde06b168d5e3a5c270d0b6eb0e",
+      "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_from_scratch_six_20260930/airline/chain/layer_003_h4_airline_read_tool_fact_annotations.py": "280e114b71fa3ed9c9b8033114d37250e8bdab178a879c96491e8fc5ff05830a",
+      "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_from_scratch_six_20260930/airline/chain/layer_005_h4_airline_upcoming_total_cost_annotation.py": "b324dfd40666d3101574f3b4c81af9f7dc6b49970d0447875e1183decd29a842",
+      "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_from_scratch_six_20260930/airline/candidates/candidate_06.py": "32201a026bd8528457a9feb9f5612227901c272f2b7e11d5c59f123b8ef1bf22"
+    },
+    "protocol_hash": "1ca2de59570d9a7726ffb00123bd80a1c08e3ad8559925d6b9f84824db781f7c",
+    "task_limit": null
+  }
+}

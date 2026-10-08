@@ -1,0 +1,66 @@
+{
+  "optimizer_usage": {
+    "accounting_complete": true,
+    "attempts": 376,
+    "inference_accounting_complete": true,
+    "input_tokens": 60876672,
+    "known_usage_calls": 376,
+    "output_tokens": 972869,
+    "pending_calls": 0,
+    "rate_limit_rejections_without_usage": 0,
+    "total_tokens": 61849541,
+    "unknown_usage_calls": 0
+  },
+  "snapshots": {
+    "airline": [
+      {
+        "artifact_path": "versions/bundle_5e3f092babdaa1ab/h2_reply_reader_unplaced_confirmation.py",
+        "mechanism_id": "life_airline_write_gate",
+        "revision": 4,
+        "sha256": "2810a5c0ca527329d1d7a73d4dc473b4b89383c5dd423bd46d7e990138730433",
+        "target_layer": "h2"
+      },
+      {
+        "artifact_path": "versions/bundle_5e3f092babdaa1ab/h4_bag_facts_identity_and_question_next_step.py",
+        "mechanism_id": "life_airline_state_card",
+        "revision": 4,
+        "sha256": "d36316d716e767e5e71b27f48aeecc670f34d349350c2bdb5e1ecc22600770e7",
+        "target_layer": "h4"
+      },
+      {
+        "artifact_path": "versions/airline_write_verification_v1/h5_operating_protocol.py",
+        "mechanism_id": "life_airline_coldstart_protocol",
+        "revision": 1,
+        "sha256": "ed952d4c798e0359ded145e6df19adc963a763a8e6b0c6c5be4c0171239f4d7f",
+        "target_layer": "h5"
+      },
+      {
+        "artifact_path": "versions/airline_write_verification_v1/h3_tool_preconditions.py",
+        "mechanism_id": "life_airline_tool_preconditions",
+        "revision": 1,
+        "sha256": "3359c0e45efa5c3f97d00598ead7e4844d41a7755010260013d8ab1adb8dc269",
+        "target_layer": "h3"
+      }
+    ],
+    "retail": [
+      {
+        "artifact_path": "versions/bundle_008f3265e5480fba/h3_replacement_options_panel.py",
+        "mechanism_id": "retail_record_context_view",
+        "revision": 2,
+        "sha256": "96288092d3917dd256e10f825138b2ed670984fbf12fba54e34bb4bda03f7f43",
+        "target_layer": "h3"
+      },
+      {
+        "artifact_path": "versions/bundle_008f3265e5480fba/h2_provable_item_write_gate.py",
+        "mechanism_id": "retail_provable_action_guard",
+        "revision": 2,
+        "sha256": "e455a57e93d4964dd9199847d79fb6d3fc635ae7c7768a03f7216db0fafda9f2",
+        "target_layer": "h2"
+      }
+    ]
+  },
+  "states": {
+    "airline": "77b8b78b98d92595adaf543bfb9e0cdb4a2586bfc02750fee45f1c25b488c708",
+    "retail": "8a450888ed1c6c6c31a5a1cbcf8e11e7b58d9fb2540f008b6f0ea0d0454281f1"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "iteration": 4,
+  "pass_rate": 0.5,
+  "k": 1,
+  "tasks": {
+    "exception": 0,
+    "fail": 25,
+    "pass": 25,
+    "total": 50
+  }
+}

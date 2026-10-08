@@ -1,0 +1,13 @@
+type: tool
+name: take_action
+description: Take an action.
+input_schema:
+  type: object
+  properties:
+    action:
+      type: string
+      description: The action you would like to take
+  required:
+  - action
+  additionalProperties: false
+disable_parallel: true

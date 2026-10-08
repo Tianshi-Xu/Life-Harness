@@ -1,0 +1,14 @@
+{
+  "experiment": "life_agentbench_bundle_five_20261001",
+  "protocol_sha256": "1e1a5d0f349d34d0658c7b6efc10e08f06131c17ff1be31a617664acd792dbf9",
+  "run_config_sha256": {
+    "alfworld": "dd65f72d6f94c2dcae0a0af99c4008a4f88745e48687eee10a0c98e4afe75325",
+    "dbbench": "96e3970000873841cd33109cf7a698027e65ec635e7eaaa11fd8b26e35df5f17",
+    "webshop": "e2c54aa69f3c63002833d3d5f25861d4ba9cd7b82e268efe3bf3d8a59b04cd74"
+  },
+  "state_sha256": {
+    "alfworld": "7600ae2befc9641d545be31ad5d829cc76fbfe5bc8b3703af07adcded84153fd",
+    "dbbench": "d169578fb862167945d12cb75609f2f526f73aad03ea832c66c3abac568cd8d2",
+    "webshop": "4511e09e6c6995d9b9d5c0bfbc1b9e816e31bfe45f9b2f328203432283df29cc"
+  }
+}

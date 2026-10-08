@@ -1,0 +1,15 @@
+{
+  "completed_utc": "2026-10-07T14:22:19.358766+00:00",
+  "mysql_healthy": true,
+  "new_model_ports_listening": {
+    "8701": false,
+    "8702": false
+  },
+  "original_qwen3_proxy_healthy": true,
+  "original_services_not_stopped": true,
+  "selected_artifacts_and_original_six_test_summaries_verified_unchanged": true,
+  "stopped_server_pids": [
+    1657084,
+    1657711
+  ]
+}

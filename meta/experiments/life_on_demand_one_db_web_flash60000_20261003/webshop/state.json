@@ -1,0 +1,159 @@
+{
+  "accepted_bundle_ids": [
+    "webshop_purchase_guard_v1"
+  ],
+  "active_snapshot": [
+    {
+      "artifact_path": "versions/webshop_purchase_guard_v1/h2_purchase_guard.py",
+      "mechanism_id": "h2_purchase_guard",
+      "revision": 1,
+      "sha256": "f5cec57a016361ec38b2e5337d54f663e2246ade16af478d4f9ab58fbfcb8a5e",
+      "target_layer": "h2"
+    },
+    {
+      "artifact_path": "versions/webshop_purchase_guard_v1/h4_page_monitor.py",
+      "mechanism_id": "h4_page_monitor",
+      "revision": 1,
+      "sha256": "6cc2e0cdff742a37cad28f5fa2c89bf07b6871f8c0610b289b6dd28a945f5154",
+      "target_layer": "h4"
+    },
+    {
+      "artifact_path": "versions/webshop_purchase_guard_v1/h5_purchase_skill.py",
+      "mechanism_id": "h5_purchase_skill",
+      "revision": 1,
+      "sha256": "4530a47193bcc3b6d5bb405a1c7591320277b26dd5a7d81bb107e3ea27ee404c",
+      "target_layer": "h5"
+    },
+    {
+      "artifact_path": "versions/webshop_purchase_guard_v1/h3_tool_notes.py",
+      "mechanism_id": "h3_tool_notes",
+      "revision": 1,
+      "sha256": "81d46509af671827fb1f9597b8991fa0cb9b3ab600cce8238130d6e7054181d4",
+      "target_layer": "h3"
+    }
+  ],
+  "active_snapshot_sha256": "8f9d4f67759f78499b0132feb08a686670fe6fa7da8adb544fc2b3ef4a4fdefc",
+  "domain": "webshop",
+  "operation_log": [
+    {
+      "bundle_id": "webshop_purchase_guard_v1",
+      "committed_snapshot_sha256": "8f9d4f67759f78499b0132feb08a686670fe6fa7da8adb544fc2b3ef4a4fdefc",
+      "operations": [
+        {
+          "artifact": "artifacts/h2_purchase_guard.py",
+          "artifact_sha256": "f5cec57a016361ec38b2e5337d54f663e2246ade16af478d4f9ab58fbfcb8a5e",
+          "hypothesis": "Repairing a text-serialised native tool call into exactly one real tool call (when its click value is clickable) recovers the turn lost in case 300, and suppressing 'buy now' when instruction-matching clickable labels are still unclicked or the lowest displayed price exceeds the instruction ceiling (goal_cap from h5_purchase_skill, gate_block from h4_page_monitor) prevents the terminal wrong purchases seen in 961, 806 and 300 without touching the successful flows in 674, 488, 417, 885, 720 and 684.",
+          "mechanism_id": "h2_purchase_guard",
+          "op": "add",
+          "operation_id": "h2_purchase_guard",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/h4_page_monitor.py",
+          "artifact_sha256": "6cc2e0cdff742a37cad28f5fa2c89bf07b6871f8c0610b289b6dd28a945f5154",
+          "hypothesis": "Re-deriving the product-page verdict before every solver turn and publishing it in shared state (gate_block) gives the same-turn H2 guard a reliable channel, warns the solver one turn earlier in the same words the guard will use, and reports a click value that was not clickable on the page it was issued against (case 465).",
+          "mechanism_id": "h4_page_monitor",
+          "op": "add",
+          "operation_id": "h4_page_monitor",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/h5_purchase_skill.py",
+          "artifact_sha256": "4530a47193bcc3b6d5bb405a1c7591320277b26dd5a7d81bb107e3ea27ee404c",
+          "hypothesis": "A cold-start purchase procedure (search wording, title comparison against every requirement, read 'Price:' before buying, click every instruction-matching option, never click section headings, one tool call per turn) plus the parsed price ceiling in shared state gives the solver the domain policy the scaffold does not supply.",
+          "mechanism_id": "h5_purchase_skill",
+          "op": "add",
+          "operation_id": "h5_purchase_skill",
+          "target_layer": "h5"
+        },
+        {
+          "artifact": "artifacts/h3_tool_notes.py",
+          "artifact_sha256": "81d46509af671827fb1f9597b8991fa0cb9b3ab600cce8238130d6e7054181d4",
+          "hypothesis": "Appending one sentence to the click_action description only (names, order and schemas untouched) restates the two observed click failures - clicking a section heading such as 'size', and buying before selecting instruction-matching options or above the stated price - at the point where the model chooses the value.",
+          "mechanism_id": "h3_tool_notes",
+          "op": "add",
+          "operation_id": "h3_tool_notes",
+          "target_layer": "h3"
+        }
+      ],
+      "parent_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "round": 1
+    }
+  ],
+  "prior_test_exposure": true,
+  "round": 1,
+  "rounds": [
+    {
+      "accepted": true,
+      "active_snapshot_sha256": "8f9d4f67759f78499b0132feb08a686670fe6fa7da8adb544fc2b3ef4a4fdefc",
+      "bundle_hypothesis": "Most WebShop rollouts that fail after a correct product choice end in a terminal 'buy now' that the public page contradicts: an option label copied verbatim from the instruction ('2-pack', 'black & gold', 'sweet & spicy') is clickable but was never clicked, or the lowest displayed price is above the instruction ceiling. A shared monitored verdict (options pending / price above ceiling) plus an action-layer guard that suppresses exactly those terminal actions, a cold-start procedure and one description sentence should remove those failures while leaving the observed successful trajectories (option clicked before buying, no-option pages, price range whose minimum is inside the ceiling) bit-identical.",
+      "bundle_id": "webshop_purchase_guard_v1",
+      "candidate_infra_errors": 0,
+      "candidate_phase": "round_01_candidate",
+      "candidate_score": 0.32,
+      "candidate_snapshot_sha256": "094b312bae8ee717c04d25b1f14b4ba6dfb664b398dad62df0b8a1747865c476",
+      "candidate_successes": 16,
+      "candidate_summary_sha256": "848416589b1cbef08b0922b4de25e46cd1f4f2cdc5126728fdcb3fa7911192fa",
+      "cases_available": 50,
+      "cases_opened": 18,
+      "incumbent_infra_errors": 0,
+      "incumbent_phase": "round_01_incumbent",
+      "incumbent_score": 0.24,
+      "incumbent_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "incumbent_successes": 12,
+      "incumbent_summary_sha256": "409c8f718c5163e1b4e7189995a92154d974756b33e503e5c657e2e4eb7878e6",
+      "operations": [
+        {
+          "artifact": "artifacts/h2_purchase_guard.py",
+          "artifact_sha256": "f5cec57a016361ec38b2e5337d54f663e2246ade16af478d4f9ab58fbfcb8a5e",
+          "hypothesis": "Repairing a text-serialised native tool call into exactly one real tool call (when its click value is clickable) recovers the turn lost in case 300, and suppressing 'buy now' when instruction-matching clickable labels are still unclicked or the lowest displayed price exceeds the instruction ceiling (goal_cap from h5_purchase_skill, gate_block from h4_page_monitor) prevents the terminal wrong purchases seen in 961, 806 and 300 without touching the successful flows in 674, 488, 417, 885, 720 and 684.",
+          "mechanism_id": "h2_purchase_guard",
+          "op": "add",
+          "operation_id": "h2_purchase_guard",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/h4_page_monitor.py",
+          "artifact_sha256": "6cc2e0cdff742a37cad28f5fa2c89bf07b6871f8c0610b289b6dd28a945f5154",
+          "hypothesis": "Re-deriving the product-page verdict before every solver turn and publishing it in shared state (gate_block) gives the same-turn H2 guard a reliable channel, warns the solver one turn earlier in the same words the guard will use, and reports a click value that was not clickable on the page it was issued against (case 465).",
+          "mechanism_id": "h4_page_monitor",
+          "op": "add",
+          "operation_id": "h4_page_monitor",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/h5_purchase_skill.py",
+          "artifact_sha256": "4530a47193bcc3b6d5bb405a1c7591320277b26dd5a7d81bb107e3ea27ee404c",
+          "hypothesis": "A cold-start purchase procedure (search wording, title comparison against every requirement, read 'Price:' before buying, click every instruction-matching option, never click section headings, one tool call per turn) plus the parsed price ceiling in shared state gives the solver the domain policy the scaffold does not supply.",
+          "mechanism_id": "h5_purchase_skill",
+          "op": "add",
+          "operation_id": "h5_purchase_skill",
+          "target_layer": "h5"
+        },
+        {
+          "artifact": "artifacts/h3_tool_notes.py",
+          "artifact_sha256": "81d46509af671827fb1f9597b8991fa0cb9b3ab600cce8238130d6e7054181d4",
+          "hypothesis": "Appending one sentence to the click_action description only (names, order and schemas untouched) restates the two observed click failures - clicking a section heading such as 'size', and buying before selecting instruction-matching options or above the stated price - at the point where the model chooses the value.",
+          "mechanism_id": "h3_tool_notes",
+          "op": "add",
+          "operation_id": "h3_tool_notes",
+          "target_layer": "h3"
+        }
+      ],
+      "outcome": "evaluated_candidate",
+      "parent_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "proposer_requests": 32,
+      "round": 1,
+      "train_batch": 0,
+      "usage": {
+        "completion_tokens": 162964,
+        "prompt_cache_hit_tokens": 607104,
+        "prompt_cache_miss_tokens": 1393436,
+        "prompt_tokens": 4567792,
+        "total_tokens": 4730756
+      },
+      "validation_sha256": "e0745b1a718026c4ab280a152ad403eaa9a19ad96a5c77a0f395ad9407af0014"
+    }
+  ],
+  "status": "complete"
+}

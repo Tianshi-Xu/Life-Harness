@@ -1,0 +1,23 @@
+{
+  "iteration": 4,
+  "pass_rate": 0.45,
+  "k": 2,
+  "tasks": {
+    "all_exception": 0,
+    "passed_0_of_2": 13,
+    "passed_1_of_2": 7,
+    "passed_2_of_2": 10,
+    "total": 30
+  },
+  "trials": {
+    "exception": 0,
+    "fail": 33,
+    "pass": 27,
+    "pass_rate": 0.45,
+    "total": 60
+  },
+  "pass_at": {
+    "1": 0.45,
+    "2": 0.5667
+  }
+}

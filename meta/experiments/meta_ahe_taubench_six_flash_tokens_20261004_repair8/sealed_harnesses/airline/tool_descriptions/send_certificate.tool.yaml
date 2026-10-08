@@ -1,0 +1,19 @@
+type: tool
+name: send_certificate
+description: Send a certificate to a user. Be careful!
+input_schema:
+  properties:
+    user_id:
+      description: The ID of the user to send the certificate to, exactly as the user typed it. Do not copy the sample text shown in this schema.
+      title: User Id
+      type: string
+    amount:
+      description: The amount of the certificate to send.
+      title: Amount
+      type: integer
+  required:
+  - user_id
+  - amount
+  title: parameters
+  type: object
+disable_parallel: true

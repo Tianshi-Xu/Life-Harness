@@ -1,0 +1,46 @@
+type: tool
+name: modify_pending_order_address
+description: Modify the shipping address of a pending order. The agent needs to explain
+  the modification detail and ask for explicit user confirmation (yes/no) to proceed.
+input_schema:
+  properties:
+    order_id:
+      description: The order id, such as '#W0000000'. Be careful there is a '#' symbol
+        at the beginning of the order id.
+      title: Order Id
+      type: string
+    address1:
+      description: The first line of the address, such as '123 Main St'.
+      title: Address1
+      type: string
+    address2:
+      description: The second line of the address, such as 'Apt 1' or ''.
+      title: Address2
+      type: string
+    city:
+      description: The city, such as 'San Francisco'.
+      title: City
+      type: string
+    state:
+      description: The state, such as 'CA'.
+      title: State
+      type: string
+    country:
+      description: The country, such as 'USA'.
+      title: Country
+      type: string
+    zip:
+      description: The zip code, such as '12345'.
+      title: Zip
+      type: string
+  required:
+  - order_id
+  - address1
+  - address2
+  - city
+  - state
+  - country
+  - zip
+  title: parameters
+  type: object
+disable_parallel: true

@@ -1,0 +1,30 @@
+type: tool
+name: update_reservation_baggages
+description: Update the baggage information of a reservation.
+input_schema:
+  properties:
+    reservation_id:
+      description: The reservation ID, such as 'ZFA04Y'
+      title: Reservation Id
+      type: string
+    total_baggages:
+      description: The updated total number of baggage items included in the reservation.
+      title: Total Baggages
+      type: integer
+    nonfree_baggages:
+      description: The updated number of non-free baggage items included in the reservation.
+      title: Nonfree Baggages
+      type: integer
+    payment_id:
+      description: The payment id stored in user profile, such as 'credit_card_7815826',
+        'gift_card_7815826', 'certificate_7815826'.
+      title: Payment Id
+      type: string
+  required:
+  - reservation_id
+  - total_baggages
+  - nonfree_baggages
+  - payment_id
+  title: parameters
+  type: object
+disable_parallel: true

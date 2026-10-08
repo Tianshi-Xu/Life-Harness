@@ -1,0 +1,45 @@
+type: tool
+name: modify_user_address
+description: Modify the default address of a user. The agent needs to explain the
+  modification detail and ask for explicit user confirmation (yes/no) to proceed.
+input_schema:
+  properties:
+    user_id:
+      description: The user id, such as 'sara_doe_496'.
+      title: User Id
+      type: string
+    address1:
+      description: The first line of the address, such as '123 Main St'.
+      title: Address1
+      type: string
+    address2:
+      description: The second line of the address, such as 'Apt 1' or ''.
+      title: Address2
+      type: string
+    city:
+      description: The city, such as 'San Francisco'.
+      title: City
+      type: string
+    state:
+      description: The state, such as 'CA'.
+      title: State
+      type: string
+    country:
+      description: The country, such as 'USA'.
+      title: Country
+      type: string
+    zip:
+      description: The zip code, such as '12345'.
+      title: Zip
+      type: string
+  required:
+  - user_id
+  - address1
+  - address2
+  - city
+  - state
+  - country
+  - zip
+  title: parameters
+  type: object
+disable_parallel: true

@@ -1,0 +1,24 @@
+type: tool
+name: resume_line
+description: 'Resumes a suspended line.
+
+
+  Checks: Line status must be Suspended or Pending Activation.
+
+  Logic: Sets line status to Active, clears suspension_start_date.'
+input_schema:
+  properties:
+    customer_id:
+      description: ID of the customer who owns the line.
+      title: Customer Id
+      type: string
+    line_id:
+      description: ID of the line to resume.
+      title: Line Id
+      type: string
+  required:
+  - customer_id
+  - line_id
+  title: parameters
+  type: object
+disable_parallel: true

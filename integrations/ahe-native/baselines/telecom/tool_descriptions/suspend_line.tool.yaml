@@ -1,0 +1,29 @@
+type: tool
+name: suspend_line
+description: 'Suspends a specific line (max 6 months).
+
+
+  Checks: Line status must be Active.
+
+  Logic: Sets line status to Suspended, records suspension_start_date.'
+input_schema:
+  properties:
+    customer_id:
+      description: ID of the customer who owns the line.
+      title: Customer Id
+      type: string
+    line_id:
+      description: ID of the line to suspend.
+      title: Line Id
+      type: string
+    reason:
+      description: Reason for suspension.
+      title: Reason
+      type: string
+  required:
+  - customer_id
+  - line_id
+  - reason
+  title: parameters
+  type: object
+disable_parallel: true

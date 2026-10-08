@@ -1,0 +1,12 @@
+{
+  "14b": {
+    "pid": 206028,
+    "reason": "all full TESTs complete; release only this task GPUs12/13",
+    "signal": "SIGTERM"
+  },
+  "7b": {
+    "pid": 93906,
+    "reason": "all three full TESTs complete; release only this task GPU12",
+    "signal": "SIGTERM"
+  }
+}

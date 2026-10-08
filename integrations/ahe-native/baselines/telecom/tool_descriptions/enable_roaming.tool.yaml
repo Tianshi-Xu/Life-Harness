@@ -1,0 +1,19 @@
+type: tool
+name: enable_roaming
+description: Enables international roaming on a line.
+input_schema:
+  properties:
+    customer_id:
+      description: ID of the customer who owns the line.
+      title: Customer Id
+      type: string
+    line_id:
+      description: ID of the line to enable roaming for.
+      title: Line Id
+      type: string
+  required:
+  - customer_id
+  - line_id
+  title: parameters
+  type: object
+disable_parallel: true

@@ -1,0 +1,60 @@
+{
+  "scope": "AgentBench alfworld/dbbench/webshop and TauBench airline/retail/telecom; OS excluded",
+  "all_methods_all_benches_six_rounds_with_complete_measured_cost": false,
+  "optimizer_cost_scope": "Only Evolve/Debugger or Meta optimization roles; exclude local Qwen solver and user simulator. Include failed, rejected and repair calls. Cached input is already part of input, not added again.",
+  "agentbench": {
+    "meta": {
+      "completed_rounds_per_domain": 6,
+      "source": "meta/experiments/meta_agentbench_six_flash_tokens_20261004_repair2",
+      "cost": "recorded API usage"
+    },
+    "ahe": {
+      "completed_optimization_steps_per_domain": 6,
+      "source": "/mnt/data/xts/harness/ahe-native/batches/ahe_restricted_six_rotating_flash8_20261003_073330_repair1",
+      "cost_source": "/mnt/data/xts/harness/ahe-native/audits/historical_tokens_20261004/TOKEN_AUDIT.json",
+      "cost": "partial measured Evolve tracing; full optimizer estimate uses user-approved mean 50000 tokens for untraced calls, label estimated",
+      "capability_profile": "h2345-budget-restricted-v1, at most 10 detailed cases; not unrestricted reproduction"
+    },
+    "life": {
+      "completed_historical_rounds_per_domain": 6,
+      "source": "meta/experiments/life_agentbench_flash100k_repair_20261004",
+      "cost_source": "meta/experiments/life_agentbench_flash100k_repair_20261004/TOTAL_SPEND.json",
+      "cost": "recorded API usage; normalize inherited and failed/abandoned paid attempts per round, do not treat requalified zero-call rows as zero historical spend",
+      "current_webshop_source": "meta/experiments/life_webshop_six_current_20261006_envfix",
+      "current_webshop_status_at_audit": "running, no final result yet"
+    }
+  },
+  "taubench": {
+    "meta_and_ahe": {
+      "completed_rounds_per_domain": 6,
+      "source": "meta/experiments/meta_ahe_taubench_six_flash_tokens_20261004_repair8",
+      "cost_source": "meta/experiments/meta_ahe_taubench_six_flash_tokens_20261004_repair8/OPTIMIZER_TOKEN_USAGE.json",
+      "cost": "recorded optimizer usage except one authorized reconstructed AHE Telecom call: 135307 estimated tokens; keep estimate separate"
+    },
+    "life_telecom": {
+      "completed_rounds": 6,
+      "source": "meta/experiments/life_taubench_telecom_six_20261006_codegate_resume",
+      "cost": "recorded API usage, includes inherited first-round paid candidate and failed preflights",
+      "final_test": "26/40 = 65%"
+    },
+    "life_airline": {
+      "completed_legacy_rounds": 6,
+      "source": "meta/experiments/life_from_scratch_six_20260930/airline",
+      "cost": "missing usable per-round external LLM tokens: legacy Qoder modelUsage/usage reported zeros; credits are not token counts",
+      "current_dpsk_flash_six_round_record_found": false
+    },
+    "life_retail": {
+      "completed_legacy_rounds": 0,
+      "source": "meta/experiments/life_from_scratch_six_20260930/retail/state.json",
+      "current_dpsk_flash_six_round_record_found": false,
+      "note": "Published 63% is one reference accuracy, not a six-round training/cost curve"
+    }
+  },
+  "plot_rules": [
+    "Cumulative optimizer input+output tokens on x-axis; identify estimates explicitly.",
+    "Round training scores use rotating batches; not a fixed-task monotonic learning curve.",
+    "Final TEST accuracy is a separate TRAIN-selected endpoint, not six per-round TEST measurements.",
+    "AHE optimization_step 1 corresponds to native iteration 2; use COMPARISON_REFERENCE_CORRECTION.json, not frozen raw ahe_reference entries.",
+    "Do not rerun unrelated benchmarks just to fill the plot without user direction."
+  ]
+}

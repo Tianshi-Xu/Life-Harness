@@ -1,0 +1,22 @@
+type: tool
+name: get_data_usage
+description: 'Retrieves current billing cycle data usage for a line, including data
+
+
+  refueling amount, data limit, and cycle end date.'
+input_schema:
+  properties:
+    customer_id:
+      description: ID of the customer who owns the line.
+      title: Customer Id
+      type: string
+    line_id:
+      description: ID of the line to check usage for.
+      title: Line Id
+      type: string
+  required:
+  - customer_id
+  - line_id
+  title: parameters
+  type: object
+disable_parallel: true

@@ -1,0 +1,22 @@
+type: tool
+name: cancel_reservation
+description: |-
+  Cancel the whole reservation. The RPC does not check the policy itself - it
+  cancels whatever reservation_id you pass - so verify the policy first. Only
+  call it after get_reservation_details shows that at least one of these holds:
+  the booking was made within the last 24 hours; the cabin is business; the
+  airline cancelled the flight; or the travel insurance covers the reason
+  (insurance covers health or weather reasons only, not change of plan or
+  personal events). If none holds the cancellation is not permitted: say so and
+  explain why. List the action details and get the user's explicit "yes" first.
+input_schema:
+  properties:
+    reservation_id:
+      description: The reservation ID exactly as printed by get_user_details or an earlier tool result. Do not copy the sample text shown in this schema.
+      title: Reservation Id
+      type: string
+  required:
+  - reservation_id
+  title: parameters
+  type: object
+disable_parallel: true

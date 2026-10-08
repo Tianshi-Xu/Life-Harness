@@ -1,0 +1,15 @@
+type: tool
+name: commit_final_answer
+description: Commits the final answer after all operations are completed.
+input_schema:
+  type: object
+  properties:
+    answers:
+      type: array
+      items:
+        type: string
+      description: The list of final answers to commit.
+  required:
+  - answers
+  additionalProperties: false
+disable_parallel: true

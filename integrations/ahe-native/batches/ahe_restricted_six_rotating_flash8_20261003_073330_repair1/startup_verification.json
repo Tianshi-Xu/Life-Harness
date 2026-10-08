@@ -1,0 +1,21 @@
+{
+  "checked_at": "2026-10-03T07:56:09.928132+00:00",
+  "debugger_subconfig_boundary_fixed": true,
+  "actual_isolated_debugger_checks": [
+    {
+      "isolated_case": "runtime_rootfs/episodes/a3add5460d52474b943e30bd892a10c9",
+      "kind": "debugger",
+      "metadata_tasks": 50,
+      "detailed_traces": 10
+    },
+    {
+      "isolated_case": "runtime_rootfs/episodes/fc31ac0d0cb64c678a236f4613381252",
+      "kind": "debugger",
+      "metadata_tasks": 50,
+      "detailed_traces": 10
+    }
+  ],
+  "webshop_bounded_analysis_reused": true,
+  "flash_limit": 8,
+  "paid_training_only": true
+}

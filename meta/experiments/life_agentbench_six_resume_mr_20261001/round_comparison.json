@@ -1,0 +1,355 @@
+{
+  "notes": [
+    "all train evaluations use 50 tasks; frozen batch is explicitly identified",
+    "round rejection retains incumbent; candidate score is not the retained score",
+    "Life rounds 1-4 have no test measurements; no retrospective test runs were added",
+    "Life round-6 proposer is ModelRouter deepseek-v4-flash; first five rounds are inherited",
+    "predecessor final tests were already observed; results are a continuation with prior test exposure"
+  ],
+  "test_rounds": [
+    {
+      "domain": "alfworld",
+      "life_provenance": "not evaluated",
+      "life_test": null,
+      "meta_test": 0.30275229357798167,
+      "round": 1
+    },
+    {
+      "domain": "alfworld",
+      "life_provenance": "not evaluated",
+      "life_test": null,
+      "meta_test": 0.43119266055045874,
+      "round": 2
+    },
+    {
+      "domain": "alfworld",
+      "life_provenance": "not evaluated",
+      "life_test": null,
+      "meta_test": 0.46788990825688076,
+      "round": 3
+    },
+    {
+      "domain": "alfworld",
+      "life_provenance": "not evaluated",
+      "life_test": null,
+      "meta_test": 0.5596330275229358,
+      "round": 4
+    },
+    {
+      "domain": "alfworld",
+      "life_provenance": "reused predecessor final test because accepted snapshot is identical",
+      "life_test": 0.926605504587156,
+      "meta_test": 0.5871559633027523,
+      "round": 5
+    },
+    {
+      "domain": "alfworld",
+      "life_provenance": "reused predecessor final test because accepted snapshot is identical",
+      "life_test": 0.926605504587156,
+      "meta_test": 0.5321100917431193,
+      "round": 6
+    },
+    {
+      "domain": "dbbench",
+      "life_provenance": "not evaluated",
+      "life_test": null,
+      "meta_test": 0.48333333333333334,
+      "round": 1
+    },
+    {
+      "domain": "dbbench",
+      "life_provenance": "not evaluated",
+      "life_test": null,
+      "meta_test": 0.49,
+      "round": 2
+    },
+    {
+      "domain": "dbbench",
+      "life_provenance": "not evaluated",
+      "life_test": null,
+      "meta_test": 0.4866666666666667,
+      "round": 3
+    },
+    {
+      "domain": "dbbench",
+      "life_provenance": "not evaluated",
+      "life_test": null,
+      "meta_test": 0.49666666666666665,
+      "round": 4
+    },
+    {
+      "domain": "dbbench",
+      "life_provenance": "reused predecessor final test because accepted snapshot is identical",
+      "life_test": 0.5366666666666666,
+      "meta_test": 0.48333333333333334,
+      "round": 5
+    },
+    {
+      "domain": "dbbench",
+      "life_provenance": "new fixed final test of sealed sixth-round accepted snapshot",
+      "life_test": 0.5733333333333334,
+      "meta_test": 0.48,
+      "round": 6
+    },
+    {
+      "domain": "webshop",
+      "life_provenance": "not evaluated",
+      "life_test": null,
+      "meta_test": 0.265,
+      "round": 1
+    },
+    {
+      "domain": "webshop",
+      "life_provenance": "not evaluated",
+      "life_test": null,
+      "meta_test": 0.255,
+      "round": 2
+    },
+    {
+      "domain": "webshop",
+      "life_provenance": "not evaluated",
+      "life_test": null,
+      "meta_test": 0.295,
+      "round": 3
+    },
+    {
+      "domain": "webshop",
+      "life_provenance": "not evaluated",
+      "life_test": null,
+      "meta_test": 0.28,
+      "round": 4
+    },
+    {
+      "domain": "webshop",
+      "life_provenance": "reused predecessor final test because accepted snapshot is identical",
+      "life_test": 0.355,
+      "meta_test": 0.305,
+      "round": 5
+    },
+    {
+      "domain": "webshop",
+      "life_provenance": "reused predecessor final test because accepted snapshot is identical",
+      "life_test": 0.355,
+      "meta_test": 0.31,
+      "round": 6
+    }
+  ],
+  "train_rounds": [
+    {
+      "domain": "alfworld",
+      "life_accepted": true,
+      "life_batch": 0,
+      "life_candidate": 0.38,
+      "life_incumbent": 0.26,
+      "meta_accepted": true,
+      "meta_batch": 0,
+      "meta_candidate": 0.32,
+      "meta_incumbent": 0.22,
+      "round": 1
+    },
+    {
+      "domain": "alfworld",
+      "life_accepted": true,
+      "life_batch": 0,
+      "life_candidate": 0.94,
+      "life_incumbent": 0.38,
+      "meta_accepted": true,
+      "meta_batch": 0,
+      "meta_candidate": 0.58,
+      "meta_incumbent": 0.32,
+      "round": 2
+    },
+    {
+      "domain": "alfworld",
+      "life_accepted": true,
+      "life_batch": 0,
+      "life_candidate": 0.98,
+      "life_incumbent": 0.94,
+      "meta_accepted": true,
+      "meta_batch": 0,
+      "meta_candidate": 0.64,
+      "meta_incumbent": 0.58,
+      "round": 3
+    },
+    {
+      "domain": "alfworld",
+      "life_accepted": false,
+      "life_batch": 0,
+      "life_candidate": 0.98,
+      "life_incumbent": 0.98,
+      "meta_accepted": true,
+      "meta_batch": 0,
+      "meta_candidate": 0.68,
+      "meta_incumbent": 0.64,
+      "round": 4
+    },
+    {
+      "domain": "alfworld",
+      "life_accepted": true,
+      "life_batch": 1,
+      "life_candidate": 0.98,
+      "life_incumbent": 0.96,
+      "meta_accepted": false,
+      "meta_batch": 0,
+      "meta_candidate": 0.62,
+      "meta_incumbent": 0.68,
+      "round": 5
+    },
+    {
+      "domain": "alfworld",
+      "life_accepted": false,
+      "life_batch": 1,
+      "life_candidate": 0.98,
+      "life_incumbent": 0.98,
+      "meta_accepted": true,
+      "meta_batch": 1,
+      "meta_candidate": 0.46,
+      "meta_incumbent": 0.4,
+      "round": 6
+    },
+    {
+      "domain": "dbbench",
+      "life_accepted": true,
+      "life_batch": 0,
+      "life_candidate": 0.54,
+      "life_incumbent": 0.36,
+      "meta_accepted": true,
+      "meta_batch": 0,
+      "meta_candidate": 0.52,
+      "meta_incumbent": 0.42,
+      "round": 1
+    },
+    {
+      "domain": "dbbench",
+      "life_accepted": true,
+      "life_batch": 0,
+      "life_candidate": 0.58,
+      "life_incumbent": 0.54,
+      "meta_accepted": true,
+      "meta_batch": 0,
+      "meta_candidate": 0.54,
+      "meta_incumbent": 0.52,
+      "round": 2
+    },
+    {
+      "domain": "dbbench",
+      "life_accepted": false,
+      "life_batch": 0,
+      "life_candidate": 0.56,
+      "life_incumbent": 0.58,
+      "meta_accepted": true,
+      "meta_batch": 0,
+      "meta_candidate": 0.56,
+      "meta_incumbent": 0.54,
+      "round": 3
+    },
+    {
+      "domain": "dbbench",
+      "life_accepted": true,
+      "life_batch": 1,
+      "life_candidate": 0.6,
+      "life_incumbent": 0.52,
+      "meta_accepted": false,
+      "meta_batch": 0,
+      "meta_candidate": 0.56,
+      "meta_incumbent": 0.56,
+      "round": 4
+    },
+    {
+      "domain": "dbbench",
+      "life_accepted": false,
+      "life_batch": 1,
+      "life_candidate": 0.58,
+      "life_incumbent": 0.6,
+      "meta_accepted": true,
+      "meta_batch": 1,
+      "meta_candidate": 0.5,
+      "meta_incumbent": 0.46,
+      "round": 5
+    },
+    {
+      "domain": "dbbench",
+      "life_accepted": true,
+      "life_batch": 2,
+      "life_candidate": 0.68,
+      "life_incumbent": 0.64,
+      "meta_accepted": false,
+      "meta_batch": 1,
+      "meta_candidate": 0.46,
+      "meta_incumbent": 0.5,
+      "round": 6
+    },
+    {
+      "domain": "webshop",
+      "life_accepted": true,
+      "life_batch": 0,
+      "life_candidate": 0.34,
+      "life_incumbent": 0.26,
+      "meta_accepted": true,
+      "meta_batch": 0,
+      "meta_candidate": 0.38,
+      "meta_incumbent": 0.24,
+      "round": 1
+    },
+    {
+      "domain": "webshop",
+      "life_accepted": true,
+      "life_batch": 0,
+      "life_candidate": 0.36,
+      "life_incumbent": 0.34,
+      "meta_accepted": true,
+      "meta_batch": 0,
+      "meta_candidate": 0.4,
+      "meta_incumbent": 0.38,
+      "round": 2
+    },
+    {
+      "domain": "webshop",
+      "life_accepted": true,
+      "life_batch": 0,
+      "life_candidate": 0.4,
+      "life_incumbent": 0.36,
+      "meta_accepted": true,
+      "meta_batch": 0,
+      "meta_candidate": 0.42,
+      "meta_incumbent": 0.4,
+      "round": 3
+    },
+    {
+      "domain": "webshop",
+      "life_accepted": false,
+      "life_batch": 0,
+      "life_candidate": 0.34,
+      "life_incumbent": 0.4,
+      "meta_accepted": false,
+      "meta_batch": 0,
+      "meta_candidate": 0.4,
+      "meta_incumbent": 0.42,
+      "round": 4
+    },
+    {
+      "domain": "webshop",
+      "life_accepted": false,
+      "life_batch": 1,
+      "life_candidate": 0.38,
+      "life_incumbent": 0.38,
+      "meta_accepted": true,
+      "meta_batch": 1,
+      "meta_candidate": 0.32,
+      "meta_incumbent": 0.26,
+      "round": 5
+    },
+    {
+      "domain": "webshop",
+      "life_accepted": false,
+      "life_batch": 2,
+      "life_candidate": 0.36,
+      "life_incumbent": 0.4,
+      "meta_accepted": true,
+      "meta_batch": 1,
+      "meta_candidate": 0.34,
+      "meta_incumbent": 0.32,
+      "round": 6
+    }
+  ]
+}

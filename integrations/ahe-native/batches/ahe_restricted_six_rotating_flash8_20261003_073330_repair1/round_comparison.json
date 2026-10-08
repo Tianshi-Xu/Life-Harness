@@ -1,0 +1,675 @@
+{
+  "schema_version": 1,
+  "batch": "ahe_restricted_six_rotating_flash8_20261003_073330_repair1",
+  "updated_at": "2026-10-03T10:18:19.072719+00:00",
+  "split": "train",
+  "rows": [
+    {
+      "domain": "alfworld",
+      "optimization_step": 0,
+      "ahe": {
+        "iteration": 1,
+        "tasks": 50,
+        "successes": 11,
+        "infrastructure_errors": 1,
+        "batch": 0,
+        "provenance": "original pre-evolve evaluation",
+        "accuracy": 0.22
+      },
+      "meta": {
+        "effective": 0.22,
+        "batch": 0,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "initial baseline"
+      },
+      "life": {
+        "effective": 0.26,
+        "batch": 0,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "initial baseline"
+      }
+    },
+    {
+      "domain": "alfworld",
+      "optimization_step": 1,
+      "ahe": {
+        "iteration": 2,
+        "tasks": 50,
+        "successes": 10,
+        "infrastructure_errors": 0,
+        "batch": 1,
+        "provenance": "original pre-evolve evaluation",
+        "accuracy": 0.2
+      },
+      "meta": {
+        "batch": 0,
+        "incumbent": 0.22,
+        "candidate": 0.32,
+        "accepted": true,
+        "effective": 0.32,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      },
+      "life": {
+        "batch": 0,
+        "incumbent": 0.26,
+        "candidate": 0.38,
+        "accepted": true,
+        "effective": 0.38,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      }
+    },
+    {
+      "domain": "alfworld",
+      "optimization_step": 2,
+      "ahe": {
+        "iteration": 3,
+        "tasks": 50,
+        "successes": 32,
+        "infrastructure_errors": 0,
+        "batch": 2,
+        "provenance": "original pre-evolve evaluation",
+        "accuracy": 0.64
+      },
+      "meta": {
+        "batch": 0,
+        "incumbent": 0.32,
+        "candidate": 0.58,
+        "accepted": true,
+        "effective": 0.58,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      },
+      "life": {
+        "batch": 0,
+        "incumbent": 0.38,
+        "candidate": 0.94,
+        "accepted": true,
+        "effective": 0.94,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      }
+    },
+    {
+      "domain": "alfworld",
+      "optimization_step": 3,
+      "ahe": {
+        "iteration": 4,
+        "tasks": 50,
+        "successes": 49,
+        "infrastructure_errors": 0,
+        "batch": 3,
+        "provenance": "original pre-evolve evaluation",
+        "accuracy": 0.98
+      },
+      "meta": {
+        "batch": 0,
+        "incumbent": 0.58,
+        "candidate": 0.64,
+        "accepted": true,
+        "effective": 0.64,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      },
+      "life": {
+        "batch": 0,
+        "incumbent": 0.94,
+        "candidate": 0.98,
+        "accepted": true,
+        "effective": 0.98,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      }
+    },
+    {
+      "domain": "alfworld",
+      "optimization_step": 4,
+      "ahe": {
+        "iteration": 5,
+        "tasks": 50,
+        "successes": 48,
+        "infrastructure_errors": 0,
+        "batch": 4,
+        "provenance": "original pre-evolve evaluation",
+        "accuracy": 0.96
+      },
+      "meta": {
+        "batch": 0,
+        "incumbent": 0.64,
+        "candidate": 0.68,
+        "accepted": true,
+        "effective": 0.68,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      },
+      "life": {
+        "batch": 0,
+        "incumbent": 0.98,
+        "candidate": 0.98,
+        "accepted": false,
+        "effective": 0.98,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      }
+    },
+    {
+      "domain": "alfworld",
+      "optimization_step": 5,
+      "ahe": {
+        "iteration": 6,
+        "tasks": 50,
+        "successes": 48,
+        "infrastructure_errors": 0,
+        "batch": 5,
+        "provenance": "original pre-evolve evaluation",
+        "accuracy": 0.96
+      },
+      "meta": {
+        "batch": 0,
+        "incumbent": 0.68,
+        "candidate": 0.62,
+        "accepted": false,
+        "effective": 0.68,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      },
+      "life": {
+        "batch": 1,
+        "incumbent": 0.96,
+        "candidate": 0.98,
+        "accepted": true,
+        "effective": 0.98,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      }
+    },
+    {
+      "domain": "alfworld",
+      "optimization_step": 6,
+      "ahe": {
+        "domain": "alfworld",
+        "optimization_step": 6,
+        "split": "train",
+        "tasks": 50,
+        "successes": 49,
+        "infrastructure_errors": 0,
+        "workspace_sha256": "11982f88a1f0e630c9ba491199c01847ec8214f9695e2b26ec17472f6337387f",
+        "job": "/mnt/data/xts/harness/ahe-native/batches/ahe_restricted_six_rotating_flash8_20261003_073330_repair1/final_candidate_evaluations/alfworld/iteration_006/2026-10-03__10-00-58_93c16b7f",
+        "batch": 5,
+        "selection_modified": false,
+        "used_for_optimization": false,
+        "accuracy": 0.98,
+        "provenance": "separate final candidate train evaluation; no selection change"
+      },
+      "meta": {
+        "batch": 1,
+        "incumbent": 0.4,
+        "candidate": 0.46,
+        "accepted": true,
+        "effective": 0.46,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      },
+      "life": {
+        "batch": 1,
+        "incumbent": 0.98,
+        "candidate": 0.98,
+        "accepted": false,
+        "effective": 0.98,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      }
+    },
+    {
+      "domain": "dbbench",
+      "optimization_step": 0,
+      "ahe": {
+        "iteration": 1,
+        "tasks": 50,
+        "successes": 22,
+        "infrastructure_errors": 0,
+        "batch": 0,
+        "provenance": "original pre-evolve evaluation",
+        "accuracy": 0.44
+      },
+      "meta": {
+        "effective": 0.42,
+        "batch": 0,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "initial baseline"
+      },
+      "life": {
+        "effective": 0.36,
+        "batch": 0,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "initial baseline"
+      }
+    },
+    {
+      "domain": "dbbench",
+      "optimization_step": 1,
+      "ahe": {
+        "iteration": 2,
+        "tasks": 50,
+        "successes": 31,
+        "infrastructure_errors": 0,
+        "batch": 1,
+        "provenance": "original pre-evolve evaluation",
+        "accuracy": 0.62
+      },
+      "meta": {
+        "batch": 0,
+        "incumbent": 0.42,
+        "candidate": 0.52,
+        "accepted": true,
+        "effective": 0.52,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      },
+      "life": {
+        "batch": 0,
+        "incumbent": 0.36,
+        "candidate": 0.54,
+        "accepted": true,
+        "effective": 0.54,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      }
+    },
+    {
+      "domain": "dbbench",
+      "optimization_step": 2,
+      "ahe": {
+        "iteration": 3,
+        "tasks": 50,
+        "successes": 26,
+        "infrastructure_errors": 0,
+        "batch": 2,
+        "provenance": "original pre-evolve evaluation",
+        "accuracy": 0.52
+      },
+      "meta": {
+        "batch": 0,
+        "incumbent": 0.52,
+        "candidate": 0.54,
+        "accepted": true,
+        "effective": 0.54,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      },
+      "life": {
+        "batch": 0,
+        "incumbent": 0.54,
+        "candidate": 0.58,
+        "accepted": true,
+        "effective": 0.58,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      }
+    },
+    {
+      "domain": "dbbench",
+      "optimization_step": 3,
+      "ahe": {
+        "iteration": 4,
+        "tasks": 50,
+        "successes": 26,
+        "infrastructure_errors": 0,
+        "batch": 3,
+        "provenance": "original pre-evolve evaluation",
+        "accuracy": 0.52
+      },
+      "meta": {
+        "batch": 0,
+        "incumbent": 0.54,
+        "candidate": 0.56,
+        "accepted": true,
+        "effective": 0.56,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      },
+      "life": {
+        "batch": 0,
+        "incumbent": 0.58,
+        "candidate": 0.56,
+        "accepted": false,
+        "effective": 0.58,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      }
+    },
+    {
+      "domain": "dbbench",
+      "optimization_step": 4,
+      "ahe": {
+        "iteration": 5,
+        "tasks": 50,
+        "successes": 20,
+        "infrastructure_errors": 0,
+        "batch": 4,
+        "provenance": "original pre-evolve evaluation",
+        "accuracy": 0.4
+      },
+      "meta": {
+        "batch": 0,
+        "incumbent": 0.56,
+        "candidate": 0.56,
+        "accepted": false,
+        "effective": 0.56,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      },
+      "life": {
+        "batch": 1,
+        "incumbent": 0.52,
+        "candidate": 0.6,
+        "accepted": true,
+        "effective": 0.6,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      }
+    },
+    {
+      "domain": "dbbench",
+      "optimization_step": 5,
+      "ahe": {
+        "iteration": 6,
+        "tasks": 50,
+        "successes": 22,
+        "infrastructure_errors": 0,
+        "batch": 5,
+        "provenance": "original pre-evolve evaluation",
+        "accuracy": 0.44
+      },
+      "meta": {
+        "batch": 1,
+        "incumbent": 0.46,
+        "candidate": 0.5,
+        "accepted": true,
+        "effective": 0.5,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      },
+      "life": {
+        "batch": 1,
+        "incumbent": 0.6,
+        "candidate": 0.58,
+        "accepted": false,
+        "effective": 0.6,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      }
+    },
+    {
+      "domain": "dbbench",
+      "optimization_step": 6,
+      "ahe": {
+        "domain": "dbbench",
+        "optimization_step": 6,
+        "split": "train",
+        "tasks": 50,
+        "successes": 20,
+        "infrastructure_errors": 0,
+        "workspace_sha256": "6ed4880b9c8231fcb9f5d55e9393628e2f90a50605b8dade6a4a651951875dd0",
+        "job": "/mnt/data/xts/harness/ahe-native/batches/ahe_restricted_six_rotating_flash8_20261003_073330_repair1/final_candidate_evaluations/dbbench/iteration_006/2026-10-03__10-17-10_0a1d6d9b",
+        "batch": 5,
+        "selection_modified": false,
+        "used_for_optimization": false,
+        "accuracy": 0.4,
+        "provenance": "separate final candidate train evaluation; no selection change"
+      },
+      "meta": {
+        "batch": 1,
+        "incumbent": 0.5,
+        "candidate": 0.46,
+        "accepted": false,
+        "effective": 0.5,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      },
+      "life": {
+        "batch": 2,
+        "incumbent": 0.64,
+        "candidate": 0.68,
+        "accepted": true,
+        "effective": 0.68,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      }
+    },
+    {
+      "domain": "webshop",
+      "optimization_step": 0,
+      "ahe": {
+        "iteration": 1,
+        "tasks": 50,
+        "successes": 11,
+        "infrastructure_errors": 0,
+        "batch": 0,
+        "provenance": "original pre-evolve evaluation",
+        "accuracy": 0.22
+      },
+      "meta": {
+        "effective": 0.24,
+        "batch": 0,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "initial baseline"
+      },
+      "life": {
+        "effective": 0.26,
+        "batch": 0,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "initial baseline"
+      }
+    },
+    {
+      "domain": "webshop",
+      "optimization_step": 1,
+      "ahe": {
+        "iteration": 2,
+        "tasks": 50,
+        "successes": 19,
+        "infrastructure_errors": 0,
+        "batch": 1,
+        "provenance": "original pre-evolve evaluation",
+        "accuracy": 0.38
+      },
+      "meta": {
+        "batch": 0,
+        "incumbent": 0.24,
+        "candidate": 0.38,
+        "accepted": true,
+        "effective": 0.38,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      },
+      "life": {
+        "batch": 0,
+        "incumbent": 0.26,
+        "candidate": 0.34,
+        "accepted": true,
+        "effective": 0.34,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      }
+    },
+    {
+      "domain": "webshop",
+      "optimization_step": 2,
+      "ahe": {
+        "iteration": 3,
+        "tasks": 50,
+        "successes": 18,
+        "infrastructure_errors": 0,
+        "batch": 2,
+        "provenance": "original pre-evolve evaluation",
+        "accuracy": 0.36
+      },
+      "meta": {
+        "batch": 0,
+        "incumbent": 0.38,
+        "candidate": 0.4,
+        "accepted": true,
+        "effective": 0.4,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      },
+      "life": {
+        "batch": 0,
+        "incumbent": 0.34,
+        "candidate": 0.36,
+        "accepted": true,
+        "effective": 0.36,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      }
+    },
+    {
+      "domain": "webshop",
+      "optimization_step": 3,
+      "ahe": {
+        "iteration": 4,
+        "tasks": 50,
+        "successes": 21,
+        "infrastructure_errors": 1,
+        "batch": 3,
+        "provenance": "original pre-evolve evaluation",
+        "accuracy": 0.42
+      },
+      "meta": {
+        "batch": 0,
+        "incumbent": 0.4,
+        "candidate": 0.42,
+        "accepted": true,
+        "effective": 0.42,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      },
+      "life": {
+        "batch": 0,
+        "incumbent": 0.36,
+        "candidate": 0.4,
+        "accepted": true,
+        "effective": 0.4,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      }
+    },
+    {
+      "domain": "webshop",
+      "optimization_step": 4,
+      "ahe": {
+        "iteration": 5,
+        "tasks": 50,
+        "successes": 17,
+        "infrastructure_errors": 0,
+        "batch": 4,
+        "provenance": "original pre-evolve evaluation",
+        "accuracy": 0.34
+      },
+      "meta": {
+        "batch": 0,
+        "incumbent": 0.42,
+        "candidate": 0.4,
+        "accepted": false,
+        "effective": 0.42,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      },
+      "life": {
+        "batch": 0,
+        "incumbent": 0.4,
+        "candidate": 0.34,
+        "accepted": false,
+        "effective": 0.4,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      }
+    },
+    {
+      "domain": "webshop",
+      "optimization_step": 5,
+      "ahe": {
+        "iteration": 6,
+        "tasks": 50,
+        "successes": 21,
+        "infrastructure_errors": 0,
+        "batch": 5,
+        "provenance": "original pre-evolve evaluation",
+        "accuracy": 0.42
+      },
+      "meta": {
+        "batch": 1,
+        "incumbent": 0.26,
+        "candidate": 0.32,
+        "accepted": true,
+        "effective": 0.32,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      },
+      "life": {
+        "batch": 1,
+        "incumbent": 0.38,
+        "candidate": 0.38,
+        "accepted": false,
+        "effective": 0.38,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      }
+    },
+    {
+      "domain": "webshop",
+      "optimization_step": 6,
+      "ahe": {
+        "domain": "webshop",
+        "optimization_step": 6,
+        "split": "train",
+        "tasks": 50,
+        "successes": 18,
+        "infrastructure_errors": 0,
+        "workspace_sha256": "f2ec457e0bfad61823f4aa98d3e6f731f14c86163b4d5ba428b10cc70fa26f65",
+        "job": "/mnt/data/xts/harness/ahe-native/batches/ahe_restricted_six_rotating_flash8_20261003_073330_repair1/final_candidate_evaluations/webshop/iteration_006/2026-10-03__09-57-46_f1048da0",
+        "batch": 5,
+        "selection_modified": false,
+        "used_for_optimization": false,
+        "accuracy": 0.36,
+        "provenance": "separate final candidate train evaluation; no selection change"
+      },
+      "meta": {
+        "batch": 1,
+        "incumbent": 0.32,
+        "candidate": 0.34,
+        "accepted": true,
+        "effective": 0.34,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      },
+      "life": {
+        "batch": 2,
+        "incumbent": 0.4,
+        "candidate": 0.36,
+        "accepted": false,
+        "effective": 0.4,
+        "source": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json",
+        "version": "historical six-round"
+      }
+    }
+  ],
+  "capability_profile": "h2345-budget-restricted-v1",
+  "unrestricted_ahe_reproduction": false,
+  "debugger_tasks_per_iteration": 10,
+  "references": {
+    "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json": "7752da666e19c89a6c0c642bb88da7808ef387629cb214710c57f3c14a6a0a9b",
+    "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_v3_from_six_db_web_20261002/training_results.json": "4b459784211b34badf13dcc5dca66b1ade8efa9151a92a8a5770cb91eadec36a"
+  },
+  "notes": [
+    "All three methods use different training batches; not a controlled same-task improvement curve.",
+    "Optimization-step zero is baseline. AHE step N is measured by original iteration N+1.",
+    "Final AHE step is measured separately after the unchanged original loop; not used for best-ever selection.",
+    "Meta has six measured rounds; ALFWorld Life has six. Unmeasured later rounds remain null.",
+    "Life steps 7-9 for DBBench/WebShop use the existing v3 continuation, not a fresh from-scratch run.",
+    "Infrastructure errors count as zero in the full denominator. Test scores are not mixed with train scores.",
+    "This report stays outside the optimizer filesystem and is never used in candidate selection."
+  ]
+}

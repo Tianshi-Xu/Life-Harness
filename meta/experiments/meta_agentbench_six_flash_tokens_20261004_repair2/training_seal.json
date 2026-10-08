@@ -1,0 +1,42 @@
+{
+  "budget_label": "six-round iteration-budget experiment with measured tokens; NOT equal-token-budget",
+  "manifest_sha256": "da476f826961b01740a1f6b9d6801793d1f42c755d1d59a166721b7cb39e0b21",
+  "retained_candidates": {
+    "alfworld": "82e3bafa8df9dffd03fb78a1410aaee4ad4d7008d47283f9a658fe0aaf3ad011",
+    "dbbench": "6c0b62860b5ba1528cc8bb11d1d242c8703f930875d1fc1b99a0566f7b729906",
+    "webshop": "05a84a2e181327e390985150683f8176f5e81a64fb7c4825198f240e7b620396"
+  },
+  "states": {
+    "alfworld": "804faffb957294debf92ce06557773c93d62d721f0103aded29bbddbc5285387",
+    "dbbench": "2aa07b90fec50b781078cdc07d8233ded3b11b8f54df025a4c25939a3ed674b6",
+    "webshop": "01c41a34c01d580ba8c3d8113d12f480678fca5e85885012d57b6e6432049c1f"
+  },
+  "usage": {
+    "accounting_complete": true,
+    "by_role": {
+      "analysis": {
+        "input_tokens": 49600981,
+        "output_tokens": 1017779,
+        "total_tokens": 50618760
+      },
+      "implementation": {
+        "input_tokens": 14352270,
+        "output_tokens": 431824,
+        "total_tokens": 14784094
+      },
+      "parent": {
+        "input_tokens": 40460218,
+        "output_tokens": 830429,
+        "total_tokens": 41290647
+      }
+    },
+    "cached_input_tokens_known": 63304576,
+    "calls_with_cache_details": 1662,
+    "calls_with_unknown_usage": 0,
+    "input_tokens": 104413469,
+    "output_tokens": 2280032,
+    "recorded_upstream_attempts": 1662,
+    "successful_calls": 1662,
+    "total_tokens": 106693501
+  }
+}

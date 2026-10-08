@@ -1,0 +1,14 @@
+type: tool
+name: get_user_details
+description: Get the details of a user, including their reservations.
+input_schema:
+  properties:
+    user_id:
+      description: The user ID, such as 'sara_doe_496'.
+      title: User Id
+      type: string
+  required:
+  - user_id
+  title: parameters
+  type: object
+disable_parallel: true

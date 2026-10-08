@@ -1,0 +1,292 @@
+{
+  "baseline_phase": "batch_05_baseline",
+  "batch": 5,
+  "incumbent": "baseline_zero.py",
+  "released_h_flags": [],
+  "rounds": [
+    {
+      "accepted": false,
+      "baseline_score": 0.32,
+      "baseline_successes": 16,
+      "candidate": {
+        "changes": "New self-contained middleware agents/stuck_loop_recovery.py exporting AgentHarness and a no-op register(). transform_request extracts the conversation list (dict keys messages/input/history/chat, else the .messages attribute, else the last recorded history), computes STUCK as (a) the last two tool calls identical, or (b) the last call already seen >=3 times with an error or unchanged result, or (c) the same tool result/error recurring >=3 times with the latest message a tool-role message. When stuck and the marker 'RECOVERY NOTE (advisory)' is absent, it appends exactly one advisory system message at the end of the list (in place, re-bound to the request). transform_response records public_history for the fallback source and is a pure pass-through. No tools/budgets/simulator/evaluator are touched; register() stays a safe no-op.",
+        "expected_efficiency": "Negligible on non-stuck turns (read-only scan, request returned unchanged, no extra model call). Adds ~180 tokens only on turns already stuck, and typically removes the long tail of identical repeat calls (e.g. 98x -> a handful), lowering total tokens/turns on the worst offending episodes while raising pass rate on the repeat/fabrication failure modes.",
+        "hypothesis": "On the retail train batch the 4B solver dead-ends by repeating an identical failing tool call and by fabricating identifiers (e.g. get_order_details on a never-issued '#W0000000' nine times, or get_item_details on the same item 98 times). Detecting a stuck conversation and injecting ONE advisory system message will break these loops -- pushing the agent to obtain real ids from lookups, change approach, or transfer to a human -- and raise the pass rate, at token cost only on stuck turns.",
+        "import_path": "agents.stuck_loop_recovery:AgentHarness",
+        "name": "stuck_loop_recovery"
+      },
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.32,
+      "candidate_successes": 16,
+      "iteration": 1,
+      "parent": "baseline_zero.py",
+      "retained_candidate": "baseline_zero.py",
+      "train_batch": 0,
+      "train_episodes": 50,
+      "train_n": 50,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 317056,
+            "output_tokens": 17848,
+            "total_tokens": 334904
+          },
+          "implementation": {
+            "input_tokens": 823631,
+            "output_tokens": 22944,
+            "total_tokens": 846575
+          },
+          "parent": {
+            "input_tokens": 457646,
+            "output_tokens": 22772,
+            "total_tokens": 480418
+          }
+        },
+        "cached_input_tokens_known": 861312,
+        "calls_with_cache_details": 62,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 1598333,
+        "output_tokens": 63564,
+        "recorded_upstream_attempts": 62,
+        "successful_calls": 62,
+        "total_tokens": 1661897
+      }
+    },
+    {
+      "accepted": false,
+      "baseline_score": 0.38,
+      "baseline_successes": 19,
+      "candidate": null,
+      "candidate_infra_errors": null,
+      "candidate_score": null,
+      "candidate_successes": null,
+      "iteration": 2,
+      "parent": "baseline_zero.py",
+      "retained_candidate": "baseline_zero.py",
+      "train_batch": 1,
+      "train_episodes": 50,
+      "train_n": 50,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 1130613,
+            "output_tokens": 35051,
+            "total_tokens": 1165664
+          },
+          "parent": {
+            "input_tokens": 698872,
+            "output_tokens": 28445,
+            "total_tokens": 727317
+          }
+        },
+        "cached_input_tokens_known": 1144192,
+        "calls_with_cache_details": 49,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 1829485,
+        "output_tokens": 63496,
+        "recorded_upstream_attempts": 49,
+        "successful_calls": 49,
+        "total_tokens": 1892981
+      }
+    },
+    {
+      "accepted": false,
+      "baseline_score": 0.38,
+      "baseline_successes": 19,
+      "candidate": {
+        "changes": "New self-contained middleware agents/first_error_recovery_cue.py exporting AgentHarness and a no-op register(). Module-level MARKER='[GUIDANCE'. Pure classify_cue(error_text) lowercases the text and returns ONE short cue for the FIRST matching category, else None, in this fixed order: (1) 'should be different from the old item id' -> pick a DIFFERENT available item id of the same product; (2) 'payment method not found' or 'original payment method' -> reuse the payment method id from the order's own details, never invent one; (3) any of 'non-pending'/'non-delivered'/'cannot be cancelled'/'cannot be modified'/'cannot be returned'/'cannot be exchanged' -> not allowed in the current status, use the status-matching tool; (4) 'should match' -> the item_ids/new_item_ids lists must align; (5) 'not found' -> copy ids exactly (leading '#') and never reuse a description example id, else get_user_details. transform_request extracts the conversation list (dict keys messages/input/history/chat, else the .messages attribute, else a COPY of the last recorded history), requires the last message to be a tool message, takes the trailing run of tool-role messages, and for each that is an error (starts with 'error' or contains 'error:') and does not already contain MARKER, appends newline+cue to that message's content IN PLACE. No messages are added or removed, no separate system message is injected, and non-error / non-tool messages are untouched. transform_response records public_history for the fallback source and is a pure pass-through. Everything is wrapped so any unexpected structure returns the request unchanged; no tools/budgets/simulator/evaluator are touched; register() stays a safe no-op.",
+        "expected_efficiency": "Negligible on clean turns (read-only scan of the trailing tool run, request returned unchanged, no extra model call). Adds only ~60-90 tokens on the turns that already errored, and prevents the long tail of identical repeat calls and id-fabrication retries, lowering total tokens/turns on the worst offending episodes while raising pass rate on the first-error recovery failure modes.",
+        "hypothesis": "On the retail train batch the 4B solver most often fails right at the first tool error: it repeats an identical failing call (e.g. get_order_details / get_item_details on an id that was never issued or copied in the wrong form), passes the old item id as the new one, reuses a payment method from another order, or applies a status-inappropriate action. Because the error text names the exact violation, embedding ONE short, concrete corrective cue inside the failing observation (do not repeat this call; use a real id from data already seen; use the tool that matches the order's present status; align the argument lists) will steer the very next action and raise the pass rate, at token cost only on the turns that already errored.",
+        "import_path": "agents.first_error_recovery_cue:AgentHarness",
+        "name": "first_error_recovery_cue"
+      },
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.36,
+      "candidate_successes": 18,
+      "iteration": 3,
+      "parent": "baseline_zero.py",
+      "retained_candidate": "baseline_zero.py",
+      "train_batch": 2,
+      "train_episodes": 50,
+      "train_n": 50,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 317664,
+            "output_tokens": 18479,
+            "total_tokens": 336143
+          },
+          "implementation": {
+            "input_tokens": 209402,
+            "output_tokens": 8950,
+            "total_tokens": 218352
+          },
+          "parent": {
+            "input_tokens": 859793,
+            "output_tokens": 27671,
+            "total_tokens": 887464
+          }
+        },
+        "cached_input_tokens_known": 723456,
+        "calls_with_cache_details": 54,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 1386859,
+        "output_tokens": 55100,
+        "recorded_upstream_attempts": 57,
+        "successful_calls": 54,
+        "total_tokens": 1441959
+      }
+    },
+    {
+      "accepted": false,
+      "baseline_score": 0.48,
+      "baseline_successes": 24,
+      "candidate": {
+        "changes": "New self-contained middleware agents/order_id_canonicalization.py exporting AgentHarness and a no-op register(). ONE mechanism: canonicalize an action's order-id argument to the domain's stored spelling '#W<digits>'. Pure helper canonical_order_id(v) trims whitespace/quotes and fullmatches r'#?[Ww]?(\\d{4,12})$'; if it matches and the canonical string differs from the input it returns '#W'+digits, else None (so junk such as 'ORD-7782-WB3', non-strings, and already-canonical ids are never touched). _rewrite_tool_call(tc) finds the function holder (tc['function'] / tc.function, else the tool call itself), takes its 'arguments', and rewrites ONLY the key literally named 'order_id': a JSON-encoded argument string is json.loads-ed, the key fixed, and re-dumped; a dict argument is fixed in place. transform_response(response, public_history) applies this to every tool-call list it can find on the model response -- response['tool_calls'], response.choices[*].message.tool_calls (dict or attribute form, covering OpenAI/litellm ChatCompletion), response.message.tool_calls, and a bare list of tool calls -- mutating that object in place and returning the same response, i.e. before the action is executed. transform_request(request) is a defensive secondary path that rewrites the tool calls of the LAST message only when it is an assistant message still carrying unexecuted tool calls (in the normal flow the request tail is a tool result, so it is a no-op). Nothing else is changed: no messages added/removed or edited, no system/instruction text injected, no tool descriptions or tool implementations touched, no budgets, no user simulator, no evaluator, no model/network/filesystem/subprocess access, no task- or id-specific tables, no cross-episode mutable state (the class keeps only public_context), and every step is wrapped so any unexpected structure returns the input unchanged. register() stays a safe no-op.",
+        "expected_efficiency": "Zero added tokens and zero added turns on every turn (a purely local rewrite of one argument string; no message is added, so the prompt is byte-for-byte identical when the id is already canonical). On affected episodes it should DECREASE turns and tokens by removing the guarantee-to-fail lookups and the user-facing retries that follow them: in batch_03, 28 of 312 order-id arguments (21 of them ids the agent had already seen in a tool result) and 8/50 episodes (6 failed, 2 passed) would be repaired, and one failing episode spent 3 calls + 3 errors + an immediate human transfer on this alone. Expected pass-rate change: +0.02 to +0.06 absolute (0.48 -> ~0.50-0.54) on batch_03, with no predicted regression anywhere because 0 of the 115 rewriteable non-canonical order-id calls ever succeeded.",
+        "hypothesis": "The 4B retail solver systematically loses the leading '#' (and sometimes the 'W') when it retranscribes an order id into a tool argument -- e.g. it reads the correct ids '#W5056519','#W8277957','#W5995614' from get_user_details, writes them back out without '#' in its own text, then calls get_order_details with 'W5056519' and gets three consecutive 'Error: Order not found'. Across the six public retail runs, 115 of 1784 order_id arguments were in a non-canonical spelling and 115/115 of them failed (0 succeeded), while the DB stores every order id as '#W<digits>'. Deterministically rewriting the order_id argument to '#W<digits>' just before the solver's action is executed will remove this whole class of guaranteed-failure lookups, restore the information the solver already had, and raise the pass rate (episodes currently abandon orders, re-ask the user, or transfer to a human on the false conclusion that the order does not exist).",
+        "import_path": "agents.order_id_canonicalization:AgentHarness",
+        "name": "order_id_canonicalization"
+      },
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.34,
+      "candidate_successes": 17,
+      "iteration": 4,
+      "parent": "baseline_zero.py",
+      "retained_candidate": "baseline_zero.py",
+      "train_batch": 3,
+      "train_episodes": 50,
+      "train_n": 50,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 2807016,
+            "output_tokens": 50629,
+            "total_tokens": 2857645
+          },
+          "implementation": {
+            "input_tokens": 314171,
+            "output_tokens": 25089,
+            "total_tokens": 339260
+          },
+          "parent": {
+            "input_tokens": 874876,
+            "output_tokens": 20485,
+            "total_tokens": 895361
+          }
+        },
+        "cached_input_tokens_known": 2318720,
+        "calls_with_cache_details": 74,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 3996063,
+        "output_tokens": 96203,
+        "recorded_upstream_attempts": 76,
+        "successful_calls": 74,
+        "total_tokens": 4092266
+      }
+    },
+    {
+      "accepted": false,
+      "baseline_score": 0.36,
+      "baseline_successes": 18,
+      "candidate": {
+        "changes": "New self-contained middleware agents/general_operating_checklist.py exporting AgentHarness and a no-op register(). ONE mechanism: idempotently inject a fixed, general '[OPERATING CHECKLIST]' text into the SYSTEM-INSTRUCTION channel, appending '\\n\\n'+BLOCK to the target text (or prepending a system message in the fallback). Target resolution, in priority order: (a) a dict's non-empty str value under one of ('system','system_prompt','system_message','instructions','prompt'); (b) an object's same-named attribute holding a non-empty str; (c) the first role=='system' dict message with str content in the message list found via dict keys ('messages','input','history','chat') or the .messages attribute. Idempotency guard: if the literal marker '[OPERATING CHECKLIST]' already appears in the target text -- or, when the target is a message list with no system message, anywhere in any message content -- it returns the request unchanged. Fallback: when a non-empty message list exists but has no system message and no marker anywhere, it prepends {'role':'system','content':BLOCK} and re-binds the list to the request (dict key or attribute); with no system channel and no message list it returns the request unchanged. The block names only general developer guidance (ids are data / use the lookup tools / do not repeat a failed call) and contains no task names or task-specific hints. transform_response is a pure pass-through that stores nothing (no _last_history). Nothing else is touched: no user/assistant/tool message is edited, no tool call or its arguments is modified, no tool descriptions/implementations, budgets, user simulator or evaluator are touched, no model/network/filesystem/subprocess access, no hidden state or cross-episode mutable state (the class keeps only public_context), and every path is wrapped so any unexpected structure returns the input unchanged. register() stays a safe no-op.",
+        "expected_efficiency": "Cost is one constant ~210-token block, injected once per episode (idempotent, so repeated calls never duplicate it), after which every subsequent turn carries it in the stable system channel. This is a small fraction of the 32768-token context and 4096-token output budget. It should DECREASE tokens and turns on the affected failure classes by preventing the long tails they cause (repeated identical failing calls, trial-and-error with fabricated ids, and premature human transfers that abandon an episode), so net token/time change is close to neutral-to-negative while the pass rate should rise on the fabrication / missing-lookup / repeat-error categories. Expected absolute pass-rate change: +0.02 to +0.08 on the retail train batch, with no predicted regression because the added text neither removes information nor changes any executable behaviour.",
+        "hypothesis": "The 4B retail solver makes the same three general mistakes over and over, independent of any single episode: it invents/guesses identifiers or reuses the placeholder ids that appear only as EXAMPLES inside tool descriptions (e.g. '#W0000000', '1008292230', 'credit_card_0000000', 'gift_card_0000000', 'sara_doe_496'), it fails to use the lookup tools it already has (get_user_details to list a user's orders/payment methods, list_all_product_types -> get_product_details to find an available variant) and instead tells the user it cannot help or transfers to a human, and after a tool error it re-issues the identical failing call. These are operating-discipline failures, not knowledge gaps, so a fixed general checklist present in the system-instruction channel from the first turn should reduce them. Because system instructions persist for the whole episode and are cheap, a single idempotent injection of the checklist should raise the pass rate on the fabrication / missing-lookup / repeat-error failure classes without changing any tool, budget, the user simulator, or the evaluator.",
+        "import_path": "agents.general_operating_checklist:AgentHarness",
+        "name": "general_operating_checklist"
+      },
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.36,
+      "candidate_successes": 18,
+      "iteration": 5,
+      "parent": "baseline_zero.py",
+      "retained_candidate": "baseline_zero.py",
+      "train_batch": 4,
+      "train_episodes": 50,
+      "train_n": 50,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 760308,
+            "output_tokens": 27278,
+            "total_tokens": 787586
+          },
+          "implementation": {
+            "input_tokens": 126551,
+            "output_tokens": 7511,
+            "total_tokens": 134062
+          },
+          "parent": {
+            "input_tokens": 601172,
+            "output_tokens": 17094,
+            "total_tokens": 618266
+          }
+        },
+        "cached_input_tokens_known": 763264,
+        "calls_with_cache_details": 51,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 1488031,
+        "output_tokens": 51883,
+        "recorded_upstream_attempts": 54,
+        "successful_calls": 51,
+        "total_tokens": 1539914
+      }
+    },
+    {
+      "accepted": false,
+      "baseline_score": 0.4,
+      "baseline_successes": 20,
+      "candidate": {
+        "changes": "New self-contained middleware agents/post_auth_id_grounding.py exporting AgentHarness and a no-op register(). ONE mechanism: append a single grounded next-step line to the observation returned by the identity-resolution tool. transform_request(request) extracts the conversation list (dict keys 'messages'/'input'/'history'/'chat', else the object's .messages attribute, else a COPY of the recorded public_history supplied earlier by transform_response) and, when the list is non-empty, builds an id->name map from assistant tool_calls. It then scans the tool-role messages and, for any whose content is NOT already carrying the marker and whose whole stripped text matches the bare-user-id pattern ^[A-Za-z][A-Za-z0-9]*_[A-Za-z][A-Za-z0-9]*_\\d{2,}$ (the exact shape find_user_id_* returns, e.g. 'yusuf_rossi_9620', 'sara_doe_496'; no other tool returns this shape), it appends '\\n[NEXT-STEP] You are authenticated as user '<uid>'. You do not yet know this user's order ids, and guessing, counting, or reusing an example id will fail. Call get_user_details(user_id='<uid>') now, then use exactly the order ids and payment method ids it returns for this user.' to that message's content in place (str concat, or a text part appended for list content). The appended sentence names NO literal placeholder id (previously it showed '(such as '#W0000000')'), so it does not re-anchor the model to the very placeholder it should stop copying; the mechanism is otherwise unchanged. A tool message whose call id maps to a name that does NOT start with 'find_user_id' is skipped; error results ('Error: User not found') never match the bare-id pattern and are left untouched. The marker '[NEXT-STEP]' makes the injection idempotent, so re-running on later turns is a no-op. Nothing else is changed: no messages added/removed, no system message or system field touched, no user/assistant message edited, no tool call or its arguments rewritten, no tool descriptions/implementations, budgets, user simulator or evaluator touched, no task names or task-specific data, no model/network/filesystem/subprocess access, no hidden state or cross-episode mutable state (the class keeps only public_context and a single overwritten _last_history), and every step is wrapped so any unexpected structure returns the request unchanged. transform_response records public_history for the fallback source and is otherwise a pure pass-through. register() stays a safe no-op.",
+        "expected_efficiency": "One ~45-token line appended to at most one observation per episode, only when the identity tool succeeds (39 of 50 batch_05 episodes). No extra model call. On affected episodes it should DECREASE turns and tokens by cutting the 10-call id-guessing loops (e.g. batch_05 task 4 and task 110 spend 10 identical get_order_details calls each) and the premature human transfers. Expected absolute pass-rate change on batch_05: +0.04 to +0.10 (0.40 -> ~0.44-0.50), coming from the 7 batch_05 failures in the authenticated-without-get_user_details cluster (tasks 1, 4, 22, 47, 82, 95, 110), with no predicted regression on the 103 passing episodes that already call get_user_details (the line merely restates their existing next step) and at most small perturbation risk on the handful of passing episodes that solve a task after authenticating without get_user_details (e.g. user supplied the ids directly).",
+        "hypothesis": "After the solver authenticates a user, its single dominant dead-end is that it never obtains the user's real order ids: it calls find_user_id_by_email / find_user_id_by_name_zip successfully, but then instead of calling get_user_details(user_id) it guesses or counts order ids ('#W0000000', '#W00000001'... , '#P0000000') or repeats the placeholder until too_many_errors, or gives up and transfers to a human. Across the six public retail baseline runs, 32 episodes authenticate successfully yet never call get_user_details (27 fail, only 5 pass), and of the 41 failures whose FIRST error is 'Order not found', 26 used an order id whose digits never appeared in any prior user or tool message. Because the failure is a missing, concrete next step at a known point in the conversation -- immediately after the identity tool returns the real user id -- injecting ONE grounded line into that tool's own observation (echo the resolved user id, tell it to call get_user_details(user_id=...) and to use exactly the order/payment ids that result returns, never guess/count/reuse an example id) will steer the very next action and raise the pass rate on this failure cluster, at negligible token cost.",
+        "import_path": "agents.post_auth_id_grounding:AgentHarness",
+        "name": "post_auth_id_grounding"
+      },
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.34,
+      "candidate_successes": 17,
+      "iteration": 6,
+      "parent": "baseline_zero.py",
+      "retained_candidate": "baseline_zero.py",
+      "train_batch": 5,
+      "train_episodes": 50,
+      "train_n": 50,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 1042700,
+            "output_tokens": 29679,
+            "total_tokens": 1072379
+          },
+          "implementation": {
+            "input_tokens": 171231,
+            "output_tokens": 11690,
+            "total_tokens": 182921
+          },
+          "parent": {
+            "input_tokens": 2431618,
+            "output_tokens": 47391,
+            "total_tokens": 2479009
+          }
+        },
+        "cached_input_tokens_known": 2084608,
+        "calls_with_cache_details": 82,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 3645549,
+        "output_tokens": 88760,
+        "recorded_upstream_attempts": 83,
+        "successful_calls": 82,
+        "total_tokens": 3734309
+      }
+    }
+  ],
+  "status": "training_complete"
+}

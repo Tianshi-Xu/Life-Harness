@@ -1,0 +1,289 @@
+{
+  "schema_version": 1,
+  "method": "read-only historical tracer audit",
+  "domains": {
+    "alfworld": {
+      "rounds": [
+        {
+          "round": 1,
+          "evolve_recorded_tokens": 14461543,
+          "evolve_recorded_generations": 144,
+          "full_round_tokens": null,
+          "full_round_accounting_complete": false,
+          "train_accuracy": 0.2,
+          "train_successes": 10,
+          "train_n": 50,
+          "evaluation_batch": 1,
+          "source": "experiments/ahe_restricted_six_rotating_flash8_20261003_073330_repair1_alfworld/runs/iteration_001/evolve/nexau_in_memory_tracer.cleaned.json",
+          "missing": "Debugger and possibly untraced compaction/retry/unfinished calls"
+        },
+        {
+          "round": 2,
+          "evolve_recorded_tokens": 9242583,
+          "evolve_recorded_generations": 86,
+          "full_round_tokens": null,
+          "full_round_accounting_complete": false,
+          "train_accuracy": 0.64,
+          "train_successes": 32,
+          "train_n": 50,
+          "evaluation_batch": 2,
+          "source": "experiments/ahe_restricted_six_rotating_flash8_20261003_073330_repair1_alfworld/runs/iteration_002/evolve/nexau_in_memory_tracer.cleaned.json",
+          "missing": "Debugger and possibly untraced compaction/retry/unfinished calls"
+        },
+        {
+          "round": 3,
+          "evolve_recorded_tokens": 8504957,
+          "evolve_recorded_generations": 84,
+          "full_round_tokens": null,
+          "full_round_accounting_complete": false,
+          "train_accuracy": 0.98,
+          "train_successes": 49,
+          "train_n": 50,
+          "evaluation_batch": 3,
+          "source": "experiments/ahe_restricted_six_rotating_flash8_20261003_073330_repair1_alfworld/runs/iteration_003/evolve/nexau_in_memory_tracer.cleaned.json",
+          "missing": "Debugger and possibly untraced compaction/retry/unfinished calls"
+        },
+        {
+          "round": 4,
+          "evolve_recorded_tokens": 8043733,
+          "evolve_recorded_generations": 81,
+          "full_round_tokens": null,
+          "full_round_accounting_complete": false,
+          "train_accuracy": 0.96,
+          "train_successes": 48,
+          "train_n": 50,
+          "evaluation_batch": 4,
+          "source": "experiments/ahe_restricted_six_rotating_flash8_20261003_073330_repair1_alfworld/runs/iteration_004/evolve/nexau_in_memory_tracer.cleaned.json",
+          "missing": "Debugger and possibly untraced compaction/retry/unfinished calls"
+        },
+        {
+          "round": 5,
+          "evolve_recorded_tokens": 16684715,
+          "evolve_recorded_generations": 148,
+          "full_round_tokens": null,
+          "full_round_accounting_complete": false,
+          "train_accuracy": 0.96,
+          "train_successes": 48,
+          "train_n": 50,
+          "evaluation_batch": 5,
+          "source": "experiments/ahe_restricted_six_rotating_flash8_20261003_073330_repair1_alfworld/runs/iteration_005/evolve/nexau_in_memory_tracer.cleaned.json",
+          "missing": "Debugger and possibly untraced compaction/retry/unfinished calls"
+        },
+        {
+          "round": 6,
+          "evolve_recorded_tokens": 6594816,
+          "evolve_recorded_generations": 72,
+          "full_round_tokens": null,
+          "full_round_accounting_complete": false,
+          "train_accuracy": 0.98,
+          "train_successes": 49,
+          "train_n": 50,
+          "evaluation_batch": 5,
+          "source": "experiments/ahe_restricted_six_rotating_flash8_20261003_073330_repair1_alfworld/runs/iteration_006/evolve/nexau_in_memory_tracer.cleaned.json",
+          "missing": "Debugger and possibly untraced compaction/retry/unfinished calls"
+        }
+      ],
+      "evolve_recorded_tokens": 63532347,
+      "evolve_recorded_generations": 615
+    },
+    "dbbench": {
+      "rounds": [
+        {
+          "round": 1,
+          "evolve_recorded_tokens": 17176526,
+          "evolve_recorded_generations": 169,
+          "full_round_tokens": null,
+          "full_round_accounting_complete": false,
+          "train_accuracy": 0.62,
+          "train_successes": 31,
+          "train_n": 50,
+          "evaluation_batch": 1,
+          "source": "experiments/ahe_restricted_six_rotating_flash8_20261003_073330_repair1_dbbench/runs/iteration_001/evolve/nexau_in_memory_tracer.cleaned.json",
+          "missing": "Debugger and possibly untraced compaction/retry/unfinished calls"
+        },
+        {
+          "round": 2,
+          "evolve_recorded_tokens": 11676692,
+          "evolve_recorded_generations": 107,
+          "full_round_tokens": null,
+          "full_round_accounting_complete": false,
+          "train_accuracy": 0.52,
+          "train_successes": 26,
+          "train_n": 50,
+          "evaluation_batch": 2,
+          "source": "experiments/ahe_restricted_six_rotating_flash8_20261003_073330_repair1_dbbench/runs/iteration_002/evolve/nexau_in_memory_tracer.cleaned.json",
+          "missing": "Debugger and possibly untraced compaction/retry/unfinished calls"
+        },
+        {
+          "round": 3,
+          "evolve_recorded_tokens": 14474235,
+          "evolve_recorded_generations": 140,
+          "full_round_tokens": null,
+          "full_round_accounting_complete": false,
+          "train_accuracy": 0.52,
+          "train_successes": 26,
+          "train_n": 50,
+          "evaluation_batch": 3,
+          "source": "experiments/ahe_restricted_six_rotating_flash8_20261003_073330_repair1_dbbench/runs/iteration_003/evolve/nexau_in_memory_tracer.cleaned.json",
+          "missing": "Debugger and possibly untraced compaction/retry/unfinished calls"
+        },
+        {
+          "round": 4,
+          "evolve_recorded_tokens": 9437920,
+          "evolve_recorded_generations": 96,
+          "full_round_tokens": null,
+          "full_round_accounting_complete": false,
+          "train_accuracy": 0.4,
+          "train_successes": 20,
+          "train_n": 50,
+          "evaluation_batch": 4,
+          "source": "experiments/ahe_restricted_six_rotating_flash8_20261003_073330_repair1_dbbench/runs/iteration_004/evolve/nexau_in_memory_tracer.cleaned.json",
+          "missing": "Debugger and possibly untraced compaction/retry/unfinished calls"
+        },
+        {
+          "round": 5,
+          "evolve_recorded_tokens": 9594355,
+          "evolve_recorded_generations": 101,
+          "full_round_tokens": null,
+          "full_round_accounting_complete": false,
+          "train_accuracy": 0.44,
+          "train_successes": 22,
+          "train_n": 50,
+          "evaluation_batch": 5,
+          "source": "experiments/ahe_restricted_six_rotating_flash8_20261003_073330_repair1_dbbench/runs/iteration_005/evolve/nexau_in_memory_tracer.cleaned.json",
+          "missing": "Debugger and possibly untraced compaction/retry/unfinished calls"
+        },
+        {
+          "round": 6,
+          "evolve_recorded_tokens": 10064826,
+          "evolve_recorded_generations": 91,
+          "full_round_tokens": null,
+          "full_round_accounting_complete": false,
+          "train_accuracy": 0.4,
+          "train_successes": 20,
+          "train_n": 50,
+          "evaluation_batch": 5,
+          "source": "experiments/ahe_restricted_six_rotating_flash8_20261003_073330_repair1_dbbench/runs/iteration_006/evolve/nexau_in_memory_tracer.cleaned.json",
+          "missing": "Debugger and possibly untraced compaction/retry/unfinished calls"
+        }
+      ],
+      "evolve_recorded_tokens": 72424554,
+      "evolve_recorded_generations": 704
+    },
+    "webshop": {
+      "rounds": [
+        {
+          "round": 1,
+          "evolve_recorded_tokens": 14180428,
+          "evolve_recorded_generations": 147,
+          "full_round_tokens": null,
+          "full_round_accounting_complete": false,
+          "train_accuracy": 0.38,
+          "train_successes": 19,
+          "train_n": 50,
+          "evaluation_batch": 1,
+          "source": "experiments/ahe_restricted_six_rotating_flash8_20261003_073330_repair1_webshop/runs/iteration_001/evolve/nexau_in_memory_tracer.cleaned.json",
+          "missing": "Debugger and possibly untraced compaction/retry/unfinished calls"
+        },
+        {
+          "round": 2,
+          "evolve_recorded_tokens": 6737780,
+          "evolve_recorded_generations": 77,
+          "full_round_tokens": null,
+          "full_round_accounting_complete": false,
+          "train_accuracy": 0.36,
+          "train_successes": 18,
+          "train_n": 50,
+          "evaluation_batch": 2,
+          "source": "experiments/ahe_restricted_six_rotating_flash8_20261003_073330_repair1_webshop/runs/iteration_002/evolve/nexau_in_memory_tracer.cleaned.json",
+          "missing": "Debugger and possibly untraced compaction/retry/unfinished calls"
+        },
+        {
+          "round": 3,
+          "evolve_recorded_tokens": 15047351,
+          "evolve_recorded_generations": 131,
+          "full_round_tokens": null,
+          "full_round_accounting_complete": false,
+          "train_accuracy": 0.42,
+          "train_successes": 21,
+          "train_n": 50,
+          "evaluation_batch": 3,
+          "source": "experiments/ahe_restricted_six_rotating_flash8_20261003_073330_repair1_webshop/runs/iteration_003/evolve/nexau_in_memory_tracer.cleaned.json",
+          "missing": "Debugger and possibly untraced compaction/retry/unfinished calls"
+        },
+        {
+          "round": 4,
+          "evolve_recorded_tokens": 8569712,
+          "evolve_recorded_generations": 89,
+          "full_round_tokens": null,
+          "full_round_accounting_complete": false,
+          "train_accuracy": 0.34,
+          "train_successes": 17,
+          "train_n": 50,
+          "evaluation_batch": 4,
+          "source": "experiments/ahe_restricted_six_rotating_flash8_20261003_073330_repair1_webshop/runs/iteration_004/evolve/nexau_in_memory_tracer.cleaned.json",
+          "missing": "Debugger and possibly untraced compaction/retry/unfinished calls"
+        },
+        {
+          "round": 5,
+          "evolve_recorded_tokens": 8590160,
+          "evolve_recorded_generations": 83,
+          "full_round_tokens": null,
+          "full_round_accounting_complete": false,
+          "train_accuracy": 0.42,
+          "train_successes": 21,
+          "train_n": 50,
+          "evaluation_batch": 5,
+          "source": "experiments/ahe_restricted_six_rotating_flash8_20261003_073330_repair1_webshop/runs/iteration_005/evolve/nexau_in_memory_tracer.cleaned.json",
+          "missing": "Debugger and possibly untraced compaction/retry/unfinished calls"
+        },
+        {
+          "round": 6,
+          "evolve_recorded_tokens": 18618189,
+          "evolve_recorded_generations": 159,
+          "full_round_tokens": null,
+          "full_round_accounting_complete": false,
+          "train_accuracy": 0.36,
+          "train_successes": 18,
+          "train_n": 50,
+          "evaluation_batch": 5,
+          "source": "experiments/ahe_restricted_six_rotating_flash8_20261003_073330_repair1_webshop/runs/iteration_006/evolve/nexau_in_memory_tracer.cleaned.json",
+          "missing": "Debugger and possibly untraced compaction/retry/unfinished calls"
+        }
+      ],
+      "evolve_recorded_tokens": 71743620,
+      "evolve_recorded_generations": 686
+    }
+  },
+  "evolve_recorded_tokens": 207700521,
+  "full_optimizer_tokens": null,
+  "full_accounting_complete": false,
+  "current_run_api_attempts": 3931,
+  "evolve_recorded_generations": 2005,
+  "request_count_difference": 1926,
+  "difference_is_not_verified_debugger_only": true,
+  "sensitivity_scenarios_not_measurements": [
+    {
+      "assumed_mean_tokens_per_untraced_attempt": 20000,
+      "untraced_scenario_tokens": 38520000,
+      "known_evolve_plus_scenario_tokens": 246220521
+    },
+    {
+      "assumed_mean_tokens_per_untraced_attempt": 50000,
+      "untraced_scenario_tokens": 96300000,
+      "known_evolve_plus_scenario_tokens": 304000521
+    },
+    {
+      "assumed_mean_tokens_per_untraced_attempt": 100000,
+      "untraced_scenario_tokens": 192600000,
+      "known_evolve_plus_scenario_tokens": 400300521
+    }
+  ],
+  "estimate_limitations": [
+    "Assumed per-call means are not empirically measured, and this is not a confidence interval.",
+    "Trace generations and request-gate attempts are not guaranteed one-to-one on failed calls.",
+    "Reused first-round WebShop Debugger work predates the current broker and is outside its request count.",
+    "Archived pre-repair evolution/startup costs are not included.",
+    "Cannot assign missing spend to individual rounds; cannot claim these scenarios are audited full spend."
+  ]
+}

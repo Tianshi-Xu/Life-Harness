@@ -1,0 +1,58 @@
+type: tool
+name: update_reservation_flights
+description: Update the flight information of a reservation.
+input_schema:
+  $defs:
+    FlightInfo:
+      properties:
+        flight_number:
+          description: Flight number, such as 'HAT001'.
+          title: Flight Number
+          type: string
+        date:
+          description: The date for the flight in the format 'YYYY-MM-DD', such as
+            '2024-05-01'.
+          title: Date
+          type: string
+      required:
+      - flight_number
+      - date
+      title: FlightInfo
+      type: object
+  properties:
+    reservation_id:
+      description: The reservation ID, such as 'ZFA04Y'.
+      title: Reservation Id
+      type: string
+    cabin:
+      description: The cabin class of the reservation
+      enum:
+      - business
+      - economy
+      - basic_economy
+      title: Cabin
+      type: string
+    flights:
+      description: An array of objects containing details about each piece of flight
+        in the ENTIRE new reservation. Even if the a flight segment is not changed,
+        it should still be included in the array.
+      items:
+        anyOf:
+        - $ref: '#/$defs/FlightInfo'
+        - additionalProperties: true
+          type: object
+      title: Flights
+      type: array
+    payment_id:
+      description: The payment id stored in user profile, such as 'credit_card_7815826',
+        'gift_card_7815826', 'certificate_7815826'.
+      title: Payment Id
+      type: string
+  required:
+  - reservation_id
+  - cabin
+  - flights
+  - payment_id
+  title: parameters
+  type: object
+disable_parallel: true

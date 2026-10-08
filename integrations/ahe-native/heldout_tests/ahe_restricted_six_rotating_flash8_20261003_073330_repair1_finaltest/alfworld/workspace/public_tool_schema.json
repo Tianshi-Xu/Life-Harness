@@ -1,0 +1,25 @@
+{
+  "domain": "alfworld",
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "take_action",
+        "description": "Take an action.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "action": {
+              "type": "string",
+              "description": "The action you would like to take"
+            }
+          },
+          "required": [
+            "action"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  ]
+}

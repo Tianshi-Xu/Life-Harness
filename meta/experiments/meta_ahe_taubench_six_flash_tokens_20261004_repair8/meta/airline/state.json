@@ -1,0 +1,307 @@
+{
+  "baseline_phase": "candidate_05",
+  "batch": 2,
+  "incumbent": "error_reground_recovery.py",
+  "released_h_flags": [],
+  "rounds": [
+    {
+      "accepted": true,
+      "baseline_score": 0.26666666666666666,
+      "baseline_successes": 16,
+      "candidate": {
+        "changes": "New module agents/preaction_verify_reminder.py exporting AgentHarness and register(). Exactly one mechanism, request-side only: transform_request drops any message whose content contains the sentinel '[[ACTION-GATE]]' (missing/None content counts as not containing it) and appends exactly one fresh {\"role\": \"system\", \"content\": _REMINDER} dict at the very END, so the reminder is always the most recent content and repeated calls cannot accumulate duplicates. It tolerates dict (\"messages\"), bare list/tuple, and attribute (.messages) request shapes; native messages are never reordered, edited or deleted and assistant tool_calls / tool tool_call_id pairing is preserved; dict and list inputs are returned as copies (caller's object unchanged), tuple returns a tuple. transform_response is identity. register() returns None (no native tool or LLMAgent patching, no change to tools, budgets, user simulator or evaluator). The whole transform is wrapped in try/except and returns the original request unchanged on any error. No imports, no I/O, no new model/network/subprocess/filesystem calls, constants only (_SENTINEL, _REMINDER), no cross-episode mutable state, deterministic and side-effect free.",
+        "expected_efficiency": "Cost-neutral and turn-neutral: one static ~1.5 kB system message (~380 tokens) appended per solver turn, always net-zero in message count because the previous copy is removed first, against a 32768-token total context and 4096-token output budget. No extra tool calls, no extra model calls, no network or filesystem use, no wall-clock order change. Expected effect is accuracy-side (policy-compliant state changes, fewer wasted or incorrect tool calls caused by skipping retrieval or repeating errored calls), targeting a TRAIN average pass rate above the 0.2667 incident-free incumbent baseline.",
+        "hypothesis": "The airline incumbent fails largely on policy-compliance and tool-sequence errors (unauthorised or premature state changes, mutating before retrieving the record's exact current values, repeating a call that already errored, using state-changing calls to explore prices) rather than on missing capability. A short, general, tail-placed 'action gate' reminder re-surfaced immediately before each generation step should raise attention to the three checks that matter for state-changing calls - evidence held, named policy authority, explicit user confirmation - and lift the TRAIN pass rate above the 0.2667 incumbent baseline, without introducing new refusals on changes the policy does permit.",
+        "import_path": "agents.preaction_verify_reminder:AgentHarness",
+        "name": "preaction_verify_reminder"
+      },
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.3,
+      "candidate_successes": 18,
+      "iteration": 1,
+      "parent": "baseline_zero.py",
+      "retained_candidate": "preaction_verify_reminder.py",
+      "train_batch": 0,
+      "train_episodes": 60,
+      "train_n": 30,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 982957,
+            "output_tokens": 28572,
+            "total_tokens": 1011529
+          },
+          "implementation": {
+            "input_tokens": 510452,
+            "output_tokens": 14471,
+            "total_tokens": 524923
+          },
+          "parent": {
+            "input_tokens": 1049557,
+            "output_tokens": 36876,
+            "total_tokens": 1086433
+          }
+        },
+        "cached_input_tokens_known": 1316736,
+        "calls_with_cache_details": 75,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 2542966,
+        "output_tokens": 79919,
+        "recorded_upstream_attempts": 75,
+        "successful_calls": 75,
+        "total_tokens": 2622885
+      }
+    },
+    {
+      "accepted": false,
+      "baseline_score": 0.3,
+      "baseline_successes": 18,
+      "candidate": {
+        "changes": "New module agents/stuck_step_recovery.py exporting AgentHarness and register(). Exactly one mechanism, request-side only and state-dependent (replacing the incumbent's static per-turn reminder): transform_request (a) locates the LAST assistant tool-call turn and the tool results directly following it (paired by tool_call_id, positional fallback for id-less shapes), (b) declares that step stuck if and only if one of those results is an error (content begins 'error' case-insensitively, or carries an error key / serialized error marker) OR the call is an exact repeat -- same tool, same JSON-canonicalised arguments -- of an earlier call whose recorded result string is byte-identical (a true 'no new information' test, not a benign re-read of a different record), and (c) only then drops any previously injected copy (sentinel '[[STUCK-STEP]]') and appends exactly one fresh {'role': 'system', 'content': ...} dict at the very END. The ~1.3 kB (~320 token) directive tells the model to read the tool error literally and reuse the field/value it names, never to resend an identical call, never to submit an identifier taken from tool documentation (documentation ids are format illustrations, not real records) and to take every user/reservation/flight/payment id from the user's own messages or a lookup that already succeeded, not to retry a step the policy forbids (name the blocking rule and state what is possible instead), and, once a step has failed repeatedly, to stop calling tools and state what is blocking the user. It contains no transfer instruction, so the incumbent's over-transfer regression is not reproduced. Its trailing 'Unresolved step number: N' is recomputed purely by counting the error results and identical-result repeats visible in the conversation (never stored), so the injected text strictly changes across consecutive failures and cannot become a fixed point of a degenerate loop. When no step is stuck the request is returned completely untouched (the caller's own object), so episodes that never error or repeat see byte-identical input to the identity baseline. Native messages are copied, never reordered or edited, so assistant tool_calls / tool tool_call_id pairing is preserved; dict and list inputs are returned as copies (caller's object unchanged), a tuple returns a tuple, and an attribute-style request has .messages rewritten. transform_response is identity. register() returns None (no native tool or LLMAgent patching, no change to tools, budgets, user simulator or evaluator). Standard library only (json), no I/O, no new model/network/subprocess/filesystem calls, constants only at module level, no cross-episode mutable state, deterministic and side-effect free; the whole transform is wrapped in try/except and returns the original request unchanged on any error.",
+        "expected_efficiency": "Cheaper than the incumbent: the reminder is injected only on stuck steps rather than on every solver turn. Prefix-replaying the public trajectories through this transform fires on 24/44 baseline failing episodes vs 7/16 passing, i.e. ~307 injected turns across all failing episodes versus ~42 across all passing episodes, which is roughly 5x fewer injected turns than the incumbent's per-turn reminder; a majority of passing episodes never fire at all. At worst ~320 extra tokens on a triggered call against a 32768-token total context and 4096-token output budget. Expected net turn/token reduction, because the anti-repeat clause replaces degenerate retry runs (identical calls observed up to dozens of times) with a single corrected step or one user-facing message; no new tool calls, no new model calls, no network or filesystem use, no wall-clock order change.",
+        "hypothesis": "The solver loses episodes not for lack of capability but because a single failed step is never repaired: after a tool error it re-issues an impossible call (the identical call again, an identifier copied from a tool-description example, or a value the error text itself already corrects), or it repeats one exact no-new-information call until the step budget kills the episode. If, only when the last assistant step is stuck (a trailing tool result is an error, or the call is an exact repeat whose earlier occurrence returned the identical result), we inject one short corrective system message that forbids resending an identical call and forbids invented identifiers, then the pass rate on the usually-failing error/loop tasks should rise without breaking the deny/transfer and fix-it successes, which are left byte-identical because nothing is injected on a healthy step.",
+        "import_path": "agents.stuck_step_recovery:AgentHarness",
+        "name": "stuck_step_recovery"
+      },
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.25,
+      "candidate_successes": 15,
+      "iteration": 2,
+      "parent": "preaction_verify_reminder.py",
+      "retained_candidate": "preaction_verify_reminder.py",
+      "train_batch": 0,
+      "train_episodes": 60,
+      "train_n": 30,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 4356057,
+            "output_tokens": 57670,
+            "total_tokens": 4413727
+          },
+          "implementation": {
+            "input_tokens": 351452,
+            "output_tokens": 18482,
+            "total_tokens": 369934
+          },
+          "parent": {
+            "input_tokens": 415729,
+            "output_tokens": 13367,
+            "total_tokens": 429096
+          }
+        },
+        "cached_input_tokens_known": 3732352,
+        "calls_with_cache_details": 89,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 5123238,
+        "output_tokens": 89519,
+        "recorded_upstream_attempts": 90,
+        "successful_calls": 89,
+        "total_tokens": 5212757
+      }
+    },
+    {
+      "accepted": true,
+      "baseline_score": 0.25,
+      "baseline_successes": 15,
+      "candidate": {
+        "changes": "New module agents/eligibility_verdict_gate.py exporting AgentHarness and register(). Exactly one mechanism, request-side only, extending the incumbent: transform_request drops any message whose content contains the sentinel '[[ELIGIBILITY-VERDICT]]' or the incumbent marker '[[ACTION-GATE]]' and appends exactly one fresh {'role':'system','content':MESSAGE} dict at the very END, where MESSAGE = the incumbent's exact gate text (copied verbatim into this file as _GATE, not imported) followed by a derived verdict block. The verdict block is computed purely from the conversation: it parses the policy's own stated current time (regex 'the current time is YYYY-MM-DD HH:MM:SS', case-insensitive, over the conversation text; falls back only to the public policy constant 2024-05-15 15:00:00 when absent, never read from a task id or answer) and scans message contents that are JSON objects (a dict, or a string starting with '{') carrying reservation_id plus cabin/created_at/flights, keeping the LATEST object per reservation_id in message order. For the up-to-6 most recently seen reservations it prints one factual line 'reservation X: cabin=C, booked Hh ago, insurance=I, no segment flown | a segment has already departed -> VERDICT', where H = round(hours between current time and created_at) and a segment has departed iff any flight date < current date. Verdict order: a departed segment -> 'you cannot cancel or modify it; transfer to a human agent.'; an airline cancellation (a flight status of cancelled/canceled, or ANY user message matching the airline-cancelled regexes) -> neutral 'cancellation may be permitted because the airline cancelled the flight: verify before acting.'; cabin business -> CANCELLATION IS PERMITTED (business), still require explicit confirmation; H<=23 -> CANCELLATION IS PERMITTED (booked within the last 24 hours); insurance present (not None/\"\"/\"no\"/False) -> permitted ONLY if the stated reason is covered (health or weather), record authoritative; H>26 with none of the above -> CANCELLATION IS NOT PERMITTED ... deny and transfer; else (23<H<=26 or H unknown) -> neutral 'verify the 24-hour window against the policy's current time'. A basic_economy reservation with no departed segment additionally carries the policy note that its FLIGHTS must not be changed (the CABIN may still change while no segment has flown; baggages may be added but not removed). The block opens with a header naming it and the policy current time and closes with a guard that any reservation not listed has no verified cabin/created_at/insurance on record here and must be retrieved with the reservation-details tool before it is cancelled or modified (never from an unverified or user-supplied id); when no reservation facts are visible it degrades to header + guard only, so the incumbent's behaviour is preserved. The whole block is capped at ~1400 characters. transform_response is identity. register() returns None (no native tool or LLMAgent patching, no change to tools, budgets, user simulator or evaluator). Standard library only (json, re, datetime), no I/O, no new model/network/subprocess/filesystem calls, constants only at module level, no cross-episode mutable state, deterministic and side-effect free; the whole transform is wrapped in try/except and returns the original request unchanged on any error. Native messages are copied, never reordered or edited, so assistant tool_calls / tool tool_call_id pairing is preserved; dict and list inputs are returned as copies (caller's object unchanged), a tuple returns a tuple, and an attribute-style request has .messages rewritten.",
+        "expected_efficiency": "Cost-neutral in turns and message count: one refreshed system message per solver turn, net-zero message count because the previous copy is dropped first, so no extra tool calls, no extra model calls, no network or filesystem use and no wall-clock order change. Prefix-replaying every message-prefix of every public record through the transform produced 0 failures: 60 episodes / 2060 prefixes on batch_00_baseline (the spec's required evidence) and 240 episodes / 7832 prefixes across all public batches, each asserting exactly one message appended, exactly one sentinel occurrence and all original messages preserved in order. The tail message grows from the incumbent's 1525 chars (~381 tokens) to mean 2189.6 chars (~547 tokens) and max 2917 chars (~730 tokens), i.e. a bounded ~+165 tokens per turn (the verdict block alone is mean 664.6 / max 1392 chars, under the 1400-char cap) against a 32768-token total context and 4096-token output budget. Turn-side it should be neutral-to-negative, since it flags the destructive cancel before it is issued and discourages repeated retry cancels (up to 12 identical cancel calls observed in one episode). Expected accuracy effect is positive, targeting a TRAIN pass rate above the 0.30 incumbent: across the 24 failing episodes that call cancel_reservation there are 39 distinct target reservations, 15 of which receive a CANCELLATION IS NOT PERMITTED line and the rest receive a business/24h/insurance/departed/neutral line that is at least as specific; zero passing episodes call cancel_reservation, so the injected facts cannot introduce a new refusal on a passing episode.",
+        "hypothesis": "On the 30 TRAIN tasks x 2 trials, keeping the accepted incumbent's single refreshed tail-placed action gate verbatim and appending to that same one message a conversation-grounded reservation-eligibility verdict (computed only from the policy's stated current time and reservation facts already returned by tool results) should lift the mean pass rate above the incumbent's 0.30, because failing episodes attempt a cancel_reservation or a flight change that the visible record itself forbids (cabin is not business, booking more than 24h old, no insurance, no segment flown, airline did not cancel; or a basic-economy flight edit) even though every fact needed to refuse is already on screen, while passing episodes are effectively left alone - none of them call cancel_reservation, and the injected tail only restates facts, so it cannot force a new refusal.",
+        "import_path": "agents.eligibility_verdict_gate:AgentHarness",
+        "name": "eligibility_verdict_gate"
+      },
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.3,
+      "candidate_successes": 18,
+      "date_import_repair": {
+        "optimizer_replayed": false,
+        "original_candidate_sha256": "d51c398980a7b5b3e580d65086267f5cbc03edc5b1b317b88019710f19592fed"
+      },
+      "iteration": 3,
+      "parent": "preaction_verify_reminder.py",
+      "retained_candidate": "eligibility_verdict_gate.py",
+      "train_batch": 1,
+      "train_episodes": 60,
+      "train_n": 30,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 4018705,
+            "output_tokens": 68441,
+            "total_tokens": 4087146
+          },
+          "implementation": {
+            "input_tokens": 1500257,
+            "output_tokens": 31578,
+            "total_tokens": 1531835
+          },
+          "parent": {
+            "input_tokens": 2396675,
+            "output_tokens": 48673,
+            "total_tokens": 2445348
+          }
+        },
+        "cached_input_tokens_known": 4843008,
+        "calls_with_cache_details": 129,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 7915637,
+        "output_tokens": 148692,
+        "recorded_upstream_attempts": 130,
+        "successful_calls": 129,
+        "total_tokens": 8064329
+      }
+    },
+    {
+      "accepted": false,
+      "baseline_score": 0.3,
+      "baseline_successes": 18,
+      "candidate": {
+        "changes": "New module agents/user_role_tail_verdict.py exporting AgentHarness and register(). It is the accepted incumbent agents/eligibility_verdict_gate.py with EXACTLY ONE mechanism changed: _build_message now returns {'role': 'user', 'content': _PREFIX + _GATE + _verdict_block(native_messages)} instead of {'role': 'system', ...}, where _PREFIX = '[Automated policy check - not a customer message; do not reply to this note, keep helping the customer.] ' marks the injected turn as a harness note rather than a customer message. Everything else is byte-identical to the incumbent (verified by unified diff: the only code changes are the added _PREFIX constant and the role/content swap in _build_message; all other hunks are docstrings): the verbatim _GATE text (copied into this file, not imported), the same conversation-grounded _verdict_block (parses the policy's stated current time with fallback 2024-05-15 15:00:00, keeps the latest reservation JSON per reservation_id, emits per-reservation factual+verdict lines, capped at 6 lines / ~1400 chars, plus the retrieval footer), the same drop-then-append de-duplication (any message whose content carries '[[ELIGIBILITY-VERDICT]]' or '[[ACTION-GATE]]' is dropped before exactly one fresh copy is appended, so repeated calls cannot accumulate - the injected content still carries both sentinels regardless of role, so _SENTINELS needed no change), the same copy-vs-mutate request-shape handling (dict returns a copy, list returns a copy, tuple returns a tuple, attribute-style request has .messages rewritten), identity transform_response, and register() returning None (no native tool or LLMAgent patching, no change to tools, budgets, user simulator or evaluator). Standard library only (json, re, datetime), no I/O, no new model/network/subprocess/filesystem calls, no task-id tables or hidden state, no cross-episode mutable state, deterministic and side-effect free; the whole transform is wrapped in try/except and returns the original request unchanged on any error.",
+        "expected_efficiency": "Cost equals the incumbent's plus a constant 105-character (~26-token) user prefix per solver turn; nothing else changes. Measured over all 9971 message-prefixes of all 5 public trajectory sets, the injected message content is mean 2317.1 / max 3026 chars versus the incumbent's mean 2212.1 / max 2921, i.e. a constant +105-char delta at every prefix (min == max == 105), well inside the 32768-token total context and 4096-token output budget. Turn-neutral: still exactly one refreshed message appended per solver turn with net-zero message count because the previous copy is dropped first, so no extra tool calls or model calls, no network or filesystem use. Correctness replay: every message-prefix of evidence/batch_00_baseline/public_trajectories.json (2000 prefixes) and of all five public sets (9971 prefixes) was passed through transform_request with 0 invariant failures - exactly one message appended, appended role == 'user', and every original message preserved in place and relative order; the twice-in-a-row de-dup and no-mutation-of-caller checks also pass. Falsifiable observable: if the share of executed cancels whose replayed prefix verdict said 'CANCELLATION IS NOT PERMITTED' does not fall clearly below the incumbent's 11/18, or the mean pass rate stays <= 0.30, the channel hypothesis is refuted.",
+        "hypothesis": "On the 30 public TRAIN tasks x 2 trials, re-delivering the accepted incumbent's tail action-gate plus conversation-grounded eligibility verdict on a synthetic trailing USER turn (instead of a system-role turn) lifts the mean pass rate above the incumbent's 0.30, because the incumbent's correctly-worded tail SYSTEM verdict is demonstrably inert: replaying it on the request prefix right before each forbidden cancel_reservation shows it already printed 'CANCELLATION IS NOT PERMITTED' and the solver cancelled anyway, and the solver likewise ignores the same policy text that is already verbatim in its own system prompt. If attention channel rather than wording is the limiter, the same text may be acted on when it arrives in the user-role channel that the solver demonstrably re-routes on (e.g. it reverts an applied cabin upgrade the moment the customer objects), cutting the share of executed cancels whose prefix verdict said NOT PERMITTED and converting the always-failing cancel tasks. The attention-channel claim is an UNVERIFIED hypothesis; gate content, verdict logic, de-duplication, caps, retrieval footer, request-shape handling and error fallback are byte-identical to the incumbent, so the role/channel is the only isolated variable and passing episodes (none of which call cancel_reservation) cannot be altered except by that swap.",
+        "import_path": "agents.user_role_tail_verdict:AgentHarness",
+        "name": "user_role_tail_verdict"
+      },
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.3,
+      "candidate_successes": 18,
+      "iteration": 4,
+      "parent": "eligibility_verdict_gate.py",
+      "retained_candidate": "eligibility_verdict_gate.py",
+      "train_batch": 1,
+      "train_episodes": 60,
+      "train_n": 30,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 3188007,
+            "output_tokens": 88817,
+            "total_tokens": 3276824
+          },
+          "implementation": {
+            "input_tokens": 515733,
+            "output_tokens": 20101,
+            "total_tokens": 535834
+          },
+          "parent": {
+            "input_tokens": 6060285,
+            "output_tokens": 108189,
+            "total_tokens": 6168474
+          }
+        },
+        "cached_input_tokens_known": 6079744,
+        "calls_with_cache_details": 183,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 9764025,
+        "output_tokens": 217107,
+        "recorded_upstream_attempts": 186,
+        "successful_calls": 183,
+        "total_tokens": 9981132
+      }
+    },
+    {
+      "accepted": true,
+      "baseline_score": 0.2833333333333333,
+      "baseline_successes": 17,
+      "candidate": {
+        "changes": "New module agents/error_reground_recovery.py exporting AgentHarness and register(). It is the accepted incumbent agents/eligibility_verdict_gate.py (copied verbatim, not imported) with EXACTLY ONE mechanism added. Added: a new sentinel _RECOVERY_SENTINEL = '[[RECOVERY-REGROUND]]' which is also registered in _SENTINELS, so any previously injected copy of this candidate's message is dropped before exactly one fresh copy is appended (the drop-then-append de-duplication of the incumbent is unchanged; still exactly ONE appended message per call, net-zero message count). Added: a helper _recovery_block(native_messages) that returns '' in the common case and otherwise a short block computed only from the messages already in the conversation. It fires ONLY when the LAST message whose role is 'assistant' and which has a non-empty tool_calls list produced at least one ERROR result; that turn's tool calls are paired with their results by tool_call_id on the immediately following role=='tool' messages (stopping at the first message that is neither the assistant message nor a role=='tool' message), falling back to positional order. A result is an ERROR when its str content, stripped and lowercased, starts with 'error', starts with '{\"error', or contains 'error' within its first 40 characters, or when it is a dict/JSON object carrying an 'error' key; None content is never an error. When fired, the block quotes only the LAST error result (coerced to str, capped at 300 chars) and, if any earlier NON-error tool result exists (omit the line otherwise), quotes the most recent successful tool result verbatim (capped at 1000 chars) as the authoritative record, then forbids resending an identical call and asks for the one named argument to be changed from that record (or, if the record shows the change is impossible, to stop retrying and deny/transfer). The whole block is capped at ~1500 characters with a deterministic trailing ' …[truncated]' marker. Wiring: _build_message now returns {'role': 'system', 'content': _GATE + _verdict_block(native_messages) + _recovery_block(native_messages)}; _verdict_block and _GATE are byte-identical to the incumbent, so when _recovery_block returns '' the content is byte-identical to the incumbent. Everything else is unchanged: the verbatim _GATE, the conversation-grounded verdict, the request-shape handling (_extract_messages; dict returns a copy, list returns a copy, tuple returns a tuple, attribute-style request has .messages rewritten; the caller's object is never mutated), identity transform_response, and register() returning None (no native tool or LLMAgent patching, no change to tools, budgets, user simulator or evaluator). Standard library only (json, re, datetime), no I/O, no new model/network/subprocess/filesystem calls, no task-id tables or hidden state, no cross-episode mutable state, deterministic and side-effect free; the whole transform is wrapped in try/except and returns the original request unchanged on any error.",
+        "expected_efficiency": "Cost-neutral on healthy steps and modestly cost-positive on failed steps. Measured over all 2232 message-prefixes of evidence/batch_02_baseline/public_trajectories.json the injected content is the incumbent's exactly (mean 2319.0 chars) whenever _recovery_block returns '' (verified byte-identical on all 2035 non-firing prefixes) and adds a mean 84.7 chars per prefix overall / up to 1500 chars on the 197 firing prefixes (8.8%); equivalently the new mean injected length is 2403.7 chars. This is well inside the 32768-token total context and 4096-token output budget and constant per firing step. Turn-neutral by construction: still exactly one refreshed message appended per solver turn with net-zero message count because the previous copy is dropped first, so no extra tool calls or model calls, no network or filesystem use; the extra text is emitted at most once per solver step and only while a step is stuck. Correctness replay: every message-prefix of evidence/batch_02_baseline/public_trajectories.json (2232 prefixes) was passed through transform_request with 0 invariant failures - exactly len(prefix)+1 messages returned, all original messages preserved in place and relative order, the caller's original list unchanged, exactly one '[[ACTION-GATE]]' in the appended content and at most one '[[RECOVERY-REGROUND]]'; calling transform_request twice in a row keeps the message count constant with exactly one '[[RECOVERY-REGROUND]]' and one '[[ACTION-GATE]]'; _recovery_block([]) == '' and a request with no 'messages' is returned unchanged. Falsifiable observable: a decisive improvement means the failed-step repair rate rises and the mean pass rate moves clearly above 0.30; if it does not, the stuck-step framing is refuted.",
+        "hypothesis": "On the 30 public TRAIN tasks x 2 trials, residual failures are dominated by stuck steps: the solver's most recent tool call returned an ERROR and instead of repairing the call from the authoritative values it already holds, the model keeps re-issuing a call that cannot succeed. Re-surfacing the exact error together with a verbatim mirror of the most recent successful tool result (the authoritative record) and forbidding an identical resend - but ONLY when the last assistant tool-call turn produced an error result - will lift the mean pass rate above the accepted incumbent's 0.30. The block is byte-inert on every healthy step (it returns the empty string, so the produced message equals the incumbent's _GATE + _verdict_block character for character), so episodes the incumbent already passes cannot be altered; the isolated variable is the presence of the re-grounding text on failed steps. Measured over all 2232 message-prefixes of evidence/batch_02_baseline/public_trajectories.json the block fires on 197 prefixes (8.8%) and at some point inside 26/60 episodes (43.3%); on the final full conversation it fires for the 3 episodes whose last tool-call turn itself errored. Falsifiable observable: if the re-grounding does not convert failed steps into correct repairs (mean pass rate stays <= 0.30, and the rate of repeated identical erroring calls does not fall), the hypothesis is refuted.",
+        "import_path": "agents.error_reground_recovery:AgentHarness",
+        "name": "error_reground_recovery"
+      },
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.3,
+      "candidate_successes": 18,
+      "iteration": 5,
+      "parent": "eligibility_verdict_gate.py",
+      "retained_candidate": "error_reground_recovery.py",
+      "train_batch": 2,
+      "train_episodes": 60,
+      "train_n": 30,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 6608044,
+            "output_tokens": 133020,
+            "total_tokens": 6741064
+          },
+          "implementation": {
+            "input_tokens": 1502739,
+            "output_tokens": 57255,
+            "total_tokens": 1559994
+          },
+          "parent": {
+            "input_tokens": 5087823,
+            "output_tokens": 90151,
+            "total_tokens": 5177974
+          }
+        },
+        "cached_input_tokens_known": 8362752,
+        "calls_with_cache_details": 199,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 13198606,
+        "output_tokens": 280426,
+        "recorded_upstream_attempts": 201,
+        "successful_calls": 199,
+        "total_tokens": 13479032
+      }
+    },
+    {
+      "accepted": false,
+      "baseline_score": 0.3,
+      "baseline_successes": 18,
+      "candidate": {
+        "changes": "New module agents/cancel_evidence_guard.py exporting AgentHarness and register(). It is agents/error_reground_recovery.py copied verbatim (not imported): the drop-then-append of exactly one {\"role\": \"system\", \"content\": ...} tail message is unchanged and the _SENTINELS de-duplication now also recognises the new marker [[CANCEL-EVIDENCE]], so repeated calls cannot accumulate duplicates and still emit exactly ONE refreshed message per call (net-zero message count). Exactly ONE mechanism is added: _cancel_evidence_block(native_messages), appended after _recovery_block in _build_message. It walks the messages in order maintaining two sets read only from the conversation - 'visible' (adds a reservation_id whenever a message content parses via the incumbent's _reservation_object(), i.e. a JSON object carrying reservation_id plus cabin/created_at/flights) and 'cancelled' (adds the reservation_id argument of every cancel_reservation call) - and flags an id iff a cancel_reservation call targeted a non-null reservation_id that was either absent from 'visible' at the moment of that call (its details record had never been read earlier) or already in 'cancelled' (cancelled twice). Tool calls are read robustly (dict or object messages; tool_calls list of dicts or objects; function name/arguments via key or attribute; arguments as a JSON string tolerated on parse failure or as an already-dict value). When nothing is flagged the block returns \"\" so the produced content is BYTE-IDENTICAL to _GATE + _verdict_block + _recovery_block. When it fires it renders, most-recently-flagged first and capped at 4 ids, a generic '[[CANCEL-EVIDENCE]] UNVERIFIED CANCELLATION(S):' header, one line per id stating its reservation-details record was never retrieved earlier (or that it has already been cancelled), and a fixed generic footer instructing the model to call get_reservation_details(reservation_id=...) before any further cancel/modify, to cancel only when a policy ground applies (under 24 hours old, airline cancelled, business flight, or covered travel insurance whose stated reason is covered), to deny and transfer to a human agent when a segment has already departed, and never to cancel the same reservation twice. The whole block is capped at ~1100 characters with a deterministic ' ...' + '[truncated]' marker. Everything else is unchanged: verbatim _GATE, conversation-grounded verdict, stuck-step recovery, request-shape handling (dict returns a copy, list returns a copy, tuple returns a tuple, attribute-style request has .messages rewritten; the caller's object is never mutated), identity transform_response, and register() returning None (no native tool or LLMAgent patching, no change to tools, budgets, user simulator or evaluator). Standard library only (json, re, datetime), no I/O, no new model/network/subprocess/filesystem calls, no task-id tables or hidden state, no cross-episode mutable state, deterministic and side-effect free; the whole transform is wrapped in try/except and returns the original request unchanged on any error. No task-specific hints anywhere: the text is generic airline-policy guidance applicable to any unfamiliar reservation.",
+        "expected_efficiency": "Cost-neutral on healthy conversations and small and bounded on flagged ones. Verified by replaying every message-prefix of evidence/batch_02_baseline/public_trajectories.json (2232 prefixes) and evidence/candidate_05/public_trajectories.json (2146 prefixes): on every one of the non-firing prefixes (2144 and 1968 respectively) the produced content is string-equal to the incumbent's _GATE + _verdict_block + _recovery_block, so the input is byte-identical to the incumbent, while the block adds its text on only 88 and 178 prefixes respectively; the whole block is capped at ~1100 chars (~275 tokens) per firing step against a 32768-token total context and 4096-token output budget. Turn-neutral by construction: still exactly one refreshed system message appended per solver turn with net-zero message count because the previous copy is dropped first, so no extra tool calls, no extra model calls, no network or filesystem use, no wall-clock order change. Firing is inert exactly where it must be: across all 8 evidence/*/public_trajectories.json files it fires on 0 of the 135 passing episodes and on 4-11 of the ~42-45 failing episodes per run (10/42 in the incumbent's own run), leaving every passing counterexample untouched. The intent is a net turn/token reduction on the multi-cancel cascades it targets (which currently burn many turns re-cancelling ids that can never be cancelled) and zero change everywhere else.",
+        "hypothesis": "On the 30 public TRAIN tasks x 2 trials, keeping the accepted incumbent verbatim and adding to its single refreshed tail system message one derived block that fires only when the conversation contains a cancel_reservation call whose target reservation_id had no reservation record visible before that call (or re-cancels an id already cancelled) will lift the mean pass rate above 0.30. Measured failure mode: of 42 failing episodes in the incumbent's own run, 17 contain a cancel_reservation call and 10 of those begin cancelling reservations whose eligibility record was never read (e.g. a reservation cancelled blind straight from a user-supplied id, or a cascade of ids taken from the user-record id list), whereas 0 of 135 public passing episodes across all 8 recorded runs fire the condition because every passing cancellation retrieves the record first. Making the missing lookup explicit at the exact step - which no existing candidate (gate, verdict, stuck-step re-grounding) detects - should convert the multi-cancel cascades (retrieve before the 2nd..Nth cancel, then deny/transfer when the record shows the change is not permitted) without touching any healthy conversation, so episodes the incumbent already passes cannot be altered. Falsifiable observable: if the mean TRAIN pass rate does not move clearly above 0.30, or the share of episodes executing a cancellation of a never-retrieved reservation does not fall, the evidence-enforcement claim is refuted.",
+        "import_path": "agents.cancel_evidence_guard:AgentHarness",
+        "name": "cancel_evidence_guard"
+      },
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.26666666666666666,
+      "candidate_successes": 16,
+      "iteration": 6,
+      "parent": "error_reground_recovery.py",
+      "retained_candidate": "error_reground_recovery.py",
+      "train_batch": 2,
+      "train_episodes": 60,
+      "train_n": 30,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 7556394,
+            "output_tokens": 131599,
+            "total_tokens": 7687993
+          },
+          "implementation": {
+            "input_tokens": 1137718,
+            "output_tokens": 42288,
+            "total_tokens": 1180006
+          },
+          "parent": {
+            "input_tokens": 4760823,
+            "output_tokens": 99395,
+            "total_tokens": 4860218
+          }
+        },
+        "cached_input_tokens_known": 8123648,
+        "calls_with_cache_details": 199,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 13454935,
+        "output_tokens": 273282,
+        "recorded_upstream_attempts": 202,
+        "successful_calls": 199,
+        "total_tokens": 13728217
+      }
+    }
+  ],
+  "status": "training_complete"
+}

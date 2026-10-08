@@ -1,0 +1,93 @@
+experiment: ahe_native_alfworld
+model: ''
+scores:
+- iteration: 1
+  job_dir: runs/iteration_001/input/benchmark/2026-10-03__07-35-17_954c8514
+  k: 1
+  pass_rate: 0.22
+  tasks:
+    exception: 0
+    fail: 39
+    pass: 11
+    total: 50
+  timestamp: '2026-10-03T08:17:02'
+  timing:
+    analysis_min: 5.5
+    eval_min: 0.0
+    evolve_min: 17.3
+    total_min: 22.7
+- iteration: 2
+  job_dir: runs/iteration_002/input/benchmark/2026-10-03__08-17-03_e4d02e32
+  k: 1
+  pass_rate: 0.2
+  tasks:
+    exception: 0
+    fail: 40
+    pass: 10
+    total: 50
+  timestamp: '2026-10-03T08:41:57'
+  timing:
+    analysis_min: 3.6
+    eval_min: 6.6
+    evolve_min: 14.7
+    total_min: 24.9
+- iteration: 3
+  job_dir: runs/iteration_003/input/benchmark/2026-10-03__08-41-58_8cac8111
+  k: 1
+  pass_rate: 0.64
+  tasks:
+    exception: 0
+    fail: 18
+    pass: 32
+    total: 50
+  timestamp: '2026-10-03T09:02:29'
+  timing:
+    analysis_min: 3.2
+    eval_min: 3.6
+    evolve_min: 13.7
+    total_min: 20.5
+- iteration: 4
+  job_dir: runs/iteration_004/input/benchmark/2026-10-03__09-02-29_f37ca5e0
+  k: 1
+  pass_rate: 0.98
+  tasks:
+    exception: 0
+    fail: 1
+    pass: 49
+    total: 50
+  timestamp: '2026-10-03T09:19:04'
+  timing:
+    analysis_min: 2.8
+    eval_min: 2.4
+    evolve_min: 11.4
+    total_min: 16.6
+- iteration: 5
+  job_dir: runs/iteration_005/input/benchmark/2026-10-03__09-19-04_e60d5f16
+  k: 1
+  pass_rate: 0.96
+  tasks:
+    exception: 0
+    fail: 2
+    pass: 48
+    total: 50
+  timestamp: '2026-10-03T09:45:05'
+  timing:
+    analysis_min: 3.9
+    eval_min: 2.1
+    evolve_min: 20.1
+    total_min: 26.0
+- iteration: 6
+  job_dir: runs/iteration_006/input/benchmark/2026-10-03__09-45-06_030f8313
+  k: 1
+  pass_rate: 0.96
+  tasks:
+    exception: 0
+    fail: 2
+    pass: 48
+    total: 50
+  timestamp: '2026-10-03T10:00:57'
+  timing:
+    analysis_min: 3.1
+    eval_min: 2.5
+    evolve_min: 10.3
+    total_min: 15.9

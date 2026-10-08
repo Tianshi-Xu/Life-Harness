@@ -1,0 +1,153 @@
+{
+  "name": "ahe_restricted_six_rotating_flash8_20261003_073330_repair1",
+  "pid": 2336287,
+  "started_at": "2026-10-03T07:54:18.671122+00:00",
+  "state": "complete",
+  "domains": {
+    "alfworld": {
+      "current_iteration": 6,
+      "evaluations": [
+        {
+          "iteration": 1,
+          "tasks": 50,
+          "successes": 11,
+          "infrastructure_errors": 1
+        },
+        {
+          "iteration": 2,
+          "tasks": 50,
+          "successes": 10,
+          "infrastructure_errors": 0
+        },
+        {
+          "iteration": 3,
+          "tasks": 50,
+          "successes": 32,
+          "infrastructure_errors": 0
+        },
+        {
+          "iteration": 4,
+          "tasks": 50,
+          "successes": 49,
+          "infrastructure_errors": 0
+        },
+        {
+          "iteration": 5,
+          "tasks": 50,
+          "successes": 48,
+          "infrastructure_errors": 0
+        },
+        {
+          "iteration": 6,
+          "tasks": 50,
+          "successes": 48,
+          "infrastructure_errors": 0
+        }
+      ],
+      "current_completed_episodes": 50,
+      "phase": "iteration_complete",
+      "experiment": "ahe_restricted_six_rotating_flash8_20261003_073330_repair1_alfworld",
+      "state": "complete"
+    },
+    "dbbench": {
+      "current_iteration": 6,
+      "evaluations": [
+        {
+          "iteration": 1,
+          "tasks": 50,
+          "successes": 22,
+          "infrastructure_errors": 0
+        },
+        {
+          "iteration": 2,
+          "tasks": 50,
+          "successes": 31,
+          "infrastructure_errors": 0
+        },
+        {
+          "iteration": 3,
+          "tasks": 50,
+          "successes": 26,
+          "infrastructure_errors": 0
+        },
+        {
+          "iteration": 4,
+          "tasks": 50,
+          "successes": 26,
+          "infrastructure_errors": 0
+        },
+        {
+          "iteration": 5,
+          "tasks": 50,
+          "successes": 20,
+          "infrastructure_errors": 0
+        },
+        {
+          "iteration": 6,
+          "tasks": 50,
+          "successes": 22,
+          "infrastructure_errors": 0
+        }
+      ],
+      "current_completed_episodes": 50,
+      "phase": "iteration_complete",
+      "experiment": "ahe_restricted_six_rotating_flash8_20261003_073330_repair1_dbbench",
+      "state": "complete"
+    },
+    "webshop": {
+      "current_iteration": 6,
+      "evaluations": [
+        {
+          "iteration": 1,
+          "tasks": 50,
+          "successes": 11,
+          "infrastructure_errors": 0
+        },
+        {
+          "iteration": 2,
+          "tasks": 50,
+          "successes": 19,
+          "infrastructure_errors": 0
+        },
+        {
+          "iteration": 3,
+          "tasks": 50,
+          "successes": 18,
+          "infrastructure_errors": 0
+        },
+        {
+          "iteration": 4,
+          "tasks": 50,
+          "successes": 21,
+          "infrastructure_errors": 1
+        },
+        {
+          "iteration": 5,
+          "tasks": 50,
+          "successes": 17,
+          "infrastructure_errors": 0
+        },
+        {
+          "iteration": 6,
+          "tasks": 50,
+          "successes": 21,
+          "infrastructure_errors": 0
+        }
+      ],
+      "current_completed_episodes": 50,
+      "phase": "iteration_complete",
+      "experiment": "ahe_restricted_six_rotating_flash8_20261003_073330_repair1_webshop",
+      "state": "complete"
+    }
+  },
+  "updated_at": "2026-10-03T10:18:19.072719+00:00",
+  "flash_api": {
+    "limit": 8,
+    "active": 0,
+    "peak": 8,
+    "requests": 3931,
+    "min_interval_seconds": 1.25,
+    "paced_requests_per_minute": 48.0
+  },
+  "flash_rate_limit_responses": 0
+}

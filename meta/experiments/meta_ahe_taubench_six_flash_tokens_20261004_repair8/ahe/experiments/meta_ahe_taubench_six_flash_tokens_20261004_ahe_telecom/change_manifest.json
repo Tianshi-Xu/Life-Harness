@@ -1,0 +1,88 @@
+{
+  "iteration": 6,
+  "changes": [
+    {
+      "id": "chg-1",
+      "type": "improvement",
+      "description": "Reset the repeated-call counters of every READ tool whenever a state-changing WRITE tool runs. New READ_TOOLS/WRITE_TOOLS frozensets; in _observe(), after a write tool (send_payment_request, resume_line, suspend_line, refuel_data, enable_roaming, disable_roaming) all call_counts entries for read tools (get_customer_by_*, get_details_by_id, get_bills_for_customer, get_data_usage) are dropped. Root cause fixed: max_same_call=2 permanently blocked the SAME-ARGUMENT get_bills_for_customer call that must re-read a bill after the customer pays, while _payment_block_reason simultaneously blocked resume_line until that same bill read as 'Paid'. This is a hard deadlock that makes 4 of the 50 tasks unresolvable once the agent has read the bill twice before sending the payment request. Verified by replaying the guard against the recorded trace state: iteration-5 code blocks the post-payment verify, the patched code allows it.",
+      "files": ["middleware/protocol_guard.py"],
+      "failure_pattern": "overdue_bill_suspension tasks (and any flow needing a read-back after a write): the mandatory 'send_payment_request -> get_bills_for_customer (verify Paid) -> resume_line' sequence deadlocks, the agent gets a 'do not repeat this call, take a DIFFERENT step' note that pushes it AWAY from the required verification, and it ends up asking the customer about the bill until the customer stops the conversation.",
+      "predicted_fixes": [
+        "native_419035b118a50b915967d604c719f9ddd54e8b47de46ffe550c9878cabfe548d",
+        "native_ccb1f366efe3acf47092dc189166b6909a7bd6e103fbb0e219125c95b78f4bc9",
+        "native_c963c6c25f4a7a196de7d4e132856520c6697e567e000d184fac3ef549cc547d",
+        "native_31a8763c970ab3dcf20dc7d64f8ee1c6a84d1a290cd1eb1105b7d1d4bfc1db2d",
+        "native_97ff8a8c6c8b577da27e00a9d54544478702cfc29c674a5fdae962238f21dc6e",
+        "native_25c3df65ab9de74f9b34dde6b656eb7cab7d3325f945a8d83aacd988df137a9c"
+      ],
+      "risk_tasks": [
+        "native_0163b9a67743d5356232692b3876c53c4ce161a0344c5a80c64b97aa0cf12e4c",
+        "native_7eca1c9bf123c4625eb0199955ea8dd6181a19cc16348f70a2e7ba7b8f6df43b"
+      ],
+      "constraint_level": "middleware",
+      "why_this_component": "The deadlock is created by the middleware's own loop breaker interacting with its own payment gate; a prompt rule cannot unblock a tool call the guard filters out."
+    },
+    {
+      "id": "chg-2",
+      "type": "improvement",
+      "description": "New _append_note() helper replaces the previous synthetic guard note instead of stacking a new one. Every corrective note is a pointer to the single next action; when they accumulated the conversation was observed to contain 40+ near identical 'stop repeating' / 'verify the payment' notes (410 raw occurrences in one trace), which bloated the context and gave the model contradictory instructions. _is_synthetic_note_message() detects the guard's own user-role notes (role==USER and text starting with the sysnetic markers) so they can be dropped before the new note is added. A non-empty fallback text guarantees force_continue is never returned without a new message.",
+      "files": ["middleware/protocol_guard.py"],
+      "failure_pattern": "Context pollution / instruction contradiction: repeated guard notes accumulate in a long conversation and the agent starts responding to the notes instead of to the customer.",
+      "predicted_fixes": [
+        "native_c963c6c25f4a7a196de7d4e132856520c6697e567e000d184fac3ef549cc547d",
+        "native_25c3df65ab9de74f9b34dde6b656eb7cab7d3325f945a8d83aacd988df137a9c"
+      ],
+      "risk_tasks": [],
+      "constraint_level": "middleware",
+      "why_this_component": "The pollution is produced by the middleware's own message injection, so only the middleware can remove the stale notes."
+    },
+    {
+      "id": "chg-3",
+      "type": "improvement",
+      "description": "Generalised the escalation nudge. Previously it fired only when a locked SIM had been reported AND the transfer was currently allowed; it therefore stayed silent exactly in the worst case - the agent announcing a transfer it never makes while the transfer is blocked - which is what happened in 31a8 (transfer announced with no account identified at all) and in 25c3 (transfer announced with enable_roaming still outstanding). Now it fires on any real hand-off announcement that is not backed by a transfer_to_human_agents call, returning either _ESCALATE_NUDGE (allowed) or a note containing the concrete block reason (blocked), which re-surfaces the outstanding action (e.g. 'call enable_roaming').",
+      "files": ["middleware/protocol_guard.py"],
+      "failure_pattern": "Escalation announced but never executed; the agent tells the customer it is transferring, no tool call happens, and the case ends missing the final action.",
+      "predicted_fixes": [
+        "native_31a8763c970ab3dcf20dc7d64f8ee1c6a84d1a290cd1eb1105b7d1d4bfc1db2d",
+        "native_25c3df65ab9de74f9b34dde6b656eb7cab7d3325f945a8d83aacd988df137a9c"
+      ],
+      "risk_tasks": [
+        "native_0163b9a67743d5356232692b3876c53c4ce161a0344c5a80c64b97aa0cf12e4c"
+      ],
+      "constraint_level": "middleware",
+      "why_this_component": "The detection needs the guard's own observed tool-call history (was the transfer actually called, is the transfer currently allowed), which no prompt rule can see."
+    },
+    {
+      "id": "chg-4",
+      "type": "new",
+      "description": "Bounded identity nudge. When a message-only response arrives, no tool call has been made at all, the account is still unidentified, the conversation already shows a service/data/MMS symptom, and the agent has not asked for a phone number, the guard appends a note forcing the agent to obtain the phone number and call get_customer_by_phone. Bounded by a new max_identity_nudges parameter (default 2, registered in code_agent.yaml). Motivation: in 31a8 the agent produced 9 consecutive turns and ZERO tool calls (never asked for the phone number, never looked up the account) while walking a device checklist, and the guard's existing system-prompt state note was ignored.",
+      "files": ["middleware/protocol_guard.py", "code_agent.yaml"],
+      "failure_pattern": "Agent chats a device checklist for many turns without ever identifying the account, so no account action can be performed and the case is unsalvageable.",
+      "predicted_fixes": [
+        "native_31a8763c970ab3dcf20dc7d64f8ee1c6a84d1a290cd1eb1105b7d1d4bfc1db2d"
+      ],
+      "risk_tasks": [],
+      "constraint_level": "middleware",
+      "why_this_component": "The condition depends on the guard's own record of which tools were actually called and on the already-observed symptom classification; a prompt rule was already present and ignored."
+    },
+    {
+      "id": "chg-5",
+      "type": "improvement",
+      "description": "Reworded the payment guidance (_PAYMENT_NOTE, _PAYMENT_TAIL, _VERIFY_PAYMENT_NUDGE, _LOOP_BODY) and broadened _PAYMENT_CONFIRM_RE. The old text told the agent to 'ask them to open their payment requests and accept it. Once they confirm, call get_bills_for_customer' and the loop note told it to 'take a DIFFERENT next step'. In three traces the agent turned that into a repeating question to the CUSTOMER ('is the bill marked as Paid in your payment requests?'), which is exactly the behaviour the policy forbids (only the agent can see the bill). The notes now forbid asking the customer about bill state, state that re-reading the bill after a payment is expected and allowed, and the loop note explicitly permits a re-read when the account state has changed. The confirmation regex now also matches the phrasings the simulated customer actually uses ('Payment of 65.0 USD has been made for bill B1234321', 'The bill B1234321 has been paid', 'nothing pending').",
+      "files": ["middleware/protocol_guard.py"],
+      "failure_pattern": "The agent asks the customer to report account state (bill paid? line resumed?) instead of reading it with a tool call, and loops on the same question until the customer gives up.",
+      "predicted_fixes": [
+        "native_419035b118a50b915967d604c719f9ddd54e8b47de46ffe550c9878cabfe548d",
+        "native_ccb1f366efe3acf47092dc189166b6909a7bd6e103fbb0e219125c95b78f4bc9"
+      ],
+      "risk_tasks": [],
+      "constraint_level": "middleware",
+      "why_this_component": "The misleading phrasing lives in the guard's own injected notes, which also carry the strongest recency signal; the system prompt wording was already rewritten in iteration 5 and did not change behaviour while the deadlock existed."
+    }
+  ],
+  "rollback_analysis": {
+    "previous_changes_reviewed": ["iter5-chg-1 (locked-SIM regex + transfer gating)", "iter5-chg-2 (action-completion nudges)", "iter5-chg-3 (prompt + memory: execute, never merely announce)"],
+    "decision": "KEPT (no rollback) - the attributed harm was mis-diagnosed",
+    "evidence": "The auto-attribution blamed iter5-chg-1/chg-2 for the 419035b1 regression. Replaying the guard against the recorded episode state shows the true mechanism: both the iteration-4 AND iteration-5 guard block the post-payment get_bills_for_customer because of the pre-existing max_same_call=2 loop breaker (reproduced with runs/iteration_005/input/workspace/middleware/protocol_guard.py), while _payment_block_reason needs that same read to allow resume_line. The nudge from iter5-chg-2 merely made the deadlock visible by regressing into a visible loop. iter5-chg-1's regex fix (\\blocked_?(pin|puk)) is a genuine fix for the environment's literal 'locked_pin'/'locked_puk' strings, and its transfer gating matches the written policy. iter5-chg-3's prompt text targets precisely the behaviour gaps still visible in the traces, so it is kept and now becomes actionable. chg-1 of this iteration removes the deadlock instead of rolling back the changes that exposed it."
+  }
+}

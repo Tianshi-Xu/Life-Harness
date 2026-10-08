@@ -1,0 +1,30 @@
+{
+  "gpu_memory_utilization": 0.85,
+  "max_model_len": 32768,
+  "max_num_batched_tokens": 2048,
+  "max_num_seqs": 64,
+  "max_output_tokens": 4096,
+  "services": {
+    "14b": {
+      "gpu": [
+        12,
+        13
+      ],
+      "port": 8702,
+      "tensor_parallel_size": 2
+    },
+    "7b": {
+      "gpu": [
+        14
+      ],
+      "port": 8701,
+      "tensor_parallel_size": 1
+    }
+  },
+  "temperature": 0,
+  "tokenizer_transformers_version": "4.57.0",
+  "tool_call_parser": "hermes",
+  "unrelated_services_changed": false,
+  "vllm_version": "0.14.0",
+  "workers_per_model": 50
+}

@@ -1,0 +1,264 @@
+{
+  "accepted_bundle_ids": [
+    "webshop_checkout_guard_v1"
+  ],
+  "active_snapshot": [
+    {
+      "artifact_path": "versions/webshop_checkout_guard_v1/h2_action_guard_add.py",
+      "mechanism_id": "h2_action_guard",
+      "revision": 1,
+      "sha256": "00bfe8164f884220f72f19b6d29ef08da20d8bbe7277b517bef625015dee9881",
+      "target_layer": "h2"
+    },
+    {
+      "artifact_path": "versions/webshop_checkout_guard_v1/h4_product_page_audit_add.py",
+      "mechanism_id": "h4_product_page_audit",
+      "revision": 1,
+      "sha256": "bd4e7ac40518598e4510e57eeb22ab55c7b347ef65efaf5fb57a643c5d9c4639",
+      "target_layer": "h4"
+    },
+    {
+      "artifact_path": "versions/webshop_checkout_guard_v1/h5_webshop_procedure_add.py",
+      "mechanism_id": "h5_webshop_procedure",
+      "revision": 1,
+      "sha256": "005f20939192cd493dedb693a82d64c346aca2849ff879ae3240aea92fb9bd92",
+      "target_layer": "h5"
+    },
+    {
+      "artifact_path": "versions/webshop_checkout_guard_v1/h3_tool_contract_add.py",
+      "mechanism_id": "h3_tool_contract",
+      "revision": 1,
+      "sha256": "fe4ccacf3d175500bd2981270b9e7a6d5e345b146fcd0a49514f02b8ff2f4af5",
+      "target_layer": "h3"
+    }
+  ],
+  "active_snapshot_sha256": "9d98442f6126849eb611271ad5da3bd838caeed9ef208c3ad73491eebb56f95e",
+  "domain": "webshop",
+  "operation_log": [
+    {
+      "bundle_id": "webshop_checkout_guard_v1",
+      "committed_snapshot_sha256": "9d98442f6126849eb611271ad5da3bd838caeed9ef208c3ad73491eebb56f95e",
+      "operations": [
+        {
+          "artifact": "artifacts/h2_action_guard.py",
+          "artifact_sha256": "00bfe8164f884220f72f19b6d29ef08da20d8bbe7277b517bef625015dee9881",
+          "hypothesis": "Recovering a '<tool_call>' payload written as text and refusing 'buy now' while an instruction-matching option value is unclicked or the page price exceeds the stated ceiling turns doomed checkouts into progressing ones, while non-matching pages and option-free pages keep the exact proposed action.",
+          "mechanism_id": "h2_action_guard",
+          "op": "add",
+          "operation_id": "h2_action_guard_add",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/h4_product_page_audit.py",
+          "artifact_sha256": "bd4e7ac40518598e4510e57eeb22ab55c7b347ef65efaf5fb57a643c5d9c4639",
+          "hypothesis": "Publishing the newest page audit (kind, price, options, pending, price_violation) into shared state and naming the exact pending option values or the ceiling in a hint gives the solver the same information the guard enforces, so the corrective click comes from the solver itself.",
+          "mechanism_id": "h4_product_page_audit",
+          "op": "add",
+          "operation_id": "h4_product_page_audit_add",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/h5_webshop_procedure.py",
+          "artifact_sha256": "005f20939192cd493dedb693a82d64c346aca2849ff879ae3240aea92fb9bd92",
+          "hypothesis": "A cold-start procedure that extracts the ceiling and descriptive words, requires one native tool call per turn and orders 'select every matching option value before buy now' prevents the option-skipping and text-tool-call defects before they happen, and seeds the instruction/ceiling shared keys.",
+          "mechanism_id": "h5_webshop_procedure",
+          "op": "add",
+          "operation_id": "h5_webshop_procedure_add",
+          "target_layer": "h5"
+        },
+        {
+          "artifact": "artifacts/h3_tool_contract.py",
+          "artifact_sha256": "fe4ccacf3d175500bd2981270b9e7a6d5e345b146fcd0a49514f02b8ff2f4af5",
+          "hypothesis": "Descriptions that enumerate the accepted click values and state the native-calling convention reduce wrong click strings and text-only turns without touching tool names, schemas or order.",
+          "mechanism_id": "h3_tool_contract",
+          "op": "add",
+          "operation_id": "h3_tool_contract_add",
+          "target_layer": "h3"
+        }
+      ],
+      "parent_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "round": 1
+    }
+  ],
+  "prior_test_exposure": true,
+  "round": 3,
+  "rounds": [
+    {
+      "accepted": true,
+      "active_snapshot_sha256": "9d98442f6126849eb611271ad5da3bd838caeed9ef208c3ad73491eebb56f95e",
+      "bundle_hypothesis": "WebShop failures in this batch concentrate on checkout mechanics rather than retrieval: the solver buys before clicking the option value the instruction names (cases 961, 801), buys a product priced above the stated ceiling (cases 806, 300), and loses a turn to a tool call written inside message text (case 300). Making H2 recover the lost native call and rewrite 'buy now' into the pending option click or 'back to search' above the ceiling, making H4 publish the page audit as a hint and as shared page_state, seeding instruction/ceiling in H5 and stating the click-value contract in H3 should convert some of these no-purchase episodes into completed purchases without changing the action on the pages where the successful controls (cases 1006, 947, 232) already bought correctly.",
+      "bundle_id": "webshop_checkout_guard_v1",
+      "candidate_infra_errors": 0,
+      "candidate_phase": "round_01_candidate",
+      "candidate_score": 0.36,
+      "candidate_snapshot_sha256": "b32c0e43808947a4c717acae9b0183d49a8d7e8351d72de521f63ce65692eac7",
+      "candidate_successes": 18,
+      "candidate_summary_sha256": "d36aba1cffd672adc84d8dc053f3db243d1644c1b4d3ab80e6a213c4ccfd4a40",
+      "cases_available": 50,
+      "cases_opened": 8,
+      "incumbent_infra_errors": 0,
+      "incumbent_phase": "round_01_incumbent",
+      "incumbent_score": 0.26,
+      "incumbent_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "incumbent_successes": 13,
+      "incumbent_summary_sha256": "12c064bdb704b513368e6fa50e58339e1d8d01d04d0330737299b0ebd50efb78",
+      "operations": [
+        {
+          "artifact": "artifacts/h2_action_guard.py",
+          "artifact_sha256": "00bfe8164f884220f72f19b6d29ef08da20d8bbe7277b517bef625015dee9881",
+          "hypothesis": "Recovering a '<tool_call>' payload written as text and refusing 'buy now' while an instruction-matching option value is unclicked or the page price exceeds the stated ceiling turns doomed checkouts into progressing ones, while non-matching pages and option-free pages keep the exact proposed action.",
+          "mechanism_id": "h2_action_guard",
+          "op": "add",
+          "operation_id": "h2_action_guard_add",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/h4_product_page_audit.py",
+          "artifact_sha256": "bd4e7ac40518598e4510e57eeb22ab55c7b347ef65efaf5fb57a643c5d9c4639",
+          "hypothesis": "Publishing the newest page audit (kind, price, options, pending, price_violation) into shared state and naming the exact pending option values or the ceiling in a hint gives the solver the same information the guard enforces, so the corrective click comes from the solver itself.",
+          "mechanism_id": "h4_product_page_audit",
+          "op": "add",
+          "operation_id": "h4_product_page_audit_add",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/h5_webshop_procedure.py",
+          "artifact_sha256": "005f20939192cd493dedb693a82d64c346aca2849ff879ae3240aea92fb9bd92",
+          "hypothesis": "A cold-start procedure that extracts the ceiling and descriptive words, requires one native tool call per turn and orders 'select every matching option value before buy now' prevents the option-skipping and text-tool-call defects before they happen, and seeds the instruction/ceiling shared keys.",
+          "mechanism_id": "h5_webshop_procedure",
+          "op": "add",
+          "operation_id": "h5_webshop_procedure_add",
+          "target_layer": "h5"
+        },
+        {
+          "artifact": "artifacts/h3_tool_contract.py",
+          "artifact_sha256": "fe4ccacf3d175500bd2981270b9e7a6d5e345b146fcd0a49514f02b8ff2f4af5",
+          "hypothesis": "Descriptions that enumerate the accepted click values and state the native-calling convention reduce wrong click strings and text-only turns without touching tool names, schemas or order.",
+          "mechanism_id": "h3_tool_contract",
+          "op": "add",
+          "operation_id": "h3_tool_contract_add",
+          "target_layer": "h3"
+        }
+      ],
+      "outcome": "evaluated_candidate",
+      "parent_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "proposer_requests": 29,
+      "round": 1,
+      "train_batch": 0,
+      "usage": {
+        "completion_tokens": 164565,
+        "prompt_cache_hit_tokens": 790656,
+        "prompt_cache_miss_tokens": 888244,
+        "prompt_tokens": 3531303,
+        "total_tokens": 3695868
+      },
+      "validation_sha256": "3fa18a3f1f006cf0b4d3816daa2a953759f5122a7df069c9b4c913e668ecf966"
+    },
+    {
+      "accepted": false,
+      "active_snapshot_sha256": "9d98442f6126849eb611271ad5da3bd838caeed9ef208c3ad73491eebb56f95e",
+      "bundle_hypothesis": "No candidate produced within fixed token/request limits: output_truncated",
+      "bundle_id": null,
+      "candidate_infra_errors": null,
+      "candidate_phase": null,
+      "candidate_score": null,
+      "candidate_snapshot_sha256": null,
+      "candidate_successes": null,
+      "candidate_summary_sha256": null,
+      "cases_available": 50,
+      "cases_opened": 11,
+      "failure_code": "output_truncated",
+      "failure_path": "failures/round_02.json",
+      "failure_sha256": "658f7130373316b2312cf65266fcd8fc1d53fd125e10553d8e1844e63d96fb42",
+      "incumbent_infra_errors": 0,
+      "incumbent_phase": "round_02_incumbent",
+      "incumbent_score": 0.44,
+      "incumbent_snapshot_sha256": "9d98442f6126849eb611271ad5da3bd838caeed9ef208c3ad73491eebb56f95e",
+      "incumbent_successes": 22,
+      "incumbent_summary_sha256": "1d1dafab466deb57ae729f072622319fb61cdd8ece0c8108ac88cb15f32da89a",
+      "operations": [],
+      "outcome": "proposal_failed",
+      "parent_snapshot_sha256": "9d98442f6126849eb611271ad5da3bd838caeed9ef208c3ad73491eebb56f95e",
+      "proposer_requests": 6,
+      "round": 2,
+      "train_batch": 1,
+      "usage": {
+        "completion_tokens": 64015,
+        "prompt_cache_hit_tokens": 45440,
+        "prompt_cache_miss_tokens": 109466,
+        "prompt_tokens": 157245,
+        "total_tokens": 221260
+      },
+      "validation_sha256": null
+    },
+    {
+      "accepted": false,
+      "active_snapshot_sha256": "9d98442f6126849eb611271ad5da3bd838caeed9ef208c3ad73491eebb56f95e",
+      "bundle_hypothesis": "The batch's harness-attributable losses are option-value and progress mistakes, not retrieval: H4 tells the solver to abandon a top-hit product whose colour value is code-prefixed ('d-grey' vs 'grey', case 798, which then loops to the turn limit), it offers a less specific value ('9.5') next to the specific one the instruction quotes ('9.5 narrow', case 925) so the solver's last click selects the wrong size, it never proposes the instruction-named style alternative ('wall | bath sconce' vs 'bath sconce', case 418), and on a product page that has no option value to select it stays silent until the solver burns the whole budget on description pages and repeated identical searches (case 295). Matching option values with a bounded phrase, a multi-word alternative or a code-stripped remainder, superseding sub-phrase values by their specific counterpart, turning a superseded re-click into 'buy now', and emitting one commit hint on a stalled no-option page should convert those episodes while the 23 successful controls (e.g. 692, where two values from two attribute groups are clicked in order and 'buy now' follows) keep their exact actions.",
+      "bundle_id": "webshop_option_commit_guard_v2",
+      "candidate_infra_errors": 0,
+      "candidate_phase": "round_03_candidate",
+      "candidate_score": 0.4,
+      "candidate_snapshot_sha256": "53d72a5021fe62a403d9267e22488b5c68272d4917d86e8454cc92b2a3f23a2a",
+      "candidate_successes": 20,
+      "candidate_summary_sha256": "2ce2af933971097413bf0cdce986dbc90fd07fde5a51986a84afb3d495190bad",
+      "cases_available": 50,
+      "cases_opened": 15,
+      "incumbent_infra_errors": 0,
+      "incumbent_phase": "round_03_incumbent",
+      "incumbent_score": 0.46,
+      "incumbent_snapshot_sha256": "9d98442f6126849eb611271ad5da3bd838caeed9ef208c3ad73491eebb56f95e",
+      "incumbent_successes": 23,
+      "incumbent_summary_sha256": "bbe7f6f6073dfe32fafcce0e7c8ef2c80deacce88763329a6137f4b3c225242d",
+      "operations": [
+        {
+          "artifact": "artifacts/h2_action_guard_r2.py",
+          "artifact_sha256": "a1d8d04f69286b4dd032a562adaff1374955796cfda302c386a75f280f08ee1d",
+          "expected_revision": 1,
+          "expected_sha256": "00bfe8164f884220f72f19b6d29ef08da20d8bbe7277b517bef625015dee9881",
+          "hypothesis": "Using the corrected option matcher and the superseded-value filter keeps the existing vetoes (recover a text tool call, leave 'buy now' alone when a matching option value is still unclicked or the page is above the ceiling) while the pending target is now the specific value the instruction quotes; a click of a shorter version of an already selected value becomes 'buy now' because the more specific selection is already recorded; a copied price clause is removed from search keywords only when another word remains.",
+          "mechanism_id": "h2_action_guard",
+          "op": "modify",
+          "operation_id": "h2_action_guard_modify_r2",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/h4_product_page_audit_r2.py",
+          "artifact_sha256": "83f25ae15f05247f97dd3ad2173c4588a408a68f33df04620de8384037ca8a7e",
+          "expected_revision": 1,
+          "expected_sha256": "bd4e7ac40518598e4510e57eeb22ab55c7b347ef65efaf5fb57a643c5d9c4639",
+          "hypothesis": "Auditing with the corrected matcher stops ATTRIBUTE CHECK from rejecting a page whose own values satisfy the instruction (798) and makes OPTION CHECK list the specific values rather than their sub-phrases (925) or miss an instruction-named alternative (418); one further hint fires only on a stalled no-option product page whose price is inside the ceiling and whose title covers the instruction, and a repeated identical search is answered with a repeat hint instead of the plain ceiling reminder, so a stalled episode is told to commit instead of spending turns on description pages.",
+          "mechanism_id": "h4_product_page_audit",
+          "op": "modify",
+          "operation_id": "h4_product_page_audit_modify_r2",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/h5_webshop_procedure_r2.py",
+          "artifact_sha256": "7dd03b1ef2976e0037f23ea2ee83a44d42f0e285be79b3b93b4caa4adceea4b1",
+          "expected_revision": 1,
+          "expected_sha256": "005f20939192cd493dedb693a82d64c346aca2849ff879ae3240aea92fb9bd92",
+          "hypothesis": "The cold-start procedure keeps extracting the ceiling and descriptive words and seeding instruction_text and price_ceiling, and now states the attribute discipline that the observed failures violate: click the listed value whose exact wording appears in the instruction, click one value per attribute, never re-click a shorter version of an already selected value, do not repeat identical keywords, and click 'buy now' on a page that lists no option value and whose title already covers the instruction.",
+          "mechanism_id": "h5_webshop_procedure",
+          "op": "modify",
+          "operation_id": "h5_webshop_procedure_modify_r2",
+          "target_layer": "h5"
+        }
+      ],
+      "outcome": "evaluated_candidate",
+      "parent_snapshot_sha256": "9d98442f6126849eb611271ad5da3bd838caeed9ef208c3ad73491eebb56f95e",
+      "proposer_requests": 27,
+      "round": 3,
+      "train_batch": 2,
+      "usage": {
+        "completion_tokens": 144505,
+        "prompt_cache_hit_tokens": 930944,
+        "prompt_cache_miss_tokens": 710774,
+        "prompt_tokens": 2981943,
+        "total_tokens": 3126448
+      },
+      "validation_sha256": "ebea9457e8296227bbf7cf3fcf943408263cf110de675480fcf9eaf89eb4ff8c"
+    }
+  ],
+  "status": "running"
+}

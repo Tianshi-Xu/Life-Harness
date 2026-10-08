@@ -1,0 +1,27 @@
+type: agent
+name: ahe_dbbench
+system_prompt: ./systemprompt.md
+system_prompt_type: jinja
+tool_call_mode: openai
+max_iterations: 300
+max_context_tokens: 40000
+llm_config:
+  model: ${env.LLM_MODEL}
+  base_url: ${env.LLM_BASE_URL}
+  api_key: ${env.LLM_API_KEY}
+  max_tokens: 4096
+  temperature: 0.0
+  api_type: openai_chat_completion
+  stream: false
+  extra_body:
+    chat_template_kwargs:
+      enable_thinking: false
+tools:
+- name: execute_sql
+  yaml_path: ./tool_descriptions/execute_sql.tool.yaml
+  binding: tools.native:execute_sql
+- name: commit_final_answer
+  yaml_path: ./tool_descriptions/commit_final_answer.tool.yaml
+  binding: tools.native:commit_final_answer
+tracers:
+- import: nexau.archs.tracer.adapters.in_memory:InMemoryTracer

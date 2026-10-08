@@ -1,0 +1,689 @@
+{
+  "ahe": {
+    "airline": {
+      "rounds": {
+        "1": {
+          "accounting_complete": false,
+          "attempts": 198,
+          "by_role": {
+            "debugger": {
+              "attempts": 81,
+              "input_tokens": 1133044,
+              "known_usage_calls": 81,
+              "output_tokens": 53358,
+              "pending_calls": 0,
+              "total_tokens": 1186402,
+              "unknown_usage_calls": 0
+            },
+            "evolve": {
+              "attempts": 117,
+              "input_tokens": 10186451,
+              "known_usage_calls": 115,
+              "output_tokens": 62341,
+              "pending_calls": 0,
+              "total_tokens": 10248792,
+              "unknown_usage_calls": 2
+            }
+          },
+          "input_tokens": 11319495,
+          "known_usage_calls": 196,
+          "output_tokens": 115699,
+          "pending_calls": 0,
+          "total_tokens": 11435194,
+          "unknown_usage_calls": 2
+        },
+        "2": {
+          "accounting_complete": true,
+          "attempts": 0,
+          "by_role": {
+            "debugger": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            },
+            "evolve": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            }
+          },
+          "input_tokens": 0,
+          "known_usage_calls": 0,
+          "output_tokens": 0,
+          "pending_calls": 0,
+          "total_tokens": 0,
+          "unknown_usage_calls": 0
+        },
+        "3": {
+          "accounting_complete": true,
+          "attempts": 0,
+          "by_role": {
+            "debugger": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            },
+            "evolve": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            }
+          },
+          "input_tokens": 0,
+          "known_usage_calls": 0,
+          "output_tokens": 0,
+          "pending_calls": 0,
+          "total_tokens": 0,
+          "unknown_usage_calls": 0
+        },
+        "4": {
+          "accounting_complete": true,
+          "attempts": 0,
+          "by_role": {
+            "debugger": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            },
+            "evolve": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            }
+          },
+          "input_tokens": 0,
+          "known_usage_calls": 0,
+          "output_tokens": 0,
+          "pending_calls": 0,
+          "total_tokens": 0,
+          "unknown_usage_calls": 0
+        },
+        "5": {
+          "accounting_complete": true,
+          "attempts": 0,
+          "by_role": {
+            "debugger": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            },
+            "evolve": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            }
+          },
+          "input_tokens": 0,
+          "known_usage_calls": 0,
+          "output_tokens": 0,
+          "pending_calls": 0,
+          "total_tokens": 0,
+          "unknown_usage_calls": 0
+        },
+        "6": {
+          "accounting_complete": true,
+          "attempts": 0,
+          "by_role": {
+            "debugger": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            },
+            "evolve": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            }
+          },
+          "input_tokens": 0,
+          "known_usage_calls": 0,
+          "output_tokens": 0,
+          "pending_calls": 0,
+          "total_tokens": 0,
+          "unknown_usage_calls": 0
+        }
+      },
+      "total": {
+        "accounting_complete": false,
+        "attempts": 198,
+        "by_role": {
+          "debugger": {
+            "attempts": 81,
+            "input_tokens": 1133044,
+            "known_usage_calls": 81,
+            "output_tokens": 53358,
+            "pending_calls": 0,
+            "total_tokens": 1186402,
+            "unknown_usage_calls": 0
+          },
+          "evolve": {
+            "attempts": 117,
+            "input_tokens": 10186451,
+            "known_usage_calls": 115,
+            "output_tokens": 62341,
+            "pending_calls": 0,
+            "total_tokens": 10248792,
+            "unknown_usage_calls": 2
+          }
+        },
+        "input_tokens": 11319495,
+        "known_usage_calls": 196,
+        "output_tokens": 115699,
+        "pending_calls": 0,
+        "total_tokens": 11435194,
+        "unknown_usage_calls": 2
+      }
+    },
+    "retail": {
+      "rounds": {
+        "1": {
+          "accounting_complete": false,
+          "attempts": 237,
+          "by_role": {
+            "debugger": {
+              "attempts": 82,
+              "input_tokens": 1113649,
+              "known_usage_calls": 82,
+              "output_tokens": 56893,
+              "pending_calls": 0,
+              "total_tokens": 1170542,
+              "unknown_usage_calls": 0
+            },
+            "evolve": {
+              "attempts": 155,
+              "input_tokens": 16063634,
+              "known_usage_calls": 152,
+              "output_tokens": 118435,
+              "pending_calls": 0,
+              "total_tokens": 16182069,
+              "unknown_usage_calls": 3
+            }
+          },
+          "input_tokens": 17177283,
+          "known_usage_calls": 234,
+          "output_tokens": 175328,
+          "pending_calls": 0,
+          "total_tokens": 17352611,
+          "unknown_usage_calls": 3
+        },
+        "2": {
+          "accounting_complete": true,
+          "attempts": 0,
+          "by_role": {
+            "debugger": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            },
+            "evolve": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            }
+          },
+          "input_tokens": 0,
+          "known_usage_calls": 0,
+          "output_tokens": 0,
+          "pending_calls": 0,
+          "total_tokens": 0,
+          "unknown_usage_calls": 0
+        },
+        "3": {
+          "accounting_complete": true,
+          "attempts": 0,
+          "by_role": {
+            "debugger": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            },
+            "evolve": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            }
+          },
+          "input_tokens": 0,
+          "known_usage_calls": 0,
+          "output_tokens": 0,
+          "pending_calls": 0,
+          "total_tokens": 0,
+          "unknown_usage_calls": 0
+        },
+        "4": {
+          "accounting_complete": true,
+          "attempts": 0,
+          "by_role": {
+            "debugger": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            },
+            "evolve": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            }
+          },
+          "input_tokens": 0,
+          "known_usage_calls": 0,
+          "output_tokens": 0,
+          "pending_calls": 0,
+          "total_tokens": 0,
+          "unknown_usage_calls": 0
+        },
+        "5": {
+          "accounting_complete": true,
+          "attempts": 0,
+          "by_role": {
+            "debugger": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            },
+            "evolve": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            }
+          },
+          "input_tokens": 0,
+          "known_usage_calls": 0,
+          "output_tokens": 0,
+          "pending_calls": 0,
+          "total_tokens": 0,
+          "unknown_usage_calls": 0
+        },
+        "6": {
+          "accounting_complete": true,
+          "attempts": 0,
+          "by_role": {
+            "debugger": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            },
+            "evolve": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            }
+          },
+          "input_tokens": 0,
+          "known_usage_calls": 0,
+          "output_tokens": 0,
+          "pending_calls": 0,
+          "total_tokens": 0,
+          "unknown_usage_calls": 0
+        }
+      },
+      "total": {
+        "accounting_complete": false,
+        "attempts": 237,
+        "by_role": {
+          "debugger": {
+            "attempts": 82,
+            "input_tokens": 1113649,
+            "known_usage_calls": 82,
+            "output_tokens": 56893,
+            "pending_calls": 0,
+            "total_tokens": 1170542,
+            "unknown_usage_calls": 0
+          },
+          "evolve": {
+            "attempts": 155,
+            "input_tokens": 16063634,
+            "known_usage_calls": 152,
+            "output_tokens": 118435,
+            "pending_calls": 0,
+            "total_tokens": 16182069,
+            "unknown_usage_calls": 3
+          }
+        },
+        "input_tokens": 17177283,
+        "known_usage_calls": 234,
+        "output_tokens": 175328,
+        "pending_calls": 0,
+        "total_tokens": 17352611,
+        "unknown_usage_calls": 3
+      }
+    },
+    "telecom": {
+      "rounds": {
+        "1": {
+          "accounting_complete": true,
+          "attempts": 0,
+          "by_role": {
+            "debugger": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            },
+            "evolve": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            }
+          },
+          "input_tokens": 0,
+          "known_usage_calls": 0,
+          "output_tokens": 0,
+          "pending_calls": 0,
+          "total_tokens": 0,
+          "unknown_usage_calls": 0
+        },
+        "2": {
+          "accounting_complete": true,
+          "attempts": 0,
+          "by_role": {
+            "debugger": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            },
+            "evolve": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            }
+          },
+          "input_tokens": 0,
+          "known_usage_calls": 0,
+          "output_tokens": 0,
+          "pending_calls": 0,
+          "total_tokens": 0,
+          "unknown_usage_calls": 0
+        },
+        "3": {
+          "accounting_complete": true,
+          "attempts": 0,
+          "by_role": {
+            "debugger": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            },
+            "evolve": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            }
+          },
+          "input_tokens": 0,
+          "known_usage_calls": 0,
+          "output_tokens": 0,
+          "pending_calls": 0,
+          "total_tokens": 0,
+          "unknown_usage_calls": 0
+        },
+        "4": {
+          "accounting_complete": true,
+          "attempts": 0,
+          "by_role": {
+            "debugger": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            },
+            "evolve": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            }
+          },
+          "input_tokens": 0,
+          "known_usage_calls": 0,
+          "output_tokens": 0,
+          "pending_calls": 0,
+          "total_tokens": 0,
+          "unknown_usage_calls": 0
+        },
+        "5": {
+          "accounting_complete": true,
+          "attempts": 0,
+          "by_role": {
+            "debugger": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            },
+            "evolve": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            }
+          },
+          "input_tokens": 0,
+          "known_usage_calls": 0,
+          "output_tokens": 0,
+          "pending_calls": 0,
+          "total_tokens": 0,
+          "unknown_usage_calls": 0
+        },
+        "6": {
+          "accounting_complete": true,
+          "attempts": 0,
+          "by_role": {
+            "debugger": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            },
+            "evolve": {
+              "attempts": 0,
+              "input_tokens": 0,
+              "known_usage_calls": 0,
+              "output_tokens": 0,
+              "pending_calls": 0,
+              "total_tokens": 0,
+              "unknown_usage_calls": 0
+            }
+          },
+          "input_tokens": 0,
+          "known_usage_calls": 0,
+          "output_tokens": 0,
+          "pending_calls": 0,
+          "total_tokens": 0,
+          "unknown_usage_calls": 0
+        }
+      },
+      "total": {
+        "accounting_complete": true,
+        "attempts": 0,
+        "by_role": {
+          "debugger": {
+            "attempts": 0,
+            "input_tokens": 0,
+            "known_usage_calls": 0,
+            "output_tokens": 0,
+            "pending_calls": 0,
+            "total_tokens": 0,
+            "unknown_usage_calls": 0
+          },
+          "evolve": {
+            "attempts": 0,
+            "input_tokens": 0,
+            "known_usage_calls": 0,
+            "output_tokens": 0,
+            "pending_calls": 0,
+            "total_tokens": 0,
+            "unknown_usage_calls": 0
+          }
+        },
+        "input_tokens": 0,
+        "known_usage_calls": 0,
+        "output_tokens": 0,
+        "pending_calls": 0,
+        "total_tokens": 0,
+        "unknown_usage_calls": 0
+      }
+    }
+  },
+  "excludes": [
+    "solver",
+    "user_simulator",
+    "judge"
+  ],
+  "meta": {
+    "airline": {
+      "accounting_complete": true,
+      "by_role": {},
+      "cached_input_tokens_known": 0,
+      "calls_with_cache_details": 0,
+      "calls_with_unknown_usage": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "recorded_upstream_attempts": 0,
+      "successful_calls": 0,
+      "total_tokens": 0
+    },
+    "retail": {
+      "accounting_complete": true,
+      "by_role": {},
+      "cached_input_tokens_known": 0,
+      "calls_with_cache_details": 0,
+      "calls_with_unknown_usage": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "recorded_upstream_attempts": 0,
+      "successful_calls": 0,
+      "total_tokens": 0
+    },
+    "telecom": {
+      "accounting_complete": true,
+      "by_role": {},
+      "cached_input_tokens_known": 0,
+      "calls_with_cache_details": 0,
+      "calls_with_unknown_usage": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "recorded_upstream_attempts": 0,
+      "successful_calls": 0,
+      "total_tokens": 0
+    }
+  }
+}

@@ -1,0 +1,1905 @@
+{
+  "methods": {
+    "ahe": {
+      "airline": [
+        {
+          "candidate_train_accuracy": 0.1,
+          "evolve_batch": 0,
+          "measured_batch": 1,
+          "optimizer_usage": {
+            "accounting_complete": false,
+            "accounting_usable_with_estimates": true,
+            "attempts": 198,
+            "budget_tokens_including_estimates": 11435194,
+            "by_role": {
+              "debugger": {
+                "attempts": 81,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 1133044,
+                "known_usage_calls": 81,
+                "output_tokens": 53358,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 0,
+                "total_tokens": 1186402,
+                "unknown_usage_calls": 0
+              },
+              "evolve": {
+                "attempts": 117,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 10186451,
+                "known_usage_calls": 115,
+                "output_tokens": 62341,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 2,
+                "total_tokens": 10248792,
+                "unknown_usage_calls": 2
+              }
+            },
+            "estimated_input_tokens": 0,
+            "estimated_output_tokens": 0,
+            "estimated_total_tokens": 0,
+            "estimated_usage_calls": 0,
+            "inference_accounting_complete": true,
+            "input_tokens": 11319495,
+            "known_usage_calls": 196,
+            "output_tokens": 115699,
+            "pending_calls": 0,
+            "rate_limit_rejections_without_usage": 2,
+            "total_tokens": 11435194,
+            "unknown_usage_calls": 2
+          },
+          "round": 1,
+          "selection": "original best-ever, no extra measurement fed back",
+          "train_episodes": 60
+        },
+        {
+          "candidate_train_accuracy": 0.3,
+          "evolve_batch": 1,
+          "measured_batch": 2,
+          "optimizer_usage": {
+            "accounting_complete": false,
+            "accounting_usable_with_estimates": true,
+            "attempts": 142,
+            "budget_tokens_including_estimates": 8392342,
+            "by_role": {
+              "debugger": {
+                "attempts": 53,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 491933,
+                "known_usage_calls": 50,
+                "output_tokens": 26439,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 3,
+                "total_tokens": 518372,
+                "unknown_usage_calls": 3
+              },
+              "evolve": {
+                "attempts": 89,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 7811806,
+                "known_usage_calls": 86,
+                "output_tokens": 62164,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 3,
+                "total_tokens": 7873970,
+                "unknown_usage_calls": 3
+              }
+            },
+            "estimated_input_tokens": 0,
+            "estimated_output_tokens": 0,
+            "estimated_total_tokens": 0,
+            "estimated_usage_calls": 0,
+            "inference_accounting_complete": true,
+            "input_tokens": 8303739,
+            "known_usage_calls": 136,
+            "output_tokens": 88603,
+            "pending_calls": 0,
+            "rate_limit_rejections_without_usage": 6,
+            "total_tokens": 8392342,
+            "unknown_usage_calls": 6
+          },
+          "round": 2,
+          "selection": "original best-ever, no extra measurement fed back",
+          "train_episodes": 60
+        },
+        {
+          "candidate_train_accuracy": 0.45,
+          "evolve_batch": 2,
+          "measured_batch": 3,
+          "optimizer_usage": {
+            "accounting_complete": false,
+            "accounting_usable_with_estimates": true,
+            "attempts": 189,
+            "budget_tokens_including_estimates": 13269875,
+            "by_role": {
+              "debugger": {
+                "attempts": 70,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 962399,
+                "known_usage_calls": 65,
+                "output_tokens": 46347,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 5,
+                "total_tokens": 1008746,
+                "unknown_usage_calls": 5
+              },
+              "evolve": {
+                "attempts": 119,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 12161036,
+                "known_usage_calls": 118,
+                "output_tokens": 100093,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 1,
+                "total_tokens": 12261129,
+                "unknown_usage_calls": 1
+              }
+            },
+            "estimated_input_tokens": 0,
+            "estimated_output_tokens": 0,
+            "estimated_total_tokens": 0,
+            "estimated_usage_calls": 0,
+            "inference_accounting_complete": true,
+            "input_tokens": 13123435,
+            "known_usage_calls": 183,
+            "output_tokens": 146440,
+            "pending_calls": 0,
+            "rate_limit_rejections_without_usage": 6,
+            "total_tokens": 13269875,
+            "unknown_usage_calls": 6
+          },
+          "round": 3,
+          "selection": "original best-ever, no extra measurement fed back",
+          "train_episodes": 60
+        },
+        {
+          "candidate_train_accuracy": 0.4166666666666667,
+          "evolve_batch": 3,
+          "measured_batch": 4,
+          "optimizer_usage": {
+            "accounting_complete": false,
+            "accounting_usable_with_estimates": true,
+            "attempts": 244,
+            "budget_tokens_including_estimates": 12667408,
+            "by_role": {
+              "debugger": {
+                "attempts": 154,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 3717321,
+                "known_usage_calls": 149,
+                "output_tokens": 122138,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 5,
+                "total_tokens": 3839459,
+                "unknown_usage_calls": 5
+              },
+              "evolve": {
+                "attempts": 90,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 8761654,
+                "known_usage_calls": 90,
+                "output_tokens": 66295,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 0,
+                "total_tokens": 8827949,
+                "unknown_usage_calls": 0
+              }
+            },
+            "estimated_input_tokens": 0,
+            "estimated_output_tokens": 0,
+            "estimated_total_tokens": 0,
+            "estimated_usage_calls": 0,
+            "inference_accounting_complete": true,
+            "input_tokens": 12478975,
+            "known_usage_calls": 239,
+            "output_tokens": 188433,
+            "pending_calls": 0,
+            "rate_limit_rejections_without_usage": 5,
+            "total_tokens": 12667408,
+            "unknown_usage_calls": 5
+          },
+          "round": 4,
+          "selection": "original best-ever, no extra measurement fed back",
+          "train_episodes": 60
+        },
+        {
+          "candidate_train_accuracy": 0.4166666666666667,
+          "evolve_batch": 4,
+          "measured_batch": 5,
+          "optimizer_usage": {
+            "accounting_complete": false,
+            "accounting_usable_with_estimates": true,
+            "attempts": 193,
+            "budget_tokens_including_estimates": 10350181,
+            "by_role": {
+              "debugger": {
+                "attempts": 90,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 1322798,
+                "known_usage_calls": 88,
+                "output_tokens": 60907,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 2,
+                "total_tokens": 1383705,
+                "unknown_usage_calls": 2
+              },
+              "evolve": {
+                "attempts": 103,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 8890970,
+                "known_usage_calls": 102,
+                "output_tokens": 75506,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 1,
+                "total_tokens": 8966476,
+                "unknown_usage_calls": 1
+              }
+            },
+            "estimated_input_tokens": 0,
+            "estimated_output_tokens": 0,
+            "estimated_total_tokens": 0,
+            "estimated_usage_calls": 0,
+            "inference_accounting_complete": true,
+            "input_tokens": 10213768,
+            "known_usage_calls": 190,
+            "output_tokens": 136413,
+            "pending_calls": 0,
+            "rate_limit_rejections_without_usage": 3,
+            "total_tokens": 10350181,
+            "unknown_usage_calls": 3
+          },
+          "round": 5,
+          "selection": "original best-ever, no extra measurement fed back",
+          "train_episodes": 60
+        },
+        {
+          "candidate_train_accuracy": 0.4166666666666667,
+          "evolve_batch": 5,
+          "measured_batch": 5,
+          "optimizer_usage": {
+            "accounting_complete": false,
+            "accounting_usable_with_estimates": true,
+            "attempts": 146,
+            "budget_tokens_including_estimates": 8382756,
+            "by_role": {
+              "debugger": {
+                "attempts": 62,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 653470,
+                "known_usage_calls": 61,
+                "output_tokens": 26257,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 1,
+                "total_tokens": 679727,
+                "unknown_usage_calls": 1
+              },
+              "evolve": {
+                "attempts": 84,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 7627865,
+                "known_usage_calls": 84,
+                "output_tokens": 75164,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 0,
+                "total_tokens": 7703029,
+                "unknown_usage_calls": 0
+              }
+            },
+            "estimated_input_tokens": 0,
+            "estimated_output_tokens": 0,
+            "estimated_total_tokens": 0,
+            "estimated_usage_calls": 0,
+            "inference_accounting_complete": true,
+            "input_tokens": 8281335,
+            "known_usage_calls": 145,
+            "output_tokens": 101421,
+            "pending_calls": 0,
+            "rate_limit_rejections_without_usage": 1,
+            "total_tokens": 8382756,
+            "unknown_usage_calls": 1
+          },
+          "round": 6,
+          "selection": "original best-ever, no extra measurement fed back",
+          "train_episodes": 60
+        }
+      ],
+      "retail": [
+        {
+          "candidate_train_accuracy": 0.4,
+          "evolve_batch": 0,
+          "measured_batch": 1,
+          "optimizer_usage": {
+            "accounting_complete": false,
+            "accounting_usable_with_estimates": true,
+            "attempts": 237,
+            "budget_tokens_including_estimates": 17352611,
+            "by_role": {
+              "debugger": {
+                "attempts": 82,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 1113649,
+                "known_usage_calls": 82,
+                "output_tokens": 56893,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 0,
+                "total_tokens": 1170542,
+                "unknown_usage_calls": 0
+              },
+              "evolve": {
+                "attempts": 155,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 16063634,
+                "known_usage_calls": 152,
+                "output_tokens": 118435,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 3,
+                "total_tokens": 16182069,
+                "unknown_usage_calls": 3
+              }
+            },
+            "estimated_input_tokens": 0,
+            "estimated_output_tokens": 0,
+            "estimated_total_tokens": 0,
+            "estimated_usage_calls": 0,
+            "inference_accounting_complete": true,
+            "input_tokens": 17177283,
+            "known_usage_calls": 234,
+            "output_tokens": 175328,
+            "pending_calls": 0,
+            "rate_limit_rejections_without_usage": 3,
+            "total_tokens": 17352611,
+            "unknown_usage_calls": 3
+          },
+          "round": 1,
+          "selection": "original best-ever, no extra measurement fed back",
+          "train_episodes": 50
+        },
+        {
+          "candidate_train_accuracy": 0.4,
+          "evolve_batch": 1,
+          "measured_batch": 2,
+          "optimizer_usage": {
+            "accounting_complete": false,
+            "accounting_usable_with_estimates": true,
+            "attempts": 172,
+            "budget_tokens_including_estimates": 10731847,
+            "by_role": {
+              "debugger": {
+                "attempts": 66,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 989279,
+                "known_usage_calls": 63,
+                "output_tokens": 30155,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 3,
+                "total_tokens": 1019434,
+                "unknown_usage_calls": 3
+              },
+              "evolve": {
+                "attempts": 106,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 9629697,
+                "known_usage_calls": 106,
+                "output_tokens": 82716,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 0,
+                "total_tokens": 9712413,
+                "unknown_usage_calls": 0
+              }
+            },
+            "estimated_input_tokens": 0,
+            "estimated_output_tokens": 0,
+            "estimated_total_tokens": 0,
+            "estimated_usage_calls": 0,
+            "inference_accounting_complete": true,
+            "input_tokens": 10618976,
+            "known_usage_calls": 169,
+            "output_tokens": 112871,
+            "pending_calls": 0,
+            "rate_limit_rejections_without_usage": 3,
+            "total_tokens": 10731847,
+            "unknown_usage_calls": 3
+          },
+          "round": 2,
+          "selection": "original best-ever, no extra measurement fed back",
+          "train_episodes": 50
+        },
+        {
+          "candidate_train_accuracy": 0.5,
+          "evolve_batch": 2,
+          "measured_batch": 3,
+          "optimizer_usage": {
+            "accounting_complete": false,
+            "accounting_usable_with_estimates": true,
+            "attempts": 220,
+            "budget_tokens_including_estimates": 13405282,
+            "by_role": {
+              "debugger": {
+                "attempts": 103,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 1691471,
+                "known_usage_calls": 98,
+                "output_tokens": 59910,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 5,
+                "total_tokens": 1751381,
+                "unknown_usage_calls": 5
+              },
+              "evolve": {
+                "attempts": 117,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 11567304,
+                "known_usage_calls": 116,
+                "output_tokens": 86597,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 1,
+                "total_tokens": 11653901,
+                "unknown_usage_calls": 1
+              }
+            },
+            "estimated_input_tokens": 0,
+            "estimated_output_tokens": 0,
+            "estimated_total_tokens": 0,
+            "estimated_usage_calls": 0,
+            "inference_accounting_complete": true,
+            "input_tokens": 13258775,
+            "known_usage_calls": 214,
+            "output_tokens": 146507,
+            "pending_calls": 0,
+            "rate_limit_rejections_without_usage": 6,
+            "total_tokens": 13405282,
+            "unknown_usage_calls": 6
+          },
+          "round": 3,
+          "selection": "original best-ever, no extra measurement fed back",
+          "train_episodes": 50
+        },
+        {
+          "candidate_train_accuracy": 0.44,
+          "evolve_batch": 3,
+          "measured_batch": 4,
+          "optimizer_usage": {
+            "accounting_complete": false,
+            "accounting_usable_with_estimates": true,
+            "attempts": 323,
+            "budget_tokens_including_estimates": 28289115,
+            "by_role": {
+              "debugger": {
+                "attempts": 124,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 2356151,
+                "known_usage_calls": 122,
+                "output_tokens": 75288,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 2,
+                "total_tokens": 2431439,
+                "unknown_usage_calls": 2
+              },
+              "evolve": {
+                "attempts": 199,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 25690335,
+                "known_usage_calls": 198,
+                "output_tokens": 167341,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 1,
+                "total_tokens": 25857676,
+                "unknown_usage_calls": 1
+              }
+            },
+            "estimated_input_tokens": 0,
+            "estimated_output_tokens": 0,
+            "estimated_total_tokens": 0,
+            "estimated_usage_calls": 0,
+            "inference_accounting_complete": true,
+            "input_tokens": 28046486,
+            "known_usage_calls": 320,
+            "output_tokens": 242629,
+            "pending_calls": 0,
+            "rate_limit_rejections_without_usage": 3,
+            "total_tokens": 28289115,
+            "unknown_usage_calls": 3
+          },
+          "round": 4,
+          "selection": "original best-ever, no extra measurement fed back",
+          "train_episodes": 50
+        },
+        {
+          "candidate_train_accuracy": 0.32,
+          "evolve_batch": 4,
+          "measured_batch": 5,
+          "optimizer_usage": {
+            "accounting_complete": false,
+            "accounting_usable_with_estimates": true,
+            "attempts": 175,
+            "budget_tokens_including_estimates": 11475061,
+            "by_role": {
+              "debugger": {
+                "attempts": 66,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 679432,
+                "known_usage_calls": 65,
+                "output_tokens": 29426,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 1,
+                "total_tokens": 708858,
+                "unknown_usage_calls": 1
+              },
+              "evolve": {
+                "attempts": 109,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 10674270,
+                "known_usage_calls": 107,
+                "output_tokens": 91933,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 2,
+                "total_tokens": 10766203,
+                "unknown_usage_calls": 2
+              }
+            },
+            "estimated_input_tokens": 0,
+            "estimated_output_tokens": 0,
+            "estimated_total_tokens": 0,
+            "estimated_usage_calls": 0,
+            "inference_accounting_complete": true,
+            "input_tokens": 11353702,
+            "known_usage_calls": 172,
+            "output_tokens": 121359,
+            "pending_calls": 0,
+            "rate_limit_rejections_without_usage": 3,
+            "total_tokens": 11475061,
+            "unknown_usage_calls": 3
+          },
+          "round": 5,
+          "selection": "original best-ever, no extra measurement fed back",
+          "train_episodes": 50
+        },
+        {
+          "candidate_train_accuracy": null,
+          "evolve_batch": 5,
+          "measured_batch": 5,
+          "optimizer_usage": {
+            "accounting_complete": false,
+            "accounting_usable_with_estimates": true,
+            "attempts": 188,
+            "budget_tokens_including_estimates": 11639191,
+            "by_role": {
+              "debugger": {
+                "attempts": 77,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 994016,
+                "known_usage_calls": 77,
+                "output_tokens": 54069,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 0,
+                "total_tokens": 1048085,
+                "unknown_usage_calls": 0
+              },
+              "evolve": {
+                "attempts": 111,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 10505897,
+                "known_usage_calls": 110,
+                "output_tokens": 85209,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 1,
+                "total_tokens": 10591106,
+                "unknown_usage_calls": 1
+              }
+            },
+            "estimated_input_tokens": 0,
+            "estimated_output_tokens": 0,
+            "estimated_total_tokens": 0,
+            "estimated_usage_calls": 0,
+            "inference_accounting_complete": true,
+            "input_tokens": 11499913,
+            "known_usage_calls": 187,
+            "output_tokens": 139278,
+            "pending_calls": 0,
+            "rate_limit_rejections_without_usage": 1,
+            "total_tokens": 11639191,
+            "unknown_usage_calls": 1
+          },
+          "round": 6,
+          "selection": "original best-ever, no extra measurement fed back",
+          "train_episodes": null
+        }
+      ],
+      "telecom": [
+        {
+          "candidate_train_accuracy": 0.46,
+          "evolve_batch": 0,
+          "measured_batch": 1,
+          "optimizer_usage": {
+            "accounting_complete": true,
+            "accounting_usable_with_estimates": true,
+            "attempts": 297,
+            "budget_tokens_including_estimates": 18510187,
+            "by_role": {
+              "debugger": {
+                "attempts": 157,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 3662966,
+                "known_usage_calls": 157,
+                "output_tokens": 112897,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 0,
+                "total_tokens": 3775863,
+                "unknown_usage_calls": 0
+              },
+              "evolve": {
+                "attempts": 140,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 14629013,
+                "known_usage_calls": 140,
+                "output_tokens": 105311,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 0,
+                "total_tokens": 14734324,
+                "unknown_usage_calls": 0
+              }
+            },
+            "estimated_input_tokens": 0,
+            "estimated_output_tokens": 0,
+            "estimated_total_tokens": 0,
+            "estimated_usage_calls": 0,
+            "inference_accounting_complete": true,
+            "input_tokens": 18291979,
+            "known_usage_calls": 297,
+            "output_tokens": 218208,
+            "pending_calls": 0,
+            "rate_limit_rejections_without_usage": 0,
+            "total_tokens": 18510187,
+            "unknown_usage_calls": 0
+          },
+          "round": 1,
+          "selection": "original best-ever, no extra measurement fed back",
+          "train_episodes": 50
+        },
+        {
+          "candidate_train_accuracy": 0.54,
+          "evolve_batch": 1,
+          "measured_batch": 2,
+          "optimizer_usage": {
+            "accounting_complete": false,
+            "accounting_usable_with_estimates": true,
+            "attempts": 306,
+            "budget_tokens_including_estimates": 16533223,
+            "by_role": {
+              "debugger": {
+                "attempts": 173,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 3896123,
+                "known_usage_calls": 168,
+                "output_tokens": 73830,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 5,
+                "total_tokens": 3969953,
+                "unknown_usage_calls": 5
+              },
+              "evolve": {
+                "attempts": 133,
+                "estimated_input_tokens": 133616,
+                "estimated_output_tokens": 1691,
+                "estimated_total_tokens": 135307,
+                "estimated_usage_calls": 1,
+                "input_tokens": 12328028,
+                "known_usage_calls": 129,
+                "output_tokens": 99935,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 3,
+                "total_tokens": 12427963,
+                "unknown_usage_calls": 4
+              }
+            },
+            "estimated_input_tokens": 133616,
+            "estimated_output_tokens": 1691,
+            "estimated_total_tokens": 135307,
+            "estimated_usage_calls": 1,
+            "inference_accounting_complete": false,
+            "input_tokens": 16224151,
+            "known_usage_calls": 297,
+            "output_tokens": 173765,
+            "pending_calls": 0,
+            "rate_limit_rejections_without_usage": 8,
+            "total_tokens": 16397916,
+            "unknown_usage_calls": 9
+          },
+          "round": 2,
+          "selection": "original best-ever, no extra measurement fed back",
+          "train_episodes": 50
+        },
+        {
+          "candidate_train_accuracy": 0.86,
+          "evolve_batch": 2,
+          "measured_batch": 3,
+          "optimizer_usage": {
+            "accounting_complete": false,
+            "accounting_usable_with_estimates": true,
+            "attempts": 223,
+            "budget_tokens_including_estimates": 14144198,
+            "by_role": {
+              "debugger": {
+                "attempts": 98,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 1143323,
+                "known_usage_calls": 86,
+                "output_tokens": 39239,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 12,
+                "total_tokens": 1182562,
+                "unknown_usage_calls": 12
+              },
+              "evolve": {
+                "attempts": 125,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 12882912,
+                "known_usage_calls": 124,
+                "output_tokens": 78724,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 1,
+                "total_tokens": 12961636,
+                "unknown_usage_calls": 1
+              }
+            },
+            "estimated_input_tokens": 0,
+            "estimated_output_tokens": 0,
+            "estimated_total_tokens": 0,
+            "estimated_usage_calls": 0,
+            "inference_accounting_complete": true,
+            "input_tokens": 14026235,
+            "known_usage_calls": 210,
+            "output_tokens": 117963,
+            "pending_calls": 0,
+            "rate_limit_rejections_without_usage": 13,
+            "total_tokens": 14144198,
+            "unknown_usage_calls": 13
+          },
+          "round": 3,
+          "selection": "original best-ever, no extra measurement fed back",
+          "train_episodes": 50
+        },
+        {
+          "candidate_train_accuracy": 0.88,
+          "evolve_batch": 3,
+          "measured_batch": 4,
+          "optimizer_usage": {
+            "accounting_complete": false,
+            "accounting_usable_with_estimates": true,
+            "attempts": 254,
+            "budget_tokens_including_estimates": 14086441,
+            "by_role": {
+              "debugger": {
+                "attempts": 138,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 2936298,
+                "known_usage_calls": 133,
+                "output_tokens": 82421,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 5,
+                "total_tokens": 3018719,
+                "unknown_usage_calls": 5
+              },
+              "evolve": {
+                "attempts": 116,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 10973161,
+                "known_usage_calls": 114,
+                "output_tokens": 94561,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 2,
+                "total_tokens": 11067722,
+                "unknown_usage_calls": 2
+              }
+            },
+            "estimated_input_tokens": 0,
+            "estimated_output_tokens": 0,
+            "estimated_total_tokens": 0,
+            "estimated_usage_calls": 0,
+            "inference_accounting_complete": true,
+            "input_tokens": 13909459,
+            "known_usage_calls": 247,
+            "output_tokens": 176982,
+            "pending_calls": 0,
+            "rate_limit_rejections_without_usage": 7,
+            "total_tokens": 14086441,
+            "unknown_usage_calls": 7
+          },
+          "round": 4,
+          "selection": "original best-ever, no extra measurement fed back",
+          "train_episodes": 50
+        },
+        {
+          "candidate_train_accuracy": 0.88,
+          "evolve_batch": 4,
+          "measured_batch": 5,
+          "optimizer_usage": {
+            "accounting_complete": true,
+            "accounting_usable_with_estimates": true,
+            "attempts": 236,
+            "budget_tokens_including_estimates": 12609327,
+            "by_role": {
+              "debugger": {
+                "attempts": 147,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 3369609,
+                "known_usage_calls": 147,
+                "output_tokens": 83453,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 0,
+                "total_tokens": 3453062,
+                "unknown_usage_calls": 0
+              },
+              "evolve": {
+                "attempts": 89,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 9086857,
+                "known_usage_calls": 89,
+                "output_tokens": 69408,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 0,
+                "total_tokens": 9156265,
+                "unknown_usage_calls": 0
+              }
+            },
+            "estimated_input_tokens": 0,
+            "estimated_output_tokens": 0,
+            "estimated_total_tokens": 0,
+            "estimated_usage_calls": 0,
+            "inference_accounting_complete": true,
+            "input_tokens": 12456466,
+            "known_usage_calls": 236,
+            "output_tokens": 152861,
+            "pending_calls": 0,
+            "rate_limit_rejections_without_usage": 0,
+            "total_tokens": 12609327,
+            "unknown_usage_calls": 0
+          },
+          "round": 5,
+          "selection": "original best-ever, no extra measurement fed back",
+          "train_episodes": 50
+        },
+        {
+          "candidate_train_accuracy": 1.0,
+          "evolve_batch": 5,
+          "measured_batch": 5,
+          "optimizer_usage": {
+            "accounting_complete": true,
+            "accounting_usable_with_estimates": true,
+            "attempts": 221,
+            "budget_tokens_including_estimates": 12465222,
+            "by_role": {
+              "debugger": {
+                "attempts": 123,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 2519822,
+                "known_usage_calls": 123,
+                "output_tokens": 64745,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 0,
+                "total_tokens": 2584567,
+                "unknown_usage_calls": 0
+              },
+              "evolve": {
+                "attempts": 98,
+                "estimated_input_tokens": 0,
+                "estimated_output_tokens": 0,
+                "estimated_total_tokens": 0,
+                "estimated_usage_calls": 0,
+                "input_tokens": 9788181,
+                "known_usage_calls": 98,
+                "output_tokens": 92474,
+                "pending_calls": 0,
+                "rate_limit_rejections_without_usage": 0,
+                "total_tokens": 9880655,
+                "unknown_usage_calls": 0
+              }
+            },
+            "estimated_input_tokens": 0,
+            "estimated_output_tokens": 0,
+            "estimated_total_tokens": 0,
+            "estimated_usage_calls": 0,
+            "inference_accounting_complete": true,
+            "input_tokens": 12308003,
+            "known_usage_calls": 221,
+            "output_tokens": 157219,
+            "pending_calls": 0,
+            "rate_limit_rejections_without_usage": 0,
+            "total_tokens": 12465222,
+            "unknown_usage_calls": 0
+          },
+          "round": 6,
+          "selection": "original best-ever, no extra measurement fed back",
+          "train_episodes": 50
+        }
+      ]
+    },
+    "meta": {
+      "airline": [
+        {
+          "accepted": true,
+          "baseline_score": 0.26666666666666666,
+          "baseline_successes": 16,
+          "candidate": {
+            "changes": "New module agents/preaction_verify_reminder.py exporting AgentHarness and register(). Exactly one mechanism, request-side only: transform_request drops any message whose content contains the sentinel '[[ACTION-GATE]]' (missing/None content counts as not containing it) and appends exactly one fresh {\"role\": \"system\", \"content\": _REMINDER} dict at the very END, so the reminder is always the most recent content and repeated calls cannot accumulate duplicates. It tolerates dict (\"messages\"), bare list/tuple, and attribute (.messages) request shapes; native messages are never reordered, edited or deleted and assistant tool_calls / tool tool_call_id pairing is preserved; dict and list inputs are returned as copies (caller's object unchanged), tuple returns a tuple. transform_response is identity. register() returns None (no native tool or LLMAgent patching, no change to tools, budgets, user simulator or evaluator). The whole transform is wrapped in try/except and returns the original request unchanged on any error. No imports, no I/O, no new model/network/subprocess/filesystem calls, constants only (_SENTINEL, _REMINDER), no cross-episode mutable state, deterministic and side-effect free.",
+            "expected_efficiency": "Cost-neutral and turn-neutral: one static ~1.5 kB system message (~380 tokens) appended per solver turn, always net-zero in message count because the previous copy is removed first, against a 32768-token total context and 4096-token output budget. No extra tool calls, no extra model calls, no network or filesystem use, no wall-clock order change. Expected effect is accuracy-side (policy-compliant state changes, fewer wasted or incorrect tool calls caused by skipping retrieval or repeating errored calls), targeting a TRAIN average pass rate above the 0.2667 incident-free incumbent baseline.",
+            "hypothesis": "The airline incumbent fails largely on policy-compliance and tool-sequence errors (unauthorised or premature state changes, mutating before retrieving the record's exact current values, repeating a call that already errored, using state-changing calls to explore prices) rather than on missing capability. A short, general, tail-placed 'action gate' reminder re-surfaced immediately before each generation step should raise attention to the three checks that matter for state-changing calls - evidence held, named policy authority, explicit user confirmation - and lift the TRAIN pass rate above the 0.2667 incumbent baseline, without introducing new refusals on changes the policy does permit.",
+            "import_path": "agents.preaction_verify_reminder:AgentHarness",
+            "name": "preaction_verify_reminder"
+          },
+          "candidate_infra_errors": 0,
+          "candidate_score": 0.3,
+          "candidate_successes": 18,
+          "iteration": 1,
+          "parent": "baseline_zero.py",
+          "retained_candidate": "preaction_verify_reminder.py",
+          "train_batch": 0,
+          "train_episodes": 60,
+          "train_n": 30,
+          "usage": {
+            "accounting_complete": true,
+            "by_role": {
+              "analysis": {
+                "input_tokens": 982957,
+                "output_tokens": 28572,
+                "total_tokens": 1011529
+              },
+              "implementation": {
+                "input_tokens": 510452,
+                "output_tokens": 14471,
+                "total_tokens": 524923
+              },
+              "parent": {
+                "input_tokens": 1049557,
+                "output_tokens": 36876,
+                "total_tokens": 1086433
+              }
+            },
+            "cached_input_tokens_known": 1316736,
+            "calls_with_cache_details": 75,
+            "calls_with_unknown_usage": 0,
+            "input_tokens": 2542966,
+            "output_tokens": 79919,
+            "recorded_upstream_attempts": 75,
+            "successful_calls": 75,
+            "total_tokens": 2622885
+          }
+        },
+        {
+          "accepted": false,
+          "baseline_score": 0.3,
+          "baseline_successes": 18,
+          "candidate": {
+            "changes": "New module agents/stuck_step_recovery.py exporting AgentHarness and register(). Exactly one mechanism, request-side only and state-dependent (replacing the incumbent's static per-turn reminder): transform_request (a) locates the LAST assistant tool-call turn and the tool results directly following it (paired by tool_call_id, positional fallback for id-less shapes), (b) declares that step stuck if and only if one of those results is an error (content begins 'error' case-insensitively, or carries an error key / serialized error marker) OR the call is an exact repeat -- same tool, same JSON-canonicalised arguments -- of an earlier call whose recorded result string is byte-identical (a true 'no new information' test, not a benign re-read of a different record), and (c) only then drops any previously injected copy (sentinel '[[STUCK-STEP]]') and appends exactly one fresh {'role': 'system', 'content': ...} dict at the very END. The ~1.3 kB (~320 token) directive tells the model to read the tool error literally and reuse the field/value it names, never to resend an identical call, never to submit an identifier taken from tool documentation (documentation ids are format illustrations, not real records) and to take every user/reservation/flight/payment id from the user's own messages or a lookup that already succeeded, not to retry a step the policy forbids (name the blocking rule and state what is possible instead), and, once a step has failed repeatedly, to stop calling tools and state what is blocking the user. It contains no transfer instruction, so the incumbent's over-transfer regression is not reproduced. Its trailing 'Unresolved step number: N' is recomputed purely by counting the error results and identical-result repeats visible in the conversation (never stored), so the injected text strictly changes across consecutive failures and cannot become a fixed point of a degenerate loop. When no step is stuck the request is returned completely untouched (the caller's own object), so episodes that never error or repeat see byte-identical input to the identity baseline. Native messages are copied, never reordered or edited, so assistant tool_calls / tool tool_call_id pairing is preserved; dict and list inputs are returned as copies (caller's object unchanged), a tuple returns a tuple, and an attribute-style request has .messages rewritten. transform_response is identity. register() returns None (no native tool or LLMAgent patching, no change to tools, budgets, user simulator or evaluator). Standard library only (json), no I/O, no new model/network/subprocess/filesystem calls, constants only at module level, no cross-episode mutable state, deterministic and side-effect free; the whole transform is wrapped in try/except and returns the original request unchanged on any error.",
+            "expected_efficiency": "Cheaper than the incumbent: the reminder is injected only on stuck steps rather than on every solver turn. Prefix-replaying the public trajectories through this transform fires on 24/44 baseline failing episodes vs 7/16 passing, i.e. ~307 injected turns across all failing episodes versus ~42 across all passing episodes, which is roughly 5x fewer injected turns than the incumbent's per-turn reminder; a majority of passing episodes never fire at all. At worst ~320 extra tokens on a triggered call against a 32768-token total context and 4096-token output budget. Expected net turn/token reduction, because the anti-repeat clause replaces degenerate retry runs (identical calls observed up to dozens of times) with a single corrected step or one user-facing message; no new tool calls, no new model calls, no network or filesystem use, no wall-clock order change.",
+            "hypothesis": "The solver loses episodes not for lack of capability but because a single failed step is never repaired: after a tool error it re-issues an impossible call (the identical call again, an identifier copied from a tool-description example, or a value the error text itself already corrects), or it repeats one exact no-new-information call until the step budget kills the episode. If, only when the last assistant step is stuck (a trailing tool result is an error, or the call is an exact repeat whose earlier occurrence returned the identical result), we inject one short corrective system message that forbids resending an identical call and forbids invented identifiers, then the pass rate on the usually-failing error/loop tasks should rise without breaking the deny/transfer and fix-it successes, which are left byte-identical because nothing is injected on a healthy step.",
+            "import_path": "agents.stuck_step_recovery:AgentHarness",
+            "name": "stuck_step_recovery"
+          },
+          "candidate_infra_errors": 0,
+          "candidate_score": 0.25,
+          "candidate_successes": 15,
+          "iteration": 2,
+          "parent": "preaction_verify_reminder.py",
+          "retained_candidate": "preaction_verify_reminder.py",
+          "train_batch": 0,
+          "train_episodes": 60,
+          "train_n": 30,
+          "usage": {
+            "accounting_complete": true,
+            "by_role": {
+              "analysis": {
+                "input_tokens": 4356057,
+                "output_tokens": 57670,
+                "total_tokens": 4413727
+              },
+              "implementation": {
+                "input_tokens": 351452,
+                "output_tokens": 18482,
+                "total_tokens": 369934
+              },
+              "parent": {
+                "input_tokens": 415729,
+                "output_tokens": 13367,
+                "total_tokens": 429096
+              }
+            },
+            "cached_input_tokens_known": 3732352,
+            "calls_with_cache_details": 89,
+            "calls_with_unknown_usage": 0,
+            "input_tokens": 5123238,
+            "output_tokens": 89519,
+            "recorded_upstream_attempts": 90,
+            "successful_calls": 89,
+            "total_tokens": 5212757
+          }
+        },
+        {
+          "accepted": true,
+          "baseline_score": 0.25,
+          "baseline_successes": 15,
+          "candidate": {
+            "changes": "New module agents/eligibility_verdict_gate.py exporting AgentHarness and register(). Exactly one mechanism, request-side only, extending the incumbent: transform_request drops any message whose content contains the sentinel '[[ELIGIBILITY-VERDICT]]' or the incumbent marker '[[ACTION-GATE]]' and appends exactly one fresh {'role':'system','content':MESSAGE} dict at the very END, where MESSAGE = the incumbent's exact gate text (copied verbatim into this file as _GATE, not imported) followed by a derived verdict block. The verdict block is computed purely from the conversation: it parses the policy's own stated current time (regex 'the current time is YYYY-MM-DD HH:MM:SS', case-insensitive, over the conversation text; falls back only to the public policy constant 2024-05-15 15:00:00 when absent, never read from a task id or answer) and scans message contents that are JSON objects (a dict, or a string starting with '{') carrying reservation_id plus cabin/created_at/flights, keeping the LATEST object per reservation_id in message order. For the up-to-6 most recently seen reservations it prints one factual line 'reservation X: cabin=C, booked Hh ago, insurance=I, no segment flown | a segment has already departed -> VERDICT', where H = round(hours between current time and created_at) and a segment has departed iff any flight date < current date. Verdict order: a departed segment -> 'you cannot cancel or modify it; transfer to a human agent.'; an airline cancellation (a flight status of cancelled/canceled, or ANY user message matching the airline-cancelled regexes) -> neutral 'cancellation may be permitted because the airline cancelled the flight: verify before acting.'; cabin business -> CANCELLATION IS PERMITTED (business), still require explicit confirmation; H<=23 -> CANCELLATION IS PERMITTED (booked within the last 24 hours); insurance present (not None/\"\"/\"no\"/False) -> permitted ONLY if the stated reason is covered (health or weather), record authoritative; H>26 with none of the above -> CANCELLATION IS NOT PERMITTED ... deny and transfer; else (23<H<=26 or H unknown) -> neutral 'verify the 24-hour window against the policy's current time'. A basic_economy reservation with no departed segment additionally carries the policy note that its FLIGHTS must not be changed (the CABIN may still change while no segment has flown; baggages may be added but not removed). The block opens with a header naming it and the policy current time and closes with a guard that any reservation not listed has no verified cabin/created_at/insurance on record here and must be retrieved with the reservation-details tool before it is cancelled or modified (never from an unverified or user-supplied id); when no reservation facts are visible it degrades to header + guard only, so the incumbent's behaviour is preserved. The whole block is capped at ~1400 characters. transform_response is identity. register() returns None (no native tool or LLMAgent patching, no change to tools, budgets, user simulator or evaluator). Standard library only (json, re, datetime), no I/O, no new model/network/subprocess/filesystem calls, constants only at module level, no cross-episode mutable state, deterministic and side-effect free; the whole transform is wrapped in try/except and returns the original request unchanged on any error. Native messages are copied, never reordered or edited, so assistant tool_calls / tool tool_call_id pairing is preserved; dict and list inputs are returned as copies (caller's object unchanged), a tuple returns a tuple, and an attribute-style request has .messages rewritten.",
+            "expected_efficiency": "Cost-neutral in turns and message count: one refreshed system message per solver turn, net-zero message count because the previous copy is dropped first, so no extra tool calls, no extra model calls, no network or filesystem use and no wall-clock order change. Prefix-replaying every message-prefix of every public record through the transform produced 0 failures: 60 episodes / 2060 prefixes on batch_00_baseline (the spec's required evidence) and 240 episodes / 7832 prefixes across all public batches, each asserting exactly one message appended, exactly one sentinel occurrence and all original messages preserved in order. The tail message grows from the incumbent's 1525 chars (~381 tokens) to mean 2189.6 chars (~547 tokens) and max 2917 chars (~730 tokens), i.e. a bounded ~+165 tokens per turn (the verdict block alone is mean 664.6 / max 1392 chars, under the 1400-char cap) against a 32768-token total context and 4096-token output budget. Turn-side it should be neutral-to-negative, since it flags the destructive cancel before it is issued and discourages repeated retry cancels (up to 12 identical cancel calls observed in one episode). Expected accuracy effect is positive, targeting a TRAIN pass rate above the 0.30 incumbent: across the 24 failing episodes that call cancel_reservation there are 39 distinct target reservations, 15 of which receive a CANCELLATION IS NOT PERMITTED line and the rest receive a business/24h/insurance/departed/neutral line that is at least as specific; zero passing episodes call cancel_reservation, so the injected facts cannot introduce a new refusal on a passing episode.",
+            "hypothesis": "On the 30 TRAIN tasks x 2 trials, keeping the accepted incumbent's single refreshed tail-placed action gate verbatim and appending to that same one message a conversation-grounded reservation-eligibility verdict (computed only from the policy's stated current time and reservation facts already returned by tool results) should lift the mean pass rate above the incumbent's 0.30, because failing episodes attempt a cancel_reservation or a flight change that the visible record itself forbids (cabin is not business, booking more than 24h old, no insurance, no segment flown, airline did not cancel; or a basic-economy flight edit) even though every fact needed to refuse is already on screen, while passing episodes are effectively left alone - none of them call cancel_reservation, and the injected tail only restates facts, so it cannot force a new refusal.",
+            "import_path": "agents.eligibility_verdict_gate:AgentHarness",
+            "name": "eligibility_verdict_gate"
+          },
+          "candidate_infra_errors": 0,
+          "candidate_score": 0.3,
+          "candidate_successes": 18,
+          "date_import_repair": {
+            "optimizer_replayed": false,
+            "original_candidate_sha256": "d51c398980a7b5b3e580d65086267f5cbc03edc5b1b317b88019710f19592fed"
+          },
+          "iteration": 3,
+          "parent": "preaction_verify_reminder.py",
+          "retained_candidate": "eligibility_verdict_gate.py",
+          "train_batch": 1,
+          "train_episodes": 60,
+          "train_n": 30,
+          "usage": {
+            "accounting_complete": true,
+            "by_role": {
+              "analysis": {
+                "input_tokens": 4018705,
+                "output_tokens": 68441,
+                "total_tokens": 4087146
+              },
+              "implementation": {
+                "input_tokens": 1500257,
+                "output_tokens": 31578,
+                "total_tokens": 1531835
+              },
+              "parent": {
+                "input_tokens": 2396675,
+                "output_tokens": 48673,
+                "total_tokens": 2445348
+              }
+            },
+            "cached_input_tokens_known": 4843008,
+            "calls_with_cache_details": 129,
+            "calls_with_unknown_usage": 0,
+            "input_tokens": 7915637,
+            "output_tokens": 148692,
+            "recorded_upstream_attempts": 130,
+            "successful_calls": 129,
+            "total_tokens": 8064329
+          }
+        },
+        {
+          "accepted": false,
+          "baseline_score": 0.3,
+          "baseline_successes": 18,
+          "candidate": {
+            "changes": "New module agents/user_role_tail_verdict.py exporting AgentHarness and register(). It is the accepted incumbent agents/eligibility_verdict_gate.py with EXACTLY ONE mechanism changed: _build_message now returns {'role': 'user', 'content': _PREFIX + _GATE + _verdict_block(native_messages)} instead of {'role': 'system', ...}, where _PREFIX = '[Automated policy check - not a customer message; do not reply to this note, keep helping the customer.] ' marks the injected turn as a harness note rather than a customer message. Everything else is byte-identical to the incumbent (verified by unified diff: the only code changes are the added _PREFIX constant and the role/content swap in _build_message; all other hunks are docstrings): the verbatim _GATE text (copied into this file, not imported), the same conversation-grounded _verdict_block (parses the policy's stated current time with fallback 2024-05-15 15:00:00, keeps the latest reservation JSON per reservation_id, emits per-reservation factual+verdict lines, capped at 6 lines / ~1400 chars, plus the retrieval footer), the same drop-then-append de-duplication (any message whose content carries '[[ELIGIBILITY-VERDICT]]' or '[[ACTION-GATE]]' is dropped before exactly one fresh copy is appended, so repeated calls cannot accumulate - the injected content still carries both sentinels regardless of role, so _SENTINELS needed no change), the same copy-vs-mutate request-shape handling (dict returns a copy, list returns a copy, tuple returns a tuple, attribute-style request has .messages rewritten), identity transform_response, and register() returning None (no native tool or LLMAgent patching, no change to tools, budgets, user simulator or evaluator). Standard library only (json, re, datetime), no I/O, no new model/network/subprocess/filesystem calls, no task-id tables or hidden state, no cross-episode mutable state, deterministic and side-effect free; the whole transform is wrapped in try/except and returns the original request unchanged on any error.",
+            "expected_efficiency": "Cost equals the incumbent's plus a constant 105-character (~26-token) user prefix per solver turn; nothing else changes. Measured over all 9971 message-prefixes of all 5 public trajectory sets, the injected message content is mean 2317.1 / max 3026 chars versus the incumbent's mean 2212.1 / max 2921, i.e. a constant +105-char delta at every prefix (min == max == 105), well inside the 32768-token total context and 4096-token output budget. Turn-neutral: still exactly one refreshed message appended per solver turn with net-zero message count because the previous copy is dropped first, so no extra tool calls or model calls, no network or filesystem use. Correctness replay: every message-prefix of evidence/batch_00_baseline/public_trajectories.json (2000 prefixes) and of all five public sets (9971 prefixes) was passed through transform_request with 0 invariant failures - exactly one message appended, appended role == 'user', and every original message preserved in place and relative order; the twice-in-a-row de-dup and no-mutation-of-caller checks also pass. Falsifiable observable: if the share of executed cancels whose replayed prefix verdict said 'CANCELLATION IS NOT PERMITTED' does not fall clearly below the incumbent's 11/18, or the mean pass rate stays <= 0.30, the channel hypothesis is refuted.",
+            "hypothesis": "On the 30 public TRAIN tasks x 2 trials, re-delivering the accepted incumbent's tail action-gate plus conversation-grounded eligibility verdict on a synthetic trailing USER turn (instead of a system-role turn) lifts the mean pass rate above the incumbent's 0.30, because the incumbent's correctly-worded tail SYSTEM verdict is demonstrably inert: replaying it on the request prefix right before each forbidden cancel_reservation shows it already printed 'CANCELLATION IS NOT PERMITTED' and the solver cancelled anyway, and the solver likewise ignores the same policy text that is already verbatim in its own system prompt. If attention channel rather than wording is the limiter, the same text may be acted on when it arrives in the user-role channel that the solver demonstrably re-routes on (e.g. it reverts an applied cabin upgrade the moment the customer objects), cutting the share of executed cancels whose prefix verdict said NOT PERMITTED and converting the always-failing cancel tasks. The attention-channel claim is an UNVERIFIED hypothesis; gate content, verdict logic, de-duplication, caps, retrieval footer, request-shape handling and error fallback are byte-identical to the incumbent, so the role/channel is the only isolated variable and passing episodes (none of which call cancel_reservation) cannot be altered except by that swap.",
+            "import_path": "agents.user_role_tail_verdict:AgentHarness",
+            "name": "user_role_tail_verdict"
+          },
+          "candidate_infra_errors": 0,
+          "candidate_score": 0.3,
+          "candidate_successes": 18,
+          "iteration": 4,
+          "parent": "eligibility_verdict_gate.py",
+          "retained_candidate": "eligibility_verdict_gate.py",
+          "train_batch": 1,
+          "train_episodes": 60,
+          "train_n": 30,
+          "usage": {
+            "accounting_complete": true,
+            "by_role": {
+              "analysis": {
+                "input_tokens": 3188007,
+                "output_tokens": 88817,
+                "total_tokens": 3276824
+              },
+              "implementation": {
+                "input_tokens": 515733,
+                "output_tokens": 20101,
+                "total_tokens": 535834
+              },
+              "parent": {
+                "input_tokens": 6060285,
+                "output_tokens": 108189,
+                "total_tokens": 6168474
+              }
+            },
+            "cached_input_tokens_known": 6079744,
+            "calls_with_cache_details": 183,
+            "calls_with_unknown_usage": 0,
+            "input_tokens": 9764025,
+            "output_tokens": 217107,
+            "recorded_upstream_attempts": 186,
+            "successful_calls": 183,
+            "total_tokens": 9981132
+          }
+        },
+        {
+          "accepted": true,
+          "baseline_score": 0.2833333333333333,
+          "baseline_successes": 17,
+          "candidate": {
+            "changes": "New module agents/error_reground_recovery.py exporting AgentHarness and register(). It is the accepted incumbent agents/eligibility_verdict_gate.py (copied verbatim, not imported) with EXACTLY ONE mechanism added. Added: a new sentinel _RECOVERY_SENTINEL = '[[RECOVERY-REGROUND]]' which is also registered in _SENTINELS, so any previously injected copy of this candidate's message is dropped before exactly one fresh copy is appended (the drop-then-append de-duplication of the incumbent is unchanged; still exactly ONE appended message per call, net-zero message count). Added: a helper _recovery_block(native_messages) that returns '' in the common case and otherwise a short block computed only from the messages already in the conversation. It fires ONLY when the LAST message whose role is 'assistant' and which has a non-empty tool_calls list produced at least one ERROR result; that turn's tool calls are paired with their results by tool_call_id on the immediately following role=='tool' messages (stopping at the first message that is neither the assistant message nor a role=='tool' message), falling back to positional order. A result is an ERROR when its str content, stripped and lowercased, starts with 'error', starts with '{\"error', or contains 'error' within its first 40 characters, or when it is a dict/JSON object carrying an 'error' key; None content is never an error. When fired, the block quotes only the LAST error result (coerced to str, capped at 300 chars) and, if any earlier NON-error tool result exists (omit the line otherwise), quotes the most recent successful tool result verbatim (capped at 1000 chars) as the authoritative record, then forbids resending an identical call and asks for the one named argument to be changed from that record (or, if the record shows the change is impossible, to stop retrying and deny/transfer). The whole block is capped at ~1500 characters with a deterministic trailing ' …[truncated]' marker. Wiring: _build_message now returns {'role': 'system', 'content': _GATE + _verdict_block(native_messages) + _recovery_block(native_messages)}; _verdict_block and _GATE are byte-identical to the incumbent, so when _recovery_block returns '' the content is byte-identical to the incumbent. Everything else is unchanged: the verbatim _GATE, the conversation-grounded verdict, the request-shape handling (_extract_messages; dict returns a copy, list returns a copy, tuple returns a tuple, attribute-style request has .messages rewritten; the caller's object is never mutated), identity transform_response, and register() returning None (no native tool or LLMAgent patching, no change to tools, budgets, user simulator or evaluator). Standard library only (json, re, datetime), no I/O, no new model/network/subprocess/filesystem calls, no task-id tables or hidden state, no cross-episode mutable state, deterministic and side-effect free; the whole transform is wrapped in try/except and returns the original request unchanged on any error.",
+            "expected_efficiency": "Cost-neutral on healthy steps and modestly cost-positive on failed steps. Measured over all 2232 message-prefixes of evidence/batch_02_baseline/public_trajectories.json the injected content is the incumbent's exactly (mean 2319.0 chars) whenever _recovery_block returns '' (verified byte-identical on all 2035 non-firing prefixes) and adds a mean 84.7 chars per prefix overall / up to 1500 chars on the 197 firing prefixes (8.8%); equivalently the new mean injected length is 2403.7 chars. This is well inside the 32768-token total context and 4096-token output budget and constant per firing step. Turn-neutral by construction: still exactly one refreshed message appended per solver turn with net-zero message count because the previous copy is dropped first, so no extra tool calls or model calls, no network or filesystem use; the extra text is emitted at most once per solver step and only while a step is stuck. Correctness replay: every message-prefix of evidence/batch_02_baseline/public_trajectories.json (2232 prefixes) was passed through transform_request with 0 invariant failures - exactly len(prefix)+1 messages returned, all original messages preserved in place and relative order, the caller's original list unchanged, exactly one '[[ACTION-GATE]]' in the appended content and at most one '[[RECOVERY-REGROUND]]'; calling transform_request twice in a row keeps the message count constant with exactly one '[[RECOVERY-REGROUND]]' and one '[[ACTION-GATE]]'; _recovery_block([]) == '' and a request with no 'messages' is returned unchanged. Falsifiable observable: a decisive improvement means the failed-step repair rate rises and the mean pass rate moves clearly above 0.30; if it does not, the stuck-step framing is refuted.",
+            "hypothesis": "On the 30 public TRAIN tasks x 2 trials, residual failures are dominated by stuck steps: the solver's most recent tool call returned an ERROR and instead of repairing the call from the authoritative values it already holds, the model keeps re-issuing a call that cannot succeed. Re-surfacing the exact error together with a verbatim mirror of the most recent successful tool result (the authoritative record) and forbidding an identical resend - but ONLY when the last assistant tool-call turn produced an error result - will lift the mean pass rate above the accepted incumbent's 0.30. The block is byte-inert on every healthy step (it returns the empty string, so the produced message equals the incumbent's _GATE + _verdict_block character for character), so episodes the incumbent already passes cannot be altered; the isolated variable is the presence of the re-grounding text on failed steps. Measured over all 2232 message-prefixes of evidence/batch_02_baseline/public_trajectories.json the block fires on 197 prefixes (8.8%) and at some point inside 26/60 episodes (43.3%); on the final full conversation it fires for the 3 episodes whose last tool-call turn itself errored. Falsifiable observable: if the re-grounding does not convert failed steps into correct repairs (mean pass rate stays <= 0.30, and the rate of repeated identical erroring calls does not fall), the hypothesis is refuted.",
+            "import_path": "agents.error_reground_recovery:AgentHarness",
+            "name": "error_reground_recovery"
+          },
+          "candidate_infra_errors": 0,
+          "candidate_score": 0.3,
+          "candidate_successes": 18,
+          "iteration": 5,
+          "parent": "eligibility_verdict_gate.py",
+          "retained_candidate": "error_reground_recovery.py",
+          "train_batch": 2,
+          "train_episodes": 60,
+          "train_n": 30,
+          "usage": {
+            "accounting_complete": true,
+            "by_role": {
+              "analysis": {
+                "input_tokens": 6608044,
+                "output_tokens": 133020,
+                "total_tokens": 6741064
+              },
+              "implementation": {
+                "input_tokens": 1502739,
+                "output_tokens": 57255,
+                "total_tokens": 1559994
+              },
+              "parent": {
+                "input_tokens": 5087823,
+                "output_tokens": 90151,
+                "total_tokens": 5177974
+              }
+            },
+            "cached_input_tokens_known": 8362752,
+            "calls_with_cache_details": 199,
+            "calls_with_unknown_usage": 0,
+            "input_tokens": 13198606,
+            "output_tokens": 280426,
+            "recorded_upstream_attempts": 201,
+            "successful_calls": 199,
+            "total_tokens": 13479032
+          }
+        },
+        {
+          "accepted": false,
+          "baseline_score": 0.3,
+          "baseline_successes": 18,
+          "candidate": {
+            "changes": "New module agents/cancel_evidence_guard.py exporting AgentHarness and register(). It is agents/error_reground_recovery.py copied verbatim (not imported): the drop-then-append of exactly one {\"role\": \"system\", \"content\": ...} tail message is unchanged and the _SENTINELS de-duplication now also recognises the new marker [[CANCEL-EVIDENCE]], so repeated calls cannot accumulate duplicates and still emit exactly ONE refreshed message per call (net-zero message count). Exactly ONE mechanism is added: _cancel_evidence_block(native_messages), appended after _recovery_block in _build_message. It walks the messages in order maintaining two sets read only from the conversation - 'visible' (adds a reservation_id whenever a message content parses via the incumbent's _reservation_object(), i.e. a JSON object carrying reservation_id plus cabin/created_at/flights) and 'cancelled' (adds the reservation_id argument of every cancel_reservation call) - and flags an id iff a cancel_reservation call targeted a non-null reservation_id that was either absent from 'visible' at the moment of that call (its details record had never been read earlier) or already in 'cancelled' (cancelled twice). Tool calls are read robustly (dict or object messages; tool_calls list of dicts or objects; function name/arguments via key or attribute; arguments as a JSON string tolerated on parse failure or as an already-dict value). When nothing is flagged the block returns \"\" so the produced content is BYTE-IDENTICAL to _GATE + _verdict_block + _recovery_block. When it fires it renders, most-recently-flagged first and capped at 4 ids, a generic '[[CANCEL-EVIDENCE]] UNVERIFIED CANCELLATION(S):' header, one line per id stating its reservation-details record was never retrieved earlier (or that it has already been cancelled), and a fixed generic footer instructing the model to call get_reservation_details(reservation_id=...) before any further cancel/modify, to cancel only when a policy ground applies (under 24 hours old, airline cancelled, business flight, or covered travel insurance whose stated reason is covered), to deny and transfer to a human agent when a segment has already departed, and never to cancel the same reservation twice. The whole block is capped at ~1100 characters with a deterministic ' ...' + '[truncated]' marker. Everything else is unchanged: verbatim _GATE, conversation-grounded verdict, stuck-step recovery, request-shape handling (dict returns a copy, list returns a copy, tuple returns a tuple, attribute-style request has .messages rewritten; the caller's object is never mutated), identity transform_response, and register() returning None (no native tool or LLMAgent patching, no change to tools, budgets, user simulator or evaluator). Standard library only (json, re, datetime), no I/O, no new model/network/subprocess/filesystem calls, no task-id tables or hidden state, no cross-episode mutable state, deterministic and side-effect free; the whole transform is wrapped in try/except and returns the original request unchanged on any error. No task-specific hints anywhere: the text is generic airline-policy guidance applicable to any unfamiliar reservation.",
+            "expected_efficiency": "Cost-neutral on healthy conversations and small and bounded on flagged ones. Verified by replaying every message-prefix of evidence/batch_02_baseline/public_trajectories.json (2232 prefixes) and evidence/candidate_05/public_trajectories.json (2146 prefixes): on every one of the non-firing prefixes (2144 and 1968 respectively) the produced content is string-equal to the incumbent's _GATE + _verdict_block + _recovery_block, so the input is byte-identical to the incumbent, while the block adds its text on only 88 and 178 prefixes respectively; the whole block is capped at ~1100 chars (~275 tokens) per firing step against a 32768-token total context and 4096-token output budget. Turn-neutral by construction: still exactly one refreshed system message appended per solver turn with net-zero message count because the previous copy is dropped first, so no extra tool calls, no extra model calls, no network or filesystem use, no wall-clock order change. Firing is inert exactly where it must be: across all 8 evidence/*/public_trajectories.json files it fires on 0 of the 135 passing episodes and on 4-11 of the ~42-45 failing episodes per run (10/42 in the incumbent's own run), leaving every passing counterexample untouched. The intent is a net turn/token reduction on the multi-cancel cascades it targets (which currently burn many turns re-cancelling ids that can never be cancelled) and zero change everywhere else.",
+            "hypothesis": "On the 30 public TRAIN tasks x 2 trials, keeping the accepted incumbent verbatim and adding to its single refreshed tail system message one derived block that fires only when the conversation contains a cancel_reservation call whose target reservation_id had no reservation record visible before that call (or re-cancels an id already cancelled) will lift the mean pass rate above 0.30. Measured failure mode: of 42 failing episodes in the incumbent's own run, 17 contain a cancel_reservation call and 10 of those begin cancelling reservations whose eligibility record was never read (e.g. a reservation cancelled blind straight from a user-supplied id, or a cascade of ids taken from the user-record id list), whereas 0 of 135 public passing episodes across all 8 recorded runs fire the condition because every passing cancellation retrieves the record first. Making the missing lookup explicit at the exact step - which no existing candidate (gate, verdict, stuck-step re-grounding) detects - should convert the multi-cancel cascades (retrieve before the 2nd..Nth cancel, then deny/transfer when the record shows the change is not permitted) without touching any healthy conversation, so episodes the incumbent already passes cannot be altered. Falsifiable observable: if the mean TRAIN pass rate does not move clearly above 0.30, or the share of episodes executing a cancellation of a never-retrieved reservation does not fall, the evidence-enforcement claim is refuted.",
+            "import_path": "agents.cancel_evidence_guard:AgentHarness",
+            "name": "cancel_evidence_guard"
+          },
+          "candidate_infra_errors": 0,
+          "candidate_score": 0.26666666666666666,
+          "candidate_successes": 16,
+          "iteration": 6,
+          "parent": "error_reground_recovery.py",
+          "retained_candidate": "error_reground_recovery.py",
+          "train_batch": 2,
+          "train_episodes": 60,
+          "train_n": 30,
+          "usage": {
+            "accounting_complete": true,
+            "by_role": {
+              "analysis": {
+                "input_tokens": 7556394,
+                "output_tokens": 131599,
+                "total_tokens": 7687993
+              },
+              "implementation": {
+                "input_tokens": 1137718,
+                "output_tokens": 42288,
+                "total_tokens": 1180006
+              },
+              "parent": {
+                "input_tokens": 4760823,
+                "output_tokens": 99395,
+                "total_tokens": 4860218
+              }
+            },
+            "cached_input_tokens_known": 8123648,
+            "calls_with_cache_details": 199,
+            "calls_with_unknown_usage": 0,
+            "input_tokens": 13454935,
+            "output_tokens": 273282,
+            "recorded_upstream_attempts": 202,
+            "successful_calls": 199,
+            "total_tokens": 13728217
+          }
+        }
+      ],
+      "retail": [
+        {
+          "accepted": false,
+          "baseline_score": 0.32,
+          "baseline_successes": 16,
+          "candidate": {
+            "changes": "New self-contained middleware agents/stuck_loop_recovery.py exporting AgentHarness and a no-op register(). transform_request extracts the conversation list (dict keys messages/input/history/chat, else the .messages attribute, else the last recorded history), computes STUCK as (a) the last two tool calls identical, or (b) the last call already seen >=3 times with an error or unchanged result, or (c) the same tool result/error recurring >=3 times with the latest message a tool-role message. When stuck and the marker 'RECOVERY NOTE (advisory)' is absent, it appends exactly one advisory system message at the end of the list (in place, re-bound to the request). transform_response records public_history for the fallback source and is a pure pass-through. No tools/budgets/simulator/evaluator are touched; register() stays a safe no-op.",
+            "expected_efficiency": "Negligible on non-stuck turns (read-only scan, request returned unchanged, no extra model call). Adds ~180 tokens only on turns already stuck, and typically removes the long tail of identical repeat calls (e.g. 98x -> a handful), lowering total tokens/turns on the worst offending episodes while raising pass rate on the repeat/fabrication failure modes.",
+            "hypothesis": "On the retail train batch the 4B solver dead-ends by repeating an identical failing tool call and by fabricating identifiers (e.g. get_order_details on a never-issued '#W0000000' nine times, or get_item_details on the same item 98 times). Detecting a stuck conversation and injecting ONE advisory system message will break these loops -- pushing the agent to obtain real ids from lookups, change approach, or transfer to a human -- and raise the pass rate, at token cost only on stuck turns.",
+            "import_path": "agents.stuck_loop_recovery:AgentHarness",
+            "name": "stuck_loop_recovery"
+          },
+          "candidate_infra_errors": 0,
+          "candidate_score": 0.32,
+          "candidate_successes": 16,
+          "iteration": 1,
+          "parent": "baseline_zero.py",
+          "retained_candidate": "baseline_zero.py",
+          "train_batch": 0,
+          "train_episodes": 50,
+          "train_n": 50,
+          "usage": {
+            "accounting_complete": true,
+            "by_role": {
+              "analysis": {
+                "input_tokens": 317056,
+                "output_tokens": 17848,
+                "total_tokens": 334904
+              },
+              "implementation": {
+                "input_tokens": 823631,
+                "output_tokens": 22944,
+                "total_tokens": 846575
+              },
+              "parent": {
+                "input_tokens": 457646,
+                "output_tokens": 22772,
+                "total_tokens": 480418
+              }
+            },
+            "cached_input_tokens_known": 861312,
+            "calls_with_cache_details": 62,
+            "calls_with_unknown_usage": 0,
+            "input_tokens": 1598333,
+            "output_tokens": 63564,
+            "recorded_upstream_attempts": 62,
+            "successful_calls": 62,
+            "total_tokens": 1661897
+          }
+        },
+        {
+          "accepted": false,
+          "baseline_score": 0.38,
+          "baseline_successes": 19,
+          "candidate": null,
+          "candidate_infra_errors": null,
+          "candidate_score": null,
+          "candidate_successes": null,
+          "iteration": 2,
+          "parent": "baseline_zero.py",
+          "retained_candidate": "baseline_zero.py",
+          "train_batch": 1,
+          "train_episodes": 50,
+          "train_n": 50,
+          "usage": {
+            "accounting_complete": true,
+            "by_role": {
+              "analysis": {
+                "input_tokens": 1130613,
+                "output_tokens": 35051,
+                "total_tokens": 1165664
+              },
+              "parent": {
+                "input_tokens": 698872,
+                "output_tokens": 28445,
+                "total_tokens": 727317
+              }
+            },
+            "cached_input_tokens_known": 1144192,
+            "calls_with_cache_details": 49,
+            "calls_with_unknown_usage": 0,
+            "input_tokens": 1829485,
+            "output_tokens": 63496,
+            "recorded_upstream_attempts": 49,
+            "successful_calls": 49,
+            "total_tokens": 1892981
+          }
+        },
+        {
+          "accepted": false,
+          "baseline_score": 0.38,
+          "baseline_successes": 19,
+          "candidate": {
+            "changes": "New self-contained middleware agents/first_error_recovery_cue.py exporting AgentHarness and a no-op register(). Module-level MARKER='[GUIDANCE'. Pure classify_cue(error_text) lowercases the text and returns ONE short cue for the FIRST matching category, else None, in this fixed order: (1) 'should be different from the old item id' -> pick a DIFFERENT available item id of the same product; (2) 'payment method not found' or 'original payment method' -> reuse the payment method id from the order's own details, never invent one; (3) any of 'non-pending'/'non-delivered'/'cannot be cancelled'/'cannot be modified'/'cannot be returned'/'cannot be exchanged' -> not allowed in the current status, use the status-matching tool; (4) 'should match' -> the item_ids/new_item_ids lists must align; (5) 'not found' -> copy ids exactly (leading '#') and never reuse a description example id, else get_user_details. transform_request extracts the conversation list (dict keys messages/input/history/chat, else the .messages attribute, else a COPY of the last recorded history), requires the last message to be a tool message, takes the trailing run of tool-role messages, and for each that is an error (starts with 'error' or contains 'error:') and does not already contain MARKER, appends newline+cue to that message's content IN PLACE. No messages are added or removed, no separate system message is injected, and non-error / non-tool messages are untouched. transform_response records public_history for the fallback source and is a pure pass-through. Everything is wrapped so any unexpected structure returns the request unchanged; no tools/budgets/simulator/evaluator are touched; register() stays a safe no-op.",
+            "expected_efficiency": "Negligible on clean turns (read-only scan of the trailing tool run, request returned unchanged, no extra model call). Adds only ~60-90 tokens on the turns that already errored, and prevents the long tail of identical repeat calls and id-fabrication retries, lowering total tokens/turns on the worst offending episodes while raising pass rate on the first-error recovery failure modes.",
+            "hypothesis": "On the retail train batch the 4B solver most often fails right at the first tool error: it repeats an identical failing call (e.g. get_order_details / get_item_details on an id that was never issued or copied in the wrong form), passes the old item id as the new one, reuses a payment method from another order, or applies a status-inappropriate action. Because the error text names the exact violation, embedding ONE short, concrete corrective cue inside the failing observation (do not repeat this call; use a real id from data already seen; use the tool that matches the order's present status; align the argument lists) will steer the very next action and raise the pass rate, at token cost only on the turns that already errored.",
+            "import_path": "agents.first_error_recovery_cue:AgentHarness",
+            "name": "first_error_recovery_cue"
+          },
+          "candidate_infra_errors": 0,
+          "candidate_score": 0.36,
+          "candidate_successes": 18,
+          "iteration": 3,
+          "parent": "baseline_zero.py",
+          "retained_candidate": "baseline_zero.py",
+          "train_batch": 2,
+          "train_episodes": 50,
+          "train_n": 50,
+          "usage": {
+            "accounting_complete": true,
+            "by_role": {
+              "analysis": {
+                "input_tokens": 317664,
+                "output_tokens": 18479,
+                "total_tokens": 336143
+              },
+              "implementation": {
+                "input_tokens": 209402,
+                "output_tokens": 8950,
+                "total_tokens": 218352
+              },
+              "parent": {
+                "input_tokens": 859793,
+                "output_tokens": 27671,
+                "total_tokens": 887464
+              }
+            },
+            "cached_input_tokens_known": 723456,
+            "calls_with_cache_details": 54,
+            "calls_with_unknown_usage": 0,
+            "input_tokens": 1386859,
+            "output_tokens": 55100,
+            "recorded_upstream_attempts": 57,
+            "successful_calls": 54,
+            "total_tokens": 1441959
+          }
+        },
+        {
+          "accepted": false,
+          "baseline_score": 0.48,
+          "baseline_successes": 24,
+          "candidate": {
+            "changes": "New self-contained middleware agents/order_id_canonicalization.py exporting AgentHarness and a no-op register(). ONE mechanism: canonicalize an action's order-id argument to the domain's stored spelling '#W<digits>'. Pure helper canonical_order_id(v) trims whitespace/quotes and fullmatches r'#?[Ww]?(\\d{4,12})$'; if it matches and the canonical string differs from the input it returns '#W'+digits, else None (so junk such as 'ORD-7782-WB3', non-strings, and already-canonical ids are never touched). _rewrite_tool_call(tc) finds the function holder (tc['function'] / tc.function, else the tool call itself), takes its 'arguments', and rewrites ONLY the key literally named 'order_id': a JSON-encoded argument string is json.loads-ed, the key fixed, and re-dumped; a dict argument is fixed in place. transform_response(response, public_history) applies this to every tool-call list it can find on the model response -- response['tool_calls'], response.choices[*].message.tool_calls (dict or attribute form, covering OpenAI/litellm ChatCompletion), response.message.tool_calls, and a bare list of tool calls -- mutating that object in place and returning the same response, i.e. before the action is executed. transform_request(request) is a defensive secondary path that rewrites the tool calls of the LAST message only when it is an assistant message still carrying unexecuted tool calls (in the normal flow the request tail is a tool result, so it is a no-op). Nothing else is changed: no messages added/removed or edited, no system/instruction text injected, no tool descriptions or tool implementations touched, no budgets, no user simulator, no evaluator, no model/network/filesystem/subprocess access, no task- or id-specific tables, no cross-episode mutable state (the class keeps only public_context), and every step is wrapped so any unexpected structure returns the input unchanged. register() stays a safe no-op.",
+            "expected_efficiency": "Zero added tokens and zero added turns on every turn (a purely local rewrite of one argument string; no message is added, so the prompt is byte-for-byte identical when the id is already canonical). On affected episodes it should DECREASE turns and tokens by removing the guarantee-to-fail lookups and the user-facing retries that follow them: in batch_03, 28 of 312 order-id arguments (21 of them ids the agent had already seen in a tool result) and 8/50 episodes (6 failed, 2 passed) would be repaired, and one failing episode spent 3 calls + 3 errors + an immediate human transfer on this alone. Expected pass-rate change: +0.02 to +0.06 absolute (0.48 -> ~0.50-0.54) on batch_03, with no predicted regression anywhere because 0 of the 115 rewriteable non-canonical order-id calls ever succeeded.",
+            "hypothesis": "The 4B retail solver systematically loses the leading '#' (and sometimes the 'W') when it retranscribes an order id into a tool argument -- e.g. it reads the correct ids '#W5056519','#W8277957','#W5995614' from get_user_details, writes them back out without '#' in its own text, then calls get_order_details with 'W5056519' and gets three consecutive 'Error: Order not found'. Across the six public retail runs, 115 of 1784 order_id arguments were in a non-canonical spelling and 115/115 of them failed (0 succeeded), while the DB stores every order id as '#W<digits>'. Deterministically rewriting the order_id argument to '#W<digits>' just before the solver's action is executed will remove this whole class of guaranteed-failure lookups, restore the information the solver already had, and raise the pass rate (episodes currently abandon orders, re-ask the user, or transfer to a human on the false conclusion that the order does not exist).",
+            "import_path": "agents.order_id_canonicalization:AgentHarness",
+            "name": "order_id_canonicalization"
+          },
+          "candidate_infra_errors": 0,
+          "candidate_score": 0.34,
+          "candidate_successes": 17,
+          "iteration": 4,
+          "parent": "baseline_zero.py",
+          "retained_candidate": "baseline_zero.py",
+          "train_batch": 3,
+          "train_episodes": 50,
+          "train_n": 50,
+          "usage": {
+            "accounting_complete": true,
+            "by_role": {
+              "analysis": {
+                "input_tokens": 2807016,
+                "output_tokens": 50629,
+                "total_tokens": 2857645
+              },
+              "implementation": {
+                "input_tokens": 314171,
+                "output_tokens": 25089,
+                "total_tokens": 339260
+              },
+              "parent": {
+                "input_tokens": 874876,
+                "output_tokens": 20485,
+                "total_tokens": 895361
+              }
+            },
+            "cached_input_tokens_known": 2318720,
+            "calls_with_cache_details": 74,
+            "calls_with_unknown_usage": 0,
+            "input_tokens": 3996063,
+            "output_tokens": 96203,
+            "recorded_upstream_attempts": 76,
+            "successful_calls": 74,
+            "total_tokens": 4092266
+          }
+        },
+        {
+          "accepted": false,
+          "baseline_score": 0.36,
+          "baseline_successes": 18,
+          "candidate": {
+            "changes": "New self-contained middleware agents/general_operating_checklist.py exporting AgentHarness and a no-op register(). ONE mechanism: idempotently inject a fixed, general '[OPERATING CHECKLIST]' text into the SYSTEM-INSTRUCTION channel, appending '\\n\\n'+BLOCK to the target text (or prepending a system message in the fallback). Target resolution, in priority order: (a) a dict's non-empty str value under one of ('system','system_prompt','system_message','instructions','prompt'); (b) an object's same-named attribute holding a non-empty str; (c) the first role=='system' dict message with str content in the message list found via dict keys ('messages','input','history','chat') or the .messages attribute. Idempotency guard: if the literal marker '[OPERATING CHECKLIST]' already appears in the target text -- or, when the target is a message list with no system message, anywhere in any message content -- it returns the request unchanged. Fallback: when a non-empty message list exists but has no system message and no marker anywhere, it prepends {'role':'system','content':BLOCK} and re-binds the list to the request (dict key or attribute); with no system channel and no message list it returns the request unchanged. The block names only general developer guidance (ids are data / use the lookup tools / do not repeat a failed call) and contains no task names or task-specific hints. transform_response is a pure pass-through that stores nothing (no _last_history). Nothing else is touched: no user/assistant/tool message is edited, no tool call or its arguments is modified, no tool descriptions/implementations, budgets, user simulator or evaluator are touched, no model/network/filesystem/subprocess access, no hidden state or cross-episode mutable state (the class keeps only public_context), and every path is wrapped so any unexpected structure returns the input unchanged. register() stays a safe no-op.",
+            "expected_efficiency": "Cost is one constant ~210-token block, injected once per episode (idempotent, so repeated calls never duplicate it), after which every subsequent turn carries it in the stable system channel. This is a small fraction of the 32768-token context and 4096-token output budget. It should DECREASE tokens and turns on the affected failure classes by preventing the long tails they cause (repeated identical failing calls, trial-and-error with fabricated ids, and premature human transfers that abandon an episode), so net token/time change is close to neutral-to-negative while the pass rate should rise on the fabrication / missing-lookup / repeat-error categories. Expected absolute pass-rate change: +0.02 to +0.08 on the retail train batch, with no predicted regression because the added text neither removes information nor changes any executable behaviour.",
+            "hypothesis": "The 4B retail solver makes the same three general mistakes over and over, independent of any single episode: it invents/guesses identifiers or reuses the placeholder ids that appear only as EXAMPLES inside tool descriptions (e.g. '#W0000000', '1008292230', 'credit_card_0000000', 'gift_card_0000000', 'sara_doe_496'), it fails to use the lookup tools it already has (get_user_details to list a user's orders/payment methods, list_all_product_types -> get_product_details to find an available variant) and instead tells the user it cannot help or transfers to a human, and after a tool error it re-issues the identical failing call. These are operating-discipline failures, not knowledge gaps, so a fixed general checklist present in the system-instruction channel from the first turn should reduce them. Because system instructions persist for the whole episode and are cheap, a single idempotent injection of the checklist should raise the pass rate on the fabrication / missing-lookup / repeat-error failure classes without changing any tool, budget, the user simulator, or the evaluator.",
+            "import_path": "agents.general_operating_checklist:AgentHarness",
+            "name": "general_operating_checklist"
+          },
+          "candidate_infra_errors": 0,
+          "candidate_score": 0.36,
+          "candidate_successes": 18,
+          "iteration": 5,
+          "parent": "baseline_zero.py",
+          "retained_candidate": "baseline_zero.py",
+          "train_batch": 4,
+          "train_episodes": 50,
+          "train_n": 50,
+          "usage": {
+            "accounting_complete": true,
+            "by_role": {
+              "analysis": {
+                "input_tokens": 760308,
+                "output_tokens": 27278,
+                "total_tokens": 787586
+              },
+              "implementation": {
+                "input_tokens": 126551,
+                "output_tokens": 7511,
+                "total_tokens": 134062
+              },
+              "parent": {
+                "input_tokens": 601172,
+                "output_tokens": 17094,
+                "total_tokens": 618266
+              }
+            },
+            "cached_input_tokens_known": 763264,
+            "calls_with_cache_details": 51,
+            "calls_with_unknown_usage": 0,
+            "input_tokens": 1488031,
+            "output_tokens": 51883,
+            "recorded_upstream_attempts": 54,
+            "successful_calls": 51,
+            "total_tokens": 1539914
+          }
+        },
+        {
+          "accepted": false,
+          "baseline_score": 0.4,
+          "baseline_successes": 20,
+          "candidate": {
+            "changes": "New self-contained middleware agents/post_auth_id_grounding.py exporting AgentHarness and a no-op register(). ONE mechanism: append a single grounded next-step line to the observation returned by the identity-resolution tool. transform_request(request) extracts the conversation list (dict keys 'messages'/'input'/'history'/'chat', else the object's .messages attribute, else a COPY of the recorded public_history supplied earlier by transform_response) and, when the list is non-empty, builds an id->name map from assistant tool_calls. It then scans the tool-role messages and, for any whose content is NOT already carrying the marker and whose whole stripped text matches the bare-user-id pattern ^[A-Za-z][A-Za-z0-9]*_[A-Za-z][A-Za-z0-9]*_\\d{2,}$ (the exact shape find_user_id_* returns, e.g. 'yusuf_rossi_9620', 'sara_doe_496'; no other tool returns this shape), it appends '\\n[NEXT-STEP] You are authenticated as user '<uid>'. You do not yet know this user's order ids, and guessing, counting, or reusing an example id will fail. Call get_user_details(user_id='<uid>') now, then use exactly the order ids and payment method ids it returns for this user.' to that message's content in place (str concat, or a text part appended for list content). The appended sentence names NO literal placeholder id (previously it showed '(such as '#W0000000')'), so it does not re-anchor the model to the very placeholder it should stop copying; the mechanism is otherwise unchanged. A tool message whose call id maps to a name that does NOT start with 'find_user_id' is skipped; error results ('Error: User not found') never match the bare-id pattern and are left untouched. The marker '[NEXT-STEP]' makes the injection idempotent, so re-running on later turns is a no-op. Nothing else is changed: no messages added/removed, no system message or system field touched, no user/assistant message edited, no tool call or its arguments rewritten, no tool descriptions/implementations, budgets, user simulator or evaluator touched, no task names or task-specific data, no model/network/filesystem/subprocess access, no hidden state or cross-episode mutable state (the class keeps only public_context and a single overwritten _last_history), and every step is wrapped so any unexpected structure returns the request unchanged. transform_response records public_history for the fallback source and is otherwise a pure pass-through. register() stays a safe no-op.",
+            "expected_efficiency": "One ~45-token line appended to at most one observation per episode, only when the identity tool succeeds (39 of 50 batch_05 episodes). No extra model call. On affected episodes it should DECREASE turns and tokens by cutting the 10-call id-guessing loops (e.g. batch_05 task 4 and task 110 spend 10 identical get_order_details calls each) and the premature human transfers. Expected absolute pass-rate change on batch_05: +0.04 to +0.10 (0.40 -> ~0.44-0.50), coming from the 7 batch_05 failures in the authenticated-without-get_user_details cluster (tasks 1, 4, 22, 47, 82, 95, 110), with no predicted regression on the 103 passing episodes that already call get_user_details (the line merely restates their existing next step) and at most small perturbation risk on the handful of passing episodes that solve a task after authenticating without get_user_details (e.g. user supplied the ids directly).",
+            "hypothesis": "After the solver authenticates a user, its single dominant dead-end is that it never obtains the user's real order ids: it calls find_user_id_by_email / find_user_id_by_name_zip successfully, but then instead of calling get_user_details(user_id) it guesses or counts order ids ('#W0000000', '#W00000001'... , '#P0000000') or repeats the placeholder until too_many_errors, or gives up and transfers to a human. Across the six public retail baseline runs, 32 episodes authenticate successfully yet never call get_user_details (27 fail, only 5 pass), and of the 41 failures whose FIRST error is 'Order not found', 26 used an order id whose digits never appeared in any prior user or tool message. Because the failure is a missing, concrete next step at a known point in the conversation -- immediately after the identity tool returns the real user id -- injecting ONE grounded line into that tool's own observation (echo the resolved user id, tell it to call get_user_details(user_id=...) and to use exactly the order/payment ids that result returns, never guess/count/reuse an example id) will steer the very next action and raise the pass rate on this failure cluster, at negligible token cost.",
+            "import_path": "agents.post_auth_id_grounding:AgentHarness",
+            "name": "post_auth_id_grounding"
+          },
+          "candidate_infra_errors": 0,
+          "candidate_score": 0.34,
+          "candidate_successes": 17,
+          "iteration": 6,
+          "parent": "baseline_zero.py",
+          "retained_candidate": "baseline_zero.py",
+          "train_batch": 5,
+          "train_episodes": 50,
+          "train_n": 50,
+          "usage": {
+            "accounting_complete": true,
+            "by_role": {
+              "analysis": {
+                "input_tokens": 1042700,
+                "output_tokens": 29679,
+                "total_tokens": 1072379
+              },
+              "implementation": {
+                "input_tokens": 171231,
+                "output_tokens": 11690,
+                "total_tokens": 182921
+              },
+              "parent": {
+                "input_tokens": 2431618,
+                "output_tokens": 47391,
+                "total_tokens": 2479009
+              }
+            },
+            "cached_input_tokens_known": 2084608,
+            "calls_with_cache_details": 82,
+            "calls_with_unknown_usage": 0,
+            "input_tokens": 3645549,
+            "output_tokens": 88760,
+            "recorded_upstream_attempts": 83,
+            "successful_calls": 82,
+            "total_tokens": 3734309
+          }
+        }
+      ],
+      "telecom": [
+        {
+          "accepted": false,
+          "baseline_score": 0.3,
+          "baseline_successes": 15,
+          "candidate": {
+            "changes": "New module agents/device_action_handoff.py exporting AgentHarness and register() (register is a no-op). AgentHarness.transform_request is identity. AgentHarness.transform_response(response, public_history) inspects the model's own public output message: it knows the 13 native agent tool names as a static frozenset (_AGENT_TOOLS, mirroring source_view/native_tools.json). For any message-like object carrying a tool_calls list (dicts anywhere in the response, or an object with a tool_calls attribute), calls whose extracted name is not in _AGENT_TOOLS are removed. If valid native calls remain they are kept and other fields are left untouched; if none remain, the message's content is replaced by a plain-text request to the user (any pre-existing text is preserved and prefixed), tool_calls is set to [] so the turn is delivered as speech, and the call's name is humanised (underscores to spaces) with non-empty arguments appended as key=value details, capped at 4 steps. All of this is wrapped in try/except so the guard can never break an episode. No task identity, hidden state, schema discovery, or cross-episode mutable state.",
+            "expected_efficiency": "Public train baseline is accuracy 0.28 (14/50 successes). Replaying the 50 public train trajectories, the non-native tool-call class is the dominant error source: all 50 episodes open with at least one non-native call and the 14 too_many_errors terminations each end at exactly 10 'Tool not found' error tool-messages, which is ~87% of all 329 error tool-messages (~6.6 errors/episode). The guard removes that class (leaving ~0.9 errors/episode from genuinely malformed native calls), so too_many_errors should fall from 14/50 toward ~0 and pass rate should rise by roughly +0.06 to +0.16 absolute (0.28 -> ~0.34-0.44). Turn/token cost should stay roughly flat: the converted turn is still spent on one assistant message plus one user reply, it just asks the user to act instead of failing, and fewer episodes should hit the step ceiling because they are no longer killed by errors.",
+            "hypothesis": "Telecom episodes abort early because the solver emits tool calls for device-side actions (status bar, toggles, SIM reseat, reboot, speed test, app permissions, VPN, APN, network mode) that only the user's phone simulator owns; the runtime answers each with \"Tool '<name>' not found\", spending the fixed 10-error budget. If every tool call whose name is not one of the 13 native agent tools is rewritten into an ordinary user-facing request instead of being executed, that error class disappears, the error budget is preserved, and episodes that currently terminate with too_many_errors get to finish, raising pass rate.",
+            "import_path": "agents.device_action_handoff:AgentHarness",
+            "name": "device_action_handoff"
+          },
+          "candidate_infra_errors": 0,
+          "candidate_score": 0.24,
+          "candidate_successes": 12,
+          "iteration": 1,
+          "parent": "baseline_zero.py",
+          "retained_candidate": "baseline_zero.py",
+          "train_batch": 0,
+          "train_episodes": 50,
+          "train_n": 50,
+          "usage": {
+            "accounting_complete": true,
+            "by_role": {
+              "analysis": {
+                "input_tokens": 1289213,
+                "output_tokens": 35117,
+                "total_tokens": 1324330
+              },
+              "implementation": {
+                "input_tokens": 326952,
+                "output_tokens": 9775,
+                "total_tokens": 336727
+              },
+              "parent": {
+                "input_tokens": 639045,
+                "output_tokens": 23972,
+                "total_tokens": 663017
+              }
+            },
+            "cached_input_tokens_known": 1105280,
+            "calls_with_cache_details": 68,
+            "calls_with_unknown_usage": 0,
+            "input_tokens": 2255210,
+            "output_tokens": 68864,
+            "recorded_upstream_attempts": 68,
+            "successful_calls": 68,
+            "total_tokens": 2324074
+          }
+        },
+        {
+          "accepted": false,
+          "baseline_score": 0.32,
+          "baseline_successes": 16,
+          "candidate": {
+            "changes": "New module agents/device_action_delegation.py exporting AgentHarness and register() (register is a no-op; real tools, budgets, user simulator and evaluator are untouched). One focused mechanism -- keep the agent's actions inside its own toolset -- enforced shape-agnostically at both plugin boundaries via a single depth-first rewriter that walks any request/response (str/dict/list/tuple/plain-object public data attributes, cycle-safe, depth-first) and edits dicts/lists in place while rebuilding tuples and re-attaching frozen objects through object.__setattr__/model_copy so the change survives an unknown container shape. (1) transform_request: for any string carrying a stable native policy anchor ('What the user can do on their device' or 'Telecom Agent Policy') it appends, once (marker-guarded, idempotent), a <tool_use_rule> block stating that the agent may act only through its own schema tools, that all on-device reading/changing is the customer's job, that a tool call for such a step will be rejected, and that the agent should instead ask the customer to do the step one at a time in plain words and wait. (2) transform_response: for any message-like node (role in {system,user,assistant,tool} or having a content field) whose tool_calls list contains a name outside the 13-tool schema, non-native calls are dropped: if native calls remain only those are kept, otherwise the off-tool call(s) are turned into an ordinary spoken customer request (humanised name plus any arguments) with tool_calls cleared. Both hooks are wrapped in try/except so the guard can never break an episode. No task identity, hidden state, schema discovery, or cross-episode mutable state.",
+            "expected_efficiency": "Public train identity baseline is 0.30 (15/50, batch 00) / 0.32 (16/50, batch 01) with ~5.8-5.9 device-not-found errors per episode and 16-18/50 too_many_errors terminations (budget 10); errors anti-correlate strongly with reward (batch 01: >=8 errors -> 22 fail / 2 pass; <5 errors -> 7 pass / 4 fail), and the user simulator already executes device steps when asked in words. The injected rule is ~375 tokens appended once to the ~6.5k-token policy message, resent each of ~28 assistant turns => roughly +10k input tokens/episode (well under +2% of total input, <1.5% of the 32k window) with no new calls. Expect the device-not-found class to fall from ~5.8/episode toward ~0.5-1.5, too_many_errors from 16-18/50 toward ~1-4/50, and pass rate to rise by a LARGE margin, roughly +0.10 to +0.18 absolute (0.30 -> ~0.40-0.48), versus an eval noise floor of about +/-0.11. Mean assistant turns should stay flat to slightly lower (each removed device-call + apology + retry triple saves 2-3 turns that are re-spent on productive steps), so turns move within roughly -15% to +5%.",
+            "hypothesis": "Telecom episodes are lost because the solver emits tool calls for the customer-side, on-device actions that the support manual merely *describes* (reading the status bar / network / SIM / APN / VPN / app state, running a speed test or an MMS test, and toggling airplane mode, mobile data, data saver, roaming, Wi-Fi, network mode, APN, SIM, app permissions or the VPN). None of those names is in the agent's 13-tool schema, so the runtime answers every one with \"Tool '<name>' not found\", draining the fixed 10-error budget; that class is ~87% of all error messages and accounts for every too_many_errors termination. If the agent is told, on every request, that on-device steps belong to the customer and must be requested in plain language (and any such call that still slips through is converted into a spoken customer request), then misplaced-call errors collapse, the error budget is preserved, and episodes that currently die with too_many_errors get to finish -- raising pass rate.",
+            "import_path": "agents.device_action_delegation:AgentHarness",
+            "name": "device_action_delegation"
+          },
+          "candidate_infra_errors": null,
+          "candidate_score": null,
+          "candidate_successes": null,
+          "iteration": 2,
+          "parent": "baseline_zero.py",
+          "retained_candidate": "baseline_zero.py",
+          "train_batch": 1,
+          "train_episodes": 50,
+          "train_n": 50,
+          "usage": {
+            "accounting_complete": true,
+            "by_role": {
+              "analysis": {
+                "input_tokens": 914277,
+                "output_tokens": 29831,
+                "total_tokens": 944108
+              },
+              "implementation": {
+                "input_tokens": 119127,
+                "output_tokens": 7658,
+                "total_tokens": 126785
+              },
+              "parent": {
+                "input_tokens": 1631567,
+                "output_tokens": 48785,
+                "total_tokens": 1680352
+              }
+            },
+            "cached_input_tokens_known": 1332096,
+            "calls_with_cache_details": 59,
+            "calls_with_unknown_usage": 0,
+            "input_tokens": 2664971,
+            "output_tokens": 86274,
+            "recorded_upstream_attempts": 59,
+            "successful_calls": 59,
+            "total_tokens": 2751245
+          }
+        },
+        {
+          "accepted": false,
+          "baseline_score": 0.28,
+          "baseline_successes": 14,
+          "candidate": {
+            "changes": "New module agents/customer_device_tool_boundary.py exporting AgentHarness and register(). One focused mechanism -- keep the agent's actions inside its own toolset -- delivered the way a base model prompt would be: request-side injection plus a guarded native-LLMAgent patch of the same rule. transform_request appends a concise, general customer-device tool-boundary rule once (idempotent, marker-guarded <customer_device_tool_boundary>) to any message whose text carries a stable native policy anchor (\"What the user can do on their device\" or \"Telecom Agent Policy\"), preferring the system/developer message and handling both string content and list-of-text-parts; requests without the anchor are returned unchanged. register() (best-effort, wrapped in try/except) patches tau2.agent.llm_agent.LLMAgent so the rule also rides on the agent's own policy/system text: it wraps __init__ to rewrite any policy-valued instance attribute and wraps the system_prompt property getter, guarded by a class-level flag. transform_response is identity (this candidate fixes the request channel only; it never edits the model's own output). Every hook is wrapped in try/except so the guard can never break an episode. Real tools, budgets, user simulator and evaluator are untouched. No task identity, hidden state, schema discovery, new model calls, or cross-episode mutable state.",
+            "expected_efficiency": "Public train baseline (batch 2) is accuracy 0.28 (14/50 successes); the device-not-found \"Tool not found\" class dominates error tool-messages and accounts for the too_many_errors terminations that end at the 10-error budget, and errors anti-correlate strongly with reward. The injected rule is ~300 tokens appended once to the ~6.5k-token policy message and resent on each of ~28 assistant turns, i.e. roughly +8-10k input tokens/episode (about +1-2% of total input, well under the 32k window) with no new calls or turns of its own. Expect the device-not-found class to fall from several per episode toward ~0-1, too_many_errors to fall toward ~0-4/50, and pass rate to rise by roughly +0.06 to +0.16 absolute (0.28 -> ~0.34-0.44) versus an eval noise floor of about +/-0.11. Mean turns/tokens should stay flat to slightly lower, since each removed device-call + retry cycle is re-spent on the customer step being requested in words rather than on a rejected call.",
+            "hypothesis": "Telecom episodes die early because the solver emits tool calls for the customer's own on-device steps, which the native policy lists by name under \"What the user can do on their device\"; each such call is answered \"Tool not found\", and after the fixed 10-error budget the episode ends at reward 0. If the model is told, in front of every request, that it may act ONLY through the functions in its own tool list and that every device-side step belongs to the CUSTOMER and must be requested in plain words, then that misplaced-call class collapses, the error budget is preserved, and episodes that currently terminate with too_many_errors get to finish -- raising pass rate.",
+            "import_path": "agents.customer_device_tool_boundary:AgentHarness",
+            "name": "customer_device_tool_boundary"
+          },
+          "candidate_infra_errors": null,
+          "candidate_score": null,
+          "candidate_successes": null,
+          "iteration": 3,
+          "parent": "baseline_zero.py",
+          "retained_candidate": "baseline_zero.py",
+          "train_batch": 2,
+          "train_episodes": 50,
+          "train_n": 50,
+          "usage": {
+            "accounting_complete": true,
+            "by_role": {
+              "analysis": {
+                "input_tokens": 619176,
+                "output_tokens": 21613,
+                "total_tokens": 640789
+              },
+              "implementation": {
+                "input_tokens": 240129,
+                "output_tokens": 6829,
+                "total_tokens": 246958
+              },
+              "parent": {
+                "input_tokens": 1246630,
+                "output_tokens": 34857,
+                "total_tokens": 1281487
+              }
+            },
+            "cached_input_tokens_known": 846976,
+            "calls_with_cache_details": 51,
+            "calls_with_unknown_usage": 0,
+            "input_tokens": 2105935,
+            "output_tokens": 63299,
+            "recorded_upstream_attempts": 51,
+            "successful_calls": 51,
+            "total_tokens": 2169234
+          }
+        },
+        {
+          "accepted": false,
+          "baseline_score": 0.28,
+          "baseline_successes": 14,
+          "candidate": {
+            "changes": "New module agents/identifier_grounding_rule.py exporting AgentHarness and register() (a plain plugin object; not a subclass of anything). ONE mechanism -- ground every identifier argument in real data -- delivered on the agent's own public surface via three idempotent, individually-guarded channels that all carry the SAME short rule (marker <identifier_grounding>) plus a one-line tool-description reminder (marker [identifier-grounding]). (1) transform_request appends the rule once, in place, to any text carrying a stable native policy anchor (\"Telecom Agent Policy\" / \"What the user can do on their device\"): a bare string; a dict with a \"messages\" list or a bare list of message dicts (string content, or list-of-{\"type\":\"text\",\"text\":...} parts), preferring system/developer roles; or an object with a \"messages\"/\"content\" attribute edited in place via guarded setattr. It also runs a bounded, cycle-safe (id()-seen, depth<=4, <=200 items/container), never-raising walk over the request so any tool-schema dict (\"function\".\"name\") whose name is in the static identifier-taking tool set gets the one-line reminder. Objects are never rebuilt or re-typed; anything without an anchor is returned byte-identical. (2) transform_response is identity. (3) register() (best-effort, fully guarded, never raises, no-op when tau2 is absent) patches tau2.agent.llm_agent.LLMAgent once (class-level flag): it wraps __init__ and then runs the same bounded walk over the fresh instance so the rule rides on any anchor-bearing policy string (dict/list slot or guarded setattr) and the reminder rides on identifier-tool descriptions; it also wraps the system_prompt property getter (preserving setter/deleter/doc) and wraps a domain object's own public policy-named callables one level deep (marker-guarded, no double-wrap). Real tools, budgets, user simulator and evaluator are untouched. Standard library only; no task ids/names/corpus, hidden state, schema discovery at runtime, new model calls, filesystem/network access, sleep, prints, or cross-episode mutable state.",
+            "expected_efficiency": "Public train identity baseline is 0.28-0.32 (14-16/50) under a per-task noise floor near +/-0.11. The rule is ~330 tokens appended once to the ~6.5k-token policy message and resent on each of ~28 assistant turns, i.e. roughly +8-10k input tokens/episode (about +1-2% of total input, well inside the 32k window) with no new calls and no turns of its own. Identifier grounding targets a subset of the remaining error/turn waste (unresolvable-identifier calls and the re-asks/retries they trigger) rather than the whole error budget, so the expected pass-rate move is modest: roughly +0.03 to +0.10 absolute versus the identity baseline, with turns and tokens roughly flat (a removed fabricated-identifier call plus its retry is re-spent on obtaining and using the real value).",
+            "hypothesis": "Episodes are lost because the solver passes an identifier argument that is not grounded in the conversation -- a guessed, invented, or example/placeholder value used as a customer id, line id, bill id, plan id, device id, or phone number, instead of a value the customer gave or an earlier tool call returned. Such a value does not resolve, so the call returns an error, the fixed error budget drains, and the issue is left unsolved (replaying the four public train batches: episodes that never pass an ungrounded identifier pass at 0.47, while episodes with at least one ungrounded identifier pass at 0.07, and the top action-side error is a fabricated customer id). If the model is told, in front of every request and alongside each identifier-taking tool, that an identifier argument must be an exact value the customer gave or an earlier tool call returned, and that when the identifier is not yet known it must first ask the customer or call the lookup tool and then copy the exact value, then that unresolvable-identifier class collapses, the error budget is preserved, and currently failing episodes can finish -- raising pass rate.",
+            "import_path": "agents.identifier_grounding_rule:AgentHarness",
+            "name": "identifier_grounding_rule"
+          },
+          "candidate_infra_errors": null,
+          "candidate_score": null,
+          "candidate_successes": null,
+          "iteration": 4,
+          "parent": "baseline_zero.py",
+          "retained_candidate": "baseline_zero.py",
+          "train_batch": 3,
+          "train_episodes": 50,
+          "train_n": 50,
+          "usage": {
+            "accounting_complete": true,
+            "by_role": {
+              "analysis": {
+                "input_tokens": 1407135,
+                "output_tokens": 47632,
+                "total_tokens": 1454767
+              },
+              "implementation": {
+                "input_tokens": 405872,
+                "output_tokens": 13043,
+                "total_tokens": 418915
+              },
+              "parent": {
+                "input_tokens": 2661546,
+                "output_tokens": 37322,
+                "total_tokens": 2698868
+              }
+            },
+            "cached_input_tokens_known": 3035392,
+            "calls_with_cache_details": 75,
+            "calls_with_unknown_usage": 0,
+            "input_tokens": 4474553,
+            "output_tokens": 97997,
+            "recorded_upstream_attempts": 75,
+            "successful_calls": 75,
+            "total_tokens": 4572550
+          }
+        },
+        {
+          "accepted": false,
+          "baseline_score": 0.28,
+          "baseline_successes": 14,
+          "candidate": {
+            "changes": "New module agents/off_schema_action_routing.py exporting AgentHarness and register() (register returns None and patches nothing; the class is a plain object, not a subclass). Channel 1 (transform_response, primary): a shape-agnostic, cycle-safe (id()-seen) descent over the model's own reply finds message-like containers holding a tool_calls list, following only the choices/message keys -- LiteLLM ModelResponse-like response.choices[i].message.tool_calls (the exact shape a prior round failed to match, with choices/message as dicts OR objects), a plain dict with top-level tool_calls, a dict {\"choices\": [...]}, a dict {\"message\": {...}}, and any list/tuple of those. Each container's calls are split into native (name in the 13-tool frozenset mirroring source_view/native_tools.json) and off-schema: if native calls remain only those are kept; if none remain, tool_calls is set to [] (content is only rewritten if that set succeeds) and content becomes a short plain-words customer request (existing non-empty text preserved and appended), capped at 4 steps. Rendered arguments keep only short non-identifier hints (e.g. mode, permission, app_name) and omit id/phone/number/sim/imei keys and 6+ digit strings so a fabricated placeholder is never echoed. Channel 2 (transform_request fallback): appends once, marker-guarded, a ~150-token general rule to the text of the message carrying a native policy anchor (\"Telecom Agent Policy\" / \"What the user can do on their device\"), preferring role system/developer, handling a dict with a messages list, a bare list of message dicts, a single message dict, message objects with .role/.content (guarded setattr), string content and list-of-{\"type\":\"text\",...} parts; requests without the anchor are returned unchanged. Channel 3 (same request hook): only when channel 1 did not intercept an off-schema call -- evidenced by a tool-role message reporting an unknown/unavailable tool -- one marker-guarded one-line reminder is appended; other errors (e.g. \"Customer with ID ... not found\") are left untouched. Guarded get/set helpers work on dicts and plain objects (plain setattr then object.__setattr__). Every hook is individually try/except, never raises, and returns the original object on any problem. Standard library only (json, re); no task identity/names, hidden state, schema discovery, new model/network/subprocess/filesystem calls, prints, or cross-episode mutable state.",
+            "expected_efficiency": "Public train identity baseline is 0.28-0.32 (14-16/50) under a per-task noise floor near +/-0.11. The non-native tool-call class dominates error tool-messages and accounts for the too_many_errors terminations that end at the 10-error budget; errors anti-correlate strongly with reward and the user simulator already performs device steps when asked in words. Channel 1 removes that class at the output boundary (unlike a prompt-only rule it does not rely on the model obeying), so expect too_many_errors to fall from ~14-18/50 toward ~0-4/50 and pass rate to rise by roughly +0.06 to +0.16 absolute (0.28 -> ~0.34-0.44). Cost stays roughly flat: the converted turn is still one assistant message plus one user reply, so turns move within about -15% to +5%, and channel 2's rule is ~150 tokens appended once to the ~6.5k-token policy message (~+4-5k input tokens/episode, about +1% of total input, well inside the 32k window) with no new calls of its own.",
+            "hypothesis": "Telecom episodes abort early because the solver emits tool calls for customer-device steps (status bar read, toggles, SIM reseat, reboot, connectivity/messaging test, app permissions, VPN, APN, network mode) that only the user's phone owns; the runtime answers each with \"Tool '<name>' not found\", spending the fixed 10-error budget until the episode ends unsolved. If every tool call whose name is not one of the 13 native agent tools is converted, on the way back from the model, into an ordinary spoken customer request -- and, when such a call still executes, a one-line reminder is planted in the error tool-message -- then that misplaced-call class collapses, the error budget is preserved, and episodes that currently die with too_many_errors get to finish, raising pass rate.",
+            "import_path": "agents.off_schema_action_routing:AgentHarness",
+            "name": "off_schema_action_routing"
+          },
+          "candidate_infra_errors": null,
+          "candidate_score": null,
+          "candidate_successes": null,
+          "iteration": 5,
+          "parent": "baseline_zero.py",
+          "retained_candidate": "baseline_zero.py",
+          "train_batch": 4,
+          "train_episodes": 50,
+          "train_n": 50,
+          "usage": {
+            "accounting_complete": true,
+            "by_role": {
+              "analysis": {
+                "input_tokens": 2049556,
+                "output_tokens": 41352,
+                "total_tokens": 2090908
+              },
+              "implementation": {
+                "input_tokens": 718922,
+                "output_tokens": 27284,
+                "total_tokens": 746206
+              },
+              "parent": {
+                "input_tokens": 2454874,
+                "output_tokens": 49763,
+                "total_tokens": 2504637
+              }
+            },
+            "cached_input_tokens_known": 3267200,
+            "calls_with_cache_details": 100,
+            "calls_with_unknown_usage": 0,
+            "input_tokens": 5223352,
+            "output_tokens": 118399,
+            "recorded_upstream_attempts": 100,
+            "successful_calls": 100,
+            "total_tokens": 5341751
+          }
+        },
+        {
+          "accepted": false,
+          "baseline_score": 0.3,
+          "baseline_successes": 15,
+          "candidate": {
+            "changes": "New module agents/grounded_identifier_gate.py exporting AgentHarness and register() (register returns None and patches nothing). ONE mechanism, delivered on ONE channel: transform_response (transform_request is pure identity, so the agent's prompt, tool schema, budgets, user simulator and evaluator are untouched and no injected rule relies on model obedience). (1) Gated key set: a static frozenset {id, customer_id, line_id, bill_id, plan_id, device_id, phone_number, dob, full_name, name} plus ANY argument key ending in \"_id\"; full_name/name are added (a refinement over the stated set) because a fabricated name lookup is the same failure class -- it silently returns []. (2) Grounding source: the public_history argument only, scanned for role==\"user\" content and role==\"tool\" content that does NOT begin with \"error\"; the model's own assistant text and every error tool-message are deliberately excluded so a value the solver invented earlier can never ground itself. (3) Normalization + fallback: value and source are lowercased with every non-alphanumeric stripped; the value is grounded iff its normalized form (len>=2) is a substring of the normalized source, OR its concatenated digit run (len>=4) is a substring of the normalized source, OR that digit signature occurs as a whole token. Values shorter than 2 normalized chars are treated as grounded (never over-drop). (4) Drop-and-ask: a shape-agnostic, cycle-safe walk (dict, list/tuple, plain object; LiteLLM ModelResponse choices[i].message.tool_calls, a dict with top-level tool_calls, {\"choices\":[...]}, {\"message\":{...}}, and any list/tuple of those) finds every message-like container carrying a tool_calls list and splits its native calls (name in the static 13-tool frozenset mirroring source_view/native_tools.json) into grounded and ungrounded; grounded calls are kept, ungrounded ones are removed. If some grounded calls remain, only they are executed (tool_calls set to that list). If none remain, the container's tool_calls is set to [] and content becomes the existing content (preserved) plus a spoken request of the wording class: \"I can't complete that yet -- I don't have the account detail it needs.  Could you please tell me the <humanised missing field names> for your account? If you don't have that to hand, just give me the phone number on your account (or your full name) and I'll look it up first, then continue from there.\" -- i.e. it asks for the missing value by plain name and, when that is not something a customer would know, offers the account-lookup keys (phone number / full name) as the fallback. (5) Off-schema (device-side) calls, non-native names, and calls with no gated arguments are left exactly as they are (a different error class belongs to a different candidate). (6) Defensive: every hook is individually try/except and never raises; if the public history is empty, absent, or of an unrecognised shape (no user/tool text found) the gate returns the response unchanged rather than guessing. Standard library only (json, re); no task identity/names, no hidden state or answers, no task-ID tables, no schema discovery at runtime, no new model/network/subprocess/filesystem calls, no prints, no cross-episode mutable state.",
+            "expected_efficiency": "Public train identity baseline is 0.28-0.32 (88/300 pooled = 0.293) under a per-task noise floor near +/-0.11. Replaying the six public train batches: ~18-24 of 50 episodes per batch (128/300) contain at least one native call with an ungrounded gated identifier, and those episodes pass at 0.11 (14/128) versus 0.45 (74/172) for clean episodes -- a real, large stratified gap. The gate's trigger is precise: of 270 flagged native calls only 42 did not error, and all 42 were get_customer_by_name returning [] from a fabricated dob/name (i.e. genuine silent failures, not successes), so the gate never drops a call that actually returns data. The mechanism does not touch the dominant off-schema device-error class, which is not binding (reward-1 episodes still average 4.3 device \"Tool not found\" errors, and the only evaluated device-side candidate scored 0.24 versus a 0.30 baseline). Realistic reach: only 56 flagged too_many_errors episodes would survive the 10-error ceiling if their identifier errors were removed, and the fabrication usually appears late (~msg 70 of ~90) next to heavy device confusion, so the conversion is partial; expect pass rate to rise roughly +0.02 to +0.08 absolute (0.28-0.32 -> ~0.30-0.40), i.e. at or just above the noise floor -- NOT the full +0.13 of the stratified gap. Turn/token cost is essentially flat: transform_request is identity so there is no prompt/token inflation; each gated turn still costs one assistant message plus one user reply, only its content changes from an unresolvable call + error to a question, and errors per flagged episode should fall by ~1-2 (customer-not-found error messages 207 -> toward ~0), so total tokens and turns should move within about -2% to +3%.",
+            "hypothesis": "Telecom episodes are lost because the solver passes INVENTED identifier arguments to its own account/service tools -- literal placeholders (customer_id/line_id = 1234567890 / 9876543210 / \"line_1234567890\", \"user's customer id\", \"user's line id\"), example-format ids (C1001, L1001), or guessed dates of birth (1970-01-01) -- that are not present in the conversation; the runtime answers \"Customer with ID ... not found\" (or an empty match list for a name search), the turn is a dead end, and 175 of the 207 measured such errors are followed by the solver giving up on tools entirely. If, at the response boundary, every native call whose gated identifier argument is not grounded in the public conversation (user utterances + non-error tool results, with digit-normalization and a digit-signature fallback) is dropped and that turn is instead delivered as a plain-language request for the missing account detail, then the unresolvable-identifier class collapses and flagged episodes (which currently pass at ~0.11 versus ~0.45 for unflagged) should convert toward the clean rate, raising pass rate.",
+            "import_path": "agents.grounded_identifier_gate:AgentHarness",
+            "name": "grounded_identifier_gate"
+          },
+          "candidate_infra_errors": null,
+          "candidate_score": null,
+          "candidate_successes": null,
+          "iteration": 6,
+          "parent": "baseline_zero.py",
+          "retained_candidate": "baseline_zero.py",
+          "train_batch": 5,
+          "train_episodes": 50,
+          "train_n": 50,
+          "usage": {
+            "accounting_complete": true,
+            "by_role": {
+              "analysis": {
+                "input_tokens": 2404466,
+                "output_tokens": 51253,
+                "total_tokens": 2455719
+              },
+              "implementation": {
+                "input_tokens": 152091,
+                "output_tokens": 16693,
+                "total_tokens": 168784
+              },
+              "parent": {
+                "input_tokens": 1501066,
+                "output_tokens": 38368,
+                "total_tokens": 1539434
+              }
+            },
+            "cached_input_tokens_known": 2829440,
+            "calls_with_cache_details": 75,
+            "calls_with_unknown_usage": 0,
+            "input_tokens": 4057623,
+            "output_tokens": 106314,
+            "recorded_upstream_attempts": 75,
+            "successful_calls": 75,
+            "total_tokens": 4163937
+          }
+        }
+      ]
+    }
+  },
+  "note": "Not identical selection or successive train batches; label each batch/denominator. No test-selected best model; final retained snapshots are tested once.",
+  "test_results_in_optimizer": false
+}

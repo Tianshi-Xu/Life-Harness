@@ -1,0 +1,17 @@
+type: tool
+name: get_details_by_id
+description: 'Retrieves the details for a given ID.
+
+
+  The ID must be a valid ID for a Customer, Line, Device, Bill, or Plan.'
+input_schema:
+  properties:
+    id:
+      description: The ID of the object to retrieve.
+      title: Id
+      type: string
+  required:
+  - id
+  title: parameters
+  type: object
+disable_parallel: true

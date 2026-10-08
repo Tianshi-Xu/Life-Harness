@@ -1,0 +1,26 @@
+{
+  "inherited_optimizer_tokens": 47439218,
+  "optimizer_calls_replayed": 0,
+  "parent": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_taubench_airline_retail_six_20261007_layout_resume",
+  "recovered_incumbent": {
+    "accuracy": 0.55,
+    "infra_errors": 1,
+    "n": 60,
+    "successes": 33
+  },
+  "solver_or_simulator_calls_replayed": 0,
+  "source_files": {
+    "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_taubench_airline_retail_six_20261007_layout_resume/airline/evals/incumbent_03/results.json": "4dc1caee93b14e0556f3c32045d25129c14f8196618328043a41d0ba76c92b7e",
+    "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_taubench_airline_retail_six_20261007_layout_resume/airline/state.json": "81b7652f8b37ff5af5f33a3ba8adb688dd055d2e5cc7c1c26d279388e6c9ad80",
+    "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_taubench_airline_retail_six_20261007_layout_resume/frozen_sources.json": "7e84c958d49411d8bce5fc1b8e863f73d6669c5e10bc97aa9c84018232ea7356",
+    "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_taubench_airline_retail_six_20261007_layout_resume/ledgers/mr_requests.jsonl": "05ac4f40831e1bb51727544d18663ceef1d2a78ff0393444a49d37d0720c2d74",
+    "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_taubench_airline_retail_six_20261007_layout_resume/protocol.json": "d16c2e7a4293c9dfea7dc869be6dbd12af6e01f77a514a1c4d832a55a2cc2875",
+    "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_taubench_airline_retail_six_20261007_layout_resume/retail/state.json": "8a450888ed1c6c6c31a5a1cbcf8e11e7b58d9fb2540f008b6f0ea0d0454281f1",
+    "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_taubench_airline_retail_six_20261007_trace_resume/inherited_optimizer_ledger.json": "9345c51fa1c5b1b84eaf64372782b2ac3e146da8bfb6558412db8ae4ad0b7797",
+    "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_taubench_airline_retail_six_20261007_trace_resume/protocol.json": "b0a947d495d530ed095a61ab725f5dbcf24dbf1d49662aa0cc8236f3c66cafa6"
+  },
+  "state_hashes_unchanged": {
+    "airline": true,
+    "retail": true
+  }
+}

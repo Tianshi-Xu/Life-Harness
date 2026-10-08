@@ -1,0 +1,954 @@
+{
+  "domains": {
+    "airline": {
+      "ahe": {
+        "accuracy": 0.35,
+        "domain": "airline",
+        "episodes": 20,
+        "infra_errors": 0,
+        "missing_episodes": 0,
+        "n": 20,
+        "per_task": {
+          "13": [
+            0.0
+          ],
+          "16": [
+            0.0
+          ],
+          "18": [
+            0.0
+          ],
+          "19": [
+            0.0
+          ],
+          "2": [
+            0.0
+          ],
+          "22": [
+            1.0
+          ],
+          "24": [
+            0.0
+          ],
+          "25": [
+            1.0
+          ],
+          "26": [
+            1.0
+          ],
+          "29": [
+            0.0
+          ],
+          "30": [
+            0.0
+          ],
+          "31": [
+            1.0
+          ],
+          "32": [
+            1.0
+          ],
+          "35": [
+            0.0
+          ],
+          "37": [
+            0.0
+          ],
+          "44": [
+            0.0
+          ],
+          "45": [
+            0.0
+          ],
+          "48": [
+            1.0
+          ],
+          "6": [
+            0.0
+          ],
+          "8": [
+            1.0
+          ]
+        },
+        "round": 6,
+        "split": "test",
+        "successes": 7
+      },
+      "life": {
+        "accuracy": 0.4,
+        "agent_max_tokens": 4096,
+        "agent_temperature": 0.0,
+        "agent_token_count": 2158839,
+        "agent_tokens": {
+          "avg_completion_per_sim": 1687,
+          "avg_prompt_per_sim": 106255,
+          "total": 2158839,
+          "total_completion": 33746,
+          "total_prompt": 2125093
+        },
+        "average_reward": 0.4,
+        "domain": "airline",
+        "harness_enabled": false,
+        "harness_h2": false,
+        "harness_h2_selected": false,
+        "harness_h3": false,
+        "harness_h3_selected": false,
+        "harness_h4": false,
+        "harness_h4_selected": false,
+        "harness_h5": false,
+        "harness_h5_selected": false,
+        "harness_h5_top_k": null,
+        "harness_master_enabled": false,
+        "harness_plugin": null,
+        "infra_errors": 0,
+        "k": 1,
+        "kb_top_k": null,
+        "label": "airline_test",
+        "life_interface": {
+          "adapter": "taubench",
+          "adapter_sha256": "df60601fb275d3a8d2ef69c232097f570b892aad7cfbfb4aecf8b55272ba36b5",
+          "base_session_sha256": "1b3de136b16ce92f66484560dbc0c9bd899e916cf0f47615c93faf27b9bb2b18",
+          "chain_manifest_sha256": "ef3018c8eaa78cba1b852bdc6ab5087b6f11fd084fec890996f123f7aea5d2c7",
+          "common_sources": {
+            "/mnt/data/xts/harness/Life-Harness/meta/HARNESS_INTERFACE.md": "032ea86175982afe600ac9bcebdc5f10d44fae3fbafbac15f480f3fb416b9828",
+            "/mnt/data/xts/harness/Life-Harness/meta/environment_state.py": "f54e9cbf5c68249f4460ec68c56c47140651b86a2023a306a5e8271fcd193008",
+            "/mnt/data/xts/harness/Life-Harness/meta/harness_hooks.py": "8525b0fd941602677150da293319e1db44c23726da68219f180124e63f432ca0"
+          },
+          "domain": "airline",
+          "environment_state_contract": "detached business-db JSON; refreshed before model/action; no write-back",
+          "interface_version": "life-h2345-unified-v2",
+          "native_agent_sha256": "d13412ff502859f0ef0492af0128f1b2666be32640057ba8e076d2602af084d8",
+          "native_cli_sha256": "538e829b3fd90f01d44701461939e3863a820ea369361e176feefcdda802348e",
+          "native_session_sha256": "1bfa5e2219beaa8b145fb642255fb5eeadf9fa919bcadfd7121f0dffc4810ba7",
+          "public_context_fields": {
+            "airline": [
+              "instruction",
+              "policy"
+            ],
+            "alfworld": [
+              "instruction"
+            ],
+            "dbbench": [
+              "add_description",
+              "description",
+              "evidence",
+              "table",
+              "type"
+            ],
+            "retail": [
+              "instruction",
+              "policy"
+            ],
+            "telecom": [
+              "instruction",
+              "policy"
+            ],
+            "webshop": [
+              "instruction"
+            ]
+          },
+          "session_options": {
+            "h2_preserve_raw_history": false,
+            "h4_message_prefix": "[H4] ",
+            "h4_persistent": true,
+            "h5_message_prefix": "\n\nProcedural guidance:\n"
+          },
+          "sources": {
+            "INTERFACE.md": "ee38328ae8e4a7c53fd5a127a7321c570acd7dc6213e0b77747ab5644374cf97",
+            "__init__.py": "c34c30a3223592a95bfe0d993dddfc0e1460efcadf22b447d99cfbd038d89023",
+            "contract.py": "1d9d1727380862c66ac5602bcd6f7b3168fd144728be352c3bc8d201631dfffc",
+            "runtime.py": "9944580a5b02ff08bc734eea84a20b4ae9ce566e894eb9283929a4db6fdb44bd",
+            "templates/h2.py": "44ecf5b7d6cf51c08cf1a928083509f7c3f5866e561d22436a5cbc5a1fe6fbae",
+            "templates/h3.py": "53a4115bec7d842717ad86bd8e05d25c2e5ecea4f42c6635f0db9d07c39da43c",
+            "templates/h4.py": "0d5ee1a4433e39d842b6d5b0323d180aa32ea619b203b4dfb89d4a4cb1011279",
+            "templates/h5.py": "0994592350d6f8139c54b49b70c49ca5602f4ab1a72ddfb26fab5062dde6f761"
+          }
+        },
+        "malicious_user": false,
+        "malicious_user_prompt": null,
+        "n": 20,
+        "nl_assertions_llm": null,
+        "pass@k": 0.4,
+        "pass^k": 0.4,
+        "per_task": {
+          "13": 1,
+          "16": 0,
+          "18": 0,
+          "19": 0,
+          "2": 1,
+          "22": 0,
+          "24": 0,
+          "25": 0,
+          "26": 1,
+          "29": 0,
+          "30": 0,
+          "31": 1,
+          "32": 1,
+          "35": 0,
+          "37": 1,
+          "44": 0,
+          "45": 0,
+          "48": 1,
+          "6": 1,
+          "8": 0
+        },
+        "per_task_pass@k": {
+          "13": true,
+          "16": false,
+          "18": false,
+          "19": false,
+          "2": true,
+          "22": false,
+          "24": false,
+          "25": false,
+          "26": true,
+          "29": false,
+          "30": false,
+          "31": true,
+          "32": true,
+          "35": false,
+          "37": true,
+          "44": false,
+          "45": false,
+          "48": true,
+          "6": true,
+          "8": false
+        },
+        "per_task_pass^k": {
+          "13": true,
+          "16": false,
+          "18": false,
+          "19": false,
+          "2": true,
+          "22": false,
+          "24": false,
+          "25": false,
+          "26": true,
+          "29": false,
+          "30": false,
+          "31": true,
+          "32": true,
+          "35": false,
+          "37": true,
+          "44": false,
+          "45": false,
+          "48": true,
+          "6": true,
+          "8": false
+        },
+        "policy_top_k": 3,
+        "retrieve_policy": false,
+        "retrieve_policy_selected": false,
+        "reward_by_basis": {
+          "RewardType.COMMUNICATE": 0.95,
+          "RewardType.DB": 0.4
+        },
+        "split": "test",
+        "successes": 8,
+        "total_simulations": 20,
+        "total_token_count": 2541273,
+        "total_tokens": {
+          "total": 2541273,
+          "total_completion": 92715,
+          "total_prompt": 2448558
+        },
+        "user_api_base": "http://127.0.0.1:38837/v1/accounting/eyJleHBlcmltZW50IjoibGlmZV90YXViZW5jaF9haXJsaW5lX3JldGFpbF9zaXhfMjAyNjEwMDdfdHJhY2VfcmVzdW1lIiwiZG9tYWluIjoiYWlybGluZSIsInJvdW5kIjo2LCJyb2xlIjoidXNlcl9zaW11bGF0b3IifQ",
+        "user_api_key_env": "OPENAI_API_KEY",
+        "user_disable_thinking": false,
+        "user_enable_thinking": true,
+        "user_max_tokens": 4096,
+        "user_reasoning_enabled": false,
+        "user_temperature": "api_default",
+        "user_token_count": 382434,
+        "user_tokens": {
+          "avg_completion_per_sim": 2948,
+          "avg_prompt_per_sim": 16173,
+          "total": 382434,
+          "total_completion": 58969,
+          "total_prompt": 323465
+        }
+      },
+      "meta": {
+        "accuracy": 0.2,
+        "config": {
+          "candidate_sha256": "1ce7925678a7f1c98bb7a331ff8ffe9a9de0961762915ff97058e33f96dfe2ae",
+          "domain": "airline",
+          "solver_output": 4096,
+          "solver_total_context": 32768,
+          "split": "test",
+          "task_ids": [
+            "2",
+            "6",
+            "8",
+            "13",
+            "16",
+            "18",
+            "19",
+            "22",
+            "24",
+            "25",
+            "26",
+            "29",
+            "30",
+            "31",
+            "32",
+            "35",
+            "37",
+            "44",
+            "45",
+            "48"
+          ],
+          "trials": 1
+        },
+        "episodes": 20,
+        "infra_errors": 0,
+        "missing_episodes": 0,
+        "n": 20,
+        "native_results_sha256": "fed5f40d5af892b36383dd708230df706b2b2945559ada00a5e919222eb70057",
+        "per_task": {
+          "13": [
+            1.0
+          ],
+          "16": [
+            1.0
+          ],
+          "18": [
+            0.0
+          ],
+          "19": [
+            0.0
+          ],
+          "2": [
+            1.0
+          ],
+          "22": [
+            0.0
+          ],
+          "24": [
+            0.0
+          ],
+          "25": [
+            1.0
+          ],
+          "26": [
+            0.0
+          ],
+          "29": [
+            0.0
+          ],
+          "30": [
+            0.0
+          ],
+          "31": [
+            0.0
+          ],
+          "32": [
+            0.0
+          ],
+          "35": [
+            0.0
+          ],
+          "37": [
+            0.0
+          ],
+          "44": [
+            0.0
+          ],
+          "45": [
+            0.0
+          ],
+          "48": [
+            0.0
+          ],
+          "6": [
+            0.0
+          ],
+          "8": [
+            0.0
+          ]
+        },
+        "plugin_hash": "1ce7925678a7f1c98bb7a331ff8ffe9a9de0961762915ff97058e33f96dfe2ae",
+        "split": "test",
+        "successes": 4,
+        "user_model": "openai/qwen3.8-flash"
+      },
+      "note": "fixed TRAIN-selected final snapshot, not TEST-selected",
+      "published_life_reference": 0.6
+    },
+    "retail": {
+      "ahe": {
+        "accuracy": 0.3,
+        "domain": "retail",
+        "episodes": 40,
+        "infra_errors": 0,
+        "missing_episodes": 0,
+        "n": 40,
+        "per_task": {
+          "100": [
+            0.0
+          ],
+          "101": [
+            0.0
+          ],
+          "102": [
+            1.0
+          ],
+          "108": [
+            0.0
+          ],
+          "111": [
+            0.0
+          ],
+          "12": [
+            1.0
+          ],
+          "17": [
+            1.0
+          ],
+          "18": [
+            0.0
+          ],
+          "26": [
+            1.0
+          ],
+          "27": [
+            0.0
+          ],
+          "32": [
+            0.0
+          ],
+          "33": [
+            0.0
+          ],
+          "36": [
+            0.0
+          ],
+          "38": [
+            1.0
+          ],
+          "39": [
+            1.0
+          ],
+          "40": [
+            0.0
+          ],
+          "42": [
+            0.0
+          ],
+          "45": [
+            0.0
+          ],
+          "49": [
+            0.0
+          ],
+          "5": [
+            0.0
+          ],
+          "51": [
+            1.0
+          ],
+          "53": [
+            0.0
+          ],
+          "55": [
+            1.0
+          ],
+          "56": [
+            0.0
+          ],
+          "60": [
+            0.0
+          ],
+          "61": [
+            0.0
+          ],
+          "62": [
+            0.0
+          ],
+          "64": [
+            0.0
+          ],
+          "65": [
+            1.0
+          ],
+          "68": [
+            0.0
+          ],
+          "70": [
+            0.0
+          ],
+          "71": [
+            1.0
+          ],
+          "74": [
+            0.0
+          ],
+          "77": [
+            1.0
+          ],
+          "79": [
+            1.0
+          ],
+          "86": [
+            0.0
+          ],
+          "9": [
+            0.0
+          ],
+          "90": [
+            0.0
+          ],
+          "94": [
+            0.0
+          ],
+          "97": [
+            0.0
+          ]
+        },
+        "round": 6,
+        "split": "test",
+        "successes": 12
+      },
+      "life": {
+        "accuracy": 0.5,
+        "agent_max_tokens": 4096,
+        "agent_temperature": 0.0,
+        "agent_token_count": 4949823,
+        "agent_tokens": {
+          "avg_completion_per_sim": 1359,
+          "avg_prompt_per_sim": 122386,
+          "total": 4949823,
+          "total_completion": 54367,
+          "total_prompt": 4895456
+        },
+        "average_reward": 0.5,
+        "domain": "retail",
+        "harness_enabled": false,
+        "harness_h2": false,
+        "harness_h2_selected": false,
+        "harness_h3": false,
+        "harness_h3_selected": false,
+        "harness_h4": false,
+        "harness_h4_selected": false,
+        "harness_h5": false,
+        "harness_h5_selected": false,
+        "harness_h5_top_k": null,
+        "harness_master_enabled": false,
+        "harness_plugin": null,
+        "infra_errors": 0,
+        "k": 1,
+        "kb_top_k": null,
+        "label": "retail_test",
+        "life_interface": {
+          "adapter": "taubench",
+          "adapter_sha256": "df60601fb275d3a8d2ef69c232097f570b892aad7cfbfb4aecf8b55272ba36b5",
+          "base_session_sha256": "1b3de136b16ce92f66484560dbc0c9bd899e916cf0f47615c93faf27b9bb2b18",
+          "chain_manifest_sha256": "1e542bf55ed3e01965016d958bf805ba8e7105ae70adb2065258adceefe63548",
+          "common_sources": {
+            "/mnt/data/xts/harness/Life-Harness/meta/HARNESS_INTERFACE.md": "032ea86175982afe600ac9bcebdc5f10d44fae3fbafbac15f480f3fb416b9828",
+            "/mnt/data/xts/harness/Life-Harness/meta/environment_state.py": "f54e9cbf5c68249f4460ec68c56c47140651b86a2023a306a5e8271fcd193008",
+            "/mnt/data/xts/harness/Life-Harness/meta/harness_hooks.py": "8525b0fd941602677150da293319e1db44c23726da68219f180124e63f432ca0"
+          },
+          "domain": "retail",
+          "environment_state_contract": "detached business-db JSON; refreshed before model/action; no write-back",
+          "interface_version": "life-h2345-unified-v2",
+          "native_agent_sha256": "d13412ff502859f0ef0492af0128f1b2666be32640057ba8e076d2602af084d8",
+          "native_cli_sha256": "538e829b3fd90f01d44701461939e3863a820ea369361e176feefcdda802348e",
+          "native_session_sha256": "1bfa5e2219beaa8b145fb642255fb5eeadf9fa919bcadfd7121f0dffc4810ba7",
+          "public_context_fields": {
+            "airline": [
+              "instruction",
+              "policy"
+            ],
+            "alfworld": [
+              "instruction"
+            ],
+            "dbbench": [
+              "add_description",
+              "description",
+              "evidence",
+              "table",
+              "type"
+            ],
+            "retail": [
+              "instruction",
+              "policy"
+            ],
+            "telecom": [
+              "instruction",
+              "policy"
+            ],
+            "webshop": [
+              "instruction"
+            ]
+          },
+          "session_options": {
+            "h2_preserve_raw_history": false,
+            "h4_message_prefix": "[H4] ",
+            "h4_persistent": true,
+            "h5_message_prefix": "\n\nProcedural guidance:\n"
+          },
+          "sources": {
+            "INTERFACE.md": "ee38328ae8e4a7c53fd5a127a7321c570acd7dc6213e0b77747ab5644374cf97",
+            "__init__.py": "c34c30a3223592a95bfe0d993dddfc0e1460efcadf22b447d99cfbd038d89023",
+            "contract.py": "1d9d1727380862c66ac5602bcd6f7b3168fd144728be352c3bc8d201631dfffc",
+            "runtime.py": "9944580a5b02ff08bc734eea84a20b4ae9ce566e894eb9283929a4db6fdb44bd",
+            "templates/h2.py": "44ecf5b7d6cf51c08cf1a928083509f7c3f5866e561d22436a5cbc5a1fe6fbae",
+            "templates/h3.py": "53a4115bec7d842717ad86bd8e05d25c2e5ecea4f42c6635f0db9d07c39da43c",
+            "templates/h4.py": "0d5ee1a4433e39d842b6d5b0323d180aa32ea619b203b4dfb89d4a4cb1011279",
+            "templates/h5.py": "0994592350d6f8139c54b49b70c49ca5602f4ab1a72ddfb26fab5062dde6f761"
+          }
+        },
+        "malicious_user": false,
+        "malicious_user_prompt": null,
+        "n": 40,
+        "nl_assertions_llm": "openai/qwen3.8-flash",
+        "pass@k": 0.5,
+        "pass^k": 0.5,
+        "per_task": {
+          "100": 0,
+          "101": 0,
+          "102": 0,
+          "108": 1,
+          "111": 0,
+          "12": 1,
+          "17": 0,
+          "18": 1,
+          "26": 1,
+          "27": 0,
+          "32": 1,
+          "33": 0,
+          "36": 0,
+          "38": 0,
+          "39": 0,
+          "40": 0,
+          "42": 1,
+          "45": 1,
+          "49": 0,
+          "5": 0,
+          "51": 1,
+          "53": 1,
+          "55": 1,
+          "56": 0,
+          "60": 0,
+          "61": 1,
+          "62": 0,
+          "64": 1,
+          "65": 1,
+          "68": 1,
+          "70": 1,
+          "71": 0,
+          "74": 0,
+          "77": 1,
+          "79": 1,
+          "86": 0,
+          "9": 1,
+          "90": 1,
+          "94": 0,
+          "97": 1
+        },
+        "per_task_pass@k": {
+          "100": false,
+          "101": false,
+          "102": false,
+          "108": true,
+          "111": false,
+          "12": true,
+          "17": false,
+          "18": true,
+          "26": true,
+          "27": false,
+          "32": true,
+          "33": false,
+          "36": false,
+          "38": false,
+          "39": false,
+          "40": false,
+          "42": true,
+          "45": true,
+          "49": false,
+          "5": false,
+          "51": true,
+          "53": true,
+          "55": true,
+          "56": false,
+          "60": false,
+          "61": true,
+          "62": false,
+          "64": true,
+          "65": true,
+          "68": true,
+          "70": true,
+          "71": false,
+          "74": false,
+          "77": true,
+          "79": true,
+          "86": false,
+          "9": true,
+          "90": true,
+          "94": false,
+          "97": true
+        },
+        "per_task_pass^k": {
+          "100": false,
+          "101": false,
+          "102": false,
+          "108": true,
+          "111": false,
+          "12": true,
+          "17": false,
+          "18": true,
+          "26": true,
+          "27": false,
+          "32": true,
+          "33": false,
+          "36": false,
+          "38": false,
+          "39": false,
+          "40": false,
+          "42": true,
+          "45": true,
+          "49": false,
+          "5": false,
+          "51": true,
+          "53": true,
+          "55": true,
+          "56": false,
+          "60": false,
+          "61": true,
+          "62": false,
+          "64": true,
+          "65": true,
+          "68": true,
+          "70": true,
+          "71": false,
+          "74": false,
+          "77": true,
+          "79": true,
+          "86": false,
+          "9": true,
+          "90": true,
+          "94": false,
+          "97": true
+        },
+        "policy_top_k": 3,
+        "retrieve_policy": false,
+        "retrieve_policy_selected": false,
+        "reward_by_basis": {
+          "RewardType.DB": 0.5,
+          "RewardType.NL_ASSERTION": 0.9230769230769231
+        },
+        "split": "test",
+        "successes": 20,
+        "total_simulations": 40,
+        "total_token_count": 5471774,
+        "total_tokens": {
+          "total": 5471774,
+          "total_completion": 148307,
+          "total_prompt": 5323467
+        },
+        "user_api_base": "http://127.0.0.1:38837/v1/accounting/eyJleHBlcmltZW50IjoibGlmZV90YXViZW5jaF9haXJsaW5lX3JldGFpbF9zaXhfMjAyNjEwMDdfdHJhY2VfcmVzdW1lIiwiZG9tYWluIjoicmV0YWlsIiwicm91bmQiOjYsInJvbGUiOiJ1c2VyX3NpbXVsYXRvciJ9",
+        "user_api_key_env": "OPENAI_API_KEY",
+        "user_disable_thinking": false,
+        "user_enable_thinking": true,
+        "user_max_tokens": 4096,
+        "user_reasoning_enabled": false,
+        "user_temperature": "api_default",
+        "user_token_count": 521951,
+        "user_tokens": {
+          "avg_completion_per_sim": 2348,
+          "avg_prompt_per_sim": 10700,
+          "total": 521951,
+          "total_completion": 93940,
+          "total_prompt": 428011
+        }
+      },
+      "meta": {
+        "accuracy": 0.4,
+        "config": {
+          "candidate_sha256": "60203fe7ceb0d31c93729ad3797255470d1830bd75004394d9c1ac431763db88",
+          "domain": "retail",
+          "solver_output": 4096,
+          "solver_total_context": 32768,
+          "split": "test",
+          "task_ids": [
+            "5",
+            "9",
+            "12",
+            "17",
+            "18",
+            "26",
+            "27",
+            "32",
+            "33",
+            "36",
+            "38",
+            "39",
+            "40",
+            "42",
+            "45",
+            "49",
+            "51",
+            "53",
+            "55",
+            "56",
+            "60",
+            "61",
+            "62",
+            "64",
+            "65",
+            "68",
+            "70",
+            "71",
+            "74",
+            "77",
+            "79",
+            "86",
+            "90",
+            "94",
+            "97",
+            "100",
+            "101",
+            "102",
+            "108",
+            "111"
+          ],
+          "trials": 1
+        },
+        "episodes": 40,
+        "infra_errors": 0,
+        "missing_episodes": 0,
+        "n": 40,
+        "native_results_sha256": "f96837e0fb598635c82aa2fe07e20bc2f79df14e6b45a515ab7b68eb2f91e78b",
+        "per_task": {
+          "100": [
+            0.0
+          ],
+          "101": [
+            0.0
+          ],
+          "102": [
+            0.0
+          ],
+          "108": [
+            0.0
+          ],
+          "111": [
+            0.0
+          ],
+          "12": [
+            1.0
+          ],
+          "17": [
+            1.0
+          ],
+          "18": [
+            0.0
+          ],
+          "26": [
+            1.0
+          ],
+          "27": [
+            0.0
+          ],
+          "32": [
+            0.0
+          ],
+          "33": [
+            0.0
+          ],
+          "36": [
+            0.0
+          ],
+          "38": [
+            1.0
+          ],
+          "39": [
+            0.0
+          ],
+          "40": [
+            0.0
+          ],
+          "42": [
+            0.0
+          ],
+          "45": [
+            1.0
+          ],
+          "49": [
+            0.0
+          ],
+          "5": [
+            0.0
+          ],
+          "51": [
+            1.0
+          ],
+          "53": [
+            1.0
+          ],
+          "55": [
+            1.0
+          ],
+          "56": [
+            0.0
+          ],
+          "60": [
+            0.0
+          ],
+          "61": [
+            0.0
+          ],
+          "62": [
+            0.0
+          ],
+          "64": [
+            0.0
+          ],
+          "65": [
+            1.0
+          ],
+          "68": [
+            1.0
+          ],
+          "70": [
+            1.0
+          ],
+          "71": [
+            0.0
+          ],
+          "74": [
+            0.0
+          ],
+          "77": [
+            1.0
+          ],
+          "79": [
+            0.0
+          ],
+          "86": [
+            0.0
+          ],
+          "9": [
+            1.0
+          ],
+          "90": [
+            1.0
+          ],
+          "94": [
+            1.0
+          ],
+          "97": [
+            1.0
+          ]
+        },
+        "plugin_hash": "60203fe7ceb0d31c93729ad3797255470d1830bd75004394d9c1ac431763db88",
+        "split": "test",
+        "successes": 16,
+        "user_model": "openai/qwen3.8-flash"
+      },
+      "note": "fixed TRAIN-selected final snapshot, not TEST-selected",
+      "published_life_reference": 0.63
+    }
+  }
+}

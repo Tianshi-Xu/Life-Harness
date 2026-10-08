@@ -1,0 +1,159 @@
+{
+  "accepted_bundle_ids": [
+    "dbbench_sql_identifier_guard"
+  ],
+  "active_snapshot": [
+    {
+      "artifact_path": "versions/dbbench_sql_identifier_guard/op_h2_guard.py",
+      "mechanism_id": "h2_sql_guard",
+      "revision": 1,
+      "sha256": "6520282e4171520af2c250b4e469b7aaf2ab3d2c38f71bdce3b7dda8ecdbc506",
+      "target_layer": "h2"
+    },
+    {
+      "artifact_path": "versions/dbbench_sql_identifier_guard/op_h3_guide.py",
+      "mechanism_id": "h3_schema_guide",
+      "revision": 1,
+      "sha256": "ffa62967b7bfa758e9c376ad8bd4f312bf80d299622d1279d336aa64e5edd3cd",
+      "target_layer": "h3"
+    },
+    {
+      "artifact_path": "versions/dbbench_sql_identifier_guard/op_h4_monitor.py",
+      "mechanism_id": "h4_stall_monitor",
+      "revision": 1,
+      "sha256": "d5975a7ac72dcc008218cf5393ad9ef3e7d9dae3790c66e5b9fa92faa5da670e",
+      "target_layer": "h4"
+    },
+    {
+      "artifact_path": "versions/dbbench_sql_identifier_guard/op_h5_skill.py",
+      "mechanism_id": "h5_sql_skill",
+      "revision": 1,
+      "sha256": "bad8b3291f69c933f7a9a690a622a3c061a270a3d3f902403a5ab4820dc48846",
+      "target_layer": "h5"
+    }
+  ],
+  "active_snapshot_sha256": "681f7a300c8d4b3e0fd5b557961169a09458cd7c85ab3ddc1f6c12106210aae0",
+  "domain": "dbbench",
+  "operation_log": [
+    {
+      "bundle_id": "dbbench_sql_identifier_guard",
+      "committed_snapshot_sha256": "681f7a300c8d4b3e0fd5b557961169a09458cd7c85ab3ddc1f6c12106210aae0",
+      "operations": [
+        {
+          "artifact": "artifacts/h2_sql_guard.py",
+          "artifact_sha256": "6520282e4171520af2c250b4e469b7aaf2ab3d2c38f71bdce3b7dda8ecdbc506",
+          "hypothesis": "An execute_sql argument whose exact schema identifiers carry a space, punctuation or a reserved word is repaired by backtick-quoting those identifiers only (literals and already-quoted regions untouched), and an assistant turn that serialised its native call as <tool_call> XML text is converted into a real tool_calls entry; both remove the failure before the environment sees it while leaving every other turn byte-identical.",
+          "mechanism_id": "h2_sql_guard",
+          "op": "add",
+          "operation_id": "op_h2_guard",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/h3_schema_guide.py",
+          "artifact_sha256": "ffa62967b7bfa758e9c376ad8bd4f312bf80d299622d1279d336aa64e5edd3cd",
+          "hypothesis": "Grounding the solver in the exact public table and column names (schema card appended once to the system message, plus a quoting reminder in the execute_sql description) stops respellings such as HockeyGames/Acting and stops unquoted spaced names from ever being emitted, without changing any tool name, schema or order.",
+          "mechanism_id": "h3_schema_guide",
+          "op": "add",
+          "operation_id": "op_h3_guide",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/h4_stall_monitor.py",
+          "artifact_sha256": "d5975a7ac72dcc008218cf5393ad9ef3e7d9dae3790c66e5b9fa92faa5da670e",
+          "hypothesis": "A public-history monitor that counts failed execute_sql results per statement text and emits one concrete remediation hint (at most twice per episode) breaks the observed verbatim retry loops that exhaust the 15-turn budget.",
+          "mechanism_id": "h4_stall_monitor",
+          "op": "add",
+          "operation_id": "op_h4_monitor",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/h5_sql_skill.py",
+          "artifact_sha256": "bad8b3291f69c933f7a9a690a622a3c061a270a3d3f902403a5ab4820dc48846",
+          "hypothesis": "A cold-start skill that states the quoting rule, forbids invented names and CREATE TABLE, forbids verbatim retries, asks for batched INSERTs and requires commit_final_answer prevents the first avoidable error and the long recovery tails in multi-row tasks.",
+          "mechanism_id": "h5_sql_skill",
+          "op": "add",
+          "operation_id": "op_h5_skill",
+          "target_layer": "h5"
+        }
+      ],
+      "parent_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "round": 1
+    }
+  ],
+  "prior_test_exposure": true,
+  "round": 1,
+  "rounds": [
+    {
+      "accepted": true,
+      "active_snapshot_sha256": "681f7a300c8d4b3e0fd5b557961169a09458cd7c85ab3ddc1f6c12106210aae0",
+      "bundle_hypothesis": "Most DBBench losses come from the emitted SQL text, not from the plan: exact public schema names that contain a space, punctuation or a reserved word (Rank, Pick #, Distance (km), Hockey Games, Acting Roles, Acting Work History) are sent unquoted, the server answers 1064/1146/1054, and the solver either retries the identical statement until the turn budget dies or misreads the missing-table error as a missing schema and creates a table. Repairing the emitted identifiers with the public schema at H2, grounding the exact names at H3, breaking repeated-failure stalls at H4 and stating the quoting/no-retry discipline at H5 should convert those episodes into single-shot successes while leaving already-correct statements byte-identical.",
+      "bundle_id": "dbbench_sql_identifier_guard",
+      "candidate_infra_errors": 0,
+      "candidate_phase": "round_01_candidate",
+      "candidate_score": 0.56,
+      "candidate_snapshot_sha256": "37c2f8f56498a8de732a5c3cbc2449824bab01a9e7defe22ef19afede9cfd79a",
+      "candidate_successes": 28,
+      "candidate_summary_sha256": "3604c36e49e3cdd0b091926a696434b5bd569517b717d81985975d7881837176",
+      "cases_available": 50,
+      "cases_opened": 9,
+      "incumbent_infra_errors": 0,
+      "incumbent_phase": "round_01_incumbent",
+      "incumbent_score": 0.4,
+      "incumbent_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "incumbent_successes": 20,
+      "incumbent_summary_sha256": "96d0a375c2fcd66d358a65f7c43be58e95c26d6cca83b2e40f4f1dcdfdb7ea84",
+      "operations": [
+        {
+          "artifact": "artifacts/h2_sql_guard.py",
+          "artifact_sha256": "6520282e4171520af2c250b4e469b7aaf2ab3d2c38f71bdce3b7dda8ecdbc506",
+          "hypothesis": "An execute_sql argument whose exact schema identifiers carry a space, punctuation or a reserved word is repaired by backtick-quoting those identifiers only (literals and already-quoted regions untouched), and an assistant turn that serialised its native call as <tool_call> XML text is converted into a real tool_calls entry; both remove the failure before the environment sees it while leaving every other turn byte-identical.",
+          "mechanism_id": "h2_sql_guard",
+          "op": "add",
+          "operation_id": "op_h2_guard",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/h3_schema_guide.py",
+          "artifact_sha256": "ffa62967b7bfa758e9c376ad8bd4f312bf80d299622d1279d336aa64e5edd3cd",
+          "hypothesis": "Grounding the solver in the exact public table and column names (schema card appended once to the system message, plus a quoting reminder in the execute_sql description) stops respellings such as HockeyGames/Acting and stops unquoted spaced names from ever being emitted, without changing any tool name, schema or order.",
+          "mechanism_id": "h3_schema_guide",
+          "op": "add",
+          "operation_id": "op_h3_guide",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/h4_stall_monitor.py",
+          "artifact_sha256": "d5975a7ac72dcc008218cf5393ad9ef3e7d9dae3790c66e5b9fa92faa5da670e",
+          "hypothesis": "A public-history monitor that counts failed execute_sql results per statement text and emits one concrete remediation hint (at most twice per episode) breaks the observed verbatim retry loops that exhaust the 15-turn budget.",
+          "mechanism_id": "h4_stall_monitor",
+          "op": "add",
+          "operation_id": "op_h4_monitor",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/h5_sql_skill.py",
+          "artifact_sha256": "bad8b3291f69c933f7a9a690a622a3c061a270a3d3f902403a5ab4820dc48846",
+          "hypothesis": "A cold-start skill that states the quoting rule, forbids invented names and CREATE TABLE, forbids verbatim retries, asks for batched INSERTs and requires commit_final_answer prevents the first avoidable error and the long recovery tails in multi-row tasks.",
+          "mechanism_id": "h5_sql_skill",
+          "op": "add",
+          "operation_id": "op_h5_skill",
+          "target_layer": "h5"
+        }
+      ],
+      "outcome": "evaluated_candidate",
+      "parent_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "proposer_requests": 29,
+      "round": 1,
+      "train_batch": 0,
+      "usage": {
+        "completion_tokens": 99402,
+        "prompt_cache_hit_tokens": 546688,
+        "prompt_cache_miss_tokens": 831794,
+        "prompt_tokens": 2457607,
+        "total_tokens": 2557009
+      },
+      "validation_sha256": "eeff236bc745e498a0e04f0e0f49509095bfd5151737902193306225446008f6"
+    }
+  ],
+  "status": "complete"
+}

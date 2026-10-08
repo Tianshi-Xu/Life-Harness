@@ -1,0 +1,616 @@
+{
+  "accepted_bundle_ids": [
+    "dbbench_harness_r1",
+    "dbbench_harness_r2",
+    "dbbench_harness_r4",
+    "dbbench_harness_r6"
+  ],
+  "active_snapshot": [
+    {
+      "artifact_path": "versions/dbbench_harness_r4/op_h2_nbsp_apostrophe_gates.py",
+      "mechanism_id": "h2_sql_identifier_value_repair",
+      "revision": 3,
+      "sha256": "e9732be78641714ef786bed174120e394eea54ae0dd37da58c1ee229f2ed1876",
+      "target_layer": "h2"
+    },
+    {
+      "artifact_path": "versions/dbbench_harness_r6/op_h3_mod_template_hints_r6.py",
+      "mechanism_id": "h3_tool_description_guidance",
+      "revision": 4,
+      "sha256": "23fa3e6340591062b2c2de7e1ac67de4ce53a4c6ecfa18c29856a2baa922196e",
+      "target_layer": "h3"
+    },
+    {
+      "artifact_path": "versions/dbbench_harness_r6/op_h4_mutation_recovery_r6.py",
+      "mechanism_id": "h4_step_recovery_monitor",
+      "revision": 4,
+      "sha256": "88e9a89cdb0a2afa7965d0431a42c06ff89e95de93bfcde776ca37e0c7b9afc1",
+      "target_layer": "h4"
+    },
+    {
+      "artifact_path": "versions/dbbench_harness_r6/op_h5_mod_template_briefing_r6.py",
+      "mechanism_id": "h5_cold_start_briefing",
+      "revision": 4,
+      "sha256": "3e4ca7e2c00f3a160141ae9e580da9cac3c8d20ea4283688c46ffd894448b2af",
+      "target_layer": "h5"
+    }
+  ],
+  "active_snapshot_sha256": "9b8acdc30c4fd07f77fa5ca7ef9860412894df42dbcfad1f4317bf3e9a1716a1",
+  "baseline_phase": null,
+  "baseline_summary": null,
+  "batch": 5,
+  "domain": "dbbench",
+  "interface_version": "life-agentbench-h2345-v3",
+  "operation_log": [
+    {
+      "bundle_id": "dbbench_harness_r1",
+      "committed_snapshot_sha256": "058fba623ce29c6b95e322babbf4e28c67bf940ad86b59e9d10db5d2175e3b62",
+      "hypothesis": "The baseline fails mostly on unquoted multi-word or reserved MySQL identifiers that loop for hundreds of turns on syntax errors, on mutation values whose formatting differs from the question, and on episodes that never commit. Adding an argument-repair H2 gate, H3 tool-description guidance, an H4 step monitor keyed to the last tool result, and an H5 cold-start briefing should convert these loops into correct commits and raise accuracy above 0.36.",
+      "operations": [
+        {
+          "artifact": "artifacts/h2_sql_repair.py",
+          "artifact_sha256": "a3f579748528e22d2ff5f2e82a118b2a9901bdde50dd7db1e0f231c1944fbaff",
+          "hypothesis": "Repairing the outgoing execute_sql string (backticking multi-word, punctuated, reserved, and near-miss table and column identifiers, and aligning mutation numerics to the question's exact formatting) removes the dominant syntax-error and value-mismatch failure loops without changing the tool schema.",
+          "mechanism_id": "h2_sql_identifier_value_repair",
+          "op": "add",
+          "operation_id": "op_h2_sql_repair",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/h3_tool_hints.py",
+          "artifact_sha256": "7ffb8ce91eb9264f85a7fc0089b983ae5d6b5c2104f8118a1dcced885f213ff3",
+          "hypothesis": "Appending MySQL quoting and value-format rules to the execute_sql and commit_final_answer descriptions keeps the rules visible at every decision point while changing descriptions only.",
+          "mechanism_id": "h3_tool_description_guidance",
+          "op": "add",
+          "operation_id": "op_h3_tool_hints",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/h4_recovery_monitor.py",
+          "artifact_sha256": "3ffd051d504be40d941d6dcee78fdd668b9199b3e5dc702bcf60c8ebeafc3b86",
+          "hypothesis": "A single hint driven by the previous tool result (syntax error, unknown column or table, empty result, successful mutation, or a nearly exhausted step budget) breaks the long repeated-failure loops and ensures a commit happens.",
+          "mechanism_id": "h4_step_recovery_monitor",
+          "op": "add",
+          "operation_id": "op_h4_recovery",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/h5_cold_briefing.py",
+          "artifact_sha256": "ffaa0961d4f30b3a1e8d18fde35bbfd5421f7dc9f68b4b08cf0b0c16307943b7",
+          "hypothesis": "A short cold-start briefing naming the table and stating the quoting, value-format, and task-type rules reduces first-turn syntax errors and premature empty-result conclusions.",
+          "mechanism_id": "h5_cold_start_briefing",
+          "op": "add",
+          "operation_id": "op_h5_briefing",
+          "target_layer": "h5"
+        }
+      ],
+      "parent_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "round": 1
+    },
+    {
+      "bundle_id": "dbbench_harness_r2",
+      "committed_snapshot_sha256": "056d54ef2fbe12955bc31bbf4dc597fd1b56824e378d8bc67c7cfa1eb8bce5d8",
+      "hypothesis": "Round 1 scored 0.54: artifacts replaced the runtime H2 and lost text-embedded tool-call rescue, dialect repair, and commit gating, so many episodes looped writing XML/fenced SQL that never executed, double-applied mutations, or committed prose instead of DB values. Restoring text rescue and commit gates in H2 (plus alias repair for names like `Distance (km)` and `||` -> CONCAT), sharpening H3/H4/H5 guidance on LIKE retries, CAST-based numeric ordering, and exact answer shapes should convert those loops into executed statements and correctly formatted commits, raising accuracy above 0.54.",
+      "operations": [
+        {
+          "artifact": "artifacts/h2_sql_identifier_value_repair_r2.py",
+          "artifact_sha256": "43013960d89d350536147c2f706e8339e49bc48ad5698ea3e41f397d32e166b2",
+          "expected_revision": 1,
+          "expected_sha256": "a3f579748528e22d2ff5f2e82a118b2a9901bdde50dd7db1e0f231c1944fbaff",
+          "hypothesis": "Lifting text-embedded tool calls (XML envelopes, fenced SQL, commit lists) into real tool calls, extending identifier repair to parenthetical aliases such as `Distance (km)`, rewriting `||` to CONCAT, and adding commit gates (no SQL yet, mutation not applied, prose answers) plus an identical-mutation guard converts the dominant unexecuted-call, corrupted-mutation, and give-up-commit failures into executed statements and valid commits.",
+          "mechanism_id": "h2_sql_identifier_value_repair",
+          "op": "modify",
+          "operation_id": "op_h2_rescue_repair_gates",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/h3_tool_description_guidance_r2.py",
+          "artifact_sha256": "a136bf912af752327cc42f29fd160be2bd8f749c93fe8a591b549621a0c681fd",
+          "expected_revision": 1,
+          "expected_sha256": "7ffb8ce91eb9264f85a7fc0089b983ae5d6b5c2104f8118a1dcced885f213ff3",
+          "hypothesis": "Extending the tool descriptions with no-row LIKE retries, CAST for numeric-looking TEXT in MIN/MAX/ORDER BY, avoidance of repeated statements, and exact DB-answer shapes (bare values, tuple rows, digits) keeps the formatting and ordering rules visible at every tool decision while changing descriptions only.",
+          "mechanism_id": "h3_tool_description_guidance",
+          "op": "modify",
+          "operation_id": "op_h3_answer_format_hints",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/h4_step_recovery_monitor_r2.py",
+          "artifact_sha256": "c8176759d3aa52cb8b49dd78c8c3f1e81a227d1be7e060fc374d26ba51e2fc10",
+          "expected_revision": 1,
+          "expected_sha256": "3ffd051d504be40d941d6dcee78fdd668b9199b3e5dc702bcf60c8ebeafc3b86",
+          "hypothesis": "Adding repeated-statement detection and reframing the empty-result hint toward LIKE retries or digit/DB-value commits breaks the long repeated-failure loops and prevents narrative give-up answers right before the commit step, while keeping each hint short and actionable.",
+          "mechanism_id": "h4_step_recovery_monitor",
+          "op": "modify",
+          "operation_id": "op_h4_loop_recovery_hints",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/h5_cold_start_briefing_r2.py",
+          "artifact_sha256": "20315ee1d55cb2c8eb57beefb63a3b3cf191b33bc0e2fef49506a4fcc92f983b",
+          "expected_revision": 1,
+          "expected_sha256": "ffaa0961d4f30b3a1e8d18fde35bbfd5421f7dc9f68b4b08cf0b0c16307943b7",
+          "hypothesis": "An actionable cold-start briefing that names the table and states the quoting, backtick, CAST-for-numeric-TEXT, exact answer-shape, and mutation-verify-commit rules in one short hint reduces first-turn syntax errors, wrong ORDER BY semantics, and mismatched final answer formats.",
+          "mechanism_id": "h5_cold_start_briefing",
+          "op": "modify",
+          "operation_id": "op_h5_actionable_briefing",
+          "target_layer": "h5"
+        }
+      ],
+      "parent_snapshot_sha256": "058fba623ce29c6b95e322babbf4e28c67bf940ad86b59e9d10db5d2175e3b62",
+      "round": 2
+    },
+    {
+      "bundle_id": "dbbench_harness_r4",
+      "committed_snapshot_sha256": "8bfca19f8d320bc20051d9060476ebc54c7430e77d39c05ddb0a2b2d5a88b51d",
+      "hypothesis": "Round 2 reached 0.58 (0.52 on the current train batch); the surviving failures are dominated by two exactness loops the repair layer never fixes: column names that contain non-breaking spaces (the model writes a regular space, gets 'unknown column' for a dozen turns, and the repair normalizes the stored name back to a plain space so it can never substitute) and unescaped apostrophes inside string values (d'Ambrosio -> syntax error 1064 loops). Beyond those, INSERT/UPDATE rows keep failing because the model never samples a stored row before choosing value formats, commits after a post-mutation verification SELECT returned no rows, and descriptions/hints never mention either exactness rule. Canonicalizing every backticked or matched identifier to the raw stored name (NBSP preserved), escaping literal letter-apostrophe-letter sequences inside values, requiring one row-yielding SELECT before the first INSERT/UPDATE/REPLACE and a corrective retry before committing when the post-mutation check is empty, plus H3/H4/H5 guidance naming the non-breaking-space and apostrophe rules, should convert those loops into executed statements and raise accuracy above 0.58.",
+      "operations": [
+        {
+          "artifact": "artifacts/op_h2_nbsp_apostrophe_gates.py",
+          "artifact_sha256": "e9732be78641714ef786bed174120e394eea54ae0dd37da58c1ee229f2ed1876",
+          "expected_revision": 2,
+          "expected_sha256": "43013960d89d350536147c2f706e8339e49bc48ad5698ea3e41f397d32e166b2",
+          "hypothesis": "Preserving raw stored table/column names (including non-breaking spaces) and rewriting any near-miss identifier to the exact raw spelling fixes the unknown-column loops; escaping apostrophes inside letter-apostrophe-letter words fixes the 1064 syntax loops; blocking the first INSERT/UPDATE/REPLACE until one row-yielding SELECT has run (once, marker-guarded, with copy-the-stored-format guidance) fixes format-mismatched row values; and blocking a commit whose post-mutation verification SELECT returned no rows (once, marker-guarded, directing a LIKE re-find and re-application) prevents committing changes that never landed.",
+          "mechanism_id": "h2_sql_identifier_value_repair",
+          "op": "modify",
+          "operation_id": "op_h2_nbsp_apostrophe_gates",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/op_h3_exactness_hints.py",
+          "artifact_sha256": "ff2f905a104a7213b883e088284756fdaf08ab7b995ea0fc74c2cb21730d4b02",
+          "expected_revision": 2,
+          "expected_sha256": "a136bf912af752327cc42f29fd160be2bd8f749c93fe8a591b549621a0c681fd",
+          "hypothesis": "Appending to the execute_sql description the exact-name rule (run SHOW COLUMNS, paste the exact stored spelling in backticks; names may hide non-breaking spaces), the backslash apostrophe escape for values, and the sample-before-change/copy-format rule, and to the commit_final_answer description the commit-only-verified-values rule with a LIKE re-find when a change's verification SELECT is empty, keeps the exactness rules visible at every tool decision while changing descriptions only.",
+          "mechanism_id": "h3_tool_description_guidance",
+          "op": "modify",
+          "operation_id": "op_h3_exactness_hints",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/op_h4_precise_recovery_hints.py",
+          "artifact_sha256": "9943ca7544a90353ad444cc391ac55443d9ac2c2fa2d1c7034e1a6739be192e3",
+          "expected_revision": 2,
+          "expected_sha256": "c8176759d3aa52cb8b49dd78c8c3f1e81a227d1be7e060fc374d26ba51e2fc10",
+          "hypothesis": "Naming non-breaking spaces in the unknown-column hint, apostrophe escaping in the syntax-error hint, and splitting the empty-result hint into a post-mutation variant (the change is not visible - find the stored text with LIKE and re-run it) versus a read-only variant (LIKE retry, then commit 0 or the closest DB value) converts the remaining long failure loops and empty-commit give-ups into corrective statements while keeping every hint short and actionable.",
+          "mechanism_id": "h4_step_recovery_monitor",
+          "op": "modify",
+          "operation_id": "op_h4_precise_recovery_hints",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/op_h5_exactness_briefing.py",
+          "artifact_sha256": "b66d44263e4af485d972a36e20d12f439e7bccbe929d19c7719b673bccb90cca",
+          "expected_revision": 2,
+          "expected_sha256": "20315ee1d55cb2c8eb57beefb63a3b3cf191b33bc0e2fef49506a4fcc92f983b",
+          "hypothesis": "A compact cold-start briefing that names the table and states the exact stored-name copying (non-breaking spaces may hide in names), the apostrophe escape, the value-format copying, the CAST rule, the exact answer shapes (bare values, spaced tuple rows, digits), and the sample-before-change/verify-after rule, followed by one short question-type tip, reduces first-turn syntax errors, wrong value formats, and mismatched commit shapes within the composed H4/H5 word budget.",
+          "mechanism_id": "h5_cold_start_briefing",
+          "op": "modify",
+          "operation_id": "op_h5_exactness_briefing",
+          "target_layer": "h5"
+        }
+      ],
+      "parent_snapshot_sha256": "056d54ef2fbe12955bc31bbf4dc597fd1b56824e378d8bc67c7cfa1eb8bce5d8",
+      "round": 4
+    },
+    {
+      "bundle_id": "dbbench_harness_r6",
+      "committed_snapshot_sha256": "9b8acdc30c4fd07f77fa5ca7ef9860412894df42dbcfad1f4317bf3e9a1716a1",
+      "hypothesis": "Round-4 (active) scores 0.60/0.64 but train batch 02 shows a recurring, harness-addressable failure class: questions phrased as a fact followed by 'This information was added/updated/removed ... using the INSERT/UPDATE/DELETE command' are mis-classified as read-only lookups, so the agent runs a bare SELECT, gets [], and (mis-led by the empty-result hint) commits a premature '0' without ever performing the required modification, which is scored by the table hash and fails. Keeping the proven H2 repair machinery untouched, H4 now recognises those modification-template statements and, instead of telling the agent to commit 0/closest value, directs it to run the stated INSERT/UPDATE/DELETE with the exact question values and verify with SELECT; the empty-result hint is also made context-aware so read-only lookups are steered to widen the search (LIKE on each key term, OR across columns, inspect SELECT * LIMIT 10) instead of committing 0. H4's repeated-statement hint is re-pointed from 'commit the best value' to 'inspect the actual rows', which breaks the long identical-SQL loops and surfaces the real column names/values. H3 appends matching descriptions-only rules (run the named command; commit only after the mutation ran; widen before concluding) and H5 adds the same clause to the cold-start briefing. No new gates are added, so the r4 once-per-marker valves and pass-through behaviour are preserved and the change should not regress correctly executed episodes.",
+      "operations": [
+        {
+          "artifact": "artifacts/op_h3_mod_template_hints.py",
+          "artifact_sha256": "23fa3e6340591062b2c2de7e1ac67de4ce53a4c6ecfa18c29856a2baa922196e",
+          "expected_revision": 3,
+          "expected_sha256": "ff2f905a104a7213b883e088284756fdaf08ab7b995ea0fc74c2cb21730d4b02",
+          "hypothesis": "Appending descriptions-only rules to execute_sql and commit_final_answer - run the INSERT/UPDATE/DELETE named when the question states information 'was added/updated/removed ... using the ... command', commit only after that mutation has run successfully, and widen the search before concluding a lookup is empty - keeps these exactness and modification rules visible at every tool decision while changing descriptions only.",
+          "mechanism_id": "h3_tool_description_guidance",
+          "op": "modify",
+          "operation_id": "op_h3_mod_template_hints_r6",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/op_h4_mutation_template_recovery.py",
+          "artifact_sha256": "88e9a89cdb0a2afa7965d0431a42c06ff89e95de93bfcde776ca37e0c7b9afc1",
+          "expected_revision": 3,
+          "expected_sha256": "9943ca7544a90353ad444cc391ac55443d9ac2c2fa2d1c7034e1a6739be192e3",
+          "hypothesis": "Recognising modification-template questions (a stated fact plus 'using the INSERT/UPDATE/DELETE command', or a trailing '... command' after added/inserted/updated/removed/deleted/renamed/changed) and, when no mutation has run, replacing the misleading empty-result 'commit 0 or the closest DB value' hint with a directive to actually run the named INSERT/UPDATE/DELETE with the exact question values and verify with SELECT; keeping 'commit 0' only for count questions; and re-pointing the repeated-statement hint to inspect SELECT * ... LIMIT 10 converts the give-up-after-empty-lookup and identical-SQL-loop failures into executed statements and correctly committed answers.",
+          "mechanism_id": "h4_step_recovery_monitor",
+          "op": "modify",
+          "operation_id": "op_h4_mutation_recovery_r6",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/op_h5_mod_template_briefing.py",
+          "artifact_sha256": "3e4ca7e2c00f3a160141ae9e580da9cac3c8d20ea4283688c46ffd894448b2af",
+          "expected_revision": 3,
+          "expected_sha256": "b66d44263e4af485d972a36e20d12f439e7bccbe929d19c7719b673bccb90cca",
+          "hypothesis": "Adding one clause to the cold-start briefing - when the question states that information was added/updated/removed using a command, run that INSERT/UPDATE/DELETE with the exact values and verify with SELECT - and softening the fallback tip from 'retry with LIKE' to 'retry with LIKE or inspect rows' reduces premature give-up commits on modification-template tasks without exceeding the H4+H5 word budget.",
+          "mechanism_id": "h5_cold_start_briefing",
+          "op": "modify",
+          "operation_id": "op_h5_mod_template_briefing_r6",
+          "target_layer": "h5"
+        }
+      ],
+      "parent_snapshot_sha256": "8bfca19f8d320bc20051d9060476ebc54c7430e77d39c05ddb0a2b2d5a88b51d",
+      "round": 6
+    }
+  ],
+  "round": 9,
+  "rounds": [
+    {
+      "accepted": true,
+      "active_snapshot_sha256": "058fba623ce29c6b95e322babbf4e28c67bf940ad86b59e9d10db5d2175e3b62",
+      "batch_rotated": false,
+      "bundle_hypothesis": "The baseline fails mostly on unquoted multi-word or reserved MySQL identifiers that loop for hundreds of turns on syntax errors, on mutation values whose formatting differs from the question, and on episodes that never commit. Adding an argument-repair H2 gate, H3 tool-description guidance, an H4 step monitor keyed to the last tool result, and an H5 cold-start briefing should convert these loops into correct commits and raise accuracy above 0.36.",
+      "bundle_id": "dbbench_harness_r1",
+      "bundle_sha256": "c1b0226dd755ca5c9b96d3647ca82dcddc58802429ac0ef50afbd0abb867791f",
+      "candidate_score": 0.54,
+      "incumbent_score": 0.36,
+      "next_batch": 0,
+      "operations": [
+        {
+          "hypothesis": "Repairing the outgoing execute_sql string (backticking multi-word, punctuated, reserved, and near-miss table and column identifiers, and aligning mutation numerics to the question's exact formatting) removes the dominant syntax-error and value-mismatch failure loops without changing the tool schema.",
+          "mechanism_id": "h2_sql_identifier_value_repair",
+          "op": "add",
+          "operation_id": "op_h2_sql_repair",
+          "target_layer": "h2"
+        },
+        {
+          "hypothesis": "Appending MySQL quoting and value-format rules to the execute_sql and commit_final_answer descriptions keeps the rules visible at every decision point while changing descriptions only.",
+          "mechanism_id": "h3_tool_description_guidance",
+          "op": "add",
+          "operation_id": "op_h3_tool_hints",
+          "target_layer": "h3"
+        },
+        {
+          "hypothesis": "A single hint driven by the previous tool result (syntax error, unknown column or table, empty result, successful mutation, or a nearly exhausted step budget) breaks the long repeated-failure loops and ensures a commit happens.",
+          "mechanism_id": "h4_step_recovery_monitor",
+          "op": "add",
+          "operation_id": "op_h4_recovery",
+          "target_layer": "h4"
+        },
+        {
+          "hypothesis": "A short cold-start briefing naming the table and stating the quoting, value-format, and task-type rules reduces first-turn syntax errors and premature empty-result conclusions.",
+          "mechanism_id": "h5_cold_start_briefing",
+          "op": "add",
+          "operation_id": "op_h5_briefing",
+          "target_layer": "h5"
+        }
+      ],
+      "round": 1,
+      "train_batch": 0
+    },
+    {
+      "accepted": true,
+      "active_snapshot_sha256": "056d54ef2fbe12955bc31bbf4dc597fd1b56824e378d8bc67c7cfa1eb8bce5d8",
+      "batch_rotated": false,
+      "bundle_hypothesis": "Round 1 scored 0.54: artifacts replaced the runtime H2 and lost text-embedded tool-call rescue, dialect repair, and commit gating, so many episodes looped writing XML/fenced SQL that never executed, double-applied mutations, or committed prose instead of DB values. Restoring text rescue and commit gates in H2 (plus alias repair for names like `Distance (km)` and `||` -> CONCAT), sharpening H3/H4/H5 guidance on LIKE retries, CAST-based numeric ordering, and exact answer shapes should convert those loops into executed statements and correctly formatted commits, raising accuracy above 0.54.",
+      "bundle_id": "dbbench_harness_r2",
+      "bundle_sha256": "58c922275a9b32275121c274ee4f1bcc659b09e80bd16e68e17bb06257a24765",
+      "candidate_score": 0.58,
+      "incumbent_score": 0.54,
+      "next_batch": 0,
+      "operations": [
+        {
+          "hypothesis": "Lifting text-embedded tool calls (XML envelopes, fenced SQL, commit lists) into real tool calls, extending identifier repair to parenthetical aliases such as `Distance (km)`, rewriting `||` to CONCAT, and adding commit gates (no SQL yet, mutation not applied, prose answers) plus an identical-mutation guard converts the dominant unexecuted-call, corrupted-mutation, and give-up-commit failures into executed statements and valid commits.",
+          "mechanism_id": "h2_sql_identifier_value_repair",
+          "op": "modify",
+          "operation_id": "op_h2_rescue_repair_gates",
+          "target_layer": "h2"
+        },
+        {
+          "hypothesis": "Extending the tool descriptions with no-row LIKE retries, CAST for numeric-looking TEXT in MIN/MAX/ORDER BY, avoidance of repeated statements, and exact DB-answer shapes (bare values, tuple rows, digits) keeps the formatting and ordering rules visible at every tool decision while changing descriptions only.",
+          "mechanism_id": "h3_tool_description_guidance",
+          "op": "modify",
+          "operation_id": "op_h3_answer_format_hints",
+          "target_layer": "h3"
+        },
+        {
+          "hypothesis": "Adding repeated-statement detection and reframing the empty-result hint toward LIKE retries or digit/DB-value commits breaks the long repeated-failure loops and prevents narrative give-up answers right before the commit step, while keeping each hint short and actionable.",
+          "mechanism_id": "h4_step_recovery_monitor",
+          "op": "modify",
+          "operation_id": "op_h4_loop_recovery_hints",
+          "target_layer": "h4"
+        },
+        {
+          "hypothesis": "An actionable cold-start briefing that names the table and states the quoting, backtick, CAST-for-numeric-TEXT, exact answer-shape, and mutation-verify-commit rules in one short hint reduces first-turn syntax errors, wrong ORDER BY semantics, and mismatched final answer formats.",
+          "mechanism_id": "h5_cold_start_briefing",
+          "op": "modify",
+          "operation_id": "op_h5_actionable_briefing",
+          "target_layer": "h5"
+        }
+      ],
+      "round": 2,
+      "train_batch": 0
+    },
+    {
+      "accepted": false,
+      "active_snapshot_sha256": "056d54ef2fbe12955bc31bbf4dc597fd1b56824e378d8bc67c7cfa1eb8bce5d8",
+      "batch_rotated": true,
+      "bundle_hypothesis": "Round 2 reached 0.58; the remaining train failures cluster in mutation value fidelity (INSERT/UPDATE rows whose dates, ranks, statuses, or casing differ from the stored rows because the model never samples the table, including duplicated instead of next ranks), premature '0' commits after a single empty lookup on name questions, committing after a post-mutation verification SELECT returned no rows, and text-rescued commits truncated at embedded quotes or missing the database tuple repr's ', ' spacing. Requiring one sample SELECT before the first mutation, gating commits on empty post-mutation checks and name-lookups, parsing rescued answers with balanced-bracket scanning, normalizing tuple spacing, and sharpening H3/H4/H5 with sample-format, next-rank, entity-variant, and ordering guidance should convert these into correctly executed and formatted answers and raise accuracy above 0.58.",
+      "bundle_id": "dbbench_harness_r3",
+      "bundle_sha256": "8037f7062be85be86df1ee7f0d32d6a385d5f105d854bbb19ca15295b18a3afe",
+      "candidate_score": 0.56,
+      "incumbent_score": 0.58,
+      "next_batch": 1,
+      "operations": [
+        {
+          "hypothesis": "Blocking the first INSERT/UPDATE/DELETE of an episode until one row-yielding SELECT has run (once, with a message to copy stored date/ordinal/status/casing formats and to use the next rank after the largest existing value) converts the recurring insert value-format failures; gating commits after an empty post-mutation verification SELECT prevents committing changes that may not have landed; blocking '0' commits on name questions with no row evidence prevents give-up answers after a single empty lookup; balanced-bracket list parsing plus ', ' tuple-spacing repair fixes rescued commits that were truncated at embedded quotes or mismatched the database tuple repr.",
+          "mechanism_id": "h2_sql_identifier_value_repair",
+          "op": "modify",
+          "operation_id": "op_h2_mutation_evidence_gates_r3",
+          "target_layer": "h2"
+        },
+        {
+          "hypothesis": "Extending the execute_sql and commit_final_answer descriptions with sample-before-change value-format copying, next-rank after the largest existing value, first/last ordering by the date or sequence column, and the exact database tuple repr with ', ' between cells keeps the mutation-fidelity and answer-shape rules visible at every tool decision while changing descriptions only.",
+          "mechanism_id": "h3_tool_description_guidance",
+          "op": "modify",
+          "operation_id": "op_h3_sample_format_hints_r3",
+          "target_layer": "h3"
+        },
+        {
+          "hypothesis": "Making the empty-result hint context-aware converts two failure classes: for mutation tasks it warns that the change may not have landed and directs a LIKE re-check followed by re-running the modification and verifying, and for read-only tasks it directs inspecting stored values and trying full entity-name variants (e.g. 'United States' for 'US') before committing the closest DB value or 0 for counts, replacing the previous hint that encouraged an immediate give-up commit.",
+          "mechanism_id": "h4_step_recovery_monitor",
+          "op": "modify",
+          "operation_id": "op_h4_context_recovery_hints_r3",
+          "target_layer": "h4"
+        },
+        {
+          "hypothesis": "Extending the cold-start briefing with sample-before-change format copying, next-rank MAX+1, first/last ordering by the date or sequence column, and the exact answer shapes (bare values, spaced tuple rows, digits) within the H4/H5 word budget reduces first-turn format errors, wrong-order answers, and mismatched commit formats.",
+          "mechanism_id": "h5_cold_start_briefing",
+          "op": "modify",
+          "operation_id": "op_h5_actionable_briefing_r3",
+          "target_layer": "h5"
+        }
+      ],
+      "round": 3,
+      "train_batch": 0
+    },
+    {
+      "accepted": true,
+      "active_snapshot_sha256": "8bfca19f8d320bc20051d9060476ebc54c7430e77d39c05ddb0a2b2d5a88b51d",
+      "batch_rotated": false,
+      "bundle_hypothesis": "Round 2 reached 0.58 (0.52 on the current train batch); the surviving failures are dominated by two exactness loops the repair layer never fixes: column names that contain non-breaking spaces (the model writes a regular space, gets 'unknown column' for a dozen turns, and the repair normalizes the stored name back to a plain space so it can never substitute) and unescaped apostrophes inside string values (d'Ambrosio -> syntax error 1064 loops). Beyond those, INSERT/UPDATE rows keep failing because the model never samples a stored row before choosing value formats, commits after a post-mutation verification SELECT returned no rows, and descriptions/hints never mention either exactness rule. Canonicalizing every backticked or matched identifier to the raw stored name (NBSP preserved), escaping literal letter-apostrophe-letter sequences inside values, requiring one row-yielding SELECT before the first INSERT/UPDATE/REPLACE and a corrective retry before committing when the post-mutation check is empty, plus H3/H4/H5 guidance naming the non-breaking-space and apostrophe rules, should convert those loops into executed statements and raise accuracy above 0.58.",
+      "bundle_id": "dbbench_harness_r4",
+      "bundle_sha256": "5c94e1081eddae0b42b4837d4e969e3abcb42879afc9dd6f1ba279994ad3fca5",
+      "candidate_score": 0.6,
+      "incumbent_score": 0.52,
+      "next_batch": 1,
+      "operations": [
+        {
+          "hypothesis": "Preserving raw stored table/column names (including non-breaking spaces) and rewriting any near-miss identifier to the exact raw spelling fixes the unknown-column loops; escaping apostrophes inside letter-apostrophe-letter words fixes the 1064 syntax loops; blocking the first INSERT/UPDATE/REPLACE until one row-yielding SELECT has run (once, marker-guarded, with copy-the-stored-format guidance) fixes format-mismatched row values; and blocking a commit whose post-mutation verification SELECT returned no rows (once, marker-guarded, directing a LIKE re-find and re-application) prevents committing changes that never landed.",
+          "mechanism_id": "h2_sql_identifier_value_repair",
+          "op": "modify",
+          "operation_id": "op_h2_nbsp_apostrophe_gates",
+          "target_layer": "h2"
+        },
+        {
+          "hypothesis": "Appending to the execute_sql description the exact-name rule (run SHOW COLUMNS, paste the exact stored spelling in backticks; names may hide non-breaking spaces), the backslash apostrophe escape for values, and the sample-before-change/copy-format rule, and to the commit_final_answer description the commit-only-verified-values rule with a LIKE re-find when a change's verification SELECT is empty, keeps the exactness rules visible at every tool decision while changing descriptions only.",
+          "mechanism_id": "h3_tool_description_guidance",
+          "op": "modify",
+          "operation_id": "op_h3_exactness_hints",
+          "target_layer": "h3"
+        },
+        {
+          "hypothesis": "Naming non-breaking spaces in the unknown-column hint, apostrophe escaping in the syntax-error hint, and splitting the empty-result hint into a post-mutation variant (the change is not visible - find the stored text with LIKE and re-run it) versus a read-only variant (LIKE retry, then commit 0 or the closest DB value) converts the remaining long failure loops and empty-commit give-ups into corrective statements while keeping every hint short and actionable.",
+          "mechanism_id": "h4_step_recovery_monitor",
+          "op": "modify",
+          "operation_id": "op_h4_precise_recovery_hints",
+          "target_layer": "h4"
+        },
+        {
+          "hypothesis": "A compact cold-start briefing that names the table and states the exact stored-name copying (non-breaking spaces may hide in names), the apostrophe escape, the value-format copying, the CAST rule, the exact answer shapes (bare values, spaced tuple rows, digits), and the sample-before-change/verify-after rule, followed by one short question-type tip, reduces first-turn syntax errors, wrong value formats, and mismatched commit shapes within the composed H4/H5 word budget.",
+          "mechanism_id": "h5_cold_start_briefing",
+          "op": "modify",
+          "operation_id": "op_h5_exactness_briefing",
+          "target_layer": "h5"
+        }
+      ],
+      "round": 4,
+      "train_batch": 1
+    },
+    {
+      "accepted": false,
+      "active_snapshot_sha256": "8bfca19f8d320bc20051d9060476ebc54c7430e77d39c05ddb0a2b2d5a88b51d",
+      "batch_rotated": true,
+      "bundle_hypothesis": "Round-4 failures cluster into five harness-addressable classes: mutations approved after a scalar MAX/COUNT query (not a row sample), INSERTs/stored values written as SQL expressions ('Total + 1'), unrequested DELETEs on add-only tasks, plain SET updates that wipe text after the matched key, and INSERTs omitting header columns. Round 5 keeps the r4 repair/gate machinery and adds row-shaped sample gating, expression-junk, column-coverage, DELETE-scope and REPLACE-preserving gates in H2, matching exactness rules in the H3 descriptions, post-action repair hints (junk, wiping SET, stray DELETE, omitted columns, empty/count-zero LIKE retry) in H4, and a compacted H5 briefing so the composed H4+H5 budget stays under 120 words.",
+      "bundle_id": "dbbench_harness_r5",
+      "bundle_sha256": "3aea59c9c7d699352fdc6421af1a91a39dec4a51c681b0ae7fc871dc16a1c381",
+      "candidate_score": 0.58,
+      "incumbent_score": 0.6,
+      "next_batch": 2,
+      "operations": [
+        {
+          "hypothesis": "Extending the H2 gate with (a) row-shaped sample requirement (SELECT * or multi-column row, not a scalar aggregate), (b) a block on quoted arithmetic expressions such as 'Total + 1', (c) a block on INSERTs that omit header columns, (d) a block on plain SET ... LIKE updates that would wipe text after the matched key (suggest REPLACE), and (e) a block on DELETEs the question never asks for, will stop the five mutation-damage classes seen in round 4 while the once-per-marker valve prevents deadlocks.",
+          "mechanism_id": "h2_sql_identifier_value_repair",
+          "op": "modify",
+          "operation_id": "op_h2_value_guard_gates",
+          "target_layer": "h2"
+        },
+        {
+          "hypothesis": "Adding explicit rules to the execute_sql description - compare values as exact strings ('8', never bare 8) to avoid TEXT coercion over-matching, never store expressions like 'Total + 1' (summary rows are not values), use REPLACE to change part of a stored value, do not DELETE rows unless asked, and cover every header column in an INSERT - will steer the model away from the exactness errors seen in round 4.",
+          "mechanism_id": "h3_tool_description_guidance",
+          "op": "modify",
+          "operation_id": "op_h3_exactness_rules",
+          "target_layer": "h3"
+        },
+        {
+          "hypothesis": "Post-action hints that detect the actual damage - an inserted/updated expression literal, a wiping SET ... LIKE update, a DELETE the question never asked for, an INSERT omitting header columns, and empty or count-zero results (retry with LIKE or CONCAT_WS across columns before concluding 0) - let the model repair the row in the following step instead of committing a corrupted state.",
+          "mechanism_id": "h4_step_recovery_monitor",
+          "op": "modify",
+          "operation_id": "op_h4_state_repair",
+          "target_layer": "h4"
+        },
+        {
+          "hypothesis": "A shorter cold-start briefing (about 50 words plus an 8-word type tip) that already encodes exact-string comparison, no expressions or placeholders, no unrequested DELETEs, and sample-and-verify discipline keeps useful guidance while leaving room under the 120-word composed H4+H5 budget for the new round-5 H4 repair hints.",
+          "mechanism_id": "h5_cold_start_briefing",
+          "op": "modify",
+          "operation_id": "op_h5_compact_briefing",
+          "target_layer": "h5"
+        }
+      ],
+      "round": 5,
+      "train_batch": 1
+    },
+    {
+      "accepted": true,
+      "active_snapshot_sha256": "9b8acdc30c4fd07f77fa5ca7ef9860412894df42dbcfad1f4317bf3e9a1716a1",
+      "batch_rotated": false,
+      "bundle_hypothesis": "Round-4 (active) scores 0.60/0.64 but train batch 02 shows a recurring, harness-addressable failure class: questions phrased as a fact followed by 'This information was added/updated/removed ... using the INSERT/UPDATE/DELETE command' are mis-classified as read-only lookups, so the agent runs a bare SELECT, gets [], and (mis-led by the empty-result hint) commits a premature '0' without ever performing the required modification, which is scored by the table hash and fails. Keeping the proven H2 repair machinery untouched, H4 now recognises those modification-template statements and, instead of telling the agent to commit 0/closest value, directs it to run the stated INSERT/UPDATE/DELETE with the exact question values and verify with SELECT; the empty-result hint is also made context-aware so read-only lookups are steered to widen the search (LIKE on each key term, OR across columns, inspect SELECT * LIMIT 10) instead of committing 0. H4's repeated-statement hint is re-pointed from 'commit the best value' to 'inspect the actual rows', which breaks the long identical-SQL loops and surfaces the real column names/values. H3 appends matching descriptions-only rules (run the named command; commit only after the mutation ran; widen before concluding) and H5 adds the same clause to the cold-start briefing. No new gates are added, so the r4 once-per-marker valves and pass-through behaviour are preserved and the change should not regress correctly executed episodes.",
+      "bundle_id": "dbbench_harness_r6",
+      "bundle_sha256": "04e8b05f10f4b57624ecd4417755ac5d8ef09445e48b142117adf05a1be5732a",
+      "candidate_score": 0.68,
+      "incumbent_score": 0.64,
+      "next_batch": 2,
+      "operations": [
+        {
+          "hypothesis": "Appending descriptions-only rules to execute_sql and commit_final_answer - run the INSERT/UPDATE/DELETE named when the question states information 'was added/updated/removed ... using the ... command', commit only after that mutation has run successfully, and widen the search before concluding a lookup is empty - keeps these exactness and modification rules visible at every tool decision while changing descriptions only.",
+          "mechanism_id": "h3_tool_description_guidance",
+          "op": "modify",
+          "operation_id": "op_h3_mod_template_hints_r6",
+          "target_layer": "h3"
+        },
+        {
+          "hypothesis": "Recognising modification-template questions (a stated fact plus 'using the INSERT/UPDATE/DELETE command', or a trailing '... command' after added/inserted/updated/removed/deleted/renamed/changed) and, when no mutation has run, replacing the misleading empty-result 'commit 0 or the closest DB value' hint with a directive to actually run the named INSERT/UPDATE/DELETE with the exact question values and verify with SELECT; keeping 'commit 0' only for count questions; and re-pointing the repeated-statement hint to inspect SELECT * ... LIMIT 10 converts the give-up-after-empty-lookup and identical-SQL-loop failures into executed statements and correctly committed answers.",
+          "mechanism_id": "h4_step_recovery_monitor",
+          "op": "modify",
+          "operation_id": "op_h4_mutation_recovery_r6",
+          "target_layer": "h4"
+        },
+        {
+          "hypothesis": "Adding one clause to the cold-start briefing - when the question states that information was added/updated/removed using a command, run that INSERT/UPDATE/DELETE with the exact values and verify with SELECT - and softening the fallback tip from 'retry with LIKE' to 'retry with LIKE or inspect rows' reduces premature give-up commits on modification-template tasks without exceeding the H4+H5 word budget.",
+          "mechanism_id": "h5_cold_start_briefing",
+          "op": "modify",
+          "operation_id": "op_h5_mod_template_briefing_r6",
+          "target_layer": "h5"
+        }
+      ],
+      "round": 6,
+      "train_batch": 2
+    },
+    {
+      "accepted": false,
+      "active_snapshot_sha256": "9b8acdc30c4fd07f77fa5ca7ef9860412894df42dbcfad1f4317bf3e9a1716a1",
+      "batch_rotated": true,
+      "bundle_hypothesis": "The r6 incumbent reaches 0.74 on train batch 2; the surviving failures are dominated by three harness-addressable classes that the repair layer never fixes. (1) Give-up after a failed or NULL aggregate: the model runs one filtered COUNT/SUM, gets 0 or NULL because the stored label differs from the question's wording, and commits 0 - the H4 monitor never fires because the result is '[(None,)]' or a valid '0', not '[]', and the H5 count tip actively tells it to commit 0. (2) Repeated-statement loops: the model re-issues the same wrong query, sometimes alternating with a SELECT *, so the consecutive-duplicate check never triggers, and it never searches the column that actually holds the value. (3) Wrong ordering of comma-formatted TEXT numbers: 'most/least' questions sort '9,999' above '1,000,000' because the column is TEXT and no CAST is applied. Adding an H2 veto that blocks an unverified '0' commit once per episode, teaching H4 to break repeated-query loop with a cross-column CONCAT_WS search, to refuse a NULL/0 aggregate give-up, and to force CAST(REPLACE(col,',','') AS DECIMAL) ordering, and mirroring the same rules in the H3 descriptions and the H5 briefing, should convert these loops into correctly executed and committed answers and raise accuracy above 0.74 without adding any new mutation gate that could regress correctly executed episodes.",
+      "bundle_id": "dbbench_harness_r7",
+      "bundle_sha256": "5b0a6a0a6e6aaca720a282b1c3f4abdf379226e1035ccd98f2eb80e6f12ab3d3",
+      "candidate_score": 0.72,
+      "incumbent_score": 0.74,
+      "next_batch": 3,
+      "operations": [
+        {
+          "hypothesis": "A second, independent H2 mechanism that vetoes a commit whose answer is exactly '0' for a count/number-of/total/sum question when a filtered SELECT already ran but no SELECT DISTINCT was ever issued forces one cheap verification of the stored filter value, converting premature-zero give-ups into correct aggregates; it is marker-guarded to fire at most once per episode so it cannot deadlock and cannot disturb episodes that never commit 0.",
+          "mechanism_id": "h2_premature_zero_guard",
+          "op": "add",
+          "operation_id": "op_h2_premature_zero_guard_r7",
+          "target_layer": "h2"
+        },
+        {
+          "hypothesis": "Extending the execute_sql and commit_final_answer descriptions - descriptions only - with cross-column search (CONCAT_WS), CAST(REPLACE(col,',','')) ordering for comma-formatted numbers, and the rule that a NULL/0 aggregate means the filter matched no rows so the filtered column must be read with SELECT DISTINCT before concluding, keeps these verification rules visible at every tool decision without changing names, schemas or order.",
+          "mechanism_id": "h3_tool_description_guidance",
+          "op": "modify",
+          "operation_id": "op_h3_verification_hints_r7",
+          "target_layer": "h3"
+        },
+        {
+          "hypothesis": "Keeping every existing r6 hint but adding three targeted pre-commit checks converts the remaining loops: (a) when the last statement has already been run two or more times, name the real headers and direct a CONCAT_WS('|', ...) search across all columns instead of repeating it; (b) when an aggregate returns NULL on a count/sum question, direct SELECT DISTINCT on the filtered column; (c) when a most/least question sorted a column whose returned values contain thousands separators and no CAST was used, direct ORDER BY CAST(REPLACE(col,',','') AS DECIMAL). Each branch is gated to fire only on the specific failing pattern, so correct episodes pass through unchanged.",
+          "mechanism_id": "h4_step_recovery_monitor",
+          "op": "modify",
+          "operation_id": "op_h4_verification_recovery_r7",
+          "target_layer": "h4"
+        },
+        {
+          "hypothesis": "Adding to the cold-start briefing the three verification rules - read the filtered column with SELECT DISTINCT before answering a count/sum and commit 0 only when nothing matches, order most/least with CAST(REPLACE(col,',','') AS DECIMAL) when numbers carry thousands separators, and search across all columns before concluding a lookup is empty - steers the first turn away from the premature-zero, wrong-order and empty-filter failures without changing the H4 hint mechanism.",
+          "mechanism_id": "h5_cold_start_briefing",
+          "op": "modify",
+          "operation_id": "op_h5_verification_briefing_r7",
+          "target_layer": "h5"
+        }
+      ],
+      "round": 7,
+      "train_batch": 2
+    },
+    {
+      "accepted": false,
+      "active_snapshot_sha256": "9b8acdc30c4fd07f77fa5ca7ef9860412894df42dbcfad1f4317bf3e9a1716a1",
+      "batch_rotated": true,
+      "bundle_hypothesis": "The sealed sixth-round chain scores about 0.62-0.74 and its remaining failures are dominated by two harness-addressable loops. (1) Exact-name loops: when a header list ends in a name that itself carries a trailing period such as `E.R.`, the repair mechanism's header parse drops that period and then rewrites the model's correct backticked identifier into a non-existent column, producing an endless 'Unknown column' loop that reaches the task limit. (2) Unproductive repeats: the model re-issues the same failing statement two or more times, sometimes alternating with another statement, so the incumbent monitor's consecutive-duplicate check never fires and it is never told the real column names. Adding a conservative H2 mechanism that re-derives the stored names without dropping an internal period, restores backticked identifiers to the exact stored spelling, and vetoes (once per distinct statement) the rerun of a statement that already failed with a message naming the exact columns; plus H4 guidance that names the exact column set on an unknown-column error and that fires on non-consecutive repeated statements; plus matching descriptions-only rules in H3 and a cold-start clause in H5, should convert these loops into inspecting the real rows and committing correct answers, without adding any new mutation gate that could regress already-correct episodes.",
+      "bundle_id": "dbbench_harness_r8",
+      "bundle_sha256": "b26c1dcc6d2b117feecaa0518b089c0353466c6a11ba720e7d892013a53d1f1d",
+      "candidate_score": 0.24,
+      "incumbent_score": 0.62,
+      "next_batch": 4,
+      "operations": [
+        {
+          "hypothesis": "Re-deriving the table and header names from the public table description while preserving an internal trailing period (so `E.R.` stays `E.R.`), rewriting any backticked identifier to the exact stored spelling, and vetoing a rerun of a statement that already failed with feedback that names the exact columns will break the exact-name and repeated-statement loops; the veto is limited to once per distinct normalized statement and never overrides an earlier veto, so episodes that make progress are untouched.",
+          "mechanism_id": "h2_exact_name_loop_guard",
+          "op": "add",
+          "operation_id": "op_h2_exact_name_loop_guard_r8",
+          "target_layer": "h2"
+        },
+        {
+          "hypothesis": "Appending descriptions-only rules to execute_sql and commit_final_answer - copy names exactly including any trailing period such as `E.R.`, run SHOW COLUMNS after an unknown-column error, and never repeat an identical statement that made no progress (inspect rows with SELECT * LIMIT 5 instead) - keeps the exact-name and loop-break rules visible at every tool decision while changing descriptions only.",
+          "mechanism_id": "h3_tool_description_guidance",
+          "op": "modify",
+          "operation_id": "op_h3_exactness_guidance_r5",
+          "target_layer": "h3"
+        },
+        {
+          "hypothesis": "Reviewing the public trajectory, naming the exact stored column set when the last tool result is an unknown-column error, and firing when the current statement has already been run two or more times anywhere in the episode (not only consecutively) converts the exact-name and alternating-repeat loops into an inspection of the real rows; both branches are narrow so correct episodes pass through unchanged.",
+          "mechanism_id": "h4_step_recovery_monitor",
+          "op": "modify",
+          "operation_id": "op_h4_exact_column_monitor_r5",
+          "target_layer": "h4"
+        },
+        {
+          "hypothesis": "Adding to the cold-start briefing the exact-name rule (copy header names including any trailing period or unusual punctuation) and the loop-break rule (never repeat an identical statement; inspect rows with SELECT * LIMIT 5 instead) steers the first turn away from the exact-name corruption and the repeated-statement loops without changing any other mechanism.",
+          "mechanism_id": "h5_cold_start_briefing",
+          "op": "modify",
+          "operation_id": "op_h5_exactness_briefing_r5",
+          "target_layer": "h5"
+        }
+      ],
+      "round": 8,
+      "train_batch": 3
+    },
+    {
+      "accepted": false,
+      "active_snapshot_sha256": "9b8acdc30c4fd07f77fa5ca7ef9860412894df42dbcfad1f4317bf3e9a1716a1",
+      "batch_rotated": true,
+      "bundle_hypothesis": "The sealed sixth-round chain scores about 0.68 on the public batch and its remaining failures cluster in three harness-addressable classes. (1) Text-identifier column lists: when a public header list is ambiguous because a stored column name itself contains a comma (for example the header text reads 'Prevailing types, %' or 'Amount of trees, that require replacement'), the repair layer splits that header at the comma, then rewrites the model's CORRECT backticked identifier to the shorter fragment and produces an endless 'Unknown column' loop that reaches the task limit. (2) Wrong added-row identifiers: the model probes the identifier column with MAX()/CAST() over TEXT (which returns 0 or the lexicographically largest value), then inserts a plausible but wrong identifier, so the table-hash comparison fails. (3) Value-style drift on added/updated rows: casing, units and separators of the stored row differ from the existing rows' style. Adding one narrow H2 mechanism that reads only SHOW COLUMNS/SHOW TABLES public tool results and restores a backticked identifier fragment to the exact stored name when a normalized collision proves it was split, plus H4 guidance that (a) names the whole comma-containing stored name on an unknown-column error, (b) fires once a new row was added after a MAX()/CAST() identifier probe and directs listing the identifier column and fixing the successor value, and (c) reminds that a successful change must match an existing row's exact style, plus matching descriptions-only rules in H3 and a matching clause in the H5 cold-start briefing, should convert these loops into inspected rows and correctly formatted inserts without adding any new blocking gate that could regress already-correct episodes.",
+      "bundle_id": "dbbench_harness_r9",
+      "bundle_sha256": "ff22e742497ae20f1684c523096c961d3e0331e840eb86315077ea32c4f240ad",
+      "candidate_score": 0.6,
+      "incumbent_score": 0.68,
+      "next_batch": 5,
+      "operations": [
+        {
+          "hypothesis": "When a public header list is ambiguous because a stored column name contains a comma, the incumbent repair splits that header and rewrites a correct backticked identifier to the shorter fragment, producing an endless unknown-column loop. A narrow new H2 mechanism that reads the public SHOW COLUMNS/SHOW TABLES tool results, and rewrites a backticked identifier back to the exact stored name only when the identifier is a whole-word prefix of exactly one stored name with the same punctuation-stripped key and no exact stored name equals it, undoes that corruption while leaving every other statement untouched.",
+          "mechanism_id": "h2_column_fragment_restore",
+          "op": "add",
+          "operation_id": "op_h2_column_fragment_restore_r9",
+          "target_layer": "h2"
+        },
+        {
+          "hypothesis": "Keeping every existing r6 hint but (a) naming the whole comma-containing stored name on an unknown-column error, (b) adding a single narrow branch that fires only after a new row was added while the identifier column was probed with MAX()/CAST() and directs listing the identifier column and fixing the successor value, and (c) reminding that a successful change must match an existing row's exact style, converts the ambiguous-header, wrong-identifier and style-drift failures into inspected rows and corrected inserts while correct episodes pass through unchanged.",
+          "mechanism_id": "h4_step_recovery_monitor",
+          "op": "modify",
+          "operation_id": "op_h4_id_and_style_recovery_r9",
+          "target_layer": "h4"
+        },
+        {
+          "hypothesis": "Adding to the cold-start briefing the rule that add/insert tasks must match every value to an existing row's exact style and must choose a new identifier by listing that column (because MAX()/CAST() over a text identifier is unreliable) steers the first turn away from wrong-identifier and style-drift failures without changing any other mechanism.",
+          "mechanism_id": "h5_cold_start_briefing",
+          "op": "modify",
+          "operation_id": "op_h5_id_style_briefing_r9",
+          "target_layer": "h5"
+        }
+      ],
+      "round": 9,
+      "train_batch": 4
+    }
+  ],
+  "status": "complete"
+}

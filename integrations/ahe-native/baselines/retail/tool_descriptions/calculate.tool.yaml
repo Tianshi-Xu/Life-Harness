@@ -1,0 +1,15 @@
+type: tool
+name: calculate
+description: Calculate the result of a mathematical expression.
+input_schema:
+  properties:
+    expression:
+      description: The mathematical expression to calculate, such as '2 + 2'. The
+        expression can contain numbers, operators (+, -, *, /), parentheses, and spaces.
+      title: Expression
+      type: string
+  required:
+  - expression
+  title: parameters
+  type: object
+disable_parallel: true

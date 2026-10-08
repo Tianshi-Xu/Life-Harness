@@ -1,0 +1,18 @@
+{
+  "additional_external_inference_api_calls": 0,
+  "additional_optimizer_api_calls": 0,
+  "alfworld_replay_actual_history_changes_next_h4_action": "countertop 1 -> countertop 3",
+  "qwen3_transport_regression": {
+    "alfworld": {
+      "envelope_changes": 0,
+      "original_qwen3_responses_unchanged": 1913
+    },
+    "dbbench": {
+      "envelope_changes": 0,
+      "original_qwen3_responses_unchanged": 984
+    }
+  },
+  "saved_7b_db_schema_failures_unambiguously_normalized": 252,
+  "selected_harness_hashes_unchanged": true,
+  "unit_regressions_passed": 37
+}

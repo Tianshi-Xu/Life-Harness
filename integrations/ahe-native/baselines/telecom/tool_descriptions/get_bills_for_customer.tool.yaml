@@ -1,0 +1,19 @@
+type: tool
+name: get_bills_for_customer
+description: Retrieves a list of the customer's bills, most recent first.
+input_schema:
+  properties:
+    customer_id:
+      description: ID of the customer.
+      title: Customer Id
+      type: string
+    limit:
+      default: 12
+      description: Maximum number of bills to return.
+      title: Limit
+      type: integer
+  required:
+  - customer_id
+  title: parameters
+  type: object
+disable_parallel: true

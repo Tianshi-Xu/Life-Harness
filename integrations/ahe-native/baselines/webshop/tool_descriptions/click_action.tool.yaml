@@ -1,0 +1,13 @@
+type: tool
+name: click_action
+description: Click a button or link with a specified value.
+input_schema:
+  type: object
+  properties:
+    value:
+      type: string
+      description: The value to click from the list of available actions.
+  required:
+  - value
+  additionalProperties: false
+disable_parallel: true

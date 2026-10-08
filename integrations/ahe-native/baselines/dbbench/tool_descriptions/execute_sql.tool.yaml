@@ -1,0 +1,13 @@
+type: tool
+name: execute_sql
+description: Executes a given SQL statement on the database and returns the result.
+input_schema:
+  type: object
+  properties:
+    query:
+      type: string
+      description: The SQL query to be executed.
+  required:
+  - query
+  additionalProperties: false
+disable_parallel: true

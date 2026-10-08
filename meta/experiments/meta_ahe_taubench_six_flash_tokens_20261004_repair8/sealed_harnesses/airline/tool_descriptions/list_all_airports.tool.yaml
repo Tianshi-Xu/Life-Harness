@@ -1,0 +1,8 @@
+type: tool
+name: list_all_airports
+description: Returns a list of all available airports.
+input_schema:
+  properties: {}
+  title: parameters
+  type: object
+disable_parallel: true

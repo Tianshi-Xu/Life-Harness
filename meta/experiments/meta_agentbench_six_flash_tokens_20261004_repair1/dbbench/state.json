@@ -1,0 +1,66 @@
+{
+  "baseline_phase": "candidate_01",
+  "batch": 0,
+  "from_scratch": true,
+  "incumbent": "declared_identifier_quoter.py",
+  "released_h_flags": [],
+  "rounds": [
+    {
+      "accepted": true,
+      "baseline_infra_errors": 0,
+      "baseline_score": 0.42,
+      "baseline_successes": 21,
+      "candidate": {
+        "changes": "New agent agents/declared_identifier_quoter.py (plain AgentHarness, identity anchor style; imports re/json only; per-episode public-metadata cache). transform_request is identity except that it mines the task's own schema blurb. transform_response extracts the declared table name + comma-separated column headers from the public task text ('The name of this table is <TABLE>, and the headers of this table are <COLS>.'), including the bare form of the last header whose sentence-final period is absorbed, then for every execute_sql tool call backtick-quotes only the declared names that actually need it (name containing a character outside [A-Za-z0-9_] or in a modest MySQL reserved-word set), rewriting only SQL code regions (single/double-quoted literals and already-backticked regions are byte-identical), in one combined longest-first case-insensitive single-pass alternation, skipping matches followed by '(' unless the name is the declared table name (INSERT INTO <table> (...)) and skipping matches followed by ' BY'. All other content, keys, ids and non-execute_sql tool calls are untouched; any parse/rewrite failure returns the original object.",
+        "expected_efficiency": "Turns and tokens should drop sharply: the 13-14 degenerate-loop episodes currently consume ~77% of all solver tokens (375k of 491k) and all hit the 15-turn cap; breaking each loop after turn 1-2 should cut total tokens roughly in half (to ~220-300k) and total turns by ~35-45%. No extra model turns are added anywhere; the mechanism is free (pure string work) and changed 0 of the 134 currently-successful execute_sql calls in evidence/batch_00_baseline, while altering 138/173 error-producing calls.",
+        "hypothesis": "Most failed dbbench episodes are stuck loops: the solver leaves schema identifiers bare when they are MySQL reserved words (e.g. a column named `Rank`) or contain spaces/punctuation (e.g. a table named `Hockey Games`, a column `No. Disc`, `Top 10`, `Frequency MHz`), MySQL answers 1064/1054/1146, and the model re-issues the identical statement until the 15-turn limit. Backtick-quoting exactly those identifiers -- which the task prompt itself declares -- inside the execute_sql tool-call arguments before dispatch will convert those loops into progressing episodes and raise accuracy while sharply cutting tokens/turns.",
+        "import_path": "agents.declared_identifier_quoter:AgentHarness",
+        "name": "declared_identifier_quoter",
+        "prediction": "Accuracy +0.04 to +0.10 (0.42 -> ~0.46-0.52), i.e. +2 to +5 of 50 tasks, driven by the loop episodes whose first SQL call is repaired (e.g. reserved-word column, multi-word table/column names)."
+      },
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.5,
+      "candidate_successes": 25,
+      "iteration": 1,
+      "losses": 1,
+      "outcome": "accepted",
+      "parent": "baseline_zero.py",
+      "retained_candidate": "declared_identifier_quoter.py",
+      "retained_candidate_sha256": "0717f3e30367eb28ff05e1e83f10585473d0a77d24323dc85a686d4589f9643e",
+      "solver_baseline_tokens": 490868,
+      "solver_candidate_tokens": 179359,
+      "train_batch": 0,
+      "train_n": 50,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 2583893,
+            "output_tokens": 46986,
+            "total_tokens": 2630879
+          },
+          "implementation": {
+            "input_tokens": 1720707,
+            "output_tokens": 55957,
+            "total_tokens": 1776664
+          },
+          "parent": {
+            "input_tokens": 1754843,
+            "output_tokens": 45135,
+            "total_tokens": 1799978
+          }
+        },
+        "cached_input_tokens_known": 3595392,
+        "calls_with_cache_details": 103,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 6059443,
+        "output_tokens": 148078,
+        "recorded_upstream_attempts": 103,
+        "successful_calls": 103,
+        "total_tokens": 6207521
+      },
+      "wins": 5
+    }
+  ],
+  "status": "running"
+}

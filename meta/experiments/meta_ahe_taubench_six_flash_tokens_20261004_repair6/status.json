@@ -1,0 +1,7 @@
+{
+  "error": "restricted getattr accepts public hook fields only",
+  "error_type": "ValueError",
+  "life_agentbench_started": false,
+  "phase": "stopped",
+  "pid": 3036812
+}

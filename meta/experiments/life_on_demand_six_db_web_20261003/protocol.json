@@ -1,0 +1,51 @@
+{
+  "acceptance": "strictly more successes on same complete 50-task TRAIN batch; equality rejected",
+  "base_session_sha256": "1bfa5e2219beaa8b145fb642255fb5eeadf9fa919bcadfd7121f0dffc4810ba7",
+  "batch_policy": "round r uses frozen batch r-1 regardless of acceptance; same complete 50 IDs for incumbent and candidate",
+  "data_hashes_sha256": "a0b03f1262033b0cf87f8de4d97627bd0a01ab4cc3ce1eb779fcf6392716c718",
+  "dataset_policy": "reuse frozen training partition and batches; not claimed unseen",
+  "domains": [
+    "dbbench",
+    "webshop"
+  ],
+  "episode_error_policy": "cache infra-error episode once as success=0 in fixed denominator; no full-run retry",
+  "evidence_access": "all 50 public current TRAIN cases available on demand; no case-count or aggregate-character quota",
+  "experiment": "life_on_demand_six_db_web_20261003",
+  "flash_concurrency": 8,
+  "flash_min_interval_seconds": 1.25,
+  "historical_comparison_note": "Meta and old Life may use acceptance-dependent batch progression; training rows are not same-condition comparisons across experiments",
+  "historical_manifest_sha256": "805d13dc3d07019cbd30e0cc50ac400526d3866aeaf8e6c96f0f807537732edd",
+  "initial_active_snapshot": [],
+  "interface_source_sha256": {
+    "INTERFACE.md": "de3dc7c6b7ab47c9cf7e1a53fee5184a6fea129db9166f2476ad650c55816859",
+    "__init__.py": "c34c30a3223592a95bfe0d993dddfc0e1460efcadf22b447d99cfbd038d89023",
+    "contract.py": "7bab038c47d5a9aa8f2ecc7d1a1f0aceb43f637249940b7d1667971078501c8c",
+    "runtime.py": "a48c71972ac8e377e48366fffb30e27ab967c7a18fa3ad2125146e10ddb98ade",
+    "templates/h2.py": "44ecf5b7d6cf51c08cf1a928083509f7c3f5866e561d22436a5cbc5a1fe6fbae",
+    "templates/h3.py": "53a4115bec7d842717ad86bd8e05d25c2e5ecea4f42c6635f0db9d07c39da43c",
+    "templates/h4.py": "0d5ee1a4433e39d842b6d5b0323d180aa32ea619b203b4dfb89d4a4cb1011279",
+    "templates/h5.py": "0994592350d6f8139c54b49b70c49ca5602f4ab1a72ddfb26fab5062dde6f761"
+  },
+  "interface_version": "life-agentbench-h2345-v3",
+  "max_proposer_turns": 32,
+  "optimizer_profile": "life-h2345-diagnose-replay-v2",
+  "prior_test_exposure": true,
+  "proposer": "ModelRouter deepseek-v4-flash",
+  "proposer_host": "https://routify-pub.alibaba-inc.com",
+  "proposer_model": "deepseek-v4-flash",
+  "proposer_protocol": "openai_chat_completions_tool_calling",
+  "rounds_per_domain": 6,
+  "schema_version": 2,
+  "snapshot_hashes_sha256": "2bd92f9416c10a3de33604d193dfeeb76adb796a24c6364a4a0a8c37d4e42c51",
+  "solver": {
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "max_tokens": 4096,
+    "model": "qwen3-4b",
+    "temperature": 0.0,
+    "url": "http://127.0.0.1:8400/v1/chat/completions"
+  },
+  "solver_workers_per_domain": 50,
+  "test_policy": "final full tests only after both domains have six decisions and immutable training seal; no optimizer receives test traces or feedback"
+}

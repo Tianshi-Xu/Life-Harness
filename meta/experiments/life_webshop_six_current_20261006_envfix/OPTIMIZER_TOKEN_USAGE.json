@@ -1,0 +1,12 @@
+{
+  "accounting_complete": true,
+  "attempts": 54,
+  "inference_accounting_complete": true,
+  "input_tokens": 6603526,
+  "known_usage_calls": 54,
+  "output_tokens": 174496,
+  "pending_calls": 0,
+  "rate_limit_rejections_without_usage": 0,
+  "total_tokens": 6778022,
+  "unknown_usage_calls": 0
+}

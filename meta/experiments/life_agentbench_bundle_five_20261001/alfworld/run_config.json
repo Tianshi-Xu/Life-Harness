@@ -1,0 +1,18 @@
+{
+  "bundle_schema_version": 2,
+  "domain": "alfworld",
+  "experiment": "life_agentbench_bundle_five_20261001",
+  "initial_active_snapshot": [],
+  "proposer": "DeepSeek-Flash",
+  "protocol_sha256": "1e1a5d0f349d34d0658c7b6efc10e08f06131c17ff1be31a617664acd792dbf9",
+  "rounds": 5,
+  "source_sha256": {
+    "agentbench_chain.py": "98318552c4e3087603b49b7045df10cc9fb864244d4bfd79ab5f20d7c10f050b",
+    "agentbench_evaluate.py": "902c74916f4363fda981315601671b02efb0f41d521a2be62a35b8c4bf90feb7",
+    "candidate_contract.py": "12b415975fd699acc37d4a8bf0b427630468e42b55d256cd6b35458f495b807f",
+    "driver.py": "79f24ccc570ec263801139d003467f72cbc30e8fcbf21c58a4121e367a04aa29",
+    "protocol.py": "43e51a795a6cf654ccdc7fc8c40e5941b3ca66f175103a4d3f9cfb0b1be1011c",
+    "status.py": "2cad4187b67dd3d55f49551e382804240e62036675ce7fb4ea50a9e04047f0f3"
+  },
+  "test_policy": "no per-round test; exactly one final test after all domains are sealed"
+}

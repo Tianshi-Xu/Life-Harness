@@ -1,0 +1,13 @@
+type: tool
+name: list_all_product_types
+description: 'List the name and product id of all product types.
+
+
+  Each product type has a variety of different items with unique item ids and options.
+
+  There are only 50 product types in the store.'
+input_schema:
+  properties: {}
+  title: parameters
+  type: object
+disable_parallel: true

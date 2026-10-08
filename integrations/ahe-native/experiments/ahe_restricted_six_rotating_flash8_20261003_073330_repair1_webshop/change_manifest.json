@@ -1,0 +1,45 @@
+{
+  "iteration": 6,
+  "changes": [
+    {
+      "id": "chg-1",
+      "type": "improvement",
+      "description": "Reworked the option/attribute machinery of ShopGuardMiddleware in three connected ways. (a) NUMBER/SIZE FOLDING: instruction tokens are normalised before comparison - spelled numbers fold onto digits (ten->10, two->2, dozen->12), size modifiers onto store abbreviations (extra->x), decimal tokens stay whole (1.5 is one token, not 1 and 5). (b) ORDER-AWARE OPTION MATCHING: each option value is scored by the instruction tokens it carries (with multiplicity, units retained) minus 0.5 per unexplained non-unit/non-number token, plus a penalty for binding an instruction number to the wrong unit ('10 feet (3 pack)' loses to '3 feet (10 pack)' for a 'ten pack ... 3 feet' instruction). Near-identical spellings ('3 feet (10 pack)' / '3 feet (10-pack)') are collapsed to one signature so they cannot fake a tie. Each attribute group now has a scored best option; when it is uniquely best (carries an instruction number, or shares two words / one distinctive word) it is remembered as the group's value. (c) ENFORCEMENT: a 'buy now' while a group's value is unset is served as a click on that value, and a click on a weaker option of the same group is served as the group's value. Also narrowed _verdict() to high-precision evidence only (an instruction number missing from the page, or no instruction word present) and removed the 'buy now -> back to search' rewrite.",
+      "files": ["middleware/shop_guard.py"],
+      "failure_pattern": "Purchase with an attribute option left unset or set to the wrong value. Traced: instruction '16 ounce ultra gold sugar free energy drink' bought with the size group unset; '38 mm pink applewatch band' bought with the size group ('38 | 40 | 41 mm') unset; '4oz ... conditioner' / '40x32 vanity mirror' where the size value could not be recognised at all; 'ten pack of high speed hdmi cables that are 3 feet long' where the matcher labelled the WRONG option ('3 feet (3 pack)') as the instruction's value and never saw '3 feet (10 pack)'. Secondary pattern: retreat loops. Traced failures followed the fuzzy word-count look-alike verdict and the 'buy now -> back to search' redirect through repeated searches and re-opened listings, never buying a different product.",
+      "predicted_fixes": [
+        "native_0a2d643bfd24a028cd236e76575d828424ccffbfa47392bd09d8ca9dc85e2f8d",
+        "native_12e2c8df501501b2bb531e941a737ffa7a2a491e849c5c5841e3b6132291bc35",
+        "native_1a5659493256d9eb296edea686b14dfd94116d21c8ab25ec0ca46a46f617067e",
+        "native_21900f41ecb7b8e6cfd9250f096aad2fe7f6d8fbec9436b2d28e48c304ff8255",
+        "native_227445a988500528d7826c6921d2e3b4a79ccf3a94cc3bcf7b667e3ae4990b36",
+        "native_4ec24a2d7f1dfae1f98882eabf0400cd9483dd2de78b926b625c46e8787f3816",
+        "native_42c6024940120036d7a0103375d5b8e5072589f6d0f9a1a8e7f6eb6a17358675",
+        "native_1f594da9b409f7f4b9dc5015a81761b2fc2dd60eec773f74539bdfd30c552c89"
+      ],
+      "risk_tasks": [
+        "tasks whose instruction names an attribute value that two options share (e.g. 'green' and 'green | blue') - the group is left to the agent because the best option is not unique",
+        "tasks where the instruction's value is a size abbreviation the store writes differently (m/l/s are dropped as single letters) - no enforcement happens, unchanged from before",
+        "tasks whose correct product page genuinely omits one of the instruction's numbers - the note still reports a look-alike but the purchase is no longer rewritten into a retreat, so a false positive can no longer turn a correct buy into a never-bought episode"
+      ],
+      "constraint_level": "middleware",
+      "why_this_component": "The failures are deterministic mis-selections of a value that is printed verbatim on the page, so they can be repaired at the point the action is issued, and only middleware may replace a normal action's arguments. Three iterations of prompt/skill/memory doctrine about 'discriminating content on the page' moved the score nowhere (iter3 36%, iter4 42%, iter5 34%, iter6 42% with all changes attributed INEFFECTIVE), so the failure class was re-approached from the action level instead of the advice level."
+    },
+    {
+      "id": "chg-2",
+      "type": "improvement",
+      "description": "Propagated the number/size folding and the per-group best-option rule into the text surfaces: systemprompt.md rule 2 (a spelled number is carried once the page prints its digits) and rule 3 (the group's value is the option carrying the instruction's number, a spelled number counting as its digits); the skill's product-page option bullet (with the concrete 'ten pack ... 3 feet' -> '3 feet (10 pack)' example and the rule that a named [SHOP CHECK] option is clicked exactly); LongTermMEMORY's attribute-selection section (number folding, click the named option, do not click the nearest option when the block reports no match); and the click_action description (number folding, and that a page is a look-alike on a missing NUMBER, not merely on a missing descriptive adjective).",
+      "files": [
+        "systemprompt.md",
+        "skills/webshop_procedure/SKILL.md",
+        "LongTermMEMORY.md",
+        "tool_descriptions/click_action.tool.yaml"
+      ],
+      "failure_pattern": "Same class as chg-1: the agent read 'ten pack' and the page's '10 pack' as different words, and treated an adjective-free option list as evidence the listing could not satisfy the instruction.",
+      "predicted_fixes": ["same failure class as chg-1"],
+      "risk_tasks": ["none specific - the changes only add the folding rule and align the retreat wording with the narrowed middleware verdict"],
+      "constraint_level": "prompt",
+      "why_this_component": "The middleware replaces the action, but the agent still chooses which listing to open and which option to click first; the text must not contradict what the middleware computes, or the agent spends turns fighting it (as it did with the pre-iteration-5 'a missing word is never a reason to leave' doctrine)."
+    }
+  ]
+}

@@ -1,0 +1,525 @@
+{
+  "accepted_bundle_ids": [
+    "dbbench_identifier_guard",
+    "dbbench_sql_repair_guard_v2",
+    "dbbench_statement_and_answer_guard"
+  ],
+  "active_snapshot": [
+    {
+      "artifact_path": "versions/dbbench_statement_and_answer_guard/op_h3_schema_card_r3.py",
+      "mechanism_id": "h3_schema_card",
+      "revision": 3,
+      "sha256": "1d75809f43af3e844a18930b07859b0e55f1e6c8f0f68fb1e5d57869cebec40a",
+      "target_layer": "h3"
+    },
+    {
+      "artifact_path": "versions/dbbench_sql_repair_guard_v2/op_h4_error_monitor_r2.py",
+      "mechanism_id": "h4_error_monitor",
+      "revision": 2,
+      "sha256": "d15652a59f7f41f7816bc94d9d2527016691ac5a453707aacbf379b99a980ce2",
+      "target_layer": "h4"
+    },
+    {
+      "artifact_path": "versions/dbbench_statement_and_answer_guard/op_h2_sql_repair_r3.py",
+      "mechanism_id": "h2_sql_repair",
+      "revision": 3,
+      "sha256": "c118ef2a3f4918c4d7c8ccd5577d2b942a6a9277c78e9990a25b9f9d4a20f533",
+      "target_layer": "h2"
+    },
+    {
+      "artifact_path": "versions/dbbench_statement_and_answer_guard/op_h5_answer_discipline_r1.py",
+      "mechanism_id": "h5_answer_discipline",
+      "revision": 1,
+      "sha256": "32efe0eeabad5150e8a253df9c905a7d3cf28d4aec1d47e63e615196751c32d2",
+      "target_layer": "h5"
+    }
+  ],
+  "active_snapshot_sha256": "0cbd1e4b176c621d80a192a0dcc020ceef8f14cea42b03e5fd8d7654e08d9ded",
+  "domain": "dbbench",
+  "operation_log": [
+    {
+      "bundle_id": "dbbench_identifier_guard",
+      "committed_snapshot_sha256": "9ba5aefba8ef33e6deed580cb521ebdcba98cb0c38078ba03a205d4a12ec1bb0",
+      "operations": [
+        {
+          "artifact": "artifacts/h3_schema_card.py",
+          "artifact_sha256": "1c583353febff3816f9812b0607090d4396d458fb4f2975bddcec6df871dba98",
+          "hypothesis": "Injecting a schema card with the exact table/column names, their types and sample rows, plus a backtick-quoting reminder in the execute_sql description, removes the missing-table, unknown-column and syntax errors caused by unquoted identifiers and lets the solver copy existing value formats.",
+          "mechanism_id": "h3_schema_card",
+          "op": "add",
+          "operation_id": "op_h3_schema_card",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/h4_error_monitor.py",
+          "artifact_sha256": "cc7cb761b889a553ffe0365ca9f6a7a67f476c8636b770bfc1ad6d1dd6065a31",
+          "hypothesis": "Watching new tool results with a cursor, classifying MySQL errors and recording the normalized failing statement in shared state lets the harness name the exact public identifiers in backticks and escalate when the very same statement keeps failing.",
+          "mechanism_id": "h4_error_monitor",
+          "op": "add",
+          "operation_id": "op_h4_error_monitor",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/h2_sql_repair.py",
+          "artifact_sha256": "b25660cc8d0b76f1395d3e10bf2c3c34934d74c154bac5f1d5d330c481bf7f89",
+          "hypothesis": "Rewriting an execute_sql argument so that known public identifiers that require quoting are backtick-quoted (outside literals, already-quoted spans, function calls and BY clauses), and replacing an identical already-failed statement with a public correction, keeps the action executable without changing the solver's intent.",
+          "mechanism_id": "h2_sql_repair",
+          "op": "add",
+          "operation_id": "op_h2_identifier_repair",
+          "target_layer": "h2"
+        }
+      ],
+      "parent_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "round": 1
+    },
+    {
+      "bundle_id": "dbbench_sql_repair_guard_v2",
+      "committed_snapshot_sha256": "8bf2c93f3077d5f2b88d0d5aa3ad356a32b2ccefec332173fecdeabab3dc76dd",
+      "operations": [
+        {
+          "artifact": "artifacts/h2_sql_repair_r2.py",
+          "artifact_sha256": "5b5b2bc3e8acb3a48c9dafa64fddc03593137375debd2b39542deba851e3d418",
+          "expected_revision": 1,
+          "expected_sha256": "b25660cc8d0b76f1395d3e10bf2c3c34934d74c154bac5f1d5d330c481bf7f89",
+          "hypothesis": "Repairing an execute_sql statement whose unescaped single-quote count is odd by doubling exactly the word-internal apostrophes (outside backticked and double-quoted spans) makes case 2953's UPDATE parse without changing its meaning, and replacing the generic loop nudge with a message that quotes the MySQL error recorded by H4 and a kind-specific alternative stops the exact-statement deadlock of cases 2953 and 2102 while leaving balanced statements byte-identical.",
+          "mechanism_id": "h2_sql_repair",
+          "op": "modify",
+          "operation_id": "op_h2_sql_repair_r2",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/h3_schema_card_r2.py",
+          "artifact_sha256": "2dde2b1df7ae93bd83493f1e31a2541b06d0a36a9f4b8e822d5c0041d32ff182",
+          "expected_revision": 1,
+          "expected_sha256": "1c583353febff3816f9812b0607090d4396d458fb4f2975bddcec6df871dba98",
+          "hypothesis": "Keeping the exact identifiers and types but labelling the printed rows as a first-rows preview, and stating that a value must reproduce the convention of the same column (leading word, trailing period, plain digits, quoting when the task says strings), removes the mis-insertion of case 3993 and the format misses of cases 3634, 4526 and 3012, while the card still changes tool descriptions only and is appended once per episode.",
+          "mechanism_id": "h3_schema_card",
+          "op": "modify",
+          "operation_id": "op_h3_schema_card_r2",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/h4_error_monitor_r2.py",
+          "artifact_sha256": "d15652a59f7f41f7816bc94d9d2527016691ac5a453707aacbf379b99a980ce2",
+          "expected_revision": 1,
+          "expected_sha256": "cc7cb761b889a553ffe0365ca9f6a7a67f476c8636b770bfc1ad6d1dd6065a31",
+          "hypothesis": "Recording the trimmed MySQL error text and the public table name next to the signature, kind and repeat count in sql_loop_guard, and returning a hint that names the exact identifiers plus the kind-specific next step (including one SHOW COLUMNS probe when an unknown column names an empty identifier), gives the solver the evidence cases 2953 and 2102 never received, while a fresh error-free tool result still clears the guard.",
+          "mechanism_id": "h4_error_monitor",
+          "op": "modify",
+          "operation_id": "op_h4_error_monitor_r2",
+          "target_layer": "h4"
+        }
+      ],
+      "parent_snapshot_sha256": "9ba5aefba8ef33e6deed580cb521ebdcba98cb0c38078ba03a205d4a12ec1bb0",
+      "round": 2
+    },
+    {
+      "bundle_id": "dbbench_statement_and_answer_guard",
+      "committed_snapshot_sha256": "0cbd1e4b176c621d80a192a0dcc020ceef8f14cea42b03e5fd8d7654e08d9ded",
+      "operations": [
+        {
+          "artifact": "artifacts/h2_sql_repair_r3.py",
+          "artifact_sha256": "c118ef2a3f4918c4d7c8ccd5577d2b942a6a9277c78e9990a25b9f9d4a20f533",
+          "expected_revision": 2,
+          "expected_sha256": "5b5b2bc3e8acb3a48c9dafa64fddc03593137375debd2b39542deba851e3d418",
+          "hypothesis": "Rewriting a backtick-quoted identifier that reproduces a public header containing a literal backslash escape into the header's de-escaped (space) name - and doing it only for names that are public identifiers, outside string literals - lets the first statement of cases 4761 and 3263 address the real column, while the existing literal closing and backtick quoting still keep the action executable; and suppressing an execute_sql INSERT/UPDATE/DELETE/REPLACE whose normalized text already appears in the public history with a non-error tool result stops case 3647's byte-identical INSERT from being applied a second time, without touching a first execution or any read statement.",
+          "mechanism_id": "h2_sql_repair",
+          "op": "modify",
+          "operation_id": "op_h2_sql_repair_r3",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/h3_schema_card_r3.py",
+          "artifact_sha256": "1d75809f43af3e844a18930b07859b0e55f1e6c8f0f68fb1e5d57869cebec40a",
+          "expected_revision": 2,
+          "expected_sha256": "2dde2b1df7ae93bd83493f1e31a2541b06d0a36a9f4b8e822d5c0041d32ff182",
+          "hypothesis": "Publishing the de-escaped identifiers (and recording raw->card renames in sql_identifiers), plus the standing statement rules - numeric-cast for text-stored numbers (684, 897, 776), explicit boolean bracketing (4538), filter literal against the printed rows (4624), modify-then-verify - and one task-type line for INSERT/UPDATE/DELETE tasks (1052), removes the first-statement errors and the silent no-op modifications while the card is still appended at most once per episode and the tool descriptions remain the only tool-side change.",
+          "mechanism_id": "h3_schema_card",
+          "op": "modify",
+          "operation_id": "op_h3_schema_card_r3",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/h5_answer_discipline_r1.py",
+          "artifact_sha256": "32efe0eeabad5150e8a253df9c905a7d3cf28d4aec1d47e63e615196751c32d2",
+          "hypothesis": "A cold-start answer contract that names the answering column, prefers a bound quantity column over COUNT(*) when the question asks how many people watched or attended (290), asks for the printed cell text exactly as returned (3639, control 398) and asks for one confirming SELECT after a modification, is emitted once on the first solver turn of a task that binds a public table and stays silent otherwise.",
+          "mechanism_id": "h5_answer_discipline",
+          "op": "add",
+          "operation_id": "op_h5_answer_discipline_r1",
+          "target_layer": "h5"
+        }
+      ],
+      "parent_snapshot_sha256": "8bf2c93f3077d5f2b88d0d5aa3ad356a32b2ccefec332173fecdeabab3dc76dd",
+      "round": 3
+    }
+  ],
+  "prior_test_exposure": true,
+  "round": 6,
+  "rounds": [
+    {
+      "accepted": true,
+      "active_snapshot_sha256": "9ba5aefba8ef33e6deed580cb521ebdcba98cb0c38078ba03a205d4a12ec1bb0",
+      "bundle_hypothesis": "Most observed DBBench failures start as mechanical SQL-interaction errors: the public table or column identifiers contain spaces, dots or reserved words (Hockey Games, Semi finalists, Shirt sponsor, No., Rank) and the solver submits them unquoted, so MySQL answers 1146/1054/1064 and the turn budget is consumed by identical retries. If H3 publishes a schema card with the exact backtick form of every identifier and appends the quoting rule to the execute_sql description, H4 records each failing statement in shared state and explains the failing identifiers, and H2 repairs unquoted identifier tokens or replaces an identical repeated failing statement, then the first statement of a task parses and no turn is wasted on a resolvable error.",
+      "bundle_id": "dbbench_identifier_guard",
+      "candidate_infra_errors": 0,
+      "candidate_phase": "round_01_candidate",
+      "candidate_score": 0.6,
+      "candidate_snapshot_sha256": "bc75b2824f28378fad50630565b1f5f99c13ae3fc4752f48a2829a4c92b3e2da",
+      "candidate_successes": 30,
+      "candidate_summary_sha256": "558412e0889c625fa0a81ce44059270caaaddd392be4c795e92440e069e3fb39",
+      "cases_available": 50,
+      "cases_opened": 10,
+      "incumbent_infra_errors": 0,
+      "incumbent_phase": "round_01_incumbent",
+      "incumbent_score": 0.38,
+      "incumbent_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "incumbent_successes": 19,
+      "incumbent_summary_sha256": "62b53a946768cfe0c2854e4a71c86ed02f1b309be6712385d341896a1a1e07d7",
+      "operations": [
+        {
+          "artifact": "artifacts/h3_schema_card.py",
+          "artifact_sha256": "1c583353febff3816f9812b0607090d4396d458fb4f2975bddcec6df871dba98",
+          "hypothesis": "Injecting a schema card with the exact table/column names, their types and sample rows, plus a backtick-quoting reminder in the execute_sql description, removes the missing-table, unknown-column and syntax errors caused by unquoted identifiers and lets the solver copy existing value formats.",
+          "mechanism_id": "h3_schema_card",
+          "op": "add",
+          "operation_id": "op_h3_schema_card",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/h4_error_monitor.py",
+          "artifact_sha256": "cc7cb761b889a553ffe0365ca9f6a7a67f476c8636b770bfc1ad6d1dd6065a31",
+          "hypothesis": "Watching new tool results with a cursor, classifying MySQL errors and recording the normalized failing statement in shared state lets the harness name the exact public identifiers in backticks and escalate when the very same statement keeps failing.",
+          "mechanism_id": "h4_error_monitor",
+          "op": "add",
+          "operation_id": "op_h4_error_monitor",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/h2_sql_repair.py",
+          "artifact_sha256": "b25660cc8d0b76f1395d3e10bf2c3c34934d74c154bac5f1d5d330c481bf7f89",
+          "hypothesis": "Rewriting an execute_sql argument so that known public identifiers that require quoting are backtick-quoted (outside literals, already-quoted spans, function calls and BY clauses), and replacing an identical already-failed statement with a public correction, keeps the action executable without changing the solver's intent.",
+          "mechanism_id": "h2_sql_repair",
+          "op": "add",
+          "operation_id": "op_h2_identifier_repair",
+          "target_layer": "h2"
+        }
+      ],
+      "outcome": "evaluated_candidate",
+      "parent_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "proposer_requests": 18,
+      "round": 1,
+      "train_batch": 0,
+      "usage": {
+        "completion_tokens": 99231,
+        "prompt_cache_hit_tokens": 243200,
+        "prompt_cache_miss_tokens": 359332,
+        "prompt_tokens": 1341644,
+        "total_tokens": 1440875
+      },
+      "validation_sha256": "af0224b307f986fd646fc1dc48e35fbad6e5797ddd25bc5155461838ddb1cffb"
+    },
+    {
+      "accepted": true,
+      "active_snapshot_sha256": "8bf2c93f3077d5f2b88d0d5aa3ad356a32b2ccefec332173fecdeabab3dc76dd",
+      "bundle_hypothesis": "The remaining DBBench failures are dominated by action-level defects the harness can still repair. (a) A value literal with an unescaped word-internal apostrophe (case 2953) makes MySQL answer 1064 and the byte-identical statement is then resubmitted until the turn budget is gone. (b) A repeated failing statement is only answered with a generic 'already failed' nudge that carries neither the MySQL error text nor a concrete alternative (cases 2953, 2102), and for an empty public column name the solver is never pointed at the real names. (c) The schema card prints three rows as if they were the whole table, so a continuation value such as the next rank is guessed from the preview (case 3993). (d) The card never states that each column has its own value convention, so inserted values copy the task wording instead of the stored style (cases 3634, 4526, 3012). If H2 closes unbalanced literals by doubling the word-internal apostrophe and the repeat veto quotes the recorded MySQL error plus the kind-specific next step, and if H4 records that error evidence in shared state while the card marks its rows as a preview and states the value-convention rule, then those turns stop being spent on unrecoverable repetitions and the modified rows match the stored format.",
+      "bundle_id": "dbbench_sql_repair_guard_v2",
+      "candidate_infra_errors": 0,
+      "candidate_phase": "round_02_candidate",
+      "candidate_score": 0.66,
+      "candidate_snapshot_sha256": "1284d8d03f6e98550c3dbbf8b449ab32899a27337b6cf01ea3b9cfa0d03e5b06",
+      "candidate_successes": 33,
+      "candidate_summary_sha256": "f2fa76fec3a01e29d9983b4948b5cddc3a2db26e813e33c53f67df94bc806d73",
+      "cases_available": 50,
+      "cases_opened": 12,
+      "incumbent_infra_errors": 0,
+      "incumbent_phase": "round_02_incumbent",
+      "incumbent_score": 0.58,
+      "incumbent_snapshot_sha256": "9ba5aefba8ef33e6deed580cb521ebdcba98cb0c38078ba03a205d4a12ec1bb0",
+      "incumbent_successes": 29,
+      "incumbent_summary_sha256": "b313705f5dde642018f1b16d4fb217d262ff53a7786f282a0ec4fdb9c293b7b9",
+      "operations": [
+        {
+          "artifact": "artifacts/h2_sql_repair_r2.py",
+          "artifact_sha256": "5b5b2bc3e8acb3a48c9dafa64fddc03593137375debd2b39542deba851e3d418",
+          "expected_revision": 1,
+          "expected_sha256": "b25660cc8d0b76f1395d3e10bf2c3c34934d74c154bac5f1d5d330c481bf7f89",
+          "hypothesis": "Repairing an execute_sql statement whose unescaped single-quote count is odd by doubling exactly the word-internal apostrophes (outside backticked and double-quoted spans) makes case 2953's UPDATE parse without changing its meaning, and replacing the generic loop nudge with a message that quotes the MySQL error recorded by H4 and a kind-specific alternative stops the exact-statement deadlock of cases 2953 and 2102 while leaving balanced statements byte-identical.",
+          "mechanism_id": "h2_sql_repair",
+          "op": "modify",
+          "operation_id": "op_h2_sql_repair_r2",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/h3_schema_card_r2.py",
+          "artifact_sha256": "2dde2b1df7ae93bd83493f1e31a2541b06d0a36a9f4b8e822d5c0041d32ff182",
+          "expected_revision": 1,
+          "expected_sha256": "1c583353febff3816f9812b0607090d4396d458fb4f2975bddcec6df871dba98",
+          "hypothesis": "Keeping the exact identifiers and types but labelling the printed rows as a first-rows preview, and stating that a value must reproduce the convention of the same column (leading word, trailing period, plain digits, quoting when the task says strings), removes the mis-insertion of case 3993 and the format misses of cases 3634, 4526 and 3012, while the card still changes tool descriptions only and is appended once per episode.",
+          "mechanism_id": "h3_schema_card",
+          "op": "modify",
+          "operation_id": "op_h3_schema_card_r2",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/h4_error_monitor_r2.py",
+          "artifact_sha256": "d15652a59f7f41f7816bc94d9d2527016691ac5a453707aacbf379b99a980ce2",
+          "expected_revision": 1,
+          "expected_sha256": "cc7cb761b889a553ffe0365ca9f6a7a67f476c8636b770bfc1ad6d1dd6065a31",
+          "hypothesis": "Recording the trimmed MySQL error text and the public table name next to the signature, kind and repeat count in sql_loop_guard, and returning a hint that names the exact identifiers plus the kind-specific next step (including one SHOW COLUMNS probe when an unknown column names an empty identifier), gives the solver the evidence cases 2953 and 2102 never received, while a fresh error-free tool result still clears the guard.",
+          "mechanism_id": "h4_error_monitor",
+          "op": "modify",
+          "operation_id": "op_h4_error_monitor_r2",
+          "target_layer": "h4"
+        }
+      ],
+      "outcome": "evaluated_candidate",
+      "parent_snapshot_sha256": "9ba5aefba8ef33e6deed580cb521ebdcba98cb0c38078ba03a205d4a12ec1bb0",
+      "proposer_requests": 21,
+      "round": 2,
+      "train_batch": 1,
+      "usage": {
+        "completion_tokens": 91608,
+        "prompt_cache_hit_tokens": 435712,
+        "prompt_cache_miss_tokens": 661927,
+        "prompt_tokens": 1581701,
+        "total_tokens": 1673309
+      },
+      "validation_sha256": "a379bb9df5dfb009130ea869ed89a254eee41e59c6f92a135475d5bb9557d7cb"
+    },
+    {
+      "accepted": true,
+      "active_snapshot_sha256": "0cbd1e4b176c621d80a192a0dcc020ceef8f14cea42b03e5fd8d7654e08d9ded",
+      "bundle_hypothesis": "The remaining TRAIN failures are not missing SQL knowledge but mechanics the harness can still fix without changing solver intent. (a) Public headers carry literal backslash escapes ('1975-1979\\nObverse', 'Atomic\\nno.') while MySQL stores the name with a space, so the first statement of those tasks dies with 1054 and a probe turn is spent (cases 4761, 3263). (b) The declared type labels do not describe storage: numeric-looking columns are text, so ORDER BY / MAX / MIN / SUM compares digit strings (case 776 returns '12' as the minimum before '3', case 897 returns '93,283' as the maximum although '1,905,991' is larger, case 684 sums '7,660' style values to 99.0). (c) Nothing warns about AND/OR precedence (case 4538 changed rows that were not introduced in 1997), about a filter literal that actually lives in another column (case 4624), about a modifying statement that returns no rows, or about re-executing an identical INSERT that already succeeded (case 3647 inserted its two rows twice). (d) The answer itself is never contracted: case 290 counted rows instead of reading the Crowd value, case 3639 rephrased returned cells, and case 1052 answered a fact-stating INSERT task with a judgement instead of an insertion. If H3 publishes the de-escaped identifiers with the standing statement rules and one task-type line, H2 de-escapes the escaped identifier inside the action and suppresses an identical modifying statement that the public history already shows as successful, and H5 states the answer contract before the first solver turn, then the first statement reaches the intended rows and the committed answer is read from the data instead of from the solver's phrasing.",
+      "bundle_id": "dbbench_statement_and_answer_guard",
+      "candidate_infra_errors": 0,
+      "candidate_phase": "round_03_candidate",
+      "candidate_score": 0.72,
+      "candidate_snapshot_sha256": "5b099473bf8b7ee1d66093fc85026420de90648f03d1d6ff0591c5a7b88362f1",
+      "candidate_successes": 36,
+      "candidate_summary_sha256": "c9c1d09127d5264e3c3eb2666a842e12a4cf7f8e5e1b43227a6a11617809a1bc",
+      "cases_available": 50,
+      "cases_opened": 14,
+      "incumbent_infra_errors": 0,
+      "incumbent_phase": "round_03_incumbent",
+      "incumbent_score": 0.64,
+      "incumbent_snapshot_sha256": "8bf2c93f3077d5f2b88d0d5aa3ad356a32b2ccefec332173fecdeabab3dc76dd",
+      "incumbent_successes": 32,
+      "incumbent_summary_sha256": "6acd2a2ba30f06e575233f58b82be7cf0a8ac7f79de1937cca58198d7fe4e8bf",
+      "operations": [
+        {
+          "artifact": "artifacts/h2_sql_repair_r3.py",
+          "artifact_sha256": "c118ef2a3f4918c4d7c8ccd5577d2b942a6a9277c78e9990a25b9f9d4a20f533",
+          "expected_revision": 2,
+          "expected_sha256": "5b5b2bc3e8acb3a48c9dafa64fddc03593137375debd2b39542deba851e3d418",
+          "hypothesis": "Rewriting a backtick-quoted identifier that reproduces a public header containing a literal backslash escape into the header's de-escaped (space) name - and doing it only for names that are public identifiers, outside string literals - lets the first statement of cases 4761 and 3263 address the real column, while the existing literal closing and backtick quoting still keep the action executable; and suppressing an execute_sql INSERT/UPDATE/DELETE/REPLACE whose normalized text already appears in the public history with a non-error tool result stops case 3647's byte-identical INSERT from being applied a second time, without touching a first execution or any read statement.",
+          "mechanism_id": "h2_sql_repair",
+          "op": "modify",
+          "operation_id": "op_h2_sql_repair_r3",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/h3_schema_card_r3.py",
+          "artifact_sha256": "1d75809f43af3e844a18930b07859b0e55f1e6c8f0f68fb1e5d57869cebec40a",
+          "expected_revision": 2,
+          "expected_sha256": "2dde2b1df7ae93bd83493f1e31a2541b06d0a36a9f4b8e822d5c0041d32ff182",
+          "hypothesis": "Publishing the de-escaped identifiers (and recording raw->card renames in sql_identifiers), plus the standing statement rules - numeric-cast for text-stored numbers (684, 897, 776), explicit boolean bracketing (4538), filter literal against the printed rows (4624), modify-then-verify - and one task-type line for INSERT/UPDATE/DELETE tasks (1052), removes the first-statement errors and the silent no-op modifications while the card is still appended at most once per episode and the tool descriptions remain the only tool-side change.",
+          "mechanism_id": "h3_schema_card",
+          "op": "modify",
+          "operation_id": "op_h3_schema_card_r3",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/h5_answer_discipline_r1.py",
+          "artifact_sha256": "32efe0eeabad5150e8a253df9c905a7d3cf28d4aec1d47e63e615196751c32d2",
+          "hypothesis": "A cold-start answer contract that names the answering column, prefers a bound quantity column over COUNT(*) when the question asks how many people watched or attended (290), asks for the printed cell text exactly as returned (3639, control 398) and asks for one confirming SELECT after a modification, is emitted once on the first solver turn of a task that binds a public table and stays silent otherwise.",
+          "mechanism_id": "h5_answer_discipline",
+          "op": "add",
+          "operation_id": "op_h5_answer_discipline_r1",
+          "target_layer": "h5"
+        }
+      ],
+      "outcome": "evaluated_candidate",
+      "parent_snapshot_sha256": "8bf2c93f3077d5f2b88d0d5aa3ad356a32b2ccefec332173fecdeabab3dc76dd",
+      "proposer_requests": 23,
+      "round": 3,
+      "train_batch": 2,
+      "usage": {
+        "completion_tokens": 125137,
+        "prompt_cache_hit_tokens": 353664,
+        "prompt_cache_miss_tokens": 789138,
+        "prompt_tokens": 2113049,
+        "total_tokens": 2238186
+      },
+      "validation_sha256": "23eddc29079ed2e86594d7a267f45086bba69ac985637f87204cc7e9fa52d437"
+    },
+    {
+      "accepted": false,
+      "active_snapshot_sha256": "0cbd1e4b176c621d80a192a0dcc020ceef8f14cea42b03e5fd8d7654e08d9ded",
+      "bundle_hypothesis": "Most remaining failures put a literal that the question names into a filter whose column cannot hold it (a name that lives in another column, a key whose stored value carries trailing punctuation, a value quoted as one comma-carrying text, a phrase the question describes as contained). The monitor pairs each fresh tool result with the statement that produced it and records the question literal of a zero-row SELECT as an unresolved probe in shared state, so the action layer can replace an identical repeat or a degenerate commit with one discovery statement that searches every column of the table, and so the action layer can widen containment equalities and join a quoted comma-carrying value before execution; MySQL errors, identifier quoting and the already-applied mutation guard stay exactly as they are.",
+      "bundle_id": "dbbench_empty_literal_probe_r4",
+      "candidate_eval": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_flash100k_repair_20261004/dbbench/evals/round_04_candidate",
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.38,
+      "candidate_snapshot_sha256": "6796ffa6584c632f3db386e7df74353fe066386f3de5b94daa6029ba80dbac21",
+      "candidate_successes": 19,
+      "candidate_summary_sha256": "52ec0a5b3d7f2f90d2d361ee989b792c06e05d3c14bc38c7e69a6fcdd96ee08f",
+      "fallback_reason": null,
+      "incumbent_eval": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_six_flash_tokens_20261004/dbbench/evals/round_04_incumbent",
+      "incumbent_infra_errors": 0,
+      "incumbent_score": 0.58,
+      "incumbent_snapshot_sha256": "0cbd1e4b176c621d80a192a0dcc020ceef8f14cea42b03e5fd8d7654e08d9ded",
+      "incumbent_successes": 29,
+      "incumbent_summary_sha256": "ea1d336f8082feb08bec61526be0d2e6e1383a8c5e921bdd6cf9819bee6c1f8b",
+      "operations": [
+        {
+          "artifact": "artifacts/h2_sql_repair_r4.py",
+          "artifact_sha256": "171bd974b14428e0063a29a9836882f8df894c55874ad27b089d1342e9e3d6b7",
+          "expected_revision": 3,
+          "expected_sha256": "c118ef2a3f4918c4d7c8ccd5577d2b942a6a9277c78e9990a25b9f9d4a20f533",
+          "hypothesis": "Replacing a repeated zero-row statement or a degenerate commit with one discovery statement over every column of the tested table turns an unresolved literal into visible evidence, and widening a containment equality or joining a quoted comma-carrying IN list keeps the task's own wording, so cases 425, 754, 4769, 1973 and 4136 can still reach the graded row while case 2020's plain equalities pass through byte-identical.",
+          "mechanism_id": "h2_sql_repair",
+          "op": "modify",
+          "operation_id": "op_h2_literal_discovery",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/h4_error_monitor_r3.py",
+          "artifact_sha256": "79475dfabe7d32665b5d97e234980be726c7438db61a5a60cd6516833c66b51f",
+          "expected_revision": 2,
+          "expected_sha256": "d15652a59f7f41f7816bc94d9d2527016691ac5a453707aacbf379b99a980ce2",
+          "hypothesis": "Recording a zero-row or all-NULL SELECT result together with the question literal that its filter used, and clearing that record only once a fresh result actually shows the literal, gives the action layer the state it needs and gives the solver one concrete recovery hint on the turn the empty result appears, while the existing MySQL-error guard and hint text stay untouched.",
+          "mechanism_id": "h4_error_monitor",
+          "op": "modify",
+          "operation_id": "op_h4_empty_probe",
+          "target_layer": "h4"
+        }
+      ],
+      "outcome": "evaluated_candidate",
+      "parent_snapshot_sha256": "0cbd1e4b176c621d80a192a0dcc020ceef8f14cea42b03e5fd8d7654e08d9ded",
+      "profile": "life-h2345-diagnose-replay-v2.5",
+      "proposer_requests": 11,
+      "recovered_qualified": false,
+      "round": 4,
+      "train_batch": 3,
+      "usage": {
+        "completion_tokens": 18515,
+        "prompt_tokens": 378264,
+        "total_tokens": 396779
+      },
+      "validation_sha256": "8764e9c284d6e353c609e893ec481305feab0489d922e27155ac1ed845dfa07c"
+    },
+    {
+      "accepted": false,
+      "active_snapshot_sha256": "0cbd1e4b176c621d80a192a0dcc020ceef8f14cea42b03e5fd8d7654e08d9ded",
+      "bundle_hypothesis": "The remaining cheap TRAIN losses are action-integrity defects, not missing SQL knowledge, and each one is visible in public data alone. (a) Case 222: the public table name is ninety characters long, so MySQL can only address it by the truncated stored name; no layer published that name, no layer shortened the over-long token inside the action, and because error 1059 belongs to no known class H4 returned no hint and dropped the guard, so the solver burned thirteen turns alternating two ALTER TABLE ... RENAME statements that each hit the same 1059. (b) Case 4591: the stored column name carries a non-breaking space while the card and the hint print a plain space, and once the solver had learned the real name it wrote the corrected call as <tool_call> JSON inside its content with no tool_calls, so nine turns were paid for a no-tool nudge instead of an execution. (c) Case 2361, a success: the card's own numeric rule prints CAST(... AS INTEGER), a type MySQL refuses, and that cost the first turn of an otherwise successful task. If H3 prints the stored (<=64 character) identifiers, keeps every non-ASCII character of a public name and only names cast types MySQL parses, if H4 owns the 1059 class and names the stored table, and if H2 rebuilds a call that was written as text, cuts an over-long identifier to its stored prefix and refuses a schema change of the task table, then those statements reach the intended rows on the first execution and no turn is spent on an unresolvable repetition.",
+      "bundle_id": "dbbench_identifier_limit_and_action_recovery",
+      "candidate_eval": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_flash100k_repair_20261004/dbbench/evals/round_05_candidate",
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.52,
+      "candidate_snapshot_sha256": "9da4477d6864a6d8bfb828035e5c4eca8a7b0e2516fa502a2ced6fc25708cb02",
+      "candidate_successes": 26,
+      "candidate_summary_sha256": "92b9bd542d60a85b814a70d2128122ab63adaff9705247aedc0774a71983f6b4",
+      "fallback_reason": null,
+      "incumbent_eval": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_flash100k_repair_20261004/dbbench/evals/round_05_incumbent",
+      "incumbent_infra_errors": 0,
+      "incumbent_score": 0.56,
+      "incumbent_snapshot_sha256": "0cbd1e4b176c621d80a192a0dcc020ceef8f14cea42b03e5fd8d7654e08d9ded",
+      "incumbent_successes": 28,
+      "incumbent_summary_sha256": "71cb464698ac9400ed2553071b12c37aef16e9d2ac4f758626c51538c5b997ae",
+      "operations": [
+        {
+          "artifact": "artifacts/h2_sql_repair_r4.py",
+          "artifact_sha256": "771af86d2eddcfc92adf3e925f4849e290abec01d37547b69ca48d150c184c7e",
+          "expected_revision": 3,
+          "expected_sha256": "c118ef2a3f4918c4d7c8ccd5577d2b942a6a9277c78e9990a25b9f9d4a20f533",
+          "hypothesis": "An assistant turn whose content holds a complete <tool_call> JSON payload for execute_sql or commit_final_answer is executed as that call instead of being answered with the no-tool nudge (case 4591, nine wasted turns); an identifier longer than MySQL's 64-character limit is cut to its stored prefix, which is what makes the first statement of case 222 executable; a written backslash-x escape inside a backticked identifier is decoded to the character the database stores, so the name the solver finally found in SHOW COLUMNS can actually be sent; an ALTER/DROP/TRUNCATE/RENAME action on the task table is refused once per episode with the stored table name in the message, which ends the rename loop of case 222 and protects the graded table, while every statement with identifiers of 64 characters or fewer that is already executable stays byte-identical (success control 2361).",
+          "mechanism_id": "h2_sql_repair",
+          "op": "modify",
+          "operation_id": "op_h2_sql_repair_r4",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/h3_schema_card_r4.py",
+          "artifact_sha256": "668fe242fdb2a17cc20dc972722e3e86f7094f54165669588e9c9062b8b31b17",
+          "expected_revision": 3,
+          "expected_sha256": "1d75809f43af3e844a18930b07859b0e55f1e6c8f0f68fb1e5d57869cebec40a",
+          "hypothesis": "Printing the stored table and column names (an identifier longer than 64 characters is stored under its first 64 characters) with a rule line that forbids renaming the table makes case 222's first SELECT addressable without spending a turn on 1059; copying only the two documented normalisations - a run of ASCII whitespace or a literal backslash escape becomes one space - and preserving every other character, such as the non-breaking space of case 4591, keeps the card identical to what the database stores; and naming only cast types MySQL parses (AS SIGNED, AS DECIMAL(m,n)) in the numeric rule and in the execute_sql description removes the self-inflicted 1064 that case 2361 met while every other card rule and the once-per-episode conditioning stay unchanged.",
+          "mechanism_id": "h3_schema_card",
+          "op": "modify",
+          "operation_id": "op_h3_schema_card_r4",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/h4_error_monitor_r3.py",
+          "artifact_sha256": "a7f278038af83ec26ffbdedea7015b6b6e60c7a46eea89f0f71d349f93798c8c",
+          "expected_revision": 2,
+          "expected_sha256": "d15652a59f7f41f7816bc94d9d2527016691ac5a453707aacbf379b99a980ce2",
+          "hypothesis": "Classifying MySQL error 1059 ('is too long') as its own kind lets H4 say what the limit is and which stored table name to use, and - unlike the current behaviour, which returns an empty hint and clears the guard for an unknown error - it records the guard for that statement so H2 can rewrite it or veto an identical repeat; the hint prints the stored (<=64 character) table name instead of the unusable full public name, while a 1064 or 1054 result keeps exactly the advice it has today (success control 2361).",
+          "mechanism_id": "h4_error_monitor",
+          "op": "modify",
+          "operation_id": "op_h4_error_monitor_r3",
+          "target_layer": "h4"
+        }
+      ],
+      "outcome": "evaluated_candidate",
+      "parent_snapshot_sha256": "0cbd1e4b176c621d80a192a0dcc020ceef8f14cea42b03e5fd8d7654e08d9ded",
+      "profile": "life-h2345-diagnose-replay-v2.5",
+      "proposer_requests": 24,
+      "recovered_qualified": false,
+      "round": 5,
+      "train_batch": 4,
+      "usage": {
+        "completion_tokens": 118934,
+        "prompt_tokens": 2298373,
+        "total_tokens": 2417307
+      },
+      "validation_sha256": "04a1aa50a9bc93509bb635215ea7332e70aa57eec5c67f534857a4dd27b2375a"
+    },
+    {
+      "accepted": false,
+      "active_snapshot_sha256": "0cbd1e4b176c621d80a192a0dcc020ceef8f14cea42b03e5fd8d7654e08d9ded",
+      "bundle_hypothesis": "The remaining cheap TRAIN losses of this batch are action-integrity defects inside the execute_sql argument and one turn-level submission defect, both visible in public evidence alone. (a) Case 2662: the task's own literal 'Pre-Scenes From a Memory (Triport '99 Rock Festival)' carries an apostrophe preceded by a space, so the incumbent repair - which only doubles an apostrophe with alphanumerics on both sides - left the statement unchanged and the same 1064 UPDATE was resubmitted for all fifteen turns. (b) Case 4304: a backslash leaked in front of every value delimiter and the last value holds unescaped double quotes, so MySQL ended the value at the second quote and answered 1064 at the following bare word, again for all fifteen turns. (c) Case 4094: the tool-call escaping left the statement inside an unterminated value followed by backslash, quote and brace debris, and no layer closed the value or separated the debris. (d) Case 4328: eleven identical assistant messages without tool_calls, each answered by a byte-identical generic nudge, consumed the whole budget. If H2 rewrites only the delimitation of literals that are already broken - dropping the leaked backslash, doubling a quote the value itself contains when the text after it cannot continue the statement, and closing a value that runs to the end of the statement after moving its trailing debris out of the value - and if the no-tool nudge names the structured tool_calls form, the flat answers list and the repeat count, then those statements execute once instead of being rejected fifteen times, while every statement MySQL already accepts (cases 461 and 4433) is returned byte-identical.",
+      "bundle_id": "dbbench_literal_hygiene_and_structured_action",
+      "candidate_eval": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_flash100k_repair_20261004/dbbench/evals/round_06_candidate",
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.7,
+      "candidate_snapshot_sha256": "56e97d0ebedcb54e4bd19b8121f5d530f956306e83b928e44ed653b30938924e",
+      "candidate_successes": 35,
+      "candidate_summary_sha256": "390aaefeaae33f2016d48ba196fbd2c7b623e1f2e49d2ebd365c5c5ffd2fc230",
+      "fallback_reason": null,
+      "incumbent_eval": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_flash100k_repair_20261004/dbbench/evals/round_06_incumbent",
+      "incumbent_infra_errors": 0,
+      "incumbent_score": 0.7,
+      "incumbent_snapshot_sha256": "0cbd1e4b176c621d80a192a0dcc020ceef8f14cea42b03e5fd8d7654e08d9ded",
+      "incumbent_successes": 35,
+      "incumbent_summary_sha256": "a087d8a841fe678a4e5c470a8d40006d5930afb0bba89a8775d700bc59aecc37",
+      "operations": [
+        {
+          "artifact": "artifacts/h2_sql_repair_r4.py",
+          "artifact_sha256": "3b865aa7aa34058aa0428fa9f5ca34b16801eda478eb0ef8768186a5be491f6c",
+          "expected_revision": 3,
+          "expected_sha256": "c118ef2a3f4918c4d7c8ccd5577d2b942a6a9277c78e9990a25b9f9d4a20f533",
+          "hypothesis": "Replacing the narrow literal closing with a literal-hygiene pass (drop an odd backslash run directly before a double quote, double a nested unescaped quote of the same kind when the following text is not a valid statement continuation, and close an unterminated value after moving trailing backslash, quote, brace or bracket debris behind it) makes the first statement of cases 2662, 4304 and 4094 executable without changing the solver's values, because the statement returned to the environment differs only in quote delimitation; the pass returns the original query byte-identical whenever the scan finds no defective literal, so the statements of cases 461 and 4433 that MySQL already accepted stay untouched and the existing identifier quoting, header renaming, already-applied mutation guard and repeat veto are unchanged. The no-tool nudge additionally names the structured tool_calls field, the flat {\"answers\": [...]} shape and, on a repeated identical no-tool message, how many times it has been sent, without ever building or executing a call.",
+          "mechanism_id": "h2_sql_repair",
+          "op": "modify",
+          "operation_id": "op_h2_sql_repair_r4",
+          "target_layer": "h2"
+        }
+      ],
+      "outcome": "evaluated_candidate",
+      "parent_snapshot_sha256": "0cbd1e4b176c621d80a192a0dcc020ceef8f14cea42b03e5fd8d7654e08d9ded",
+      "profile": "life-h2345-diagnose-replay-v2.5",
+      "proposer_requests": 17,
+      "recovered_qualified": false,
+      "round": 6,
+      "train_batch": 5,
+      "usage": {
+        "completion_tokens": 92521,
+        "prompt_tokens": 1021432,
+        "total_tokens": 1113953
+      },
+      "validation_sha256": "d28eac443b150c278f73a60313f181849f83c7ddbb0d39e9cb938c6f598e20c4"
+    }
+  ],
+  "status": "complete"
+}

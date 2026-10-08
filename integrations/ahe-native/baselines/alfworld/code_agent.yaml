@@ -1,0 +1,24 @@
+type: agent
+name: ahe_alfworld
+system_prompt: ./systemprompt.md
+system_prompt_type: jinja
+tool_call_mode: openai
+max_iterations: 300
+max_context_tokens: 40000
+llm_config:
+  model: ${env.LLM_MODEL}
+  base_url: ${env.LLM_BASE_URL}
+  api_key: ${env.LLM_API_KEY}
+  max_tokens: 4096
+  temperature: 0.0
+  api_type: openai_chat_completion
+  stream: false
+  extra_body:
+    chat_template_kwargs:
+      enable_thinking: false
+tools:
+- name: take_action
+  yaml_path: ./tool_descriptions/take_action.tool.yaml
+  binding: tools.native:take_action
+tracers:
+- import: nexau.archs.tracer.adapters.in_memory:InMemoryTracer

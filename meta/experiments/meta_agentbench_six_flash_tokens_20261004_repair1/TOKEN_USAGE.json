@@ -1,0 +1,421 @@
+{
+  "budget_type": "six optimization rounds; measured token usage, no preset token ceiling",
+  "domains": {
+    "alfworld": {
+      "rounds": {
+        "1": {
+          "accounting_complete": true,
+          "by_role": {
+            "analysis": {
+              "input_tokens": 583759,
+              "output_tokens": 27669,
+              "total_tokens": 611428
+            },
+            "implementation": {
+              "input_tokens": 250187,
+              "output_tokens": 12712,
+              "total_tokens": 262899
+            },
+            "parent": {
+              "input_tokens": 943478,
+              "output_tokens": 26617,
+              "total_tokens": 970095
+            }
+          },
+          "cached_input_tokens_known": 770560,
+          "calls_with_cache_details": 71,
+          "calls_with_unknown_usage": 0,
+          "input_tokens": 1777424,
+          "output_tokens": 66998,
+          "recorded_upstream_attempts": 71,
+          "successful_calls": 71,
+          "total_tokens": 1844422
+        },
+        "2": {
+          "accounting_complete": true,
+          "by_role": {},
+          "cached_input_tokens_known": 0,
+          "calls_with_cache_details": 0,
+          "calls_with_unknown_usage": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "recorded_upstream_attempts": 0,
+          "successful_calls": 0,
+          "total_tokens": 0
+        },
+        "3": {
+          "accounting_complete": true,
+          "by_role": {},
+          "cached_input_tokens_known": 0,
+          "calls_with_cache_details": 0,
+          "calls_with_unknown_usage": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "recorded_upstream_attempts": 0,
+          "successful_calls": 0,
+          "total_tokens": 0
+        },
+        "4": {
+          "accounting_complete": true,
+          "by_role": {},
+          "cached_input_tokens_known": 0,
+          "calls_with_cache_details": 0,
+          "calls_with_unknown_usage": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "recorded_upstream_attempts": 0,
+          "successful_calls": 0,
+          "total_tokens": 0
+        },
+        "5": {
+          "accounting_complete": true,
+          "by_role": {},
+          "cached_input_tokens_known": 0,
+          "calls_with_cache_details": 0,
+          "calls_with_unknown_usage": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "recorded_upstream_attempts": 0,
+          "successful_calls": 0,
+          "total_tokens": 0
+        },
+        "6": {
+          "accounting_complete": true,
+          "by_role": {},
+          "cached_input_tokens_known": 0,
+          "calls_with_cache_details": 0,
+          "calls_with_unknown_usage": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "recorded_upstream_attempts": 0,
+          "successful_calls": 0,
+          "total_tokens": 0
+        }
+      },
+      "total": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 583759,
+            "output_tokens": 27669,
+            "total_tokens": 611428
+          },
+          "implementation": {
+            "input_tokens": 250187,
+            "output_tokens": 12712,
+            "total_tokens": 262899
+          },
+          "parent": {
+            "input_tokens": 943478,
+            "output_tokens": 26617,
+            "total_tokens": 970095
+          }
+        },
+        "cached_input_tokens_known": 770560,
+        "calls_with_cache_details": 71,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 1777424,
+        "output_tokens": 66998,
+        "recorded_upstream_attempts": 71,
+        "successful_calls": 71,
+        "total_tokens": 1844422
+      }
+    },
+    "dbbench": {
+      "rounds": {
+        "1": {
+          "accounting_complete": true,
+          "by_role": {
+            "analysis": {
+              "input_tokens": 2583893,
+              "output_tokens": 46986,
+              "total_tokens": 2630879
+            },
+            "implementation": {
+              "input_tokens": 1720707,
+              "output_tokens": 55957,
+              "total_tokens": 1776664
+            },
+            "parent": {
+              "input_tokens": 1754843,
+              "output_tokens": 45135,
+              "total_tokens": 1799978
+            }
+          },
+          "cached_input_tokens_known": 3595392,
+          "calls_with_cache_details": 103,
+          "calls_with_unknown_usage": 0,
+          "input_tokens": 6059443,
+          "output_tokens": 148078,
+          "recorded_upstream_attempts": 103,
+          "successful_calls": 103,
+          "total_tokens": 6207521
+        },
+        "2": {
+          "accounting_complete": true,
+          "by_role": {},
+          "cached_input_tokens_known": 0,
+          "calls_with_cache_details": 0,
+          "calls_with_unknown_usage": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "recorded_upstream_attempts": 0,
+          "successful_calls": 0,
+          "total_tokens": 0
+        },
+        "3": {
+          "accounting_complete": true,
+          "by_role": {},
+          "cached_input_tokens_known": 0,
+          "calls_with_cache_details": 0,
+          "calls_with_unknown_usage": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "recorded_upstream_attempts": 0,
+          "successful_calls": 0,
+          "total_tokens": 0
+        },
+        "4": {
+          "accounting_complete": true,
+          "by_role": {},
+          "cached_input_tokens_known": 0,
+          "calls_with_cache_details": 0,
+          "calls_with_unknown_usage": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "recorded_upstream_attempts": 0,
+          "successful_calls": 0,
+          "total_tokens": 0
+        },
+        "5": {
+          "accounting_complete": true,
+          "by_role": {},
+          "cached_input_tokens_known": 0,
+          "calls_with_cache_details": 0,
+          "calls_with_unknown_usage": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "recorded_upstream_attempts": 0,
+          "successful_calls": 0,
+          "total_tokens": 0
+        },
+        "6": {
+          "accounting_complete": true,
+          "by_role": {},
+          "cached_input_tokens_known": 0,
+          "calls_with_cache_details": 0,
+          "calls_with_unknown_usage": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "recorded_upstream_attempts": 0,
+          "successful_calls": 0,
+          "total_tokens": 0
+        }
+      },
+      "total": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 2583893,
+            "output_tokens": 46986,
+            "total_tokens": 2630879
+          },
+          "implementation": {
+            "input_tokens": 1720707,
+            "output_tokens": 55957,
+            "total_tokens": 1776664
+          },
+          "parent": {
+            "input_tokens": 1754843,
+            "output_tokens": 45135,
+            "total_tokens": 1799978
+          }
+        },
+        "cached_input_tokens_known": 3595392,
+        "calls_with_cache_details": 103,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 6059443,
+        "output_tokens": 148078,
+        "recorded_upstream_attempts": 103,
+        "successful_calls": 103,
+        "total_tokens": 6207521
+      }
+    },
+    "webshop": {
+      "rounds": {
+        "1": {
+          "accounting_complete": true,
+          "by_role": {
+            "analysis": {
+              "input_tokens": 408027,
+              "output_tokens": 24655,
+              "total_tokens": 432682
+            },
+            "implementation": {
+              "input_tokens": 641507,
+              "output_tokens": 21496,
+              "total_tokens": 663003
+            },
+            "parent": {
+              "input_tokens": 1058913,
+              "output_tokens": 38382,
+              "total_tokens": 1097295
+            }
+          },
+          "cached_input_tokens_known": 1125248,
+          "calls_with_cache_details": 64,
+          "calls_with_unknown_usage": 0,
+          "input_tokens": 2108447,
+          "output_tokens": 84533,
+          "recorded_upstream_attempts": 64,
+          "successful_calls": 64,
+          "total_tokens": 2192980
+        },
+        "2": {
+          "accounting_complete": true,
+          "by_role": {},
+          "cached_input_tokens_known": 0,
+          "calls_with_cache_details": 0,
+          "calls_with_unknown_usage": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "recorded_upstream_attempts": 0,
+          "successful_calls": 0,
+          "total_tokens": 0
+        },
+        "3": {
+          "accounting_complete": true,
+          "by_role": {},
+          "cached_input_tokens_known": 0,
+          "calls_with_cache_details": 0,
+          "calls_with_unknown_usage": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "recorded_upstream_attempts": 0,
+          "successful_calls": 0,
+          "total_tokens": 0
+        },
+        "4": {
+          "accounting_complete": true,
+          "by_role": {},
+          "cached_input_tokens_known": 0,
+          "calls_with_cache_details": 0,
+          "calls_with_unknown_usage": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "recorded_upstream_attempts": 0,
+          "successful_calls": 0,
+          "total_tokens": 0
+        },
+        "5": {
+          "accounting_complete": true,
+          "by_role": {},
+          "cached_input_tokens_known": 0,
+          "calls_with_cache_details": 0,
+          "calls_with_unknown_usage": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "recorded_upstream_attempts": 0,
+          "successful_calls": 0,
+          "total_tokens": 0
+        },
+        "6": {
+          "accounting_complete": true,
+          "by_role": {},
+          "cached_input_tokens_known": 0,
+          "calls_with_cache_details": 0,
+          "calls_with_unknown_usage": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "recorded_upstream_attempts": 0,
+          "successful_calls": 0,
+          "total_tokens": 0
+        }
+      },
+      "total": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 408027,
+            "output_tokens": 24655,
+            "total_tokens": 432682
+          },
+          "implementation": {
+            "input_tokens": 641507,
+            "output_tokens": 21496,
+            "total_tokens": 663003
+          },
+          "parent": {
+            "input_tokens": 1058913,
+            "output_tokens": 38382,
+            "total_tokens": 1097295
+          }
+        },
+        "cached_input_tokens_known": 1125248,
+        "calls_with_cache_details": 64,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 2108447,
+        "output_tokens": 84533,
+        "recorded_upstream_attempts": 64,
+        "successful_calls": 64,
+        "total_tokens": 2192980
+      }
+    }
+  },
+  "overall": {
+    "accounting_complete": true,
+    "by_role": {
+      "analysis": {
+        "input_tokens": 3575679,
+        "output_tokens": 99310,
+        "total_tokens": 3674989
+      },
+      "implementation": {
+        "input_tokens": 2612401,
+        "output_tokens": 90165,
+        "total_tokens": 2702566
+      },
+      "parent": {
+        "input_tokens": 3757234,
+        "output_tokens": 110134,
+        "total_tokens": 3867368
+      }
+    },
+    "cached_input_tokens_known": 5491200,
+    "calls_with_cache_details": 238,
+    "calls_with_unknown_usage": 0,
+    "input_tokens": 9945314,
+    "output_tokens": 299609,
+    "recorded_upstream_attempts": 238,
+    "successful_calls": 238,
+    "total_tokens": 10244923
+  },
+  "startup_excluded_usage": {
+    "accounting_complete": true,
+    "by_role": {
+      "analysis": {
+        "input_tokens": 578356,
+        "output_tokens": 27371,
+        "total_tokens": 605727
+      },
+      "parent": {
+        "input_tokens": 1792948,
+        "output_tokens": 92096,
+        "total_tokens": 1885044
+      }
+    },
+    "cached_input_tokens_known": 1139584,
+    "calls_with_cache_details": 90,
+    "calls_with_unknown_usage": 0,
+    "input_tokens": 2371304,
+    "output_tokens": 119467,
+    "recorded_upstream_attempts": 90,
+    "successful_calls": 90,
+    "total_tokens": 2490771
+  },
+  "total_spent_including_startup": {
+    "input_tokens": 12316618,
+    "output_tokens": 419076,
+    "total_tokens": 12735694
+  }
+}

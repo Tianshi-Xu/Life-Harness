@@ -1,0 +1,443 @@
+{
+  "accepted_bundle_ids": [
+    "webshop_hooks_round1",
+    "webshop_hooks_round2",
+    "webshop_hooks_round3"
+  ],
+  "active_snapshot": [
+    {
+      "artifact_path": "versions/webshop_hooks_round3/modify_h2_action_gate.py",
+      "mechanism_id": "ws_h2_action_gate",
+      "revision": 3,
+      "sha256": "e0b8ea3f71f11f66c19391ca3d11ebd54a6cf4e1577221305bb31a350f335a3c",
+      "target_layer": "h2"
+    },
+    {
+      "artifact_path": "versions/webshop_hooks_round3/modify_h3_tool_contract.py",
+      "mechanism_id": "ws_h3_tool_contract",
+      "revision": 3,
+      "sha256": "95da48a8d0972c809cb6b41c237beb67c8167ae8b207b9a7153acf04039c9fa5",
+      "target_layer": "h3"
+    },
+    {
+      "artifact_path": "versions/webshop_hooks_round3/modify_h4_next_action_guide.py",
+      "mechanism_id": "ws_h4_next_action_guide",
+      "revision": 3,
+      "sha256": "b8967d4a4dbdd6916af0d63c6c245458f82935343d2acc3670eb7186ba58dd9d",
+      "target_layer": "h4"
+    },
+    {
+      "artifact_path": "versions/webshop_hooks_round3/modify_h5_task_plan.py",
+      "mechanism_id": "ws_h5_task_plan",
+      "revision": 3,
+      "sha256": "2474e430493a52d145ebc45bfad31c298425a237894fb318fc82c3c3a706f3ce",
+      "target_layer": "h5"
+    }
+  ],
+  "active_snapshot_sha256": "c91ff3fa9c8c5a1856bc6bc62788e990b7f0629fb6fa00bceaab050b997d96cd",
+  "baseline_phase": null,
+  "baseline_summary": null,
+  "batch": 3,
+  "domain": "webshop",
+  "operation_log": [
+    {
+      "bundle_id": "webshop_hooks_round1",
+      "committed_snapshot_sha256": "61ae6cb94d217172e5389d1776dabdf5a7a37a422061769402f5d9132dddf47e",
+      "hypothesis": "The incumbent agent buys a product after one search without selecting instruction-matching options and often after a weak title match; deterministic hooks that canonicalize actions (H2), state exact operating rules in tool descriptions (H3), give one concrete next action per turn (H4), and restate task requirements at cold start (H5) will raise WebShop purchase accuracy.",
+      "operations": [
+        {
+          "artifact": "artifacts/h2_action_gate.py",
+          "artifact_sha256": "b7289e9eb46a313b1dd5383b09d561ef84819abc16cc9d2794d1acdc7fc12e9c",
+          "hypothesis": "Canonicalizing click values and blocking 'buy now' while an instruction-matching option group is still unselected prevents premature default-option purchases and invalid clicks.",
+          "mechanism_id": "ws_h2_action_gate",
+          "op": "add",
+          "operation_id": "add_h2_action_gate",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/h3_tool_contract.py",
+          "artifact_sha256": "0cf1b857b69fceeb202d881e3fd45becf37e8c09673a21107859a01a7c514657",
+          "hypothesis": "Adding short exact-copy and option-selection rules to the search/click tool descriptions reduces invalid click values and skipped attribute selection.",
+          "mechanism_id": "ws_h3_tool_contract",
+          "op": "add",
+          "operation_id": "add_h3_tool_contract",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/h4_next_action_guide.py",
+          "artifact_sha256": "95eb91894a6e1773e4d25b5963f5e61b304bdab7ad352e790d8b778b5c9e2ea4",
+          "hypothesis": "One concrete next action per turn (best title match within budget on result pages; required option or buy-now on product pages, never re-rolling a group that already had a selection) prevents wrong-product purchases and option dithering.",
+          "mechanism_id": "ws_h4_next_action_guide",
+          "op": "add",
+          "operation_id": "add_h4_next_action_guide",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/h5_task_plan.py",
+          "artifact_sha256": "aab6e7dc6a1d3e0a574a8e84f36bd59d6d076065dcbcd242641b9597ec03e47d",
+          "hypothesis": "A cold-start restatement of the parsed task requirements (key words, color, size, budget) plus the search-select-buy procedure aligns the first search and the first product choice with the task.",
+          "mechanism_id": "ws_h5_task_plan",
+          "op": "add",
+          "operation_id": "add_h5_task_plan",
+          "target_layer": "h5"
+        }
+      ],
+      "parent_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "round": 1
+    },
+    {
+      "bundle_id": "webshop_hooks_round2",
+      "committed_snapshot_sha256": "9360132dd09fe1d0ee532a61562a8169f1e2601c69fc2b0327b64d35bad36f7c",
+      "hypothesis": "Round-1 hooks cut stated reasons for failure down to two transcript-visible ones: option clicks often do not change the product page and their selected option can stay clickable, so the r1 diff-based satisfaction check kept re-advising already-clicked options and blocked 'buy now' in long stale loops; and unweighted keyword counting in result ranking favored pages where common words ('chocolate', 'gluten') matched while the distinctive task term ('snickerdoodle') matched nothing. Round-2 hooks read executed option clicks from the transcript (number-normalized, family-matched), rank options and result titles with number-normalized frequency-weighted matching, redirect to more results when a distinctive keyword is missing from the whole page, and state the catalog-style size and the 'a click may not change the page' procedure in the descriptions and the cold-start plan, raising purchase accuracy.",
+      "operations": [
+        {
+          "artifact": "artifacts/ws_h2_action_gate_r2.py",
+          "artifact_sha256": "498ef6a53d1847b3ac28aeef5993654b837c87d000a75f1336542d0c96dc804d",
+          "expected_revision": 1,
+          "expected_sha256": "b7289e9eb46a313b1dd5383b09d561ef84819abc16cc9d2794d1acdc7fc12e9c",
+          "hypothesis": "Tracking executed option clicks from the transcript and releasing the buy-now guard once a strong instruction-matching option of a group was clicked (including family matches like '3x-large' for a clicked 'x-large' after normalization) removes the long stale-block loops, while number-word normalization (three -> 3) and longest-match preference stop the guard from recommending a weaker option such as 'large' over '3x-large'.",
+          "mechanism_id": "ws_h2_action_gate",
+          "op": "modify",
+          "operation_id": "modify_h2_action_gate",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/ws_h3_tool_contract_r2.py",
+          "artifact_sha256": "fb76fa9dfb54e6cf3d2eb6e999c089e4f2ee25eba17921b3b45f2f08b65ebc73",
+          "expected_revision": 1,
+          "expected_sha256": "0cf1b857b69fceeb202d881e3fd45becf37e8c09673a21107859a01a7c514657",
+          "hypothesis": "Stating in the click tool description that a click may not change the page and each required option should be clicked once, and in the search tool description that sizes should be written as digits ('6-pack', '3x-large'), reduces repeated identical option clicks and number-word searches the catalog does not use.",
+          "mechanism_id": "ws_h3_tool_contract",
+          "op": "modify",
+          "operation_id": "modify_h3_tool_contract",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/ws_h4_next_action_guide_r2.py",
+          "artifact_sha256": "2e5805de6444567eefdaf896a2e7284afc98ecb3532fd8bffdf15f6f15df5780",
+          "expected_revision": 1,
+          "expected_sha256": "95eb91894a6e1773e4d25b5963f5e61b304bdab7ad352e790d8b778b5c9e2ea4",
+          "hypothesis": "Ranking result titles by inverse page frequency of instruction keywords (so a distinctive term outweighs common ones), redirecting to 'next >' or a new search when a distinctive keyword appears nowhere on the page, and recommending only option groups whose best match was not already clicked (from the transcript) gives one non-stale, task-distinctive action per turn instead of repeating satisfied advice.",
+          "mechanism_id": "ws_h4_next_action_guide",
+          "op": "modify",
+          "operation_id": "modify_h4_next_action_guide",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/ws_h5_task_plan_r2.py",
+          "artifact_sha256": "7f5ac1a16ca278e0a694c4a954b6d893b6eac9a2002be3fc0b718b8f95d60048",
+          "expected_revision": 1,
+          "expected_sha256": "aab6e7dc6a1d3e0a574a8e84f36bd59d6d076065dcbcd242641b9597ec03e47d",
+          "hypothesis": "Restating the parsed requirements with the size phrase normalized to catalog form ('size three x large' -> '3x-large') and warning that an option click may not change the page aligns the first search, the first product choice, and the option-selection procedure with the task requirements.",
+          "mechanism_id": "ws_h5_task_plan",
+          "op": "modify",
+          "operation_id": "modify_h5_task_plan",
+          "target_layer": "h5"
+        }
+      ],
+      "parent_snapshot_sha256": "61ae6cb94d217172e5389d1776dabdf5a7a37a422061769402f5d9132dddf47e",
+      "round": 2
+    },
+    {
+      "bundle_id": "webshop_hooks_round3",
+      "committed_snapshot_sha256": "c91ff3fa9c8c5a1856bc6bc62788e990b7f0629fb6fa00bceaab050b997d96cd",
+      "hypothesis": "Round 3 targets the dominant failure modes seen in the 50 train trajectories: repeated sibling-variant clicking, repeated page flipping, filler and unit words diluting searches, and max-price affordability errors. The hooks cooperate so the agent clicks one matching option per group, pages at most once per search, keeps queries catalog-like, and buys the best-matching item with fewer turns.",
+      "operations": [
+        {
+          "artifact": "artifacts/ws_h2_action_gate_r3.py",
+          "artifact_sha256": "e0b8ea3f71f11f66c19391ca3d11ebd54a6cf4e1577221305bb31a350f335a3c",
+          "expected_revision": 2,
+          "expected_sha256": "498ef6a53d1847b3ac28aeef5993654b837c87d000a75f1336542d0c96dc804d",
+          "hypothesis": "Releasing an option group once ANY instruction-matching option was clicked (not only the top-ranked one) and blocking a second 'next >' attempt per search will stop variant dithering and page-flipping loops that never reach a purchase.",
+          "mechanism_id": "ws_h2_action_gate",
+          "op": "modify",
+          "operation_id": "modify_h2_action_gate",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/ws_h3_tool_contract_r3.py",
+          "artifact_sha256": "95da48a8d0972c809cb6b41c237beb67c8167ae8b207b9a7153acf04039c9fa5",
+          "expected_revision": 2,
+          "expected_sha256": "fb76fa9dfb54e6cf3d2eb6e999c089e4f2ee25eba17921b3b45f2f08b65ebc73",
+          "hypothesis": "Asking for 2 to 4 distinctive search words with no prices or budgets, allowing at most one page of results, and forbidding sibling-variant clicks will produce cleaner queries and fewer option loops.",
+          "mechanism_id": "ws_h3_tool_contract",
+          "op": "modify",
+          "operation_id": "modify_h3_tool_contract",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/ws_h4_next_action_guide_r3.py",
+          "artifact_sha256": "b8967d4a4dbdd6916af0d63c6c245458f82935343d2acc3670eb7186ba58dd9d",
+          "expected_revision": 2,
+          "expected_sha256": "2e5805de6444567eefdaf896a2e7284afc98ecb3532fd8bffdf15f6f15df5780",
+          "hypothesis": "Ignoring filler and measure words, counting digit keywords less, using the lowest price of a range for affordability, advising 'next >' at most once, and releasing a group after any matching click will steer the agent to the right item instead of dithering or paging.",
+          "mechanism_id": "ws_h4_next_action_guide",
+          "op": "modify",
+          "operation_id": "modify_h4_next_action_guide",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/ws_h5_task_plan_r3.py",
+          "artifact_sha256": "2474e430493a52d145ebc45bfad31c298425a237894fb318fc82c3c3a706f3ce",
+          "expected_revision": 2,
+          "expected_sha256": "7f5ac1a16ca278e0a694c4a954b6d893b6eac9a2002be3fc0b718b8f95d60048",
+          "hypothesis": "A cold-start plan with catalog-style key words, clean size and budget fields, once-per-option clicking without sibling variants, and at-most-one paging step will set the correct procedure from the first turn.",
+          "mechanism_id": "ws_h5_task_plan",
+          "op": "modify",
+          "operation_id": "modify_h5_task_plan",
+          "target_layer": "h5"
+        }
+      ],
+      "parent_snapshot_sha256": "9360132dd09fe1d0ee532a61562a8169f1e2601c69fc2b0327b64d35bad36f7c",
+      "round": 3
+    }
+  ],
+  "round": 6,
+  "rounds": [
+    {
+      "accepted": true,
+      "active_snapshot_sha256": "61ae6cb94d217172e5389d1776dabdf5a7a37a422061769402f5d9132dddf47e",
+      "batch_rotated": false,
+      "bundle_hypothesis": "The incumbent agent buys a product after one search without selecting instruction-matching options and often after a weak title match; deterministic hooks that canonicalize actions (H2), state exact operating rules in tool descriptions (H3), give one concrete next action per turn (H4), and restate task requirements at cold start (H5) will raise WebShop purchase accuracy.",
+      "bundle_id": "webshop_hooks_round1",
+      "bundle_sha256": "2388e09c19ec684a7ddcdcf896883b445271c7550187adcde4ed03f1c43862bf",
+      "candidate_score": 0.34,
+      "incumbent_score": 0.26,
+      "next_batch": 0,
+      "operations": [
+        {
+          "hypothesis": "Canonicalizing click values and blocking 'buy now' while an instruction-matching option group is still unselected prevents premature default-option purchases and invalid clicks.",
+          "mechanism_id": "ws_h2_action_gate",
+          "op": "add",
+          "operation_id": "add_h2_action_gate",
+          "target_layer": "h2"
+        },
+        {
+          "hypothesis": "Adding short exact-copy and option-selection rules to the search/click tool descriptions reduces invalid click values and skipped attribute selection.",
+          "mechanism_id": "ws_h3_tool_contract",
+          "op": "add",
+          "operation_id": "add_h3_tool_contract",
+          "target_layer": "h3"
+        },
+        {
+          "hypothesis": "One concrete next action per turn (best title match within budget on result pages; required option or buy-now on product pages, never re-rolling a group that already had a selection) prevents wrong-product purchases and option dithering.",
+          "mechanism_id": "ws_h4_next_action_guide",
+          "op": "add",
+          "operation_id": "add_h4_next_action_guide",
+          "target_layer": "h4"
+        },
+        {
+          "hypothesis": "A cold-start restatement of the parsed task requirements (key words, color, size, budget) plus the search-select-buy procedure aligns the first search and the first product choice with the task.",
+          "mechanism_id": "ws_h5_task_plan",
+          "op": "add",
+          "operation_id": "add_h5_task_plan",
+          "target_layer": "h5"
+        }
+      ],
+      "round": 1,
+      "train_batch": 0
+    },
+    {
+      "accepted": true,
+      "active_snapshot_sha256": "9360132dd09fe1d0ee532a61562a8169f1e2601c69fc2b0327b64d35bad36f7c",
+      "batch_rotated": false,
+      "bundle_hypothesis": "Round-1 hooks cut stated reasons for failure down to two transcript-visible ones: option clicks often do not change the product page and their selected option can stay clickable, so the r1 diff-based satisfaction check kept re-advising already-clicked options and blocked 'buy now' in long stale loops; and unweighted keyword counting in result ranking favored pages where common words ('chocolate', 'gluten') matched while the distinctive task term ('snickerdoodle') matched nothing. Round-2 hooks read executed option clicks from the transcript (number-normalized, family-matched), rank options and result titles with number-normalized frequency-weighted matching, redirect to more results when a distinctive keyword is missing from the whole page, and state the catalog-style size and the 'a click may not change the page' procedure in the descriptions and the cold-start plan, raising purchase accuracy.",
+      "bundle_id": "webshop_hooks_round2",
+      "bundle_sha256": "67f5d4a0da2cd721d12533bc1de78cfea15b2ae36d85f3bf97bd2d7824c498af",
+      "candidate_score": 0.36,
+      "incumbent_score": 0.34,
+      "next_batch": 0,
+      "operations": [
+        {
+          "hypothesis": "Tracking executed option clicks from the transcript and releasing the buy-now guard once a strong instruction-matching option of a group was clicked (including family matches like '3x-large' for a clicked 'x-large' after normalization) removes the long stale-block loops, while number-word normalization (three -> 3) and longest-match preference stop the guard from recommending a weaker option such as 'large' over '3x-large'.",
+          "mechanism_id": "ws_h2_action_gate",
+          "op": "modify",
+          "operation_id": "modify_h2_action_gate",
+          "target_layer": "h2"
+        },
+        {
+          "hypothesis": "Stating in the click tool description that a click may not change the page and each required option should be clicked once, and in the search tool description that sizes should be written as digits ('6-pack', '3x-large'), reduces repeated identical option clicks and number-word searches the catalog does not use.",
+          "mechanism_id": "ws_h3_tool_contract",
+          "op": "modify",
+          "operation_id": "modify_h3_tool_contract",
+          "target_layer": "h3"
+        },
+        {
+          "hypothesis": "Ranking result titles by inverse page frequency of instruction keywords (so a distinctive term outweighs common ones), redirecting to 'next >' or a new search when a distinctive keyword appears nowhere on the page, and recommending only option groups whose best match was not already clicked (from the transcript) gives one non-stale, task-distinctive action per turn instead of repeating satisfied advice.",
+          "mechanism_id": "ws_h4_next_action_guide",
+          "op": "modify",
+          "operation_id": "modify_h4_next_action_guide",
+          "target_layer": "h4"
+        },
+        {
+          "hypothesis": "Restating the parsed requirements with the size phrase normalized to catalog form ('size three x large' -> '3x-large') and warning that an option click may not change the page aligns the first search, the first product choice, and the option-selection procedure with the task requirements.",
+          "mechanism_id": "ws_h5_task_plan",
+          "op": "modify",
+          "operation_id": "modify_h5_task_plan",
+          "target_layer": "h5"
+        }
+      ],
+      "round": 2,
+      "train_batch": 0
+    },
+    {
+      "accepted": true,
+      "active_snapshot_sha256": "c91ff3fa9c8c5a1856bc6bc62788e990b7f0629fb6fa00bceaab050b997d96cd",
+      "batch_rotated": false,
+      "bundle_hypothesis": "Round 3 targets the dominant failure modes seen in the 50 train trajectories: repeated sibling-variant clicking, repeated page flipping, filler and unit words diluting searches, and max-price affordability errors. The hooks cooperate so the agent clicks one matching option per group, pages at most once per search, keeps queries catalog-like, and buys the best-matching item with fewer turns.",
+      "bundle_id": "webshop_hooks_round3",
+      "bundle_sha256": "d5463d719700d7911eb93dffc032fe20381cd8a7df1b0fa7b65b0dcfe4f2d9bf",
+      "candidate_score": 0.4,
+      "incumbent_score": 0.36,
+      "next_batch": 0,
+      "operations": [
+        {
+          "hypothesis": "Releasing an option group once ANY instruction-matching option was clicked (not only the top-ranked one) and blocking a second 'next >' attempt per search will stop variant dithering and page-flipping loops that never reach a purchase.",
+          "mechanism_id": "ws_h2_action_gate",
+          "op": "modify",
+          "operation_id": "modify_h2_action_gate",
+          "target_layer": "h2"
+        },
+        {
+          "hypothesis": "Asking for 2 to 4 distinctive search words with no prices or budgets, allowing at most one page of results, and forbidding sibling-variant clicks will produce cleaner queries and fewer option loops.",
+          "mechanism_id": "ws_h3_tool_contract",
+          "op": "modify",
+          "operation_id": "modify_h3_tool_contract",
+          "target_layer": "h3"
+        },
+        {
+          "hypothesis": "Ignoring filler and measure words, counting digit keywords less, using the lowest price of a range for affordability, advising 'next >' at most once, and releasing a group after any matching click will steer the agent to the right item instead of dithering or paging.",
+          "mechanism_id": "ws_h4_next_action_guide",
+          "op": "modify",
+          "operation_id": "modify_h4_next_action_guide",
+          "target_layer": "h4"
+        },
+        {
+          "hypothesis": "A cold-start plan with catalog-style key words, clean size and budget fields, once-per-option clicking without sibling variants, and at-most-one paging step will set the correct procedure from the first turn.",
+          "mechanism_id": "ws_h5_task_plan",
+          "op": "modify",
+          "operation_id": "modify_h5_task_plan",
+          "target_layer": "h5"
+        }
+      ],
+      "round": 3,
+      "train_batch": 0
+    },
+    {
+      "accepted": false,
+      "active_snapshot_sha256": "c91ff3fa9c8c5a1856bc6bc62788e990b7f0629fb6fa00bceaab050b997d96cd",
+      "batch_rotated": true,
+      "bundle_hypothesis": "Round 4 removes the transcript-verified bugs that kept the round-3 hooks at 0.40: option values whose squashed form is ten characters ('3x-large big', '4#-dark brown', 'multi-07561') were mistaken for product ids and wiped the clicked-option memory, so sibling variants were re-advised and groups never released; a suffix-only size match ('x-large' inside '3x-large') outranked the full catalog size; and groups that only held weak word-overlap matches were marched through every sibling. The fixed purity test for product ids, suffix demotion, any-match group release, folded plural/spelling matching, and a 'never re-click a value' procedure will cut sibling loops and raise purchase accuracy above 0.40.",
+      "bundle_id": "webshop_hooks_round4",
+      "bundle_sha256": "d21b37f3ff4ba1227aeaff4898965b9421a50731d00b649f2edccc40c084a204",
+      "candidate_score": 0.34,
+      "incumbent_score": 0.4,
+      "next_batch": 1,
+      "operations": [
+        {
+          "hypothesis": "A click value is a page boundary only when it is a pure ten-character alphanumeric token, so clicking options like '3x-large big' keeps the clicked-option memory; the buy guard then releases that option group instead of contradicting it, a suffix-only size match no longer counts as a strong match, and a click of a value already clicked on the current page is nudged to 'buy now' or a different matching option.",
+          "mechanism_id": "ws_h2_action_gate",
+          "op": "modify",
+          "operation_id": "modify_h2_action_gate",
+          "target_layer": "h2"
+        },
+        {
+          "hypothesis": "Describing the search contract as 2 to 4 distinctive words with vague adjectives dropped and the click contract as exactly one matching option per group clicked once, never a value twice even when the page does not change, reduces diluted queries and sibling-variant clicking.",
+          "mechanism_id": "ws_h3_tool_contract",
+          "op": "modify",
+          "operation_id": "modify_h3_tool_contract",
+          "target_layer": "h3"
+        },
+        {
+          "hypothesis": "Remembering executed option clicks whose squashed form is ten characters (previously treated as product-id boundaries and wiped), releasing an option group when any instruction-matching option (weak overlap included) was clicked or after two options of the group were clicked, demoting suffix-only size matches so the catalog size wins, and folding plurals and spellings (gray/grey, colour/color) in title and option matching gives one non-stale action per turn and stops the sibling loops that ended episodes without a purchase.",
+          "mechanism_id": "ws_h4_next_action_guide",
+          "op": "modify",
+          "operation_id": "modify_h4_next_action_guide",
+          "target_layer": "h4"
+        },
+        {
+          "hypothesis": "A cold-start plan stating 'click exactly one matching option per group, once' and 'never re-click a value' alongside the key words, color, size, budget, and at-most-one-page procedure keeps the agent out of the sibling-click loops from the very first product page.",
+          "mechanism_id": "ws_h5_task_plan",
+          "op": "modify",
+          "operation_id": "modify_h5_task_plan",
+          "target_layer": "h5"
+        }
+      ],
+      "round": 4,
+      "train_batch": 0
+    },
+    {
+      "accepted": false,
+      "active_snapshot_sha256": "c91ff3fa9c8c5a1856bc6bc62788e990b7f0629fb6fa00bceaab050b997d96cd",
+      "batch_rotated": true,
+      "bundle_hypothesis": "Round 5 removes the two transcript-verified loops that held the round-3 hooks at 0.40: option groups whose matches were all weak were marched sibling by sibling ('4.25 ounce (pack of 12)' -> 'pack of 1' -> 'pack of 2' -> 'pack of 6' -> '7.7 ounce (pack of 1)', seven shirt sizes, five cupcake-topper numbers, six hair-color variants), and sizes written as '3x' or decimals plus count digits (for example '12 pack') never matched catalog options, so no hook ever advised or guarded the size the task named and purchases went through on default variants. H4 releases a group once any of its matched options was clicked instead of advancing to a sibling, both H2 and H4 match alphanumeric size and count digits by exact digit keys, and filler words like 'purchase' no longer trigger junk missing-keyword redirects; the agent should select the task-named size or count option once and then buy, raising purchase accuracy above 0.40.",
+      "bundle_id": "webshop_hooks_round5",
+      "bundle_sha256": "d5ed5a295d0dfe8251dc6021f7b8f3dc3d89ed36f04f6a2a038f98ef82251a4c",
+      "candidate_score": 0.38,
+      "incumbent_score": 0.38,
+      "next_batch": 2,
+      "operations": [
+        {
+          "hypothesis": "Matching catalog-form sizes ('3x', '10.5') and count digits ('12 pack') by exact squashed digit keys lets the buy guard see the size group at all, so a 'buy now' before the task-named size was clicked is held and the correct option is named, instead of silently buying the default variant.",
+          "mechanism_id": "ws_h2_action_gate",
+          "op": "modify",
+          "operation_id": "modify_h2_action_gate",
+          "target_layer": "h2"
+        },
+        {
+          "hypothesis": "Releasing an option group once any of its instruction-matching options was clicked (weak-match groups included) stops the per-turn sibling march that overwrote correct selections, exact digit-key matching for '3x', decimal, and count options recommends the size the task names, and dropping 'purchase', 'purchasing', and 'perhaps' from the keywords removes junk missing-keyword redirects.",
+          "mechanism_id": "ws_h4_next_action_guide",
+          "op": "modify",
+          "operation_id": "modify_h4_next_action_guide",
+          "target_layer": "h4"
+        }
+      ],
+      "round": 5,
+      "train_batch": 1
+    },
+    {
+      "accepted": false,
+      "active_snapshot_sha256": "c91ff3fa9c8c5a1856bc6bc62788e990b7f0629fb6fa00bceaab050b997d96cd",
+      "batch_rotated": true,
+      "bundle_hypothesis": "Round 6 targets the two transcript-verified failure families that hold the round-3 hooks at 0.40 on the train trajectories. Premature purchases: after one search the agent buys an item whose title states a different measured value than the task names ('25 Ft' when the task says '10 foot') or an item that mentions none of the key terms, because H4 told it to buy; and option wandering: on product pages the agent clicks one instruction-matching option and then keeps clicking siblings and finally a non-matching option ('variety pack'), overwriting the correct selection before buying. The revised hooks keep the proven r3 behaviour but (H4) redirect a product whose measured attribute conflicts with the task back to search, release an option group once ANY of its matching options was clicked (weak matches included) so it is never re-advised, and name a single next option plus 'buy now'; (H2) additionally hold a click that would overwrite an option group whose matching option was already clicked; (H3/H5) state the word-catalog search form, the one-option-per-group rule, and the buy step, raising purchase accuracy above 0.40.",
+      "bundle_id": "webshop_hooks_round6",
+      "bundle_sha256": "a11da0e468b443c3c2ea48773cefb4762225c32380fa7936821a38bd5fb8f23c",
+      "candidate_score": 0.36,
+      "incumbent_score": 0.4,
+      "next_batch": 3,
+      "operations": [
+        {
+          "hypothesis": "Holding a click that would overwrite an option group whose instruction-matching option was already clicked stops the per-turn sibling march that replaced correct selections with a wrong sibling before 'buy now', while the existing strong-match buy guard still names the required option instead of buying the default variant.",
+          "mechanism_id": "ws_h2_action_gate",
+          "op": "modify",
+          "operation_id": "modify_h2_action_gate",
+          "target_layer": "h2"
+        },
+        {
+          "hypothesis": "Describing the search contract as 2 to 4 distinctive catalog-form words with digits for sizes and counts ('10 ft', 'pack of 8'), and the click contract as exactly one matching option per group with no other option of that group afterwards, reduces diluted queries and the sibling-variant clicks that ended episodes on the wrong attribute.",
+          "mechanism_id": "ws_h3_tool_contract",
+          "op": "modify",
+          "operation_id": "modify_h3_tool_contract",
+          "target_layer": "h3"
+        },
+        {
+          "hypothesis": "Redirecting a product whose title states a different value of a measured attribute than the task names ('25 Ft' for a '10 foot' task) back to search stops wrong-variant purchases, releasing an option group once any of its instruction-matching options was clicked (weak matches included) removes the sibling march that overwrote a correct selection, and naming the single strongest un-handled option plus 'buy now' gives one non-stale action per turn.",
+          "mechanism_id": "ws_h4_next_action_guide",
+          "op": "modify",
+          "operation_id": "modify_h4_next_action_guide",
+          "target_layer": "h4"
+        },
+        {
+          "hypothesis": "A cold-start plan stating catalog-form key words, color, size and budget plus the 'click one matching option per group and never another option of that same group, then buy' procedure keeps the agent out of the option-wandering loops from the very first product page and aligns the first search with the task.",
+          "mechanism_id": "ws_h5_task_plan",
+          "op": "modify",
+          "operation_id": "modify_h5_task_plan",
+          "target_layer": "h5"
+        }
+      ],
+      "round": 6,
+      "train_batch": 2
+    }
+  ],
+  "status": "complete"
+}

@@ -1,0 +1,65 @@
+{
+  "baseline_phase": "candidate_01",
+  "batch": 0,
+  "from_scratch": true,
+  "incumbent": "stagnation_recovery_nudge.py",
+  "released_h_flags": [],
+  "rounds": [
+    {
+      "accepted": true,
+      "baseline_infra_errors": 0,
+      "baseline_score": 0.2,
+      "baseline_successes": 10,
+      "candidate": {
+        "changes": "New self-contained AgentHarness with the same public surface as baseline_zero (__init__(public_context=None), synchronous transform_request/transform_response, no-op register). transform_request reconstructs the ordered list of previously submitted actions from prior assistant tool_calls (function.arguments as JSON string or dict; only non-empty top-level string 'action' values) and fires falsified stagnation triggers: same action twice in a row, or <=4 distinct of the last 8, <=5 of the last 10, <=6 of the last 12. Only on a trigger (and when no [Guidance] marker is already present) it deep-copies the request and appends ONE short guidance block to the text of the last message: actions-taken count, the just-repeated action, up to 4 most-repeated actions with counts, a note that repeats consume limited turns, the untried items parsed from the AVAILABLE ACTIONS section (max 10, evenly strided with an exact '(+K more)' when longer), and a conditional 'if stuck' suggestion to try an untried action. Non-triggering requests are returned as the identical original object; the whole body is wrapped so any error returns the request unchanged; the response side is a pure pass-through.",
+        "expected_efficiency": "Trigger fires on 35/40 public TRAIN failures and 0/10 successes (verified locally by replaying every episode prefix through the candidate), so it targets the failing majority while leaving successful, diverse trajectories byte-identical. Steering failing episodes away from repeated actions should cut wasted turns/tokens on the ~80% of the 50 tasks currently unsolved (accuracy 0.2) by converting some loop-bound failures into completions, with no change to model/sampling/budgets and roughly neutral total token cost (a small +40-60 tokens on triggered turns, offset by shorter episodes when loops break).",
+        "hypothesis": "Baseline alfworld failures are dominated by action loops: the agent re-issues the same action (or a tiny set of actions) turn after turn, burning the frozen turn budget without progress, while successful trajectories stay diverse. A stagnation-aware reminder appended to the latest observation should break these loops without disturbing episodes that are already progressing.",
+        "import_path": "agents.stagnation_recovery_nudge:AgentHarness",
+        "name": "stagnation_recovery_nudge"
+      },
+      "candidate_infra_errors": 1,
+      "candidate_score": 0.32,
+      "candidate_successes": 16,
+      "iteration": 1,
+      "losses": 0,
+      "outcome": "accepted",
+      "parent": "baseline_zero.py",
+      "retained_candidate": "stagnation_recovery_nudge.py",
+      "retained_candidate_sha256": "8bb6edc58ddcfbc01276a912bc0df64f6dc2cf90b0d8f44a4e109d8221f5acde",
+      "solver_baseline_tokens": 13376980,
+      "solver_candidate_tokens": 12811754,
+      "train_batch": 0,
+      "train_n": 50,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 583759,
+            "output_tokens": 27669,
+            "total_tokens": 611428
+          },
+          "implementation": {
+            "input_tokens": 250187,
+            "output_tokens": 12712,
+            "total_tokens": 262899
+          },
+          "parent": {
+            "input_tokens": 943478,
+            "output_tokens": 26617,
+            "total_tokens": 970095
+          }
+        },
+        "cached_input_tokens_known": 770560,
+        "calls_with_cache_details": 71,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 1777424,
+        "output_tokens": 66998,
+        "recorded_upstream_attempts": 71,
+        "successful_calls": 71,
+        "total_tokens": 1844422
+      },
+      "wins": 6
+    }
+  ],
+  "status": "running"
+}

@@ -1,0 +1,63 @@
+type: agent
+name: ahe_airline
+system_prompt: ./systemprompt.md
+system_prompt_type: jinja
+tool_call_mode: openai
+max_iterations: 300
+max_context_tokens: 40000
+llm_config:
+  model: ${env.LLM_MODEL}
+  base_url: ${env.LLM_BASE_URL}
+  api_key: ${env.LLM_API_KEY}
+  max_tokens: 4096
+  temperature: 0.0
+  api_type: openai_chat_completion
+  stream: false
+  extra_body:
+    chat_template_kwargs:
+      enable_thinking: false
+tools:
+- name: book_reservation
+  yaml_path: ./tool_descriptions/book_reservation.tool.yaml
+  binding: tools.native:book_reservation
+- name: calculate
+  yaml_path: ./tool_descriptions/calculate.tool.yaml
+  binding: tools.native:calculate
+- name: cancel_reservation
+  yaml_path: ./tool_descriptions/cancel_reservation.tool.yaml
+  binding: tools.native:cancel_reservation
+- name: get_reservation_details
+  yaml_path: ./tool_descriptions/get_reservation_details.tool.yaml
+  binding: tools.native:get_reservation_details
+- name: get_user_details
+  yaml_path: ./tool_descriptions/get_user_details.tool.yaml
+  binding: tools.native:get_user_details
+- name: list_all_airports
+  yaml_path: ./tool_descriptions/list_all_airports.tool.yaml
+  binding: tools.native:list_all_airports
+- name: search_direct_flight
+  yaml_path: ./tool_descriptions/search_direct_flight.tool.yaml
+  binding: tools.native:search_direct_flight
+- name: search_onestop_flight
+  yaml_path: ./tool_descriptions/search_onestop_flight.tool.yaml
+  binding: tools.native:search_onestop_flight
+- name: send_certificate
+  yaml_path: ./tool_descriptions/send_certificate.tool.yaml
+  binding: tools.native:send_certificate
+- name: transfer_to_human_agents
+  yaml_path: ./tool_descriptions/transfer_to_human_agents.tool.yaml
+  binding: tools.native:transfer_to_human_agents
+- name: update_reservation_baggages
+  yaml_path: ./tool_descriptions/update_reservation_baggages.tool.yaml
+  binding: tools.native:update_reservation_baggages
+- name: update_reservation_flights
+  yaml_path: ./tool_descriptions/update_reservation_flights.tool.yaml
+  binding: tools.native:update_reservation_flights
+- name: update_reservation_passengers
+  yaml_path: ./tool_descriptions/update_reservation_passengers.tool.yaml
+  binding: tools.native:update_reservation_passengers
+- name: get_flight_status
+  yaml_path: ./tool_descriptions/get_flight_status.tool.yaml
+  binding: tools.native:get_flight_status
+tracers:
+- import: nexau.archs.tracer.adapters.in_memory:InMemoryTracer

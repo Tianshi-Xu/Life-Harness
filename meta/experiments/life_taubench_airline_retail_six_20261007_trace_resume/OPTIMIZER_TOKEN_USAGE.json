@@ -1,0 +1,45 @@
+{
+  "domains": {
+    "airline": {
+      "accounting_complete": true,
+      "attempts": 190,
+      "inference_accounting_complete": true,
+      "input_tokens": 35609663,
+      "known_usage_calls": 190,
+      "output_tokens": 533128,
+      "pending_calls": 0,
+      "rate_limit_rejections_without_usage": 0,
+      "total_tokens": 36142791,
+      "unknown_usage_calls": 0
+    },
+    "retail": {
+      "accounting_complete": true,
+      "attempts": 186,
+      "inference_accounting_complete": true,
+      "input_tokens": 25267009,
+      "known_usage_calls": 186,
+      "output_tokens": 439741,
+      "pending_calls": 0,
+      "rate_limit_rejections_without_usage": 0,
+      "total_tokens": 25706750,
+      "unknown_usage_calls": 0
+    }
+  },
+  "excludes": [
+    "local_solver",
+    "user_simulator",
+    "NL_judge"
+  ],
+  "total": {
+    "accounting_complete": true,
+    "attempts": 376,
+    "inference_accounting_complete": true,
+    "input_tokens": 60876672,
+    "known_usage_calls": 376,
+    "output_tokens": 972869,
+    "pending_calls": 0,
+    "rate_limit_rejections_without_usage": 0,
+    "total_tokens": 61849541,
+    "unknown_usage_calls": 0
+  }
+}

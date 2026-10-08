@@ -1,0 +1,49 @@
+{
+  "accepted_bundle_ids": [],
+  "active_snapshot": [],
+  "active_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "domain": "dbbench",
+  "operation_log": [],
+  "prior_test_exposure": true,
+  "round": 1,
+  "rounds": [
+    {
+      "accepted": false,
+      "active_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "bundle_hypothesis": "No candidate produced within fixed token/request limits: output_truncated",
+      "bundle_id": null,
+      "candidate_infra_errors": null,
+      "candidate_phase": null,
+      "candidate_score": null,
+      "candidate_snapshot_sha256": null,
+      "candidate_successes": null,
+      "candidate_summary_sha256": null,
+      "cases_available": 50,
+      "cases_opened": 7,
+      "failure_code": "output_truncated",
+      "failure_path": "failures/round_01.json",
+      "failure_sha256": "93deccdd27daf8569c56c68633ab2b69b5acfd113f0e2ba2fa2e958701d18490",
+      "incumbent_infra_errors": 0,
+      "incumbent_phase": "round_01_incumbent",
+      "incumbent_score": 0.4,
+      "incumbent_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "incumbent_successes": 20,
+      "incumbent_summary_sha256": "96d0a375c2fcd66d358a65f7c43be58e95c26d6cca83b2e40f4f1dcdfdb7ea84",
+      "operations": [],
+      "outcome": "proposal_failed",
+      "parent_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "proposer_requests": 8,
+      "round": 1,
+      "train_batch": 0,
+      "usage": {
+        "completion_tokens": 10547,
+        "prompt_cache_hit_tokens": 1536,
+        "prompt_cache_miss_tokens": 79344,
+        "prompt_tokens": 143988,
+        "total_tokens": 154535
+      },
+      "validation_sha256": null
+    }
+  ],
+  "status": "complete"
+}

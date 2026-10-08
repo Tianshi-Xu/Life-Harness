@@ -1,0 +1,27 @@
+type: tool
+name: commit_final_answer
+description: >-
+  Commits the final answer after all operations are completed. `answers` must be the cells of
+  the SELECT you built for the question - one element per cell, in the order the query
+  returned them, nothing dropped - never a sentence describing what you did. What a list must
+  hold: for "find all / list all / give me every ..." it is EVERY column of EVERY matching
+  row, so make that SELECT return whole rows (`SELECT * FROM <table> WHERE ...;`) and copy
+  each row's cells; for a per-group question ("for each X, how many Y", "grouped by ...") it
+  is each group's own label AND its number, group by group, never all the labels and then all
+  the numbers; for "how many" or "how much time between ..." it is the computed value itself.
+  Never submit a column of `SELECT * FROM <table> LIMIT 5;` - arbitrary sample rows are not an
+  answer. Call this after a SELECT has confirmed the result, but do not keep querying instead
+  of submitting: an episode that never calls this tool scores zero, so submit your best answer
+  as soon as the data supports it.
+input_schema:
+  type: object
+  properties:
+    answers:
+      type: array
+      items:
+        type: string
+      description: The list of final answers to commit.
+  required:
+  - answers
+  additionalProperties: false
+disable_parallel: true

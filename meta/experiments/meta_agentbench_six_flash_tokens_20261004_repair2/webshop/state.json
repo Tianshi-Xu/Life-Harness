@@ -1,0 +1,329 @@
+{
+  "baseline_phase": "candidate_06",
+  "batch": 3,
+  "from_scratch": true,
+  "incumbent": "faithful_option_guard.py",
+  "released_h_flags": [],
+  "rounds": [
+    {
+      "accepted": true,
+      "baseline_infra_errors": 0,
+      "baseline_score": 0.26,
+      "baseline_successes": 13,
+      "candidate": {
+        "changes": "New response-side guard agents/option_first_buy.py (plain AgentHarness per the port contract; start shape copied from agents/baseline_zero.py, no baseline/Terminus2 subclassing). transform_request is identity. transform_response: locates the last observation advertising 'Available Actions'; extracts request-description tokens from the 'Instruction:' field (stopwords and decimal price literals dropped, English number words normalised to digits, mixed digit/letter codes split); parses the item page body to group advertised attribute options under their group headers (an option is an advertised non-navigation clickable; a header is a non-option part whose next part is an option); and reconstructs which option values were already clicked from prior tool-call arguments (selections are not echoed in observations). Guard: only fires when the emitted click value is the checkout action and the page still offers the checkout clickable. It rewrites the checkout click into the single highest-priority still-needed option, chosen per attribute group that lacks any request-matching selection, by argmax of (match-count, matched-fraction, option length) with ties resolved to the earliest option. Self-disabling: once a request-matching option is present in history for every group, later checkout clicks pass through unchanged (multi-group pages are completed one option per turn). Any exception, non-dict response, empty history, missing/malformed tool_calls, unparsable observation, or non-item page (no 'buy now' clickable) returns the response unchanged, making it a strict no-op outside the target situation.",
+        "expected_efficiency": "Neutral-to-positive. On non-item pages and on item pages whose request matches no option the response is byte-identical, so unaffected episodes keep their exact turn/token counts and all 13 current successes are untouched. Only affected episodes (premature checkout with an unselected request-matching option) gain 1 extra click turn per required attribute group, bounded by the number of groups (typically 1-2), i.e. a small per-episode turn/token increase. Independent offline replay over all 50 public TRAIN episodes: 24 of 50 checkout clicks are rewritten, all on episodes that currently fail, and 0 rewrites occur on any of the 13 currently-passing episodes (each rewritten failure is already at guaranteed-zero reward because its described option was never selected, so the change is non-negative and can only convert them to success).",
+        "hypothesis": "On item-detail pages that still expose attribute options described by the request (colour, size, style, flavour, pack size), the policy frequently emits the checkout click before selecting the request-matching option, so the purchase is finalised in an unselected/default variant and the episode fails. Rewriting a premature checkout click into a click on the best request-matching option -- deferring the purchase until the described option is selected -- will raise the pass rate on those failures without harming episodes that already succeed.",
+        "import_path": "agents.option_first_buy:AgentHarness",
+        "name": "option_first_buy"
+      },
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.4,
+      "candidate_successes": 20,
+      "iteration": 1,
+      "losses": 1,
+      "outcome": "accepted",
+      "parent": "baseline_zero.py",
+      "retained_candidate": "option_first_buy.py",
+      "retained_candidate_sha256": "07eae5102760af94772bd83cf7f82c1c85a8aaf0b2c0fe4b418d3124bde71b1b",
+      "solver_baseline_tokens": 325170,
+      "solver_candidate_tokens": 445740,
+      "train_batch": 0,
+      "train_n": 50,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 408027,
+            "output_tokens": 24655,
+            "total_tokens": 432682
+          },
+          "implementation": {
+            "input_tokens": 641507,
+            "output_tokens": 21496,
+            "total_tokens": 663003
+          },
+          "parent": {
+            "input_tokens": 1058913,
+            "output_tokens": 38382,
+            "total_tokens": 1097295
+          }
+        },
+        "cached_input_tokens_known": 1125248,
+        "calls_with_cache_details": 64,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 2108447,
+        "output_tokens": 84533,
+        "recorded_upstream_attempts": 64,
+        "successful_calls": 64,
+        "total_tokens": 2192980
+      },
+      "wins": 8
+    },
+    {
+      "accepted": true,
+      "baseline_infra_errors": 0,
+      "baseline_score": 0.4,
+      "baseline_successes": 20,
+      "candidate": {
+        "changes": "New response-side runtime agents/price_ceiling_guard.py. It reproduces the round-1 incumbent option_first_buy guard verbatim (copied into the same module; no inter-agent imports) and prepends ONE provable guard on the request's stated price ceiling. transform_request is identity. transform_response (a) locates the last observation advertising 'Available Actions'; (b) extracts the request tokens and the numeric ceiling from the 'Instruction:' field via /(?:lower than|less than|under|below)\\s*\\$?\\s*(\\d+(?:\\.\\d+)?)/; (c) parses a paginated results page into (asin, title, price) triples from the ASIN / title / '$price' [SEP] entries after 'Next >', and the minimum advertised price of a product page from 'Price: $A' or 'Price: $A to $B'. NEW GUARD, applied only when a ceiling is stated: (i) if the emitted click value is an ASIN listed on the current results page whose listed price exceeds the ceiling, the click is rewritten to the in-ceiling listing with the largest request-token/title overlap (ties -> earlier listing); (ii) if the emitted click value is the checkout action 'buy now' and the product page's minimum advertised price exceeds the ceiling, it is rewritten to 'back to search' so a provably-wrong purchase is never finalised. If neither condition holds, the incumbent option-first checkout-deferral logic runs unchanged. The guard abstains (returns the original response object) whenever no ceiling is stated, no in-ceiling listing exists, a price cannot be parsed, the ASIN is not in the current listing, the page supplies no 'back to search' clickable, or any exception/unexpected shape occurs.",
+        "expected_efficiency": "Neutral-to-slightly-positive and provably non-negative relative to the incumbent. Offline replay over BOTH public TRAIN evidence dirs: on evidence/candidate_01 the runtime changes exactly 3 episodes - 230, 300, 806 - all currently failing (fired on 3/30 failures, 0/20 passes); on evidence/batch_00_baseline it changes 25 episodes, all failing (0/13 passes), because the 24 incumbent checkout rewrites are preserved plus the same 3 over-budget cases. Every one of the 20 incumbent passes and 13 baseline passes is left byte-identical, so the 20/50 incumbent score cannot drop (0.40 floor) and the 3 over-budget failures (each already at guaranteed-zero reward) gain a chance to be converted, for an expected 0.40 -> 0.40-0.46. Turn/token impact is zero on the 47 unaffected TRAIN tasks; the 3 affected episodes add at most a couple of navigation clicks (re-open a cheaper listing / return to results), so mean turns/tokens stay essentially flat (~4.6 turns, ~8.9k tokens).",
+        "hypothesis": "Every request states a hard budget of the form '... price lower than Y dollars'; a product priced above Y can never be the target product, so any purchase finalised on such a product has guaranteed-zero reward. The policy repeatedly selects over-budget products because it reasons only over title/attribute overlap and never checks the numeric ceiling. Intercepting those over-budget purchases (redirect a search-results product click that is over budget, and a checkout click on an over-budget product page) will convert those guaranteed-zero episodes into possible successes while leaving every in-budget episode byte-identical.",
+        "import_path": "agents.price_ceiling_guard:AgentHarness",
+        "name": "price_ceiling_guard"
+      },
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.48,
+      "candidate_successes": 24,
+      "iteration": 2,
+      "losses": 0,
+      "outcome": "accepted",
+      "parent": "option_first_buy.py",
+      "retained_candidate": "price_ceiling_guard.py",
+      "retained_candidate_sha256": "b9abe892f76cf878d3bda252395b23fff50004bb3d3714be9f0e235c02c538ee",
+      "solver_baseline_tokens": 445740,
+      "solver_candidate_tokens": 523755,
+      "train_batch": 0,
+      "train_n": 50,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 1401245,
+            "output_tokens": 50619,
+            "total_tokens": 1451864
+          },
+          "implementation": {
+            "input_tokens": 74641,
+            "output_tokens": 3627,
+            "total_tokens": 78268
+          },
+          "parent": {
+            "input_tokens": 1724098,
+            "output_tokens": 48538,
+            "total_tokens": 1772636
+          }
+        },
+        "cached_input_tokens_known": 1538688,
+        "calls_with_cache_details": 66,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 3199984,
+        "output_tokens": 102784,
+        "recorded_upstream_attempts": 66,
+        "successful_calls": 66,
+        "total_tokens": 3302768
+      },
+      "wins": 4
+    },
+    {
+      "accepted": false,
+      "baseline_infra_errors": 0,
+      "baseline_score": 0.48,
+      "baseline_successes": 24,
+      "candidate": {
+        "changes": "New response-side runtime agents/constraint_faithful_guard.py. transform_request is identity. It reproduces the round-2 incumbent price_ceiling_guard verbatim (copied into the module; no inter-agent imports) and adds three tightly-scoped, provably-non-negative selection corrections. (A) LISTING-CONSISTENCY GUARD on a results page: parse the page into (asin, title, min-price) triples with a range-aware price form ('$A' or '$A to $B' -> min(A,B)); for the emitted ASIN click value v, mark the listing 'inconsistent' iff (i) its title shares zero content tokens with the request token set, or (ii) the request asserts a gender (men/mens/man/male vs women/womens/woman/female/lady/ladies/girl(s)) and the title asserts the opposite gender. If the clicked listing is inconsistent, rewrite the click to the listing that is not the clicked one, is not itself inconsistent, has a parsed min-price <= the stated ceiling (when a ceiling is stated), and maximises request-token/title overlap (ties -> earlier position) with overlap > 0; otherwise abstain. Rule A runs before the incumbent over-budget-ASIN rule and falls through to it when it abstains. (B) PRICE-CLAUSE-AWARE REQUEST TOKENS: before tokenising the request, delete the budget clause with /(?:and\\s+)?(?:price\\s+)?(?:lower than|less than|under|below)\\s*\\$?\\s*[0-9]+(?:\\.[0-9]+)?\\s*(?:dollars?)?/i, so the split tokens '120'/'00' of '120.00' can no longer spuriously match an option such as '...120x120cm'; _request_ceiling still parses the raw text. (C) NUMERIC-CODE TIE-BREAK in the incumbent option picker: the per-group best-option key becomes (match-count, matched-fraction, matched-digit-count, len) where matched-digit-count = number of the option's all-digit tokens that appear in the request, so a request-named numeric code (#6, size 10, 16 inch) wins among otherwise-tied candidates; applied to both the per-group pick and the cross-group ranking, while the already-satisfied-group and self-disable logic are unchanged. All corrections reuse the incumbent's abstain envelope: non-dict response, empty history, no 'Available Actions' observation, empty request tokens, non-result page, unparsable listing, no eligible target, or any exception -> return the response object unchanged.",
+        "expected_efficiency": "Neutral-to-slightly-positive, provably non-negative, and a strict no-op on success. Independent offline replay (mine, re-running both agents over every recorded raw model response in evidence/candidate_02) rewrites actions on exactly 6 episodes - 255, 304, 444, 631, 908, 969 - ALL currently failing (6/26 failing, 0/24 passing), and is byte-identical on all 24 current successes across every turn. Attribution: rule A fires on 304 (zero-overlap listing b088h46hdf->b08vrpbrg4), 969 (b07487fb9m->b06y1v3g87) and 631 (gender flip b09qcvcyvy->b09rhwkfsc); rule B fires on 444 ('23.6\" x 47.2\" x 2 pcs( total: 120x120cm )'->'multi-07561'); rule C fires on 908 ('30#-light brown'->'6#-medium brown') and, as a deterministic side effect, 255 (tie between option 'subwoofer' and '10 in' resolved to the request-named number: 'subwoofer'->'10 in'). Every rewritten action was already provably inconsistent with the request (guaranteed-zero reward), so each rewrite is non-negative and can only convert. Turn/token impact is zero on the 44 unaffected TRAIN tasks; the affected episodes substitute one click for another, so mean turns/tokens stay flat (~5.0 turns, ~10.5k tokens/episode). Expected pass-rate delta: 0.48 -> 0.50-0.56.",
+        "hypothesis": "The residual failures come from the policy committing to products/variants that contradict a literal, verifiable constraint of the request: it opens a search listing whose title shares no content term with the request, opens a listing whose asserted gender is the opposite of the request's, selects a variant driven by a budget-number (the 'price lower than N' literal leaking into the request tokens), or ties/ignores the request's numeric attribute code in favour of a longer/earlier option. Each such commit is provably inconsistent with the request, hence guaranteed-zero reward; making the selection faithful to those literal constraints (redirect the listing, strip the budget clause from matching, add a numeric-code tie-break) will convert some of those guaranteed-zero failures while leaving every current success byte-identical.",
+        "import_path": "agents.constraint_faithful_guard:AgentHarness",
+        "name": "constraint_faithful_guard"
+      },
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.48,
+      "candidate_successes": 24,
+      "iteration": 3,
+      "losses": 1,
+      "outcome": "rejected",
+      "parent": "price_ceiling_guard.py",
+      "retained_candidate": "price_ceiling_guard.py",
+      "retained_candidate_sha256": "b9abe892f76cf878d3bda252395b23fff50004bb3d3714be9f0e235c02c538ee",
+      "solver_baseline_tokens": 523755,
+      "solver_candidate_tokens": 549993,
+      "train_batch": 0,
+      "train_n": 50,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 4110916,
+            "output_tokens": 86733,
+            "total_tokens": 4197649
+          },
+          "implementation": {
+            "input_tokens": 1007372,
+            "output_tokens": 36867,
+            "total_tokens": 1044239
+          },
+          "parent": {
+            "input_tokens": 597844,
+            "output_tokens": 12638,
+            "total_tokens": 610482
+          }
+        },
+        "cached_input_tokens_known": 3252864,
+        "calls_with_cache_details": 89,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 5716132,
+        "output_tokens": 136238,
+        "recorded_upstream_attempts": 89,
+        "successful_calls": 89,
+        "total_tokens": 5852370
+      },
+      "wins": 1
+    },
+    {
+      "accepted": false,
+      "baseline_infra_errors": 0,
+      "baseline_score": 0.46,
+      "baseline_successes": 23,
+      "candidate": {
+        "changes": "New response-side runtime agents/explicit_requirement_guard.py. It reproduces the round-2 incumbent price_ceiling_guard verbatim (which itself contains the round-1 option_first_buy deferral; copied into the module, no inter-agent imports), including its request-tokenisation, results-page/item-page parsers, selection logic and abstain envelope, and adds ONE additive mechanism: a purchase-eligibility veto. transform_request is identity. The veto is evaluated only AFTER the incumbent's price guard and option-deferral logic have abstained and ONLY when the emitted tool call is the checkout action ('buy now'). It declares the current product page ineligible when any of the following holds: (i) the request asserts a colour (a fixed colour vocabulary) that appears neither among the page's advertised options nor in the product title; (ii) the request asserts a non-ordinal numeric size / count / measurement -- a number introduced by the word 'size' or immediately followed by a measurement/count unit (inch, foot/feet/ft, ounce/oz, pound/lb, count, pack, tablet(s), nos, mm, cm, ml, watt(s), pc(s), piece(s), fluid), extracted from the request with the budget clause removed so the price literal cannot be mistaken for a requirement -- and that value appears nowhere on the page; (iii) the product title shares no content (non-stopword) word -- nor any near-word (plural form or minor spelling variant, matched by a difflib similarity ratio >= 0.8 for tokens of length >= 4) -- with the request. When ineligible, and a 'back to search' control is available, the checkout click is rewritten to 'back to search'. The guard abstains (returns the response object unchanged) on: non-dict response, empty history, no 'Available Actions' observation, empty request tokens, no checkout click, no rule triggered, no 'back to search' clickable, unparsable page, or any exception.",
+        "expected_efficiency": "Strictly non-negative and turn/token-neutral on every episode the incumbent already resolves. Because the veto runs only after the incumbent price guard and option deferral abstain, and it only ever rewrites a 'buy now' click into 'back to search', the incumbent's action stream is reproduced byte-for-byte whenever the incumbent has something to do; the veto can only affect episodes whose checkout the incumbent already passes through unchanged. Independent offline replay (mine, re-running the incumbent and the candidate over every recorded raw model response in the evidence) rewrites actions on ZERO of the incumbent's currently-passing episodes on every evidence split, while firing only on currently-failing episodes. On the scored TRAIN batch (evidence/batch_01_baseline, 23/50 = 0.46 incumbent, which is the current run's batch per frontier_val.json) it changes NO passing episode and vetoes exactly 2 failing episodes: 431 (product advertises no 'blue' while the request requires a blue phone) and 445 (product states size 37 EU while the request requires size 9) -- both all-action 'buy now' -> 'back to search'. It is likewise a no-op on all passes and fires only on failing episodes on the other recorded splits (evidence/batch_00_baseline: 304, 329, 365, 465, 827; evidence/candidate_02: 304, 329, 365, 425, 465, 680, 827, 969). Every affected episode was already a guaranteed-wrong purchase (the product provably contradicts a stated requirement), so the change can only give those episodes a chance to recover by re-searching. The 23/50 incumbent score on the scored batch is therefore a provable floor (0.46), with an expected 0.46 -> 0.46-0.50. Turn/token impact is zero on the 48 unaffected TRAIN tasks; each affected episode substitutes one navigation back to the search page for the finalised purchase, so mean turns/tokens stay essentially flat.",
+        "hypothesis": "A product page that cannot satisfy an explicit requirement stated in the request (a colour the page neither advertises nor names in its title; a non-ordinal numeric size/count/measurement that appears nowhere on the page; or a title sharing no content word -- nor near-word -- with the request) is provably not the requested product, so any purchase finalised there is guaranteed-wrong. Refusing to finalise such a purchase (rewriting the checkout click into 'back to search') will convert some of those guaranteed-zero episodes into successes, while leaving every episode the incumbent already resolves byte-identical.",
+        "import_path": "agents.explicit_requirement_guard:AgentHarness",
+        "name": "explicit_requirement_guard"
+      },
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.46,
+      "candidate_successes": 23,
+      "iteration": 4,
+      "losses": 1,
+      "outcome": "rejected",
+      "parent": "price_ceiling_guard.py",
+      "retained_candidate": "price_ceiling_guard.py",
+      "retained_candidate_sha256": "b9abe892f76cf878d3bda252395b23fff50004bb3d3714be9f0e235c02c538ee",
+      "solver_baseline_tokens": 415750,
+      "solver_candidate_tokens": 595963,
+      "train_batch": 1,
+      "train_n": 50,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 928283,
+            "output_tokens": 30640,
+            "total_tokens": 958923
+          },
+          "implementation": {
+            "input_tokens": 936648,
+            "output_tokens": 18760,
+            "total_tokens": 955408
+          },
+          "parent": {
+            "input_tokens": 8913555,
+            "output_tokens": 110787,
+            "total_tokens": 9024342
+          }
+        },
+        "cached_input_tokens_known": 7427712,
+        "calls_with_cache_details": 116,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 10778486,
+        "output_tokens": 160187,
+        "recorded_upstream_attempts": 116,
+        "successful_calls": 116,
+        "total_tokens": 10938673
+      },
+      "wins": 1
+    },
+    {
+      "accepted": false,
+      "baseline_infra_errors": 0,
+      "baseline_score": 0.42,
+      "baseline_successes": 21,
+      "candidate": null,
+      "candidate_infra_errors": null,
+      "candidate_score": null,
+      "candidate_successes": null,
+      "iteration": 5,
+      "losses": null,
+      "outcome": "candidate_unmeasured",
+      "parent": "price_ceiling_guard.py",
+      "retained_candidate": "price_ceiling_guard.py",
+      "retained_candidate_sha256": "b9abe892f76cf878d3bda252395b23fff50004bb3d3714be9f0e235c02c538ee",
+      "solver_baseline_tokens": 484128,
+      "solver_candidate_tokens": null,
+      "train_batch": 2,
+      "train_n": 50,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 5990491,
+            "output_tokens": 74411,
+            "total_tokens": 6064902
+          },
+          "parent": {
+            "input_tokens": 1840998,
+            "output_tokens": 42051,
+            "total_tokens": 1883049
+          }
+        },
+        "cached_input_tokens_known": 5326080,
+        "calls_with_cache_details": 95,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 7831489,
+        "output_tokens": 116462,
+        "recorded_upstream_attempts": 95,
+        "successful_calls": 95,
+        "total_tokens": 7947951
+      },
+      "wins": null
+    },
+    {
+      "accepted": true,
+      "baseline_infra_errors": 0,
+      "baseline_score": 0.34,
+      "baseline_successes": 17,
+      "candidate": {
+        "changes": "New response-side runtime agents/faithful_option_guard.py. It reproduces the retained incumbent agents/price_ceiling_guard.py verbatim (request/observation parsers, the provable hard price-ceiling guard, the option-first checkout deferral, the _rewrite_value helper and the global try/except abstain envelope; helpers copied into the module, no inter-agent imports) and applies ONLY two coupled edits, which together implement one mechanism. transform_request stays identity. EDIT 1 (budget-free request content): a module-level _BUDGET_CLAUSE regex /(?:and\\s+)?(?:price\\s+)?(?:lower\\s+than|less\\s+than|under|below)\\s*\\$?\\s*[0-9]+(?:\\.[0-9]+)?\\s*(?:dollars?)?/i is added and _request_tokens now does seg = _BUDGET_CLAUSE.sub(' ', seg) before tokenising, so the ceiling literal (30 / 30.00 / 120 ...) can never act as an attribute value; _request_ceiling still parses the ceiling from the RAW text and is unchanged. EDIT 2 (in-group superset-dominance option redirect): a helper _matched_tokens(option, req) = {t for t in _tokenize(option) if t not in _STOPWORDS and t in req} and a function _dominance_redirect(response, last_obs, req) are added. For each tool call, if its value V is exactly an advertised option of some group (not a nav control, not the checkout action, not a product link, not a group header) and the group's best request-matching option B (same (match-count, matched-fraction, length) key _best_option already uses) is different, it returns _rewrite_value(response, V, B) ONLY when the matched set of B is a strict superset of the matched set of V (b <= a and len(a) > len(b)); otherwise None. This block is inserted in transform_response after req and the non-empty tool_calls list are computed and BEFORE the price-ceiling guard, so the incumbent price-ceiling guard and checkout deferral then run unchanged. Abstain/identity on: non-dict response, empty public_history, no 'Available Actions' observation, empty request tokens, no/malformed tool_calls, checkout/ASIN/nav/header clicks, V already equal to the group argmax, V not strictly dominated, and any exception (outer try/except preserved).",
+        "expected_efficiency": "Neutral on turn/token count and provably non-negative. The rule fires only when the alternative's matched request-token set is a strict SUPERSET of the clicked option's set, i.e. the alternative satisfies every request term the clicked option did plus at least one more, so the substituted variant is never less faithful to the request; a plain 'higher overlap wins' rule is deliberately NOT used because it is not dominated by the clicked option and was observed to rewrite a currently-passing episode. On every unaffected turn (non-product page, non-option click, clicked option already the group argmax, or no strict-superset alternative) transform_response returns the response byte-identically, so passing episodes keep their exact turn/token counts. On affected turns one click is substituted for another (or one spurious budget-digit-driven option insert is dropped), so per-episode mean turns/tokens stay flat. Expected pass-rate change: neutral-to-positive, bounded below by zero within a provable no-regression envelope.",
+        "hypothesis": "The option the agent commits to must be the request-content argmax within its own advertised attribute group, where request content excludes the hard budget literal. Two coupled defects cause a strictly-dominated committed variant: (i) the budget clause 'price lower than N dollars' leaks its numeric literal into the request tokens so an advertised option that merely repeats those digits can be chosen as if it matched the request, and (ii) an emitted option click is never checked against its group's best request-matching option. Removing the budget clause from matching AND redirecting a clicked option when another option in the same group matches a strict superset of the request terms it matched will convert some guaranteed mis-variant purchases while leaving every currently-passing episode byte-identical.",
+        "import_path": "agents.faithful_option_guard:AgentHarness",
+        "name": "faithful_option_guard"
+      },
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.38,
+      "candidate_successes": 19,
+      "iteration": 6,
+      "losses": 0,
+      "outcome": "accepted",
+      "parent": "price_ceiling_guard.py",
+      "retained_candidate": "faithful_option_guard.py",
+      "retained_candidate_sha256": "05a84a2e181327e390985150683f8176f5e81a64fb7c4825198f240e7b620396",
+      "solver_baseline_tokens": 498155,
+      "solver_candidate_tokens": 553053,
+      "train_batch": 3,
+      "train_n": 50,
+      "usage": {
+        "accounting_complete": true,
+        "by_role": {
+          "analysis": {
+            "input_tokens": 3607391,
+            "output_tokens": 73668,
+            "total_tokens": 3681059
+          },
+          "implementation": {
+            "input_tokens": 593399,
+            "output_tokens": 21943,
+            "total_tokens": 615342
+          },
+          "parent": {
+            "input_tokens": 2157958,
+            "output_tokens": 52490,
+            "total_tokens": 2210448
+          }
+        },
+        "cached_input_tokens_known": 3781504,
+        "calls_with_cache_details": 101,
+        "calls_with_unknown_usage": 0,
+        "input_tokens": 6358748,
+        "output_tokens": 148101,
+        "recorded_upstream_attempts": 101,
+        "successful_calls": 101,
+        "total_tokens": 6506849
+      },
+      "wins": 2
+    }
+  ],
+  "status": "training_complete"
+}

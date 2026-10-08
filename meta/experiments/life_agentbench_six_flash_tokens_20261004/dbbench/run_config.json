@@ -1,0 +1,38 @@
+{
+  "domain": "dbbench",
+  "experiment": "life_agentbench_six_flash_tokens_20261004",
+  "initial_active_snapshot": [],
+  "optimizer_source_sha256": {
+    "meta/agentbench_hooks/__init__.py": "c34c30a3223592a95bfe0d993dddfc0e1460efcadf22b447d99cfbd038d89023",
+    "meta/agentbench_hooks/contract.py": "7bab038c47d5a9aa8f2ecc7d1a1f0aceb43f637249940b7d1667971078501c8c",
+    "meta/agentbench_hooks/runtime.py": "a48c71972ac8e377e48366fffb30e27ab967c7a18fa3ad2125146e10ddb98ade",
+    "meta/evidence.py": "9d208c11183c1e78ca23cdc88c4865f94f9203b918d6a91b666a04f4cfaa9ef9",
+    "meta/life_optimizer/PROMPT.md": "bdb108bc1888bf8b116192022047e813a4a86fff268bb3ea2e92baa0761ac491",
+    "meta/life_optimizer/__init__.py": "69ce3c92ae42c20161e05acdebede5e32762375e98465bb8b4c7e1f259d705a4",
+    "meta/life_optimizer/bundle.py": "f86e9f0cd920d0ada0240daf5df185e076df3e3c395edf44165a2860c9c6ea75",
+    "meta/life_optimizer/context.py": "caf08baf51851b481adc900d5bda382477b7e1b372a006fe6acfee488aee21a7",
+    "meta/life_optimizer/profile.py": "9c3d9bc4827d594d1e81a77e9f777294b038507cb0b1cdcadd3a4ad9afa7c28f",
+    "meta/life_optimizer/smoke.py": "357e873af99753d2c0fe78ad5a677f06b4cb853a965b8ffc4c2114faa62bd60b",
+    "meta/life_optimizer/worker.py": "c70e7db78ee2bf1e3ce68f5dfa8abf703a160b5116bb5a26591da61e18fab375"
+  },
+  "prior_test_exposure": true,
+  "protocol_sha256": "9d1f190bfb3dced4ba0a702d141b3f63e4a581c017ca698ccc672de03dd52faa",
+  "rounds": 6,
+  "source_sha256": {
+    "agentbench_chain.py": "6e68cebfecdeea17feac47f6ad5c359e0d36006c8ccd9fb063b671a24128e71c",
+    "agentbench_evaluate.py": "00aaa1b9835a65bde00b79bedac66fdcf718a6c81e1ec36d7671e581fc2a3e70",
+    "candidate_contract.py": "405480fba45aa38e3aba25817a9254e568f37ae82476de1a633077665953a2ef",
+    "composition.py": "96645132724af8b213b1837108e8a3102748002e175210575d7a87d2c558b301",
+    "driver.py": "89922e84e6bc10e5ff4f4204e6bcbce93282182e224f202d5c124873acc0b098",
+    "protocol.py": "d82552e5e672b13588763b1bb8a982098cb98d2616d83b23b91ff5fc108c374c",
+    "reporting.py": "5df25ba2e7ae3e97b1021d32d6b7759055b17ea9dd8a11a09b846edc18ed057b",
+    "runner.py": "fb5e9a698da18d39c9c098f888919442cb5e31754a931142e9b294d8067521e7",
+    "tokenizer_worker.py": "2e230001b9ab493188ef8ce5ca7e9a9aa39fae7542a2dbf4f603537453b12655"
+  },
+  "transport_sha256": {
+    "api_broker.py": "1c55137b2b15ef73150e170fc9ea14e539ec8e20a83a733208f2fe4b3ce56a83",
+    "connection.py": "1d18351f216a0177471e332bdca6b71e7e533b1980b8f47c32be76a2c2fb4779",
+    "metered_broker.py": "c86e956c1a5d3498d0fa235e0ee7fb371136587c32af350166a2bc36782052c1",
+    "token_accounting.py": "e2922903afd0c1a131d3751088545f0e5eabd7e11d241afb6e5caddcadbeff4c"
+  }
+}

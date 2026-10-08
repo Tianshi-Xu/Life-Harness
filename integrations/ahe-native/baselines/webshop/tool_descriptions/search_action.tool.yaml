@@ -1,0 +1,13 @@
+type: tool
+name: search_action
+description: Use search functionality with specified keywords.
+input_schema:
+  type: object
+  properties:
+    keywords:
+      type: string
+      description: The keywords to use in the search function.
+  required:
+  - keywords
+  additionalProperties: false
+disable_parallel: true

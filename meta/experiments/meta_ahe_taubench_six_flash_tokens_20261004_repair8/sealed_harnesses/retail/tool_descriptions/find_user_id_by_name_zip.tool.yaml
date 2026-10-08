@@ -1,0 +1,31 @@
+type: tool
+name: find_user_id_by_name_zip
+description: 'Find user id by first name, last name, and zip code. If the user is
+  not found, the function
+
+
+  will return an error message. By default, find user id by email, and only call this
+  function
+
+  if the user is not found by email or cannot remember email.'
+input_schema:
+  properties:
+    first_name:
+      description: The first name of the customer, such as 'John'.
+      title: First Name
+      type: string
+    last_name:
+      description: The last name of the customer, such as 'Doe'.
+      title: Last Name
+      type: string
+    zip:
+      description: The zip code of the customer, such as '12345'.
+      title: Zip
+      type: string
+  required:
+  - first_name
+  - last_name
+  - zip
+  title: parameters
+  type: object
+disable_parallel: true

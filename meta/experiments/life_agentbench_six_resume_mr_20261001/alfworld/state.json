@@ -1,0 +1,454 @@
+{
+  "accepted_bundle_ids": [
+    "alfworld_round1_gate_coach",
+    "alfworld_round2_gate_coach",
+    "alfworld_round3_surface_search",
+    "alfworld_r5_tool_call_protocol"
+  ],
+  "active_snapshot": [
+    {
+      "artifact_path": "versions/alfworld_r5_tool_call_protocol/op_h2_action_gate_r4.py",
+      "mechanism_id": "h2_action_gate",
+      "revision": 4,
+      "sha256": "3c4584739b59b64cfa2fbe080bd280c29596458c66b44276fe391f37e90d956b",
+      "target_layer": "h2"
+    },
+    {
+      "artifact_path": "versions/alfworld_r5_tool_call_protocol/op_h3_action_protocol_r4.py",
+      "mechanism_id": "h3_action_protocol",
+      "revision": 4,
+      "sha256": "2b66239c991fcc964db3d047871520a86b9e866dc806fbde3399eda7dc8263ef",
+      "target_layer": "h3"
+    },
+    {
+      "artifact_path": "versions/alfworld_round3_surface_search/op_h4_step_coach_r3.py",
+      "mechanism_id": "h4_step_coach",
+      "revision": 3,
+      "sha256": "082e9252a7e1aa9a7fffa6fd3d770da817c2e702b2707077c9112bd63b06fd80",
+      "target_layer": "h4"
+    },
+    {
+      "artifact_path": "versions/alfworld_round3_surface_search/op_h5_task_brief_r3.py",
+      "mechanism_id": "h5_task_brief",
+      "revision": 3,
+      "sha256": "5fe6afb88fc871d1f19473e5192967b12aebd34a243e7989633f07815decf22e",
+      "target_layer": "h5"
+    }
+  ],
+  "active_snapshot_sha256": "9ba31b87ea148b9e62c42cf440cb39309040bfded5e6f5691dc5175879263b61",
+  "baseline_phase": null,
+  "baseline_summary": null,
+  "batch": 2,
+  "domain": "alfworld",
+  "operation_log": [
+    {
+      "bundle_id": "alfworld_round1_gate_coach",
+      "committed_snapshot_sha256": "cf358c66b07cbfd0b11eaebc2ba0e4a9820ee18d9b734cff980870ebc166cf3c",
+      "hypothesis": "Message-derived harness layers (action gate, tool protocol, per-step coaching, cold-start plan) cut no-op loops and invalid turns and raise ALFWorld success over the incumbent.",
+      "operations": [
+        {
+          "artifact": "artifacts/h2_action_gate.py",
+          "artifact_sha256": "3c0dce7d7e5f70011ca198358309211b026c24532067fa7de313391b387988f0",
+          "hypothesis": "Canonicalizing near-miss actions, rescuing plain-text turns, and rewriting no-op repeats into productive admissible actions prevents loop terminations and invalid-action strikes.",
+          "mechanism_id": "h2_action_gate",
+          "op": "add",
+          "operation_id": "op_h2_action_gate",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/h3_action_protocol.py",
+          "artifact_sha256": "ee70aeaf7a37c2dbb8f0fa3a483dde46fea873e3cbd5b66457c3bb74d2b8d757",
+          "hypothesis": "Stating the one-action protocol in the action tool description reduces invented or malformed actions.",
+          "mechanism_id": "h3_action_protocol",
+          "op": "add",
+          "operation_id": "op_h3_action_protocol",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/h4_step_coach.py",
+          "artifact_sha256": "50823df08f8ddf4b0086d0ba0918f719563c891273de3fbe0ede114ad21b5818",
+          "hypothesis": "Recomputing plan state from the public history each turn and suggesting one exact admissible next action keeps a weak model on the task plan and breaks stalls.",
+          "mechanism_id": "h4_step_coach",
+          "op": "add",
+          "operation_id": "op_h4_step_coach",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/h5_task_brief.py",
+          "artifact_sha256": "ee6063d795bacb30cab6ed97a1669ab125aebc82f31b71ff8a013a07bf1bb005",
+          "hypothesis": "A short cold-start plan (find, transform, deliver) prevents the first-turn search drift and appliance-as-destination confusion.",
+          "mechanism_id": "h5_task_brief",
+          "op": "add",
+          "operation_id": "op_h5_task_brief",
+          "target_layer": "h5"
+        }
+      ],
+      "parent_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "round": 1
+    },
+    {
+      "bundle_id": "alfworld_round2_gate_coach",
+      "committed_snapshot_sha256": "d23a64695302aa0f251a9d23101c6076272db4a288ac3b533445a9683d021c4a",
+      "hypothesis": "Round 2: rescuing plain-text action turns, enforcing takes of visibly available goals, blocking re-takes of delivered objects and repeats of finished transformations, tracking held/placed/transformed/lamp state in the coach, and sharper protocol and plan texts remove the dominant no-progress loops and lift success above round 1.",
+      "operations": [
+        {
+          "artifact": "artifacts/h2_action_gate_r2.py",
+          "artifact_sha256": "9daf04fc0f00416f854f782a7ef617fd7699fc088d0f37e479602e0447596d2e",
+          "expected_revision": 1,
+          "expected_sha256": "3c0dce7d7e5f70011ca198358309211b026c24532067fa7de313391b387988f0",
+          "hypothesis": "Rescuing <tool_call>/JSON/plain-text action turns into real tool calls, forcing the take when the goal object is available, and breaking re-take and finished-transform churn removes dead turns, ignored cheap takes, and delivered-item toggle loops.",
+          "mechanism_id": "h2_action_gate",
+          "op": "modify",
+          "operation_id": "op_h2_action_gate_r2",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/h3_action_protocol_r2.py",
+          "artifact_sha256": "38272117a0d79581cfdc5627e27d13cc4d96f3becf4f5b29ad3a2852115ea066",
+          "expected_revision": 1,
+          "expected_sha256": "ee70aeaf7a37c2dbb8f0fa3a483dde46fea873e3cbd5b66457c3bb74d2b8d757",
+          "hypothesis": "Restating the one-action protocol with an explicit always-call-the-tool instruction reduces plain-text replies and malformed turns.",
+          "mechanism_id": "h3_action_protocol",
+          "op": "modify",
+          "operation_id": "op_h3_action_protocol_r2",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/h4_step_coach_r2.py",
+          "artifact_sha256": "10cb645e5978889c1cb1c8e8168e53bdc39ca6d341067b4cfa5e616732064340",
+          "expected_revision": 1,
+          "expected_sha256": "50823df08f8ddf4b0086d0ba0918f719563c891273de3fbe0ede114ad21b5818",
+          "hypothesis": "Keeping the object in hand through transformations, tracking placed items and locations, using instance-exact sightings, skipping observed-empty locations, and tracking desklamp state removes the coach's wrong re-take, wrong-instance, and stale-lamp hints.",
+          "mechanism_id": "h4_step_coach",
+          "op": "modify",
+          "operation_id": "op_h4_step_coach_r2",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/h5_task_brief_r2.py",
+          "artifact_sha256": "11dc4fb6a9f052479a931b7abc79c4eadce4f5712501f6ff790acec9d861ced8",
+          "expected_revision": 1,
+          "expected_sha256": "ee6063d795bacb30cab6ed97a1669ab125aebc82f31b71ff8a013a07bf1bb005",
+          "hypothesis": "A cold-start plan that turns the lamp on before the look-examine, forbids re-taking delivered objects in two-object tasks, and labels appliances as stops prevents first-turn drift and appliance-as-destination confusion.",
+          "mechanism_id": "h5_task_brief",
+          "op": "modify",
+          "operation_id": "op_h5_task_brief_r2",
+          "target_layer": "h5"
+        }
+      ],
+      "parent_snapshot_sha256": "cf358c66b07cbfd0b11eaebc2ba0e4a9820ee18d9b734cff980870ebc166cf3c",
+      "round": 2
+    },
+    {
+      "bundle_id": "alfworld_round3_surface_search",
+      "committed_snapshot_sha256": "fee6f6eb8902efea4447f31e81a47df92651262ced602f2e40c0ca57e44f0538",
+      "hypothesis": "Round-2 attained 0.94 but every loss was a turn-cap timeout caused by search order and container handling, not by invalid actions: the coach swept closed cabinets in lexical order before open tables, closed containers were reached but never opened, and the model could oscillate between two locations with no hint able to break the loop. If the coach sweeps open surfaces first with numeric instance ordering, opens the closed container it is standing at before moving on, revisits containers seen closed but never opened, the gate breaks two-way oscillation with a fresh candidate and redirects takes of non-target objects, and the brief and tool description state the surface-first, open-first protocol, then targets hidden in containers or on late tables will be found within the turn budget and the timeout losses will convert to successes.",
+      "operations": [
+        {
+          "artifact": "artifacts/h2_action_gate_r3.py",
+          "artifact_sha256": "5e21ead38bf984df69a684b4464ae7b9671a5becd5e2170810620104730f4a40",
+          "expected_revision": 2,
+          "expected_sha256": "9daf04fc0f00416f854f782a7ef617fd7699fc088d0f37e479602e0447596d2e",
+          "hypothesis": "A two-way oscillation (go to cabinet 1 / go to bathtubbasin 1, or open / close the same drawer) and takes of objects that are not the task target consumed the final ten turns of two round-2 episodes. A ping-pong breaker that redirects to a fresh candidate, a misdirected-take redirect, and excluding delivered-object placements from retrieval sightings will break those loops and keep each turn productive.",
+          "mechanism_id": "h2_action_gate",
+          "op": "modify",
+          "operation_id": "op_h2_action_gate_r3",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/h3_action_protocol_r3.py",
+          "artifact_sha256": "a38174b87d668626677ddaabfce9e3ed5fa27353e533e1f6ac2297da9a232399",
+          "expected_revision": 2,
+          "expected_sha256": "38272117a0d79581cfdc5627e27d13cc4d96f3becf4f5b29ad3a2852115ea066",
+          "hypothesis": "The round-2 losses included taking non-target objects and leaving closed containers unopened. Adding 'take only the object named in the task' and 'open a closed container to reach what is inside' to the tool description gives every turn a correct prior without changing any structured field.",
+          "mechanism_id": "h3_action_protocol",
+          "op": "modify",
+          "operation_id": "op_h3_action_protocol_r3",
+          "target_layer": "h3"
+        },
+        {
+          "artifact": "artifacts/h4_step_coach_r3.py",
+          "artifact_sha256": "082e9252a7e1aa9a7fffa6fd3d770da817c2e702b2707077c9112bd63b06fd80",
+          "expected_revision": 2,
+          "expected_sha256": "10cb645e5978889c1cb1c8e8168e53bdc39ca6d341067b4cfa5e616732064340",
+          "hypothesis": "The mug timeout showed cabinets being swept lexically before the diningtable where the mugs were, and the ladle timeout showed closed containers reached but never opened. Ranking surfaces before containers with numeric instance order and a per-object priority map, opening the current closed container before travelling on, and revisiting containers seen closed but never opened will find container-buried targets in time; deloops in r2 never covered alternation, which the surface search now also avoids.",
+          "mechanism_id": "h4_step_coach",
+          "op": "modify",
+          "operation_id": "op_h4_step_coach_r3",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/h5_task_brief_r3.py",
+          "artifact_sha256": "5fe6afb88fc871d1f19473e5192967b12aebd34a243e7989633f07815decf22e",
+          "expected_revision": 2,
+          "expected_sha256": "11dc4fb6a9f052479a931b7abc79c4eadce4f5712501f6ff790acec9d861ced8",
+          "hypothesis": "A cold-start plan that says to check open surfaces first and to open closed cabinets and drawers gives the model the same search order as the step coach from turn one, so the first sweep already visits the high-probability open surfaces instead of 23 cabinets.",
+          "mechanism_id": "h5_task_brief",
+          "op": "modify",
+          "operation_id": "op_h5_task_brief_r3",
+          "target_layer": "h5"
+        }
+      ],
+      "parent_snapshot_sha256": "d23a64695302aa0f251a9d23101c6076272db4a288ac3b533445a9683d021c4a",
+      "round": 3
+    },
+    {
+      "bundle_id": "alfworld_r5_tool_call_protocol",
+      "committed_snapshot_sha256": "9ba31b87ea148b9e62c42cf440cb39309040bfded5e6f5691dc5175879263b61",
+      "hypothesis": "Round-4 evidence shows the only structural failure is the invalid-tool-call loop: the model encodes the chosen action in the function name with empty arguments, the runtime answers 'No valid tool calls found' on every turn, and the episode exhausts the turn budget. Recovering that call shape at H2 and stating the call structure at H3 removes the loop without touching any other decision, so the tasks that were lost to it can complete.",
+      "operations": [
+        {
+          "artifact": "artifacts/op_h2_action_gate_r4.py",
+          "artifact_sha256": "3c4584739b59b64cfa2fbe080bd280c29596458c66b44276fe391f37e90d956b",
+          "expected_revision": 3,
+          "expected_sha256": "5e21ead38bf984df69a684b4464ae7b9671a5becd5e2170810620104730f4a40",
+          "hypothesis": "The runtime rejects a tool call whose function name is not the declared action tool, so when the model writes the action as the function name (with '{}' arguments or a non-JSON payload) the gate currently leaves the call untouched and every remaining turn returns 'No valid tool calls found'. Recovering the intended action from the function name, a non-JSON arguments payload, or single-line content, and rewriting the call with the declared tool name while keeping the existing repair pipeline, restores forward progress and preserves all revision-3 repairs.",
+          "mechanism_id": "h2_action_gate",
+          "op": "modify",
+          "operation_id": "op_h2_action_gate_r4",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/op_h3_action_protocol_r4.py",
+          "artifact_sha256": "2b66239c991fcc964db3d047871520a86b9e866dc806fbde3399eda7dc8263ef",
+          "expected_revision": 3,
+          "expected_sha256": "a38174b87d668626677ddaabfce9e3ed5fa27353e533e1f6ac2297da9a232399",
+          "hypothesis": "The system prompt tells the model to offer 'the name of your next action', which a weak model can read as the function name; naming the call structure in the action tool description (the function name is always take_action, the chosen action goes only in the action argument) removes the malformed-call trigger at its source while keeping the revision-3 protocol rules.",
+          "mechanism_id": "h3_action_protocol",
+          "op": "modify",
+          "operation_id": "op_h3_action_protocol_r4",
+          "target_layer": "h3"
+        }
+      ],
+      "parent_snapshot_sha256": "fee6f6eb8902efea4447f31e81a47df92651262ced602f2e40c0ca57e44f0538",
+      "round": 5
+    }
+  ],
+  "round": 6,
+  "rounds": [
+    {
+      "accepted": true,
+      "active_snapshot_sha256": "cf358c66b07cbfd0b11eaebc2ba0e4a9820ee18d9b734cff980870ebc166cf3c",
+      "batch_rotated": false,
+      "bundle_hypothesis": "Message-derived harness layers (action gate, tool protocol, per-step coaching, cold-start plan) cut no-op loops and invalid turns and raise ALFWorld success over the incumbent.",
+      "bundle_id": "alfworld_round1_gate_coach",
+      "bundle_sha256": "806d77667d43098ff023d279acb6144e86e860518bd78d2ae93b052ef59c811c",
+      "candidate_score": 0.38,
+      "incumbent_score": 0.26,
+      "next_batch": 0,
+      "operations": [
+        {
+          "hypothesis": "Canonicalizing near-miss actions, rescuing plain-text turns, and rewriting no-op repeats into productive admissible actions prevents loop terminations and invalid-action strikes.",
+          "mechanism_id": "h2_action_gate",
+          "op": "add",
+          "operation_id": "op_h2_action_gate",
+          "target_layer": "h2"
+        },
+        {
+          "hypothesis": "Stating the one-action protocol in the action tool description reduces invented or malformed actions.",
+          "mechanism_id": "h3_action_protocol",
+          "op": "add",
+          "operation_id": "op_h3_action_protocol",
+          "target_layer": "h3"
+        },
+        {
+          "hypothesis": "Recomputing plan state from the public history each turn and suggesting one exact admissible next action keeps a weak model on the task plan and breaks stalls.",
+          "mechanism_id": "h4_step_coach",
+          "op": "add",
+          "operation_id": "op_h4_step_coach",
+          "target_layer": "h4"
+        },
+        {
+          "hypothesis": "A short cold-start plan (find, transform, deliver) prevents the first-turn search drift and appliance-as-destination confusion.",
+          "mechanism_id": "h5_task_brief",
+          "op": "add",
+          "operation_id": "op_h5_task_brief",
+          "target_layer": "h5"
+        }
+      ],
+      "round": 1,
+      "train_batch": 0
+    },
+    {
+      "accepted": true,
+      "active_snapshot_sha256": "d23a64695302aa0f251a9d23101c6076272db4a288ac3b533445a9683d021c4a",
+      "batch_rotated": false,
+      "bundle_hypothesis": "Round 2: rescuing plain-text action turns, enforcing takes of visibly available goals, blocking re-takes of delivered objects and repeats of finished transformations, tracking held/placed/transformed/lamp state in the coach, and sharper protocol and plan texts remove the dominant no-progress loops and lift success above round 1.",
+      "bundle_id": "alfworld_round2_gate_coach",
+      "bundle_sha256": "5562317294c331b64cdcc318741d4be17f1bbada49be2900836678aaff210ec1",
+      "candidate_score": 0.94,
+      "incumbent_score": 0.38,
+      "next_batch": 0,
+      "operations": [
+        {
+          "hypothesis": "Rescuing <tool_call>/JSON/plain-text action turns into real tool calls, forcing the take when the goal object is available, and breaking re-take and finished-transform churn removes dead turns, ignored cheap takes, and delivered-item toggle loops.",
+          "mechanism_id": "h2_action_gate",
+          "op": "modify",
+          "operation_id": "op_h2_action_gate_r2",
+          "target_layer": "h2"
+        },
+        {
+          "hypothesis": "Restating the one-action protocol with an explicit always-call-the-tool instruction reduces plain-text replies and malformed turns.",
+          "mechanism_id": "h3_action_protocol",
+          "op": "modify",
+          "operation_id": "op_h3_action_protocol_r2",
+          "target_layer": "h3"
+        },
+        {
+          "hypothesis": "Keeping the object in hand through transformations, tracking placed items and locations, using instance-exact sightings, skipping observed-empty locations, and tracking desklamp state removes the coach's wrong re-take, wrong-instance, and stale-lamp hints.",
+          "mechanism_id": "h4_step_coach",
+          "op": "modify",
+          "operation_id": "op_h4_step_coach_r2",
+          "target_layer": "h4"
+        },
+        {
+          "hypothesis": "A cold-start plan that turns the lamp on before the look-examine, forbids re-taking delivered objects in two-object tasks, and labels appliances as stops prevents first-turn drift and appliance-as-destination confusion.",
+          "mechanism_id": "h5_task_brief",
+          "op": "modify",
+          "operation_id": "op_h5_task_brief_r2",
+          "target_layer": "h5"
+        }
+      ],
+      "round": 2,
+      "train_batch": 0
+    },
+    {
+      "accepted": true,
+      "active_snapshot_sha256": "fee6f6eb8902efea4447f31e81a47df92651262ced602f2e40c0ca57e44f0538",
+      "batch_rotated": false,
+      "bundle_hypothesis": "Round-2 attained 0.94 but every loss was a turn-cap timeout caused by search order and container handling, not by invalid actions: the coach swept closed cabinets in lexical order before open tables, closed containers were reached but never opened, and the model could oscillate between two locations with no hint able to break the loop. If the coach sweeps open surfaces first with numeric instance ordering, opens the closed container it is standing at before moving on, revisits containers seen closed but never opened, the gate breaks two-way oscillation with a fresh candidate and redirects takes of non-target objects, and the brief and tool description state the surface-first, open-first protocol, then targets hidden in containers or on late tables will be found within the turn budget and the timeout losses will convert to successes.",
+      "bundle_id": "alfworld_round3_surface_search",
+      "bundle_sha256": "08c385f3da7cd14c0b50a3c0cd44cc476e1c913005240eb34a5e88d9f13a516f",
+      "candidate_score": 0.98,
+      "incumbent_score": 0.94,
+      "next_batch": 0,
+      "operations": [
+        {
+          "hypothesis": "A two-way oscillation (go to cabinet 1 / go to bathtubbasin 1, or open / close the same drawer) and takes of objects that are not the task target consumed the final ten turns of two round-2 episodes. A ping-pong breaker that redirects to a fresh candidate, a misdirected-take redirect, and excluding delivered-object placements from retrieval sightings will break those loops and keep each turn productive.",
+          "mechanism_id": "h2_action_gate",
+          "op": "modify",
+          "operation_id": "op_h2_action_gate_r3",
+          "target_layer": "h2"
+        },
+        {
+          "hypothesis": "The round-2 losses included taking non-target objects and leaving closed containers unopened. Adding 'take only the object named in the task' and 'open a closed container to reach what is inside' to the tool description gives every turn a correct prior without changing any structured field.",
+          "mechanism_id": "h3_action_protocol",
+          "op": "modify",
+          "operation_id": "op_h3_action_protocol_r3",
+          "target_layer": "h3"
+        },
+        {
+          "hypothesis": "The mug timeout showed cabinets being swept lexically before the diningtable where the mugs were, and the ladle timeout showed closed containers reached but never opened. Ranking surfaces before containers with numeric instance order and a per-object priority map, opening the current closed container before travelling on, and revisiting containers seen closed but never opened will find container-buried targets in time; deloops in r2 never covered alternation, which the surface search now also avoids.",
+          "mechanism_id": "h4_step_coach",
+          "op": "modify",
+          "operation_id": "op_h4_step_coach_r3",
+          "target_layer": "h4"
+        },
+        {
+          "hypothesis": "A cold-start plan that says to check open surfaces first and to open closed cabinets and drawers gives the model the same search order as the step coach from turn one, so the first sweep already visits the high-probability open surfaces instead of 23 cabinets.",
+          "mechanism_id": "h5_task_brief",
+          "op": "modify",
+          "operation_id": "op_h5_task_brief_r3",
+          "target_layer": "h5"
+        }
+      ],
+      "round": 3,
+      "train_batch": 0
+    },
+    {
+      "accepted": false,
+      "active_snapshot_sha256": "fee6f6eb8902efea4447f31e81a47df92651262ced602f2e40c0ca57e44f0538",
+      "batch_rotated": true,
+      "bundle_hypothesis": "Round-3 reached 0.98 on train and the one clearly fixable pathology in its public evidence is a hint-driven destination loop: in the soapbar-clean episode the coach, holding the cleaned soapbar and standing at closed cabinet 1, hinted 'go to cabinet 1' / 'go to cabinet 2' in alternation for about 38 turns because it never opened the closed cabinet it was standing at, and the gate's redirect returned the same destination move for the replaced action, re-feeding the ping-pong until the model happened to open the cabinet in place and put the soapbar down. If the coach and the gate both open the closed destination container they are already standing at before travelling to another instance, the gate also diverts a held untransformed target to its appliance, destination moves respect the replaced action and no longer chase a stale sighting while carrying, and 'nothing happened' counts as a no-op like 'nothing happens', then destination loops disappear from the hint stream and turn-cap risk falls without touching any successful search behavior.",
+      "bundle_id": "alfworld_round4_destination_open",
+      "bundle_sha256": "0fce818d4a1a030fe642244a3ec3d60c9be6c3630c39c3b15372c1e2337ac853",
+      "candidate_score": 0.98,
+      "incumbent_score": 0.98,
+      "next_batch": 1,
+      "operations": [
+        {
+          "hypothesis": "The round-3 gate repaired invalid actions while carrying the ready target by preferring a destination 'go to', and it returned that move even when it was the very action being replaced, so the soapbar episode's cabinet 1 / cabinet 2 alternation was re-fed instead of broken; a stale sighting could also redirect a carrier away from the destination. Opening the matching closed container underfoot before any destination move, sending a held untransformed target to its appliance, guarding destination gotos with the replaced action and the carrier, and treating 'nothing happened' as a no-op turn the loop into open-then-put and keep every repaired turn goal-aligned.",
+          "mechanism_id": "h2_action_gate",
+          "op": "modify",
+          "operation_id": "op_h2_action_gate_r4",
+          "target_layer": "h2"
+        },
+        {
+          "hypothesis": "The round-3 coach's per-turn hint itself drove the soapbar episode's 38-turn cabinet 1 / cabinet 2 alternation: with the target readied and the destination set, the hint's fallback goto skipped the current instance and pointed at another cabinet instead of the closed one underfoot, and the model followed the hint every turn. When the held target is ready and the current location is a closed container whose type matches the destination, the hint, the no-op redirect, and the remaining-turns finisher now say to open the container in place first and then put the target there, converting the alternation into open-then-put well within the turn budget.",
+          "mechanism_id": "h4_step_coach",
+          "op": "modify",
+          "operation_id": "op_h4_step_coach_r4",
+          "target_layer": "h4"
+        }
+      ],
+      "round": 4,
+      "train_batch": 0
+    },
+    {
+      "accepted": true,
+      "active_snapshot_sha256": "9ba31b87ea148b9e62c42cf440cb39309040bfded5e6f5691dc5175879263b61",
+      "batch_rotated": false,
+      "bundle_hypothesis": "Round-4 evidence shows the only structural failure is the invalid-tool-call loop: the model encodes the chosen action in the function name with empty arguments, the runtime answers 'No valid tool calls found' on every turn, and the episode exhausts the turn budget. Recovering that call shape at H2 and stating the call structure at H3 removes the loop without touching any other decision, so the tasks that were lost to it can complete.",
+      "bundle_id": "alfworld_r5_tool_call_protocol",
+      "bundle_sha256": "e3ea05464e9975ec323797f196fa5ca9acd531678fc2aeba04da6d7d051b9992",
+      "candidate_score": 0.98,
+      "incumbent_score": 0.96,
+      "next_batch": 1,
+      "operations": [
+        {
+          "hypothesis": "The runtime rejects a tool call whose function name is not the declared action tool, so when the model writes the action as the function name (with '{}' arguments or a non-JSON payload) the gate currently leaves the call untouched and every remaining turn returns 'No valid tool calls found'. Recovering the intended action from the function name, a non-JSON arguments payload, or single-line content, and rewriting the call with the declared tool name while keeping the existing repair pipeline, restores forward progress and preserves all revision-3 repairs.",
+          "mechanism_id": "h2_action_gate",
+          "op": "modify",
+          "operation_id": "op_h2_action_gate_r4",
+          "target_layer": "h2"
+        },
+        {
+          "hypothesis": "The system prompt tells the model to offer 'the name of your next action', which a weak model can read as the function name; naming the call structure in the action tool description (the function name is always take_action, the chosen action goes only in the action argument) removes the malformed-call trigger at its source while keeping the revision-3 protocol rules.",
+          "mechanism_id": "h3_action_protocol",
+          "op": "modify",
+          "operation_id": "op_h3_action_protocol_r4",
+          "target_layer": "h3"
+        }
+      ],
+      "round": 5,
+      "train_batch": 1
+    },
+    {
+      "accepted": false,
+      "active_snapshot_sha256": "9ba31b87ea148b9e62c42cf440cb39309040bfded5e6f5691dc5175879263b61",
+      "batch_rotated": true,
+      "bundle_hypothesis": "Round-5 public evidence contains exactly one loss: a turn-cap episode in which the model swept cabinets, bathtub and counters, repeatedly saw the object it needed inside a take-able available action, and never picked anything up. The goal text of that episode did not match any templated pattern, so H2/H4/H5 all computed an empty target and the gate could not force a visible-object take or redirect a misdirected one, leaving only the generic search hint. If the target and destination are recovered from the admissible take/put actions whenever the goal text alone is not enough, and the protocol text tells the model to take the named object the moment it is available, then the walking loop is converted into take-then-deliver within the turn budget and the remaining failure converts to a success without disturbing the 49 passing episodes.",
+      "bundle_id": "alfworld_r6_target_resolve",
+      "bundle_sha256": "a862454986198a8095985d54ef307a17685c23bc36a0e86504f0d6914173aa95",
+      "candidate_score": 0.98,
+      "incumbent_score": 0.98,
+      "next_batch": 2,
+      "operations": [
+        {
+          "hypothesis": "The round-5 turn-cap episode shows the model choosing 'go to <next cabinet>' every turn while the last observation exposed an admissible 'take <target> from <container>' action, so the gate's force-take and misdirected-take repairs never fired; the goal text did not match any templated pattern and the gate therefore used an empty target throughout. Resolving the target and destination from the admissible take/put actions when the parsed goal is empty (and also inside the de-loop redirect) restores the forced take and the misdirected-take redirect for unparsed goals while preserving every r3/r4 repair and the invalid-tool-call recovery.",
+          "mechanism_id": "h2_action_gate",
+          "op": "modify",
+          "operation_id": "op_h2_action_gate_r5",
+          "target_layer": "h2"
+        },
+        {
+          "hypothesis": "The same walking episode shows the model reading the available take of the target object and walking past it, so the tool description should state that when an available action takes the object named in the task and the agent is not carrying it, that take is chosen at once; this adds only description text and keeps the r4 call-structure and verbatim-action rules and every other tool field unchanged.",
+          "mechanism_id": "h3_action_protocol",
+          "op": "modify",
+          "operation_id": "op_h3_action_protocol_r5",
+          "target_layer": "h3"
+        },
+        {
+          "hypothesis": "The cold-start plan for an unparsed goal fell back to the placeholder 'find the target object ... go to the destination', which gave the model nothing concrete and contributed to the same walking loop. A loose noun scan that recovers the object and the destination from the raw task text keeps the plan naming the real target, while the round-3 open-surfaces-first and open-closed-container lesson and the shared word budget are preserved.",
+          "mechanism_id": "h5_task_brief",
+          "op": "modify",
+          "operation_id": "op_h5_task_brief_r4",
+          "target_layer": "h5"
+        }
+      ],
+      "round": 6,
+      "train_batch": 1
+    }
+  ],
+  "status": "complete"
+}

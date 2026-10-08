@@ -1,0 +1,8 @@
+{
+  "inherited_rounds": 9,
+  "new_proposer": "ModelRouter deepseek-v4-flash",
+  "prior_test_exposure": true,
+  "source_run": "/mnt/data/xts/harness/Life-Harness/meta/experiments/life_agentbench_v3_from_six_db_web_20261002",
+  "source_state_sha256": "16184fb55f65649d9baa0f4f06938a1bbf644a5cad5562e19972aebb4816ccc3",
+  "training_seal_sha256": "c05c921b40a4736e2b57cb1056985d5e8f7c089e7da9f76de7f807c581addd93"
+}

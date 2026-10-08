@@ -1,0 +1,526 @@
+{
+  "accepted_bundle_ids": [
+    "airline_write_verification_v1",
+    "bundle_da06d8e66573e6ab",
+    "bundle_40a04543bb733eb8",
+    "bundle_5e3f092babdaa1ab"
+  ],
+  "active_snapshot": [
+    {
+      "artifact_path": "versions/bundle_5e3f092babdaa1ab/h2_reply_reader_unplaced_confirmation.py",
+      "mechanism_id": "life_airline_write_gate",
+      "revision": 4,
+      "sha256": "2810a5c0ca527329d1d7a73d4dc473b4b89383c5dd423bd46d7e990138730433",
+      "target_layer": "h2"
+    },
+    {
+      "artifact_path": "versions/bundle_5e3f092babdaa1ab/h4_bag_facts_identity_and_question_next_step.py",
+      "mechanism_id": "life_airline_state_card",
+      "revision": 4,
+      "sha256": "d36316d716e767e5e71b27f48aeecc670f34d349350c2bdb5e1ecc22600770e7",
+      "target_layer": "h4"
+    },
+    {
+      "artifact_path": "versions/airline_write_verification_v1/h5_operating_protocol.py",
+      "mechanism_id": "life_airline_coldstart_protocol",
+      "revision": 1,
+      "sha256": "ed952d4c798e0359ded145e6df19adc963a763a8e6b0c6c5be4c0171239f4d7f",
+      "target_layer": "h5"
+    },
+    {
+      "artifact_path": "versions/airline_write_verification_v1/h3_tool_preconditions.py",
+      "mechanism_id": "life_airline_tool_preconditions",
+      "revision": 1,
+      "sha256": "3359c0e45efa5c3f97d00598ead7e4844d41a7755010260013d8ab1adb8dc269",
+      "target_layer": "h3"
+    }
+  ],
+  "active_snapshot_sha256": "c975990bfb2619ed0ab6876c9901e9d3844ae4601f18aa98443fc71359515fd4",
+  "domain": "airline",
+  "operation_log": [
+    {
+      "bundle_id": "airline_write_verification_v1",
+      "committed_snapshot_sha256": "1403c1393fe4432fe10b846169fc4384e9a3ac9beb44d9b7353dc971487fc930",
+      "operations": [
+        {
+          "artifact": "artifacts/h2_write_gate.py",
+          "artifact_sha256": "3fa5797e629dd5b08e9504a65c7dad1336565c56874fed01358c04324114373c",
+          "hypothesis": "Replacing a pending write with an assistant message that either states the failing policy condition or lists the exact action details and asks for an explicit yes prevents ineligible cancellations, uncompensated-by-policy certificates and unconfirmed changes, while unknown verdicts stay permissive.",
+          "mechanism_id": "life_airline_write_gate",
+          "op": "add",
+          "operation_id": "h2_prewrite_verification",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/h4_progress_card.py",
+          "artifact_sha256": "d7078f6c22401a6d9b6e090496ff654f2b316d2840bc2452e6d5329c5b4409d9",
+          "hypothesis": "One short harness message per turn carrying the reservation's DB facts (membership, cabin, legs, insurance, payments, booked bags, free-bag allowance, cancellation conditions) and the H2 gate's pending/refused state reduces wrong membership/bag answers and repeated forbidden writes.",
+          "mechanism_id": "life_airline_state_card",
+          "op": "add",
+          "operation_id": "h4_business_state_card",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/h5_protocol.py",
+          "artifact_sha256": "ed952d4c798e0359ded145e6df19adc963a763a8e6b0c6c5be4c0171239f4d7f",
+          "hypothesis": "A one-time cold-start restatement of the public policy's confirmation, cancellation, compensation and bag-allowance rules makes the first actions of an episode follow them instead of drifting.",
+          "mechanism_id": "life_airline_coldstart_protocol",
+          "op": "add",
+          "operation_id": "h5_operating_protocol",
+          "target_layer": "h5"
+        },
+        {
+          "artifact": "artifacts/h3_tool_preconditions.py",
+          "artifact_sha256": "3359c0e45efa5c3f97d00598ead7e4844d41a7755010260013d8ab1adb8dc269",
+          "hypothesis": "Annotating mutating tool descriptions with their policy precondition keeps the confirmation and eligibility requirement visible on every solver call that could execute a write.",
+          "mechanism_id": "life_airline_tool_preconditions",
+          "op": "add",
+          "operation_id": "h3_tool_preconditions",
+          "target_layer": "h3"
+        }
+      ],
+      "parent_snapshot_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "bundle_id": "bundle_da06d8e66573e6ab",
+      "committed_snapshot_sha256": "21562f6cc7eec53b7600184a04c288dacb0d9c680bfc36be00e60240d1104d87",
+      "operations": [
+        {
+          "artifact": "artifacts/life_airline_write_gate_r2.py",
+          "artifact_sha256": "5de4e633ca4348acb2c30e521d59b14e4893ea301e8ba3eac037476d019eff40",
+          "expected_revision": 1,
+          "expected_sha256": "3fa5797e629dd5b08e9504a65c7dad1336565c56874fed01358c04324114373c",
+          "hypothesis": "Requiring that the caller's newest message either confirms the same reservation the prepared call targets or names no other reservation (and otherwise replacing the action with a message that the prepared call was dropped) stops the unbound-confirmation write observed when the caller redirected to a second reservation and stops the gate from re-asking about the stale one; deriving the certificate verdict from reservation-scoped evidence only keeps the eligibility check off reservations the caller never mentioned.",
+          "mechanism_id": "life_airline_write_gate",
+          "op": "modify",
+          "operation_id": "h2_target_bound_confirmation",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/life_airline_state_card_r2.py",
+          "artifact_sha256": "1305692eab475380a392172593530fb1c6c35cb8eb10e389fcea2af213a673f6",
+          "expected_revision": 1,
+          "expected_sha256": "d7078f6c22401a6d9b6e090496ff654f2b316d2840bc2452e6d5329c5b4409d9",
+          "hypothesis": "Anchoring the card on reservation-scoped evidence only (caller-typed id, reservation-scoped call argument or result, rejected when the record belongs to another user), emitting a compact index of the caller's reservations when no such evidence exists or when the caller asks about all of them, and replacing the standing 'ask for an explicit yes' line with a state-derived next step removes the wrong-reservation divergence and the repeated identical confirmation request while keeping the DB facts the solver quotes.",
+          "mechanism_id": "life_airline_state_card",
+          "op": "modify",
+          "operation_id": "h4_identity_index_and_next_step",
+          "target_layer": "h4"
+        }
+      ],
+      "parent_snapshot_sha256": "1403c1393fe4432fe10b846169fc4384e9a3ac9beb44d9b7353dc971487fc930"
+    },
+    {
+      "bundle_id": "bundle_40a04543bb733eb8",
+      "committed_snapshot_sha256": "b89b3298178cb9e569d2470618a87ba566a122f8136a18f5b06e3bf0ca71f84a",
+      "operations": [
+        {
+          "artifact": "artifacts/life_airline_write_gate_r3.py",
+          "artifact_sha256": "6e279bf3c4063498af110cf00ba92950f6db4e17072aac24df9b0e308f45f4c6",
+          "expected_revision": 2,
+          "expected_sha256": "5de4e633ca4348acb2c30e521d59b14e4893ea301e8ba3eac037476d019eff40",
+          "hypothesis": "Replacing the loose 'an affirmative sentence anywhere counts as confirmation' test with one reply reader (unconditional go-ahead only; a price/feasibility question, a condition or a refusal of that action is not confirmation; byte-identical in H4), acknowledging a refused pending action instead of re-asking for it, auditing every prepared write against the bound records (payment ids must exist in the booking user's profile, a booking's payments must equal the record fares plus $50 per non-free bag plus insurance, the non-free count must match the membership/cabin allowance) and replacing a write identical to an earlier call that already errored with that recorded error stops the contradictory directives, the unconfirmed paid upgrades and the repeated failing dispatches that end episodes.",
+          "mechanism_id": "life_airline_write_gate",
+          "op": "modify",
+          "operation_id": "h2_reply_reading_and_record_audit",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/life_airline_state_card_r3.py",
+          "artifact_sha256": "2035b91007fd211e21fdb50e67f94934daec7f78c84b4c4373eafc56a42eab43",
+          "expected_revision": 2,
+          "expected_sha256": "1305692eab475380a392172593530fb1c6c35cb8eb10e389fcea2af213a673f6",
+          "hypothesis": "Using the same reply reader as H2 for the next-step line, voiding a prepared action the caller refuses, naming the reason the gate recorded instead of re-sending the same request, taking the route from the outbound direction so round trips read as 'IAH-SEA rt' rather than 'IAH-IAH', adding the passengers with their dates of birth to the reservation card, adding the caller's membership, payment ids with amounts and per-passenger bag allowance whenever the newest message turns on payment or bags, referring to 'the list above' only when the list is emitted, and never truncating the next-step line gives the solver the record facts it was inventing and removes the guidance that drove the repeated offers.",
+          "mechanism_id": "life_airline_state_card",
+          "op": "modify",
+          "operation_id": "h4_card_facts_and_state_next_step",
+          "target_layer": "h4"
+        }
+      ],
+      "parent_snapshot_sha256": "21562f6cc7eec53b7600184a04c288dacb0d9c680bfc36be00e60240d1104d87"
+    },
+    {
+      "bundle_id": "bundle_5e3f092babdaa1ab",
+      "committed_snapshot_sha256": "c975990bfb2619ed0ab6876c9901e9d3844ae4601f18aa98443fc71359515fd4",
+      "operations": [
+        {
+          "artifact": "artifacts/life_airline_write_gate_r4.py",
+          "artifact_sha256": "2810a5c0ca527329d1d7a73d4dc473b4b89383c5dd423bd46d7e990138730433",
+          "expected_revision": 3,
+          "expected_sha256": "6e279bf3c4063498af110cf00ba92950f6db4e17072aac24df9b0e308f45f4c6",
+          "hypothesis": "Reading an unconditional go-ahead that is not the first sentence of the newest message as a yes - while a price or feasibility question, a conditional ('only if', 'unless', 'as long as') or a refusal in the same message still reads as not-confirmed - stops the gate from re-asking the same confirmation after the caller has already answered, which is the divergence the repeated-action TRAIN episode shows.",
+          "mechanism_id": "life_airline_write_gate",
+          "op": "modify",
+          "operation_id": "h2_reply_reader_unplaced_confirmation",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/life_airline_state_card_r4.py",
+          "artifact_sha256": "d36316d716e767e5e71b27f48aeecc670f34d349350c2bdb5e1ecc22600770e7",
+          "expected_revision": 3,
+          "expected_sha256": "2035b91007fd211e21fdb50e67f94934daec7f78c84b4c4373eafc56a42eab43",
+          "hypothesis": "Stating the caller's identity and membership whenever the caller is known, covering suitcase/luggage/packing wording in the bag topic so the per-passenger allowance table is emitted for the question that two TRAIN episodes share, separating 'checked bags on record' from the 'free allowance', and answering a question from the record facts instead of restating a change on question turns gives the solver the exact figures it guessed wrong while leaving the proven card, index and gate-state guidance in place.",
+          "mechanism_id": "life_airline_state_card",
+          "op": "modify",
+          "operation_id": "h4_bag_facts_identity_and_question_next_step",
+          "target_layer": "h4"
+        }
+      ],
+      "parent_snapshot_sha256": "b89b3298178cb9e569d2470618a87ba566a122f8136a18f5b06e3bf0ca71f84a"
+    }
+  ],
+  "prior_test_exposure": true,
+  "round": 6,
+  "rounds": [
+    {
+      "accepted": true,
+      "active_snapshot_sha256": "1403c1393fe4432fe10b846169fc4384e9a3ac9beb44d9b7353dc971487fc930",
+      "bundle_hypothesis": "The TRAIN failures are dominated by booking-database writes that the public policy forbids or that the user never confirmed: cancellations of reservations that fail every cancellation condition, cabin/baggage/passenger changes executed while the user was still asking for a price, and certificates the compensation rules do not allow. Verifying the bound business records and the user's explicit confirmation before the action executes, and keeping a compact DB fact card plus next-step state in front of the solver, should convert those episodes without disturbing the behaviour that already passes.",
+      "bundle_id": "airline_write_verification_v1",
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.5666666666666667,
+      "candidate_successes": 34,
+      "incumbent_infra_errors": 0,
+      "incumbent_score": 0.3333333333333333,
+      "incumbent_successes": 20,
+      "operations": [
+        {
+          "artifact": "artifacts/h2_write_gate.py",
+          "artifact_sha256": "3fa5797e629dd5b08e9504a65c7dad1336565c56874fed01358c04324114373c",
+          "hypothesis": "Replacing a pending write with an assistant message that either states the failing policy condition or lists the exact action details and asks for an explicit yes prevents ineligible cancellations, uncompensated-by-policy certificates and unconfirmed changes, while unknown verdicts stay permissive.",
+          "mechanism_id": "life_airline_write_gate",
+          "op": "add",
+          "operation_id": "h2_prewrite_verification",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/h4_progress_card.py",
+          "artifact_sha256": "d7078f6c22401a6d9b6e090496ff654f2b316d2840bc2452e6d5329c5b4409d9",
+          "hypothesis": "One short harness message per turn carrying the reservation's DB facts (membership, cabin, legs, insurance, payments, booked bags, free-bag allowance, cancellation conditions) and the H2 gate's pending/refused state reduces wrong membership/bag answers and repeated forbidden writes.",
+          "mechanism_id": "life_airline_state_card",
+          "op": "add",
+          "operation_id": "h4_business_state_card",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/h5_protocol.py",
+          "artifact_sha256": "ed952d4c798e0359ded145e6df19adc963a763a8e6b0c6c5be4c0171239f4d7f",
+          "hypothesis": "A one-time cold-start restatement of the public policy's confirmation, cancellation, compensation and bag-allowance rules makes the first actions of an episode follow them instead of drifting.",
+          "mechanism_id": "life_airline_coldstart_protocol",
+          "op": "add",
+          "operation_id": "h5_operating_protocol",
+          "target_layer": "h5"
+        },
+        {
+          "artifact": "artifacts/h3_tool_preconditions.py",
+          "artifact_sha256": "3359c0e45efa5c3f97d00598ead7e4844d41a7755010260013d8ab1adb8dc269",
+          "hypothesis": "Annotating mutating tool descriptions with their policy precondition keeps the confirmation and eligibility requirement visible on every solver call that could execute a write.",
+          "mechanism_id": "life_airline_tool_preconditions",
+          "op": "add",
+          "operation_id": "h3_tool_preconditions",
+          "target_layer": "h3"
+        }
+      ],
+      "optimizer_usage": {
+        "accounting_complete": true,
+        "attempts": 37,
+        "inference_accounting_complete": true,
+        "input_tokens": 17809525,
+        "known_usage_calls": 37,
+        "output_tokens": 82674,
+        "pending_calls": 0,
+        "rate_limit_rejections_without_usage": 0,
+        "total_tokens": 17892199,
+        "unknown_usage_calls": 0
+      },
+      "proposer_requests": 37,
+      "repairs_granted": 0,
+      "retained_score": 0.5666666666666667,
+      "round": 1,
+      "train_batch": 0,
+      "train_episodes": 60,
+      "train_n": 30,
+      "train_trials": 2
+    },
+    {
+      "accepted": false,
+      "active_snapshot_sha256": "1403c1393fe4432fe10b846169fc4384e9a3ac9beb44d9b7353dc971487fc930",
+      "bundle_hypothesis": "The 34/60 incumbent already converts unauthorised or ineligible writes into a policy statement or an explicit-confirmation request, so the remaining TRAIN failures are the opposite shape: the solver never performs the action the user explicitly asked for. In the inspected failures the user confirms twice or three times (upgrade plus bags, an accepted certificate, a reservation date/cabin change) and the solver repeats an identical approval question verbatim, or the user explicitly asks for a human agent and the solver offers a transfer instead of making the call, or the solver re-sends a message it already sent after a tool error; the episode then ends with the user stopping and the booking database unchanged. Two harness-side contributors are visible in the same transcripts: the H4 card is re-emitted with identical text on every single turn (messages 5, 8, 11, 14 of the same episode) together with a per-turn 'ask for an explicit yes' instruction, and nothing in the harness recognises that the confirmation has already been given. The candidate therefore keeps the eligibility/confirmation gate, records an episode-local reading of the public history in shared state, adds a bounded H2 no-tool corrective (at most one per user message: execute the confirmed call, make the requested transfer, or stop repeating), accepts an affirmative reply leniently only when the gate itself already asked for that exact call, emits the H4 card only when the bound facts change, and states in H5 that a confirmation already given must be acted on immediately and that a user request for a human agent is executed rather than offered.",
+      "bundle_id": "bundle_a67faa829699ad4c",
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.5166666666666667,
+      "candidate_successes": 31,
+      "incumbent_infra_errors": 0,
+      "incumbent_score": 0.5666666666666667,
+      "incumbent_successes": 34,
+      "operations": [
+        {
+          "artifact": "artifacts/airline_write_gate_r2.py",
+          "artifact_sha256": "f332b8f300409bea7be9ae5bf624ee24846e8edb0efc17adbbfd41292e982de4",
+          "expected_revision": 1,
+          "expected_sha256": "3fa5797e629dd5b08e9504a65c7dad1336565c56874fed01358c04324114373c",
+          "hypothesis": "Keeping the eligibility/confirmation gate but reading an affirmative reply leniently when the gate itself asked for that same call, and adding one keyed no-tool corrective for a repeated approval ask after an explicit go-ahead, a user request for a human agent, or a verbatim repeat of an earlier message, converts stalling episodes into executed (or explicitly denied) actions without weakening the policy check.",
+          "mechanism_id": "life_airline_write_gate",
+          "op": "modify",
+          "operation_id": "h2_prewrite_verification_and_stall_recovery",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/airline_state_card_r2.py",
+          "artifact_sha256": "e68003a327233da0b418267f7b83fccda1063a49efe36b0081cef08ba45f0ab8",
+          "expected_revision": 1,
+          "expected_sha256": "d7078f6c22401a6d9b6e090496ff654f2b316d2840bc2452e6d5329c5b4409d9",
+          "hypothesis": "Emitting the DB card only when the bound facts change or a different reservation comes into play, emitting each guidance line once, and recording an episode-local reading of the public history (explicit go-ahead, previous approval ask, human-agent request, transfer already done, recent assistant texts) removes the identical per-turn block that the failing traces repeat verbatim and gives H2 the evidence it needs to break the confirmation loop.",
+          "mechanism_id": "life_airline_state_card",
+          "op": "modify",
+          "operation_id": "h4_state_card_change_only_and_history_context",
+          "target_layer": "h4"
+        },
+        {
+          "artifact": "artifacts/airline_coldstart_protocol_r2.py",
+          "artifact_sha256": "e63c54d239a4b3a72e28da5d8fb68b7b969719296bac739df38dc2009cfb206b",
+          "expected_revision": 1,
+          "expected_sha256": "ed952d4c798e0359ded145e6df19adc963a763a8e6b0c6c5be4c0171239f4d7f",
+          "hypothesis": "Adding two clauses to the cold-start protocol - act on an explicit yes in the very next turn instead of re-asking, and execute the human transfer when the user asks for one - makes the solver's first actions follow the policy without the re-confirmation loop that the residual failures exhibit.",
+          "mechanism_id": "life_airline_coldstart_protocol",
+          "op": "modify",
+          "operation_id": "h5_operating_protocol_execute_after_yes",
+          "target_layer": "h5"
+        }
+      ],
+      "optimizer_usage": {
+        "accounting_complete": true,
+        "attempts": 33,
+        "inference_accounting_complete": true,
+        "input_tokens": 3750000,
+        "known_usage_calls": 33,
+        "output_tokens": 90269,
+        "pending_calls": 0,
+        "rate_limit_rejections_without_usage": 0,
+        "total_tokens": 3840269,
+        "unknown_usage_calls": 0
+      },
+      "proposer_requests": 33,
+      "repairs_granted": 0,
+      "retained_score": 0.5666666666666667,
+      "round": 2,
+      "train_batch": 1,
+      "train_episodes": 60,
+      "train_n": 30,
+      "train_trials": 2
+    },
+    {
+      "accepted": false,
+      "active_snapshot_sha256": "1403c1393fe4432fe10b846169fc4384e9a3ac9beb44d9b7353dc971487fc930",
+      "bundle_hypothesis": "The 60-case TRAIN batch fails mostly on episodes where the caller describes one trip while the harness card presents facts for whichever reservation id appeared first in recent text, and on episodes where the card omits the payment records so the same rejected write is re-sent until the run dies. Making H4 identify the reservation in play only from a record the solver retrieved or the caller supplied (otherwise emitting a compact index of the caller's reservations), adding the reservation charges plus the caller's payment methods and balances, reporting a repeated call that keeps failing with its error instead of repeating the generic 'list details and ask again' reminder, and consuming the H2 confirmation state once the caller has answered it, should convert those stalls while leaving the proven gate, tool annotations and cold-start protocol untouched.",
+      "bundle_id": "airline_state_card_facts_v2",
+      "candidate_infra_errors": 1,
+      "candidate_score": 0.5166666666666667,
+      "candidate_successes": 31,
+      "incumbent_infra_errors": 1,
+      "incumbent_score": 0.55,
+      "incumbent_successes": 33,
+      "operations": [
+        {
+          "artifact": "artifacts/life_airline_state_card_r2.py",
+          "artifact_sha256": "79b8e9a5b0539ec0dee82e49e43bb494addb51d5a619ac1530ff597d9b89e372",
+          "expected_revision": 1,
+          "expected_sha256": "d7078f6c22401a6d9b6e090496ff654f2b316d2840bc2452e6d5329c5b4409d9",
+          "hypothesis": "Anchoring the business-state card on the reservation the solver actually retrieved (or the caller supplied) instead of the first id token in recent text, adding the reservation's charges and the caller's payment-method balances, reporting a repeated failing call with its error text, and using the newest real message to tell whether the caller has answered the H2 confirmation, turns 'wrong reservation / payment rejected / re-ask' loops into an executed or explicitly answered step.",
+          "mechanism_id": "life_airline_state_card",
+          "op": "modify",
+          "operation_id": "h4_state_card_identity_payments_and_stall_recovery",
+          "target_layer": "h4"
+        }
+      ],
+      "optimizer_usage": {
+        "accounting_complete": true,
+        "attempts": 33,
+        "inference_accounting_complete": true,
+        "input_tokens": 3736535,
+        "known_usage_calls": 33,
+        "output_tokens": 63228,
+        "pending_calls": 0,
+        "rate_limit_rejections_without_usage": 0,
+        "total_tokens": 3799763,
+        "unknown_usage_calls": 0
+      },
+      "proposer_requests": 33,
+      "repairs_granted": 0,
+      "retained_score": 0.55,
+      "round": 3,
+      "train_batch": 2,
+      "train_episodes": 60,
+      "train_n": 30,
+      "train_trials": 2
+    },
+    {
+      "accepted": true,
+      "active_snapshot_sha256": "21562f6cc7eec53b7600184a04c288dacb0d9c680bfc36be00e60240d1104d87",
+      "bundle_hypothesis": "The residual TRAIN failures are not failures of the confirmation/eligibility gate: they are failures of reservation identity and of the guidance that travels with it. The incumbent H4 card anchored the episode on the first six-character token that happened to resolve in the business DB, so the caller's own reservation list returned by get_user_details made the harness announce the first of several reservations as 'the' booking; the solver then quoted those facts, asked the caller to confirm that booking, and in one trace executed cancel_reservation on it after the caller had confirmed a completely different reservation, because the incumbent H2 treated any affirmative newest message as confirmation for whatever call was prepared. The same card also re-issued a standing 'list the details and ask for an explicit yes before any write' instruction every turn, so after the caller had already answered yes the solver re-sent the identical request until the caller stopped. This candidate keeps the proven eligibility/certificate checks, tool-description preconditions and cold-start protocol, but makes the reservation in play derive only from reservation-scoped evidence (an id the caller typed, a reservation-scoped tool call argument or tool result), emits a compact index of the caller's reservations instead of guessing when no such evidence exists, replaces the standing confirmation instruction with a state-derived next step (execute a pending action the caller confirmed for that exact reservation, void it when the caller answered about another one, never repeat the same request), and makes H2 drop a prepared write whose target reservation the caller's newest message does not name while naming another one.",
+      "bundle_id": "bundle_da06d8e66573e6ab",
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.5833333333333334,
+      "candidate_successes": 35,
+      "incumbent_infra_errors": 0,
+      "incumbent_score": 0.5333333333333333,
+      "incumbent_successes": 32,
+      "operations": [
+        {
+          "artifact": "artifacts/life_airline_write_gate_r2.py",
+          "artifact_sha256": "5de4e633ca4348acb2c30e521d59b14e4893ea301e8ba3eac037476d019eff40",
+          "expected_revision": 1,
+          "expected_sha256": "3fa5797e629dd5b08e9504a65c7dad1336565c56874fed01358c04324114373c",
+          "hypothesis": "Requiring that the caller's newest message either confirms the same reservation the prepared call targets or names no other reservation (and otherwise replacing the action with a message that the prepared call was dropped) stops the unbound-confirmation write observed when the caller redirected to a second reservation and stops the gate from re-asking about the stale one; deriving the certificate verdict from reservation-scoped evidence only keeps the eligibility check off reservations the caller never mentioned.",
+          "mechanism_id": "life_airline_write_gate",
+          "op": "modify",
+          "operation_id": "h2_target_bound_confirmation",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/life_airline_state_card_r2.py",
+          "artifact_sha256": "1305692eab475380a392172593530fb1c6c35cb8eb10e389fcea2af213a673f6",
+          "expected_revision": 1,
+          "expected_sha256": "d7078f6c22401a6d9b6e090496ff654f2b316d2840bc2452e6d5329c5b4409d9",
+          "hypothesis": "Anchoring the card on reservation-scoped evidence only (caller-typed id, reservation-scoped call argument or result, rejected when the record belongs to another user), emitting a compact index of the caller's reservations when no such evidence exists or when the caller asks about all of them, and replacing the standing 'ask for an explicit yes' line with a state-derived next step removes the wrong-reservation divergence and the repeated identical confirmation request while keeping the DB facts the solver quotes.",
+          "mechanism_id": "life_airline_state_card",
+          "op": "modify",
+          "operation_id": "h4_identity_index_and_next_step",
+          "target_layer": "h4"
+        }
+      ],
+      "optimizer_usage": {
+        "accounting_complete": true,
+        "attempts": 30,
+        "inference_accounting_complete": true,
+        "input_tokens": 3369229,
+        "known_usage_calls": 30,
+        "output_tokens": 89664,
+        "pending_calls": 0,
+        "rate_limit_rejections_without_usage": 0,
+        "total_tokens": 3458893,
+        "unknown_usage_calls": 0
+      },
+      "proposer_requests": 30,
+      "repairs_granted": 0,
+      "retained_score": 0.5833333333333334,
+      "round": 4,
+      "train_batch": 3,
+      "train_episodes": 60,
+      "train_n": 30,
+      "train_trials": 2
+    },
+    {
+      "accepted": true,
+      "active_snapshot_sha256": "b89b3298178cb9e569d2470618a87ba566a122f8136a18f5b06e3bf0ca71f84a",
+      "bundle_hypothesis": "The residual TRAIN failures are not failures of the eligibility checks: they are failures of the reply reading and of the guidance that travels with it. In the inspected failures H4 and H2 read the caller's newest message with two different confirmation rules, so H4 ordered the solver to execute exactly the write H2 was vetoing ('the caller has already given the explicit yes for cancel_reservation YAX4DR - make exactly that call now', derived from 'if Noah's portion is $650 or less, go ahead' and from 'before I agree to anything'), and the solver re-sent the same refused action until the caller stopped; the H2 confirmation text itself was re-issued verbatim four to six times because it was pushed by that guidance. H2 also accepted 'Yes, please go ahead and check if upgrading to business class is possible' as confirmation of a $1200 paid upgrade, and it dispatched writes that contradicted the bound records (an invented payment id 'Payment method travel_certificate_7815826 not found', an invented passenger date of birth echoed back to the caller, and three identical book_reservation calls rejected with 'Payment amount does not add up, total price is 612, but paid 1439' until the episode died on errors), while H4's card omitted the record facts the solver had to quote (passengers with their dates of birth, the caller's real payment ids with their amounts, the membership bag allowance) and its index rendered round trips as 'JFK-JFK'/'IAH-IAH', a route the solver relayed to the caller and then lost turns matching. This bundle keeps the proven cancellation/certificate verdicts, the target-bound confirmation check, the tool-description preconditions and the cold-start protocol, and makes the two layers share one reply reader, audit each prepared write against the bound records before dispatch, carry the record facts the caller's own question turns on, and derive the next step from the gate's own state instead of from a loose keyword match.",
+      "bundle_id": "bundle_40a04543bb733eb8",
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.55,
+      "candidate_successes": 33,
+      "incumbent_infra_errors": 0,
+      "incumbent_score": 0.48333333333333334,
+      "incumbent_successes": 29,
+      "operations": [
+        {
+          "artifact": "artifacts/life_airline_write_gate_r3.py",
+          "artifact_sha256": "6e279bf3c4063498af110cf00ba92950f6db4e17072aac24df9b0e308f45f4c6",
+          "expected_revision": 2,
+          "expected_sha256": "5de4e633ca4348acb2c30e521d59b14e4893ea301e8ba3eac037476d019eff40",
+          "hypothesis": "Replacing the loose 'an affirmative sentence anywhere counts as confirmation' test with one reply reader (unconditional go-ahead only; a price/feasibility question, a condition or a refusal of that action is not confirmation; byte-identical in H4), acknowledging a refused pending action instead of re-asking for it, auditing every prepared write against the bound records (payment ids must exist in the booking user's profile, a booking's payments must equal the record fares plus $50 per non-free bag plus insurance, the non-free count must match the membership/cabin allowance) and replacing a write identical to an earlier call that already errored with that recorded error stops the contradictory directives, the unconfirmed paid upgrades and the repeated failing dispatches that end episodes.",
+          "mechanism_id": "life_airline_write_gate",
+          "op": "modify",
+          "operation_id": "h2_reply_reading_and_record_audit",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/life_airline_state_card_r3.py",
+          "artifact_sha256": "2035b91007fd211e21fdb50e67f94934daec7f78c84b4c4373eafc56a42eab43",
+          "expected_revision": 2,
+          "expected_sha256": "1305692eab475380a392172593530fb1c6c35cb8eb10e389fcea2af213a673f6",
+          "hypothesis": "Using the same reply reader as H2 for the next-step line, voiding a prepared action the caller refuses, naming the reason the gate recorded instead of re-sending the same request, taking the route from the outbound direction so round trips read as 'IAH-SEA rt' rather than 'IAH-IAH', adding the passengers with their dates of birth to the reservation card, adding the caller's membership, payment ids with amounts and per-passenger bag allowance whenever the newest message turns on payment or bags, referring to 'the list above' only when the list is emitted, and never truncating the next-step line gives the solver the record facts it was inventing and removes the guidance that drove the repeated offers.",
+          "mechanism_id": "life_airline_state_card",
+          "op": "modify",
+          "operation_id": "h4_card_facts_and_state_next_step",
+          "target_layer": "h4"
+        }
+      ],
+      "optimizer_usage": {
+        "accounting_complete": true,
+        "attempts": 30,
+        "inference_accounting_complete": true,
+        "input_tokens": 3878141,
+        "known_usage_calls": 30,
+        "output_tokens": 114014,
+        "pending_calls": 0,
+        "rate_limit_rejections_without_usage": 0,
+        "total_tokens": 3992155,
+        "unknown_usage_calls": 0
+      },
+      "proposer_requests": 30,
+      "repairs_granted": 0,
+      "retained_score": 0.55,
+      "round": 5,
+      "train_batch": 4,
+      "train_episodes": 60,
+      "train_n": 30,
+      "train_trials": 2
+    },
+    {
+      "accepted": true,
+      "active_snapshot_sha256": "c975990bfb2619ed0ab6876c9901e9d3844ae4601f18aa98443fc71359515fd4",
+      "bundle_hypothesis": "The residual TRAIN failures are dominated by three harness-side defects rather than by the eligibility checks. (1) The reply reader required the caller's go-ahead to be the very first sentence or a short message, so an unconditional confirmation written the way callers actually write it ('Oui, YES! I confirm. Please proceed with cancelling reservation LU15PA ...', 'so yes, YES, I confirm! ... Go ahead, s'il vous plait!') was read as 'unclear'; the gate then re-issued the identical confirmation request for a dozen turns and the booking database was never touched (the repeated_action episode ends in USER_STOP). (2) The card's only bag fact was the ambiguous 'free bags 8 (4/pax)', which the solver read as 'this reservation allows 8 bags' and wrote total_baggages = 8 after the caller asked to add two bags, and the allowance table/profile line was emitted only when the newest message happened to contain one of a few literals, so the two TRAIN episodes that share the 'how many suitcases' task differed: the one whose wording contained 'checked' got the allowance row and answered 4, the one that said only 'suitcases' got nothing and answered with the wrong membership rate. (3) The standing 'state the one change once' next-step line fired on turns whose newest message was a question, pushing the solver to restate or re-ask a change instead of answering. The candidate therefore reads an unplaced but unconditional confirmation as a yes (still refusing it when the same message asks about the action or attaches a condition), separates the bags on the record from the free allowance in the card, emits the caller's identity, membership, payment ids and bag allowance whenever those facts are what the caller is asking about, and answers questions instead of restating changes on question turns; the eligibility verdicts, the record audit, the repetition guard, the tool-description preconditions and the cold-start protocol are unchanged.",
+      "bundle_id": "bundle_5e3f092babdaa1ab",
+      "candidate_infra_errors": 0,
+      "candidate_score": 0.6,
+      "candidate_successes": 36,
+      "incumbent_infra_errors": 0,
+      "incumbent_score": 0.5833333333333334,
+      "incumbent_successes": 35,
+      "operations": [
+        {
+          "artifact": "artifacts/life_airline_write_gate_r4.py",
+          "artifact_sha256": "2810a5c0ca527329d1d7a73d4dc473b4b89383c5dd423bd46d7e990138730433",
+          "expected_revision": 3,
+          "expected_sha256": "6e279bf3c4063498af110cf00ba92950f6db4e17072aac24df9b0e308f45f4c6",
+          "hypothesis": "Reading an unconditional go-ahead that is not the first sentence of the newest message as a yes - while a price or feasibility question, a conditional ('only if', 'unless', 'as long as') or a refusal in the same message still reads as not-confirmed - stops the gate from re-asking the same confirmation after the caller has already answered, which is the divergence the repeated-action TRAIN episode shows.",
+          "mechanism_id": "life_airline_write_gate",
+          "op": "modify",
+          "operation_id": "h2_reply_reader_unplaced_confirmation",
+          "target_layer": "h2"
+        },
+        {
+          "artifact": "artifacts/life_airline_state_card_r4.py",
+          "artifact_sha256": "d36316d716e767e5e71b27f48aeecc670f34d349350c2bdb5e1ecc22600770e7",
+          "expected_revision": 3,
+          "expected_sha256": "2035b91007fd211e21fdb50e67f94934daec7f78c84b4c4373eafc56a42eab43",
+          "hypothesis": "Stating the caller's identity and membership whenever the caller is known, covering suitcase/luggage/packing wording in the bag topic so the per-passenger allowance table is emitted for the question that two TRAIN episodes share, separating 'checked bags on record' from the 'free allowance', and answering a question from the record facts instead of restating a change on question turns gives the solver the exact figures it guessed wrong while leaving the proven card, index and gate-state guidance in place.",
+          "mechanism_id": "life_airline_state_card",
+          "op": "modify",
+          "operation_id": "h4_bag_facts_identity_and_question_next_step",
+          "target_layer": "h4"
+        }
+      ],
+      "optimizer_usage": {
+        "accounting_complete": true,
+        "attempts": 27,
+        "inference_accounting_complete": true,
+        "input_tokens": 3066233,
+        "known_usage_calls": 27,
+        "output_tokens": 93279,
+        "pending_calls": 0,
+        "rate_limit_rejections_without_usage": 0,
+        "total_tokens": 3159512,
+        "unknown_usage_calls": 0
+      },
+      "proposer_requests": 27,
+      "repairs_granted": 0,
+      "retained_score": 0.6,
+      "round": 6,
+      "train_batch": 5,
+      "train_episodes": 60,
+      "train_n": 30,
+      "train_trials": 2
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+type: tool
+name: cancel_reservation
+description: Cancel the whole reservation.
+input_schema:
+  properties:
+    reservation_id:
+      description: The reservation ID, such as 'ZFA04Y'.
+      title: Reservation Id
+      type: string
+  required:
+  - reservation_id
+  title: parameters
+  type: object
+disable_parallel: true

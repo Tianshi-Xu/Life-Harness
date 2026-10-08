@@ -1,0 +1,34 @@
+type: tool
+name: take_action
+description: >-
+  Submit exactly ONE action to the household environment. The action string MUST be copied
+  VERBATIM from the "AVAILABLE ACTIONS" list shown in the most recent observation; do not
+  invent actions and do not change object names or numbers.
+  Always call this tool by its name `take_action` and put the action text in the `action`
+  argument, for example: take_action(action="go to cabinet 1").
+  Never use the action text as the tool name, and never answer with plain text.
+  Read the [PLAN] block of the latest observation first: it names the goal object, what you
+  are carrying, which receptacles are still unchecked, and the recommended next action. Use
+  the `take ... from ...` lines near the end of the AVAILABLE ACTIONS list to see which
+  objects are within reach, and never take an object whose type differs from the goal
+  object - the harness will reject such a call.
+  Two rules matter most: (1) put the goal object ONLY at the place named at the end of the
+  goal - a `put` anywhere else is rewritten by the harness; (2) once an object of the goal
+  type is at the goal place it is done - taking it out again is rewritten, and for a
+  "two <object>" goal you must find a second, different object instead.
+  If a line says the goal object was already seen at a place, go back there instead of
+  opening another container: remembering a location is far cheaper than a fresh search.
+  Exception - a `look at X under the <lamp>` / `examine X with the <lamp>` goal: keep X in
+  hand, stand at the surface that carries the lamp and issue the offered `use <lamp>`
+  action (lamp = toggle, so once is enough, then `examine X`). Never `put` X down on some
+  other surface; only a `[PLAN]` line that names the lamp's surface may ask for that.
+input_schema:
+  type: object
+  properties:
+    action:
+      type: string
+      description: The action you would like to take
+  required:
+  - action
+  additionalProperties: false
+disable_parallel: true

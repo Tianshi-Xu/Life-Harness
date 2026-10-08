@@ -1,0 +1,33 @@
+{
+  "actual_service_errors": 0,
+  "context_limit_failures": [
+    {
+      "calls": 14,
+      "classification": "normal_context_limit",
+      "index": 503,
+      "success": 0,
+      "transport_errors": 0,
+      "turns": 15
+    },
+    {
+      "calls": 43,
+      "classification": "normal_context_limit",
+      "index": 2362,
+      "success": 0,
+      "transport_errors": 0,
+      "turns": 44
+    },
+    {
+      "calls": 44,
+      "classification": "normal_context_limit",
+      "index": 2175,
+      "success": 0,
+      "transport_errors": 0,
+      "turns": 45
+    }
+  ],
+  "continuation": "manual after auditing frozen native ContextLimit misclassification; no source/config change",
+  "native_infra_flags": 3,
+  "raw_outcomes_unchanged": true,
+  "replayed_episodes": []
+}

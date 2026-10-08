@@ -1,0 +1,34 @@
+{
+  "domain": "webshop",
+  "experiment": "life_on_demand_one_db_web_flash60000_20261003",
+  "initial_active_snapshot": [],
+  "optimizer_source_sha256": {
+    "meta/agentbench_hooks/__init__.py": "c34c30a3223592a95bfe0d993dddfc0e1460efcadf22b447d99cfbd038d89023",
+    "meta/agentbench_hooks/contract.py": "7bab038c47d5a9aa8f2ecc7d1a1f0aceb43f637249940b7d1667971078501c8c",
+    "meta/agentbench_hooks/runtime.py": "a48c71972ac8e377e48366fffb30e27ab967c7a18fa3ad2125146e10ddb98ade",
+    "meta/evidence.py": "9d208c11183c1e78ca23cdc88c4865f94f9203b918d6a91b666a04f4cfaa9ef9",
+    "meta/life_optimizer/PROMPT.md": "bdb108bc1888bf8b116192022047e813a4a86fff268bb3ea2e92baa0761ac491",
+    "meta/life_optimizer/__init__.py": "69ce3c92ae42c20161e05acdebede5e32762375e98465bb8b4c7e1f259d705a4",
+    "meta/life_optimizer/bundle.py": "f86e9f0cd920d0ada0240daf5df185e076df3e3c395edf44165a2860c9c6ea75",
+    "meta/life_optimizer/context.py": "caf08baf51851b481adc900d5bda382477b7e1b372a006fe6acfee488aee21a7",
+    "meta/life_optimizer/profile.py": "9c3d9bc4827d594d1e81a77e9f777294b038507cb0b1cdcadd3a4ad9afa7c28f",
+    "meta/life_optimizer/smoke.py": "357e873af99753d2c0fe78ad5a677f06b4cb853a965b8ffc4c2114faa62bd60b",
+    "meta/life_optimizer/worker.py": "c70e7db78ee2bf1e3ce68f5dfa8abf703a160b5116bb5a26591da61e18fab375"
+  },
+  "prior_test_exposure": true,
+  "protocol_sha256": "6362a3eee44484923bf133b3d883312e68fb01011b1e2e98f46208df263722aa",
+  "rounds": 1,
+  "source_sha256": {
+    "agentbench_chain.py": "5fed621e659959a92c63d384ad92e5dc3170b151f4112aa2ddfaa11c558cfb21",
+    "agentbench_evaluate.py": "a6b7565decfcff23664e9bcac506839467c4a672faf9b275c1d70b0617d8f9e6",
+    "candidate_contract.py": "48d71ec292fa70457fbb2a4b811c71d4854f5f57206e374491f958df8587ce64",
+    "composition.py": "191f583716da1d72dfef8a24424b0da528d35608bab8c1230cb53ddbfe015b63",
+    "driver.py": "3d2ccb01486629b5719c684cbc41cf033a502348e6ef54328a9f275523f53ae5",
+    "protocol.py": "82ccb8c863c0725a89c984a3f63579838fa76c9993899089e64dcf0e80f9df78",
+    "runner.py": "5dba3bc994944a6b379644c4797a02abf91c01ec7f5366cfc881b1816e7c28ee"
+  },
+  "transport_sha256": {
+    "api_broker.py": "1c55137b2b15ef73150e170fc9ea14e539ec8e20a83a733208f2fe4b3ce56a83",
+    "connection.py": "1d18351f216a0177471e332bdca6b71e7e533b1980b8f47c32be76a2c2fb4779"
+  }
+}

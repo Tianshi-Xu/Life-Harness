@@ -1,0 +1,13 @@
+type: tool
+name: click_action
+description: Click exactly one value taken from the Available Actions list of the page you are on. A value that is NOT in that list is not rejected; the environment runs it as a search instead, so if your click produces a page of ten listings rather than one product, that is what happened. On the search-bar page (has_search_bar) the only action is 'search' and '< prev' does not exist. On a product page each attribute group (color, size, style, flavor name, ...) needs one option clicked before 'buy now'; click the option VALUE such as 'black' or 'bakery', never the group label such as 'color', and click the option carrying the instruction's NUMBER when a group is sized or counted (a spelled number counts as its digits - 'ten pack' is the '10 pack' option, and '3 feet (10 pack)' is not '3 feet (3 pack)'). The instruction is written from the product it wants, so the page that IS that product carries the instruction's own words - the object TYPE it names, every NUMBER it names (6 foot by 4 foot, 52" wide by 90", 4" foundation, 4 pack) and the attribute VALUES it names (silver, green, old world style). Only plain filler adjectives such as 'high', 'performance', 'screen', 'quality', 'long lasting' or 'cruelty free' may be absent. A page that is missing one of the instruction's NUMBERS, or carries none of its words, is a look-alike - leave it with 'back to search' and open a DIFFERENT listing, because buying it scores 0 and the buy ends the episode. Use 'buy now' only once the page carries that content, the printed price is inside the limit and every named attribute option has been clicked - and do use it, because the episode is cut off after about 20 tool calls and an episode that never buys scores zero, and only a few retreats from product pages are served before a retreat becomes 'buy now'. 'description', 'features' and 'reviews' only re-print the same product text and change nothing; do not click them.
+input_schema:
+  type: object
+  properties:
+    value:
+      type: string
+      description: The value to click from the list of available actions.
+  required:
+  - value
+  additionalProperties: false
+disable_parallel: true

@@ -1,0 +1,39 @@
+type: tool
+name: return_delivered_order_items
+description: 'Return some items of a delivered order.
+
+
+  The order status will be changed to ''return requested''.
+
+  The agent needs to explain the return detail and ask for explicit user confirmation
+  (yes/no) to proceed.
+
+  The user will receive follow-up email for how and where to return the item.'
+input_schema:
+  properties:
+    order_id:
+      description: The order id, such as '#W0000000'. Be careful there is a '#' symbol
+        at the beginning of the order id.
+      title: Order Id
+      type: string
+    item_ids:
+      description: The item ids to be returned, each such as '1008292230'. There could
+        be duplicate items in the list.
+      items:
+        type: string
+      title: Item Ids
+      type: array
+    payment_method_id:
+      description: 'The payment method id to pay or receive refund for the item price
+        difference, such as ''gift_card_0000000'' or ''credit_card_0000000''.
+
+        These can be looked up from the user or order details.'
+      title: Payment Method Id
+      type: string
+  required:
+  - order_id
+  - item_ids
+  - payment_method_id
+  title: parameters
+  type: object
+disable_parallel: true

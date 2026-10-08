@@ -1,0 +1,50 @@
+type: tool
+name: update_reservation_passengers
+description: |-
+  Update the passenger information of a reservation. The number of passengers on
+  a reservation can never change: you may correct an existing passenger's first
+  name, last name or date of birth, but a request to add or remove a passenger
+  must be refused by stating this policy - do not cancel or rebook the
+  reservation to achieve it, and do not transfer the user.
+input_schema:
+  $defs:
+    Passenger:
+      properties:
+        first_name:
+          description: Passenger's first name
+          title: First Name
+          type: string
+        last_name:
+          description: Passenger's last name
+          title: Last Name
+          type: string
+        dob:
+          description: Date of birth in YYYY-MM-DD format
+          title: Dob
+          type: string
+      required:
+      - first_name
+      - last_name
+      - dob
+      title: Passenger
+      type: object
+  properties:
+    reservation_id:
+      description: The reservation ID exactly as printed by get_user_details or an earlier tool result. Do not copy the sample text shown in this schema.
+      title: Reservation Id
+      type: string
+    passengers:
+      description: An array of objects containing details about each passenger.
+      items:
+        anyOf:
+        - $ref: '#/$defs/Passenger'
+        - additionalProperties: true
+          type: object
+      title: Passengers
+      type: array
+  required:
+  - reservation_id
+  - passengers
+  title: parameters
+  type: object
+disable_parallel: true

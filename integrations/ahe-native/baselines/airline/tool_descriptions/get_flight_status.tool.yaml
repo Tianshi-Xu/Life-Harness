@@ -1,0 +1,19 @@
+type: tool
+name: get_flight_status
+description: Get the status of a flight.
+input_schema:
+  properties:
+    flight_number:
+      description: The flight number.
+      title: Flight Number
+      type: string
+    date:
+      description: The date of the flight.
+      title: Date
+      type: string
+  required:
+  - flight_number
+  - date
+  title: parameters
+  type: object
+disable_parallel: true

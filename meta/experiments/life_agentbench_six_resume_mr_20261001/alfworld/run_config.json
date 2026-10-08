@@ -1,0 +1,52 @@
+{
+  "bundle_schema_version": 2,
+  "domain": "alfworld",
+  "experiment": "life_agentbench_six_resume_mr_20261001",
+  "inherited_rounds": 5,
+  "inherited_training_seal_sha256": "fb55372a76f89aac45d414e5dfc83a69582876286aae89ed7967a6e5af31f8c6",
+  "initial_active_snapshot": [
+    {
+      "artifact_path": "versions/alfworld_r5_tool_call_protocol/op_h2_action_gate_r4.py",
+      "mechanism_id": "h2_action_gate",
+      "revision": 4,
+      "sha256": "3c4584739b59b64cfa2fbe080bd280c29596458c66b44276fe391f37e90d956b",
+      "target_layer": "h2"
+    },
+    {
+      "artifact_path": "versions/alfworld_r5_tool_call_protocol/op_h3_action_protocol_r4.py",
+      "mechanism_id": "h3_action_protocol",
+      "revision": 4,
+      "sha256": "2b66239c991fcc964db3d047871520a86b9e866dc806fbde3399eda7dc8263ef",
+      "target_layer": "h3"
+    },
+    {
+      "artifact_path": "versions/alfworld_round3_surface_search/op_h4_step_coach_r3.py",
+      "mechanism_id": "h4_step_coach",
+      "revision": 3,
+      "sha256": "082e9252a7e1aa9a7fffa6fd3d770da817c2e702b2707077c9112bd63b06fd80",
+      "target_layer": "h4"
+    },
+    {
+      "artifact_path": "versions/alfworld_round3_surface_search/op_h5_task_brief_r3.py",
+      "mechanism_id": "h5_task_brief",
+      "revision": 3,
+      "sha256": "5fe6afb88fc871d1f19473e5192967b12aebd34a243e7989633f07815decf22e",
+      "target_layer": "h5"
+    }
+  ],
+  "prior_test_exposure": true,
+  "proposer": "ModelRouter deepseek-v4-flash",
+  "protocol_sha256": "6f9c80f53232952108f877970fcc38afe656487767b54c94ce9b4d29445a7c28",
+  "rounds": 6,
+  "source_sha256": {
+    "agentbench_chain.py": "6984f40aa7d43e07e705c8d5a623f813f17eaecf6fcb5d7e590ff5e2844381a1",
+    "agentbench_evaluate.py": "56910c1cc979ea7b19a591184f71ca8ff1effd3c73280b89e65a9babe5964636",
+    "candidate_contract.py": "8204dadf3897045ecefd86c8a8654fcecae036bd1ddeb58500a85945c703f924",
+    "driver.py": "04f88a9f145afef2a6747e9aed5061b76c4210e737955fd8da796747f75d87fe",
+    "inheritance.py": "8ed8e89c39804b5cd4f5e4615f51d124c4729d832dd549281abd1f18c924f78c",
+    "protocol.py": "92952f678ab240af3be9ef33332e109c8b841fb00d51ee624cb7fb6ff24ea845",
+    "runner.py": "6c9d1424840b03350e07bb1732379d6a16b2077829e4dbf973355acd301cf1d0",
+    "status.py": "fa4e13cdbeac51c82dde25fa0c37bf1f57b91c38e50433cc9b491ed78e4204fd"
+  },
+  "test_policy": "sixth-round training only; predecessor test exposure recorded; final evaluation is a separately invoked continuation"
+}

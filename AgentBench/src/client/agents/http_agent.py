@@ -1,5 +1,7 @@
 import contextlib
 import copy
+import os
+import re
 import time
 import warnings
 from typing import Any, Dict, List, Optional
@@ -190,14 +192,32 @@ class HTTPAgent(AgentClient):
     def _handle_history(self, history: List[dict]) -> Dict[str, Any]:
         return self.prompter(history)
 
+    def _request_headers(self) -> Dict[str, Any]:
+        """Resolve credentials only for requests, never in stored configuration."""
+        def resolve(match):
+            variable = match.group(1)
+            value = os.environ.get(variable)
+            if not value:
+                raise ValueError(
+                    f"Required request-header environment variable {variable} is not set"
+                )
+            return value
+
+        return {
+            name: re.sub(r"\$\{env\.([A-Za-z_][A-Za-z0-9_]*)\}", resolve, value)
+            if isinstance(value, str) else value
+            for name, value in self.headers.items()
+        }
+
     def inference(self, history: List[dict]) -> str:
+        headers = self._request_headers()
         for _ in range(3):
             try:
                 body = self.body.copy()
                 body.update(self._handle_history(history))
                 with no_ssl_verification():
                     resp = requests.post(
-                        self.url, json=body, headers=self.headers, proxies=self.proxies, timeout=self.timeout
+                        self.url, json=body, headers=headers, proxies=self.proxies, timeout=self.timeout
                     )
                 # print(resp.status_code, resp.text)
                 if resp.status_code != 200:
@@ -226,6 +246,7 @@ class HTTPAgent(AgentClient):
         For agentrl controller protocol: call chat/completions with full OpenAI-style
         messages and optional tools, return the assistant message dict (may include tool_calls).
         """
+        headers = self._request_headers()
         for _ in range(3):
             try:
                 body = copy.deepcopy(self.body)
@@ -234,7 +255,7 @@ class HTTPAgent(AgentClient):
                     body["tools"] = tools
                 with no_ssl_verification():
                     resp = requests.post(
-                        self.url, json=body, headers=self.headers, proxies=self.proxies, timeout=self.timeout
+                        self.url, json=body, headers=headers, proxies=self.proxies, timeout=self.timeout
                     )
                 if resp.status_code != 200:
                     if check_context_limit(resp.text):

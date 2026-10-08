@@ -36,6 +36,7 @@ qwen3-4b-instruct:
             temperature: 0.0
 
 
+# Export MR_API_KEY in the launching shell. Resolve it only when sending requests.
 claude-opus-4-8:
     import: "./openai-chat.yaml"
     parameters:
@@ -43,7 +44,7 @@ claude-opus-4-8:
         url: "https://routify-pub.alibaba-inc.com/protocol/openai/v1/chat/completions"
         headers:
             Content-Type: "application/json"
-            Authorization: "Bearer sk-856330ce991f4080b9cc5c2614cefcb7"
+            Authorization: "Bearer ${env.MR_API_KEY}"
         body:
             model: "claude-opus-4-8"
             max_tokens: 4096
@@ -56,7 +57,7 @@ gemini-3.1-pro-preview:
         url: "https://routify-pub.alibaba-inc.com/protocol/openai/v1/chat/completions"
         headers:
             Content-Type: "application/json"
-            Authorization: "Bearer sk-856330ce991f4080b9cc5c2614cefcb7"
+            Authorization: "Bearer ${env.MR_API_KEY}"
         body:
             model: "gemini-3.1-pro-preview"
             max_tokens: 4096
@@ -69,7 +70,7 @@ gpt-5.5:
         url: "https://routify-pub.alibaba-inc.com/protocol/openai/v1/chat/completions"
         headers:
             Content-Type: "application/json"
-            Authorization: "Bearer sk-856330ce991f4080b9cc5c2614cefcb7"
+            Authorization: "Bearer ${env.MR_API_KEY}"
         body:
             model: "gpt-5.5"
             max_tokens: 4096

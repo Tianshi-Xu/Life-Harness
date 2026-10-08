@@ -1,0 +1,34 @@
+{
+  "inheritance_sha256": "202fee5ab9a577a6d6c8278ceea74027c57b0596d3ff57a13a016971626283ce",
+  "optimizer_sources": {
+    "meta/agentbench_hooks_v31/__init__.py": "c34c30a3223592a95bfe0d993dddfc0e1460efcadf22b447d99cfbd038d89023",
+    "meta/agentbench_hooks_v31/contract.py": "1d9d1727380862c66ac5602bcd6f7b3168fd144728be352c3bc8d201631dfffc",
+    "meta/agentbench_hooks_v31/runtime.py": "9944580a5b02ff08bc734eea84a20b4ae9ce566e894eb9283929a4db6fdb44bd",
+    "meta/evidence.py": "9d208c11183c1e78ca23cdc88c4865f94f9203b918d6a91b666a04f4cfaa9ef9",
+    "meta/life_optimizer_v25/PROMPT.md": "4e225e6db54b12c6ac292773b987e89e2df5b96011075b1404870219d344ec3f",
+    "meta/life_optimizer_v25/__init__.py": "6a1773286d95f558ed1c7ac201bff9b6b7957422b8dad093047cc62452a6adc9",
+    "meta/life_optimizer_v25/bundle.py": "27697e6eb7d9f8f7529804a01feb8f8fc9c97cde6e381064b1af3d07cbf4cfc5",
+    "meta/life_optimizer_v25/context.py": "fdc93dc69cab1f424c08377ec2131f5c02d15cfdc9fd5f0a8029e62b03ad8e59",
+    "meta/life_optimizer_v25/profile.py": "f64ce31664ce7a47d89c354b9d67e81c1fc7c366477db824c8394266f04bf42e",
+    "meta/life_optimizer_v25/smoke.py": "357e873af99753d2c0fe78ad5a677f06b4cb853a965b8ffc4c2114faa62bd60b",
+    "meta/life_optimizer_v25/worker.py": "48e9994f05e1680ddcfc0af2ec38d6dc209ed2bdd5b06445d986dce9c00304cf"
+  },
+  "protocol_sha256": "6179a444306bf2fe6204f73401b3a0ef9a04bd96df5d7f3a0ad7375ef6ec1579",
+  "sources": {
+    "agentbench_chain.py": "e8ecfd74a3f4ecaab6f326a0fa4dbf8bb13951cd3dc07c204b25844464c22974",
+    "agentbench_evaluate.py": "4c19d77a699fdd56c64f034ee256a1452c55655caedd4f427fc4e2bd9f31eaec",
+    "candidate_contract.py": "e3d0dfb8c4d41e35fa8021a3653965a88d4b1ada8823bab2d4142e300c85edac",
+    "composition.py": "63d039fddfae10cbf10b9d3b4b2933810103d212d0aba422845acf0aeef223bf",
+    "driver.py": "49f10be3c94fd1bb54fad4421d5f1abe7b6e7351b15dd92744d5b00c0dda4c87",
+    "prepare_branch.py": "c3d0309935ab32d6f4147347011ca4b39e16d0b0c68df82a5580779c349ffb08",
+    "protocol.py": "2dc9a73aca5b887a8a773cb40fc60bdf03257172e4f6ea2dd755f7c25b768ce2",
+    "runner.py": "d36451cba6e7e997a2966b70671bbfe11d62a6f0062f66759ec6a4e0180378cf",
+    "tokenizer_worker.py": "2e230001b9ab493188ef8ce5ca7e9a9aa39fae7542a2dbf4f603537453b12655"
+  },
+  "transport_sources": {
+    "api_broker.py": "1c55137b2b15ef73150e170fc9ea14e539ec8e20a83a733208f2fe4b3ce56a83",
+    "connection.py": "1d18351f216a0177471e332bdca6b71e7e533b1980b8f47c32be76a2c2fb4779",
+    "metered_broker.py": "c86e956c1a5d3498d0fa235e0ee7fb371136587c32af350166a2bc36782052c1",
+    "token_accounting.py": "e2922903afd0c1a131d3751088545f0e5eabd7e11d241afb6e5caddcadbeff4c"
+  }
+}

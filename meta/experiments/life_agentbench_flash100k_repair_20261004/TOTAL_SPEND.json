@@ -1,0 +1,28 @@
+{
+  "accounting_complete": true,
+  "ancestor": {
+    "accounting_complete": true,
+    "attempts": 256,
+    "input_tokens": 26647020,
+    "known_usage_calls": 256,
+    "output_tokens": 1425098,
+    "pending_calls": 0,
+    "total_tokens": 28072118,
+    "unknown_usage_calls": 0
+  },
+  "includes_failed_and_abandoned_attempts": true,
+  "input_tokens": 46770548,
+  "new_attempts": {
+    "accounting_complete": true,
+    "attempts": 251,
+    "input_tokens": 20123528,
+    "known_usage_calls": 251,
+    "output_tokens": 1096905,
+    "pending_calls": 0,
+    "total_tokens": 21220433,
+    "unknown_usage_calls": 0
+  },
+  "output_tokens": 2522003,
+  "total_tokens": 49292551,
+  "unit": "API input plus output tokens, cached input included once"
+}

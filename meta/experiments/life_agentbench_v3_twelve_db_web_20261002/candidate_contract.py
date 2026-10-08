@@ -1,0 +1,206 @@
+"""Bundle-v2 validation, artifact safety, and proposer isolation."""
+from __future__ import annotations
+
+import ast
+import importlib.util
+import json
+import re
+import sys
+from pathlib import Path
+from typing import Any
+
+from interface_v3.contract import validate_source as validate_v3_source, load_artifact as load_v3_artifact
+
+LAYERS = {"h2", "h3", "h4", "h5"}
+OPS = {"add", "modify", "delete"}
+IDENTIFIER = re.compile(r"[a-z][a-z0-9_]{0,63}")
+SHA256 = re.compile(r"[0-9a-f]{64}")
+FORBIDDEN_TEXT = (
+    "tasks.json", "split_tasks", "test_indices", "test_task_ids", "ground_truth",
+    "task-specific solution", "solution table", "results.md",
+)
+SAFE_IMPORT_MEMBERS = {
+    "__future__": {"annotations"},
+    "collections": {"Counter", "defaultdict", "deque"},
+    "copy": {"copy", "deepcopy"},
+    "dataclasses": {"dataclass", "field", "fields", "replace"},
+    "datetime": {"date", "datetime", "time", "timedelta", "timezone"},
+    "difflib": {"SequenceMatcher", "get_close_matches"},
+    "functools": {"cache", "lru_cache", "partial", "reduce"},
+    "itertools": {"accumulate", "chain", "combinations", "combinations_with_replacement",
+                  "compress", "count", "cycle", "dropwhile", "filterfalse", "groupby",
+                  "islice", "pairwise", "permutations", "product", "repeat", "starmap",
+                  "takewhile", "tee", "zip_longest"},
+    "json": {"dumps", "loads"},
+    "math": {"ceil", "comb", "copysign", "e", "exp", "fabs", "factorial", "floor",
+             "fmod", "fsum", "gcd", "inf", "isclose", "isfinite", "isinf", "isnan",
+             "log", "log10", "nan", "pi", "pow", "prod", "remainder", "sqrt", "tau"},
+    "re": {"A", "ASCII", "I", "IGNORECASE", "M", "MULTILINE", "Match", "Pattern",
+           "S", "DOTALL", "X", "VERBOSE", "compile", "escape", "findall", "finditer",
+           "fullmatch", "match", "search", "split", "sub", "subn"},
+    "statistics": {"fmean", "mean", "median", "median_grouped", "median_high",
+                   "median_low", "mode", "multimode", "pstdev", "pvariance", "stdev",
+                   "variance"},
+    "string": {"ascii_letters", "ascii_lowercase", "ascii_uppercase", "digits",
+               "hexdigits", "octdigits", "printable", "punctuation", "whitespace"},
+    "typing": {"Any", "Callable", "Iterable", "Mapping", "Sequence"},
+}
+SAFE_IMPORTS = set(SAFE_IMPORT_MEMBERS)
+
+# The frozen v3 validator and proposer allowlist must agree exactly.
+from interface_v3.contract import SAFE_IMPORTS as SAFE_IMPORT_MEMBERS
+SAFE_IMPORTS = set(SAFE_IMPORT_MEMBERS)
+
+
+def validate_source(path: Path, target_layer: str) -> ast.Module:
+    return validate_v3_source(path, target_layer)
+
+
+def load_artifact(path: Path, target_layer: str) -> Any:
+    return load_v3_artifact(path, target_layer)
+
+
+def _artifact_path(root: Path, relative: str) -> Path:
+    if not isinstance(relative, str) or not re.fullmatch(r"artifacts/[A-Za-z0-9_.-]+\.py", relative):
+        raise ValueError("artifact must be a direct artifacts/*.py path")
+    path = (root / relative).resolve()
+    if path.parent != (root / "artifacts").resolve():
+        raise ValueError("artifact path escapes artifacts directory")
+    return path
+
+
+def _validate_bundle_header(value: dict[str, Any], domain: str,
+                            expected_snapshot_sha256: str) -> list[Any]:
+    required = {"schema_version", "bundle_id", "domain", "base_snapshot_sha256",
+                "hypothesis", "operations"}
+    if not isinstance(value, dict) or set(value) != required or value.get("schema_version") != 2:
+        raise ValueError("bundle must contain exactly the schema-v2 fields")
+    if value["domain"] != domain or value["base_snapshot_sha256"] != expected_snapshot_sha256:
+        raise ValueError("bundle domain or parent snapshot CAS mismatch")
+    if not isinstance(value["bundle_id"], str) or not IDENTIFIER.fullmatch(value["bundle_id"]):
+        raise ValueError("invalid bundle_id")
+    if not isinstance(value["hypothesis"], str) or not value["hypothesis"].strip():
+        raise ValueError("bundle hypothesis must be nonempty")
+    operations = value["operations"]
+    if not isinstance(operations, list) or not operations:
+        raise ValueError("bundle operations must be a nonempty list")
+    return operations
+
+
+def _validate_operation(operation: Any, current: dict[str, dict[str, Any]],
+                        operation_ids: set[str], mechanism_ids: set[str],
+                        root: Path) -> dict[str, Any]:
+    common = {"operation_id", "mechanism_id", "op", "target_layer", "hypothesis"}
+    if not isinstance(operation, dict) or not common.issubset(operation):
+        raise ValueError("operation is missing required fields")
+    operation_id = operation["operation_id"]
+    mechanism_id = operation["mechanism_id"]
+    if not isinstance(operation_id, str) or not IDENTIFIER.fullmatch(operation_id):
+        raise ValueError("invalid operation_id")
+    if not isinstance(mechanism_id, str) or not IDENTIFIER.fullmatch(mechanism_id):
+        raise ValueError("invalid mechanism_id")
+    if operation_id in operation_ids or mechanism_id in mechanism_ids:
+        raise ValueError("duplicate operation_id or mechanism_id in bundle")
+    op = operation["op"]
+    if op not in OPS or operation["target_layer"] not in LAYERS:
+        raise ValueError("invalid operation type or target layer")
+    if not isinstance(operation["hypothesis"], str) or not operation["hypothesis"].strip():
+        raise ValueError("operation hypothesis must be nonempty")
+    allowed = common | ({"artifact"} if op == "add" else
+                        {"artifact", "expected_revision", "expected_sha256"} if op == "modify" else
+                        {"expected_revision", "expected_sha256"})
+    if set(operation) != allowed:
+        raise ValueError("operation fields do not match its type")
+    prior = current.get(mechanism_id)
+    if op == "add":
+        if prior is not None:
+            raise ValueError("add mechanism already exists")
+    else:
+        if prior is None:
+            raise ValueError("modify/delete mechanism does not exist")
+        if (operation["expected_revision"] != prior["revision"]
+                or operation["expected_sha256"] != prior["sha256"]):
+            raise ValueError("stale mechanism revision or hash")
+        if op == "delete" and operation["target_layer"] != prior["target_layer"]:
+            raise ValueError("delete target layer does not match mechanism")
+    item = dict(operation)
+    if op != "delete":
+        artifact = _artifact_path(root, operation["artifact"])
+        if not artifact.is_file():
+            raise ValueError(f"missing artifact: {operation['artifact']}")
+        load_artifact(artifact, operation["target_layer"])
+        item["artifact_path"] = artifact
+    return item
+
+
+def filter_bundle_operations(value: dict[str, Any], domain: str,
+                             active: list[dict[str, Any]],
+                             expected_snapshot_sha256: str,
+                             root: Path) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    operations = _validate_bundle_header(value, domain, expected_snapshot_sha256)
+    current = {item["mechanism_id"]: item for item in active}
+    operation_ids: set[str] = set()
+    mechanism_ids: set[str] = set()
+    normalized = []
+    rejected = []
+    for index, operation in enumerate(operations):
+        try:
+            item = _validate_operation(operation, current, operation_ids, mechanism_ids, root)
+        except (ValueError, SyntaxError) as exc:
+            rejected.append({"index": index,
+                             "operation_id": operation.get("operation_id")
+                             if isinstance(operation, dict) else None,
+                             "mechanism_id": operation.get("mechanism_id")
+                             if isinstance(operation, dict) else None,
+                             "error": f"{type(exc).__name__}: {exc}"})
+            continue
+        operation_ids.add(item["operation_id"])
+        mechanism_ids.add(item["mechanism_id"])
+        normalized.append(item)
+    return {**value, "operations": normalized}, rejected
+
+
+def validate_bundle(value: dict[str, Any], domain: str, active: list[dict[str, Any]],
+                    expected_snapshot_sha256: str, root: Path) -> dict[str, Any]:
+    normalized, rejected = filter_bundle_operations(
+        value, domain, active, expected_snapshot_sha256, root)
+    if rejected:
+        raise ValueError(f"operation {rejected[0]['index']} rejected: {rejected[0]['error']}")
+    return normalized
+
+
+def prompt(domain: str, round_number: int, workspace: Path) -> str:
+    return f"""Improve the {domain} Life-Harness in round {round_number}/12, continuing from the sealed ninth-round snapshot under interface v3.
+You may read only active/, active_snapshot.json, inventory.json, evidence/, source_view/, and history.json.
+The test split, test results, Meta results, and all private labels are hidden and forbidden.
+Output bundle.json (schema_version 2) plus artifacts/*.py. A bundle may contain ANY NONZERO
+NUMBER of operations spanning H2, H3, H4, and H5. Every operation is independently add,
+modify, or delete and declares exactly ONE target_layer. An invalid individual operation is removed
+without discarding valid sibling operations; the remaining operations are staged simultaneously.
+Read source_view/contract.txt AND source_view/INTERFACE.md completely before proposing.\nUse the empty templates in source_view/templates/ and the current revisions in inventory.json.\nThe interfaces are complete but contain NO policy: all rules, prompts and skills must evolve.\nPublic task context and per-episode shared state are available to EVERY layer.\nH3 may also condition public message content; H2 may veto actions, issue no-tool nudges and side messages.
+Add/modify references one artifact; delete has none.
+Each artifact assigns TARGET_LAYER and defines exactly one matching Harness hook.
+H3 changes descriptions only; H2 returns an assistant dictionary; H4/H5 have no word-count limit.
+Use only Read, Write, Edit, Glob, and Grep; artifacts/ already exists. Do not call Bash,
+Agent, Task, or any network tool. Do not modify frozen inputs and do not run a benchmark.
+Workspace: {workspace}
+"""
+
+
+def public_history(rounds: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    fields = ("round", "train_batch", "incumbent_score", "candidate_score",
+              "accepted", "next_batch", "batch_rotated", "bundle_id",
+              "bundle_sha256", "bundle_hypothesis", "active_snapshot_sha256")
+    operation_fields = ("operation_id", "mechanism_id", "op", "target_layer", "hypothesis")
+    result = []
+    for row in rounds:
+        public = {key: row[key] for key in fields if key in row}
+        public["operations"] = [
+            {key: operation[key] for key in operation_fields if key in operation}
+            for operation in row.get("operations", [])
+        ]
+        result.append(public)
+    serialized = json.dumps(result, sort_keys=True).lower()
+    if "test_" in serialized or "meta_result" in serialized:
+        raise ValueError("hidden result fields escaped proposer history isolation")
+    return result

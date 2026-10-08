@@ -1,0 +1,24 @@
+{
+  "name": "life_from_scratch_six_20260930",
+  "version": 1,
+  "historical_manifest": "../meta_from_scratch_six_20260915/manifest.json",
+  "historical_manifest_sha256": "805d13dc3d07019cbd30e0cc50ac400526d3866aeaf8e6c96f0f807537732edd",
+  "historical_evaluators": {
+    "tau_evaluate.py": "106caa81a88a8af4faf694def0bf4f452497dff148751fae5d50c6b9ea3d5ca2",
+    "agentbench_evaluate.py": "21a21882956d74ba6b17644aefcffb423702834fc6c64620b2196f603294dfe3"
+  },
+  "snapshot_hashes_sha256": "2bd92f9416c10a3de33604d193dfeeb76adb796a24c6364a4a0a8c37d4e42c51",
+  "data_hashes_sha256": "a0b03f1262033b0cf87f8de4d97627bd0a01ab4cc3ce1eb779fcf6392716c718",
+  "domains": ["airline", "retail", "telecom", "alfworld", "dbbench", "webshop"],
+  "rounds_per_domain": 6,
+  "acceptance": "candidate_score > incumbent_score on identical task/trial keys",
+  "batch_policy": "accept keeps batch; tie or regression advances to next frozen batch",
+  "test_policy": "evaluate the retained chain on the fixed test set every round; never expose test fields to proposer",
+  "models": {
+    "solver": "openai/qwen3-4b",
+    "tau_user": "openai/qwen3.8-flash",
+    "proposer": "DeepSeek-Flash"
+  },
+  "concurrency": 8,
+  "agentbench_hint_word_limit": 120
+}

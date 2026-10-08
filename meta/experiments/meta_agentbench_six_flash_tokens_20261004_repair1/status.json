@@ -1,0 +1,5 @@
+{
+  "error": "RuntimeError: First-round integration gate failed; rounds 2-6 will NOT start",
+  "phase": "stopped",
+  "pid": 3533265
+}
