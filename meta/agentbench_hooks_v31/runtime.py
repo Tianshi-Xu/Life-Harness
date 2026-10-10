@@ -34,24 +34,29 @@ def manifest_records(path):
     value = json.loads(Path(path).read_text())
     supplied = value.pop("manifest_sha256", None)
     if value.get("schema_version") != 2 or supplied != object_digest(value):
-        raise ValueError("invalid bundle-v2 manifest hash")
+        raise ValueError("invalid bundle-v2 manifest hash: schema_version must be 2 and "
+                         "manifest_sha256 must match the manifest content; regenerate from the verified snapshot")
     root = Path(value["artifact_root"]).resolve()
     records = value["records"]
     if object_digest(records) != value["snapshot_sha256"]:
-        raise ValueError("invalid snapshot hash")
+        raise ValueError(f"invalid snapshot hash: expected {object_digest(records)}, "
+                         f"received {value['snapshot_sha256']!r}")
     seen = set()
     for row in records:
         artifact = (root / row["artifact_path"]).resolve()
         if (root not in artifact.parents or row["mechanism_id"] in seen
                 or digest(artifact) != row["sha256"]):
-            raise ValueError("invalid artifact path, identity or hash")
+            raise ValueError(f"invalid artifact path, identity or hash: mechanism={row['mechanism_id']!r}, "
+                             f"artifact={row['artifact_path']!r}; require an in-root file, "
+                             "unique mechanism ID and content matching its recorded sha256")
         seen.add(row["mechanism_id"])
     return root, records
 
 
 def _hints(value):
     if not isinstance(value, list) or len(value) > 1 or not all(isinstance(x, str) for x in value):
-        raise ValueError("H4/H5 return zero or one string; no word-count limit")
+        raise ValueError(f"H4/H5 return zero or one string; no word-count limit: expected [] or ['text']; "
+                         f"received type={type(value).__name__}, count={len(value) if isinstance(value, list) else 'n/a'}")
     return value
 
 
@@ -68,17 +73,18 @@ def _skeleton(value, key):
 class CompositeHarness:
     def __init__(self, artifacts, domain, options=None):
         if domain not in CONTEXT_FIELDS:
-            raise ValueError("unknown domain")
+            raise ValueError(f"unknown domain: {domain!r}; allowed={sorted(CONTEXT_FIELDS)}")
         self.domain = domain
         self.options = {**DEFAULT_OPTIONS, **(options or {})}
         if set(self.options) != set(DEFAULT_OPTIONS):
-            raise ValueError("unknown session option")
+            raise ValueError(f"unknown session option: unexpected={sorted(set(self.options) - set(DEFAULT_OPTIONS))}; "
+                             f"allowed={sorted(DEFAULT_OPTIONS)}")
         for name in ("h4_persistent", "h2_preserve_raw_history"):
             if not isinstance(self.options[name], bool):
-                raise ValueError("session persistence flags must be boolean")
+                raise ValueError(f"session persistence flags must be boolean: {name} received {type(self.options[name]).__name__}")
         for name in ("h4_message_prefix", "h5_message_prefix"):
             if not isinstance(self.options[name], str):
-                raise ValueError("message prefixes must be strings")
+                raise ValueError(f"message prefixes must be strings: {name} received {type(self.options[name]).__name__}")
         for name, value in self.options.items():
             setattr(self, name, value)
         self.shared_state = {}  # Fresh for every episode, not every turn.
@@ -93,7 +99,9 @@ class CompositeHarness:
     def bind_task_context(self, context):
         if context is not None:
             if not isinstance(context, dict) or set(context) - CONTEXT_FIELDS[self.domain]:
-                raise ValueError("only allowlisted public task-context fields may be bound")
+                raise ValueError(f"only allowlisted public task-context fields may be bound: "
+                                 f"domain={self.domain}, allowed={sorted(CONTEXT_FIELDS[self.domain])}, "
+                                 f"received keys={list(context) if isinstance(context, dict) else type(context).__name__}")
         for _, instance in self.layers:
             bind = getattr(instance, "bind_task_context", None)
             if callable(bind):
@@ -107,7 +115,9 @@ class CompositeHarness:
             before = copy.deepcopy(current)
             current = instance.h3(copy.deepcopy(current))
             if not isinstance(current, list) or _skeleton(before, "description") != _skeleton(current, "description"):
-                raise ValueError("H3 changes tool descriptions only")
+                raise ValueError(f"H3 changes tool descriptions only: preserve tool names, count/order and parameter schemas; "
+                                 f"expected list count={len(before)}, received type={type(current).__name__}, "
+                                 f"count={len(current) if isinstance(current, list) else 'n/a'}")
         return current
 
     def h3_message(self, message):
@@ -118,7 +128,9 @@ class CompositeHarness:
                 before = copy.deepcopy(current)
                 current = hook(copy.deepcopy(current))
                 if not isinstance(current, dict) or _skeleton(before, "content") != _skeleton(current, "content"):
-                    raise ValueError("H3 message conditioning changes content only")
+                    raise ValueError(f"H3 message conditioning changes content only: preserve role, IDs and tool calls; "
+                                     f"received type={type(current).__name__}, "
+                                     f"keys={list(current) if isinstance(current, dict) else 'n/a'}")
         return current
 
     def _guidance(self, target, *args):
@@ -141,7 +153,9 @@ class CompositeHarness:
                 continue
             current = instance.h2(copy.deepcopy(current), copy.deepcopy(history))
             if not isinstance(current, dict) or current.get("role") != "assistant":
-                raise ValueError("H2 returns an assistant dictionary")
+                raise ValueError(f"H2 returns an assistant dictionary: expected dict with role='assistant'; "
+                                 f"received type={type(current).__name__}, "
+                                 f"role={current.get('role') if isinstance(current, dict) else 'n/a'}")
             if current.get("_harness_control"):
                 break  # A later H2 must not erase an earlier veto.
         return current
@@ -153,7 +167,7 @@ class CompositeHarness:
             if target == "h2" and callable(hook):
                 value = hook(copy.deepcopy(message), remaining)
                 if value is not None and not isinstance(value, str):
-                    raise ValueError("H2 no-tool nudge must be a string or None")
+                    raise ValueError(f"H2 no-tool nudge must be a string or None: received {type(value).__name__}")
                 if value:
                     hints.append(value)
         return "\n".join(hints) or None
@@ -165,13 +179,14 @@ class CompositeHarness:
             if target == "h2" and callable(hook):
                 values = hook()
                 if not isinstance(values, list):
-                    raise ValueError("H2 side messages must be a list")
+                    raise ValueError(f"H2 side messages must be a list: received {type(values).__name__}")
                 for item in values:
                     if isinstance(item, str):
                         item = {"role": "user", "content": item}
                     if (not isinstance(item, dict) or item.get("role") != "user"
                             or not isinstance(item.get("content"), str)):
-                        raise ValueError("H2 side messages must be public user messages")
+                        raise ValueError("H2 side messages must be public user messages: use a string or "
+                                         "{'role':'user','content':'text'}, not tool/system/assistant messages")
                     messages.append(copy.deepcopy(item))
         return messages
 

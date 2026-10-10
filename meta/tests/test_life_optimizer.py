@@ -349,7 +349,8 @@ class Harness:
             calls.append({"id": name, "type": "function", "function": {"name": "write_file",
                 "arguments": json.dumps({"path": name, "content": files[name]})}})
         calls.append({"id": "check", "type": "function", "function": {"name": "check_candidate", "arguments": "{}"}})
-        response = lambda message: {"choices": [{"message": message}], "usage": {"total_tokens": 100}}
+        response = lambda message: {"choices": [{"message": message}],
+                                    "usage": {"prompt_tokens": 80, "completion_tokens": 20, "total_tokens": 100}}
         completion = Mock(side_effect=[response({"role": "assistant", "tool_calls": calls}),
                                       response({"role": "assistant", "content": "done"})])
         output = self.root / "optimized"
@@ -381,7 +382,8 @@ class Harness:
             calls.append({'id': name, 'type': 'function', 'function': {'name': 'write_file',
                 'arguments': json.dumps({'path': name, 'content': files[name]})}})
         first_response = {'choices': [{'message': {'role': 'assistant', 'tool_calls': calls,
-                          'reasoning_content': 'actual provider reasoning'}}], 'usage': {'total_tokens': 100}}
+                          'reasoning_content': 'actual provider reasoning'}}],
+                          'usage': {'prompt_tokens': 80, 'completion_tokens': 20, 'total_tokens': 100}}
         output, checkpoint = self.root/'resumed', self.root/'checkpoint'
         original = p.save_agent
         def pause(path, sandbox, **values):
@@ -394,7 +396,8 @@ class Harness:
         def finish(messages, tools):
             assistant = next(m for m in messages if m['role'] == 'assistant')
             self.assertEqual(assistant['reasoning_content'], 'actual provider reasoning')
-            return {'choices': [{'message': {'role': 'assistant', 'content': 'done'}}], 'usage': {'total_tokens': 200}}
+            return {'choices': [{'message': {'role': 'assistant', 'content': 'done'}}],
+                    'usage': {'prompt_tokens': 180, 'completion_tokens': 20, 'total_tokens': 200}}
         completion = Mock(side_effect=finish)
         p.propose(self.workspace, output, completion=completion, checkpoint_dir=checkpoint)
         self.assertEqual(completion.call_count, 1)
@@ -407,7 +410,7 @@ class Harness:
         checkpoint = self.root/'truncated_checkpoint'
         completion = Mock(return_value={'choices': [{'finish_reason': 'length', 'message': {
             'role': 'assistant', 'content': '', 'reasoning_content': 'actual partial reasoning'}}],
-            'usage': {'completion_tokens': 60000}})
+            'usage': {'prompt_tokens': 80, 'completion_tokens': 60000, 'total_tokens': 60080}})
         with self.assertRaisesRegex(ValueError, 'output truncated'):
             p.propose(self.workspace, self.root/'truncated', completion=completion, checkpoint_dir=checkpoint)
         self.assertEqual(completion.call_count, 1)

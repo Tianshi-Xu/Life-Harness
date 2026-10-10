@@ -21,29 +21,37 @@ def subset(expected, actual):
 
 def check_action(raw, value, tools):
     if not isinstance(value, dict) or value.get("role") != "assistant":
-        raise ValueError("H2 must return an assistant dictionary")
+        raise ValueError(f"H2 must return an assistant dictionary: expected dict with role='assistant'; "
+                         f"received type={type(value).__name__}, "
+                         f"role={value.get('role') if isinstance(value, dict) else 'n/a'}")
     control = value.get("_harness_control")
     if control:
         if not isinstance(control, dict) or control.get("action") != "suppress_tool":
-            raise ValueError("invalid H2 veto")
+            raise ValueError("invalid H2 veto: _harness_control must be a dict with action='suppress_tool'")
         return
     known = {t["function"]["name"]: t["function"].get("parameters", {}) for t in tools}
-    for call in value.get("tool_calls") or []:
+    for index, call in enumerate(value.get("tool_calls") or []):
         # Frozen malformed solver responses are allowed to remain unchanged;
         # preserving one is not evidence that it would execute successfully.
         if any(call == old for old in raw.get("tool_calls") or []):
             continue
         if not isinstance(call.get("id"), str) or call.get("type", "function") != "function":
-            raise ValueError("invalid tool-call envelope")
+            raise ValueError(f"invalid tool-call envelope at tool_calls[{index}]: "
+                             "id must be a string and type must be 'function'")
         function = call["function"]
         if function["name"] not in known or not isinstance(function["arguments"], str):
-            raise ValueError("unknown tool or non-string arguments")
-        arguments = json.loads(function["arguments"])
-        schema = known[function["name"]]
-        check_schema(arguments, schema)
+            raise ValueError(f"unknown tool or non-string arguments at tool_calls[{index}]: "
+                             f"name={function['name']!r}, allowed={sorted(known)}, "
+                             f"arguments must be a JSON string, received {type(function['arguments']).__name__}")
+        try:
+            arguments = json.loads(function["arguments"])
+            schema = known[function["name"]]
+            check_schema(arguments, schema)
+        except (ValueError, TypeError, KeyError) as exc:
+            raise ValueError(f"tool_calls[{index}] ({function['name']}): {exc}") from exc
 
 
-def check_schema(value, schema):
+def check_schema(value, schema, path="arguments"):
     expected = schema.get("type")
     types = {"object": dict, "array": list, "string": str, "integer": int, "boolean": bool, "null": type(None)}
     if expected == "number":
@@ -51,18 +59,21 @@ def check_schema(value, schema):
     else:
         valid = expected not in types or type(value) is types[expected]
     if not valid or ("enum" in schema and value not in schema["enum"]):
-        raise ValueError("repaired argument type/enum mismatch")
+        raise ValueError(f"repaired argument type/enum mismatch at {path}: expected type={expected!r}, "
+                         f"enum={schema.get('enum', 'not constrained')!r}; received type={type(value).__name__}")
     if isinstance(value, dict):
         if not set(schema.get("required", [])) <= set(value):
-            raise ValueError("repaired arguments miss required fields")
+            raise ValueError(f"repaired arguments miss required fields at {path}: "
+                             f"missing={sorted(set(schema.get('required', [])) - set(value))}")
         properties = schema.get("properties", {})
         if schema.get("additionalProperties") is False and set(value) - set(properties):
-            raise ValueError("repaired arguments introduce fields")
+            raise ValueError(f"repaired arguments introduce fields at {path}: "
+                             f"unexpected={sorted(set(value) - set(properties))}, allowed={sorted(properties)}")
         for key in set(value) & set(properties):
-            check_schema(value[key], properties[key])
+            check_schema(value[key], properties[key], f"{path}.{key}")
     if isinstance(value, list) and "items" in schema:
-        for item in value:
-            check_schema(item, schema["items"])
+        for index, item in enumerate(value):
+            check_schema(item, schema["items"], f"{path}[{index}]")
 
 
 def main(payload):

@@ -100,7 +100,7 @@ def initialize(root):
         "prior_benchmark_test_exposure": True, "spec": spec, "ahe_reference": references,
         "solver": {"model": "qwen3-4b", "total_context": 32768, "max_output": 4096, "workers": 50},
         "optimizer": {"model": "deepseek-v4-flash", "max_output": OUTPUT_LIMIT,
-                      "interaction_limit": None, "token_limit": None, "max_repairs": 3},
+                      "interaction_limit": None, "token_limit": profile.MAX_TOTAL_TOKENS, "max_repairs": 3},
         "user_simulator": {"model": "deepseek-v4-flash", "max_output": 100000},
         "global_mr_concurrency": 8, "global_mr_min_interval": 1.25,
         "selection": "strict improvement on same complete 50-task TRAIN batch",
@@ -294,6 +294,207 @@ def prepare_accuracy_only_resume(root):
         run.progress("prepared", resume_from_round=2, comparison="accuracy_only")
 
 
+def audit_branch_sources(parent, source_upgrade=None):
+    """Permit only explicitly fingerprinted optimizer diagnostic upgrades."""
+    allowed = {str(Path(__file__).resolve()), str(Path(profile.__file__).with_name("PROMPT.md"))}
+    audit = read(source_upgrade) if source_upgrade is not None else {}
+    archives = [] if source_upgrade is None else [
+        {'path': str(Path(source_upgrade).parent / 'source_before'),
+         'hashes': audit.get('source_files_before', {})}, *audit.get('earlier_source_archives', [])]
+    changes = {}
+    upgradeable = {'meta/life_evolve/profile.py', 'meta/life_evolve/worker.py', 'meta/life_evolve/SCHEMAS.md',
+        'meta/life_optimizer_v25/bundle.py', 'meta/life_optimizer_v25/context.py', 'meta/life_optimizer_v25/worker.py',
+        'meta/agentbench_hooks_v31/contract.py', 'meta/agentbench_hooks_v31/runtime.py',
+        'meta/harness_hooks.py', 'meta/environment_state.py'}
+    for name, sha in read(parent / "frozen_sources.json").items():
+        current = digest(name)
+        if current == sha or name in allowed:
+            continue
+        relative = str(Path(name).relative_to(ROOT))
+        originals = [Path(entry['path']) / relative for entry in archives
+                     if entry.get('hashes', {}).get(relative) == sha]
+        if (relative not in upgradeable or audit.get('source_files_after', {}).get(relative) != current
+                or not any(path.is_file() and digest(path) == sha for path in originals)):
+            raise ValueError("non-prompt frozen source changed without matching before/after source audit: " + name)
+        changes[relative] = {'before': sha, 'after': current}
+    return changes
+
+
+def prepare_round_two_branch(root, parent, wait_for=None, *, source_upgrade=None, history_from=None):
+    """Fork the retained round-2 snapshot; reuse its exact round-3 TRAIN evidence."""
+    parent = Path(parent).resolve()
+    state = read(parent / "telecom/state.json")
+    seal = read(parent / "training_seal.json")
+    if (read(parent / "status.json")["phase"] != "complete"
+            or digest(parent / "telecom/state.json") != seal["state_sha256"]
+            or state["active_snapshot"] != seal["snapshot"]
+            or [r["round"] for r in state["rounds"]] != list(range(1, 7))
+            or not all(r["accepted"] for r in state["rounds"][:2])
+            or any(r["accepted"] for r in state["rounds"][2:])
+            or state["active_snapshot_sha256"] != state["rounds"][1]["active_snapshot_sha256"]):
+        raise ValueError("sealed final snapshot must be the unchanged accepted round-2 snapshot")
+    compose = composition_module()
+    compose.verify_active(parent / "telecom", state)
+    source_changes = audit_branch_sources(parent, source_upgrade)
+    history_roots, history_usages = [], []
+    sources = history_from if isinstance(history_from, (list, tuple)) else ([] if history_from is None else [history_from])
+    for source in sources:
+        history_root = Path(source).resolve()
+        if history_root in history_roots or history_root == parent:
+            raise ValueError('additional history must name distinct sealed branches; never double-count ancestor spend')
+        past, past_seal = read(history_root / 'telecom/state.json'), read(history_root / 'training_seal.json')
+        metrics, history_usage = read(history_root / 'flash_metrics.json'), read(history_root / 'OPTIMIZER_TOKEN_USAGE.json')
+        origin = read(history_root / 'protocol.json').get('round_two_branch', {})
+        if (read(history_root / 'status.json').get('phase') != 'complete'
+                or digest(history_root / 'telecom/state.json') != past_seal['state_sha256']
+                or past['active_snapshot'] != past_seal['snapshot']
+                or past['active_snapshot'] != state['active_snapshot']
+                or Path(origin.get('parent', '')).resolve() != parent
+                or not metrics.get('closed') or metrics['gate']['active']
+                or not history_usage.get('accounting_complete')
+                or past_seal['optimizer_usage'] != history_usage):
+            raise ValueError('additional history must be a closed sealed TRAIN branch with the same retained incumbent and complete usage')
+        audit_branch_sources(history_root, source_upgrade)
+        history_roots.append(history_root)
+        history_usages.append(history_usage)
+    old_protocol = read(parent / "protocol.json")
+    if (not old_protocol.get("accuracy_only")
+            or old_protocol["spec"] != read(REFERENCE / "protocol.json")["domains_spec"]["telecom"]):
+        raise ValueError("accuracy-only TRAIN parent required")
+    ids = old_protocol["spec"]["batches"][2]["task_ids"]
+    baseline = parent / "telecom/evals/initial_batch_02"
+    receipt, summary = read(baseline / "evaluation_receipt.json"), read(baseline / "life_train/summary.json")
+    from meta.tau_hooks import training_case_id
+    if (receipt["split"] != "train" or receipt["ids"] != ids
+            or receipt["summary_sha256"] != digest(baseline / "life_train/summary.json")
+            or receipt["manifest_sha256"] != digest(parent / "telecom/runtime/incumbent_03/manifest.json")
+            or summary["n"] != 50 or summary["infra_errors"]
+            or set(summary["per_task"]) != {training_case_id(t) for t in ids}
+            or sum(summary["per_task"].values()) != summary["successes"]
+            or summary["accuracy"] != summary["successes"] / 50
+            or sorted(v for k, v in summary["chain_hashes"].items() if k != "manifest")
+               != sorted(r["sha256"] for r in state["active_snapshot"])):
+        raise ValueError("unchanged complete round-3 TRAIN baseline required")
+    dependency = None
+    if wait_for is not None:
+        wait_for = Path(wait_for).resolve()
+        status = read(wait_for / "status.json")
+        if read(wait_for / "protocol.json").get("global_mr_concurrency") != 8:
+            raise ValueError("expected existing eight-slot MR test run")
+        dependency = {"root": str(wait_for), "pid": status["pid"],
+                      "protocol_sha256": digest(wait_for / "protocol.json")}
+    protocol = initialize(root)
+    work = root / "telecom"
+    shutil.copytree(parent / "telecom/versions", work / "versions")
+    state.update(round=2, rounds=state["rounds"][:2])
+    save(work / "state.json", state)
+    protocol.update(accuracy_only=True, rounds=3, train_only=True,
+        initialization="retained sealed round-2 Life snapshot; one new TRAIN proposal only",
+        comparison="strict improvement against reused round-2 incumbent on the same 50 TRAIN tasks",
+        test="none; this continuation does not select or evaluate on TEST",
+        wait_for_run=dependency,
+        round_two_branch={"parent": str(parent), "parent_seal_sha256": digest(parent / "training_seal.json"),
+            "round": 2, "state_sha256": digest(work / "state.json"), "ledger_sha256": None,
+            "seed_optimizer_tokens": sum(r["optimizer_usage"]["total_tokens"] for r in state["rounds"]),
+            "accounting": "OPTIMIZER_TOKEN_USAGE records NEW spend only; rounds 1-2 are reused history",
+            "history": "original rounds 3-6 remain visible as prior TRAIN attempts, not new branch rounds"})
+    if source_upgrade is not None:
+        save(root / 'SOURCE_UPGRADE_AUDIT.json', {'origin': str(Path(source_upgrade).resolve()),
+            'origin_sha256': digest(source_upgrade), 'changed_sources': source_changes,
+            'note': 'new source-bound workspace; old receipts and candidate code are not rewritten'})
+        frozen = read(root / 'frozen_sources.json')
+        frozen[str(root / 'SOURCE_UPGRADE_AUDIT.json')] = digest(root / 'SOURCE_UPGRADE_AUDIT.json')
+        save(root / 'frozen_sources.json', frozen)
+        protocol['source_upgrade'] = {'audit': 'SOURCE_UPGRADE_AUDIT.json', 'changed_sources': source_changes}
+    if history_roots:
+        protocol['additional_train_history'] = [
+            {'root': str(path), 'seal_sha256': digest(path / 'training_seal.json'), 'optimizer_usage': usage}
+            for path, usage in zip(history_roots, history_usages)]
+    protocol['ancestor_optimizer_tokens'] = seal['optimizer_usage']['total_tokens'] + sum(
+        usage['total_tokens'] for usage in history_usages)
+    save(root / "protocol.json", protocol)
+    manifest = compose.write_active_chain(work, state, "incumbent_03")
+    copied = work / "evals/initial_batch_02"
+    shutil.copytree(baseline / "life_train", copied / "life_train")
+    save(copied / "evaluation_receipt.json", {**receipt,
+        "manifest_sha256": digest(manifest), "reused_from": str(baseline),
+        "original_manifest_sha256": receipt["manifest_sha256"]})
+    # Prepare with the old state so rejected TRAIN attempts remain visible, while
+    # active code is identical to this branch's round-2 incumbent. No TEST input.
+    extra = {'additional_history': [path / 'telecom' for path in history_roots]} if history_roots else {}
+    profile.prepare(parent / "telecom", baseline / "life_train", root / "optimizer_inputs/round_03", seed=3, **extra)
+    run = Run(root)
+    run.report()
+    run.progress("prepared", resume_from_round=3, inherited_rounds=2, new_rounds=1)
+    return protocol
+
+
+def prepare_next_round_branch(root, parent, *, source_upgrade=None):
+    """Continue one TRAIN round from a sealed incumbent, without copying bulk logs."""
+    parent = Path(parent).resolve()
+    prior = read(parent / 'protocol.json')
+    paths = [parent]
+    paths += [Path(path) for path in prior.get('train_branch', {}).get('history_roots', [])]
+    if prior.get('round_two_branch'):
+        paths.append(Path(prior['round_two_branch']['parent']))
+    additional = prior.get('additional_train_history', [])
+    if isinstance(additional, dict):
+        additional = [additional]
+    paths += [Path(row['root']) for row in additional]
+    sources = list(dict.fromkeys(path.resolve() for path in paths))
+    changes, lineage_tokens = {}, 0
+    for path in sources:
+        state, seal = read(path / 'telecom/state.json'), read(path / 'training_seal.json')
+        metrics, usage = read(path / 'flash_metrics.json'), read(path / 'OPTIMIZER_TOKEN_USAGE.json')
+        if (read(path / 'status.json').get('phase') != 'complete' or state.get('domain') != 'telecom'
+                or digest(path / 'telecom/state.json') != seal['state_sha256']
+                or state['active_snapshot'] != seal['snapshot'] or seal['optimizer_usage'] != usage
+                or not usage.get('accounting_complete') or not metrics.get('closed') or metrics['gate']['active']):
+            raise ValueError('continuation needs closed, sealed TRAIN history and complete optimizer usage: ' + str(path))
+        composition_module().verify_active(path / 'telecom', state)
+        changes.update(audit_branch_sources(path, source_upgrade))
+        lineage_tokens += usage['total_tokens']
+    state = read(parent / 'telecom/state.json')
+    number = state['round'] + 1
+    if (not prior.get('accuracy_only') or prior['spec'] != read(REFERENCE / 'protocol.json')['domains_spec']['telecom']
+            or not 1 < number <= len(prior['spec']['batches'])
+            or [row['round'] for row in state['rounds']] != list(range(1, number))):
+        raise ValueError('next round must follow contiguous completed TRAIN rounds on the frozen six-round schedule')
+    parent_usage = read(parent / 'OPTIMIZER_TOKEN_USAGE.json')
+    if lineage_tokens != prior.get('ancestor_optimizer_tokens', 0) + parent_usage['total_tokens']:
+        raise ValueError('parent lineage token total disagrees with registered sealed sources; audit missing/duplicate history, not the totals')
+    protocol = initialize(root)
+    shutil.copytree(parent / 'telecom/versions', root / 'telecom/versions')
+    save(root / 'telecom/state.json', state)
+    protocol.update(accuracy_only=True, train_only=True, rounds=number,
+        initialization=f'sealed round-{number - 1} incumbent; one new rotated TRAIN round only',
+        comparison='strict improvement on the same complete new 50-task TRAIN batch; historical AHE only',
+        test='none; no TEST-based policy selection',
+        ancestor_optimizer_tokens=lineage_tokens,
+        train_branch={'parent': str(parent), 'parent_seal_sha256': digest(parent / 'training_seal.json'),
+            'round': number - 1, 'state_sha256': digest(root / 'telecom/state.json'), 'ledger_sha256': None,
+            'history_roots': [str(path) for path in sources],
+            'accounting': 'parent complete lineage is inherited once; OPTIMIZER_TOKEN_USAGE records new spend only'})
+    if source_upgrade is not None:
+        save(root / 'SOURCE_UPGRADE_AUDIT.json', {'origin': str(Path(source_upgrade).resolve()),
+            'origin_sha256': digest(source_upgrade), 'changed_sources': changes,
+            'note': 'fresh source-bound continuation; historical paid receipts and code remain unchanged'})
+        frozen = read(root / 'frozen_sources.json')
+        frozen[str(root / 'SOURCE_UPGRADE_AUDIT.json')] = digest(root / 'SOURCE_UPGRADE_AUDIT.json')
+        save(root / 'frozen_sources.json', frozen)
+        protocol['source_upgrade'] = {'audit': 'SOURCE_UPGRADE_AUDIT.json', 'changed_sources': changes}
+    frozen = read(root / 'frozen_sources.json')
+    for path in sources:
+        frozen.update({str(path / name): digest(path / name) for name in
+            ('telecom/state.json', 'training_seal.json', 'protocol.json', 'OPTIMIZER_TOKEN_USAGE.json')})
+    save(root / 'frozen_sources.json', frozen)
+    save(root / 'protocol.json', protocol)
+    run = Run(root)
+    run.report()
+    run.progress('prepared', resume_from_round=number, inherited_rounds=number - 1, new_rounds=1)
+    return protocol
+
+
 class Run:
     def __init__(self, root):
         self.root, self.work = root, root / "telecom"
@@ -421,6 +622,13 @@ class Run:
                 lines[2] += " Paid round-1 code and expense are reused."
             lines[4:6] = ["| Round | TRAIN batch | Incumbent | Candidate | Accepted | Retained | AHE historical | Evolve tokens |",
                           "|---|---|---|---|---|---|---|---|"]
+        if self.protocol.get("round_two_branch"):
+            lines[0] = "# Life Telecom: one-round continuation from the retained round-2 snapshot"
+            lines[2] += " Rounds 1-2 and baseline evidence are reused; only round 3 is new. No TEST. New optimizer spend is recorded separately."
+        if self.protocol.get('train_branch'):
+            inherited = self.protocol['train_branch']['round']
+            lines[0] = f'# Life Telecom: one-round continuation from sealed round {inherited}'
+            lines[2] += f' Rounds 1-{inherited} are reused; only round {inherited + 1} is new. Rotated TRAIN batch, no TEST. New spend is separate.'
         for r in rows:
             if self.protocol.get("accuracy_only"):
                 lines.append(f"| {r['round']} | {r['train_batch']} | {r['incumbent_score']:.1%} | {r['candidate_score']:.1%} | "
@@ -442,7 +650,9 @@ class Run:
         incumbent, evidence_dir = self.evaluate("train", baseline_name, incumbent_manifest, ids, number)
         workspace, output = self.root / "optimizer_inputs" / f"round_{number:02d}", self.work / "proposals" / f"round_{number:02d}"
         if not workspace.exists():
-            profile.prepare(self.work, evidence_dir, workspace, seed=number)
+            history = [Path(path) / 'telecom' for path in self.protocol.get('train_branch', {}).get('history_roots', [])]
+            extra = {'additional_history': history} if history else {}
+            profile.prepare(self.work, evidence_dir, workspace, seed=number, **extra)
         else:
             profile.verify_inputs(workspace)
         self.progress("evolving", round=number, incumbent_score=incumbent["accuracy"])
@@ -504,13 +714,32 @@ class Run:
         from ahe_native.metered_broker import Broker
         with (self.root / ".runner.lock").open("a") as lock:
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-            resume = self.protocol.get("accuracy_only_resume", {})
+            resume = self.protocol.get('train_branch', self.protocol.get("round_two_branch", self.protocol.get("accuracy_only_resume", {})))
+            ledger_path = self.root / "ledgers/mr_requests.jsonl"
             if (read(self.root / "status.json")["phase"] != "prepared"
                     or (self.state["round"] and (not self.protocol.get("accuracy_only")
                         or self.state["round"] != resume.get("round")
                         or digest(self.work / "state.json") != resume.get("state_sha256")
-                        or digest(self.root / "ledgers/mr_requests.jsonl") != resume.get("ledger_sha256")))):
+                        or (digest(ledger_path) if ledger_path.exists() else None) != resume.get("ledger_sha256")))):
                 raise RuntimeError("started run requires explicit audited continuation, not automatic replay")
+            dependency = self.protocol.get("wait_for_run")
+            if dependency:
+                other = Path(dependency["root"])
+                while True:
+                    if digest(other / "protocol.json") != dependency["protocol_sha256"]:
+                        raise RuntimeError("queued MR dependency changed")
+                    stat = Path(f"/proc/{dependency['pid']}/stat")
+                    try:
+                        live = stat.read_text().split(") ", 1)[1].split()[0] != "Z"
+                    except FileNotFoundError:
+                        live = False
+                    if not live:
+                        if read(other / "status.json")["mr_gate"]["active"]:
+                            raise RuntimeError("prior MR gate did not finish cleanly")
+                        break
+                    self.progress("queued_for_mr", waiting_for=str(other), round=self.state["round"] + 1)
+                    time.sleep(30)
+                self.verify()
             key, endpoint = credentials()
             self.gate = RequestGate(8, min_interval=1.25)
             self.broker = Broker(key, endpoint, self.gate, rate_limit_retries=3,
@@ -526,13 +755,18 @@ class Run:
                     smoke, _ = self.evaluate("train", "setup_smoke", empty, self.protocol["spec"]["batches"][0]["task_ids"][:1], 1)
                     if smoke["infra_errors"]:
                         raise RuntimeError("one-task native integration smoke failed; no Evolve calls")
-                for number in range(self.state["round"] + 1, 7):
+                for number in range(self.state["round"] + 1, self.protocol.get("rounds", 6) + 1):
                     reason = self.round(number)
+                    if self.protocol.get("train_only"):
+                        continue
                     if reason:
                         self.progress("stopped_for_performance", reason=reason)
                         return
                 save(self.root / "training_seal.json", {"state_sha256": digest(self.work / "state.json"),
                     "optimizer_usage": self.usage(), "snapshot": self.state["active_snapshot"]})
+                if self.protocol.get("train_only"):
+                    self.progress("complete", train_only=True, new_rounds=len(self.state["rounds"]) - resume.get('round', 2))
+                    return
                 self.broker.blocked_roles.add("life_optimizer")
                 final = self.compose.write_active_chain(self.work, self.state, "final")
                 result, _ = self.evaluate("test", "final_test", final, self.protocol["spec"]["test_task_ids"], 6)
@@ -560,14 +794,27 @@ def main():
     parser.add_argument("--run", action="store_true")
     parser.add_argument("--continue-from", type=Path, help="offline audit/reuse of a stopped first proposal into a NEW directory")
     parser.add_argument("--resume-accuracy-only", action="store_true", help="offline audit of a cancelled first comparison; reuse its completed candidate")
+    parser.add_argument("--branch-from-round-two", type=Path, help="new one-round TRAIN branch from a sealed round-2 incumbent")
+    parser.add_argument('--next-round-from', type=Path, help='one rotated TRAIN round from a closed sealed incumbent in a NEW directory')
+    parser.add_argument("--wait-for-run", type=Path, help="queue MR calls until the existing test runner exits")
+    parser.add_argument("--source-upgrade-audit", type=Path, help="explicit before/after source audit for a NEW round-two branch")
+    parser.add_argument("--history-from", type=Path, action="append", help="closed sealed TRAIN branch; repeat to retain several past attempts")
     args = parser.parse_args()
     if not re.fullmatch(r"[a-z][a-z0-9_]+", args.name):
         parser.error("safe experiment name required")
     root = ROOT / "meta/experiments" / args.name
-    if (args.run and (args.continue_from or args.resume_accuracy_only)) or (args.continue_from and args.resume_accuracy_only):
+    setups = sum(bool(value) for value in (args.continue_from, args.resume_accuracy_only, args.branch_from_round_two, args.next_round_from))
+    if ((args.run and setups) or setups > 1
+            or ((args.wait_for_run or args.history_from) and not args.branch_from_round_two)
+            or (args.source_upgrade_audit and not (args.branch_from_round_two or args.next_round_from))):
         parser.error("continuation setup is separate from the paid runner")
     if not args.run:
-        if args.resume_accuracy_only:
+        if args.next_round_from:
+            prepare_next_round_branch(root, args.next_round_from, source_upgrade=args.source_upgrade_audit)
+        elif args.branch_from_round_two:
+            prepare_round_two_branch(root, args.branch_from_round_two, args.wait_for_run,
+                source_upgrade=args.source_upgrade_audit, history_from=args.history_from)
+        elif args.resume_accuracy_only:
             prepare_accuracy_only_resume(root)
         elif args.continue_from:
             prepare_continuation(root, args.continue_from)
@@ -578,7 +825,8 @@ def main():
             process = subprocess.Popen([str(TAU / ".venv/bin/python"), "-u", "-m", "meta.life_evolve.tau_run",
                 "--name", args.name, "--run"], cwd=ROOT, stdout=log, stderr=subprocess.STDOUT,
                 env=child_env(PYTHONPATH=str(TAU / "src") + ":" + str(ROOT)), start_new_session=True)
-        save(root / "launch.json", {"pid": process.pid, "started": time.time(), "domain": "telecom", "rounds": 6})
+        save(root / "launch.json", {"pid": process.pid, "started": time.time(), "domain": "telecom",
+            "rounds": read(root / "protocol.json")["rounds"]})
         print(json.dumps({"pid": process.pid, "path": str(root)}))
     elif args.run:
         Run(root).run()

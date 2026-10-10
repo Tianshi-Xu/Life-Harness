@@ -59,10 +59,16 @@ class FlashCounter:
         return self.count(messages, tools)
 
 def verify_usage(result):
+    if not isinstance(result, dict):
+        raise RuntimeError(f'API token usage missing or invalid; cannot audit usage: expected JSON response object, '
+                           f'received {type(result).__name__}')
     usage = result.get('usage', {})
+    usage = usage if isinstance(usage, dict) else {}
     prompt, completion = usage.get('prompt_tokens'), usage.get('completion_tokens')
     if type(prompt) is not int or type(completion) is not int or prompt < 0 or completion < 0:
-        raise RuntimeError('API token usage missing or invalid; cannot audit usage')
+        raise RuntimeError('API token usage missing or invalid; cannot audit usage: expected nonnegative integer '
+                           f'prompt_tokens/completion_tokens; received prompt type={type(prompt).__name__}, '
+                           f'completion type={type(completion).__name__}; retain the API ledger and inspect accounting')
 
 @lru_cache(maxsize=1)
 def flash_counter():
