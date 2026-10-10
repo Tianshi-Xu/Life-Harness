@@ -51,6 +51,9 @@ def scheduled_batch(request):
     schedule = json.loads(raw)
     if schedule.get("split") != "train" or schedule.get("schema_version") != 1:
         raise ValueError("training schedule cannot contain test tasks")
+    if request.get("domain") == "os":
+        from meta.os_comparison.protocol import scheduled_batch as os_batch
+        return os_batch(request, schedule)
     if schedule["historical_manifest_sha256"] != MANIFEST_SHA256:
         raise ValueError("training schedule historical manifest mismatch")
     historical = json.loads(MANIFEST.read_text())

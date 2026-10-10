@@ -91,6 +91,10 @@ the hooks at these boundaries. They do not implement domain strategies:
 - AgentBench: `meta.harness_hooks.install_agentbench(...)`. Public context remains
   the existing DB description/type/table/evidence, WebShop instruction or ALFWorld
   instruction. SQL, clicks and environment actions retain native semantics.
+  OS uses domain `os` and binds only `{"description": PUBLIC_TASK_DESCRIPTION}`.
+  Its native `bash_action`, `finish_action` and `answer_action` schemas, Docker
+  execution, 16-turn budget and grading remain unchanged. No filesystem snapshot,
+  container handle, init/check script, answer/match or evaluator state is bound.
   A host adapter may supply `environment_state_provider` to bind approved business
   state through the SAME interface; no arbitrary environment object is inferred.
 - TauBench airline/retail/telecom: `python -m meta.tau_hooks --life-manifest PATH`

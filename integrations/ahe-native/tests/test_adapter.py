@@ -86,6 +86,19 @@ class AdapterTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate_records(value)
 
+    def test_native_os_train_records_reach_original_stats(self):
+        value = payload()
+        value['domain'] = 'os'
+        with tempfile.TemporaryDirectory() as tmp:
+            job = export_job(value, Path(tmp) / '2026-10-08__00-00-01')
+            stats = self.ahe.compute_stats(job, k=1)
+            self.assertEqual((stats['n_total'],stats['n_pass'],stats['n_fail']),(2,1,1))
+            records = [json.loads(p.read_text()) for p in job.glob('native_*/native_record.json')]
+            self.assertEqual(sum(r.get('infrastructure_error',False) for r in records),1)
+        value['split'] = 'test'
+        with self.assertRaises(ValueError):
+            validate_records(value)
+
     def test_private_fields_rejected(self):
         for key in ("task_result_private", "expected_answer", "oracle_sql", "reward_info"):
             value = payload()

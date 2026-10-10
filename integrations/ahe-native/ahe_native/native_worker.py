@@ -13,6 +13,12 @@ SPLIT = None
 def initialize(domain, split="train"):
  global TASK, DOMAIN, SPLIT
  DOMAIN=domain;SPLIT=split;os.chdir(AB)
+ if domain=='os':
+  sys.path.insert(0,str(ROOT))
+  from meta.os_comparison.native import task
+  TASK,_=task(split)
+  assert not TASK.harness_config.enabled
+  return
  if domain=='webshop':
   ws=AB/'.native/webshop-src';sys.path.insert(0,str(ws))
  snap=HISTORICAL/'task_snapshot';sys.path.insert(0,str(AB));sys.path.insert(0,str(snap))
@@ -34,7 +40,7 @@ def initialize(domain, split="train"):
 
 
 def describe(domain):
-    if domain in ("dbbench", "webshop", "alfworld"):
+    if domain in ("dbbench", "webshop", "alfworld", "os"):
         initialize(domain)
         return {"domain": domain, "tools": TASK.tools}
     from tau2.runner.build import build_environment
@@ -51,12 +57,15 @@ def run_agentbench(request):
     start = time.monotonic()
     try:
         index = int(request["task_id"])
-        if DOMAIN == "dbbench":
+        if DOMAIN in {"dbbench", "os"}:
             async def run():
                 try:
                     return await TASK.start_sample(index, session)
                 finally:
-                    if TASK.env_controller_background_task:
+                    if DOMAIN == "os":
+                        from meta.os_comparison.native import close_controller
+                        await close_controller(TASK)
+                    elif TASK.env_controller_background_task:
                         TASK.env_controller_background_task.cancel()
                         TASK.env_controller_background_task = None
             result = asyncio.run(run())
@@ -66,7 +75,7 @@ def run_agentbench(request):
         private = result.result or {}
         if DOMAIN == "dbbench":
             success = bool(private.get("is_correct", False))
-        elif DOMAIN == "alfworld":
+        elif DOMAIN in {"alfworld", "os"}:
             success = private.get("result") == 1
         else:
             success = float(private.get("reward", 0) or 0) >= 1
@@ -86,7 +95,7 @@ def run_agentbench(request):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--describe", choices=["dbbench","webshop","alfworld","airline","retail","telecom"])
+    parser.add_argument("--describe", choices=["dbbench","webshop","alfworld","os","airline","retail","telecom"])
     parser.add_argument("--request", type=Path)
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
@@ -95,7 +104,7 @@ def main():
         value = describe(args.describe)
     else:
         request = json.loads(args.request.read_text())
-        if request["domain"] in ("dbbench","webshop","alfworld"):
+        if request["domain"] in ("dbbench","webshop","alfworld","os"):
             value = run_agentbench(request)
         else:
             from ahe_native.tau_bridge import run_tau

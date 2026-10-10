@@ -69,7 +69,7 @@ def main(payload):
                     harness.h3_message(message)
                 # Recorded public budget wins. Fallback matches existing host
                 # budgets; replay does not evaluate environment success.
-                limit = case.get("turn_limit", {"alfworld": 50, "dbbench": 15, "webshop": 20}.get(payload["domain"], 200))
+                limit = case.get("turn_limit", {"alfworld": 50, "dbbench": 15, "webshop": 20, "os": 16}.get(payload["domain"], 200))
                 remaining = call.get("remaining", max(0, limit - ordinal))
                 if ordinal == 0:
                     harness.h5(messages)

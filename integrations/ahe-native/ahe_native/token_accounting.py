@@ -107,8 +107,14 @@ class TokenLedger:
             fingerprint = hashlib.sha256(json.dumps([start, end], sort_keys=True,
                 separators=(',', ':')).encode()).hexdigest()
             usage = canonical_usage(numeric_usage(row.get('usage')))
+            allowed = (end is not None and start is not None and (
+                (end.get('http_status') == 200 and start.get('role') == 'evolve') or
+                (end.get('http_status') is None and end.get('error_type') == 'ReadTimeout'
+                 and start.get('domain') == 'os' and start.get('role') == 'life_optimizer'
+                 and row.get('exception_kind') == 'authorized_os_read_timeout'
+                 and row.get('authorization_quote') and row.get('output_token_range') == [0, 100000])))
             if (ident in result or start is None or end is None or end.get('usage') is not None
-                    or end.get('http_status') != 200 or start.get('role') != 'evolve'
+                    or not allowed
                     or row.get('user_authorized') is not True or not row.get('basis')
                     or fingerprint != row.get('receipt_sha256') or usage is None or usage['total_tokens'] <= 0):
                 raise ValueError('invalid or changed historical token estimate receipt')

@@ -158,3 +158,24 @@ updated prompt check, compilation and whitespace checks also passed. Coverage
 includes all six runtime domains, real hook/schema errors, stale mechanism CAS,
 unsafe-code filtering, qualified retention without required notes, optional-note
 preservation, three repairs, unlimited interactions and optimizer-only accounting.
+
+OS prompt comparison (2026-10-08; rolled back 2026-10-09): an experimental
+prompt added investigator, skeptic and designer reasoning passes. Its fresh
+six-round TEST result was 44/144, below the original Life 48/144. PROMPT.md is
+restored byte-for-byte to the original experiment's prompt (SHA-256
+2390c396e8151484037ff17e7b976485f807fa101777563d11f1398793bcce6c).
+The experiment and its prompt snapshots remain archived; the shared seven-domain
+report selects the original Life OS run. Tools and frozen-input preflight remain
+unchanged. The launcher below uses whichever current prompt is explicitly frozen
+for a new run; it does not automatically select the experimental prompt.
+
+`python -m meta.os_comparison.life_prompt_run --name NEW_NAME --reference
+/path/to/completed/os/reference --launch` creates an independent Life-only six-round
+run from empty H2-H5 using the reference TRAIN schedule and solver configuration.
+It archives the previous prompt, records both prompt hashes, and reuses the native
+OS evaluation, immutable composition, strict same-batch selection and metered
+optimizer. Meta/AHE are not paid or retrained. TEST144 is run after the Life
+training seal; final JSON and CSV are written synchronously before controller exit.
+The shared TEST has already been inspected, so protocol, input receipts and results
+explicitly mark prior_test_exposure=true and describe this as a repeated comparison.
+The archived experimental optimizer prompt contains no TEST examples or grader mismatches.

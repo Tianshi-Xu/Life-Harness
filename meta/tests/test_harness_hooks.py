@@ -105,6 +105,28 @@ class SharedTests(unittest.TestCase):
         self.assertEqual(session.sync_action().messages, [RAW])
         self.assertEqual(backend.requests[0], [{'role':'system','content':'native'},{'role':'user','content':'public'}])
 
+    def test_os_binding_uses_only_public_description_and_resets_state(self):
+        h3 = self.artifact('h3', """    def bind_task_context(self,context):
+        self.context=context
+    def h3(self,tools):
+        tools[0]['function']['description']=self.context['description']
+        return tools
+""")
+        task=SimpleNamespace(FourHookSession=native.FourHookSession)
+        receipt=hooks.install_agentbench(task,'os',self.manifest([h3]))
+        self.assertEqual(receipt['public_context_fields']['os'],['description'])
+        backend=Backend()
+        harness=task.OSInteractionHarness()
+        session=task.FourHookSession(backend,harness,TOOLS,16,SWITCHES,
+                                     task_context={'description':'public OS request'})
+        self.assertEqual(backend.tools[0]['function']['description'],'public OS request')
+        self.assertEqual(session.sync_action().messages,[RAW])
+        for key in ('check','match','init_script','example_script','task_id','container_id'):
+            with self.assertRaises(ValueError):
+                harness.bind_task_context({'description':'public',key:'private'})
+        harness.shared_state['progress']=1
+        self.assertEqual(task.OSInteractionHarness().shared_state,{})
+
     def test_h3_model_view_updates_shared_state_each_turn_without_history_rewrite(self):
         h3=self.artifact('h3', """    def bind_shared_state(self,state):
         self.state=state

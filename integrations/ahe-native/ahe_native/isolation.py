@@ -149,6 +149,13 @@ def case_root(workspace, trace_dir):
     upstream = ROOT.parent / "agentic-harness-engineering"
     (root / "upstream").mkdir(exist_ok=True)
     copy_unchanged_or_atomic(upstream / "trace_converter.py", root / "upstream/trace_converter.py")
+    # The editable adb install points outside the chroot. Supply only its public
+    # upstream package under the already-approved adapter import path.
+    debugger = upstream / "agents/evolve_agent/skills/agent-debugger-cli/_source/agent_debugger_core"
+    if debugger.is_dir():
+        shutil.copytree(debugger, root / "adapter/agent_debugger_core", dirs_exist_ok=True,
+                        ignore=shutil.ignore_patterns("__pycache__"),
+                        copy_function=copy_unchanged_or_atomic)
     reservations = root / "uid_reservations"
     reservations.mkdir(mode=0o700, exist_ok=True)
     # Reserve earlier episodes too; exclusive mkdir prevents cross-process UID

@@ -169,6 +169,12 @@ def public_context(domain, row, db_rows):
     if domain == "webshop":
         instruction = next((m.get("content", "") for m in row["history"] if m.get("role") == "user"), "")
         return {"instruction": instruction}
+    if domain == "os":
+        # The host records only the description already shown to the solver.
+        context = row.get("public_task_context")
+        if not isinstance(context, dict) or set(context) != {"description"} or not isinstance(context["description"], str):
+            raise ValueError("OS evidence requires the exact public task description")
+        return copy.deepcopy(context)
     return None
 
 

@@ -16,10 +16,15 @@ from .token_accounting import TokenLedger, canonical_usage, decode_scope, numeri
 
 class Broker:
     def __init__(self, key, base_url, request_gate=None, rate_limit_retries=0, *, ledger_path,
-                 allowed_model="deepseek-v4-flash", ledger_summary_path=None):
+                 allowed_model="deepseek-v4-flash", ledger_summary_path=None, upstream_model=None,
+                 upstream_timeout=600):
         if allowed_model not in {"deepseek-v4-flash", "qwen3.8-flash"}:
             raise ValueError("unsupported metered provider model")
-        self.client = httpx.Client(timeout=600, trust_env=False)
+        if upstream_model not in {None, allowed_model, "deepseek-v4.1-flash"}:
+            raise ValueError("unsupported upstream provider model")
+        if not isinstance(upstream_timeout, (int, float)) or upstream_timeout <= 0:
+            raise ValueError("positive upstream timeout required")
+        self.client = httpx.Client(timeout=upstream_timeout, trust_env=False)
         self.reasoning = ReasoningCache()
         self.request_gate = request_gate
         self.rate_limit_responses = 0
@@ -32,7 +37,7 @@ class Broker:
         def upstream(content, scope, payload):
             for attempt in range(rate_limit_retries + 1):
                 ident = None
-                status, usage, error, delivered, transport = None, None, None, True, None
+                status, usage, error, delivered, transport = None, None, None, False, None
                 try:
                     with broker.request_gate or nullcontext():
                         ident = broker.ledger.start(scope, model=payload["model"], attempt=attempt + 1,
@@ -87,6 +92,8 @@ class Broker:
                         self.send_error(400, "unsupported model or forbidden credential content")
                         return
                     broker.reasoning.restore(payload)
+                    if upstream_model is not None:
+                        payload["model"] = upstream_model
                     if payload.get("stream"):
                         # Usage is transport metadata, not a model/prompt/search change.
                         payload.setdefault("stream_options", {})["include_usage"] = True

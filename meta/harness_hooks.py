@@ -15,6 +15,7 @@ from meta.environment_state import ReadOnlyDict, apply_changes, changes, read_on
 INTERFACE_VERSION = "life-h2345-unified-v2"
 CONTEXT_FIELDS = {
     **legacy.CONTEXT_FIELDS,
+    "os": {"description"},
     **{domain: {"instruction", "policy"} for domain in ("airline", "retail", "telecom")},
 }
 DEFAULT_OPTIONS = {**legacy.DEFAULT_OPTIONS, "h2_preserve_raw_history": False,
@@ -208,7 +209,7 @@ def interface_fingerprint(base, options=None):
 
 def install_agentbench(task_module, domain, manifest_path, options=None, environment_state_provider=None):
     """Opt-in new-run adapter; do not alter any historical evaluator."""
-    if domain not in legacy.CONTEXT_FIELDS:
+    if domain not in (*legacy.CONTEXT_FIELDS, "os"):
         raise ValueError("not an AgentBench adapter")
     options = copy.deepcopy(options)
     root, records = manifest_records(manifest_path)
@@ -228,7 +229,8 @@ def install_agentbench(task_module, domain, manifest_path, options=None, environ
         harness.set_environment_state_provider(environment_state_provider)
         return harness
 
-    symbol = {"alfworld": "Harness", "dbbench": "DBBenchHarness", "webshop": "WebShopHarness"}[domain]
+    symbol = {"alfworld": "Harness", "dbbench": "DBBenchHarness", "webshop": "WebShopHarness",
+              "os": "OSInteractionHarness"}[domain]
     setattr(task_module, symbol, create)
     task_module.FourHookSession = session_class(base)
     return receipt

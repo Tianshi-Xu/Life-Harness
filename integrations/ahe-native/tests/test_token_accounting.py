@@ -14,6 +14,54 @@ from ahe_native.token_accounting import TokenLedger, canonical_usage, decode_sco
 
 
 class AccountingTests(unittest.TestCase):
+    def test_extended_optimizer_timeout_keeps_historical_default(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            for timeout in (600,1800):
+                broker = Broker('synthetic', 'http://127.0.0.1:1/v1',
+                    ledger_path=Path(tmp)/str(timeout), upstream_timeout=timeout)
+                try:
+                    self.assertEqual(broker.client.timeout.read,timeout)
+                finally:
+                    broker.close()
+            with self.assertRaises(ValueError):
+                Broker('synthetic','http://127.0.0.1:1/v1',ledger_path=Path(tmp)/'invalid',upstream_timeout=0)
+
+    def test_authorized_os_timeout_remains_unknown_and_estimate_is_receipt_bound(self):
+        ledger = TokenLedger(self.path)
+        ident = ledger.start(dict(experiment='synthetic', domain='os', round=1, role='life_optimizer'),
+                             model='deepseek-v4-flash', attempt=1, stream=False)
+        ledger.finish(ident, status=None, usage=None, error_type='ReadTimeout', delivered=False)
+        start, end = ledger.rows
+        receipt = hashlib.sha256(json.dumps([start,end],sort_keys=True,separators=(',',':')).encode()).hexdigest()
+        estimate = {'request_id':ident,'user_authorized':True,'authorization_quote':'explicit test authorization',
+                    'exception_kind':'authorized_os_read_timeout','basis':'synthetic prior measured reference',
+                    'output_token_range':[0,100000],'receipt_sha256':receipt,
+                    'usage':{'prompt_tokens':100,'completion_tokens':20,'total_tokens':120}}
+        path = self.path.with_suffix('.estimates.json')
+        path.write_text(json.dumps([estimate]))
+        summary = ledger.summary()['overall']
+        self.assertEqual((summary['unknown_usage_calls'],summary['total_tokens'],summary['estimated_total_tokens']),(1,0,120))
+        self.assertFalse(summary['accounting_complete'])
+        self.assertTrue(summary['accounting_usable_with_estimates'])
+        for patch in ({'authorization_quote':''},{'user_authorized':False},{'receipt_sha256':'changed'},
+                      {'exception_kind':'generic_retry'},{'output_token_range':[0,1]}):
+            path.write_text(json.dumps([{**estimate,**patch}]))
+            with self.assertRaises(ValueError): ledger.summary()
+
+    def test_timeout_before_response_does_not_claim_delivery(self):
+        client=MagicMock()
+        client.stream.side_effect=httpx.ReadTimeout('synthetic timeout')
+        with patch('ahe_native.metered_broker.httpx.Client',return_value=client):
+            broker=Broker('synthetic-secret','http://unused/v1',ledger_path=self.path,upstream_timeout=1800)
+        self.addCleanup(broker.close)
+        with self.assertRaises(Exception): self.call(broker)
+        finished=[r for r in broker.ledger.rows if r['event']=='finished']
+        self.assertEqual(len(finished),1)
+        self.assertEqual(finished[0]['error_type'],'ReadTimeout')
+        self.assertIsNone(finished[0]['http_status'])
+        self.assertFalse(finished[0]['delivered_to_client'])
+        self.assertIsNone(finished[0]['usage'])
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)

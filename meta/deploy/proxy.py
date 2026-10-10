@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import asyncio
 import itertools
+import os
 
 import uvicorn
 import httpx
@@ -16,6 +17,8 @@ from fastapi import FastAPI, Request
 from fastapi.responses import StreamingResponse, JSONResponse
 
 BACKENDS = [f"http://127.0.0.1:{port}" for port in range(8401, 8409)]
+if os.environ.get("OS_QWEN_BACKENDS"):
+    BACKENDS = os.environ["OS_QWEN_BACKENDS"].split(",")
 LISTEN_PORT = 8400
 
 app = FastAPI()
@@ -26,7 +29,7 @@ _client: httpx.AsyncClient | None = None
 @app.on_event("startup")
 async def _startup():
     global _client
-    _client = httpx.AsyncClient(timeout=httpx.Timeout(600.0, connect=10.0))
+    _client = httpx.AsyncClient(timeout=httpx.Timeout(600.0, connect=10.0), trust_env=False)
 
 
 @app.on_event("shutdown")

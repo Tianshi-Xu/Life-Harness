@@ -13,7 +13,7 @@ import shutil
 from datetime import datetime, timezone
 from pathlib import Path
 
-DOMAINS = {"dbbench", "webshop", "alfworld", "airline", "retail", "telecom"}
+DOMAINS = {"dbbench", "webshop", "alfworld", "airline", "retail", "telecom", "os"}
 FIELDS = {"task_id", "trial", "success", "messages", "infrastructure_error",
           "status", "wall_seconds"}
 MESSAGE_FIELDS = {"role", "content", "tool_calls", "tool_call_id", "name"}

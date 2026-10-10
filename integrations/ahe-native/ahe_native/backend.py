@@ -21,7 +21,7 @@ MANIFEST_SHA256 = "805d13dc3d07019cbd30e0cc50ac400526d3866aeaf8e6c96f0f807537732
 
 def interpreter(domain):
     native = LIFE / "AgentBench/.native"
-    if domain == "dbbench":
+    if domain in {"dbbench", "os"}:
         return native / "core/bin/python"
     if domain == "webshop":
         return native / "webshop-venv/bin/python"
@@ -38,7 +38,7 @@ def episode_timeout(domain):
 
 def native_env(domain=None, *, scope=None):
     env = os.environ.copy()
-    env["PYTHONPATH"] = str(HERE)
+    env["PYTHONPATH"] = os.pathsep.join((str(HERE), str(LIFE)))
     env["NO_PROXY"] = env["no_proxy"] = "localhost,127.0.0.1"
     env["TAU_USER_LLM_MIN_INTERVAL_SECONDS"] = "3.75"
     if domain in {"airline", "retail", "telecom"} and os.environ.get("AHE_TAU_USER_BASE_" + domain.upper()):
@@ -71,6 +71,23 @@ def describe(domain, destination):
 
 def validate_request(request):
     domain = request["domain"]
+    if domain == "os":
+        if request.get("split") != "train" or not request.get("training_schedule_file"):
+            raise ValueError("OS backend requires source-pinned native TRAIN schedule; TEST forbidden")
+        from .training import scheduled_batch
+        ids = [str(x) for x in request["task_ids"]]
+        if ids != [str(x) for x in scheduled_batch(request)]:
+            raise ValueError("OS tasks differ from frozen training schedule")
+        if type(request["concurrency"]) is not int or not 1 <= request["concurrency"] <= 50:
+            raise ValueError("invalid OS native concurrency")
+        workspace = Path(request["workspace"]).resolve()
+        if not (workspace / request["agent_config"]).is_file():
+            raise ValueError("evolving NexAU OS workspace missing")
+        from .capabilities import restricted_policy, validate_workspace
+        if request.get("capability_policy") != restricted_policy("os"):
+            raise ValueError("source-bound restricted OS capability policy required")
+        validate_workspace(workspace, request["capability_policy"], request["agent_config"])
+        return ids
     if hashlib.sha256(MANIFEST.read_bytes()).hexdigest() != MANIFEST_SHA256:
         raise ValueError("frozen benchmark manifest changed; audit before running")
     historical = json.loads(MANIFEST.read_text())
