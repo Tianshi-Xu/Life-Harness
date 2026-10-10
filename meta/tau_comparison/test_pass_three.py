@@ -20,6 +20,8 @@ class PassThreeTests(unittest.TestCase):
         score = pass_three(['all', 'some', 'none'], self.rows())
         self.assertEqual(score['pass_caret_3'], 1 / 3)
         self.assertEqual(score['pass_caret_3_successes'], 1)
+        self.assertEqual(score['pass_at_3'], 2 / 3)
+        self.assertEqual(score['pass_at_3_successes'], 2)
         self.assertEqual(score['successes'], 5)
         self.assertEqual(score['accuracy'], 5 / 9)
         self.assertEqual(score['trial_successes'], [2, 1, 2])
@@ -36,6 +38,7 @@ class PassThreeTests(unittest.TestCase):
         self.assertEqual(score['missing_episodes'], 1)
         self.assertEqual(score['episodes'], 9)
         self.assertIsNone(score['per_task']['all'][2])
+        self.assertEqual(score['pass_at_3'], 2 / 3)
 
     def test_infrastructure_zero_remains_a_failure(self):
         rows = self.rows()
@@ -43,6 +46,28 @@ class PassThreeTests(unittest.TestCase):
         score = pass_three(['all', 'some', 'none'], rows)
         self.assertEqual(score['pass_caret_3'], 0)
         self.assertEqual(score['infra_errors'], 1)
+        self.assertEqual(score['pass_at_3'], 2 / 3)
+
+    def test_new_snapshot_has_no_old_trial_zero_to_preserve(self):
+        from .pass_three import Tests
+        with tempfile.TemporaryDirectory() as directory:
+            runner = Tests.__new__(Tests)
+            runner.root = Path(directory)
+            runner.plan = {'ahe:retail': {'ids': ['all', 'some', 'none'], 'trial_zero': []}}
+            runner.finish('ahe', 'retail', self.rows())
+            self.assertTrue((runner.root / 'ahe/retail/summary.json').is_file())
+
+    def test_reused_trial_zero_still_cannot_change(self):
+        from .pass_three import Tests
+        with tempfile.TemporaryDirectory() as directory:
+            runner = Tests.__new__(Tests)
+            runner.root = Path(directory)
+            runner.plan = {'ahe:retail': {'ids': ['all', 'some', 'none'],
+                'trial_zero': [row for row in self.rows() if row['trial'] == 0]}}
+            rows = self.rows()
+            rows[0] = {**rows[0], 'reward': 0}
+            with self.assertRaisesRegex(RuntimeError, 'trial zero'):
+                runner.finish('ahe', 'retail', rows)
 
     def test_invalid_duplicates_or_nonbinary_reward_rejected(self):
         for rows in (self.rows() + [self.rows()[0]],

@@ -24,10 +24,12 @@ def pass_three(ids, rows):
         outcomes[str(row['task_id'])][row.get('trial', 0)] = reward
     counts = [sum(values[t] == 1 for values in outcomes.values()) for t in range(3)]
     complete = sum(all(value == 1 for value in values) for values in outcomes.values())
+    any_correct = sum(any(value == 1 for value in values) for values in outcomes.values())
     score.update(trials=3, per_task=outcomes, trial_successes=counts,
                  trial_accuracy=[n / len(ids) for n in counts],
                  pass_caret_3_successes=complete, pass_caret_3=complete / len(ids),
-                 metric='fraction of fixed TEST tasks correct in all three trials; not pass@3')
+                 pass_at_3_successes=any_correct, pass_at_3=any_correct / len(ids),
+                 metric='pass^3: all three correct; pass@3: at least one correct; fixed TEST task denominator')
     return score
 
 
@@ -139,9 +141,14 @@ class Tests:
         from ahe_native.backend import episode_timeout, interpreter, workspace_hash
         from ahe_native.capabilities import restricted_policy
         spec = self.plan['ahe:' + domain]
+        trials = tuple(spec.get('new_trials', (1, 2)))
+        if trials != ((1, 2) if spec['trial_zero'] else (0, 1, 2)):
+            raise ValueError('new trials must exactly complete the selected snapshot to three trials')
         folder = self.root / 'ahe' / domain
         snapshot = folder / 'workspace'
         shutil.copytree(spec['snapshot'], snapshot)
+        if workspace_hash(snapshot) != spec['snapshot_sha256']:
+            raise RuntimeError('AHE selected snapshot changed before TEST')
 
         def episode(task, trial):
             directory = folder / hashlib.sha256(f'{task}:{trial}'.encode()).hexdigest()[:16]
@@ -167,7 +174,8 @@ class Tests:
             return {**row, 'reward': row['success']}
 
         with ThreadPoolExecutor(max_workers=50) as pool:
-            futures = [pool.submit(episode, task, trial) for task in spec['ids'] for trial in (1, 2)]
+            futures = [pool.submit(episode, task, trial) for task in spec['ids']
+                       for trial in trials]
             rows = spec['trial_zero'] + [future.result() for future in futures]
         if workspace_hash(snapshot) != spec['snapshot_sha256']:
             raise RuntimeError('AHE test snapshot mutated')
@@ -178,10 +186,11 @@ class Tests:
         if score['missing_episodes']:
             raise RuntimeError('cannot publish pass^3 with missing trials')
         # Reused first-trial outcomes must remain exactly unchanged.
-        old = summarize_rows(self.plan[method + ':' + domain]['ids'], 1,
-                             self.plan[method + ':' + domain]['trial_zero'])['per_task']
-        if any(values[0] != old[task][0] for task, values in score['per_task'].items()):
-            raise RuntimeError('historical trial zero was not preserved')
+        reused = self.plan[method + ':' + domain]['trial_zero']
+        if reused:
+            old = summarize_rows(self.plan[method + ':' + domain]['ids'], 1, reused)['per_task']
+            if any(values[0] != old[task][0] for task, values in score['per_task'].items()):
+                raise RuntimeError('historical trial zero was not preserved')
         save(self.root / method / domain / 'summary.json', score)
 
     def close(self):
