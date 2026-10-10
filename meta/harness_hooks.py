@@ -35,21 +35,25 @@ def validate_source(path, target):
             if ((node.name == "h3_messages" and target != "h3") or isinstance(node, ast.AsyncFunctionDef)
                     or len(args.args) + len(args.posonlyargs) != 2 or args.vararg or args.kwarg
                     or args.kwonlyargs or args.defaults):
-                raise ValueError("invalid optional hook signature/layer: " + node.name)
+                raise ValueError(f"invalid optional hook signature/layer: {node.name} at line {node.lineno}; "
+                                 f"expected two positional arguments including self, no defaults/varargs/keyword-only/async; "
+                                 f"h3_messages belongs to h3; received layer={target!r}, args=({ast.unparse(args)})")
     return tree
 
 
 class CompositeHarness(legacy.CompositeHarness):
     def __init__(self, artifacts, domain, options=None):
         if domain not in CONTEXT_FIELDS:
-            raise ValueError("unknown public-context adapter")
+            raise ValueError(f"unknown public-context adapter: {domain!r}; allowed={sorted(CONTEXT_FIELDS)}")
         self.domain = domain
         self.options = {**DEFAULT_OPTIONS, **(options or {})}
         if set(self.options) != set(DEFAULT_OPTIONS):
-            raise ValueError("unknown session option")
+            raise ValueError(f"unknown session option: unexpected={sorted(set(self.options) - set(DEFAULT_OPTIONS))}; "
+                             f"allowed={sorted(DEFAULT_OPTIONS)}")
         for name, default in DEFAULT_OPTIONS.items():
             if type(self.options[name]) is not type(default):
-                raise ValueError("invalid session option type: " + name)
+                raise ValueError(f"invalid session option type: {name}; expected {type(default).__name__}, "
+                                 f"received {type(self.options[name]).__name__}")
             setattr(self, name, self.options[name])
         self.shared_state = {}
         self._environment_state_provider = None
@@ -85,7 +89,8 @@ class CompositeHarness(legacy.CompositeHarness):
 
     def set_environment_state_provider(self, provider):
         if provider is not None and not callable(provider):
-            raise ValueError("environment-state provider must be a host callback")
+            raise ValueError(f"environment-state provider must be a host callback or None, "
+                             f"not {type(provider).__name__}; artifacts receive read-only business snapshots")
         self._environment_state_provider = provider
         self.refresh_environment_state()
 
@@ -96,7 +101,9 @@ class CompositeHarness(legacy.CompositeHarness):
     def bind_task_context(self, context):
         if context is not None:
             if not isinstance(context, dict) or set(context) - CONTEXT_FIELDS[self.domain]:
-                raise ValueError("only allowlisted public task-context fields may be bound")
+                raise ValueError(f"only allowlisted public task-context fields may be bound: domain={self.domain}, "
+                                 f"allowed={sorted(CONTEXT_FIELDS[self.domain])}, "
+                                 f"received keys={list(context) if isinstance(context, dict) else type(context).__name__}")
         for _, instance in self.layers:
             bind = getattr(instance, "bind_task_context", None)
             if callable(bind):
@@ -110,13 +117,16 @@ class CompositeHarness(legacy.CompositeHarness):
             if not callable(hook):
                 continue
             if target != "h3":
-                raise ValueError("h3_messages belongs to H3")
+                raise ValueError(f"h3_messages belongs to H3: received layer={target!r}")
             before = copy.deepcopy(current)
             current = hook(copy.deepcopy(current))
             if (not isinstance(current, list) or not all(isinstance(m, dict) for m in current)
                     or [legacy._skeleton(m, 'content') for m in current]
                     != [legacy._skeleton(m, 'content') for m in before]):
-                raise ValueError("H3 model-view conditioning changes content only")
+                raise ValueError(f"H3 model-view conditioning changes content only: preserve message count/order, roles, "
+                                 f"IDs and tool-call metadata; expected count={len(before)}, "
+                                 f"received type={type(current).__name__}, "
+                                 f"count={len(current) if isinstance(current, list) else 'n/a'}")
         return current
 
     def h2(self, message, history):
@@ -126,20 +136,25 @@ class CompositeHarness(legacy.CompositeHarness):
             if (not isinstance(control, dict) or set(control) != {"action", "messages"}
                     or control["action"] != "suppress_tool"
                     or not isinstance(control["messages"], list) or not control["messages"]):
-                raise ValueError("H2 veto requires suppress_tool and nonempty corrective messages")
+                raise ValueError("H2 veto requires suppress_tool and nonempty corrective messages: "
+                                 "_harness_control must have exactly action='suppress_tool' and messages=[...] "
+                                 "with at least one public user/tool corrective message")
             calls = message.get("tool_calls") or []
             ids = {call.get("id") for call in calls}
             if len(ids) != len(calls) or any(not isinstance(i, str) or not i for i in ids):
-                raise ValueError("suppressed calls require distinct nonempty IDs")
+                raise ValueError(f"suppressed calls require distinct nonempty IDs: received IDs={list(ids)!r}, "
+                                 f"tool_call count={len(calls)}")
             answered = set()
             for item in control["messages"]:
                 if (not isinstance(item, dict) or item.get("role") not in {"user", "tool"}
                         or not isinstance(item.get("content"), str) or not item["content"].strip()):
-                    raise ValueError("invalid public H2 corrective message")
+                    raise ValueError("invalid public H2 corrective message: expected dict with role='user' or 'tool' "
+                                     "and nonblank string content; tool messages also need a proposed tool_call_id")
                 if item["role"] == "tool":
                     call_id = item.get("tool_call_id")
                     if call_id not in ids or call_id in answered:
-                        raise ValueError("H2 feedback must reference a distinct proposed tool-call ID")
+                        raise ValueError(f"H2 feedback must reference a distinct proposed tool-call ID: "
+                                         f"received {call_id!r}, proposed IDs={sorted(ids)}, already answered={sorted(answered)}")
                     answered.add(call_id)
             # Close suppressed calls for native chat protocols. This is transport
             # feedback, not a fabricated environment result or recovery policy.

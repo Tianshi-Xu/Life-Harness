@@ -39,7 +39,8 @@ def read_only(value, previous=None):
             return previous
         return ReadOnlyList(items)
     if value is not None and (type(value) not in (str, bool, int, float) or isinstance(value, float) and not isfinite(value)):
-        raise ValueError("environment state must contain finite JSON data")
+        raise ValueError(f"environment state must contain finite JSON data: received {type(value).__name__}; "
+                         "only dict/list/string/bool/int/finite float/null are supported")
     return previous if type(value) is type(previous) and value == previous else value
 
 
@@ -47,7 +48,9 @@ def snapshot(value):
     if value is None:
         return None
     if type(value) not in (dict, ReadOnlyDict) or set(value) != {"db"} or type(value["db"]) not in (dict, ReadOnlyDict):
-        raise ValueError("environment state must be None or a business db dictionary")
+        raise ValueError(f"environment state must be None or a business db dictionary: expected {{'db': dict}}; "
+                         f"received type={type(value).__name__}, "
+                         f"keys={list(value) if isinstance(value, dict) else 'n/a'}")
     try:
         return json.loads(json.dumps(value, allow_nan=False))
     except (TypeError, ValueError) as exc:
@@ -104,7 +107,8 @@ def apply_changes(value, patch):
         elif isinstance(current, list):
             items, wrap = list(current), ReadOnlyList
         else:
-            raise ValueError("invalid environment-state path")
+            raise ValueError(f"invalid environment-state path: remaining path={path!r}, "
+                             f"container type={type(current).__name__}; paths must traverse dicts/lists")
         key = path[0]
         if len(path) > 1:
             items[key] = replace(current[key], path[1:], change)
@@ -115,13 +119,14 @@ def apply_changes(value, patch):
         return wrap(items)
 
     if not isinstance(patch, list):
-        raise ValueError("invalid environment-state changes")
-    for change in patch:
+        raise ValueError(f"invalid environment-state changes: expected a list, received {type(patch).__name__}")
+    for change_index, change in enumerate(patch):
         if (not isinstance(change, dict) or set(change) not in ({"path", "value"}, {"path", "delete"})
                 or not isinstance(change["path"], list)
                 or any(type(key) not in (str, int) or type(key) is int and key < 0 for key in change["path"])
                 or "delete" in change and change["delete"] is not True):
-            raise ValueError("invalid environment-state change")
+            raise ValueError(f"invalid environment-state change at changes[{change_index}]: expected "
+                             "{'path': [string/nonnegative integer, ...], 'value': JSON} or {'path': [...], 'delete': true}")
         value = replace(value, change["path"], change)
     if value is not None and (not isinstance(value, ReadOnlyDict) or set(value) != {"db"} or not isinstance(value["db"], ReadOnlyDict)):
         raise ValueError("environment state must contain only business db")
@@ -136,26 +141,32 @@ class StateReader:
         if index is None:
             return None  # Old state-free runs remain explicitly unavailable.
         if type(index) is not int or not 0 <= index < len(self.records):
-            raise ValueError("invalid environment-state reference")
+            raise ValueError(f"invalid environment-state reference: index={index!r}; "
+                             f"expected integer in [0,{len(self.records)}) or None for unavailable state")
         chain, position = [], index
         while position not in self.cache:
             if type(position) is not int or not 0 <= position < len(self.records):
-                raise ValueError("invalid environment-state reference")
+                raise ValueError(f"invalid environment-state reference: chain index={position!r}; "
+                                 f"expected integer in [0,{len(self.records)})")
             entry = self.records[position]
             if not isinstance(entry, dict):
-                raise ValueError("invalid environment-state record")
+                raise ValueError(f"invalid environment-state record at index={position}: expected JSON object, "
+                                 f"received {type(entry).__name__}")
             chain.append(position)
             if set(entry) == {"sha256", "state"}:
                 break
             if set(entry) != {"sha256", "base", "changes"} or type(entry["base"]) is not int or not 0 <= entry["base"] < position:
-                raise ValueError("environment-state deltas must refer to an earlier record")
+                raise ValueError(f"environment-state deltas must refer to an earlier record: index={position}, "
+                                 f"base={entry.get('base')!r}; expected keys sha256/base/changes and integer 0<=base<index")
             position = entry["base"]
         for position in reversed(chain):
             entry = self.records[position]
             value = (read_only(snapshot(entry["state"])) if "state" in entry else
                      apply_changes(self.cache[entry["base"]], entry["changes"]))
             if object_digest(value) != entry["sha256"]:
-                raise ValueError("environment-state hash mismatch")
+                raise ValueError(f"environment-state hash mismatch at index={position}: "
+                                 f"expected={entry['sha256']}, actual={object_digest(value)}; "
+                                 "recorded evidence is inconsistent; do not invent replacement state")
             self.cache[position] = value
         return self.cache[index]
 

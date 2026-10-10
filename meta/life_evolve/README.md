@@ -17,8 +17,43 @@ normally; an already qualified candidate can be restored. Unknown inflight reque
 outcomes must not be blindly retried.
 Retention uses the latest qualified candidate, never the number of operations.
 
-DeepSeek Flash output remains 100000 per request; no local Flash total-context or
-token-spend cap is introduced. The outer launcher must retain global Flash
+User-requested cost control (2026-10-10): new proposals have a **10000000 input +
+output token ceiling**, below twice the old Telecom mean of 5076000. The host
+reserves conservative encoded-input bytes plus the full 100000 output allowance
+before each request; remaining budget may therefore be left unspent. Actual cost
+uses provider input/output usage, including cached input. A budget stop restores
+the latest qualified candidate, or stops without advancing a round if none exists.
+The checkpoint binds budget and usage: restarting cannot reset spend or repairs.
+Past paid receipts and experiment protocols are not rewritten.
+
+To reduce spend rather than only stop at the ceiling, a long optimizer transcript
+triggers a **same-agent working-memory checkpoint** at 65536 locally counted input
+tokens. This threshold is not a provider-context limit and never truncates an API
+response. The same Flash agent preserves evidence/code references, findings,
+hypotheses, alternatives, regression risks, current candidate and next steps in
+its own memory; no host-written domain strategy or auxiliary model is introduced.
+The next request uses that memory and exact host validation/repair bookkeeping.
+Full old messages (including reasoning and tool pairs) are hash-bound under
+`context_history/`, readable/searchable with existing tools but not model-writable.
+Candidate files, qualified snapshots, total usage and repairs persist unchanged.
+The latest validation report is also saved and restored with the agent checkpoint,
+so repeated memory refreshes after a safe pause retain exact host error feedback.
+Checkpoint calls count as optimizer expense, with each checkpoint's own provider
+usage saved alongside cumulative usage. Empty/malformed memory does not replace
+the old context or terminate the proposal: record its cost and error, pair any
+unadvertised calls with not-executed feedback, and continue a normal tool turn
+before another optional refresh. This does not grant a preflight repair or reset
+spend. Actual output truncation still stops or hands off a revalidated candidate.
+`copy_file` seeds a candidate artifact from frozen active/history Python source;
+`replace_file` then changes exact spans, avoiding reprinting unchanged functions.
+Source/evidence reads remain unlimited. Actual cost
+and accuracy effects need a future authorized TRAIN comparison; offline tests
+cannot establish accuracy non-regression. Exact whole-string deduplication was
+evaluated on the prior round-5 transcript (only 0.20% local input-token savings)
+and discarded, rather than accumulating a low-value duplicate implementation.
+
+DeepSeek Flash output remains 100000 per request; no local Flash total-context
+cap is introduced. The outer launcher must retain global Flash
 concurrency <=8. This module is synchronous and starts no background calls. The
 local solver's 32768 total-context / 4096 per-output settings are not changed.
 
@@ -28,9 +63,11 @@ the regression suite are offline. The paid CLI retains its public-only session,
 token usage and repair counter beside the candidate output (`--checkpoint`
 overrides that path), including failed attempts. A new driver should likewise
 pass a persistent `checkpoint_dir`. This entry point does not switch any sealed
-historical driver or resume its old workspace. Existing v2.5 sources and completed
-six-round protocol hashes are unchanged; their validators, accounting and isolated
-action-validation helpers are reused and included in new source fingerprints.
+historical driver or resume its old workspace. Historical experiment artifacts,
+receipts, counters and seals remain unchanged. Shared validator error reporting
+was upgraded on 2026-10-10; new workspaces bind the new source fingerprints.
+Replaying an old receipt requires its original source snapshot, not rewriting
+old hashes to match current code.
 
 Current code-only preflight correction (2026-10-06):
 
@@ -49,6 +86,135 @@ Current code-only preflight correction (2026-10-06):
 - This correction does not rewrite historical sources, paid artifacts, receipts,
   repair counters or seals. Existing workspaces require a new source-bound receipt;
   there is no automatic paid restart.
+
+Evolve diagnostics and development tooling (2026-10-10):
+
+- Bundle rejections retain operation index/ID, mechanism, artifact and precise
+  missing/extra fields, identifiers, revision/hash CAS or path failures, including
+  when every operation is rejected. Imports and hook signatures identify the
+  offending expression/line and expected contract. Full TRAIN replay identifies
+  case, call index, hook and responsible or related artifacts; action-schema
+  errors name nested argument paths. Worker termination reports signal/exit,
+  affected cases and the existing CPU/RAM/wall bounds. Tool errors include the
+  expected argument schema; read/state ranges, immutable input/checkpoint/cache
+  changes and usage errors explain how to audit or repair them without resetting
+  paid work. No safety predicate, native scoring or runtime budget is relaxed.
+- Repeated replay failures are grouped in model feedback with every case/call
+  occurrence retained. Full per-case reports remain in validation artifacts.
+- Optional search_file provides paged literal-text byte offsets; replace_file
+  replaces one unique exact span in candidate outputs. These reuse the existing
+  read/write allowlists and bounds; there is no total search/read/edit quota.
+- Optional preview_candidate replays one chosen TRAIN prefix in the same isolated
+  worker, showing H3 description/model-view changes, H4/H5 guidance, H2 action and
+  feedback, and scalar episode-state summaries. Long strings are explicitly
+  marked truncated; containers are type summaries, not a full DB dump. Preview
+  neither calls an LLM/environment nor qualifies a candidate, narrows full replay
+  or consumes a preflight repair opportunity.
+- Public history can expose hash-verified prior proposal code and paired TRAIN
+  gain/regression case IDs when matching recorded summaries exist. Rejected code
+  is read-only evidence, never activated; missing/unverifiable history is marked
+  unavailable. Historical TEST details are not projected into these views.
+- The shorter mechanism-first prompt uses these tools and regression evidence,
+  asks for coverage/risk-aware fixes and coherent state/feedback, and preserves
+  optional notes, unlimited interactions and at most three repair opportunities.
+  H2–H5 interfaces/templates, model settings and external concurrency <=8 remain.
+
+Before applying this upgrade, the completed Telecom branch's 24 optimizer source
+fingerprints were verified and saved locally under the git-ignored
+`meta/experiments/life_evolve_feedback_upgrade_20261010/source_before/` with
+`source_audit.json`. Old experiments were not rewritten or paid sessions restarted.
+Offline tests and frozen-input replay establish implementation behavior, not an
+accuracy improvement; a new source-bound paid experiment is needed to measure it.
+
+Verification on the merged source (2026-10-10): 267 offline regressions passed;
+the unchanged real Telecom candidate passed all 817 calls across 50 TRAIN cases.
+68 bundle, 14 static-source and 14 action-schema old/new acceptance comparisons
+matched. Original 24 archived sources and completed-run receipts were verified;
+this verification made no external LLM calls and started no native evaluation.
+
+The round-two branch launcher now accepts an explicit --source-upgrade-audit
+with exact archived-before/current-after fingerprints for these optimizer and
+diagnostic sources; native scoring, tasks and solver changes remain disallowed.
+Optional --history-from exposes a closed, sealed TRAIN branch as additional
+read-only history. Inherited rows are deduplicated, different past code remains
+separate, and complete ancestor exploration cost is recorded separately from
+new spend. This does not activate rejected code or authorize a TEST rerun.
+
+First paid tooling-upgrade probe (2026-10-10): the Telecom round-two continuation
+produced a qualified candidate with zero preflight repairs, but scored 39/50 TRAIN
+against the same-batch incumbent's 39/50. Eight tasks improved and eight regressed;
+the candidate was not accepted, with zero infrastructure failures and no TEST run.
+All 101 optimizer requests have measured usage: 23,015,966 new tokens, 64,713,337
+including complete ancestor exploration. This is evidence that tooling works,
+not that accuracy improved. That probe exposed a feedback gap: historical code
+and task flips were readable, but read_case only selected incumbent trajectories.
+
+Regression-aware evidence upgrade (2026-10-10, optimizer only): read_case now
+accepts a zero-based history_index for hash-bound public TRAIN trajectories from
+past candidates, including rejected ones. Optional metadata pins existing sealed
+files without copying large DB logs; missing evidence is reported explicitly,
+never replaced with TEST or incumbent evidence. Existing privacy filtering and
+explicit model/action-boundary business-state reads are reused. Public setup is
+available via include_setup=true instead of being repeated in every response;
+recorded-call messages can be paged independently of episode history. Full
+evidence access remains unlimited. The compact prompt prioritizes observed
+regressions and encourages handoff once a coherent qualified change is ready,
+without imposing any total interaction/case/token cap. Multiple --history-from
+branches retain distinct failed attempts and count their measured costs once.
+H2–H5, native evaluation, solver settings and acceptance gates are unchanged.
+Previous paid-run sources were archived under
+`meta/experiments/life_evolve_feedback_traces_upgrade_20261010/source_before/`;
+those paid runs, results and receipts remain immutable.
+Verification for this evidence upgrade: 273 offline regressions passed; all 817
+calls across the same 50 real TRAIN cases replayed. Eight historical attempts
+have readable candidate traces, 21 prior code files remain separate, and each of
+the latest eight regressions returns the actual success/failure pair. This is
+implementation evidence, not proof of a better candidate's accuracy.
+
+Paid regression-feedback probe completed: 45/50 TRAIN (90%) against the reused
+39/50 incumbent (78%); accepted, 10 gains and 4 regressions, zero infrastructure
+errors. All nine preflights passed with zero repairs. New optimizer spend is
+26,123,863 measured tokens across 103 requests, 90,837,200 including all ancestor
+exploration. The model read 15 TRAIN cases but never selected historical candidate
+traces; soft handoff guidance did not reduce interaction/spend. No new TEST was
+run and original six-round records stay unchanged. After verifying its sources,
+receipts, seal and exited processes, all 24 source files were preserved under
+`meta/experiments/life_telecom_evolve_regression_probe_20261010/source_before/`.
+
+Follow-up evidence correction allows valid H3 description-only changes between
+recorded calls and returns the selected call's descriptions with include_setup.
+Native names/parameter contracts remain immutable; no solver, runtime or scoring
+change is made. This offline correction happened after the paid probe was sealed,
+so its accuracy gain cannot be attributed to the follow-up fix.
+
+Evidence-first continuation: the initial optimizer message now includes measured
+latest-primary-attempt outcomes and paired gain/regression IDs, without generating
+a diagnosis or inserting policy content. read_case's history_variant='incumbent'
+allows the matching historical baseline to be compared with its candidate even
+after batch rotation. Copied ancestor records gain missing code and trace indexes
+from registered sealed sources without duplication. Case metadata includes
+history_length for targeted reads. Qualified feedback recommends handoff to real
+evaluation; cases, interactions and total tokens remain unlimited.
+
+Follow-up after round four: preview_candidate can inspect the retained chain
+before a bundle exists or explicitly with chain='incumbent'. A malformed working
+candidate still fails candidate preview and full preflight, never silently falling
+back. Rotated-case errors route to paired historical reads, and the prompt names
+both historical variants explicitly. These are diagnostic corrections, not new
+qualification gates or manually filled domain policies.
+
+After round five's tied 42/50 candidate, Evolve now binds omitted modify/delete
+version guards from the frozen inventory; explicit wrong guards still fail.
+Startup feedback includes hash-verified public paired regression tail excerpts,
+not diagnoses or policies. Full case access remains unlimited and unavailable
+history is explicit. These changes do not alter H2–H5, the native budget/scorer
+or the already sealed paid runs.
+
+--next-round-from creates one new rotated TRAIN round from any sealed incumbent
+before round six, preserving accepted versions/state and all recorded ancestor
+cost once. Sources and ancestry receipts are pinned; no bulk logs or TEST data
+are copied, and no TEST is run. This does not resume a paid session or edit old
+receipts. Each one-round continuation is inspected before authorizing another.
 
 Methodology implemented after the old Life / Meta / AHE comparison:
 
@@ -74,7 +240,7 @@ Life's full AgentBench six-round run until that prerequisite is complete.
 
 Offline regression: `python -m unittest discover -s meta/tests -p test_life_evolve.py`.
 
-Latest implementation verification (2026-10-05): 220 passing meta regressions,
+Implementation verification milestone (2026-10-05): 220 passing meta regressions,
 including restoration after provider context exhaustion with a qualified candidate
 and normal failure without one. The existing snapshot restoration is reused;
 no extra API retry or repair opportunity is introduced. The default paid transport

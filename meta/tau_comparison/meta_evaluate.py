@@ -18,6 +18,14 @@ def main(request_path):
     def judge(model, extra_args=None):
         original(model, extra_args={**(extra_args or {}), 'api_base': request['judge_base']})
     module._set_nl_assertions_llm = judge
+    if request.get('resume_trials'):
+        run_tasks = module.run_tasks
+
+        def resume(config, *args, **kwargs):
+            config.auto_resume = True
+            return run_tasks(config, *args, **kwargs)
+
+        module.run_tasks = resume
     sys.argv = ['eval_harness', '--domain', request['domain'], '--split', request['split'],
         '--task-id-file', request['task_id_file'], '--trials', str(request['trials']),
         '--concurrency', str(request['concurrency']), '--harness-plugin', request['candidate'],

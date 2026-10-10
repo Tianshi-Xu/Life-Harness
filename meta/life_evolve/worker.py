@@ -23,7 +23,8 @@ def main(payload):
     resource.setrlimit(resource.RLIMIT_CORE, (0, 0))
     for module in SAFE_IMPORTS:
         importlib.import_module(module)
-    codes = {r["name"]: compile(r["source"], r["name"], "exec") for r in payload["artifacts"]}
+    codes = {r["name"]: compile(r["source"], r.get("artifact", r["name"]), "exec") for r in payload["artifacts"]}
+    locations = {r.get("artifact", r["name"]): r["name"] for r in payload["artifacts"]}
 
     def audit(event, args):
         if (event == "open" or event.startswith(("os.", "socket.", "subprocess.", "ctypes.", "shutil."))
@@ -50,21 +51,25 @@ def main(payload):
         harness.bind_environment_state(state)
         return harness
 
-    replayed, results = 0, []
+    replayed, results, previews = 0, [], []
     for case in payload["cases"]:
+        stage, ordinal = "bind_context_and_environment_state", None
         try:
             states = case.get("environment_states", [])
             reader = StateReader(states)
             current_index = case.get("initial_environment_state_index")
             current_state = reader.get(current_index)
             harness = fresh(case["context"], current_state)
+            stage = "h3"
             tools = harness.h3(copy.deepcopy(case["tools"]))
             for ordinal, call in enumerate(case["calls"]):
+                stage = "bind_environment_state"
                 index = call.get("environment_state_index")
                 if index != current_index:
                     current_state, current_index = reader.get(index), index
                 harness.bind_environment_state(current_state)
                 messages = [copy.deepcopy(case["message_pool"][i]) for i in call["message_indices"]]
+                stage = "h3_message"
                 for message in messages:
                     harness.h3_message(message)
                 # Recorded public budget wins. Fallback matches existing host
@@ -72,25 +77,73 @@ def main(payload):
                 limit = case.get("turn_limit", {"alfworld": 50, "dbbench": 15, "webshop": 20}.get(payload["domain"], 200))
                 remaining = call.get("remaining", max(0, limit - ordinal))
                 if ordinal == 0:
-                    harness.h5(messages)
+                    stage = "h5"
+                    guidance = harness.h5(messages)
                 else:
-                    harness.h4(messages, remaining)
-                harness.h3_messages(messages)
+                    stage = "h4"
+                    guidance = harness.h4(messages, remaining)
+                stage = "h3_messages"
+                model_view = harness.h3_messages(messages)
                 raw = copy.deepcopy(call["assistant"])
+                stage = "bind_action_environment_state"
                 index = call.get("action_environment_state_index")
                 if index != current_index:
                     current_state, current_index = reader.get(index), index
                 harness.bind_environment_state(current_state)
+                stage = "h2"
                 repaired = harness.h2(raw, messages)
+                stage = "h2_action_schema"
                 check_action(raw, repaired, tools)
-                harness.h2_no_tool_message(repaired, remaining)
-                harness.drain_h2_messages()
+                stage = "h2_no_tool_message"
+                nudge = harness.h2_no_tool_message(repaired, remaining)
+                stage = "drain_h2_messages"
+                side_messages = harness.drain_h2_messages()
                 replayed += 1
-            results.append({"case_id": case["case_id"], "passed": True, "calls": len(case["calls"])})
+                if ordinal == payload.get('preview_call_index'):
+                    previews.append({'case_id': case['case_id'], 'call_index': ordinal, 'remaining': remaining,
+                        'guidance_hook': 'h5' if ordinal == 0 else 'h4', 'guidance': guidance,
+                        'model_view_changes': [{'message_index': index, 'before_content': before.get('content'),
+                            'after_content': after.get('content')} for index, (before, after)
+                            in enumerate(zip(messages, model_view)) if before != after],
+                        'tool_description_changes': [{'name': before['function']['name'],
+                            'before': before['function'].get('description'), 'after': after['function'].get('description')}
+                            for before, after in zip(case['tools'], tools)
+                            if before['function'].get('description') != after['function'].get('description')],
+                        'action_before': raw, 'action_after': repaired, 'no_tool_nudge': nudge,
+                        'side_messages': side_messages,
+                        'shared_state_summary': {key: {'type': type(value).__name__,
+                            'value': value[:200] if isinstance(value, str) else value,
+                            **({'length': len(value), 'truncated': len(value) > 200} if isinstance(value, str) else {})}
+                            if value is None or type(value) in (str, bool, int) else {'type': type(value).__name__}
+                            for key, value in harness.shared_state.items() if isinstance(key, str)}})
+                    break
+            results.append({"case_id": case["case_id"], "passed": True,
+                            "calls": ordinal + 1 if payload.get('preview_call_index') is not None else len(case["calls"])})
         except Exception as exc:
-            results.append({"case_id": case["case_id"], "passed": False, "error": f"{type(exc).__name__}: {exc}"[:1000]})
-    return {"passed": all(r["passed"] for r in results), "calls_replayed": replayed,
-            "cases": results, "scope": "frozen-input hook replay, not environment rollout or score"}
+            detail = {"case_id": case["case_id"], "passed": False, "call_index": ordinal,
+                      "hook": stage, "error": f"{type(exc).__name__}: {exc}"[:2000]}
+            detail['related_artifacts'] = [r.get('artifact', r['name']) for r in payload['artifacts']
+                                          if stage.startswith(r['layer']) or stage.startswith('bind_')]
+            trace = exc.__traceback__
+            while trace is not None:
+                filename = trace.tb_frame.f_code.co_filename
+                if filename in locations:
+                    detail.update(artifact=filename, mechanism_id=locations[filename], line=trace.tb_lineno)
+                # Contract failures occur just after a hook returns. Locate the
+                # responsible implementation without dumping frame locals/data.
+                instance = trace.tb_frame.f_locals.get("instance")
+                method = type(instance).__dict__.get(stage) if instance is not None else None
+                code = getattr(method, "__code__", None)
+                if code is not None and code.co_filename in locations and "artifact" not in detail:
+                    detail.update(artifact=code.co_filename, mechanism_id=locations[code.co_filename],
+                                  line=code.co_firstlineno)
+                trace = trace.tb_next
+            results.append(detail)
+    report = {"passed": all(r["passed"] for r in results), "calls_replayed": replayed,
+              "cases": results, "scope": "frozen-input hook replay, not environment rollout or score"}
+    if 'preview_call_index' in payload:
+        report['previews'] = previews
+    return report
 
 
 if __name__ == "__main__":
