@@ -1,14 +1,14 @@
 # 六场景 Meta / AHE / Life 六轮实验结果汇总
 
-汇总时间：2026-10-07 08:02:43 UTC。
+初次汇总：2026-10-07 08:02:43 UTC；最新补充：2026-10-10。
 
-范围：AgentBench 的 ALFWorld、DBBench、WebShop，以及 TauBench 的 Airline、Retail、Telecom。OS 不在本报告中。仅汇总已有结果，不新增或重跑付费实验，不修改历史实验产物。
+范围：AgentBench 的 ALFWorld、DBBench、WebShop，以及 TauBench 的 Airline、Retail、Telecom。OS 不在本报告中。保留历史实验产物；经用户授权补充三次 TEST 指标及 AHE 的 TRAIN 最优选版测试，新增测试开销与原优化费用分开。
 
 ## 1. 完成情况与比较口径
 
 - 六个场景 × 三种方法，共18组实验，均已有六次优化尝试的记录和最终 TEST 结果；以下保留108个逐轮训练／开销数据点。
 - “六轮完成”不等于六轮都生成并评测了新候选。Meta AgentBench 的 ALFWorld/WebShop 第5轮，以及 Meta TauBench 的 Retail 第2轮、Telecom 第2～6轮，候选未测或没有有效候选；表中标记为“†”，保留当轮现任版本的实测 TRAIN 分数，不能将缺失候选分数写成0%。
-- TEST 表使用各实验依据 TRAIN 选择并冻结的最终测试版本；不是用 TEST 从六轮中挑最高分。AHE 保留原版选择逻辑，不人为套用 Meta/Life 的严格提升接纳规则。
+- Meta/Life 的原 TEST 表使用依据 TRAIN 接收并冻结的版本。**AHE 原 TEST 实际测试的是第6轮末轮工作区，不是原版记录的 best-ever**；其历史结果保留在第2节与2.1节，正式 TRAIN 最优选版结果见2.11节。不按 TEST 挑版本，不修改 AHE 的迭代核心或历史接纳记录。
 - Meta/Life 的 TRAIN 表列出当轮保留版本分数：接受候选则取候选分数，否则取当轮现任分数。AHE 列出该轮优化产物后续测量的分数，未必是原版 best-ever 选中的版本。
 - AgentBench 每批50条 TRAIN；TauBench Retail/Telecom 每批50条 TRAIN；TauBench Airline 为完整30条 TRAIN × 2次试验，共60条 episode。TEST 每题1次；完整分母含基础设施失败，失败计0。
 - 多数场景会换训练批次；Airline 即使使用同一30题池也存在模型／用户对话随机性。跨轮准确率不是固定 TEST 集的单调学习曲线，六轮相同也不代表 token 预算相同。
@@ -16,11 +16,11 @@
 - 当前 Life 汇总并非六域同一代码版本的联合实验：ALFWorld/DBBench 取10月4日修复续跑；WebShop、Telecom、Airline/Retail 取10月6～7日各自最新完成版本。ALFWorld/DBBench 记录 `prior_test_exposure=true`、`test_used_for_optimization=false`，不是项目首次盲测。
 - AHE AgentBench 使用 `h2345-budget-restricted-v1` 限制版：每轮最多精读10条详细案例，禁用新增工具、修改工具实现、额外运行时LLM、子代理、单工具隐藏多次环境调用、跨任务可写记忆。这里不把该限制版冒称为无限制原版AHE，也不把此案例限额推广为 Meta/Life 限额。
 
-## 2. 最终 TEST 准确率
+## 2. 原六轮实验的 TEST 准确率（AHE 为末轮版，历史保留）
 
 发布版参考是用户提供值，不是本次重新测试，也没有对应的六轮优化 token 账本；ALFWorld 发布版参考未提供。
 
-| 套件 | 场景 | TEST分母 | Meta | AHE | Life（当前所选六轮版） | 发布版参考 | TEST基础设施失败：Meta / AHE / Life |
+| 套件 | 场景 | TEST分母 | Meta | AHE（历史末轮版） | Life（原所选六轮版） | 发布版参考 | TEST基础设施失败：Meta / AHE / Life |
 |---|---|---:|---:|---:|---:|---:|---|
 | AgentBench | ALFWorld | 109 | 35.78%（39/109） | 95.41%（104/109） | 88.07%（96/109） | 未提供 | 1 / 0 / 1 |
 | AgentBench | DBBench | 300 | 50.33%（151/300） | 52%（156/300） | 65%（195/300） | 65% | 0 / 0 / 0 |
@@ -31,22 +31,22 @@
 
 注意：AHE 历史 AgentBench `COMPARISON.md` 中的 Meta/Life 列属于更早的实验。本报告没有沿用那些旧列；Meta 换成10月4日有实测 token 的六轮重跑，Life 换成上文明确列出的当前版本。AHE 的测试结果本身仍来自该历史限制版的固定最终测试。
 
-### 2.1 TauBench Meta / AHE 三次 TEST 与 pass^3（2026-10-09 补测）
+### 2.1 TauBench Meta / AHE 原三次 TEST：pass^3 与 pass@3
 
-Meta / AHE 三个场景的三次 TEST 均已完成（2026-10-10），完整复用200个、新增400个 episode，六组均无缺失或基础设施失败。原上表是每题一次的 TEST 准确率，不是 pass^3。下表使用完成后的固定分母结果；Life 当前只有单次 TEST，不能当作 pass^3 对比。
+Meta / AHE 三个场景的三次 TEST 均已完成（2026-10-10），完整复用200个、新增400个 episode，六组均无缺失或基础设施失败。原上表是每题一次的 TEST 准确率，不是 pass^3。AHE 此表仍为原末轮版；Airline/Retail 的 TRAIN 最优版补测另见2.11节，Telecom 末轮已是 TRAIN 最优，可复用。Life Telecom 固定第3轮产物的三次 TEST 见2.8节；按用户要求不补测 Life Airline/Retail。
 
-| 方法 | 场景 | 每次题数 | 第1次成功数 | 第2次成功数 | 第3次成功数 | 三次平均准确率 | 三次均正确题数 | pass^3 |
-|---|---|---:|---:|---:|---:|---:|---:|---:|
-| Meta | Airline | 20 | 4 | 2 | 1 | 11.67% | 0 | 0% |
-| AHE | Airline | 20 | 7 | 7 | 7 | 35% | 2 | 10% |
-| Meta | Retail | 40 | 16 | 13 | 11 | 33.33% | 6 | 15% |
-| AHE | Retail | 40 | 12 | 12 | 10 | 28.33% | 4 | 10% |
-| Meta | Telecom | 40 | 20 | 19 | 22 | 50.83% | 16 | 40% |
-| AHE | Telecom | 40 | 37 | 38 | 39 | 95% | 35 | 87.5% |
+| 方法 | 场景 | 每次题数 | 第1次成功数 | 第2次成功数 | 第3次成功数 | 三次平均准确率 | 三次均正确题数 | pass^3 | pass@3（至少一次正确） |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Meta | Airline | 20 | 4 | 2 | 1 | 11.67% | 0 | 0% | 25%（5/20） |
+| AHE 末轮 | Airline | 20 | 7 | 7 | 7 | 35% | 2 | 10% | 60%（12/20） |
+| Meta | Retail | 40 | 16 | 13 | 11 | 33.33% | 6 | 15% | 55%（22/40） |
+| AHE 末轮 | Retail | 40 | 12 | 12 | 10 | 28.33% | 4 | 10% | 47.5%（19/40） |
+| Meta | Telecom | 40 | 20 | 19 | 22 | 50.83% | 16 | 40% | 60%（24/40） |
+| AHE 末轮／TRAIN 最优 | Telecom | 40 | 37 | 38 | 39 | 95% | 35 | 87.5% | 100%（40/40） |
 
-- 固定原六轮 TRAIN 选择并封存的 Meta/AHE harness，不再 evolve，不按测试结果重新选版本；Life 不在本次补测范围。
+- 固定原封存的 Meta/AHE harness，不再 evolve，不按测试结果重新选版本；AHE 原补测沿用当时末轮工作区，不能再称它们都是 best-ever。Life 不在这次历史补测范围。
 - 复用原每题第1次 TEST，在完全相同的测试题目上补第2、3次，共复用200个、新增400个 episode。三个 TauBench 场景的题数分别为20、40、40。
-- `pass^3 = 三次均正确的题数 / 固定测试题数`。不是“三次中至少一次正确”的 pass@3，也不是平均准确率的三次方。基础设施失败仍在固定分母中计0；未完成的 trial 不伪装成已完成结果。
+- `pass^3 = 三次均正确的题数 / 固定测试题数`；`pass@3 = 三次中至少一次正确的题数 / 固定测试题数`。均不是平均准确率的三次方。基础设施失败仍在固定分母中计0；未完成的 trial 不伪装成已完成结果。新增 pass@3 由原始逐题 trial 计算，不产生额外 API 调用。
 - Meta 使用原生 checkpoint 的 seed=300 序列补齐后两个 trial；AHE 延续原 adapter 的逐 trial seed=42、43、44。两方法原始 seed 策略不同，保留原协议，不改训练产物。
 - 新目录：`meta/experiments/meta_ahe_tau_pass3_20261009/`。`reuse_receipt.json` 记录旧封存与逐记录哈希，`FINAL_RESULTS.json` 已保存逐题三次结果、逐次准确率、三次平均准确率与 pass^3。完成后复核了三次均成功计数、完整分母、原始 TEST 记录和所选 harness 的封存哈希。
 - 仅用户模拟器／必要评分器产生外部 TEST API 开销，独立存入该目录 `ledgers/`；本次 evolve 开销为0，不加入下方六轮优化 token。DeepSeek 所有补测请求共享并发上限8；Airline/Retail 仍使用用户 Aliyun `qwen3.8-flash`。
@@ -134,13 +134,13 @@ Evolve已完成并送入同批50题候选评测：102次请求、22,168,910实�
 
 目录：`meta/experiments/life_telecom_r3_fixed_test3_20261010/`。固定第3轮TRAIN45/50（90%）已接收快照`25d3163e49016d239dc7ea4ec09e21af5bf1d1a3c00fed056e0c7fdfe78b8c4a`，没有按TEST选版本。原生40题、trials=3、固定120个episode全部完成。只测这一份产物，不再Evolve。DeepSeek只作用户模拟，单broker并发8；Qwen3-4B solver仍32768／4096、workers50。测试runtime/data/产物单独冻结，后续修改未使用的Evolve代码不会改变此TEST。
 
-| 方法／固定版本 | Trial 1 | Trial 2 | Trial 3 | 三次均值 | 严格 pass^3（三次都正确） |
-|---|---:|---:|---:|---:|---:|
-| Life 本次TRAIN选定第3轮产物 | 35/40（87.5%） | 37/40（92.5%） | 36/40（90%） | 108/120（90%） | 31/40（77.5%） |
-| AHE 原六轮固定产物 | 37/40（92.5%） | 38/40（95%） | 39/40（97.5%） | 114/120（95%） | 35/40（87.5%） |
-| Meta 原六轮固定产物 | 20/40（50%） | 19/40（47.5%） | 22/40（55%） | 61/120（50.83%） | 16/40（40%） |
+| 方法／固定版本 | Trial 1 | Trial 2 | Trial 3 | 三次均值 | 严格 pass^3（三次都正确） | pass@3（至少一次正确） |
+|---|---:|---:|---:|---:|---:|---:|
+| Life 本次TRAIN选定第3轮产物 | 35/40（87.5%） | 37/40（92.5%） | 36/40（90%） | 108/120（90%） | 31/40（77.5%） | 40/40（100%） |
+| AHE 原六轮固定产物 | 37/40（92.5%） | 38/40（95%） | 39/40（97.5%） | 114/120（95%） | 35/40（87.5%） | 40/40（100%） |
+| Meta 原六轮固定产物 | 20/40（50%） | 19/40（47.5%） | 22/40（55%） | 61/120（50.83%） | 16/40（40%） | 24/40（60%） |
 
-Life本次均值距AHE仍差5个百分点，pass^3差10个百分点，不声称已经追上。AHE／Meta数值复用`meta/experiments/meta_ahe_tau_pass3_20261009/FINAL_RESULTS.json`，不是本次重跑；旧Life单次TEST65%和发布版57.5%参考值不替换、不当作三次指标。这是后续续跑分支结果，不覆盖原六轮主表。
+Life本次 pass@3 与 AHE 同为100%，但均值仍差5个百分点、pass^3差10个百分点，不声称整体已经追上。AHE／Meta数值复用`meta/experiments/meta_ahe_tau_pass3_20261009/FINAL_RESULTS.json`，不是本次重跑；旧Life单次TEST65%和发布版57.5%参考值不替换、不当作三次指标。这是后续续跑分支结果，不覆盖原六轮主表。2026-10-10补充 pass@3 仅重新计算已有120条原始记录，不重跑、不新增 Evolve 或用户模拟费用；不补测 Life Airline/Retail。
 
 独立核验：40题各有trial0／1／2，120条无重复、无缺失、基础设施失败0；326份冻结源码／数据／产物hash全部一致，原生结果hash与summary一致。账本3058次请求均有实测usage：用户模拟输入17,683,286＋输出370,422＝18,053,708 token，未知／待结／估算均为0；仅user_simulator角色，新增Evolve费用0。MR门limit8／peak5／active0，broker已关闭，原控制器／评测器及停止的第6轮控制器已退出。核验记录见本目录`RESULT_AUDIT.json`。
 
@@ -175,6 +175,49 @@ Life本次均值距AHE仍差5个百分点，pass^3差10个百分点，不声称�
 Evolve最终仍为**7,515,699 token**，182次请求全部200／实测usage；其中原失败阶段129次5,305,935、续接53次2,209,764，共用一个10,000,000上限，未清零或重复计费。TRAIN用户模拟器另有1569次请求，输入9,320,257＋输出186,651＝**9,506,908 token**，全部200／实测usage，不加入优化预算；两种角色均无未知、待结或估算usage，未观察到429。包含原已知历史探索的总优化费用为**136,620,625**，不能只拿本轮751.57万和AHE完整六轮比较。MR峰值4／上限8，结束active0、broker关闭，控制器及原生评测器已退出。
 
 本次只验证一轮同批TRAIN净提升及预算内完成；没有额外轮次或TEST。2.8中的TEST平均90%／pass^3 77.5%来自此前固定第3轮快照，**不属于本次新接收的第6轮候选**；不能声称新候选已在TEST保持90%或追上AHE。原六轮主表和历史结果保留，不用本次续跑替换。完整核验见续接目录`RESULT_AUDIT.json`。
+
+### 2.11 AHE 六轮 TRAIN 最优选版 TEST 与 TauBench pass@3（2026-10-10，全部完成）
+
+核对确认：原 AHE 控制器在 Evolve **之前**评测、更新 `best_ever.json`，原测试接入层却复制了结束时的第6轮 `workspace`，并未恢复 best-ever；因此2节与2.1节的旧 TEST 不能统称“过程最优版”。本次只修正最终选版／测试接入，不改变原版 AHE 的 Evolve、Debugger、六轮历史或训练产物。所选版本固定后才测试，不能看完 TEST 在新旧版中择高。
+
+选版比较原六次已登记的 TRAIN 结果和已经付费测过的第6轮最终候选 TRAIN；最终候选严格更高才替换原 best-ever，同分保留较早版本。原 `iteration_i` 的输入产物来自第 `i−1` 次 Evolve，不能把评测编号直接当产物轮次。各 TRAIN 分数可能来自不同轮换批次，是既有选版依据，不宣称同批因果提升。Telecom 原 best-ever 88%，但第6轮另测 TRAIN 为100%，所以其现有末轮 TEST 已对应 TRAIN 最优，无需重跑。
+
+| AHE 场景 | 原 best-ever TRAIN | 第6轮候选 TRAIN | 固定所选产物轮次 | 所选 TRAIN | TEST 处理 |
+|---|---:|---:|---:|---:|---|
+| ALFWorld | 98% | 98% | 3 | 98% | 新补测，保留同分的较早版 |
+| DBBench | 62% | 40% | 1 | 62% | 新补测 |
+| WebShop | 42% | 36% | 3 | 42% | 新补测 |
+| Airline | 45% | 41.67% | 3 | 45% | 新补测3次 |
+| Retail | 50% | 20% | 3 | 50% | 新补测3次 |
+| Telecom | 88% | 100% | 6 | 100% | 复用已有3次 TEST |
+
+新目录：`meta/experiments/ahe_best_train_test_pass3_20261010/`。选版前离线核对官方 AHE 源码指纹、训练登记、原始逐题 TRAIN 分数、native task IDs、产物／workspace 收据与旧 TEST 哈希；311项离线回归通过。只新增 ALFWorld 109、DBBench 300、WebShop 200、Airline 60、Retail 120，共789个 TEST episode。保持各自原评测传输、预算、评分和固定分母；原始旧结果不覆盖，新增 optimizer token 为0。Meta 三场景与 Life Telecom 的 pass@3 均复用已完成的三次原始 TEST；Life Airline/Retail 不补测，也不把 Life 第3轮 TEST 归给后来第6轮新产物。即使选中较早产物，仍保留完整六轮实际优化费用；已有旧 TEST，本次不是项目首次盲测，但没有读取 TEST 来优化或选择新产物。
+
+AgentBench 三组补测已完成，609条原始 TEST 记录与产物哈希均已独立核对；各题只有trial0，无重复／缺失，基础设施失败均为0。结果并非全部提高，不能从新旧 TEST 中择高。
+
+| 场景 | AHE 固定 TRAIN 选版 | 新 TEST | AHE 历史末轮 TEST（保留） | Life 原所选六轮 TEST |
+|---|---:|---:|---:|---:|
+| ALFWorld | 第3轮；与末轮 TRAIN 同为98%，按规则保留早期版 | 88.99%（97/109） | 95.41%（104/109） | 88.07%（96/109） |
+| DBBench | 第1轮 | 57.33%（172/300） | 52%（156/300） | 65%（195/300） |
+| WebShop | 第3轮 | 39%（78/200） | 40.5%（81/200） | 46%（92/200） |
+
+TauBench Airline/Retail 的新选版三次 TEST 均已完整完成；Meta 三场景、AHE Telecom 和 Life Telecom 第3轮复用已有三次原始记录。下表是用于比较的完整三次指标；Life Airline/Retail 不在本次补充范围，不能把其单次成绩冒充三次平均、pass³ 或 pass@3。
+
+| 场景 | 方法／固定产物 | 每次题数 | 三次成功数 | 三次平均 TEST | pass^3（三次均正确） | pass@3（至少一次正确） | 基础设施失败 episode |
+|---|---|---:|---|---:|---:|---:|---:|
+| Airline | Meta 原所选六轮版 | 20 | 4 / 2 / 1 | 11.67%（7/60） | 0%（0/20） | 25%（5/20） | 0 |
+| Airline | AHE TRAIN 最优第3轮 | 20 | 7 / 6 / 8 | 35%（21/60） | 20%（4/20） | 50%（10/20） | 4 |
+| Retail | Meta 原所选六轮版 | 40 | 16 / 13 / 11 | 33.33%（40/120） | 15%（6/40） | 55%（22/40） | 0 |
+| Retail | AHE TRAIN 最优第3轮 | 40 | 19 / 20 / 16 | 45.83%（55/120） | 25%（10/40） | 70%（28/40） | 0 |
+| Telecom | Meta 原所选六轮版 | 40 | 20 / 19 / 22 | 50.83%（61/120） | 40%（16/40） | 60%（24/40） | 0 |
+| Telecom | AHE TRAIN 最优第6轮；复用 | 40 | 37 / 38 / 39 | 95%（114/120） | 87.5%（35/40） | 100%（40/40） | 0 |
+| Telecom | Life 已接收第3轮；复用 | 40 | 35 / 37 / 36 | 90%（108/120） | 77.5%（31/40） | 100%（40/40） | 0 |
+
+与 AHE 旧末轮三次 TEST 相比，Retail 均值从28.33%提高到45.83%、pass³从10%提高到25%、pass@3从47.5%提高到70%。Airline 均值仍为35%，pass³从10%提高到20%，pass@3从60%降为50%；新结果含4条原 NexAU 接入层的900秒内部 RPC 超时（task/trial：18/0、35/2、37/1、44/2），均按0计入完整分母，没有重试、剔除或覆盖。现有诊断不能确定超时根因，不把所有差异都归因到候选质量或接入缺陷。ALFWorld、WebShop 的新 TEST 低于旧末轮，仍按事先固定的 TRAIN 选版规则报告，不用 TEST 回选旧版。
+
+2026-10-10 06:29 UTC独立核验通过：新增789个 TEST episode均有唯一、完整task/trial记录；324份runtime／数据源码指纹、1451份历史文件及原始产物哈希不变；新旧结果和逐题成绩一致。controller已退出，broker关闭／active0；本次 MR请求0、峰值0（保留全局门上限8），optimizer token为0，新增 Life episode为0。阿里云仅 TEST 用户模拟／必要评分：1563次请求，输入2,232,385＋输出503,142＝**2,735,527 token**，全部实测usage，无未知／待结／估算或429；其中 Airline用户模拟797,245，Retail用户模拟1,738,090、judge200,192。上述测试费用不加入第3～4节六轮优化账本。
+
+完整逐题结果、pass@3与选版收据见 `FINAL_RESULTS.json`、`selection_receipt.json`；独立核验见 `RESULT_AUDIT.json`，模拟／评分费用见 `ledgers/ALIYUN_TEST_USAGE.json`。最终结果文件SHA-256：`3e451c10a476e18bdfe3eca9c5cbf0d9470a8772cfd47a0dc566104375ae81ee`。原末轮结果、六轮训练曲线和全部优化账本保持不变。
 
 ## 3. 六轮外部优化 token 总量
 
@@ -352,11 +395,12 @@ AHE 通常在下一训练批次测量上一轮优化产物，第6轮产物在最
 
 ## 5. 当前结论与使用边界
 
-- 当前 Life 的最终 TEST 准确率六域均高于本次 Meta；高于AHE的四域为 DBBench、WebShop、Airline、Retail；ALFWorld与Telecom仍低于AHE。不应只挑有利域汇报。
+- 第2节历史六轮表中，Life 的 TEST 准确率六域均高于本次 Meta；高于 AHE 历史末轮版的四域为 DBBench、WebShop、Airline、Retail，ALFWorld与Telecom仍低于它。AHE 新 TRAIN 最优选版另见2.11节，不用旧结论冒充新比较，不应只挑有利域汇报。
+- AHE 正式 TRAIN 选版的单次 TEST（Tau取固定trial0）为 ALFWorld 88.99%、DBBench 57.33%、WebShop 39%、Airline 35%、Retail 47.5%、Telecom 92.5%。原六轮 Life 仍在 DBBench、WebShop、Airline、Retail 四域更高；这不是等 token 或完全同条件显著性证明。完整三次指标优先引用2.11节，不把 Retail 47.5%单次与45.83%三次均值混为一项。
 - 相对用户发布版参考，Life DBBench持平，WebShop高0.5个百分点，Telecom高7.5个百分点；Airline低20个百分点，Retail低13个百分点。ALFWorld缺少用户提供的发布版参考，不能从旧训练smoke推断其发布版全TEST结果。
-- Life 的六域优化 token 都低于AHE的已记录下界；但并非每域低于Meta：Life的WebShop、Retail、Telecom高于Meta，ALFWorld、DBBench、Airline低于Meta。
+- 原六轮账本中 Life 的六域优化 token 都低于AHE的已记录下界；但并非每域低于Meta：Life的WebShop、Retail、Telecom高于Meta，ALFWorld、DBBench、Airline低于Meta。后续 Telecom 第3轮升级分支包含大量额外探索，不能将其90% TEST配上原六轮30,455,997 token作图；其准确成本见2.8～2.10节。
 - 后期仍有同轮有效改进：Airline第4～6轮、Retail/WebShop第5～6轮接收；但DBBench第4～6轮、Telecom第3～6轮没有接收新候选。不能声称所有场景一直上涨，或保证继续增加轮次就达到发布版。
-- 横轴建议使用本报告明确标注口径的累计外部优化 token；纵轴若使用上述逐轮点必须标注TRAIN及可变训练批次。本报告每方法每域只收录一份所选版本最终TEST，不能将TRAIN点伪装成逐轮TEST点。
+- 横轴建议使用本报告明确标注口径的累计外部优化 token；纵轴若使用上述逐轮点必须标注TRAIN及可变训练批次。新增补测单列 AHE TRAIN 最优选版，旧末轮 TEST 留作历史；不能将TRAIN点伪装成逐轮TEST点，不能在新旧 TEST 中择高。
 - 主实验是六次优化尝试预算下的结果，非等token预算实验；不同框架、候选接纳、能力限制、代码版本和部分测试条件不同。单次测试与估算曲线不支持统计显著性声明。
 - Meta候选缺失与AHEusage缺口已保留原样；本文不补造候选成绩、不偷偷重跑、不从最终TEST反向选择更好检查点。
 
@@ -370,10 +414,13 @@ AHE 通常在下一训练批次测量上一轮优化产物，第6轮产物在最
 - Life Telecom：[最终测试](/mnt/data/xts/harness/Life-Harness/meta/experiments/life_taubench_telecom_six_20261006_codegate_resume/FINAL_RESULTS.json)、[逐轮训练与usage](/mnt/data/xts/harness/Life-Harness/meta/experiments/life_taubench_telecom_six_20261006_codegate_resume/TRAINING_RESULTS.json)。
 - Life Airline/Retail：[最终测试](/mnt/data/xts/harness/Life-Harness/meta/experiments/life_taubench_airline_retail_six_20261007_trace_resume/FINAL_RESULTS.json)、[总usage](/mnt/data/xts/harness/Life-Harness/meta/experiments/life_taubench_airline_retail_six_20261007_trace_resume/OPTIMIZER_TOKEN_USAGE.json)、[Airline逐轮](/mnt/data/xts/harness/Life-Harness/meta/experiments/life_taubench_airline_retail_six_20261007_trace_resume/airline/TRAINING_RESULTS.json)、[Retail逐轮](/mnt/data/xts/harness/Life-Harness/meta/experiments/life_taubench_airline_retail_six_20261007_trace_resume/retail/TRAINING_RESULTS.json)。
 - AHE AgentBench：[固定最终TEST报告](/mnt/data/xts/harness/ahe-native/heldout_tests/ahe_restricted_six_rotating_flash8_20261003_073330_repair1_finaltest/COMPARISON.md)、[原始token审计](/mnt/data/xts/harness/ahe-native/audits/historical_tokens_20261004/TOKEN_AUDIT.json)。
+- Meta/AHE 原三次 TEST：[完整逐题结果](/mnt/data/xts/harness/Life-Harness/meta/experiments/meta_ahe_tau_pass3_20261009/FINAL_RESULTS.json)、[旧第1次 TEST 复用收据](/mnt/data/xts/harness/Life-Harness/meta/experiments/meta_ahe_tau_pass3_20261009/reuse_receipt.json)。
+- Life Telecom 固定第3轮三次 TEST：[原生120条结果](/mnt/data/xts/harness/Life-Harness/meta/experiments/life_telecom_r3_fixed_test3_20261010/native/results.json)、[原独立核验](/mnt/data/xts/harness/Life-Harness/meta/experiments/life_telecom_r3_fixed_test3_20261010/RESULT_AUDIT.json)。此次 pass@3 重算只复用此版本，不补测 Life Airline/Retail。
+- AHE TRAIN 最优选版补测与 pass@3：[最终逐题结果](/mnt/data/xts/harness/Life-Harness/meta/experiments/ahe_best_train_test_pass3_20261010/FINAL_RESULTS.json)、[选版及1451份历史文件哈希](/mnt/data/xts/harness/Life-Harness/meta/experiments/ahe_best_train_test_pass3_20261010/selection_receipt.json)、[已完成旧三次结果的指标重算](/mnt/data/xts/harness/Life-Harness/meta/experiments/ahe_best_train_test_pass3_20261010/REUSED_TAU_METRICS.json)、[新增789条TEST独立核验](/mnt/data/xts/harness/Life-Harness/meta/experiments/ahe_best_train_test_pass3_20261010/RESULT_AUDIT.json)。
 
 ### 源文件快照 SHA-256
 
-路径相对于 `/mnt/data/xts/harness`。校验了108个逐轮数据点的六轮合计、18份最终结果的成功数／完整分母，并确认所选实验状态均已complete。本文仅创建汇总文件，未变更原始证据。
+以下为初次汇总的源文件快照，路径相对于 `/mnt/data/xts/harness`。当时校验了108个逐轮数据点的六轮合计、18份最终结果的成功数／完整分母，并确认所选实验状态均已complete。新增补测与指标重算收据另存上列目录，未变更原始证据。
 
 ```text
 b41bea803dacd4698ec6c80f831a2051ba6e6f08c15032d8ef7ea13d1141c74a  Life-Harness/meta/experiments/meta_agentbench_six_flash_tokens_20261004_repair2/FINAL_RESULTS.json
