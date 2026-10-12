@@ -1,6 +1,6 @@
 <div align="center">
 
-# Life-Harness
+# Life-Harness (V2)
 
 ### Adapting the Interface, Not the Model: Runtime Harness Adaptation for Deterministic LLM Agents
 
