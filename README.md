@@ -16,12 +16,12 @@
   <img src="assets/overview.png" width="92%" alt="Life-Harness overview" />
 </p>
 
-**Life-Harness V2 primarily adds open-source, reproducible evolution workflows and comparisons with Meta-Harness and AHE (Agentic Harness Engineering).**
+🔥 **V2 Update:** Life-Harness V2 primarily adds **open-source, reproducible evolution workflows** and **comparisons with Meta-Harness and AHE (Agentic Harness Engineering)**.
 
-- **Evolve from scratch:** start with an identity harness, iterate on TRAIN tasks, select improvements and evaluate the frozen result on TEST.
-- **Compare three methods:** run Life-Harness, Meta-Harness and AHE with native benchmark scoring and recorded method-specific protocols.
-- **Track accuracy and tokens:** retain round results, acceptance decisions, final TEST scores and measured model usage, with missing usage explicitly flagged.
-- **Evaluate and extend:** evaluate the provided harnesses on AgentBench, TauBench and AppWorld, or connect a new benchmark through the extension API.
+- 🚀 **Evolve from scratch:** start with an identity harness, iterate on TRAIN tasks, select improvements and evaluate the frozen result on TEST.
+- ⚖️ **Compare three methods:** run Life-Harness, Meta-Harness and AHE with native benchmark scoring and recorded method-specific protocols.
+- 📊 **Track accuracy and tokens:** retain round results, acceptance decisions, final TEST scores and measured model usage, with missing usage explicitly flagged.
+- 🧩 **Evaluate and extend:** evaluate the provided harnesses on AgentBench, TauBench and AppWorld, or connect a new benchmark through the extension API.
 
 ## Why Life-Harness
 
