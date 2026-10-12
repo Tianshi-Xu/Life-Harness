@@ -259,14 +259,13 @@ TauBench/.venv/bin/python -m evolution.reproduce \
 
 Life-Harness/Meta-Harness outputs are under `evolution/experiments/`; standalone AHE outputs are under `integrations/ahe-native/{batches,experiments,heldout_tests}/`. `reproduction.json` lists the exact locations. OS and AppWorld retain their native evaluation and usage records as described in their guides. AppWorld fixed-policy evaluation consumes inference tokens, not evolution tokens.
 
-## Offline Checks
+## Citation
 
-These development tests check that code changes preserve harness interfaces, candidate validation, result collection and token accounting; they do not call models or measure benchmark accuracy, and are optional for users running experiments.
-
-```bash
-PYTHONPATH="$PWD:$PWD/integrations/ahe-native:$PWD/TauBench/src" \
-  TauBench/.venv/bin/python -m unittest discover -s evolution/tests -q
-PYTHONPATH="$PWD/AppWorld/src" python -m pytest AppWorld/tests -q
+```bibtex
+@article{xu2026adapting,
+  title={Adapting the interface, not the model: Runtime harness adaptation for deterministic llm agents},
+  author={Xu, Tianshi and Wen, Huifeng and Li, Meng},
+  journal={arXiv preprint arXiv:2605.22166},
+  year={2026}
+}
 ```
-
-OS transport checks require `agentrl-worker==0.4.0`; AHE tests use its dedicated environment. Offline checks do not measure benchmark accuracy. Life-Harness files use anonymous attribution; public third-party sources and licenses retain their upstream attribution. Credentials, generated runs and caches stay outside the published source.
