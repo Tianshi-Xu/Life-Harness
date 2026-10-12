@@ -1,6 +1,6 @@
 # Life-Harness on AgentBench
 
-This suite contains Life-Harness runtime harnesses and native task definitions for **ALFWorld, DBBench, OS and WebShop**. See the root [README](../README.md) for Life-Harness/META/AHE evolution; this guide evaluates the provided frozen Life-Harness implementation.
+This suite contains Life-Harness runtime harnesses and native task definitions for **ALFWorld, DBBench, OS and WebShop**. See the root [README](../README.md) for Life-Harness/Meta-Harness/AHE evolution; this guide evaluates the provided frozen Life-Harness implementation.
 
 ## Setup
 

@@ -1,6 +1,6 @@
 # Life-Harness on TauBench
 
-This suite contains **Airline, Retail and Telecom** tasks, native scoring, user simulation and Life-Harness H2–H5 runtime layers. See the root [README](../README.md) for complete Life-Harness/META/AHE evolution and comparison runs.
+This suite contains **Airline, Retail and Telecom** tasks, native scoring, user simulation and Life-Harness H2–H5 runtime layers. See the root [README](../README.md) for complete Life-Harness/Meta-Harness/AHE evolution and comparison runs.
 
 ## Setup
 

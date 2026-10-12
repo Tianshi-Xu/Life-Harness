@@ -12,7 +12,7 @@ From the repository root:
 The native optimizer runtime uses Linux chroot, UID isolation and device nodes.
 Run its setup and trusted controllers with the required privileges, typically
 as root inside a dedicated container. The OS launcher provisions `SYS_CHROOT`
-and `MKNOD` capabilities. This requirement also applies to the META transport
+and `MKNOD` capabilities. This requirement also applies to the Meta-Harness transport
 that reuses this runtime.
 
 ```bash

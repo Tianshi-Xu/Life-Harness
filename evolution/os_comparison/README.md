@@ -1,4 +1,4 @@
-# Native Life / Meta / AHE OS comparison
+# Native Life-Harness / Meta-Harness / AHE OS comparison
 
 Set `LIFE_SOLVER_TOKENIZER` to the local Qwen3-4B model directory, provision the
 native OS Docker image/workers and the AHE environment, and configure the solver

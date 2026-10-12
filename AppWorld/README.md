@@ -2,7 +2,7 @@
 
 This adapter applies Life-Harness's H2–H5 runtime layers to the upstream AppWorld simplified function-calling agent. Model weights, AppWorld tasks, environment transitions and scoring remain unchanged. It provides fixed-policy evaluation, a no-harness baseline, per-layer ablations and runtime records.
 
-The release includes `policies/v009_r4/`, the frozen R4 policy selected during training, and `policies/v005/`, the earlier policy used by the layer regression tests. Choose the policy before evaluating held-out tasks. The AppWorld adapter is separate from the automatic six-round META/AHE comparison controllers; an AppWorld META/AHE evolution loop is not included.
+The release includes `policies/v009_r4/`, the frozen R4 policy selected during training, and `policies/v005/`, the earlier policy used by the layer regression tests. Choose the policy before evaluating held-out tasks. The AppWorld adapter is separate from the automatic six-round Meta-Harness/AHE comparison controllers; an AppWorld Meta-Harness/AHE evolution loop is not included.
 
 ## Setup
 

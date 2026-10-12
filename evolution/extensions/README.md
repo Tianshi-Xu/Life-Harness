@@ -61,7 +61,7 @@ TauBench/.venv/bin/python -m evolution.extensions evolve \
   --output evolution/experiments/my_benchmark --rounds 6
 ```
 
-This command makes model calls. It starts from empty H2–H5, evaluates the incumbent and candidate on the same complete TRAIN task set each round, accepts only strict improvement, seals TRAIN selection, then evaluates the frozen harness once on TEST. Arbitrary nonempty binary task sets are supported. This extension runner repeats the full TRAIN set; benchmark-specific paper reproduction drivers retain their own batch schedules. The extension API currently runs Life-Harness; use existing reproduction commands for META/AHE comparisons.
+This command makes model calls. It starts from empty H2–H5, evaluates the incumbent and candidate on the same complete TRAIN task set each round, accepts only strict improvement, seals TRAIN selection, then evaluates the frozen harness once on TEST. Arbitrary nonempty binary task sets are supported. This extension runner repeats the full TRAIN set; benchmark-specific paper reproduction drivers retain their own batch schedules. The extension API currently runs Life-Harness; use existing reproduction commands for Meta-Harness/AHE comparisons.
 
 Every invocation requires a fresh output directory. Failed or interrupted model work is preserved and is never automatically replayed. The runner checks configuration, task identities and artifact hashes during evaluation. Infrastructure failures remain in the task denominator and are flagged; incomplete evaluations cannot select a candidate. Missing optimizer usage stops promotion.
 

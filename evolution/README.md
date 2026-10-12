@@ -1,13 +1,13 @@
-# Life-Harness, META and AHE implementations
+# Life-Harness, Meta-Harness and AHE implementations
 
 Start with the root [README](../README.md) for the three methods, supported benchmarks, complete from-scratch runs and accuracy/token records.
 
 | Method | Current entry points |
 | --- | --- |
 | **Life-Harness** | `life_evolve/` implements H2–H5 evolution; `life_tau_run.py` and `life_agentbench_run.py` run complete training, selection and final TEST evaluation |
-| **META** | `reproduction/meta_transport/` prepares and runs fresh workspaces using the original optimizer in `reproduction/reference/upstream_reference/` |
+| **Meta-Harness** | `reproduction/meta_transport/` prepares and runs fresh workspaces using the original optimizer in `reproduction/reference/upstream_reference/` |
 | **AHE** | `../integrations/ahe-native/` adapts the pinned original AHE loop; `tau_comparison/` and `os_comparison/` integrate it with the other methods |
-| **Comparison runner** | `python -m evolution.reproduce --help` prepares, launches and collects Life-Harness/META/AHE runs for TauBench and AgentBench; OS uses `os_comparison/` |
+| **Comparison runner** | `python -m evolution.reproduce --help` prepares, launches and collects Life-Harness/Meta-Harness/AHE runs for TauBench and AgentBench; OS uses `os_comparison/` |
 
 ## Custom benchmark extensions
 
@@ -41,7 +41,7 @@ AgentBench domains are `alfworld`, `dbbench` and `webshop`. Use a fresh name wit
 
 ## Separate plugin interfaces
 
-`life_loop.py` and `agentbench_loop.py` retain plugin-based Life-Harness iteration; `meta_harness.py` retains a free-form META plugin interface. Their search spaces differ from the current Life-Harness bundle optimizer and native comparison controllers. Report the entry point when using them in experiments:
+`life_loop.py` and `agentbench_loop.py` retain plugin-based Life-Harness iteration; `meta_harness.py` retains a free-form Meta-Harness plugin interface. Their search spaces differ from the current Life-Harness bundle optimizer and native comparison controllers. Report the entry point when using them in experiments:
 
 ```bash
 python evolution/life_loop.py --help
@@ -49,6 +49,6 @@ python evolution/meta_harness.py --help
 python evolution/agentbench_loop.py --help
 ```
 
-For plugin-based Tau runs, pass `--from-scratch` to the Life-Harness and META commands for identity initialization. For plugin-based AgentBench runs, use `--source evolution/reproduction/agentbench_source` with the matching baseline file.
+For plugin-based Tau runs, pass `--from-scratch` to the Life-Harness and Meta-Harness commands for identity initialization. For plugin-based AgentBench runs, use `--source evolution/reproduction/agentbench_source` with the matching baseline file.
 
 `reproduction/` contains required runtime code and frozen task/source inputs. `experiments/` is reserved for ignored new run outputs. Public TRAIN evidence drives evolution; final TEST results never enter optimizer workspaces.

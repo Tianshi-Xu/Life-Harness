@@ -20,7 +20,7 @@
 
 Life-Harness turns recurring interaction failures into reusable runtime interventions across **action realization, environment contracts, trajectory regulation and procedural skills**. The harness evolves on training trajectories and remains frozen for evaluation on unseen tasks.
 
-This release provides the Life-Harness runtime and evolution code, the **META (Meta-Harness)** and **AHE (Agentic Harness Engineering)** comparison implementations, and benchmark evaluation entry points. It supports both evaluating the provided Life-Harness and starting new evolution runs from identity harnesses.
+This release provides the Life-Harness runtime and evolution code, the **Meta-Harness** and **AHE (Agentic Harness Engineering)** comparison implementations, and benchmark evaluation entry points. It supports both evaluating the provided Life-Harness and starting new evolution runs from identity harnesses.
 
 ## Why Life-Harness
 
@@ -38,7 +38,7 @@ With Qwen3-4B-Instruct, the paper reports the following comparison across the se
 
 | Comparison | Mean accuracy gain of Life-Harness | Reduction in evolution tokens |
 | --- | ---: | ---: |
-| Life-Harness vs. META | +28.7 percentage points | 8.5% |
+| Life-Harness vs. Meta-Harness | +28.7 percentage points | 8.5% |
 | Life-Harness vs. AHE | +7.5 percentage points | 68.4% |
 
 These are paper results. Newly reproduced scores and token usage are written to the run directories described below.
@@ -68,18 +68,18 @@ The harness master switch controls whether these layers are applied. Per-layer s
 
 | Suite | Environments | What this release provides | Start here |
 | --- | --- | --- | --- |
-| AgentBench | ALFWorld, DBBench, WebShop, OS | Life-Harness evaluation; Life-Harness/META/AHE evolution and comparison | [AgentBench](AgentBench/README.md) |
-| TauBench (`τ`-bench / `τ²`-bench) | Airline, Retail, Telecom | Life-Harness evaluation; Life-Harness/META/AHE evolution and comparison | [TauBench](TauBench/README.md) |
+| AgentBench | ALFWorld, DBBench, WebShop, OS | Life-Harness evaluation; Life-Harness/Meta-Harness/AHE evolution and comparison | [AgentBench](AgentBench/README.md) |
+| TauBench (`τ`-bench / `τ²`-bench) | Airline, Retail, Telecom | Life-Harness evaluation; Life-Harness/Meta-Harness/AHE evolution and comparison | [TauBench](TauBench/README.md) |
 | AppWorld | Multi-application API operation | Life-Harness adapter, frozen policies, baseline/ablation evaluation and runtime records | [AppWorld](AppWorld/README.md) |
 
-AppWorld is an additional benchmark beyond the seven main environments. Its fixed-policy Life-Harness evaluation is separate from the six-round Life-Harness/META/AHE comparison controllers.
+AppWorld is an additional benchmark beyond the seven main environments. Its fixed-policy Life-Harness evaluation is separate from the six-round Life-Harness/Meta-Harness/AHE comparison controllers.
 
 ```text
 Life-Harness/
   AgentBench/                # ALFWorld, DBBench, OS and WebShop
   TauBench/                  # Airline, Retail and Telecom
   AppWorld/                  # Life-Harness adapter and frozen AppWorld policies
-  evolution/                      # Life-Harness/META evolution and native comparison controllers
+  evolution/                      # Life-Harness/Meta-Harness evolution and native comparison controllers
   integrations/ahe-native/   # Native AHE adapter and accounting
   assets/                    # Method and result figures
   scripts/                   # Tokenizer setup and frozen-input checks
@@ -96,7 +96,7 @@ Use the shared runtime guides and the rows for your selected benchmarks before l
 | Environment / component | What to prepare | Installation guide |
 | --- | --- | --- |
 | Model endpoints and credentials | Solver/user-simulator endpoints, optimizer gateway and local model/tokenizer paths | [Environment template](evolution/deploy/env.example.sh) |
-| META / AHE native runtime | Python 3.13 environment, pinned upstream dependencies and privileged Linux isolation | [AHE runtime setup](integrations/ahe-native/README.md) — also used by META |
+| Meta-Harness / AHE native runtime | Python 3.13 environment, pinned upstream dependencies and privileged Linux isolation | [AHE runtime setup](integrations/ahe-native/README.md) — also used by Meta-Harness |
 | TauBench: Airline, Retail, Telecom | Python environment, native task data and simulator configuration | [TauBench setup](TauBench/README.md#setup) |
 | AgentBench common runtime | Core dependencies, AgentRL controller and native workers | [Common runtime setup](AgentBench/NEW_MACHINE_SETUP.md#agentbench-common-runtime) |
 | ALFWorld | Extracted game archives and isolated ALFWorld/TextWorld environment | [ALFWorld setup and smoke check](AgentBench/NEW_MACHINE_SETUP.md#alfworld) |
@@ -119,11 +119,11 @@ TauBench/.venv/bin/python scripts/download_flash_tokenizer.py
 TauBench/.venv/bin/python scripts/check_reproduction.py
 ```
 
-Install the [AHE runtime](integrations/ahe-native/README.md) as well when running the native comparisons; the META transport also uses its isolated execution environment. Set `MR_API_KEY` and `MR_HOST` for the optimizer gateway and `DASHSCOPE_API_KEY` for the TauBench Airline/Retail simulator. Use the [environment template](evolution/deploy/env.example.sh) and [AgentBench native setup](AgentBench/NEW_MACHINE_SETUP.md) for the solver, workers, data and services. `MR_HOST` is the prefix before `/protocol/openai/v1`.
+Install the [AHE runtime](integrations/ahe-native/README.md) as well when running the native comparisons; the Meta-Harness transport also uses its isolated execution environment. Set `MR_API_KEY` and `MR_HOST` for the optimizer gateway and `DASHSCOPE_API_KEY` for the TauBench Airline/Retail simulator. Use the [environment template](evolution/deploy/env.example.sh) and [AgentBench native setup](AgentBench/NEW_MACHINE_SETUP.md) for the solver, workers, data and services. `MR_HOST` is the prefix before `/protocol/openai/v1`.
 
-## Start Life-Harness, META and AHE Iteration
+## Start Life-Harness, Meta-Harness and AHE Iteration
 
-The unified runner starts from identity harnesses: Life-Harness begins with empty H2–H5, and META/AHE do not import previously evolved strategies. The native comparison runs use six rounds and retain each method's selection rules. Method-specific schedules and token budgets are recorded; six rounds do not imply equal token consumption.
+The unified runner starts from identity harnesses: Life-Harness begins with empty H2–H5, and Meta-Harness/AHE do not import previously evolved strategies. The native comparison runs use six rounds and retain each method's selection rules. Method-specific schedules and token budgets are recorded; six rounds do not imply equal token consumption.
 
 ### Run all three methods
 
@@ -146,7 +146,7 @@ Omit `--launch` to prepare the exact command plan without model calls. Adding `-
 TauBench/.venv/bin/python -m evolution.reproduce \
   --suite agentbench --method life --name life_agentbench --launch
 
-# Original META run_evolve with native evaluation and measured API usage.
+# Original Meta-Harness run_evolve with native evaluation and measured API usage.
 TauBench/.venv/bin/python -m evolution.reproduce \
   --suite agentbench --method meta --name meta_agentbench --launch
 
@@ -155,7 +155,7 @@ TauBench/.venv/bin/python -m evolution.reproduce \
   --suite agentbench --method ahe --name ahe_agentbench --launch
 ```
 
-For TauBench, use `--suite tau --method life` for Life-Harness or `--suite tau --method meta-ahe` for the paired META+AHE controller. AHE retains upstream selection and uses the adapter's `h2345-budget-restricted-v1` search profile. Its last evolved candidate receives an additional TRAIN measurement without changing selection.
+For TauBench, use `--suite tau --method life` for Life-Harness or `--suite tau --method meta-ahe` for the paired Meta-Harness+AHE controller. AHE retains upstream selection and uses the adapter's `h2345-budget-restricted-v1` search profile. Its last evolved candidate receives an additional TRAIN measurement without changing selection.
 
 OS uses the [dedicated Docker comparison controller](evolution/os_comparison/README.md):
 
@@ -165,7 +165,7 @@ TauBench/.venv/bin/python -m evolution.os_comparison.launch \
   --root "$PWD/evolution/experiments/os_compare"
 ```
 
-Low-level Life-Harness proposals and the separate plugin-based Life-Harness/META loops are documented in [evolution/README.md](evolution/README.md). AppWorld provides frozen-policy evaluation; an automatic AppWorld META/AHE evolution controller is not included.
+Low-level Life-Harness proposals and the separate plugin-based Life-Harness/Meta-Harness loops are documented in [evolution/README.md](evolution/README.md). AppWorld provides frozen-policy evaluation; an automatic AppWorld Meta-Harness/AHE evolution controller is not included.
 
 ### Final Harness and TEST Results
 
@@ -257,7 +257,7 @@ TauBench/.venv/bin/python -m evolution.reproduce \
 | Solver/simulator/judge tokens | Separately labeled native records where available; excluded from optimizer-only totals |
 | Incomplete accounting | Missing provider usage is marked unknown; measured usage and any native estimates remain separate |
 
-Life-Harness/META outputs are under `evolution/experiments/`; standalone AHE outputs are under `integrations/ahe-native/{batches,experiments,heldout_tests}/`. `reproduction.json` lists the exact locations. OS and AppWorld retain their native evaluation and usage records as described in their guides. AppWorld fixed-policy evaluation consumes inference tokens, not evolution tokens.
+Life-Harness/Meta-Harness outputs are under `evolution/experiments/`; standalone AHE outputs are under `integrations/ahe-native/{batches,experiments,heldout_tests}/`. `reproduction.json` lists the exact locations. OS and AppWorld retain their native evaluation and usage records as described in their guides. AppWorld fixed-policy evaluation consumes inference tokens, not evolution tokens.
 
 ## Offline Checks
 
