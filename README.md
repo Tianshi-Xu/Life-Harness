@@ -16,11 +16,12 @@
   <img src="assets/overview.png" width="92%" alt="Life-Harness overview" />
 </p>
 
-**Life-Harness** is the code release for **“Adapting the Interface, Not the Model: Runtime Harness Adaptation for Deterministic LLM Agents.”** When a frozen LLM agent repeatedly fails in a deterministic environment, Life-Harness improves the runtime harness around the agent while keeping model weights and the evaluation environment fixed.
+**Life-Harness V2 primarily adds open-source, reproducible evolution workflows and comparisons with Meta-Harness and AHE (Agentic Harness Engineering).**
 
-Life-Harness turns recurring interaction failures into reusable runtime interventions across **action realization, environment contracts, trajectory regulation and procedural skills**. The harness evolves on training trajectories and remains frozen for evaluation on unseen tasks.
-
-This release provides the Life-Harness runtime and evolution code, the **Meta-Harness** and **AHE (Agentic Harness Engineering)** comparison implementations, and benchmark evaluation entry points. It supports both evaluating the provided Life-Harness and starting new evolution runs from identity harnesses.
+- **Evolve from scratch:** start with an identity harness, iterate on TRAIN tasks, select improvements and evaluate the frozen result on TEST.
+- **Compare three methods:** run Life-Harness, Meta-Harness and AHE with native benchmark scoring and recorded method-specific protocols.
+- **Track accuracy and tokens:** retain round results, acceptance decisions, final TEST scores and measured model usage, with missing usage explicitly flagged.
+- **Evaluate and extend:** evaluate the provided harnesses on AgentBench, TauBench and AppWorld, or connect a new benchmark through the extension API.
 
 ## Why Life-Harness
 
