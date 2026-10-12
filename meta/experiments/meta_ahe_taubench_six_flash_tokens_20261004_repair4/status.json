@@ -1,7 +1,0 @@
-{
-  "error": "training failed; later work stopped, no automatic new experiment",
-  "error_type": "RuntimeError",
-  "life_agentbench_started": false,
-  "phase": "stopped",
-  "pid": 544803
-}

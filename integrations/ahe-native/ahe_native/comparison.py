@@ -7,12 +7,12 @@ from .backend import HERE, LIFE
 from .records import write_json
 from .training import AGENTBENCH
 
-SIX = LIFE / "meta/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json"
-LIFE_V3 = LIFE / "meta/experiments/life_agentbench_v3_from_six_db_web_20261002/training_results.json"
+SIX = LIFE / "evolution/experiments/life_agentbench_six_resume_mr_20261001/round_comparison.json"
+LIFE_V3 = LIFE / "evolution/experiments/life_agentbench_v3_from_six_db_web_20261002/training_results.json"
 
 
 def reference_rows():
-    rows = json.loads(SIX.read_text())["train_rounds"]
+    rows = json.loads(SIX.read_text())["train_rounds"] if SIX.is_file() else []
     result = {domain: {} for domain in AGENTBENCH}
     for row in rows:
         domain, step = row["domain"], row["round"]
@@ -22,13 +22,15 @@ def reference_rows():
             "effective": row[name + "_candidate"] if row[name + "_accepted"] else row[name + "_incumbent"],
             "source": str(SIX), "version": "historical six-round"}
             for name in ("meta", "life")}
-    for row in json.loads(LIFE_V3.read_text())["new_rounds"]:
+    for row in (json.loads(LIFE_V3.read_text())["new_rounds"] if LIFE_V3.is_file() else []):
         result[row["domain"]].setdefault(row["round"], {})["life"] = {
             "batch": row["train_batch"], "incumbent": row["incumbent_score"],
             "candidate": row["candidate_score"], "accepted": row["accepted"],
             "effective": row["candidate_score"] if row["accepted"] else row["incumbent_score"],
             "source": str(LIFE_V3), "version": "v3 continuation from sealed round six"}
     for domain in AGENTBENCH:
+        if 1 not in result[domain]:
+            continue
         result[domain][0] = {name: {"effective": result[domain][1][name]["incumbent"],
             "batch": result[domain][1][name]["batch"], "source": str(SIX), "version": "initial baseline"}
             for name in ("meta", "life")}
@@ -72,7 +74,7 @@ def publish_comparison(batch_dir):
         "capability_profile": profile,
         "unrestricted_ahe_reproduction": protocol.get("unrestricted_ahe_reproduction", True),
         "debugger_tasks_per_iteration": protocol.get("debugger_tasks_per_iteration"),
-        "references": {str(path): hashlib.sha256(path.read_bytes()).hexdigest() for path in (SIX, LIFE_V3)},
+        "references": {str(path): hashlib.sha256(path.read_bytes()).hexdigest() for path in (SIX, LIFE_V3) if path.is_file()},
         "notes": ["All three methods use different training batches; not a controlled same-task improvement curve.",
             "Optimization-step zero is baseline. AHE step N is measured by original iteration N+1.",
             "Final AHE step is measured separately after the unchanged original loop; not used for best-ever selection.",

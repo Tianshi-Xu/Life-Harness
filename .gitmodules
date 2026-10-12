@@ -4,3 +4,9 @@
 [submodule "AgentBench/data/webshop_repo"]
 	path = AgentBench/data/webshop_repo
 	url = https://github.com/princeton-nlp/WebShop.git
+[submodule "integrations/agentic-harness-engineering"]
+	path = integrations/agentic-harness-engineering
+	url = https://github.com/china-qijizhifeng/agentic-harness-engineering.git
+[submodule "integrations/ahe-native/vendor/NexAU"]
+	path = integrations/ahe-native/vendor/NexAU
+	url = https://github.com/nex-agi/NexAU.git

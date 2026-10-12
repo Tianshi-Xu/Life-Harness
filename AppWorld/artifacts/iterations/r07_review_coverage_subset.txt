@@ -1,2 +1,0 @@
-# Regression for deterministic rating/review tool-family coverage.
-692c77d_3

@@ -2,347 +2,271 @@
 
 # Life-Harness
 
-### Adapting the interface, not the model, for deterministic LLM agents
+### Adapting the Interface, Not the Model: Runtime Harness Adaptation for Deterministic LLM Agents
 
-[![arXiv](https://img.shields.io/badge/arXiv-2605.22166-b31b1b)](https://arxiv.org/abs/2605.22166)
-[![Benchmarks](https://img.shields.io/badge/benchmarks-7-blue)](#benchmarks)
-[![Model Backbones](https://img.shields.io/badge/model%20backbones-18-green)](#results)
+[![Benchmarks](https://img.shields.io/badge/main%20environments-7-blue)](#benchmarks)
+[![AppWorld](https://img.shields.io/badge/additional%20benchmark-AppWorld-blue)](#benchmarks)
+[![Model Backbones](https://img.shields.io/badge/open%20weight%20backbones-18-green)](#results)
 [![Settings Improved](https://img.shields.io/badge/improved-116%2F126-orange)](#results)
-[![Training Free](https://img.shields.io/badge/training%20free-yes-lightgrey)](#why-life-harness)
+[![Training Free](https://img.shields.io/badge/model%20training-free-lightgrey)](#why-life-harness)
 
 </div>
-
-## News
-
-- **2026/05/24**: Released the paper and codebase. The second version of the
-  paper has also been submitted to arXiv, and the code release includes the
-  evolution prompts used to build the harness.
 
 <p align="center">
   <img src="assets/overview.png" width="92%" alt="Life-Harness overview" />
 </p>
 
-**Life-Harness** is the code release for **"Adapting the Interface, Not the Model:
-Runtime Harness Adaptation for Deterministic LLM Agents."** It targets a practical
-question: when a frozen LLM agent repeatedly fails in a deterministic environment,
-can we improve the runtime harness around the agent instead of retraining the
-model or modifying the environment?
+**Life-Harness** is the code release for **“Adapting the Interface, Not the Model: Runtime Harness Adaptation for Deterministic LLM Agents.”** When a frozen LLM agent repeatedly fails in a deterministic environment, Life-Harness improves the runtime harness around the agent while keeping model weights and the evaluation environment fixed.
 
-The answer is yes. Life-Harness turns recurring failures into reusable runtime
-interventions across action realization, environment contracts, trajectory
-regulation, and procedural skills. The model remains frozen; the benchmark
-environment remains intact; only the harness interface adapts.
+Life-Harness turns recurring interaction failures into reusable runtime interventions across **action realization, environment contracts, trajectory regulation and procedural skills**. The harness evolves on training trajectories and remains frozen for evaluation on unseen tasks.
 
-| Benchmarks | Model backbones | Settings improved | Avg. relative gain | Training-free |
-| ---: | ---: | ---: | ---: | ---: |
-| 7 | 18 | 116 / 126 | 88.5% | Yes |
+This release provides the Life-Harness runtime and evolution code, the **META (Meta-Harness)** and **AHE (Agentic Harness Engineering)** comparison implementations, and benchmark evaluation entry points. It supports both evaluating the provided Life-Harness and starting new evolution runs from identity harnesses.
 
 ## Why Life-Harness
 
 | What changes? | What stays fixed? | Why it matters |
 | --- | --- | --- |
-| Runtime harness behavior | LLM weights | No finetuning or model-specific training pipeline |
-| Prompted environment interface | Benchmark environment | Keeps deterministic evaluation comparable |
+| Runtime harness behavior | LLM weights | Adaptation without model finetuning |
+| Model–environment interface | Tasks, environment transitions and scoring | Native benchmark evaluation remains comparable |
+| Training-derived mechanisms | Frozen harness during held-out evaluation | TEST results do not guide evolution |
 
 ## Results
 
-Across **7 deterministic agent benchmarks** and **18 model backbones**,
-Life-Harness improves **116 / 126** model-environment settings, with an
-**88.5% average relative improvement** reported in the paper.
+The paper evaluates Life-Harness across **seven main environments and 18 open-weight backbones**, improving **116 of 126** model–environment settings. It also includes frontier-model transfer and additional AppWorld experiments.
+
+With Qwen3-4B-Instruct, the paper reports the following comparison across the seven main environments:
+
+| Comparison | Mean accuracy gain of Life-Harness | Reduction in evolution tokens |
+| --- | ---: | ---: |
+| Life-Harness vs. META | +28.7 percentage points | 8.5% |
+| Life-Harness vs. AHE | +7.5 percentage points | 68.4% |
+
+These are paper results. Newly reproduced scores and token usage are written to the run directories described below.
 
 <p align="center">
-  <img src="assets/result.png" width="68%" alt="Life-Harness result heatmap" />
+  <img src="assets/result.png" width="92%" alt="Life-Harness, Meta-Harness and AHE: accuracy versus cumulative optimization tokens on AgentBench and TauBench" />
 </p>
 
 ## Method
 
-Life-Harness evolves a small set of runtime layers from observed failures, then
-reuses those layers during evaluation.
+Life-Harness evolves runtime mechanisms from observed TRAIN failures and successful controls, validates proposals, and accepts improvements on the same complete training batch. Accepted mechanisms are frozen for final TEST evaluation.
 
 <p align="center">
-  <img src="assets/method.png" width="100%" alt="Life-Harness method overview" />
+  <img src="assets/method.png" width="100%" alt="Life-Harness lifecycle layers" />
 </p>
 
 | Harness flag | Paper layer | Runtime role |
 | --- | --- | --- |
-| `h2` | Action Realization Layer | Helps convert model decisions into executable environment actions. |
-| `h3` | Environment Contract Layer | Makes task and environment constraints explicit at runtime. |
-| `h4` | Trajectory Regulation Layer | Regulates multi-step interaction traces to avoid repeated failure patterns. |
-| `h5` | Procedural Skill Layer | Reuses procedural knowledge distilled from recurring successful recoveries. |
+| `h2` | Action Realization | Realize and validate model actions before execution |
+| `h3` | Environment Contract | Expose tool and environment constraints at the interface |
+| `h4` | Trajectory Regulation | Monitor interaction progress and provide runtime guidance |
+| `h5` | Procedural Skill | Inject reusable training-derived skills at task initialization |
 
-When the harness is disabled, these layers are not applied.
+The harness master switch controls whether these layers are applied. Per-layer switches support ablations. The [Life-Harness optimizer guide](evolution/life_evolve/README.md) describes the current proposal interface, validation and checkpoint behavior.
 
 ## Benchmarks
 
-This repository keeps the two benchmark families in separate folders because
-their environments and dependencies are intentionally different.
+| Suite | Environments | What this release provides | Start here |
+| --- | --- | --- | --- |
+| AgentBench | ALFWorld, DBBench, WebShop, OS | Life-Harness evaluation; Life-Harness/META/AHE evolution and comparison | [AgentBench](AgentBench/README.md) |
+| TauBench (`τ`-bench / `τ²`-bench) | Airline, Retail, Telecom | Life-Harness evaluation; Life-Harness/META/AHE evolution and comparison | [TauBench](TauBench/README.md) |
+| AppWorld | Multi-application API operation | Life-Harness adapter, frozen policies, baseline/ablation evaluation and runtime records | [AppWorld](AppWorld/README.md) |
 
-| Suite | Environments | Start here |
-| --- | --- | --- |
-| AgentBench-style harness | ALFWorld, DBBench, OS, WebShop | [AgentBench/README.md](AgentBench/README.md) |
-| tau-bench-style harness | Airline, Retail, Telecom | [TauBench/README.md](TauBench/README.md) |
+AppWorld is an additional benchmark beyond the seven main environments. Its fixed-policy Life-Harness evaluation is separate from the six-round Life-Harness/META/AHE comparison controllers.
 
 ```text
-Life-harness/
-  AgentBench/      # Docker or native AgentBench-style tasks
-  TauBench/        # uv-based tau-bench-style tasks
-  meta/            # Life and Meta-Harness iteration loops
-  assets/          # README figures
+Life-Harness/
+  AgentBench/                # ALFWorld, DBBench, OS and WebShop
+  TauBench/                  # Airline, Retail and Telecom
+  AppWorld/                  # Life-Harness adapter and frozen AppWorld policies
+  evolution/                      # Life-Harness/META evolution and native comparison controllers
+  integrations/ahe-native/   # Native AHE adapter and accounting
+  assets/                    # Method and result figures
+  scripts/                   # Tokenizer setup and frozen-input checks
 ```
 
 ## Quick Start
 
-Clone the repository, then enter the benchmark suite you want to run:
+Choose the benchmark you want to evaluate and follow its setup guide. The environments have separate dependencies and services. Configure model endpoints and credentials in your local process environment.
+
+### Installation guides
+
+Use the shared runtime guides and the rows for your selected benchmarks before launching evolution or evaluation. The commands below install the common comparison dependencies; each benchmark also needs its own data, workers and services.
+
+| Environment / component | What to prepare | Installation guide |
+| --- | --- | --- |
+| Model endpoints and credentials | Solver/user-simulator endpoints, optimizer gateway and local model/tokenizer paths | [Environment template](evolution/deploy/env.example.sh) |
+| META / AHE native runtime | Python 3.13 environment, pinned upstream dependencies and privileged Linux isolation | [AHE runtime setup](integrations/ahe-native/README.md) — also used by META |
+| TauBench: Airline, Retail, Telecom | Python environment, native task data and simulator configuration | [TauBench setup](TauBench/README.md#setup) |
+| AgentBench common runtime | Core dependencies, AgentRL controller and native workers | [Common runtime setup](AgentBench/NEW_MACHINE_SETUP.md#agentbench-common-runtime) |
+| ALFWorld | Extracted game archives and isolated ALFWorld/TextWorld environment | [ALFWorld setup and smoke check](AgentBench/NEW_MACHINE_SETUP.md#alfworld) |
+| DBBench | MySQL 8 service and native SQL worker | [DBBench setup and smoke check](AgentBench/NEW_MACHINE_SETUP.md#dbbench) |
+| WebShop | Java 11, product data, search index and native environment | [WebShop setup and smoke check](AgentBench/NEW_MACHINE_SETUP.md#webshop) |
+| OS interaction | Docker images/services, solver backends and local solver tokenizer | [Docker setup](AgentBench/README.md#setup) and [OS comparison setup](evolution/os_comparison/README.md) |
+| AppWorld | Upstream engine, data, simplified agent package and compatible model server | [AppWorld setup](AppWorld/README.md#setup) |
+
+### Shared comparison runtime
+
+For the evolution/comparison runtime, initialize the fixed upstream sources and install TauBench:
 
 ```bash
-cd Life-harness
-
-# tau-bench-style tasks: Airline, Retail, Telecom
+git submodule update --init --recursive
 cd TauBench
-
-# AgentBench-style tasks: ALFWorld, DBBench, OS, WebShop
-cd ../AgentBench
+uv sync --frozen
+cd ..
+export PYTHONPATH="$PWD:$PWD/integrations/ahe-native:$PWD/TauBench/src"
+TauBench/.venv/bin/python scripts/download_flash_tokenizer.py
+TauBench/.venv/bin/python scripts/check_reproduction.py
 ```
 
-Each subfolder README contains its own environment setup, evaluation commands,
-and harness switches. API keys and provider URLs should be configured locally
-through environment variables or `.env` files; do not commit them.
+Install the [AHE runtime](integrations/ahe-native/README.md) as well when running the native comparisons; the META transport also uses its isolated execution environment. Set `MR_API_KEY` and `MR_HOST` for the optimizer gateway and `DASHSCOPE_API_KEY` for the TauBench Airline/Retail simulator. Use the [environment template](evolution/deploy/env.example.sh) and [AgentBench native setup](AgentBench/NEW_MACHINE_SETUP.md) for the solver, workers, data and services. `MR_HOST` is the prefix before `/protocol/openai/v1`.
 
-## Star History
+## Start Life-Harness, META and AHE Iteration
 
-<a href="https://star-history.com/#Tianshi-Xu/Life-Harness&Date">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Tianshi-Xu/Life-Harness&type=Date&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Tianshi-Xu/Life-Harness&type=Date" />
-    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Tianshi-Xu/Life-Harness&type=Date" />
-  </picture>
-</a>
+The unified runner starts from identity harnesses: Life-Harness begins with empty H2–H5, and META/AHE do not import previously evolved strategies. The native comparison runs use six rounds and retain each method's selection rules. Method-specific schedules and token budgets are recorded; six rounds do not imply equal token consumption.
 
-## Citation
-
-If you use this repository, please cite the paper:
-
-```bibtex
-@article{xu2026adapting,
-  title={Adapting the Interface, Not the Model: Runtime Harness Adaptation for Deterministic LLM Agents},
-  author={Xu, Tianshi and Wen, Huifeng and Li, Meng},
-  journal={arXiv preprint arXiv:2605.22166},
-  year={2026}
-}
-```
-
-## Current Iteration Release (2026-09-14)
-
-The current release keeps the paper's four lifecycle boundaries while using a
-reproducible plugin-style evolution loop. H2 realizes and validates actions, H3
-describes the environment contract, H4 regulates trajectories, and H5 injects
-procedural skills. Accepted changes are frozen as files with hashes; benchmark
-tasks, model weights, tool semantics, reward functions, and turn budgets stay
-fixed.
-
-All seven environments use the current interface. TauBench Airline, Retail,
-and Telecom expose H2/H3/H4 registries, the H5 skill registry, and a
-`register()` plugin entry point. AgentBench ALFWorld, DBBench, WebShop, and OS
-Interaction execute `Harness.h2/h3/h4/h5` through the shared
-`FourHookSession`. Full frozen-response migration replay preserved ALFWorld at
-104/109 and DBBench at 190/300 with identical per-task outcomes and normalized
-model inputs. See the [migration report](meta/experiments/current_format_migration_20260913/MIGRATION.md)
-and its [machine-readable verification](meta/experiments/current_format_migration_20260913/verification.json).
-
-### Configure the iteration tools
-
-Install the TauBench environment, make a local endpoint file, and ensure the
-`qoder` proposer CLI is on `PATH`. Keep credentials in the ignored `env.sh`.
+### Run all three methods
 
 ```bash
-cd Life-Harness
-cd TauBench && uv sync && cd ..
-cp meta/deploy/env.example.sh meta/deploy/env.sh
-# Edit endpoint, key, and model values in meta/deploy/env.sh.
-source meta/deploy/env.sh
+# Airline, Retail and Telecom.
+TauBench/.venv/bin/python -m evolution.reproduce \
+  --suite tau --method all --name tau_compare --launch
+
+# ALFWorld, DBBench and WebShop.
+TauBench/.venv/bin/python -m evolution.reproduce \
+  --suite agentbench --method all --name agentbench_compare --launch
 ```
 
-The examples below use a maximum of 50 training tasks, deterministic solver
-sampling, and strict full-pool confirmation. Use a new run name when changing
-the task pool, model, endpoint, or evaluation settings.
+Omit `--launch` to prepare the exact command plan without model calls. Adding `--launch` starts optimization and native evaluation. Use a new run name for each experiment.
 
-### Run the current Life-Harness iteration
-
-For Airline, Retail, or Telecom, `life_loop.py` starts from the released H2-H5
-content and appends only candidates that improve the full configured training
-pool. The screen rejects weak candidates cheaply; it never grants final
-acceptance in the default `--accept-on full` mode.
+### Run a selected method
 
 ```bash
-python meta/life_loop.py \
-  --run-name life_retail_current --fresh \
-  --iterations 3 --domains retail --num-tasks 50 \
-  --accept-on full --screen-sentry 8 \
-  --agent-llm "$LIFE_AGENT_MODEL" \
-  --user-llm "$LIFE_USER_MODEL" \
-  --proposer-model DeepSeek-Flash
+# Current Life-Harness H2–H5 evolution.
+TauBench/.venv/bin/python -m evolution.reproduce \
+  --suite agentbench --method life --name life_agentbench --launch
+
+# Original META run_evolve with native evaluation and measured API usage.
+TauBench/.venv/bin/python -m evolution.reproduce \
+  --suite agentbench --method meta --name meta_agentbench --launch
+
+# Original AHE Debugger/Evolve loop with the native adapter.
+TauBench/.venv/bin/python -m evolution.reproduce \
+  --suite agentbench --method ahe --name ahe_agentbench --launch
 ```
 
-Resume by repeating the command without `--fresh` and, if desired, increasing
-`--iterations`. Finalize once on the held-out split by repeating the same
-evaluation options with `--test`:
+For TauBench, use `--suite tau --method life` for Life-Harness or `--suite tau --method meta-ahe` for the paired META+AHE controller. AHE retains upstream selection and uses the adapter's `h2345-budget-restricted-v1` search profile. Its last evolved candidate receives an additional TRAIN measurement without changing selection.
+
+OS uses the [dedicated Docker comparison controller](evolution/os_comparison/README.md):
 
 ```bash
-python meta/life_loop.py \
-  --run-name life_retail_current --test \
-  --domains retail --num-tasks 50 \
-  --agent-llm "$LIFE_AGENT_MODEL" \
-  --user-llm "$LIFE_USER_MODEL"
+TauBench/.venv/bin/python -m evolution.os_comparison.protocol --name os_compare
+TauBench/.venv/bin/python -m evolution.os_comparison.launch \
+  --root "$PWD/evolution/experiments/os_compare"
 ```
 
-ALFWorld and DBBench use a frozen 50-task, train-only source plus bounded public
-evidence. Follow [AgentBench native setup](AgentBench/NATIVE_ENVIRONMENT.md)
-when Docker is unavailable, then start a new run from the current source:
+Low-level Life-Harness proposals and the separate plugin-based Life-Harness/META loops are documented in [evolution/README.md](evolution/README.md). AppWorld provides frozen-policy evaluation; an automatic AppWorld META/AHE evolution controller is not included.
+
+### Final Harness and TEST Results
+
+The Life-Harness iteration drivers automatically seal TRAIN selection and evaluate the selected final harness on the fixed TEST split. They write `training_seal.json` and `FINAL_RESULTS.json`; **no extra evolution command is needed for final TEST scoring**.
+
+For the all-method examples above, Life-Harness results are located at:
+
+```text
+evolution/experiments/tau_compare_life_tau/FINAL_RESULTS.json
+evolution/experiments/agentbench_compare_life_alfworld/FINAL_RESULTS.json
+evolution/experiments/agentbench_compare_life_dbbench/FINAL_RESULTS.json
+evolution/experiments/agentbench_compare_life_webshop/FINAL_RESULTS.json
+```
+
+The selected H2–H5 chain is recorded in each domain's `runtime/final/manifest.json`, with accepted source artifacts and hashes bound to the TRAIN seal. The provided built-in harness and this newly evolved chain are distinct evaluation targets; use the driver's final records to report the evolved run. TEST outcomes never select candidates.
+
+## Evaluate the Provided Life-Harness
+
+Use the benchmark's native evaluator with the Life-Harness enabled. These commands call the solver; they do not run the evolution optimizer.
+
+**TauBench** — enable the master switch and the desired layers on the held-out split:
 
 ```bash
-# ALFWorld
-python meta/agentbench_loop.py \
-  --source meta/experiments/current_agentbench_source_20260914 \
-  --run-dir meta/runs_agentbench/life_alfworld_current \
-  --domain alfworld \
-  --baseline meta/experiments/current_agentbench_source_20260914/alfworld/baseline.py \
-  --rounds 3 --screen-size 16 --proposer-model DeepSeek-Flash
-
-# DBBench (requires the native MySQL service or the equivalent Docker service)
-python meta/agentbench_loop.py \
-  --source meta/experiments/current_agentbench_source_20260914 \
-  --run-dir meta/runs_agentbench/life_dbbench_current \
-  --domain dbbench \
-  --baseline meta/experiments/current_agentbench_source_20260914/dbbench/baseline.py \
-  --rounds 3 --screen-size 16 --proposer-model DeepSeek-Flash
+cd TauBench
+uv run python scripts/eval_harness.py \
+  --domain retail --split test --enabled --h2 --h3 --h4 --h5 \
+  --agent-llm "$LIFE_AGENT_MODEL" --agent-api-base "$AGENT_API_BASE" \
+  --user-llm "$LIFE_USER_MODEL" --user-api-base "$USER_API_BASE" \
+  --trials 1
+cd ..
 ```
 
-These runs expose a bounded evidence index first, retrieve representative
-details on demand, screen on failures plus regression sentries, and accept only
-a strict success-count increase on the complete frozen 50-task pool. Provide a
-disjoint `--heldout-indices FILE` when creating a run if it will later be
-finalized with `--finalize`. WebShop now has a verified native 100k-product
-environment and worker path. OS Interaction still requires a process-isolated
-environment for comparable local runs.
+Replace `retail` with `airline` or `telecom`. Omitting `--enabled` evaluates the baseline. See [TauBench evaluation](TauBench/README.md) for model, split and ablation options.
 
-### Run the Meta-Harness baseline
-
-`meta_harness.py` is the free-form TauBench comparison arm. It evaluates the
-same frozen model and task pool, lets each candidate be a self-contained Python
-plugin, and keeps a score frontier. `--from-scratch` gives both methods the
-no-harness starting state for a fair method comparison. Omit that flag to use
-the released H2-H5 implementation as an additional anchor.
+**AgentBench** — configure the model and harness switches, start the corresponding task services, then run the assignment:
 
 ```bash
-python meta/meta_harness.py \
-  --run-name meta_retail_from_scratch --fresh --from-scratch \
-  --iterations 3 --candidates-per-iter 1 \
-  --domains retail --num-tasks 50 \
-  --agent-llm "$LIFE_AGENT_MODEL" \
-  --user-llm "$LIFE_USER_MODEL" \
-  --proposer-model DeepSeek-Flash
-
-python meta/meta_harness.py \
-  --run-name meta_retail_from_scratch --test \
-  --domains retail --num-tasks 50 \
-  --agent-llm "$LIFE_AGENT_MODEL" \
-  --user-llm "$LIFE_USER_MODEL"
+cd AgentBench
+python -m src.assigner --config configs/assignments/alfworld.yaml
+python -m src.assigner --config configs/assignments/dbbench.yaml
+python -m src.assigner --config configs/assignments/webshop.yaml
+python -m src.assigner --config configs/assignments/os.yaml
+cd ..
 ```
 
-For a paired comparison, keep domains, task count, task split, solver and user
-models, trials, concurrency, maximum steps, and proposer budget identical. Use
-`--from-scratch` on both `life_loop.py` and `meta_harness.py`; compare held-out
-results only after both runs are frozen. More operational detail is in
-[`meta/README.md`](meta/README.md).
+Use the `*-std` task profiles for held-out evaluation. Ensure `enabled: true` (or `harness.enabled: true` for DBBench) in the selected task profile; in particular, the OS profile requires enabling its master switch. Keep the released per-layer settings or explicitly record an ablation. Endpoint, service and output configuration is explained in [AgentBench evaluation](AgentBench/README.md).
 
-### Recorded six-round Meta-Harness baseline (2026-09-16)
+**AppWorld** — run the frozen policy on `dev` or a chosen official TEST split, then invoke the upstream evaluator. See [AppWorld final-harness evaluation](AppWorld/README.md#evaluate-the-frozen-life-harness) for the complete commands, baseline comparison and per-layer ablations.
 
-We also ran the cloned upstream Meta-Harness evolution method from the identity
-implementation on every currently runnable non-OS environment: Airline,
-Retail, Telecom, ALFWorld, DBBench, and WebShop. No released Life-Harness H2-H5
-code was loaded. Each domain ran six rounds, each round used at least 50
-training trajectories (Airline has only 30 distinct public training tasks, so
-each task used two trials), a non-improving round changed the next training
-sample, and the full fixed test split was evaluated after every round. The
-complete 36-row table and protocol caveats are in the
-[experiment results](meta/experiments/meta_from_scratch_six_20260915/RESULTS.md).
+## Apply Life-Harness to Other Benchmarks
 
-The final retained candidates scored 0.5000 on Airline, 0.4750 on Retail,
-0.4250 on Telecom, 0.5321 on ALFWorld, 0.4800 on DBBench, and 0.3100 on
-WebShop. These are final-round results; the same table reports the best observed
-test score separately because test results never selected candidates. Telecom
-rounds 5--6 changed the user simulator after repeated provider rate limits, so
-comparisons across that boundary include a model change. Candidate acceptance
-remained a same-sample comparison with one simulator and identical settings.
+The [benchmark extension API](evolution/extensions/README.md) provides a generic Life-Harness runner. Implement a native adapter for tasks, solver requests, environment execution and binary grading; the runner handles H2–H5, candidate validation, TRAIN selection, final TEST and accuracy/token records. No changes to core files are required.
 
-The compact record, candidate files, frozen task definitions, and a copy of the
-exact upstream Meta-Harness implementation are committed in this branch.
-Audit them without a model endpoint or benchmark services:
+Try the complete offline example first:
 
 ```bash
-python meta/experiments/meta_from_scratch_six_20260915/status.py
-python meta/experiments/meta_from_scratch_six_20260915/audit.py
-python meta/experiments/meta_from_scratch_six_20260915/check_local_setup.py
+python -m evolution.extensions demo \
+  --output evolution/experiments/extension_demo --rounds 2
 ```
 
-The adapter can resume incomplete phases on the original experiment host, where
-the ignored raw episode files remain available. A clean clone contains the
-auditable compact record, but not those raw trajectories or the large native
-benchmark assets. For a new iteration, create a new experiment directory and
-freeze its own manifest and task batches; leave this completed record intact.
+This uses a scripted toy solver and repair proposal without API calls. It demonstrates candidate acceptance, rejection and frozen TEST evaluation, rather than measuring benchmark performance.
 
-### Development branch and environment status (2026-09-28)
-
-Use `meta-six-round-baseline-20260916` as the development branch. It contains
-the released Life-Harness code, both benchmark suites, the six-domain experiment
-record, its 39 frozen AgentBench source/configuration files, and the three
-hash-checked files from upstream Meta-Harness commit
-`44b9942127847f7421db70d8c7e48407f09a3c70` (with its MIT license).
-The two AgentBench source submodules are pinned by gitlinks. The 2026-09-15
-run itself was not repeated after packaging these missing files; the original
-driver hashes are retained in `frozen_run_20260915.json`, while `frozen.json`
-records the post-run path-only portability edits.
-
-This checkout is on a different machine from the one used for the six-round
-run. The old [native setup record](AgentBench/NATIVE_ENVIRONMENT.md) describes
-that run host, **not** the current machine. Local status was checked on
-2026-09-28:
-
-| Benchmark | Tracked inputs here | Local runtime here | Remaining requirement |
-| --- | --- | --- | --- |
-| Airline, Retail, Telecom | Task JSON files present | TauBench `uv` environment installed | Restart local Qwen service; configure teacher route and credentials |
-| ALFWorld | Train/test lists and three game archives present; both source submodules initialized | Python/TextWorld environment absent; selected game files not extracted | Extract archives and install native ALFWorld stack |
-| DBBench | Train/test JSONL files present | Native MySQL and worker Python environment absent | Install native worker stack and start isolated MySQL |
-| WebShop | Pinned source submodule initialized | 100k data/index, native Python environment, and Java 11 absent | Download and verify raw data, build index, install Java 11 and native stack |
-| OS | Source present | No comparable isolated worker | Remains outside this six-domain experiment |
-
-Thus the benchmark **source and experiment record are complete in the branch**,
-but the six environments are **not all runnable on this machine yet**. Virtual
-environments, MySQL data, extracted games, WebShop's multi-gigabyte product
-files/index, model weights, provider credentials, and raw episode logs are local
-assets and are not tracked by Git. `check_local_setup.py` reports file and
-package availability; a passing row still needs a live service and a real
-smoke test before scoring. The Qwen service used for the historical run was
-shut down and has not been restarted here.
-
-To get the complete tracked branch and pinned upstream sources on a new host:
+For a real benchmark, export a zero-argument adapter class or factory from an importable module, configure the optimizer and native environment, then run:
 
 ```bash
-git clone --branch meta-six-round-baseline-20260916 --recurse-submodules \
-  https://github.com/Tianshi-Xu/Life-Harness.git Life-Harness
-cd Life-Harness
-cd TauBench && uv sync --frozen && cd ..
-python meta/experiments/meta_from_scratch_six_20260915/audit.py
-python meta/experiments/meta_from_scratch_six_20260915/check_local_setup.py
+TauBench/.venv/bin/python -m evolution.extensions evolve \
+  --adapter my_benchmark:MyAdapter \
+  --output evolution/experiments/my_benchmark --rounds 6
 ```
 
-For ALFWorld, DBBench, and WebShop on a fresh host, follow the
-[new-machine setup checklist](AgentBench/NEW_MACHINE_SETUP.md), then run the
-no-model smoke checks in the
-[original native deployment record](AgentBench/NATIVE_ENVIRONMENT.md).
-Keep provider
-secrets in ignored local configuration. The frozen experiment's
-[protocol](meta/experiments/meta_from_scratch_six_20260915/EXPERIMENT.md),
-[results](meta/experiments/meta_from_scratch_six_20260915/RESULTS.md), and
-[corrections](meta/experiments/meta_from_scratch_six_20260915/CORRECTIONS.md)
-are the starting point for development on this branch.
+The command starts from empty hooks and automatically evaluates the frozen result on disjoint TEST tasks after TRAIN selection. This extension runner uses the full TRAIN set every round; existing benchmark reproduction drivers keep their native schedules. See the [extension guide](evolution/extensions/README.md) for adapter contracts, a runnable implementation, separate frozen-harness evaluation, model usage accounting and output locations.
+
+## Accuracy and Token Records
+
+Collect current results during or after a unified run, including interrupted runs:
+
+```bash
+TauBench/.venv/bin/python -m evolution.reproduce \
+  --suite tau --method all --name tau_compare --report
+TauBench/.venv/bin/python -m evolution.reproduce \
+  --suite agentbench --method all --name agentbench_compare --report
+```
+
+| Record | Location / contents |
+| --- | --- |
+| Exact protocol and commands | `evolution/experiments/NAME/reproduction.json`; child protocol and schedule files |
+| Accuracy and round state | `REPRODUCTION_RECORDS.json`; original incumbent/candidate results, acceptance decisions and final TEST records |
+| Optimizer tokens | Native usage summaries and per-request ledgers, including rejected proposals, failed calls and repairs |
+| Solver/simulator/judge tokens | Separately labeled native records where available; excluded from optimizer-only totals |
+| Incomplete accounting | Missing provider usage is marked unknown; measured usage and any native estimates remain separate |
+
+Life-Harness/META outputs are under `evolution/experiments/`; standalone AHE outputs are under `integrations/ahe-native/{batches,experiments,heldout_tests}/`. `reproduction.json` lists the exact locations. OS and AppWorld retain their native evaluation and usage records as described in their guides. AppWorld fixed-policy evaluation consumes inference tokens, not evolution tokens.
+
+## Offline Checks
+
+These development tests check that code changes preserve harness interfaces, candidate validation, result collection and token accounting; they do not call models or measure benchmark accuracy, and are optional for users running experiments.
+
+```bash
+PYTHONPATH="$PWD:$PWD/integrations/ahe-native:$PWD/TauBench/src" \
+  TauBench/.venv/bin/python -m unittest discover -s evolution/tests -q
+PYTHONPATH="$PWD/AppWorld/src" python -m pytest AppWorld/tests -q
+```
+
+OS transport checks require `agentrl-worker==0.4.0`; AHE tests use its dedicated environment. Offline checks do not measure benchmark accuracy. Life-Harness files use anonymous attribution; public third-party sources and licenses retain their upstream attribution. Credentials, generated runs and caches stay outside the published source.

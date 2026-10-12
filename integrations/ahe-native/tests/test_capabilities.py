@@ -41,6 +41,8 @@ class CapabilityTests(unittest.TestCase):
         self.root = Path(self.temp.name)
         self.workspace = self.root / "workspace"
         shutil.copytree(HERE / "baselines/alfworld", self.workspace)
+        (self.workspace / "middleware").mkdir(exist_ok=True)
+        (self.workspace / "skills").mkdir(exist_ok=True)
         self.policy = restricted_policy("alfworld")
 
     def register(self, source=PURE_MIDDLEWARE):

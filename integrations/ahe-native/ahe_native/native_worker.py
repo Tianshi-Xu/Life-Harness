@@ -3,9 +3,9 @@ from pathlib import Path
 from types import SimpleNamespace
 import argparse, asyncio, copy, json, os, sys, time, traceback
 
-ROOT = Path(__file__).resolve().parents[2] / "Life-Harness"
+ROOT = Path(__file__).resolve().parents[3]
 AB = ROOT / "AgentBench"
-HISTORICAL = ROOT / "meta/experiments/meta_from_scratch_six_20260915"
+HISTORICAL = ROOT / "evolution/reproduction/reference"
 TASK = None
 DOMAIN = None
 SPLIT = None
@@ -15,7 +15,7 @@ def initialize(domain, split="train"):
  DOMAIN=domain;SPLIT=split;os.chdir(AB)
  if domain=='os':
   sys.path.insert(0,str(ROOT))
-  from meta.os_comparison.native import task
+  from evolution.os_comparison.native import task
   TASK,_=task(split)
   assert not TASK.harness_config.enabled
   return
@@ -63,7 +63,7 @@ def run_agentbench(request):
                     return await TASK.start_sample(index, session)
                 finally:
                     if DOMAIN == "os":
-                        from meta.os_comparison.native import close_controller
+                        from evolution.os_comparison.native import close_controller
                         await close_controller(TASK)
                     elif TASK.env_controller_background_task:
                         TASK.env_controller_background_task.cancel()

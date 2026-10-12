@@ -8,7 +8,7 @@ POLICY_DIRECTORY="${POLICY_DIRECTORY:-$HARNESS_ROOT/policies/v005}"
 TASK_IDS_FILE="${TASK_IDS_FILE:?Set TASK_IDS_FILE to a newline-delimited task list}"
 DATASET="${DATASET:-train}"
 EXPERIMENT_NAME="${EXPERIMENT_NAME:?Set EXPERIMENT_NAME for this subset run}"
-BASE_EXPERIMENT="${BASE_EXPERIMENT:-simplified_function_calling_agent/local/qwen3-4b/train}"
+BASE_EXPERIMENT="${BASE_EXPERIMENT:-}"
 MODEL_NAME="${MODEL_NAME:-Qwen3-4B}"
 BASELINE="${BASELINE:-}"
 TEMPERATURE="${TEMPERATURE:-1.0}"
@@ -79,6 +79,6 @@ fi
 if [[ "${SKIP_EVALUATE:-0}" != "1" ]]; then
     for task_id in "${task_ids[@]}"; do
         "$APPWORLD_ROOT/.venv/bin/appworld" evaluate \
-            "$EXPERIMENT_NAME" --task-id "$task_id" --root "$APPWORLD_ROOT" || true
+            "$EXPERIMENT_NAME" --task-id "$task_id" --root "$APPWORLD_ROOT"
     done
 fi

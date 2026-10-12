@@ -77,7 +77,7 @@ def run_tau(request):
     registry.register_agent_factory(factory, "ahe_native")
     user_model = os.environ.get("AHE_TAU_USER_MODEL", "openai/deepseek-v4-flash")
     user_args = {"api_base": os.environ.get("AHE_TAU_USER_API_BASE") or os.environ.get("AHE_USER_API_BASE",
-        "https://routify-pub.alibaba-inc.com/protocol/openai/v1"),
+        "https://api.example.com/protocol/openai/v1"),
         "api_key": os.environ.get("AHE_USER_API_KEY", ""),
         "max_tokens": 100000 if user_model == "openai/deepseek-v4-flash" else 4096}
     if not user_args["api_key"]:

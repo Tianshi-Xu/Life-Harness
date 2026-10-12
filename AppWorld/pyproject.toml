@@ -11,3 +11,6 @@ dependencies = []
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+life_harness_appworld = ["configs/*.json"]
+

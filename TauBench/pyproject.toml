@@ -36,6 +36,7 @@ dependencies = [
     "gpustat>=1.1.1",
     "ninja>=1.13.0",
     "setuptools>=82.0.1",
+    "audioop-lts==0.2.2 ; python_full_version >= '3.13'",
 ]
 
 [project.optional-dependencies]

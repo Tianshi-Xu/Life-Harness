@@ -166,7 +166,9 @@ def evaluate_domain(domain, ids, workspace, output, concurrency):
 
 
 def comparison_report(results, output):
-    reference = LIFE / "meta/experiments/life_agentbench_six_resume_mr_20261001/final_results.json"
+    reference = LIFE / "evolution/experiments/life_agentbench_six_resume_mr_20261001/final_results.json"
+    if not reference.is_file():
+        return {"rows": {}, "historical_reference_available": False}
     historical = json.loads(reference.read_text())["comparisons"]
     # User-provided release references, not measurements made by this runner.
     released = {"dbbench": 0.65, "webshop": 0.455}

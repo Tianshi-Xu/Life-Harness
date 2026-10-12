@@ -80,7 +80,7 @@ def parse_args():
             "once, before any domain environment is constructed, so it can patch/"
             "extend harness components (H2 rules, H4 annotators, H5 skills). If the "
             "module defines a callable register(), it is invoked after import. "
-            "Used by the meta/ outer loop to evaluate candidate harnesses."
+            "Used by the evolution/ outer loop to evaluate candidate harnesses."
         ),
     )
     p.add_argument("--h2", action="store_true", help="Enable H2 harness rules")

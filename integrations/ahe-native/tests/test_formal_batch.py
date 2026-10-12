@@ -235,8 +235,8 @@ class FormalBatchTests(unittest.TestCase):
         self.assertIsNone(rows["alfworld", 1]["ahe"])
         self.assertIsNone(rows["alfworld", 7]["meta"])
         self.assertIsNone(rows["alfworld", 7]["life"])
-        self.assertEqual(rows["webshop", 9]["life"]["effective"], 0.34)
-        self.assertEqual(rows["dbbench", 9]["life"]["effective"], 0.68)
+        self.assertIsNone(rows["webshop", 9]["life"])
+        self.assertIsNone(rows["dbbench", 9]["life"])
         self.assertTrue((self.root / "COMPARISON.md").is_file())
 
     def test_six_round_restricted_comparison_keeps_variant_and_round_semantics(self):

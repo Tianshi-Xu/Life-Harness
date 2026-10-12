@@ -1,1 +1,0 @@
-Candidate exports AgentHarness with transform_request(request_dict) and transform_response(assistant_dict, public_history), plus optional register(). Runtime starts from identity. No H2-H5 implementation is present or enabled.

@@ -1,0 +1,61 @@
+{
+  "model_config": {
+    "client_name": "openai",
+    "api_type": "chat_completions",
+    "name": "Qwen3-4B",
+    "base_url": "{endpoint}",
+    "api_key_env_name": "NO_API_KEY",
+    "temperature": 1.0,
+    "tool_choice": "auto",
+    "parallel_tool_calls": true,
+    "use_cache": false,
+    "retry_after_n_seconds": 15,
+    "max_retries": 100,
+    "cost_per_token": {
+      "input_cache_hit": 0.0,
+      "input_cache_miss": 0.0,
+      "input_cache_write": 0.0,
+      "output": 0.0
+    }
+  },
+  "api_predictor_config": {
+    "mode": "predicted",
+    "model_config": {
+      "client_name": "openai",
+      "api_type": "chat_completions",
+      "name": "Qwen3-4B",
+      "base_url": "{endpoint}",
+      "api_key_env_name": "NO_API_KEY",
+      "temperature": 1.0,
+      "use_cache": false,
+      "retry_after_n_seconds": 15,
+      "max_retries": 100,
+      "cost_per_token": {
+        "input_cache_hit": 0.0,
+        "input_cache_miss": 0.0,
+        "input_cache_write": 0.0,
+        "output": 0.0
+      }
+    },
+    "prompt_file_path": "{prompts}/api_predictor.txt",
+    "demo_task_ids": ["82e2fac_1", "29caf6f_1", "d0b1f43_1"],
+    "max_predicted_apis": 20
+  },
+  "appworld_config": {
+    "random_seed": 100,
+    "raise_on_extra_parameters": true,
+    "include_direct_functions": true,
+    "direct_function_separator": "__"
+  },
+  "logger_config": {"color": true, "verbose": true},
+  "usage_tracker_config": {
+    "max_cost_overall": 1000,
+    "max_cost_per_task": 10,
+    "max_output_tokens_per_task": 100000
+  },
+  "prompt_file_path": "{prompts}/function_calling_agent/instructions.txt",
+  "demo_messages_file_path": "{prompts}/function_calling_agent/demos.json",
+  "max_steps": 50,
+  "log_lm_calls": true,
+  "skip_if_finished": true
+}

@@ -1,19 +1,13 @@
 """Resolve API references at consumption time, never in saved experiment config."""
 import os
 import re
-import subprocess
 
 
 def credentials():
     key = os.environ.get("MR_API_KEY")
-    host = os.environ.get("MR_HOST", "https://routify-pub.alibaba-inc.com")
-    if not key:
-        result = subprocess.run(["bash", "-c", 'source "$1"; printf "%s\\0%s\\0" "$MR_API_KEY" "${MR_HOST:-https://routify-pub.alibaba-inc.com}"',
-            "bash", "/mnt/data/xts/skill/test_ap/env.sh"], capture_output=True, timeout=30, check=True)
-        fields = result.stdout.split(b"\0")
-        if len(fields) < 3 or not fields[0]:
-            raise RuntimeError("ModelRouter credentials unavailable")
-        key, host = fields[0].decode(), fields[1].decode()
+    host = os.environ.get("MR_HOST")
+    if not key or not host:
+        raise RuntimeError("Set MR_API_KEY and MR_HOST in the process environment")
     return key, host.rstrip("/") + "/protocol/openai/v1"
 
 

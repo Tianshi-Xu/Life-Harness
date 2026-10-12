@@ -14,9 +14,9 @@ from pathlib import Path
 from .records import export_job, write_json
 
 HERE = Path(__file__).resolve().parents[1]
-LIFE = HERE.parent / "Life-Harness"
-MANIFEST = LIFE / "meta/experiments/meta_from_scratch_six_20260915/manifest.json"
-MANIFEST_SHA256 = "805d13dc3d07019cbd30e0cc50ac400526d3866aeaf8e6c96f0f807537732edd"
+LIFE = HERE.parents[1]
+MANIFEST = LIFE / "evolution/reproduction/reference/manifest.json"
+MANIFEST_SHA256 = "1d60aa4e2d905a393d7dea0f81da02d9d8ec58a48fc7b8070532b574ceccd96a"
 
 
 def interpreter(domain):

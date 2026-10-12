@@ -7,8 +7,10 @@ from pathlib import Path
 
 from appworld import load_task_ids, update_root
 from appworld.cli import extract_runner_config
+from appworld.common.path_store import path_store
 
 from life_harness_appworld.agent import LifeHarnessFunctionCallingAgent
+from life_harness_appworld.configuration import local_agent_config
 
 
 def main() -> None:
@@ -24,7 +26,8 @@ def main() -> None:
     )
     parser.add_argument(
         "--base-experiment",
-        default="simplified_function_calling_agent/local/qwen3-4b/train",
+        default=None,
+        help="optional upstream experiment name; default uses the shipped local-server config",
     )
     parser.add_argument("--model-name", default="Qwen3-4B")
     parser.add_argument("--temperature", type=float, default=1.0)
@@ -75,8 +78,9 @@ def main() -> None:
     os.environ.setdefault("OPENAI_API_KEY", os.environ["NO_API_KEY"])
     update_root(root)
 
-    runner_config = extract_runner_config(args.base_experiment)
-    agent_config = deepcopy(runner_config["agent"])
+    agent_config = (deepcopy(extract_runner_config(args.base_experiment)["agent"])
+                    if args.base_experiment else local_agent_config(Path(root), os.environ["MODEL_SERVER_URL"],
+                        prompts_directory=Path(path_store.experiment_prompts)))
     agent_config.pop("type", None)
     main_model_config = agent_config.get("model_config", {})
     predictor_model_config = agent_config.get("api_predictor_config", {}).get(

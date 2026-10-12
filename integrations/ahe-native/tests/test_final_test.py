@@ -82,6 +82,10 @@ class FinalTestTests(unittest.TestCase):
             validate_records({"schema_version": 1, "domain": "dbbench", "split": "test", "records": []})
 
     def test_fixed_full_test_spec_is_hash_pinned(self):
+        manifest = json.loads(final_test.MANIFEST.read_text())
+        if any(not (final_test.LIFE / "AgentBench" / relative).is_file()
+               for relative in manifest["data_hashes"]):
+            self.skipTest("Native game/WebShop runtime assets must be installed for this integration audit")
         spec = final_test.fixed_test_spec()
         self.assertEqual(spec["split"], "test")
         self.assertEqual({d: len(ids) for d, ids in spec["task_ids"].items()},
@@ -132,7 +136,7 @@ class FinalTestTests(unittest.TestCase):
 
     def test_comparison_reports_actual_scores_even_above_user_reference(self):
         results = {d: {"accuracy": 0.9, "successes": 9, "n": 10} for d in AGENTBENCH}
-        reference = self.root / "reference/meta/experiments/life_agentbench_six_resume_mr_20261001/final_results.json"
+        reference = self.root / "reference/evolution/experiments/life_agentbench_six_resume_mr_20261001/final_results.json"
         write_json(reference, {"comparisons": {d: {"n": 10, "meta_test": 0.4, "life_six_test": 0.8}
                                                  for d in AGENTBENCH}})
         output = self.root / "report"
