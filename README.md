@@ -110,6 +110,8 @@ Use the shared runtime guides and the rows for your selected benchmarks before l
 
 For the evolution/comparison runtime, initialize the fixed upstream sources and install TauBench:
 
+If you downloaded an Anonymous GitHub source ZIP, first follow the [ZIP dependency setup](integrations/ahe-native/README.md#setup-from-a-source-zip), then skip the `git submodule update` command below. A source ZIP does not contain the parent repository's Git metadata.
+
 ```bash
 git submodule update --init --recursive
 cd TauBench

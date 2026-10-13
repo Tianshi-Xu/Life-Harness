@@ -46,3 +46,23 @@ PYTHONPATH="$PWD:$PWD/../.." .venv/bin/python -m unittest discover -s tests -q
 Fresh results remain under ignored `batches/`, `experiments/` and `heldout_tests/`.
 Historical comparison reports are optional; their absence must not block a fresh
 AHE run or substitute scores for newly measured results.
+
+## Setup from a source ZIP
+
+For a freshly extracted source ZIP, restore the four pinned public dependencies from the Life-Harness root. This works without Git metadata in the parent repository:
+
+```bash
+set -e
+while read -r directory repository revision; do
+  git init "$directory"
+  git -C "$directory" fetch --depth 1 "$repository" "$revision"
+  git -C "$directory" checkout --detach FETCH_HEAD
+done <<'SOURCES'
+AgentBench/data/alfworld_repo https://github.com/alfworld/alfworld.git a5d3476e65e3effc2ac9b7f2493979ba6794e2a6
+AgentBench/data/webshop_repo https://github.com/princeton-nlp/WebShop.git 64fa2a5c15c7daa698b9ac93f5bb5437b634c9bd
+integrations/agentic-harness-engineering https://github.com/china-qijizhifeng/agentic-harness-engineering.git 8b2a55d97590363fe50c3cc6b5e833b020a4bb4c
+integrations/ahe-native/vendor/NexAU https://github.com/nex-agi/NexAU.git 35ee1861546db3cb280a6e17e38a74060d7c96c3
+SOURCES
+```
+
+Continue with the runtime installation above, starting at `cd integrations/ahe-native`; omit `git submodule update` for a ZIP snapshot. The remaining TauBench and native benchmark setup steps are unchanged. These commands initialize only the public dependency repositories, without importing the Life-Harness repository's history.
