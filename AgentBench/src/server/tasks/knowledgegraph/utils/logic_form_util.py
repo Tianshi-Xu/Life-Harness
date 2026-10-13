@@ -75,7 +75,6 @@ def get_answer_type(query: str):
             if "question_node" in node[1] and node[1]["question_node"] == 1:
                 return node[1]["id"]
     except Exception:
-        # print(query)
         return None
 
 
@@ -137,14 +136,12 @@ def same_logical_form(form1: str, form2: str) -> bool:
 
 
 def logical_form_to_graph(expression: List) -> nx.MultiGraph:
-    # TODO: merge two entity node with same id. But there is no such need for
-    # the second version of graphquestions
+    # GraphQuestions v2 does not require merging entity nodes with identical IDs.
     G = _get_graph(expression)
     G.nodes[len(G.nodes())]['question_node'] = 1
     return G
 
 
-# todo: I've added type check here; need to update the official evaluation. Also, implement CONS
 def _get_graph(
         expression: List) -> nx.MultiGraph:  # The id of question node is always the same as the size of the graph
     if isinstance(expression, str):
@@ -427,10 +424,8 @@ def get_lisp_from_graph_query(graph_query):
         G.add_edge(edge['start'], edge['end'], relation=edge['relation'], reverse=False, visited=False)
         G.add_edge(edge['end'], edge['start'], relation=edge['relation'], reverse=True, visited=False)
     if 'count' == aggregation:
-        # print(count_function(G, qid))
         return count_function(G, qid)
     else:
-        # print(none_function(G, qid))
         return none_function(G, qid, arg_node=arg_node)
 
 
@@ -693,8 +688,6 @@ def lisp_to_sparql(lisp_program: str):
         clauses.append('}')
         clauses.append('}')
 
-    # for clause in clauses:
-    #     print(clause)
 
     return '\n'.join(clauses)
 

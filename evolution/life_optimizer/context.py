@@ -6,7 +6,7 @@ import importlib.util
 import os
 from pathlib import Path
 
-# User-requested Flash output budget. None means no local context cap;
+# Flash output budget. None means no local context cap;
 # the ModelRouter/provider's actual context limit still applies.
 CONTEXT_LIMIT = None
 OUTPUT_LIMIT = 60000

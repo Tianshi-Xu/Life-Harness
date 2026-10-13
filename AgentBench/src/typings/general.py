@@ -18,7 +18,6 @@ class InstanceFactory(BaseModel):
         return v
 
     def create(self):
-        # print('>>>>>>>> ', self.module, self.parameters)
         splits = self.module.split(".")
         if len(splits) == 0:
             raise Exception("Invalid module name: {}".format(self.module))

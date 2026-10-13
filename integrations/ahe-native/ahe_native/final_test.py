@@ -173,10 +173,10 @@ def comparison_report(results, output):
     # User-provided release references, not measurements made by this runner.
     released = {"dbbench": 0.65, "webshop": 0.455}
     rows = {}
-    lines = ["# AHE 第六轮固定测试集结果", "",
-        "AHE 为 h2345-budget-restricted-v1 限制版；测试各域第六次优化后的最终产物，不用测试成绩挑版本。",
-        "Meta/Life 为历史六轮测试；发布版参考值由用户提供，未在本次重新测试。", "",
-        "| 环境 | AHE 六轮 test | Meta 六轮 test | Life 六轮 test | 发布版参考 |",
+    lines = ["# AHE fixed TEST results after six optimization steps", "",
+        "AHE uses the h2345-budget-restricted-v1 profile. Each domain's final sixth-step candidate is evaluated without selecting versions by TEST scores.",
+        "Meta-Harness/Life-Harness scores are historical six-round TEST results. Release reference values were supplied by the user and were not remeasured in this run.", "",
+        "| Environment | AHE six-round test | Meta-Harness six-round test | Life-Harness six-round test | Release reference |",
         "| --- | ---: | ---: | ---: | ---: |"]
     for domain in AGENTBENCH:
         measured = results[domain]
@@ -187,12 +187,12 @@ def comparison_report(results, output):
             "life_six": old["life_six_test"], "release_user_reference": released.get(domain),
             "ahe_below_life_six": measured["accuracy"] < old["life_six_test"],
             "ahe_below_release": (measured["accuracy"] < released[domain]) if domain in released else None}
-        release = f"{released[domain]:.2%}" if domain in released else "未提供"
+        release = f"{released[domain]:.2%}" if domain in released else "Not provided"
         lines.append(f"| {domain} | {measured['successes']}/{measured['n']} = {measured['accuracy']:.2%}"
             f" | {old['meta_test']:.2%} | {old['life_six_test']:.2%} | {release} |")
-    lines.extend(["", "各方法训练过程、接口与部分评测条件不同；同一固定测试划分不等于完全同条件复现，也不证明统计显著性。",
-        "所有测试 infra 失败按 0 计入完整分母；无重试、无测试反馈优化、无额外 Flash 测试调用。",
-        "逐轮训练对比仍见原训练 batch 的 COMPARISON.md，不与测试成绩混为一条曲线。", ""])
+    lines.extend(["", "Training procedures, interfaces and some evaluation settings differ across methods. Sharing a fixed TEST split does not imply identical reproduction conditions or establish statistical significance.",
+        "All TEST infrastructure failures count as zero in the full denominator. There are no retries, optimization from TEST feedback or extra Flash TEST calls.",
+        "See COMPARISON.md in the original training batch for per-round TRAIN comparisons; TRAIN and TEST scores are not combined into one curve.", ""])
     (output / "COMPARISON.md").write_text("\n".join(lines))
     return {"rows": rows, "historical_six_test_source": str(reference),
         "historical_six_test_sha256": digest(reference), "release_reference_source": "user-provided"}

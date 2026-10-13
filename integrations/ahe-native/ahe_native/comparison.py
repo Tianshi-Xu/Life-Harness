@@ -39,12 +39,12 @@ def reference_rows():
 
 def reference_cell(value):
     if not value:
-        return "未测"
+        return "Not measured"
     if "candidate" not in value:
-        return f"b{value['batch']}：{value['effective']:.0%} 基线"
+        return f"b{value['batch']}: {value['effective']:.0%} baseline"
     decision = "✓" if value["accepted"] else "×"
     suffix = " [v3]" if value["version"].startswith("v3") else ""
-    return f"b{value['batch']}：{value['incumbent']:.0%}→{value['candidate']:.0%} {decision}；生效 {value['effective']:.0%}{suffix}"
+    return f"b{value['batch']}: {value['incumbent']:.0%}→{value['candidate']:.0%} {decision}; effective {value['effective']:.0%}{suffix}"
 
 
 def publish_comparison(batch_dir):
@@ -83,20 +83,20 @@ def publish_comparison(batch_dir):
             "Infrastructure errors count as zero in the full denominator. Test scores are not mixed with train scores.",
             "This report stays outside the optimizer filesystem and is never used in candidate selection."]}
     write_json(batch_dir / "round_comparison.json", report)
-    lines = ["# AHE / Meta / Life 逐轮训练对比", "",
-        f"AHE 能力配置：`{profile}`；限制版不等同于无限制原版复现。" if profile != "historical-unrestricted" else "AHE 为历史未加本次能力限制的接入版本。",
-        "按已完成的优化次数对齐，0 为初始基线。各方法批次不同，不能当成同题连续提升曲线。",
-        f"AHE 原版 iteration 1 测基线、iteration N+1 测第 N 次优化产物；第 {last_step} 次产物在原版循环结束后另测同批训练题，不参与选择。",
-        "Meta 只有 6 轮；ALFWorld Life 只有 6 轮。DBBench/WebShop Life 第 7–9 轮为此前 v3 续跑，明确标记版本。",
-        "✓ 接受，× 拒绝；Meta/Life 同时列 incumbent→candidate 和生效成绩。AHE 不套用 Life 的接受/拒绝规则。", "",
-        "| 环境 | 优化次数 | AHE train | Meta train | Life train |", "| --- | ---: | --- | --- | --- |"]
+    lines = ["# AHE / Meta-Harness / Life-Harness training comparison by round", "",
+        f"AHE capability profile: `{profile}`; restricted AHE is not an unrestricted upstream reproduction." if profile != "historical-unrestricted" else "AHE uses the historical adapter without the current capability restrictions.",
+        "Align results by completed optimization steps; step 0 is the initial baseline. Methods use different batches, so this is not a same-task improvement curve.",
+        f"Upstream AHE iteration 1 evaluates the baseline; iteration N+1 evaluates the result of optimization step N. The step {last_step} candidate is evaluated separately on the same TRAIN batch after the upstream loop ends, without affecting selection.",
+        "Meta-Harness has 6 rounds; Life-Harness on ALFWorld has 6 rounds. Life-Harness steps 7–9 on DBBench/WebShop are the earlier v3 continuation and are labeled accordingly.",
+        "✓ accepted, × rejected; Meta-Harness/Life-Harness show incumbent→candidate and effective scores. AHE retains its own selection rules.", "",
+        "| Environment | Optimization steps | AHE train | Meta-Harness train | Life-Harness train |", "| --- | ---: | --- | --- | --- |"]
     for row in rows:
         value = row["ahe"]
-        ahe = "未测"
+        ahe = "Not measured"
         if value:
-            ahe = f"b{value['batch']:02d}：{value['successes']}/{value['tasks']} = {value['accuracy']:.0%}；infra {value['infrastructure_errors']}"
+            ahe = f"b{value['batch']:02d}: {value['successes']}/{value['tasks']} = {value['accuracy']:.0%}; infra {value['infrastructure_errors']}"
         lines.append(f"| {row['domain']} | {row['optimization_step']} | {ahe} | {reference_cell(row['meta'])} | {reference_cell(row['life'])} |")
-    lines.extend(["", "这里只比较训练成绩，不使用测试集。对比报告在 optimizer 工作区之外，不反馈给 AHE。", ""])
+    lines.extend(["", "This report compares TRAIN scores only, without using TEST results. It stays outside the optimizer workspace and is not supplied to AHE.", ""])
     temporary = batch_dir / "COMPARISON.md.tmp"
     temporary.write_text("\n".join(lines))
     temporary.replace(batch_dir / "COMPARISON.md")

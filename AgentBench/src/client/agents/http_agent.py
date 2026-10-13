@@ -219,9 +219,7 @@ class HTTPAgent(AgentClient):
                     resp = requests.post(
                         self.url, json=body, headers=headers, proxies=self.proxies, timeout=self.timeout
                     )
-                # print(resp.status_code, resp.text)
                 if resp.status_code != 200:
-                    # print(resp.text)
                     if check_context_limit(resp.text):
                         raise AgentContextLimitException(resp.text)
                     else:

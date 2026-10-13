@@ -49,7 +49,6 @@ class SparqlExecuter:
         }
         }
         """)
-        # # print(query)
         self.sparql.setQuery(query)
         try:
             results = self.sparql.query().convert()
@@ -74,7 +73,6 @@ class SparqlExecuter:
                                     """
         }
         """)
-        # # print(query)
         self.sparql.setQuery(query)
         try:
             results = self.sparql.query().convert()
@@ -113,7 +111,6 @@ class SparqlExecuter:
                 """
     }
     """)
-        # print(query)
         self.sparql.setQuery(query)
         try:
             results = self.sparql.query().convert()
@@ -136,7 +133,6 @@ class SparqlExecuter:
                 """
     }
     """)
-        # print(query)
         self.sparql.setQuery(query)
         try:
             results = self.sparql.query().convert()
@@ -160,7 +156,6 @@ class SparqlExecuter:
                 """
     }
     """)
-        # print(query)
         self.sparql.setQuery(query)
         try:
             results = self.sparql.query().convert()
@@ -187,7 +182,6 @@ class SparqlExecuter:
         }
         }
         """)
-        # print(query1)
 
         self.sparql.setQuery(query1)
         try:
@@ -218,7 +212,6 @@ class SparqlExecuter:
         }
         }
         """)
-        # print(query1)
 
         self.sparql.setQuery(query1)
         try:
@@ -248,7 +241,6 @@ class SparqlExecuter:
                     }
                     }
                     """)
-        # print(query1)
 
         self.sparql.setQuery(query1)
         try:
@@ -279,7 +271,6 @@ class SparqlExecuter:
         }
         }
         """)
-        # print(query2)
 
         self.sparql.setQuery(query2)
         try:
@@ -309,7 +300,6 @@ class SparqlExecuter:
                         }
                         }
                         """)
-        # print(query2)
 
         self.sparql.setQuery(query2)
         try:

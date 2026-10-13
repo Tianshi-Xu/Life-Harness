@@ -441,14 +441,14 @@ class Harness:
 
     def test_search_pages_are_utf8_offsets_and_evidence_reads_are_recorded(self):
         self.prepare()
-        source = fixtures.IDENTITY + '#标记\n' * 25
+        source = fixtures.IDENTITY + '#marker-é\n' * 25
         p.tool_call(self.workspace, 'write_file', {'path': 'artifacts/new.py', 'content': source})
-        first = p.tool_call(self.workspace, 'search_file', {'path': 'artifacts/new.py', 'text': '标记'})
-        second = p.tool_call(self.workspace, 'search_file', {'path': 'artifacts/new.py', 'text': '标记', 'start_byte': first['next_byte']})
+        first = p.tool_call(self.workspace, 'search_file', {'path': 'artifacts/new.py', 'text': 'marker-é'})
+        second = p.tool_call(self.workspace, 'search_file', {'path': 'artifacts/new.py', 'text': 'marker-é', 'start_byte': first['next_byte']})
         self.assertEqual((len(first['matches']), len(second['matches'])), (20, 5))
         self.assertFalse(first['eof']); self.assertTrue(second['eof'])
         for match in first['matches'] + second['matches']:
-            self.assertEqual(source.encode()[match['start_byte']:match['end_byte']].decode(), '标记')
+            self.assertEqual(source.encode()[match['start_byte']:match['end_byte']].decode(), 'marker-é')
         p.tool_call(self.workspace, 'search_file', {'path': 'evidence/case_2.json', 'text': 'case_id'})
         ledger = json.loads((self.workspace / p.READ_LOG).read_text())
         self.assertEqual((ledger['requests'][-1]['tool'], ledger['case_ids']), ('search_file', ['2']))
@@ -1127,7 +1127,7 @@ class Harness:
         completion.assert_not_called()
 
     def test_token_reservation_includes_tools_reasoning_and_full_output(self):
-        messages = [{'role': 'user', 'content': '中英 mixed repeated context'},
+        messages = [{'role': 'user', 'content': 'mixed Unicode context 🚀'},
                     {'role': 'assistant', 'content': '', 'reasoning_content': 'preserved reasoning'}]
         reservation = p.request_token_reserve(messages, p.TOOLS)
         self.assertGreaterEqual(reservation, p.flash_counter().count(messages, p.TOOLS) + 100_000)
@@ -1145,7 +1145,7 @@ class Harness:
 
     def test_context_archive_is_exact_readable_and_not_model_writable(self):
         self.prepare()
-        old = [{'role': 'assistant', 'content': 'full public context\n完整原文',
+        old = [{'role': 'assistant', 'content': 'full public context\ncomplete original text 🚀',
                 'reasoning_content': 'original reasoning', 'tool_calls': self.check_calls()},
                {'role': 'tool', 'tool_call_id': 'check_0', 'content': '{"passed":true}'}]
         ref = p.archive_context(self.workspace, old)

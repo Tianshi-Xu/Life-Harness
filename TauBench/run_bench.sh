@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 # ============================================================
-# TauBench 运行命令清单
-# 手动执行,自行控制并发
-# 先: cd TauBench
-# Teacher (user simulator) 默认用 deepseek-flash
+# TauBench command reference
+# Run commands manually and manage concurrency as needed.
+# First: cd TauBench
+# The teacher (user simulator) defaults to deepseek-flash.
 # ============================================================
 
 cd "$(dirname "$0")"

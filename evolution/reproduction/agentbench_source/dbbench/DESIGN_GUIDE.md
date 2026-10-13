@@ -49,6 +49,6 @@ Based on the design principles above, the following questions should be examined
 - Beyond aggregate metrics, representative trajectories should be selected for complete analysis. The harness should be robust, because it is developed on the training set and ultimately evaluated on the test set, where new tasks may appear even though the environment remains the same.
 
 
-## 当前版本的执行约束
+## Source harness execution constraints
 
-本轮从已迁移为统一 `Harness.h2/h3/h4/h5` 的公开 H2345 开始，保留其通用规则和私有状态辅助方法。旧 Runtime 不参与运行。H5 仅冷启动；逐步建议和反馈放在 H4。H3 仅编辑工具描述；H4/H5 每次最多一条 120 词提示。只使用公开工具、消息和剩余预算，不使用任务对象中的类型标签或参考 SQL。具体接口以 protocol.py 和实验提示中的约束为准。
+The public H2345 source harness uses the unified `Harness.h2/h3/h4/h5` interface, with general rules and internal-state helpers. The legacy Runtime is not used. H5 provides cold-start guidance only; per-step guidance and feedback belong in H4. H3 edits tool descriptions only. H4/H5 may each return at most one 120-word hint per call. Use only public tools, messages and the remaining budget; do not access task-object type labels or reference SQL. Follow the interface in `protocol.py` and the constraints in the experiment prompt.
